@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/* NAVBAR */
+.cabecalho
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 3rem 3rem;
+    align-items: center;
+    /* display: flex;
+    justify-content: center; */
+    width: 100%;
+    /* padding: 1.5rem; */
+    background-color: #ffe5ae;
+    position: fixed;
+    z-index: 1;
+}
+.logo
+{
+    justify-self: start;
+}
+.logo p
+{
+    font-family: bitter, serif;
+    font-size: 50px;
+    color: #252d51;
+    font-weight: 400;
+    margin-left: 3rem;
+    margin-top: 2.5rem;
+}
+.topicos-sessao-completa
+{
+    display: flex;
+    align-items: center;
+    padding-top: 2.9rem;
+}
+.topicos
+{
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+#topicos-icon-fixo
+{
+    display: none;
+}
+#topicos-maozinha
+{
+    opacity: 0;
+    transition: all 0.5s ease;
+    color: #000000;
+    font-size: 30px;
+}
+.cabecalho-menu-item 
+{
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    color: #252d51;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.cabecalho-menu-item:hover
+{
+    color: #e67635;
+}
+
+.cabecalho-menu-item i, .topicos li i 
+{
+    color: #232e61;
+    margin-right: 0.4rem;
+    font-size: 18px;
+    transition: all 0.5s ease;
+}
+.cabecalho-menu-item i:hover
+{
+    color: #e67635;
+} 
+
+#check
+{
+    display: none;
+}
+.checkbtn 
+{
+	font-size: 25px;
+	color: #232e61;
+	/* float: right; */
+	/* line-height: 80px; */
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+
+
+
+/* DROP DOWN */
+.topicos-sessao-login 
+{
+    /* display: flex; */
+    /* justify-self: end; */
+    width: 6rem;
+    margin-right: 3rem;
+}
+.topicos-sessao-login li
+{
+    list-style: none;
+}
+.topicos-sessa-login-linha
+{
+    position: relative;
+   
+}
+.sub-topicos 
+{
+    position: absolute;
+    display: none;
+    background-color: #ffe5ae;
+    right: 0rem;
+    top: 5rem;
+    /* cima, direita, baixo, esquerda */
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.sub-topicos li
+{
+    list-style: none;
+    height: 2rem;
+    width: 8rem;
+    transition: all 0.5s ease;
+}
+
+.sub-topicos li a
+{
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    color: #252d51;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.sub-topicos li a:hover
+{
+    color: #e67635;
+}
+
+#nav-seta-sub-topicos
+{
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 0.5rem;
+    position: absolute;
+    /* background-color: #4567a5; */
+}
+.box-nav-img
+{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    opacity: 0;
+}
+.box-nav-img img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOORTER */
+footer 
+{
+    background-image: url(img/rodape-2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.container-footer 
+{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.footer-sessao
+{
+    display: flex;
+}
+.footer-col
+{
+    margin-right: 8rem;
+}
+#footer-col-sobre
+{
+    margin-right: 0;
+}
+
+.footer-col h5 
+{
+    padding-bottom: 15%;
+    font-family: Bitter, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.footer-col ul
+{
+    list-style: none;
+}
+#lista-causas 
+{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-col ul li 
+{
+    font-family: Bitter, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    padding-bottom: 3%;
+}
+
+.medias-sociais 
+{
+    margin-top: 4%;
+    margin-bottom: 1.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.medias-sociais a img {
+    width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* RODAPÉ */
+@media (max-width: 1507px)
+{
+    .container-footer 
+    {
+        margin-top: 12%;
+    }
+}
+
+@media (max-width: 1320px)
+{
+    .footer-col h5 
+    {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 1180px)
+{
+    footer
+    {
+        background-position: center;
+    }
+    .container-footer
+    {
+        justify-content: space-around;
+        margin-top: 16%;
+    }
+    .footer-sessao
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-col
+    {
+        margin-right: 0;
+    }
+    #footer-col-adm
+    {
+        align-self: flex-start;
+    }
+    #footer-col-sobre
+    {
+        align-self: flex-start;
+    }
+   
+    #footer-col-adm li
+    {
+        margin-bottom: 190%;
+    }
+    #col-ultima
+    {
+        margin-bottom: 10%;
+    }
+    .medias-sociais
+    {
+        margin-top: 6%;
+    }
+}
+
+@media (max-width: 811px) 
+{
+    .container-footer
+    {
+        margin-top: 15%;
+    }
+    .footer-col h5 
+    {
+        font-size: 20px;
+    }
+    .footer-col ul li
+    {
+        font-size: 14px;
+    }
+    .medias-sociais
+    {
+        margin-top: 9%;
+    }
+}
+
+@media (max-width: 612px)
+{
+    .footer-col h5 
+    {
+        font-size: 18px;
+    }
+    .footer-col ul li
+    {
+        font-size: 12px;
+    }
+    .medias-sociais a img
+    {
+        width: 35px;
+    }
+} 
+
+@media (max-width: 500px)
+{
+    .container-footer
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-sessao
+    {
+        margin-left: 6%;
+    }
+    #footer-sessao-1
+    {
+        padding-right: 6%;
+    }
+    #footer-col-adm li
+    {
+        margin-bottom: 0;
+    }
+    .footer-col
+    {
+        margin-bottom: 20%;
+    }
+    #footer-col-causas
+    {
+        margin-bottom: 10%;
+    }
+    .medias-sociais
+    {
+        margin-top: 0;
+        margin-bottom: 3%;
+    }
+
+    .medias-sociais a img
+    {
+        width: 33px;
+    }
+}
+
+@media (max-width: 507px)
+{
+    .container p
+    {
+        text-align: center;
+    }
+    .container h1
+    {
+        font-size: 37px;
+    }
+    .titulo-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 381px)
+{
+    .container h1
+    {
+        font-size: 34px;
+    }
+    .container p
+    {
+        font-size: 12px;
+    }
+    .footer-col h5 
+    {
+        font-size: 16px;
+    }
+    .footer-col ul li
+    {
+        font-size: 10px;
+    }
+    .medias-sociais a img
+    {
+        width: 30px;
+    }
+}
+
+@media (max-width: 300px)
+{
+    .container-footer
+    {
+        margin-top: 20%;
+    }
+    .footer-col h5 
+    {
+        font-size: 14px;
+    }
+}

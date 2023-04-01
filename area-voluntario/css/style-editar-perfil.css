@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+}
+/*Header*/
+.cabecalho{
+    background-color: #F5DEB3;
+}
+.container-fluid .nav-cabecalho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+    padding: 25px;
+    font-family: acme;
+}
+
+.nav-cabecalho a{
+    color: #113173;
+    text-decoration: none;
+}
+.nav-cabecalho a:hover{
+    color: #113173;
+    text-decoration: none;
+}
+
+/*Main*/
+.main-container {
+    display: flex;
+    border-top: solid #113173 2px;
+    border-color: #4567a5;
+    box-sizing: border-box;
+    width: 100%;
+    height: 83.7vh;
+    
+}
+
+.title{
+    padding: 1%;
+    font-family: ACME;
+    font-weight: 400;
+    color: #113173;
+    font-size: 16pt;
+}
+
+
+/*DIVISÓRIAS*/
+.div-left{
+    padding: 12px;
+    width: 15%;
+    font-family: poppins;
+    border-right: solid 2px;
+    border-color: #4567a5;
+}
+
+.div-left .container {
+    display: flex;
+    flex: content;
+    flex-direction: column;
+}
+
+.div-right {
+    font-family: poppins;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.div-right .title-2{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/*CONFIGURAÇÃO DO FORMULÁRIO */
+
+.form-config{
+    display: grid;
+    justify-items: flex-start;
+    gap: 15px; 
+}
+
+.form-config .box-form-1{
+    display: grid;
+    grid-template-rows: repeat(4,auto );
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-config .box-form-2{
+    display: grid;
+    grid-template-rows: repeat(4,auto );
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-config .box-form-3{
+    display: grid;
+    grid-template-rows: repeat(4,auto );
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-config .box-form-4{
+    display: grid;
+    grid-template-rows: repeat(4,auto );
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-config .box-form-5{
+    display: grid;
+    grid-template-rows: repeat(4,auto );
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-config input{
+    display: flex;
+    border: solid 1px ;
+    border-color: #4567a5;
+    font-weight: 400;
+    font-size: 12pt;
+    font-family: poppins;
+    color: 525252;
+    cursor: pointer; 
+    padding: 2%;  
+}
+
+.form-config input::placeholder{
+    font-size: 10pt;
+    color: #C0C0C0;
+}
+
+.form-config select{
+    font-size: 12pt;
+    font-family: poppins;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-config #buttonPhoto{
+    padding: 2%;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #C0C0C0;
+    border: solid 1px #4567a5;
+    font-family: poppins;
+    font-weight: 400;
+    font-size: auto;
+    width: auto; 
+    height: auto;
+}
+.form-config #buttonPhoto:hover{
+    background-color: #113173;
+}
+
+#buttonConfirm{
+    padding: 1vh;
+    border-radius: 5px;
+    background-color: #4567a5;
+    border: none;
+    color: #ffffff;
+    font-family: acme;
+    font-size: 15pt;
+    font-weight: 400;
+    width: auto; 
+    height: auto;
+}
+
+#buttonConfirm:hover{
+    background-color: #113173;
+}
+/*Footer*/

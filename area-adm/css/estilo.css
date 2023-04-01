@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@200;300;400;500;600&family=Poppins:wght@200;300;400;500&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: #e3ffef;
+}
+
+
+
+
+/* NAV LATERAL */
+.nav-lateral
+{
+    height: 100vh;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    position: fixed;
+    /* display: none; */
+}
+.nav-box-img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.nav-box-img img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.nav-lateral-sessao-1 
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.fundo
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    background-color: #3f996f;
+    gap: 2%;
+}
+.nav-lateral-sessao-1 p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff
+}
+#nav-topicos-dash
+{
+    margin-top: 1rem;
+}
+
+.nav-lateral-sessao-1 a
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #277551;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    transition: all 0.5s ease;
+    padding-left: 2rem;
+}
+.nav-lateral-sessao-1 a:hover
+{
+    color: #fff;
+    background-color: #3f996f;
+}
+
+.nav-lateral-sessao-2
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    /* background-color: rgb(240, 127, 255); */
+}
+
+.nav-lateral-sessao-1 a:hover.nav-lateral-sessao-2 i 
+{
+    color: #fff;
+}
+.nav-lateral-sessao-2 i 
+{
+    font-size: 20px;
+    color: #277551;
+    margin-right: 0.3rem;
+}
+.botao-sair
+{
+    background-color: #10492f;
+    width: 8rem;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    border: 1px solid #10492f;
+    cursor: pointer;
+    margin-bottom: 3rem;
+
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+.botao-sair:hover
+{
+    background-color: #fff;
+    color: #10492f;
+}
+
+
+
+
+
+
+
+/* CONTEUDO PRINCIPAL */
+main
+{
+    background-color: aqua;
+    height: 100vh;
+    margin-left: 16rem;
+    overflow-x: hidden;
+    display: none;
+}
+.conteudo-principal
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4%;
+    width: 100vw;
+
+    /* width: calc(100% - 16rem); */
+    background-color: #dfd151;
+}
+
+.card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 1rem;
+    border: 1px solid #277551;
+}
+.titulo-card
+{
+    display: flex;
+    background-color: #277551;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    border-radius: 1rem 1rem 0rem 0rem;
+    gap: 3% ;
+}
+.titulo-card i
+{
+    font-size: 18px;
+    color: #fff;
+}
+.titulo-card p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    color: #fff;
+}
+.card-dados
+{
+    padding: 1rem;
+}
+.card-dados p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #277551;
+}
