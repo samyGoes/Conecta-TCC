@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@200;300;400;500;600&family=Poppins:wght@200;300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+header {
+    margin-bottom:10%;
+}
+
+header h1 {
+    color: #000;
+    font-family: acme, serif;
+    font-weight: 400;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #6bb269;
+}
+
+th {
+    border: 1px solid red;
+}
+
+tr {
+    border: 1px solid #377dce;
+}
+
+td {
+    border: 1px solid #b269a8;
+}
+
+table td img {
+    width: 100px;
+    height: 100px;
+}
