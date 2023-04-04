@@ -190,6 +190,8 @@
 
 
 
+
+
 body
 {
     display: flex;
@@ -199,15 +201,23 @@ body
 
 
 /* TÍTULO E FILTROS */
+.container-titulo
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 9rem;
+    max-width: 70%;
+}
+
 .titulo
 {
-    font-family: acme, sans-serif;
+    font-family: Acme, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
-    font-size: 35px;
-    color: #0c3152;
-
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    font-size: 40px;
+    color: #252d51;
+    margin-bottom: 1.6rem;
 }
 
 .frase
@@ -222,7 +232,7 @@ body
 {
     display: flex;
     gap: 1.5rem;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     align-items: flex-end;
 }
 
@@ -239,26 +249,24 @@ body
 
 .filtro-causas
 {
-    width: 12rem;
-    height: 2.5rem;
-    padding: 0.1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #000;
-    background-color: antiquewhite;
-    
+    background-color: #fbf7c7;
+    border: 1px solid #000000;
+    width: 11rem;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+
     font-family: poppins, sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
-    text-transform: uppercase;
-    color: #000;
+    color: #000000;
     transition: all 0.5s ease;
     cursor: pointer;
 }
 
 .filtro-causas:hover
 {
-    background-color: #cc895d;
-    border: 1px solid #cc895d;
+    border: 1px solid #cf8a3f;
+    background-color: #cf8a3f;
     color: #fff;
 }
 
@@ -288,13 +296,15 @@ body
 .lista-voluntario
 {
     border: 1px solid #000;
+    border-radius: 0.5rem;
     margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .lista-voluntario tr
 {
-    border: 1px solid #000;
-   
+    border-bottom: 1px solid #000;
+    border-collapse: collapse;
 }
 
 .lista-voluntario td
@@ -308,8 +318,8 @@ body
 
 .box-img
 {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 .box-img img

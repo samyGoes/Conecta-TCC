@@ -44,11 +44,17 @@
         </nav>
 
 
+
+
+
+
         <!-- CONTEUDO  -->
-        <h1 class="titulo"> Voluntários </h1>
-        <p class="frase"> Aqui você verá os perfis de todos os voluntários disponíveis. Você também pode filtrar para que encontre o 
-            voluntário ideal para você. Confira os filtros abaixo
-        </p>
+        <div class="container-titulo">
+            <h1 class="titulo"> Voluntários </h1>
+            <p class="frase"> Aqui você verá os perfis de todos os voluntários disponíveis. Você também pode filtrar para que encontre o 
+                voluntário ideal para você. Confira os filtros abaixo:
+            </p>
+        </div>
 
         <div class="filtros">
             <button class="filtro-causas"> CAUSAS </button>
@@ -56,8 +62,7 @@
             <div class="box-select">
                 <label class="filtro-cidade" for=""> Cidade: </label>
                 <select class="select-cidade" name="" id=""></select>
-            </div>
-            
+            </div>           
         </div>
      
         <table class="lista-voluntario">
@@ -66,7 +71,7 @@
                 for($i = 1; $i <=5; $i++)
                 {
             ?>
-                    <tr>
+                    <tr class="lista-voluntario-linha">
                         <td> <div class="box-img"> <img src="img/user2.png"> </div> </td>
                         <td> Sâmily goes </td>
                         <td> 20 anos </td>
