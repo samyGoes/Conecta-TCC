@@ -18,8 +18,8 @@
     </head>
 
     <body>
-               <!-- BARRA DE NAVEGAÇÂO -->
-               <nav class="cabecalho">     
+        <!-- BARRA DE NAVEGAÇÂO -->
+        <nav class="cabecalho">     
             <div class="logo">
                 <p>logo</p>
             </div>
