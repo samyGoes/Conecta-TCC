@@ -12,7 +12,7 @@
         <!-- BARRA DE NAVEGAÇÂO -->
         <nav class="cabecalho">     
             <div class="logo">
-                <p>logo</p>
+                <p> Conecta </p>
             </div>
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
             <input type="checkbox" id="check">
@@ -74,8 +74,8 @@
             </div>
 
             <div class="box-select">
-                <label class="filtro-cidade" for="estados"> Estados: </label>
-                <select class="select-cidade" name="estados" id="estados">
+                <label class="filtro-cidade" for="estados"> Estado: </label>
+                <select class="select-estados" name="estados" id="estados">
                     <option value=""> Selecione um estado </option>
                 </select>
             </div>  

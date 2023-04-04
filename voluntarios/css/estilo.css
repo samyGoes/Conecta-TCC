@@ -25,7 +25,7 @@
     justify-content: center; */
     width: 100%;
     /* padding: 1.5rem; */
-    background-color: #ffe5ae;
+    background-color: #232f61;
     position: fixed;
     z-index: 1;
 }
@@ -37,7 +37,7 @@
 {
     font-family: bitter, serif;
     font-size: 50px;
-    color: #252d51;
+    color: #fff;
     font-weight: 400;
     margin-left: 3rem;
     margin-top: 2.5rem;
@@ -69,7 +69,7 @@
 .cabecalho-menu-item 
 {
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
-    color: #252d51;
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -298,12 +298,13 @@ body
     color: #000;
 }
 
-.select-cidade
+.select-cidade, .select-estados
 {
     height: 2.5rem;
     border: 1px solid #c59263;
     padding: 0.1rem;
     width: 12rem;
+    outline: none;
 }
 
 
@@ -317,8 +318,8 @@ body
 {
     border: 1px solid #2e2e2e;
     border-radius: 0.5rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin: 4rem;
+    margin-bottom: 6rem;
 }
 
 .lista-voluntario tr
