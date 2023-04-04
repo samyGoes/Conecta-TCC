@@ -15,62 +15,86 @@
         <h1>Instituiçóes cadastradas</h1>
     </header>
     <main>
-        <div class="opcoes">
-            <span>Selecionar Todos</span> <input type="checkbox" name="selectTodos" id="selectTodos"> <input type="text" placeholder="Pesquisar...">
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <td style="text-align: left; margin-left: 3%; display: flex; border: none; gap: 10px;">
+                            <div class="selecionar-todos">
+                                <span>Selecionar Todos</span>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" name="selectTodos" id="selectTodos">
+                            </div>
+                            <div class="icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                        </td>
+                        <td colspan="7" style="border: none; text-align: right;">
+                            <input type="text" placeholder="Pesquisar..."> <i class="fa-solid fa-magnifying-glass"></i>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Foto
+                        </th>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Cidade
+                        </th>
+                        <th>
+                            UF
+                        </th>
+                        <th>
+                            País
+                        </th>
+                    </tr>
+                    <tr>
+                        <?php
+                        for ($i = 1; $i < +5; $i++) {
+                        ?>
+                            <td>
+                                <input type="checkbox" name="select" id="select">
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                <img src="img/user.png" alt="">
+                            </td>
+                            <td>
+                                Flor do Norte
+                            </td>
+                            <td>
+                                marcoserick@gmail.com
+                            </td>
+                            <td>
+                                São Paulo
+                            </td>
+                            <td>
+                                SP
+                            </td>
+                            <td>
+                                Brasil
+                            </td>
+                    </tr>
+                <?php
+                        }
+                ?>
+                </tbody>
+            </table>
         </div>
-        <table>
-            <tr>
-                <th>
-                </th>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Foto
-                </th>
-                <th>
-                    Nome
-                </th>
-                <th>
-                    Email
-                </th>
-                <th>
-                    Cidade
-                </th>
-                <th>
-                    UF
-                </th>
-                <th>
-                    País
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" name="select" id="select">
-                </td>
-                <td>
-                    1
-                </td>
-                <td>
-                    <img src="img/user.png" alt="">
-                </td>
-                <td>
-                    Flor do Norte
-                </td>
-                <td>
-                    marcoserick@gmail.com
-                </td>
-                <td>
-                    São Paulo
-                </td>
-                <td>
-                    SP
-                </td>
-                <td>
-                    Brasil
-                </td>
-            </tr>
-        </table>
     </main>
 </body>
 
