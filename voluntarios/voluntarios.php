@@ -58,10 +58,33 @@
 
         <div class="filtros">
             <button class="filtro-causas"> CAUSAS </button>
+            <div class="box-causas">
+            <?php 
+                for($i = 1; $i <= 6; $i++)
+                {
+            ?>      
+                     <div class="box-causas-checkbox">
+                        <input type="checkbox" name="causas" id="causas"> 
+                        <label for="causas"> Mulheres </label>
+                     </div>
+                  
+            <?php
+                }
+            ?>  
+            </div>
 
             <div class="box-select">
-                <label class="filtro-cidade" for=""> Cidade: </label>
-                <select class="select-cidade" name="" id=""></select>
+                <label class="filtro-cidade" for="estados"> Estados: </label>
+                <select class="select-cidade" name="estados" id="estados">
+                    <option value=""> Selecione um estado </option>
+                </select>
+            </div>  
+
+            <div class="box-select">
+                <label class="filtro-cidade" for="cidades"> Cidade: </label>
+                <select class="select-cidade" name="cidades" id="cidades">
+                    <option value=""> Selecione uma cidade </option>
+                </select>
             </div>           
         </div>
      
@@ -138,5 +161,11 @@
                 <a href=""><img src="img/github.png" alt=""></a>
             </div>
         </footer>
+
+
+        <!-- <script type="text/javascript" src="js/estados-cidades.json"></script> -->
+        <script src="js/script.js"></script>
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script src="js/select.js"></script>
     </body>
 </html>

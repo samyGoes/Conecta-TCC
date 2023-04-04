@@ -261,6 +261,7 @@ body
     color: #000000;
     transition: all 0.5s ease;
     cursor: pointer;
+    position: relative;
 }
 
 .filtro-causas:hover
@@ -270,6 +271,25 @@ body
     color: #fff;
 }
 
+.box-causas
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #cf8a3f;
+    padding: 1rem;
+    gap: 0.8rem;
+    position: absolute;
+    bottom: 6rem;
+    display: none;
+}
+
+.box-causas-checkbox
+{
+    display: flex;
+    gap: 0.5rem;
+}
 .filtro-cidade
 {
     font-family: bitter, serif;
@@ -295,7 +315,7 @@ body
 /* LISTA */
 .lista-voluntario
 {
-    border: 1px solid #000;
+    border: 1px solid #2e2e2e;
     border-radius: 0.5rem;
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -309,7 +329,7 @@ body
 
 .lista-voluntario td
 {
-    padding: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 16px;
