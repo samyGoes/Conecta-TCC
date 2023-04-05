@@ -60,15 +60,20 @@ require_once '../dao/global.php';
         <section class="card-completo">
 
             <?php
-            $conectar = Conexao::conectar();
             session_start();
-
+            $conectar = Conexao::conectar();
+            
             $info = $conectar->prepare("SELECT * FROM tbVoluntario");
 
+            if(isset($_SESSION['user'])){ //verifica se a variável de sessão foi definida// 
+              $user = $_SESSION['user'];
 
             $info = $conectar->query("SELECT nomeVoluntario,dataNascVoluntario, emailVoluntario,numFoneVoluntario,
-                                             cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario
-                                            INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario");
+                                             cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario 
+                                            INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario
+                                            WHERE emailVoluntario = '$user'");
+            }                                
+                                               
 
             $result = $info->fetch(PDO::FETCH_ASSOC); // um array que vai percorrer por todos os nomes//
 

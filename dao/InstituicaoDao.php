@@ -42,7 +42,7 @@
             {
                 echo "<script>alert('Confirmação de senha não confere!');</script>";
             }
-            else if ($senhaSegura->($segura->getSenhaInstituicao()) == false)
+            else if ($senhaSegura->segura($instituicao->getSenhaInstituicao()) == false)
             {
                 echo "<script>alert('Senha esta faltando algum requisito!');</script>";
             }

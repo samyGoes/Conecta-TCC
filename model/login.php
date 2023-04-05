@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'global.php';
 include_once('Conexao.php');
 
@@ -14,8 +14,9 @@ $conectar=Conexao::conectar();
     /* print_r('Email: ' . $email);
      print_r('<br>');
      print_r('Senha: ' . $senha);*/
-     $user =  $_POST['email'];
-     $senha =  $_POST['senha'];
+    $user = $_POST['email'];
+    $_SESSION['user'] = $user;
+    $senha =  $_POST['senha'];
 
      $sql =$conectar->prepare("SELECT * FROM tbVoluntario WHERE emailVoluntario = :user AND senhaVoluntario = :senha");
 
