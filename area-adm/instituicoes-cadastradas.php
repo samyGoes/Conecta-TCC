@@ -12,31 +12,40 @@
 
 <body>
     <header>
-        <h1>Instituiçóes cadastradas</h1>
-    </header>
-    <main>
+        <nav>
+            <div class="nav-lateral">
+                <div class="nav-lateral-sessao-1">
+                    <div class="fundo">
+                        <div class="nav-box-img">
+                            <img src="img/user.png" alt="">
+                        </div>
+                        <p> Olá, adm </p>
+                    </div>
 
+                    <a class="nav-topicos" id="nav-topicos-dash" href=""> <i class="fa-solid fa-chart-line"></i> Dashboard </a>
+                    <a class="nav-topicos" href=""> <i id="nav-icones" class="fa-solid fa-hand-holding-heart"></i>Instituições </a>
+                    <a class="nav-topicos" href=""> <i class="fa-sharp fa-solid fa-heart"></i> Causas </a>
+                    <a class="nav-topicos" href=""> <i id="nav-icones" class="fa-solid fa-briefcase"></i> Vagas </a>
+                    <a class="nav-topicos" href=""> <i id="nav-icones" class="fa-solid fa-hand"></i> Voluntários </a>
+
+                    <a class="nav-topicos" href=""> </a>
+                </div>
+
+                <div class="nav-lateral-sessao-2">
+
+                    <a href="logout.php"> <button class="botao-sair"> <i class="fa-solid fa-door-open"></i> </button></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
         <div class="table-responsive">
             <table>
-                <thead>
-                    <tr>
-                        <td style="text-align: left; margin-left: 3%; display: flex; border: none; gap: 10px;">
-                            <div class="selecionar-todos">
-                                <span>Selecionar Todos</span>
-                            </div>
-                            <div class="checkbox">
-                                <input type="checkbox" name="selectTodos" id="selectTodos">
-                            </div>
-                            <div class="icon"><i class="fa-solid fa-circle-xmark"></i></div>
-                        </td>
-                        <td colspan="7" style="border: none; text-align: right;">
-                            <input type="text" placeholder="Pesquisar..."> <i class="fa-solid fa-magnifying-glass"></i>
-                        </td>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
                         <th>
+                            
                         </th>
                         <th>
                             ID
@@ -62,7 +71,7 @@
                     </tr>
                     <tr>
                         <?php
-                        for ($i = 1; $i < +5; $i++) {
+                        for ($i = 1; $i < +3; $i++) {
                         ?>
                             <td>
                                 <input type="checkbox" name="select" id="select">
