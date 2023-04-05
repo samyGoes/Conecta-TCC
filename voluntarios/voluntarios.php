@@ -57,37 +57,43 @@
         </div>
 
         <div class="filtros">
-            <button class="filtro-causas"> CAUSAS </button>
-            <div class="box-causas">
-            <?php 
-                for($i = 1; $i <= 6; $i++)
-                {
-            ?>      
-                     <div class="box-causas-checkbox">
-                        <input type="checkbox" name="causas" id="causas"> 
-                        <label for="causas"> Mulheres </label>
-                     </div>
-                  
-            <?php
-                }
-            ?>  
+            <div class="box-filtro-causas">
+                <button class="filtro-causas"> CAUSAS </button>
+                <div class="box-causas">
+                <?php 
+                    for($i = 1; $i <= 6; $i++)
+                    {
+                ?>      
+                        <div class="box-causas-checkbox">
+                            <input type="checkbox" name="causas" id="causas"> 
+                            <label for="causas"> Mulheres </label>
+                        </div>
+                    
+                <?php
+                    }
+                ?>  
+                </div>
             </div>
-
+        
+        <form class="form-selects" action="" method="">
             <div class="box-select">
                 <label class="filtro-cidade" for="estados"> Estado: </label>
                 <select class="select-estados" name="estados" id="estados">
-                    <option value=""> Selecione um estado </option>
+                    <option value=""></option>
                 </select>
             </div>  
 
             <div class="box-select">
                 <label class="filtro-cidade" for="cidades"> Cidade: </label>
                 <select class="select-cidade" name="cidades" id="cidades">
-                    <option value=""> Selecione uma cidade </option>
                 </select>
-            </div>           
+            </div>   
+        </form>
+                   
         </div>
      
+
+        <!-- LISTA DE VOLUNTÁRIOS CADASTRADOS -->
         <table class="lista-voluntario">
             <tbody>
             <?php 
@@ -98,7 +104,7 @@
                         <td> <div class="box-img"> <img src="img/user2.png"> </div> </td>
                         <td> Sâmily goes </td>
                         <td> 20 anos </td>
-                        <td> smilygoes@gmail.com </td>
+                        <td id="email"> smilygoes@gmail.com </td>
                         <td>São Paulo - SP, Brasil </td>
                     </tr>             
             <?php
@@ -164,8 +170,11 @@
 
 
         <!-- <script type="text/javascript" src="js/estados-cidades.json"></script> -->
+        <!-- drop down -->
         <script src="js/script.js"></script>
+        <!-- selects -->
         <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
         <script src="js/select.js"></script>
+        <script src="js/estados-cidades.json"></script>
     </body>
 </html>
