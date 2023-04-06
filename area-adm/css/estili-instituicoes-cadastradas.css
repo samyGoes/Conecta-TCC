@@ -11,6 +11,19 @@ body {
     height: 100%;
 }
 
+main {
+    float: right;
+    margin-right: 100px;
+}
+
+main h1 {
+    margin-top: 3%;
+    text-transform: uppercase;
+    color: #000;
+    font-family: acme, serif;
+    font-weight: 400;
+}
+
 .nav-lateral {
     height: 100vh;
     width: 16rem;
@@ -121,18 +134,47 @@ body {
 }
 
 
+
 /* TABELA */
 
+
 .table-responsive {
+    margin-top: 10%;
     overflow-x: auto;
+    max-width: 1200px;
+    max-height: 300px;
+    border-radius: 2px;
+    border: 1px solid #6bb269;
+}
+
+.funcoes {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 10px;
+}
+
+.funcoes span {
+    margin: 1%;
+    color: #525252;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+}
+
+.funcoes i {
+    color: #4e7059;
+}
+
+.funcoes #pesquisar {
+    margin-left: 53%;
+    border: none;
+    border-bottom: 1px solid #69b283;
+    outline: none;
 }
 
 .table-responsive table {
-    width: 70%;
-    border: 2px solid #6bb269;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-left: 20%;
 }
 
 .table-responsive td img {
@@ -150,8 +192,8 @@ body {
 
 .table-responsive th,
 .table-responsive td {
-    border: 2px solid #6bb269;
-    padding: 0.5rem;
+    border: 1px solid #6bb269;
+    padding: 0px 20px 0px 20px;
     text-align: center;
     color: #2e2e2e;
     font-family: poppins, sans-serif;

@@ -40,12 +40,20 @@
     </header>
 
     <main>
+        <h1>Instituições Cadastradas</h1>
         <div class="table-responsive">
+            <div class="funcoes">
+                <span>Selecionar todos</span>
+                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                <i class="fa-solid fa-circle-xmark"></i> 
+                <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                <i class="fa-solid fa-magnifying-glass"></i>            
+            </div>
             <table>
                 <tbody>
                     <tr>
                         <th>
-                            
+
                         </th>
                         <th>
                             ID
@@ -71,7 +79,7 @@
                     </tr>
                     <tr>
                         <?php
-                        for ($i = 1; $i < +3; $i++) {
+                        for ($i = 1; $i <= 3; $i++) {
                         ?>
                             <td>
                                 <input type="checkbox" name="select" id="select">
