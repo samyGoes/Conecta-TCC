@@ -17,6 +17,7 @@
 
             $validaCpnj= new Cnpj();
             $validaSenha= new Senha();
+            $senhaSegura = new SenhaSegura();
 
             if($verificaEmail->rowCount() > 0 && $verificaCnpj->rowCount() > 0 )
             {
@@ -40,6 +41,10 @@
             else if($validaSenha->validar($instituicao->getSenhaInstituicao(),$instituicao->getConfSenhaInstituicao()) == false)
             {
                 echo "<script>alert('Confirmação de senha não confere!');</script>";
+            }
+            else if ($senhaSegura->segura($instituicao->getSenhaInstituicao()) == false)
+            {
+                echo "<script>alert('Senha esta faltando algum requisito!');</script>";
             }
             else
             {
