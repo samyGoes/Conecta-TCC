@@ -97,6 +97,7 @@
                 <a href=""><img src="img/instagram.png" alt=""></a>
                 <a href=""><img src="img/twitter.png" alt=""></a>
                 <a href=""><img src="img/github.png" alt=""></a>
+                <p>Anaaa</p>
             </div>
         </footer>
 
