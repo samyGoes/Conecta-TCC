@@ -8,12 +8,11 @@
         <title>Document</title>
     </head>
     <body>
-
          <!-- BARRA DE NAVEGAÇÂO -->
          <nav class="cabecalho">     
             <div class="logo">
                 <p>logo</p>
-            </div>
+            </div> asgsh
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
