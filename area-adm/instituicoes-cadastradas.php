@@ -27,8 +27,6 @@
                     <a class="nav-topicos" href=""> <i class="fa-sharp fa-solid fa-heart"></i> Causas </a>
                     <a class="nav-topicos" href=""> <i id="nav-icones" class="fa-solid fa-briefcase"></i> Vagas </a>
                     <a class="nav-topicos" href=""> <i id="nav-icones" class="fa-solid fa-hand"></i> Voluntários </a>
-
-                    <a class="nav-topicos" href=""> </a>
                 </div>
 
                 <div class="nav-lateral-sessao-2">
@@ -79,7 +77,7 @@
                     </tr>
                     <tr>
                         <?php
-                        for ($i = 1; $i <= 3; $i++) {
+                        for ($i = 1; $i <= 10; $i++) {
                         ?>
                             <td>
                                 <input type="checkbox" name="select" id="select">

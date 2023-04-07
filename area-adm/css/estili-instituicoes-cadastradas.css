@@ -7,13 +7,12 @@
 }
 
 body {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 main {
-    float: right;
-    margin-right: 100px;
+    width: 100%;
 }
 
 main h1 {
@@ -22,6 +21,10 @@ main h1 {
     color: #000;
     font-family: acme, serif;
     font-weight: 400;
+}
+
+header {
+    width: 35%;
 }
 
 .nav-lateral {
@@ -141,7 +144,7 @@ main h1 {
 .table-responsive {
     margin-top: 10%;
     overflow-x: auto;
-    max-width: 1200px;
+    max-width: 900px;
     max-height: 300px;
     border-radius: 2px;
     border: 1px solid #6bb269;
@@ -150,8 +153,8 @@ main h1 {
 .funcoes {
     display: flex;
     align-items: center;
-    gap: 9px;
-    margin: 10px;
+    gap: 4px;
+    margin: 5px;
 }
 
 .funcoes span {
@@ -178,8 +181,8 @@ main h1 {
 }
 
 .table-responsive td img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 .table-responsive td i {
