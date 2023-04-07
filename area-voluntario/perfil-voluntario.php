@@ -22,26 +22,38 @@ require_once '../dao/global.php';
 
 <body>
     <!-- BARRA DE NAVEGAÇÂO -->
-    <nav class="cabecalho">
-        <div class="logo">
-            <p>logo</p>
-        </div>
-        <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
+    <nav class="cabecalho">     
+            <div class="logo">
+                <p>logo</p>
+            </div>
+            <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
 
-        <ul class="topicos">
-            <li> <a href="" class="cabecalho-menu-item">Início</a> </li>
-            <li> <a href="" class="cabecalho-menu-item">voluntarios</a> </li>
-            <li> <a href="" class="cabecalho-menu-item">instituições</a> </li>
-            <li> <a href="" class="cabecalho-menu-item">Vagas</a> </li>
-            <li> <a href="" class="cabecalho-menu-item">sobre nós</a> </li>
-            <li> <a href="" class="cabecalho-menu-item">contato</a> </li>
-            <li> <a href="" class="cabecalho-menu-item" id="cabecalho-menu-item-login"><i class="fa-solid fa-user"></i>login</a> </li>
-        </ul>
-    </nav>
+            <!-- TÓPICOS -->
+            <ul class="topicos-sessao-completa">   
+                <ul class="topicos">
+                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">Início</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">voluntários</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </li>
+                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">instituições</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </li>
+                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">Vagas</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </li>
+                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">sobre nós</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </li>
+                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">contato</a> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </li>  
+                </ul>
+               
+                <ul class="topicos-sessao-login">
+                    <li class="topicos-sessao-login-linha"><a href="" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </i>
+                        <ul class="sub-topicos">
+                            <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="editar-perfil.php"> Configurações </a></li>
+                            <li> <a href="logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
 
     <!-- LINK NAVBAR RESPONSIVA OPEN SOURCE -->
     <!-- https://github.com/euronaldoreis/navbar-menu-responsive -->
