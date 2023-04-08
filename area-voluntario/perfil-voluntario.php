@@ -81,7 +81,7 @@ require_once '../dao/global.php';
               $user = $_SESSION['user'];
 
             $info = $conectar->query("SELECT nomeVoluntario,dataNascVoluntario, emailVoluntario,numFoneVoluntario,
-                                             cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario 
+                                             cidadeVoluntario, estadoVoluntario, paisVoluntario, TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS dataNascVoluntario FROM tbVoluntario 
                                             INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario
                                             WHERE emailVoluntario = '$user'");
             }                                
@@ -134,7 +134,7 @@ require_once '../dao/global.php';
                     </div>
 
                     <div class="dados-pessoais-2">
-                        <p class="dados">idade: <span><?php echo ($dataNascVoluntario); ?></span></p>
+                        <p class="dados">idade: <span><?php echo ($dataNascVoluntario." anos"); ?></span></p>
                         <p class="dados">email: <span><?php echo ($emailVoluntario); ?></span></p>
                         <p class="dados">telefone: <span><?php echo ($numFoneVoluntario); ?></span></p>
                         <p class="dados">Localidade: <span><?php echo ($cidadeVoluntario . " - " . $estadoVoluntario . ", " . $paisVoluntario); ?></span></p>
