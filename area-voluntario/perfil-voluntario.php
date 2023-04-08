@@ -1,3 +1,4 @@
+<?php include "verifica-logado.php";?>
 <?php
 
 include('../model/Conexao.php');
@@ -48,7 +49,7 @@ require_once '../dao/global.php';
                             <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>

@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'global.php';
-include_once('Conexao.php');
 
 
 // print_r($_REQUEST)
@@ -41,7 +40,7 @@ $conectar=Conexao::conectar();
     if ($query_vol->rowCount() > 0) {
         header("Location: ../area-voluntario/perfil-voluntario.php");
         exit();
-    } elseif ($query_inst->rowCount() > 0) {
+    } else if ($query_inst->rowCount() > 0) {
         header("Location: ../area-instituicao/perfil-instituicao.php");
         exit();
     }else{

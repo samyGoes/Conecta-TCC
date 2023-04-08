@@ -15,7 +15,7 @@
                 <img src="img/laco.jpg" alt="">
             </div>
             <div class="form">
-                <form action="model/login.php" method="post" id="formulario">
+                <form action="auth/loginUsuario.php" method="post" id="formulario">
                     <div class="form-header">
                         <div class="title">
                             <h1>LOGIN</h1>

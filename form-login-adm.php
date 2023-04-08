@@ -17,7 +17,7 @@
             <img src="img/login-adm.jpg" alt="">
         </div>
         <div class="form">
-            <form action="valida-login-adm.php" method="post" id="formulario">
+            <form action="area-adm/valida-login-adm.php" method="post" id="formulario">
                 <div class="form-header">
                     <div class="title">
                         <h1>LOGIN</h1>
