@@ -4,16 +4,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilo.css" text-type="text/css">
-        <title> Voluntários </title>
+        <link rel="stylesheet" href="css/estilo-inicio.css">
+        <title>Document</title>
     </head>
     <body>
-
-        <!-- BARRA DE NAVEGAÇÂO -->
-        <nav class="cabecalho">     
+         <!-- BARRA DE NAVEGAÇÂO -->
+         <nav class="cabecalho">     
             <div class="logo">
-                <p> Conecta </p>
-            </div>
+                <p>logo</p>
+            </div> asgsh
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
@@ -30,10 +29,10 @@
                 </ul>
                
                 <ul class="topicos-sessao-login">
-                    <li class="topicos-sessao-login-linha"><a href="" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                    <li class="topicos-sessao-login-linha"><a href="form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span> <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </i>
                         <ul class="sub-topicos">
-                            <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
+                            <li> <a href="area-voluntario-perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="editar-perfil.php"> Configurações </a></li>
                             <li> <a href="logout.php"> Sair </a></li>
@@ -42,83 +41,15 @@
                 </ul>
             </ul>
         </nav>
-
-
-
-
-
-
-        <!-- CONTEUDO  -->
-        <div class="container-titulo">
-            <h1 class="titulo"> Voluntários </h1>
-            <p class="frase"> Aqui você verá os perfis de todos os voluntários disponíveis. Você também pode filtrar para que encontre o 
-                voluntário ideal para você. Confira os filtros abaixo:
-            </p>
-        </div>
-
-        <div class="filtros">
-            <div class="box-filtro-causas">
-                <button class="filtro-causas"> CAUSAS </button>
-                <div class="box-causas">
-                <?php 
-                    for($i = 1; $i <= 10; $i++)
-                    {
-                ?>      
-                        <div class="box-causas-checkbox">
-                            <input type="checkbox" name="causas" id="causas"> 
-                            <label for="causas"> Mulheres </label>
-                        </div>
-                    
-                <?php
-                    }
-                ?>  
-                </div>
-            </div>
         
-        <form class="form-selects" action="" method="">
-            <div class="box-select">
-                <label class="filtro-cidade" for="estados"> Estado: </label>
-                <select class="select-estados" name="estados" id="estados">
-                    <option value=""> Selecione um estado </option>
-                </select>
-            </div>  
-
-            <div class="box-select">
-                <label class="filtro-cidade" for="cidades"> Cidade: </label>
-                <select class="select-cidade" name="cidades" id="cidades">
-                </select>
-            </div>   
-        </form>
-                   
-        </div>
-     
-
-        <!-- LISTA DE VOLUNTÁRIOS CADASTRADOS -->
-        
-        <div class="lista-voluntario">
-            <?php 
-                for($i = 1; $i <= 5; $i++)
-                {
-            ?>  
-                    <a href="../area-voluntario/perfil-voluntario.php">
-                        <div class="lista-voluntario-linha">
-                            <div class="lista-item-1"> <div class="box-img"> <img src="img/user2.png"> </div> Sâmily goes</div>
-                            <!-- <div> Sâmily goes </div> -->
-                            <div> 20 anos </div>
-                            <div id="email"> smilygoes@gmail.com </div>
-                            <div class="lista-item-4"> São Paulo - SP, Brasil </div>
-                        </div>    
-                    </a>                        
-            <?php
-                }
-            ?>
-        </div>
-       
 
 
-        
-        <!-- RODAPÉ -->
-        <footer>
+
+
+
+
+             <!-- RODAPÉ -->
+             <footer>
             <div class="container-footer">
                 <div class="footer-sessao" id="footer-sessao-1">
                     <div class="footer-col" id="footer-col-adm">
@@ -166,16 +97,9 @@
                 <a href=""><img src="img/instagram.png" alt=""></a>
                 <a href=""><img src="img/twitter.png" alt=""></a>
                 <a href=""><img src="img/github.png" alt=""></a>
+                <p>Anaaa</p>
             </div>
         </footer>
 
-
-        <!-- <script type="text/javascript" src="js/estados-cidades.json"></script> -->
-        <!-- drop down -->
-        <script src="js/script.js"></script>
-        <!-- selects -->
-        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-        <script src="js/select.js"></script>
-        <script src="js/estados-cidades.json"></script>
     </body>
 </html>
