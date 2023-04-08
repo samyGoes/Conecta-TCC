@@ -77,13 +77,13 @@ require_once '../dao/global.php';
             
             $info = $conectar->prepare("SELECT * FROM tbVoluntario");
 
-            if(isset($_SESSION['user'])){ //verifica se a variável de sessão foi definida// 
-              $user = $_SESSION['user'];
+            if(isset($_SESSION['user_vol'])){ //verifica se a variável de sessão foi definida// 
+              $user_vol = $_SESSION['user_vol'];
 
             $info = $conectar->query("SELECT nomeVoluntario,dataNascVoluntario, emailVoluntario,numFoneVoluntario,
                                              cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario 
                                             INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario
-                                            WHERE emailVoluntario = '$user'");
+                                            WHERE emailVoluntario = '$user_vol'");
             }                                
                                                
 

@@ -14,30 +14,42 @@ $conectar=Conexao::conectar();
     /* print_r('Email: ' . $email);
      print_r('<br>');
      print_r('Senha: ' . $senha);*/
-    $user = $_POST['email'];
-    $_SESSION['user'] = $user;
-    $senha =  $_POST['senha'];
+    $user_vol = $_POST['email'];
+    $_SESSION['user_vol'] = $user_vol;
+    $senha_vol =  $_POST['senha'];
 
-     $sql =$conectar->prepare("SELECT * FROM tbVoluntario WHERE emailVoluntario = :user AND senhaVoluntario = :senha");
+    $user_inst = $_POST['email'];
+    $_SESSION['user_inst'] = $user_inst;
+    $senha_inst =  $_POST['senha'];
 
-     $sql->bindParam(':user', $user);
-     $sql->bindParam(':senha', $senha);
-     $sql->execute();
+     $query_vol =$conectar->prepare("SELECT * FROM tbVoluntario WHERE emailVoluntario = :user_vol AND senhaVoluntario = :senha_vol");
+     
+     $query_vol->bindParam(':user_vol', $user_vol);
+     $query_vol->bindParam(':senha_vol', $senha_vol);
+     $query_vol->execute();
+
+     $query_inst =$conectar->prepare("SELECT * FROM tbInstituicao WHERE emailInstituicao = :user_inst AND senhaInstituicao = :senha_inst");
+
+     $query_inst->bindParam(':user_inst', $user_inst);
+     $query_inst->bindParam(':senha_inst', $senha_inst);
+     $query_inst->execute();
      
 
     //print_r($sql);
     //print_r($result);
 
-    if ($sql->rowCount() > 0) {
+    if ($query_vol->rowCount() > 0) {
         header("Location: ../area-voluntario/perfil-voluntario.php");
         exit();
-    } else {
+    } elseif ($query_inst->rowCount() > 0) {
+        header("Location: ../area-instituicao/perfil-instituicao.php");
+        exit();
+    }else{
         header("Refresh: 1; url=../form-login.php");
         echo "<script language='javascript' type='text/javascript'>
         alert('login e / ou senha incorretos');
         </script>";
         exit();
-
     }
 
     

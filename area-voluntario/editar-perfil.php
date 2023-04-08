@@ -38,7 +38,7 @@
                 <a class="item-a" href=""><i class="fa-regular fa-pen-to-square"></i> Editar Perfil</a>
                 <a class="item-a" href=""><i class="fa-solid fa-briefcase"></i>Vagas</a>
                 <a class="item-a" href=""><i class="fa-solid fa-key"></i>Trocar Senha</a>
-                <a class="item-a" href=""><i class="fa-solid fa-xmark"></i>Desativar Contar</a>
+                <a class="item-a" href="../model/delete.php"><i class="fa-solid fa-xmark"></i>Desativar Contar</a>
                 <a class="item-b" href=""><i class="fa-solid fa-door-open"></i>Sair</a>
             </nav>
         </div>

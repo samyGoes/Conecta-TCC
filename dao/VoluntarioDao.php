@@ -59,37 +59,5 @@
             $qtdVoluntario = $resultadoVoluntario -> fetchAll(PDO::FETCH_COLUMN);
             return $qtdVoluntario;
         }
-
-        /*public static function deletar(){
-            $conexao = Conexao :: conectar();
-            $stmt = $conexao->prepare("select nomeVoluntario from tbVoluntario");
-            $stmt->execute();
-
-            $query = "DELETE FROM tbVoluntario WHERE codVoluntario";
-            $resultadoVoluntario = $conexao->query($query);
-            $qtdVoluntario = $resultadoVoluntario -> fetchAll(PDO::FETCH_COLUMN);
-            return $qtdVoluntario;
-        }*/
-        public static function deletar(){
-            if(!empty($_GET['id']))
-            {
-                include_once('conexao.php');
-        
-                $id = $_GET['id'];
-        
-                $sqlSelect = "SELECT *  FROM tbVoluntario WHERE idVoluntario=$id";
-        
-                $result = $conexao->query($sqlSelect);
-        
-                if($result->num_rows > 0)
-                {
-                    $sqlDelete = "DELETE FROM tbVoluntario WHERE idVoluntario=$id";
-                    $resultDelete = $conexao->query($sqlDelete);
-                }
-            }
-        }
     }
-
-
-    
 ?>
