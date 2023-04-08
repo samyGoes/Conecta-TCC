@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Mar-2023 às 19:12
+-- Generation Time: 06-Abr-2023 às 04:25
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -59,6 +59,28 @@ CREATE TABLE `tbfoneinstituicao` (
   `codInstituicao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `tbfoneinstituicao`
+--
+
+INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `codInstituicao`) VALUES
+(1, '11111111111', 1),
+(2, '111111111', 1),
+(3, '11111111111', 2),
+(4, '11111111111', 2),
+(5, '11965874333', 3),
+(6, '1120168242', 3),
+(7, '11965874333', 4),
+(8, '1120168242', 4),
+(9, '11965874333', 5),
+(10, '1120168242', 5),
+(11, '11965874333', 6),
+(12, '1120168242', 6),
+(13, '11965874333', 7),
+(14, '1120168242', 7),
+(15, '11965874333', 8),
+(16, '1120168242', 8);
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +93,18 @@ CREATE TABLE `tbfonevoluntario` (
   `codVoluntario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `tbfonevoluntario`
+--
+
+INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `codVoluntario`) VALUES
+(1, '11965874333', 1),
+(2, '1120168242', 1),
+(3, '11111111111', 2),
+(4, '11111111111', 2),
+(5, '11965874333', 3),
+(6, '1120168242', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +115,17 @@ CREATE TABLE `tbfotosinstituicao` (
   `codfotoInstituicao` int(11) NOT NULL,
   `fotosInstituicao` varchar(200) NOT NULL,
   `codInstituicao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbhabilidadeservico`
+--
+
+CREATE TABLE `tbhabilidadeservico` (
+  `codHabilidades` int(11) NOT NULL,
+  `nomeHabilidade` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -107,6 +152,20 @@ CREATE TABLE `tbinstituicao` (
   `fotoInstituicao` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `tbinstituicao`
+--
+
+INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituicao`, `numLogInstituicao`, `cepInstituicao`, `compInstituicao`, `bairroInstituicao`, `cidadeInstituicao`, `estadoInstituicao`, `paisInstituicao`, `emailInstituicao`, `cnpjInstituicao`, `senhaInstituicao`, `descInstituicao`, `fotoInstituicao`) VALUES
+(1, 'ascdf', 'Avenida dos IpÃªs', '234', '08161-000', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'aaa@gmail.com', '93.491.338/0001-74', '1234', '', ''),
+(2, 'Ong AbraÃ§o', 'Avenida dos IpÃªs', '123', '08161-000', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'ong@gmail.com', '62823257011801', '123', '', ''),
+(3, 'ong cachorros fofos', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongDogs@gmail.com', '30.790.743/0001-73', '123', '', ''),
+(4, 'ong cachorros fofos', '', '03', '08460-600', 'casa', '', '', '', 'Brasil', 'ongDogs1@gmail.com', '02.178.282/0001-47', '123', '', ''),
+(5, 'ong cachorros fofos', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongDogs2@gmail.com', '48.761.843/0001-37', 'Fernanda@', '', ''),
+(6, 'ong criancinhas', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'criancinhas@gmail.com', '96.797.283/0001-13', 'Fernanda@1', '', ''),
+(7, 'ong Ana ', 'Rua Moreira Neto', '55', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongAna@gmail.com', '16.078.243/0001-82', 'Aninha@1', '', ''),
+(8, 'ong julia', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongJulia@gmail.com', '64.565.749/0001-69', 'Ongjulia@1', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -124,9 +183,11 @@ CREATE TABLE `tbservico` (
   `codInstituicao` int(11) NOT NULL,
   `descServico` varchar(100) NOT NULL,
   `nomeServico` varchar(100) NOT NULL,
+  `tipoServico` varchar(50) NOT NULL,
   `dataInicioServico` date NOT NULL,
   `dataTerminoServico` date NOT NULL,
-  `qntdVagaServico` int(11) NOT NULL
+  `qntdVagaServico` int(11) NOT NULL,
+  `codHabilidadeServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -153,6 +214,15 @@ CREATE TABLE `tbvoluntario` (
   `descVoluntario` varchar(60) NOT NULL,
   `fotoVoluntario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbvoluntario`
+--
+
+INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`) VALUES
+(1, 'fernanda de souza bezerra ', '2005-07-27', '54859938852', 'Rua Moreira Neto', '505', '08460-60', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'brasil', 'bezerrafernanda223@gmail.com', '123', '', ''),
+(2, 'Gabriella', '2003-03-03', '777.317.829-13', 'Avenida dos IpÃªs', '123', '08161-00', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'gabriella10@gmail.com', '123', '', ''),
+(3, 'fernanda de souza bezerra ', '2005-07-27', '739.975.300-84', 'Rua Moreira Neto', '56', '08460-60', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda225@gmail.com', 'Fernanda@2', '', '');
 
 --
 -- Indexes for dumped tables
@@ -193,6 +263,12 @@ ALTER TABLE `tbfotosinstituicao`
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
+-- Indexes for table `tbhabilidadeservico`
+--
+ALTER TABLE `tbhabilidadeservico`
+  ADD PRIMARY KEY (`codHabilidades`);
+
+--
 -- Indexes for table `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
@@ -203,6 +279,7 @@ ALTER TABLE `tbinstituicao`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
+  ADD UNIQUE KEY `codHabilidadeServico` (`codHabilidadeServico`),
   ADD KEY `codCategoriaServico` (`codCategoriaServico`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
@@ -232,13 +309,13 @@ ALTER TABLE `tbcategoriaservico`
 -- AUTO_INCREMENT for table `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
-  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
-  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbfotosinstituicao`
@@ -247,10 +324,16 @@ ALTER TABLE `tbfotosinstituicao`
   MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbhabilidadeservico`
+--
+ALTER TABLE `tbhabilidadeservico`
+  MODIFY `codHabilidades` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
-  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbservico`
@@ -262,7 +345,7 @@ ALTER TABLE `tbservico`
 -- AUTO_INCREMENT for table `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
-  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
