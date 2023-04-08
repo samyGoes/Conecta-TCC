@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}    
+
+/*Header*/
+header {
+    background-color: #F5DEB3;
+    padding: 1.5%;
+    width: 100%;
+}
+
+.navigation-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: acme, sans-serif;
+}
+
+.navigation-header a {
+    text-decoration-line: none;
+    display: flex;
+    align-items: center;
+    color: #113173;
+}
+
+.navigation-header a :hover {
+    color: #4567a5;
+}
+
+main {
+    display: flex;
+    border: solid 1px #113173;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    margin: 1%;
+    font-family: ACME;
+    font-weight: 400;
+    color: #113173;
+    font-size: 16pt;
+}
+
+
+.navigation-left {
+    font-family: Poppins, sans-serif;
+    font-size: medium;
+    position: relative;
+    height: 500px;
+    width: 30%;
+
+}
+
+.navigation-left ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.navigation-left ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+}
+
+.navigation-left ul li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: #113173;
+}
+
+.navigation-left ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navigation-left ul li a .icon i {
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.navigation-left ul li .exit {
+    object-position: bottom;
+    margin-top: 15%;
+}
+
+.navigation-left ul li a .title-nav {
+    position: relative;
+    display: block;
+    padding-left: 15px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+.title-card{
+    font-family: acme;
+    margin: 5%;
+}
+
+.div-card{
+    width: 100%;
+    border-left: #113173 solid 1px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #4567a5;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #b4d8e6;
+    padding: 50px;
+    width: 350px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-box {
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 170%;
+}
+
+.input-box label {
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    color: #525252;
+    margin-bottom: 5%;
+}
+
+.input-box input {
+    border: 1px solid #4567a5;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    outline: none;
+}
+
+.input-box small {
+    padding-top: 3%;
+    font-family: poppins, sans-serif;
+    color: #525252;
+}
+
+.input-box input::placeholder {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #525252;
+    padding-left: 4%;
+}
+
+.continue-button button {
+    width: 10rem;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    margin-top: 30%;
+    background-color: #113173;
+    border: 1px solid #cf8a3f;
+    transition: all 0.5s ease;
+    color: #fff;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    color: #cf8a3f;
+}
+
+/*Responsividade*/
+@media (max-width: 786px){
+    body{
+        width: 100vw;
+        height: 100vh;
+    }
+    main{
+        width: 100vw;
+        height: 100vh;
+    }
+    .navigation-left{
+        width: 45%;
+   }
+   .navbar{
+    margin-top: -30px;
+   }
+}
+
+@media (max-width:425px) {
+    html {
+        font-size: 75%;
+    }
+
+    .navigation-header {
+        display: none;
+    }
+
+    .one,
+    .two,
+    .three {
+        background-color: #fff;
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.5s;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 30px;
+        margin-right: 30px;
+    }
+
+    .menu-section.on {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #F5DEB3;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-section.on nav {
+        display: block;
+    }
+
+    .menu-section.on .menu-toggle {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+
+    }
+
+    .menu-section.on .menu-toggle .one {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-section.on .menu-toggle .two {
+        opacity: 0;
+    }
+
+    .menu-section.on .menu-toggle .three {
+        transform: rotate(-45deg) translate(8px, -9px);
+    }
+
+    .menu-section.on nav {
+        text-align: center;
+        display: block;
+    }
+
+    .menu-section.on nav a {
+        transition-duration: 0.5s;
+        font-size: 2rem;
+        line-height: 4rem;
+        display: block;
+    }
+
+    .navigation-left{
+        width: 15%;
+    }
+
+    .navigation-left ul {
+        margin: -12px;
+        padding: 8px;
+    }
+
+    .navigation-left ul li a .title-nav {
+        display: none;
+    }
+    .div-card{
+        width: 75%;
+        height: 100vh;
+        padding: 5%;
+    }
+    .div-card .card{
+        width: 75vw;
+        height: 60vh;
+    }
+    .div-card .card .input-group{
+        width: 30vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+
