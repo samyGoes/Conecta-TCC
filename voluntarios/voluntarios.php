@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css" text-type="text/css">
+         <!-- LINK ICONES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title> Voluntários </title>
     </head>
     <body>
@@ -14,6 +16,7 @@
             <div class="logo">
                 <p> Conecta </p>
             </div>
+
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
@@ -57,8 +60,8 @@
         </div>
 
         <div class="filtros">
-            <div class="box-filtro-causas">
-                <button class="filtro-causas"> CAUSAS </button>
+            <form class="box-filtro-causas" method="POST" action="">
+                <div class="filtro-causas"> CAUSAS </div>
                 <div class="box-causas">
                 <?php 
                     for($i = 1; $i <= 10; $i++)
@@ -73,22 +76,22 @@
                     }
                 ?>  
                 </div>
-            </div>
+            </form>
         
-        <form class="form-selects" action="" method="">
-            <div class="box-select">
-                <label class="filtro-cidade" for="estados"> Estado: </label>
-                <select class="select-estados" name="estados" id="estados">
-                    <option value=""> Selecione um estado </option>
-                </select>
-            </div>  
+            <form class="form-selects" method="POST" action="" >
+                <div class="box-select">
+                    <label class="filtro-cidade" for="estados"> Estado: </label>
+                    <select class="select-estados" name="estados" id="estados">
+                        <option value=""> Selecione um estado </option>
+                    </select>
+                </div>  
 
-            <div class="box-select">
-                <label class="filtro-cidade" for="cidades"> Cidade: </label>
-                <select class="select-cidade" name="cidades" id="cidades">
-                </select>
-            </div>   
-        </form>
+                <div class="box-select">
+                    <label class="filtro-cidade" for="cidades"> Cidade: </label>
+                    <select class="select-cidade" name="cidades" id="cidades">
+                    </select>
+                </div>   
+            </form>
                    
         </div>
      
@@ -102,11 +105,14 @@
             ?>  
                     <a href="../area-voluntario/perfil-voluntario.php">
                         <div class="lista-voluntario-linha">
-                            <div class="lista-item-1"> <div class="box-img"> <img src="img/user2.png"> </div> Sâmily goes</div>
-                            <!-- <div> Sâmily goes </div> -->
-                            <div> 20 anos </div>
-                            <div id="email"> smilygoes@gmail.com </div>
-                            <div class="lista-item-4"> São Paulo - SP, Brasil </div>
+                            <div class="lista-item-1"> 
+                                <div class="box-img"> <img src="img/user2.png"> </div> 
+                                <p> Sâmily goes </p> 
+                                <p id="idade"> 20 anos </p>
+                            </div>
+                    
+                            <div id="email"><i class="fa-solid fa-envelope"></i> <p> smilygoes@gmail.com </p></div>
+                            <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div>
                         </div>    
                     </a>                        
             <?php
