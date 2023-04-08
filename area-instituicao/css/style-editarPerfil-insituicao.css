@@ -1,0 +1,348 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+/*Header*/
+header {
+    background-color: #F5DEB3;
+    padding: 1.5%;
+    width: 100vw;
+}
+
+.navigation-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: acme, sans-serif;
+}
+
+.navigation-header a {
+    text-decoration-line: none;
+    display: flex;
+    align-items: center;
+    color: #113173;
+}
+
+.navigation-header a :hover {
+    color: #4567a5;
+}
+
+main {
+    display: flex;
+    border: solid 1px #113173;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+    margin: 1%;
+    font-family: ACME;
+    font-weight: 400;
+    color: #113173;
+    font-size: 16pt;
+}
+
+
+.navigation-left {
+    font-family: Poppins, sans-serif;
+    font-size: medium;
+    position: relative;
+    height: 500px;
+    width: 30%;
+
+}
+
+.navigation-left ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+
+.navigation-left ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+}
+
+.navigation-left ul li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: #113173;
+}
+
+.navigation-left ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navigation-left ul li a .icon i {
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.navigation-left ul li a .title-nav {
+    position: relative;
+    display: block;
+    padding-left: 15px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+.form{
+    width: 80%;
+    height: auto;
+    border-left: #113173 solid 1px ;
+    font-family: Poppins, sans-serif;
+}
+.container{
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header{
+    margin-bottom: 1.5rem;
+}
+.form-title h4{
+    font-size: 12pt;
+    font-weight: 200;
+}
+
+.input-group{
+    display: flex;
+;
+    flex-direction: column;
+}
+.input-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+.input-box label{
+    display: flex;
+}
+
+.input-box input {
+    outline: none;
+    padding: 8px;
+    border: solid 1px #113173;
+}
+
+.input-box select {
+    padding: 8px;
+    width: 15vw;
+    border: solid 1px #113173;
+}
+.input-box textarea, img{
+    border: #113173 solid 1px;
+}
+
+.input-box div ::placeholder{
+    font-size: 1rem;
+    font-family: Poppins, sans-serif;
+}
+
+#nome, #email, #telefone, #telefone-2, #log {
+    width: 30vw;
+}
+#num{
+    width: 8vw;
+}
+#bairro, #cep, #cidade, #pais, #comp, #uf, #foto {
+    width: 19vw;
+}
+#img{
+    margin-top: 37px;
+    width: 100%;
+    height: 15vh;
+}
+
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.continue-button button {
+    background-color: #113173;
+    border: 1px solid #113173;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14pt;
+    font-family: poppins, sans-serif;
+    padding: 3px;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    border: solid 1px #113173;
+    transition: all 0.3s ease;
+}
+
+.continue-button button a{
+    text-decoration-line: none;
+    color: #fff;
+}
+.continue-button button a:hover{
+    color: #113173;
+}
+
+/*Responsive*/
+
+@media (max-width:768px) {
+    html {
+        font-size: small;
+    }
+    .navigation-left {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navigation-left ul li a .title-nav {
+        display : none;
+    }
+
+    .title {
+        font-size: 1em;
+    }
+    .form{
+        width: 50%;
+    }
+
+    .button-form button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10%;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width:425px) {
+    html {
+        font-size: 75%;
+    }
+
+    .navigation-header {
+        display: none;
+    }
+
+    .one,
+    .two,
+    .three {
+        background-color: #fff;
+        height: 5px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.5s;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 30px;
+        margin-right: 30px;
+    }
+
+    .menu-section.on {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #F5DEB3;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-section.on nav {
+        display: block;
+    }
+
+    .menu-section.on .menu-toggle {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+
+    }
+
+    .menu-section.on .menu-toggle .one {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-section.on .menu-toggle .two {
+        opacity: 0;
+    }
+
+    .menu-section.on .menu-toggle .three {
+        transform: rotate(-45deg) translate(8px, -9px);
+    }
+
+    .menu-section.on nav {
+        text-align: center;
+        display: block;
+    }
+
+    .menu-section.on nav a {
+        transition-duration: 0.5s;
+        font-size: 2rem;
+        line-height: 4rem;
+        display: block;
+    }
+
+    .navigation-left {
+        display: block;
+        width: 15%;
+    }
+
+    .navigation-left ul li a .title-nav {
+        display: none;
+    }
+    .form{
+        width: 80%;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        max-height: 30rem;
+    }
+    .input-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}

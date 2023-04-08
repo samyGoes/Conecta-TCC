@@ -12,7 +12,7 @@
          <nav class="cabecalho">     
             <div class="logo">
                 <p>logo</p>
-            </div> asgsh
+            </div>
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
             <input type="checkbox" id="check">
             <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
