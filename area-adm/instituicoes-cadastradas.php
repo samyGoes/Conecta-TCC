@@ -72,21 +72,27 @@
                     </thead>
                     <tbody>                    
                         <?php
-                        for ($i = 1; $i <= 10; $i++) {
+                            require_once 'global.php';
+                            try {
+                                $listaInstituicao = ListarInstituicoes::listar();
+                            } catch(Exception $e) {
+                                echo $e->getMessage();
+                            }
                         ?>
                             <tr>
+                            <?php foreach($listaInstituicao as $instituicao){ ?>   
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> 1 </td>
+                                <td> <?php echo $instituicao['codInstituicao'];?> </td>
                                 <td>
                                     <div class="box-img-lista">
                                         <img src="img/user-cinza.png" alt="">
-                                    </div>                            
+                                    </div>                        
                                 </td>
-                                <td> Flor do Norte </td>
-                                <td> marcoserick@gmail.com </td>
-                                <td> São Paulo </td>
-                                <td> SP </td>
-                                <td> Brasil </td>
+                                <td><?php echo $instituicao['nomeInstituicao'];?></td>
+                                <td> <?php echo $instituicao['emailInstituicao'];?> </td>
+                                <td> <?php echo $instituicao['cidadeInstituicao'];?> </td>
+                                <td> <?php echo $instituicao['estadoInstituicao'];?> </td>
+                                <td> <?php echo $instituicao['paisInstituicao'];?> </td>
                             </tr>
                         <?php
                         }
