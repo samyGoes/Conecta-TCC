@@ -11,7 +11,7 @@
 }
 body{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 /*Header*/
@@ -43,7 +43,7 @@ main {
     display: flex;
     border: solid 1px #113173;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 .title {
@@ -101,6 +101,10 @@ main {
     font-size: 1.5rem;
     z-index: 1;
 }
+.navigation-left ul li .exit {
+    object-position: bottom;
+    margin-top: 15%;
+}
 
 .navigation-left ul li a .title-nav {
     position: relative;
@@ -132,16 +136,17 @@ main {
 
 .input-group{
     display: flex;
-;
     flex-direction: column;
 }
 .input-box{
     width: 100%;
     height: 100%;
+    line-height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5%;
+    outline: none;
 }
 .input-box label{
     display: flex;
@@ -154,16 +159,18 @@ main {
 }
 
 .input-box select {
+    outline: none;
     padding: 8px;
     width: 15vw;
     border: solid 1px #113173;
 }
 .input-box textarea, img{
+    outline: none;
     border: #113173 solid 1px;
 }
 
 .input-box div ::placeholder{
-    font-size: 1rem;
+    font-size: 0.rem;
     font-family: Poppins, sans-serif;
 }
 
@@ -180,6 +187,11 @@ main {
     margin-top: 37px;
     width: 100%;
     height: 15vh;
+}
+#desc{
+    width: 515px; 
+    height: 124px;
+    overflow: hidden;
 }
 
 .continue-button {
@@ -320,10 +332,14 @@ main {
     }
 
     .navigation-left {
-        display: block;
+        display: inline;
         width: 15%;
     }
-
+    
+    .navigation-left ul {
+        margin: -12px;
+        padding: 8px;
+    }
     .navigation-left ul li a .title-nav {
         display: none;
     }
@@ -331,18 +347,21 @@ main {
         width: 80%;
     }
 
+    .container{
+        width: 100%;
+        height: auto;
+    }
     .input-group {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         overflow-y: scroll;
         flex-wrap: nowrap;
-        max-height: 30rem;
+        max-height: 25rem;
+        padding: 5%;
     }
     .input-box{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: flex-start;
+    }
+    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log{
+        width: 50vw;
     }
 }

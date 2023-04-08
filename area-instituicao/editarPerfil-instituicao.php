@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="" class="exit">
                         <span class="icon"><i class="fa-solid fa-door-open"></i></span>
                         <span class="title-nav">Sair</span>
                     </a>
@@ -167,7 +167,7 @@
                         </div>
                         <div>
                             <label for="">Foto</label>
-                            <input type="file" accept="img/*" id="foto"
+                            <input type="file" accept="" id="foto"
                                 placeholder="Clique aqui para escolher uma foto">
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="" id="desc" cols="70" rows="5" width="570px" height="90px" placeholder="Digite sua descriçao"></textarea>
+                            <textarea name="" id="desc" cols="83" rows="10" width="570px" height="90px" placeholder="Digite sua descriçao"></textarea>
                         </div>
                         <div>
                             <img src="img/user.png" id="img" width="100px" height="100px" alt="">
