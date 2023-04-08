@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    overflow-x: none;
 }
 
 body {
@@ -145,7 +146,7 @@ header {
     margin-top: 10%;
     overflow-x: auto;
     max-width: 900px;
-    max-height: 300px;
+    max-height: 400px;
     border-radius: 2px;
     border: 1px solid #6bb269;
     box-shadow: 4px 3px 5px 1px #6baa81b6;
@@ -154,12 +155,13 @@ header {
 .funcoes {
     display: flex;
     align-items: center;
-    gap: 4px;
-    margin: 5px;
+    gap: 10px;
+    width: 100%;
+    height: 78px;
 }
 
 .funcoes span {
-    margin: 1%;
+    margin-left: 1%;
     color: #525252;
     font-family: poppins, sans-serif;
     font-weight: 400;
@@ -170,10 +172,16 @@ header {
 }
 
 .funcoes #pesquisar {
+    margin-top: 10px;
     margin-left: 53%;
     border: none;
     border-bottom: 1px solid #69b283;
     outline: none;
+}
+
+.funcoes #selecionar-todos {
+    width: 20px;
+    height: 40px;
 }
 
 .table-responsive table {
@@ -201,8 +209,8 @@ header {
 }
 
 .table-responsive td img {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
 }
 
 .table-responsive td i {

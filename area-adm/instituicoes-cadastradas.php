@@ -43,7 +43,7 @@
             <div class="funcoes">
                 <span>Selecionar todos</span>
                 <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                <i class="fa-solid fa-circle-xmark"></i> 
+                <i class="fa-solid fa-circle-xmark" id="icone-x"></i> 
                 <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
                 <i class="fa-solid fa-magnifying-glass"></i>            
             </div>
@@ -80,13 +80,13 @@
                         for ($i = 1; $i <= 10; $i++) {
                         ?>
                             <td>
-                                <input type="checkbox" name="select" id="select">
+                                <input type="checkbox" name="checkbox" id="checkbox">
                             </td>
                             <td>
                                 1
                             </td>
                             <td>
-                                <img src="img/user.png" alt="">
+                                <img src="img/user-cinza.png" alt="">
                             </td>
                             <td>
                                 Flor do Norte
