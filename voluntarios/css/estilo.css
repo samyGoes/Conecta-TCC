@@ -95,19 +95,19 @@ body::-webkit-scrollbar-thumb
 }
 .cabecalho-menu-item:hover
 {
-    color: #e67635;
+    color: #f0a376;
 }
 
 .cabecalho-menu-item i, .topicos li i 
 {
-    color: #232e61;
+    color: #fff;
     margin-right: 0.4rem;
     font-size: 18px;
     transition: all 0.5s ease;
 }
 .cabecalho-menu-item i:hover
 {
-    color: #e67635;
+    color: #f0a376;
 } 
 
 #check
@@ -117,7 +117,7 @@ body::-webkit-scrollbar-thumb
 .checkbtn 
 {
 	font-size: 25px;
-	color: #232e61;
+	color: #fff;
 	/* float: right; */
 	/* line-height: 80px; */
 	margin-right: 40px;
@@ -148,9 +148,10 @@ body::-webkit-scrollbar-thumb
 {
     position: absolute;
     display: none;
-    background-color: #ffe5ae;
+    background-color: #ffffff;
+    border: 1px solid #232f61;
     right: 0rem;
-    top: 5rem;
+    top: 6rem;
     /* cima, direita, baixo, esquerda */
     padding: 1rem 2rem 0.5rem 2rem;
 }
@@ -184,6 +185,7 @@ body::-webkit-scrollbar-thumb
     font-size: 20px;
     margin-left: 0.5rem;
     position: absolute;
+    color: #fff;
     /* background-color: #4567a5; */
 }
 .box-nav-img
@@ -253,22 +255,6 @@ body
     align-items: flex-end;
 }
 
-.form-selects
-{
-    display: flex;
-    gap: 1.5rem;
-}
-.box-select
-{
-    display: flex;
-    flex-direction: column;
-}
-
-.box-select label
-{
-    margin-bottom: 1rem;
-}
-
 .box-filtro-causas
 {
     position: relative;
@@ -281,6 +267,7 @@ body
     padding: 0.2rem;
     border-radius: 0.5rem;
 
+    text-align: center;
     font-family: poppins, sans-serif;
     font-weight: 300;
     font-size: 20px;
@@ -344,6 +331,23 @@ body
     color: #525252;
 }
 
+.form-selects
+{
+    display: flex;
+    gap: 1.5rem;
+}
+.box-select
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-select label
+{
+    margin-bottom: 1rem;
+}
+
+
 .filtro-cidade
 {
     font-family: bitter, serif;
@@ -386,7 +390,7 @@ body
 .lista-voluntario-linha
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #000 !important;
     gap: 3.5rem;
@@ -401,18 +405,38 @@ body
 
 .lista-voluntario-linha:last-child
 {
-    border: none ;
+    border-bottom: none ;
 }
 
 .lista-voluntario-linha div
 {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    /* gap: 1rem; */
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #000;
+}
+
+.lista-item-1
+{
+    gap: 1rem;
+}
+
+#idade
+{
+    margin-left: 1.5rem;
+}
+
+#localizacao, #email
+{
+    gap: 0.3rem;
+}
+
+#localizacao i, #email i
+{
+    font-size: 20px;
 }
 
 .box-img
@@ -534,10 +558,6 @@ footer {
 }
 @media (max-width: 1034px)
 {
-    .logo p
-    {
-        font-size: 45px;
-    }
     .topicos
     {
         gap: 2rem;
@@ -641,10 +661,12 @@ footer {
     .topicos li a, .topicos-sessao-login li a
     {
         font-size: 15px;
+        color: #232f61;
     }
     .sub-topicos 
     {
         background-color: #fff;
+        border: none;
         top: 4rem;
         padding-left: 5rem;
         width: 100%;
@@ -653,6 +675,11 @@ footer {
     {
         margin-left: 5rem;
         margin-top: 0.7rem;
+        color: #232f61;
+    }
+    .cabecalho-menu-item i, .topicos li i 
+    {
+        color: #232f61;
     }
 }
 
@@ -701,7 +728,75 @@ footer {
 
 
 
-@media(max-width: 957px)
+
+/* CONTEUDO */
+@media(max-width: 982px)
+{
+    .container-titulo 
+    {
+        max-width: 80%;
+    }
+    .container-titulo .titulo
+    {
+        font-size: 33px;
+    }
+    .container-titulo .frase
+    {
+        font-size: 14px;
+    }
+    .filtros label
+    {
+        font-size: 14px;
+    }
+    .select-cidade, .select-estados
+    {
+        height: 2rem;
+        
+    }
+    .filtros .filtro-causas
+    {
+        height: 2rem;
+        font-size: 18px;
+    }
+    .box-select label
+    {
+        margin-bottom: 0.6rem;
+    }
+}
+
+@media(max-width: 714px)
+{
+    .filtros
+    {
+        flex-direction: column;
+    }
+    .form-selects
+    {
+        flex-direction: column;
+    }
+    
+}
+
+@media(max-width: 486px)
+{
+    .estado-pais
+    {
+        display: none;
+    }
+    .box-img
+    {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+
+
+
+
+
+/* LISTA */
+@media(max-width: 990px)
 {
     .lista-voluntario
     {
@@ -722,13 +817,23 @@ footer {
     }
 }
 
-@media(max-width: 833px)
+@media(max-width: 852px)
 {
     #email
     {
         display: none;
     }
 }
+
+@media(max-width: 595px)
+{
+    #idade
+    {
+        display: none;
+    }
+}
+
+
 
 /* @media(max-width: 909px)
 {
