@@ -388,7 +388,6 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c59263;
     border-bottom: 1px solid #000 !important;
     gap: 3.5rem;
     padding: 1rem 2rem 1rem 2rem;
@@ -719,7 +718,15 @@ footer {
     }
     .lista-voluntario-linha div
     {
-        background-color: #fbc7f7;
+        /* background-color: #fbc7f7; */
+    }
+}
+
+@media(max-width: 833px)
+{
+    #email
+    {
+        display: none;
     }
 }
 

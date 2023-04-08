@@ -21,7 +21,7 @@
                         <!-- TÍTULO -->
                         <div class="form-header">
                             <div class="title">
-                                <h1 class="titulo-cadastro">CADASTRO</h1>
+                                <h1 class="titulo-cadastro">Cadastro do Voluntário </h1>
                             </div>
                         </div>
 
