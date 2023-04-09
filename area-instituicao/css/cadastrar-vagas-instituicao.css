@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.formulario {
+    display: flex;
+}
+
+.formulario form {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    margin: 0 auto;
+}
+
+.formulario form .coluna1, .coluna3, .coluna4 {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.formulario form .coluna4 {
+    margin-bottom: 92px;
+}
+
+.formulario form label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formulario form input, select {
+    width: 300px;
+    margin-bottom: 5%;
+    margin-top: 7%;
+    padding: 10px;
+    border: 1px solid #2e81e0;
+}
