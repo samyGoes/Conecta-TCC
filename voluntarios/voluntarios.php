@@ -97,24 +97,24 @@
      
 
         <!-- LISTA DE VOLUNTÁRIOS CADASTRADOS -->
-        
         <div class="lista-voluntario">
             <?php 
                 for($i = 1; $i <= 5; $i++)
                 {
-            ?>  
-                    <a href="../area-voluntario/perfil-voluntario.php">
-                        <div class="lista-voluntario-linha">
+            ?>     
+                    <div class="lista-voluntario-linha">
                             <div class="lista-item-1"> 
-                                <div class="box-img"> <img src="img/user2.png"> </div> 
-                                <p> Sâmily goes </p> 
-                                <p id="idade"> 20 anos </p>
+                                <a href="../area-voluntario/perfil-voluntario.php">
+                                    <div class="box-img"> <img src="img/user2.png"> </div> 
+                                </a>    
+                                <a href="../area-voluntario/perfil-voluntario.php"><p> João Silva </p> </a> 
+                                <a href="../area-voluntario/perfil-voluntario.php"><p id="idade"> 12 anos </p> </a>
                             </div>
                     
-                            <div id="email"><i class="fa-solid fa-envelope"></i> <p> smilygoes@gmail.com </p></div>
-                            <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div>
-                        </div>    
-                    </a>                        
+                            <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> joaoSilvas@gmail.com </p></div></a>
+                            <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div></a>
+                        </a>        
+                    </div>                 
             <?php
                 }
             ?>

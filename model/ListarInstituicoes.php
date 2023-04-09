@@ -1,7 +1,7 @@
 <?php
     class ListarInstituicoes{
 
-        function listar(){
+        public static function listar(){
 
             $conexao = Conexao::conectar();
             $querySelect = "SELECT codInstituicao, nomeInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao FROM tbinstituicao";
