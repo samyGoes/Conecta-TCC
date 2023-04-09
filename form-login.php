@@ -23,8 +23,8 @@
                     </div>
                     <div class="input-group">
                         <div class="input-box">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Digite seu email">
+                            <label for="email">Cpf ou Cnpj</label>
+                            <input type="text" name="login" id="email" placeholder="Digite seu cpf ou cnpj">
                         </div>
                         <div class="input-box">
                             <label for="senha">Senha</label>
