@@ -24,7 +24,7 @@
                     <div class="input-group">
                         <div class="input-box">
                             <label for="email">Cpf ou Cnpj</label>
-                            <input type="text" name="login" id="email" placeholder="Digite seu cpf ou cnpj">
+                            <input type="text" name="login" id="login" placeholder="Digite seu cpf ou cnpj"">
                         </div>
                         <div class="input-box">
                             <label for="senha">Senha</label>
@@ -40,6 +40,7 @@
                 <a class="voltar" href="index.php">Voltar para o início</a>
             </div>
         </div>
+        <script src="js/mascaraLoginUsuario.js"></script>
     </body>
 
 </html>

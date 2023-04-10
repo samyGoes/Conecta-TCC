@@ -1,144 +1,100 @@
 <?php
-session_start();
-require_once 'global.php';
+    session_start();
+
+    require_once 'global.php';
+
+    $conectar=Conexao::conectar();
+
+    // Verifica se o formulário foi submetido
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+    {
+        // Obtém as credenciais do formulário
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
+
+        $_SESSION['login']=$login;
+        $_SESSION['senha']=$senha;
+
+
+        if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cpf" )
+        {
+            $stmt=$conectar->prepare("SELECT codVoluntario,nomeVoluntario,emailVoluntario,logVoluntario,numLogVoluntario,cepVoluntario,bairroVoluntario,cidadeVoluntario,estadoVoluntario,compVoluntario,paisVoluntario FROM tbvoluntario WHERE cpfVoluntario = ? AND senhaVoluntario = ?");
+            $stmt->bindValue(1, $login);
+            $stmt->bindValue(2, $senha);
+            $stmt->execute(); 
+
+            // Verifica se encontrou algum resultado
+            if ($stmt->rowCount() > 0) 
+            {
+                // Obtém o código do usuário/instituição
+                $result = $stmt->fetch();
+                $codUsuario = $result[0];
+        
+                // Armazena o código na sessão
+                $_SESSION['codUsuario'] = $codUsuario;
+                $_SESSION['nomeUsuario'] = $result['nomeVoluntario'];
+                $_SESSION['emailUsuario'] = $result['emailVoluntario'];
+                $_SESSION['logUsuario'] = $result['logVoluntario'];
+                $_SESSION['numLogUsuario'] = $result['numLogVoluntario'];
+                $_SESSION['cepUsuario'] = $result['cepVoluntario'];
+                $_SESSION['bairroUsuario'] = $result['bairroVoluntario'];
+                $_SESSION['cidadeUsuario'] = $result['cidadeVoluntario'];
+                $_SESSION['estadoUsuario'] = $result['estadoVoluntario'];
+                $_SESSION['compUsuario'] = $result['compVoluntario'];
+                $_SESSION['paisUsuario'] = $result['paisVoluntario'];
+        
+                // Redireciona para a página inicial do sistema
+                header('Location: ../area-voluntario/perfil-voluntario.php');
+                exit();
+            } 
+            else 
+            {
+                // Exibe mensagem de erro
+                echo "Login e/ou senha inválidos.";
+            }
+        
+        }
+        else if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cnpj")
+        {
+            $stmt=$conectar->prepare("SELECT codInstituicao,nomeInstituicao,emailInstituicao,logInstituicao,numLogInstituicao,cepInstituicao,bairroInstituicao,cidadeInstituicao,estadoInstituicao,compInstituicao,paisInstituicao FROM tbinstituicao WHERE cnpjInstituicao = ? AND senhaInstituicao = ?");
+            $stmt->bindValue(1, $login);
+            $stmt->bindValue(2, $senha);
+            $stmt->execute(); 
+
+            // Verifica se encontrou algum resultado
+            if ($stmt->rowCount() > 0) 
+            {
+                // Obtém o código do usuário/instituição
+                $result = $stmt->fetch();
+                $codUsuario = $result[0];
+        
+                // Armazena o código na sessão
+                $_SESSION['codUsuario'] = $codUsuario;
+                $_SESSION['nomeUsuario'] = $result['nomeInstituicao'];
+                $_SESSION['emailUsuario'] = $result['emailInstituicao'];
+                $_SESSION['logUsuario'] = $result['logInstituicao'];
+                $_SESSION['numLogUsuario'] = $result['numLogInstituicao'];
+                $_SESSION['cepUsuario'] = $result['cepInstituicao'];
+                $_SESSION['bairroUsuario'] = $result['bairroInstituicao'];
+                $_SESSION['cidadeUsuario'] = $result['cidadeInstituicao'];
+                $_SESSION['estadoUsuario'] = $result['estadoInstituicao'];
+                $_SESSION['compUsuario'] = $result['compInstituicao'];
+                $_SESSION['paisUsuario'] = $result['paisInstituicao'];
+        
+                // Redireciona para a página inicial do sistema
+                header('Location: ../area-instituicao/perfil-instituicao.php');
+                exit();
+
+            }
+            else
+            {
+                echo("Login e/ou senha inválidos.");
+            }
+        }
+    }     
+    //"SELECT nomeVoluntario,dataNascVoluntario, emailVoluntario,numFoneVoluntario,
+    //cidadeVoluntario, estadoVoluntario, paisVoluntario, TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS dataNascVoluntario FROM tbVoluntario 
+    //INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario
+    //WHERE emailVoluntario = '$user_vol'"
+?>
 
-
-// print_r($_REQUEST)
-
-$conectar=Conexao::conectar();
-
-
-
-    // Acessa
-    /* print_r('Email: ' . $email);
-     print_r('<br>');
-     print_r('Senha: ' . $senha);*/
-    $user_vol = $_POST['email'];
-    $_SESSION['user_vol'] = $user_vol;
-    $senha_vol =  $_POST['senha'];
-
-    $user_inst = $_POST['email'];
-    $_SESSION['user_inst'] = $user_inst;
-    $senha_inst =  $_POST['senha'];
-
-     $query_vol =$conectar->prepare("SELECT * FROM tbVoluntario WHERE emailVoluntario = :user_vol AND senhaVoluntario = :senha_vol");
-     
-     $query_vol->bindParam(':user_vol', $user_vol);
-     $query_vol->bindParam(':senha_vol', $senha_vol);
-     $query_vol->execute();
-
-     $query_inst =$conectar->prepare("SELECT * FROM tbInstituicao WHERE emailInstituicao = :user_inst AND senhaInstituicao = :senha_inst");
-
-     $query_inst->bindParam(':user_inst', $user_inst);
-     $query_inst->bindParam(':senha_inst', $senha_inst);
-     $query_inst->execute();
-     
-
-    //print_r($sql);
-    //print_r($result);
-
-    if ($query_vol->rowCount() > 0) {
-        header("Location: ../area-voluntario/perfil-voluntario.php");
-        exit();
-    } else if ($query_inst->rowCount() > 0) {
-        header("Location: ../area-instituicao/perfil-instituicao.php");
-        exit();
-    }else{
-        header("Refresh: 1; url=../form-login.php");
-        echo "<script language='javascript' type='text/javascript'>
-        alert('login e / ou senha incorretos');
-        </script>";
-        exit();
-    }
-
-    
-    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*if(isset($_POST['submit']) && empty(['email']) && empty(['password'])){
-
-    $email= $_POST['email'];
-    $senha= $_POST['password'];
-    /*print_r('Email: '. $email);
-    print_r('Senha: ' . $senha);
-    echo "oi";*/
-    /*$sql = "SELECT * FROM tbVoluntario WHERE emailVoluntario = $email AND senhaVoluntario = $senha";
-    $result = $conexao->query($sql);
-    print_r($result);*/
-
-//}
-/*
-else{
-    echo "oi";
-}*/
-
-
-
-
-
-
-//validação para o usuario só conseguir vim para essa pag pelo form
-
-/*
-
-if(isset($_POST['submit']) && empty(['email']) && empty(['password'])) {
-	header('Location: ../views/form-instituicao.html');
-	exit();
-}
-
- 
-$email = mysqli_real_escape_string($conexao, $_POST['email']);
-$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
- 
-$query = "SELECT * FROM tbVoluntario WHERE emailVoluntario = '{$email}' AND senhaVoluntario = md5('{$senha}')";
- 
-$result = mysqli_query($conexao, $query);
- 
-$row = mysqli_num_rows($result);
-if($row == 1) {
-	$_SESSION['email'] = $email;
-	header('Location: ../testeLogin.php');
-	exit();
-} else {
-	$_SESSION['nao_autenticado'] = true;
-	header('Location: index.php');
-	exit();
-}*/

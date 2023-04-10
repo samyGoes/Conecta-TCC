@@ -53,6 +53,7 @@ c1.addEventListener('keypress', () => {
         c1.value += '-';
     }
 })
+
  //marcara cep
 const c2 = document.querySelector('#cep')
 
@@ -100,39 +101,4 @@ c2.addEventListener('keypress', () => {
       }
   })
 
-  const cpfCnpjInput = document.querySelector('#login');
-
-    cpfCnpjInput.addEventListener('keypress', () => {
-        let value = cpfCnpjInput.value.replace(/\D/g, '');
-        let length = value.length;
-        let mask;
-
-    if (length <= 11) {
-        mask = '###.###.###-##';
-    } else {
-        mask = '##.###.###/####-##';
-    }
-
-    let maskedValue = '';
-    let j = 0;
-
-    for (let i = 0; i < mask.length; i++) {
-        if (mask.charAt(i) === '#') {
-            if (j < length) {
-                maskedValue += value.charAt(j);
-                j++;
-            } else {
-                break;
-            }
-        } else {
-            maskedValue += mask.charAt(i);
-        }
-    }
-
-    cpfCnpjInput.value = maskedValue;
-    })
-
-
   
-
- //XX.XXX.XXX/YYYY-ZZ

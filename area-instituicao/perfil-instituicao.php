@@ -1,12 +1,10 @@
-<?php include "verifica-logado.php";?>
+<?php include "../auth/verifica-logado.php";?>
+<?php
+    require_once 'global.php'; 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php
-include('../model/Conexao.php');
-require_once '../dao/global.php';
-session_start();
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,7 +61,7 @@ session_start();
                     <ul class="sub-topicos">
                         <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                         <li> <a href=""> Vagas </a> </li>
-                        <li> <a href="editar-perfil.php"> Configurações </a></li>
+                        <li> <a href="editarPerfil-instituicao.php"> Configurações </a></li>
                         <li> <a href="../auth/logout.php"> Sair </a></li>
                     </ul>
                 </li>
@@ -74,10 +72,6 @@ session_start();
     <!-- LINK NAVBAR RESPONSIVA OPEN SOURCE -->
     <!-- https://github.com/euronaldoreis/navbar-menu-responsive -->
 
-
-
-
-
     <!-- CONTEUDO PRINCIPAL -->
     <main>
         <div class="container">
@@ -86,27 +80,6 @@ session_start();
         </div>
 
         <section class="card-completo">
-
-
-            <?php
-            
-            $conectar = Conexao::conectar();
-
-            $info = $conectar->prepare("SELECT * FROM tbInstituicao");
-
-            if (isset($_SESSION['user_inst'])) { //verifica se a variável de sessão foi definida// 
-                $user_inst = $_SESSION['user_inst'];
-
-                $info = $conectar->query("SELECT nomeInstituicao, logInstituicao, numLogInstituicao, cepInstituicao,compInstituicao, bairroInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, emailInstituicao, numFoneInstituicao, cnpjInstituicao FROM tbinstituicao 
-            INNER JOIN tbFoneInstituicao
-                ON tbFoneInstituicao.codInstituicao = tbInstituicao.codInstituicao
-                                            WHERE emailInstituicao = '$user_inst'");
-            }
-
-            $result = $info->fetch(PDO::FETCH_ASSOC); // um array que vai percorrer por todos os nomes//
-
-            ?>
-
             <!-- DADOS DA INSTITUIÇÃO -->
             <div class="card">
                 <div class="titulo-card">
@@ -129,22 +102,11 @@ session_start();
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p> <?php //verifica se o fetch retorna alguma linha com os dados da consulta// 
-                            if ($result) {
-                                $nomeInstituicao = $result['nomeInstituicao'];
-                                $logradouroInstituicao = $result['logInstituicao'];
-                                $numeroInstituicao = $result['numLogInstituicao'];
-                                $cepInstituicao = $result['cepInstituicao'];
-                                $bairroInstituicao = $result['bairroInstituicao'];
-                                $cidadaInstituicao = $result['cidadeInstituicao'];
-                                $estadoInstituicao = $result['estadoInstituicao'];
-                                $paisInstituicao = $result['paisInstituicao'];
-                                $emailInstituicao = $result['emailInstituicao'];
-                                $numFoneInstituicao = $result['numFoneInstituicao'];
-                                echo ($nomeInstituicao);
-                            } else {
-                                echo "Instituição não encontrada.";
-                            } ?> </p>
+                        <p> 
+                            <?php 
+                                echo($_SESSION['nomeUsuario']);
+                             ?> 
+                        </p>
                     </div>
 
                     <div class="info">
@@ -155,9 +117,7 @@ session_start();
                             </div>
                             <p class="endereco">
                                 <?php
-
-                                echo ($logradouroInstituicao . ", " . $numeroInstituicao . " - " . $cidadaInstituicao . " " . $estadoInstituicao . " - " . $cepInstituicao . ", " . $bairroInstituicao . ", " . $paisInstituicao);
-
+                                echo ($_SESSION['logUsuario'] . ", " . $_SESSION['numLogUsuario'] . " - " . $_SESSION['cidadeUsuario'] . " " . $_SESSION['estadoUsuario'] . " - " . $_SESSION['cepUsuario'] . ", " . $_SESSION['bairroUsuario'] . ", " . $_SESSION['paisUsuario']);
                                 ?>
                             </p>
                         </div>
@@ -172,7 +132,7 @@ session_start();
                                     <p id="topico-email-fone">Email</p>
                                     <p>
                                         <?php
-                                        echo ($emailInstituicao);
+                                        echo ($_SESSION['emailUsuario']);
                                         ?>
                                     </p>
                                 </div>
@@ -182,12 +142,12 @@ session_start();
                                     <div class="telefones">
                                         <p>
                                             <?php
-                                            echo ($numFoneInstituicao);
+                                            
                                             ?>
                                         </p>
                                         <p>
                                             <?php
-                                            echo ($numFoneInstituicao);
+                                            
                                             ?>
                                         </p>
                                     </div>

@@ -1,9 +1,7 @@
-<?php include "verifica-logado.php";?>
-<?php
-
-include('../model/Conexao.php');
-require_once '../dao/global.php';
-
+<?php include "../auth/verifica-logado.php";?>
+<?php 
+    require_once 'global.php'; 
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -72,27 +70,7 @@ require_once '../dao/global.php';
 
         <section class="card-completo">
 
-            <?php
-            session_start();
-            $conectar = Conexao::conectar();
-            
-            $info = $conectar->prepare("SELECT * FROM tbVoluntario");
-
-            if(isset($_SESSION['user_vol'])){ //verifica se a variável de sessão foi definida// 
-              $user_vol = $_SESSION['user_vol'];
-
-            $info = $conectar->query("SELECT nomeVoluntario,dataNascVoluntario, emailVoluntario,numFoneVoluntario,
-                                             cidadeVoluntario, estadoVoluntario, paisVoluntario, TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS dataNascVoluntario FROM tbVoluntario 
-                                            INNER JOIN tbFoneVoluntario ON tbFoneVoluntario.codVoluntario = tbVoluntario.codVoluntario
-                                            WHERE emailVoluntario = '$user_vol'");
-            }                                
-                                               
-
-            $result = $info->fetch(PDO::FETCH_ASSOC); // um array que vai percorrer por todos os nomes//
-
-            ?>
-
-            <!-- DADOS DDO VOLUNTARIO -->
+            <!-- DADOS DO VOLUNTARIO -->
             <div class="card">
                 <div class="titulo-card">
                     <div class="icon-titulo-card">
@@ -115,30 +93,17 @@ require_once '../dao/global.php';
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <p>
-                            <?php //verifica se o fetch retorna alguma linha com os dados da consulta// 
-                            //$linha = mysqli_num_rows($result);
-                            if ($result) {
-                                $nomeVoluntario = $result['nomeVoluntario'];
-                                $dataNascVoluntario = $result['dataNascVoluntario'];
-                                $emailVoluntario = $result['emailVoluntario'];
-                                $numFoneVoluntario = $result['numFoneVoluntario'];
-                                $cidadeVoluntario = $result['cidadeVoluntario'];
-                                $estadoVoluntario = $result['estadoVoluntario'];
-                                $paisVoluntario = $result['paisVoluntario'];
-
-                                echo ($nomeVoluntario);
-                            } else {
-                                echo "Instituição não encontrada.";
-                            }
+                            <?php
+                                echo($_SESSION['nomeUsuario']);
                             ?>
                         </p>
                     </div>
 
                     <div class="dados-pessoais-2">
-                        <p class="dados">idade: <span><?php echo ($dataNascVoluntario." anos"); ?></span></p>
-                        <p class="dados">email: <span><?php echo ($emailVoluntario); ?></span></p>
-                        <p class="dados">telefone: <span><?php echo ($numFoneVoluntario); ?></span></p>
-                        <p class="dados">Localidade: <span><?php echo ($cidadeVoluntario . " - " . $estadoVoluntario . ", " . $paisVoluntario); ?></span></p>
+                        <p class="dados">idade: <span><?php ?></span></p>
+                        <p class="dados">email: <span><?php echo ($_SESSION['emailUsuario']); ?></span></p>
+                        <p class="dados">telefone: <span><?php ?></span></p>
+                        <p class="dados">Localidade: <span><?php echo ($_SESSION['cidadeUsuario'] . " - " . $_SESSION['estadoUsuario'] . ", " . $_SESSION['paisUsuario']); ?></span></p>
                     </div>
                 </div>
             </div>
