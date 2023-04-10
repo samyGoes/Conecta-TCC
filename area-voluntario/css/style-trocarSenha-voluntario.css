@@ -1,18 +1,18 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
-
 }
 body{
     width: 100vw;
     height: 100%;
-    object-fit: cover;
-}    
+}
 
 /*Header*/
 header {
@@ -50,7 +50,7 @@ main {
     margin: 1%;
     font-family: ACME;
     font-weight: 400;
-    color: #113173;
+    color: #cf8a3f;
     font-size: 16pt;
 }
 
@@ -83,7 +83,7 @@ main {
     display: flex;
     width: 100%;
     text-decoration: none;
-    color: #113173;
+    color: #cf8a3f;
 }
 
 .navigation-left ul li a .icon {
@@ -114,14 +114,15 @@ main {
     line-height: 60px;
     white-space: nowrap;
 }
+.div-card{
+    width: 100%;
+    height: 100%;
+    border-left: #113173 solid 1px;
+}
+
 .title-card{
     font-family: acme;
     margin: 5%;
-}
-
-.div-card{
-    width: 100%;
-    border-left: #113173 solid 1px;
 }
 
 .card {
@@ -185,7 +186,7 @@ main {
     padding: 0.2rem;
     border-radius: 0.3rem;
     margin-top: 30%;
-    background-color: #113173;
+    background-color: #cf8a3f;
     border: 1px solid #cf8a3f;
     transition: all 0.5s ease;
     color: #fff;
@@ -201,6 +202,9 @@ main {
     background-color: #fff;
     color: #cf8a3f;
 }
+
+
+
 
 /*Responsividade*/
 @media (max-width: 786px){

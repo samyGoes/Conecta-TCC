@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/estilo.css" text-type="text/css">
          <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title> Voluntários </title>
+        <title> Instituições </title>
     </head>
     <body>
 
@@ -52,10 +52,10 @@
 
         <!-- CONTEUDO  -->
         <div class="container-titulo">
-            <h1 class="titulo"> Voluntários </h1>
+            <h1 class="titulo"> Instituições </h1>
             <p class="frase"> 
-                Aqui você verá os perfis de todos os voluntários disponíveis. Você também pode 
-                filtrar para que encontre o voluntário ideal para você. Confira os filtros abaixo:
+                Aqui você verá os perfis de todos as instituições disponíveis. Você também pode 
+                filtrar para que encontre a instituição que procura. Confira os filtros abaixo:
             </p>
         </div>
 
@@ -110,8 +110,8 @@
                             <a href="../area-voluntario/perfil-voluntario.php">
                                 <div class="box-img"> <img src="img/user2.png"> </div> 
                             </a>    
-                            <a href="../area-voluntario/perfil-voluntario.php"><p> Sâmily Silva de Goes </p> </a> 
-                            <!-- <a href="../area-voluntario/perfil-voluntario.php"><p id="idade"> 12 anos </p> </a> -->
+                            <a href="../area-voluntario/perfil-voluntario.php"><p> ONG das Flores </p> </a> 
+                            <a href="../area-voluntario/perfil-voluntario.php"><p id="idade">  </p> </a>
                         </div>
                 
                         <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> joaoSilvas@gmail.com </p></div></a>
