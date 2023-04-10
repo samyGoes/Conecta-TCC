@@ -182,24 +182,11 @@ body::-webkit-scrollbar-thumb
 #nav-seta-sub-topicos
 {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
     margin-left: 0.5rem;
     position: absolute;
     color: #fff;
     /* background-color: #4567a5; */
-}
-.box-nav-img
-{
-    width: 70px;
-    height: 40px;
-    position: absolute;
-    opacity: 0;
-}
-.box-nav-img img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 
@@ -247,7 +234,15 @@ body
     color: #000;
 }
 
-.filtros
+
+
+
+
+
+
+
+/* FILTROS */
+.form-filtro
 {
     display: flex;
     gap: 1.5rem;
@@ -259,11 +254,12 @@ body
 {
     position: relative;
 }
-.filtro-causas
+.filtro-causas, #estados, #cidades
 {
     background-color: #fbf7c7;
     border: 1px solid #000000;
     width: 11rem;
+    height: 2.5rem;
     padding: 0.2rem;
     border-radius: 0.5rem;
 
@@ -272,8 +268,16 @@ body
     font-weight: 300;
     font-size: 20px;
     color: #000000;
+    text-transform: uppercase;
     transition: all 0.5s ease;
     cursor: pointer;
+}
+
+.filtro-causas
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .filtro-causas:hover
@@ -290,7 +294,7 @@ body
     background-color: #fff;
     border-radius: 0.5rem;
     min-width: 11rem;
-    max-height: 15rem;
+    max-height: 15.3rem;
     border: 1px solid #cf8a3f;
     padding: 1rem;
     gap: 0.8rem;
@@ -301,71 +305,122 @@ body
 }
 
 /* SCROLL */
-.box-causas::-webkit-scrollbar 
+.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
 {
     width: 11px;    
 }
 
-.box-causas::-webkit-scrollbar-track 
+.box-causas::-webkit-scrollbar-track
 {
     background: #f7ebdc;       
     border-radius: 0.8rem;  
 }
 
-.box-causas::-webkit-scrollbar-thumb 
+.box-causas::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
 {
     background-color: #cf8a3f;    
     border-radius: 20px;     
 }
 
+#estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
+{
+    background: #f7ebdc;       
+}
+
+/* ESTILIZANDO CHECKBOX */
+#causas[type = "checkbox"]
+{
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #525252;
+    outline: none;
+    cursor: pointer;
+}
+#causas[type = "checkbox"]:checked::before
+{
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #cf8a3f;   
+    text-align: center;
+   
+    line-height: 13px;
+    font-size: 13px;
+}
+
 .box-causas-checkbox
 {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
+
 .box-causas-checkbox label
 {
     font-family: poppins, sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #525252;
 }
 
-.form-selects
-{
-    display: flex;
-    gap: 1.5rem;
-}
-.box-select
-{
-    display: flex;
-    flex-direction: column;
-}
 
-.box-select label
+/* ESTILIZANDO SELECT */
+#estados, #cidades
 {
-    margin-bottom: 1rem;
-}
-
-
-.filtro-cidade
-{
-    font-family: bitter, serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000;
-}
-
-.select-cidade, .select-estados
-{
-    height: 2.5rem;
-    border: 1px solid #c59263;
-    padding: 0.1rem;
-    width: 12rem;
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* background: transparent;  */
+    border: none; 
+    outline: none; 
+    padding: 0; 
+    margin: 0; 
+    box-shadow: none;
+    
+    /* ESTILIZAÇÃO */
+    border: 1px solid #000; 
+    /* height: 2.5rem; */
+    /* width: 12rem; */
+    padding: 0rem 1rem 0rem 1rem;
     outline: none;
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 
+#estados:focus, #cidades:focus
+{
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
+    color: #fff;
+}
 
+#estados:hover, #cidades:hover
+{
+    border: 1px solid #cf8a3f;
+    background-color: #cf8a3f;
+    color: #fff;
+}
+
+.select-option
+{
+    background-color: #fff;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.select-option:hover
+{
+    background-color: #c59263 !important;
+}
 
 
 
@@ -381,6 +436,7 @@ body
     border-radius: 0.5rem;
     margin: 4rem;
     margin-bottom: 9rem;
+    width: 58rem;
 }
 
 
@@ -393,6 +449,7 @@ body
     gap: 3.5rem;
     padding: 1rem 2rem 1rem 2rem;
     transition: all 0.5s;
+    width: 100%;
 }
 
 .lista-voluntario-linha:hover
@@ -462,7 +519,8 @@ body
 
 
 /* FOORTER */
-footer {
+footer 
+{
     background-image: url(../img/rodape-2.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -470,7 +528,8 @@ footer {
     height: 100%;
 }
 
-.container-footer {
+.container-footer 
+{
     margin-top: 10%;
     display: flex;
     justify-content: center;
@@ -489,7 +548,8 @@ footer {
     margin-right: 0;
 }
 
-.footer-col h5 {
+.footer-col h5 
+{
     padding-bottom: 15%;
     font-family: Bitter, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 700;
@@ -507,20 +567,24 @@ footer {
     gap: 1.5rem;
 }
 
-/* .col {
-    float: left;
-    margin-right: 15%;
-} */
-
-.footer-col ul li {
+.footer-col ul li 
+{
     font-family: Bitter, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     color: #ffffff;
     font-size: 16px;
     padding-bottom: 3%;
+    transition: all 0.5s ease;
 }
 
-.medias-sociais {
+.footer-col a li:hover
+{
+    color: #f0a376;
+}
+
+/* ESTILIZANDO ICONES */
+.midias-sociais 
+{
     margin-top: 4%;
     margin-bottom: 1.7%;
     display: flex;
@@ -529,9 +593,65 @@ footer {
     gap: 10px;
 }
 
-.medias-sociais a img {
+.box-icon
+{
+    text-align: center;
+    background-color: #fff;
+    height: 40px;
     width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s ease;
+    border: 1px solid #232e61;
 }
+
+.box-icon i
+{
+    margin-top: 6px;
+    font-size: 25px;
+    color: #232e61;
+    transition: all 0.5s ease;
+}
+
+.box-icon:hover > i
+{   
+    color: #fff;
+}
+
+.box-icon:hover
+{
+    background-color: #232e61;
+    border: 1px solid #fff;
+}
+
+.box-icon-git
+{
+    border-radius: 50%;
+    background-color: #232e61;
+    border: 1px solid #232e61;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.box-icon-git:hover
+{
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.box-icon-git:hover > #icon-git
+{
+    color: #232e61;
+}
+
+#icon-git
+{
+    font-size: 40px;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+
 
 
 
@@ -549,11 +669,11 @@ footer {
         grid-template-columns: 1fr 3fr;
     }
 }
-@media (max-width: 1157px)
+@media (max-width: 1120px)
 {
     .cabecalho
     {
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 3.5fr;
     }
 }
 @media (max-width: 1034px)
@@ -563,7 +683,7 @@ footer {
         gap: 2rem;
     }
 }
-@media (max-width: 925px)
+@media (max-width: 1066px)
 {
     .cabecalho
     {
@@ -576,6 +696,7 @@ footer {
         justify-self: end;
         margin-top: 2.5rem;
 	}
+
 	.topicos-sessao-completa
     {
         display: flex;
@@ -623,16 +744,6 @@ footer {
     {
         display: block;
     }
-    .box-nav-img
-    {
-        transition: all 0.5s ease;
-        position: absolute;
-        right: 0rem;
-    }
-    .topicos-sessao-completa li:hover .box-nav-img
-    {
-        opacity: 1;
-    }
     .topicos-sessao-login
     {
         flex-direction: column;
@@ -673,8 +784,8 @@ footer {
     }
     #nav-seta-sub-topicos
     {
-        margin-left: 5rem;
-        margin-top: 0.7rem;
+        margin-left: 4.8rem;
+        margin-top: 0.9rem;
         color: #232f61;
     }
     .cabecalho-menu-item i, .topicos li i 
@@ -705,21 +816,62 @@ footer {
     {
         width: 100%;
     }
+    .topicos li, .topicos-sessao-login-linha
+    {
+        justify-content: center;
+        padding-left: 0rem;
+    }
+    .logo p
+    {
+        margin-left: 2rem;
+    }
+    .checkbtn
+    {
+        margin-right: 30px;
+    }
+    .sub-topicos 
+    {
+        align-items: center;
+        left: 2rem;
+        width: 100%;
+    }
+    #nav-seta-sub-topicos
+    {
+        margin-left: 5.8rem;
+    }
 } 
-@media (max-width: 300px)
+
+@media(max-width: 444px)
 {
     .cabecalho
     {
         grid-template-rows: 2.5rem 2.5rem;
     }
-    .logo p
+    .checkbtn
     {
-        font-size: 40px;
+        font-size: 20px;
     }
+    .container-titulo
+    {
+        margin-top: 7.5rem;
+    }
+    .topicos-sessao-completa
+    {
+        top: 5rem;
+    }
+}
+
+@media (max-width: 300px)
+{
     .topicos li a, .topicos-sessao-login li a
     {
         font-size: 13px;
     }
+    .topicos li i, .topicos-sessao-login li i
+    {
+        font-size: 17px;
+    }
+
 }
 
 
@@ -730,66 +882,6 @@ footer {
 
 
 /* CONTEUDO */
-@media(max-width: 982px)
-{
-    .container-titulo 
-    {
-        max-width: 80%;
-    }
-    .container-titulo .titulo
-    {
-        font-size: 33px;
-    }
-    .container-titulo .frase
-    {
-        font-size: 14px;
-    }
-    .filtros label
-    {
-        font-size: 14px;
-    }
-    .select-cidade, .select-estados
-    {
-        height: 2rem;
-        
-    }
-    .filtros .filtro-causas
-    {
-        height: 2rem;
-        font-size: 18px;
-    }
-    .box-select label
-    {
-        margin-bottom: 0.6rem;
-    }
-}
-
-@media(max-width: 714px)
-{
-    .filtros
-    {
-        flex-direction: column;
-    }
-    .form-selects
-    {
-        flex-direction: column;
-    }
-    
-}
-
-@media(max-width: 486px)
-{
-    .estado-pais
-    {
-        display: none;
-    }
-    .box-img
-    {
-        width: 55px;
-        height: 55px;
-    }
-}
-
 @media(max-width: 990px)
 {
     .lista-voluntario
@@ -811,19 +903,139 @@ footer {
     }
 }
 
-@media(max-width: 852px)
+@media(max-width: 982px)
+{
+    /* TÍTULO E FRASE */
+    .container-titulo 
+    {
+        max-width: 85%;
+    }
+    .container-titulo .titulo
+    {
+        font-size: 33px;
+    }
+    .container-titulo .frase
+    {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 835px)
+{
+    .lista-voluntario-linha
+    {
+        gap: 1.5rem;
+    }
+}
+
+@media(max-width: 818px)
 {
     #email
     {
         display: none;
     }
+    #idade
+    {
+        margin-left: 4rem;
+    }
 }
 
-@media(max-width: 595px)
+@media(max-width: 714px)
+{
+    .filtros
+    {
+        flex-direction: column;
+    }
+    .form-selects
+    {
+        flex-direction: column;
+    }
+    
+}
+
+@media(max-width: 695px)
+{
+    .container-titulo .frase
+    {
+        text-align: justify;
+    }
+}
+
+@media(max-width: 668px)
+{
+    .form-filtro
+    {
+        flex-direction: column;
+    }
+
+    .lista-voluntario
+    {
+        margin: 2.7rem 0rem 8rem 0rem;
+    }
+}
+
+@media(max-width: 600px)
+{
+    .lista-voluntario-linha
+    {
+        gap: 1rem;
+    }
+    #idade
+    {
+        margin-left: 2rem;
+    }
+}
+
+@media(max-width:556px)
 {
     #idade
     {
         display: none;
+    }
+    .filtro-causas, #estados, #cidades
+    {
+        font-size: 17px;
+        width: 10rem;
+        height: 2.3rem;
+    }
+    .box-causas
+    {
+        min-width: 10rem;
+    }
+}
+
+@media(max-width: 461px)
+{
+    .estado-pais
+    {
+        display: none;
+    }
+    .box-img
+    {
+        width: 55px;
+        height: 55px;
+    }
+    .lista-voluntario-linha
+    {
+        gap: 0rem;
+        padding: 1rem;
+    }
+    .lista-voluntario-linha p
+    {
+        font-size: 14px;
+    }
+    .lista-item-1
+    {
+        gap: 0.3rem;
+    }
+}
+
+@media(max-width: 340px)
+{
+    .box-img
+    {
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -855,10 +1067,6 @@ footer {
 
 @media (max-width: 1180px)
 {
-    footer
-    {
-        background-position: center;
-    }
     .container-footer
     {
         justify-content: space-around;
@@ -890,9 +1098,17 @@ footer {
     {
         margin-bottom: 10%;
     }
-    .medias-sociais
+    .midias-sociais
     {
         margin-top: 6%;
+    }
+}
+
+@media(max-width: 940px)
+{
+    footer
+    {
+        background-position: center;
     }
 }
 
@@ -910,7 +1126,7 @@ footer {
     {
         font-size: 14px;
     }
-    .medias-sociais
+    .midias-sociais
     {
         margin-top: 9%;
     }
@@ -926,9 +1142,19 @@ footer {
     {
         font-size: 12px;
     }
-    .medias-sociais a img
+    .box-icon i
+    {
+        font-size: 21px;
+        margin-top: 6px;
+    }
+    #icon-git
+    {
+        font-size: 35px;
+    }
+    .box-icon
     {
         width: 35px;
+        height: 35px;
     }
 } 
 
@@ -959,15 +1185,10 @@ footer {
     {
         margin-bottom: 10%;
     }
-    .medias-sociais
+    .midias-sociais
     {
         margin-top: 0;
-        margin-bottom: 3%;
-    }
-
-    .medias-sociais a img
-    {
-        width: 33px;
+        margin-bottom: 4%;
     }
 }
 
@@ -1004,9 +1225,20 @@ footer {
     {
         font-size: 10px;
     }
-    .medias-sociais a img
+    
+    .box-icon i
     {
-        width: 30px;
+        font-size: 19px;
+        margin-top: 5px;
+    }
+    #icon-git
+    {
+        font-size: 32px;
+    }
+    .box-icon
+    {
+        width: 32px;
+        height: 32px;
     }
 }
 
