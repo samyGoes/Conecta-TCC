@@ -41,9 +41,9 @@ header {
 
 main {
     display: flex;
-    border: solid 1px #113173;
+    border-top: solid 1px #113173;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
 }
 
 .title {

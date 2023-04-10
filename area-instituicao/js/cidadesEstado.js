@@ -13,3 +13,15 @@ uf.addEventListener('change', async function(){
     })
     cidade.innerHTML = options
 })
+
+window.addEventListener('load', async () => {
+    const request = await fetch(ulrUF)
+    const response = await request.json()
+
+    const options = document.createElement('optgroup')
+    response.forEach(function (uf) {
+        options.innerHTML += '<option>' + uf.sigla + '</option>'
+    })
+
+    uf.append(options)
+})
