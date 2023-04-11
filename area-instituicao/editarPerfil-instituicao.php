@@ -93,7 +93,7 @@
         </nav>
 
         <div class="form">
-            <form class="container" action="cadastra-produto.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="editarPerfil-instituicao.php" method="post" enctype="multipart/form-data">
                 <div class="form-header">
                     <div class="form-title">
                         <h2>EDITAR PERFIL</h2>
@@ -116,11 +116,11 @@
                     <div class="input-box">
                         <div>
                             <label for="">Telefone (Fixo)</label>
-                            <input type="tel" name="telefone" id="telefone" placeholder="(xx)xxxx-xxxx" value="<?php echo $_SESSION['numFoneUsuario1']; ?>"  />
+                            <input type="tel" name="telefone1" id="telefone" placeholder="(xx)xxxx-xxxx" value="<?php echo $_SESSION['numFoneUsuario1']; ?>"  />
                         </div>
                         <div>
                             <label for="">Telefone (Cel)</label>
-                            <input type="tel" name="telefone-2" id="telefone-2" placeholder="(xx)xxxxx-xxxx" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
+                            <input type="tel" name="telefone2" id="telefone-2" placeholder="(xx)xxxxx-xxxx" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
                         </div>
                     </div>
 
@@ -131,7 +131,7 @@
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="número" id="num" placeholder="Digite o n°"  value="<?php echo $_SESSION['numLogUsuario']; ?>"  />
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"  value="<?php echo $_SESSION['numLogUsuario']; ?>"  />
                         </div>
                         <div>
                             <label for=" ">CEP</label>
@@ -171,7 +171,7 @@
                         </div>
                         <div>
                             <label for="">País</label>
-                            <select name="Pais" id="pais">
+                            <select name="pais" id="pais">
                                 <option disabled>Selecione seu país</option>
                                 <option value="Brasil"<?php if($_SESSION['paisUsuario'] == 'Brasil') echo 'selected'; ?>>Brasil</option>
                                 <option value="Japão"<?php if($_SESSION['paisUsuario'] == 'Japão') echo 'selected'; ?>>Japão</option>
@@ -188,7 +188,7 @@
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="" id="desc" cols="83" rows="10" width="570px" height="90px" placeholder="Digite sua descriçao" value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
+                            <textarea name="desc" id="desc" cols="83" rows="10" width="570px" height="90px" placeholder="Digite sua descriçao" value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
                         </div>
                         <div>
                             <img src="img/user.png" id="img" width="100px" height="100px" alt="">

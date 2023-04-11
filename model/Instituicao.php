@@ -18,6 +18,7 @@
         private $compInstituicao;
         private $paisInstituicao;
         private $estadoInstituicao;
+        private $descInstituicao;
 
         //Getters
         public function getIdInstituicao(){
@@ -68,6 +69,9 @@
         public function getEstadoInstituicao(){
             return $this->estadoInstituicao;
         }
+        public function getDescInstituicao(){
+            return $this->descInstituicao;
+        }
 
         //Setters
         public function setIdInstituicao($idInstituicao){
@@ -117,6 +121,9 @@
         }
         public function setEstadoInstituicao($estadoInstituicao){
             $this->estadoInstituicao=$estadoInstituicao;
+        }
+        public function setDescInstituicao($descInstituicao){
+            $this->descInstituicao=$descInstituicao;
         }
     }
 ?>

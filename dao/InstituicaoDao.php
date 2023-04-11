@@ -83,16 +83,18 @@
             } 
             
         }
-        //public static function editar($instituicao)
-        //{
-            //$conectar=Conexao::conectar();
 
-            //$stmt=$conectar->prepare("UPDATE ")
-            //VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+        public static function editar($instituicao)
+        {
+            $conectar=Conexao::conectar();
 
+            $stmt = $conectar->prepare("UPDATE tbinstituicao SET nomeInstituicao = ?, emailInstituicao = ? WHERE codInstituicao = ?");
 
-        
+            $stmt->bindValue(1, $instituicao->getNomeInstituicao());
+            $stmt->bindValue(2, $instituicao->getEmailInstituicao());
+            $stmt->bindValue(3, $instituicao->getCodInstituicao());
+            $stmt->execute();
 
-       // }
+        }
     }
 ?>
