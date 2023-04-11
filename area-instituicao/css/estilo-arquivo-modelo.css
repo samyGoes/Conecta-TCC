@@ -349,6 +349,125 @@
 }
 
 
+.form{
+    width: 80%;
+    height: auto;
+    font-family: Poppins, sans-serif;
+}
+.container{
+    margin-left: 7%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+}
+.input-box{
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5%;
+}
+.input-box label{
+    display: flex;
+    color: #525252;
+}
+
+.input-box input {
+    outline: none;
+    padding: 8px;
+    border: solid 1px #113173;
+}
+
+.input-box select {
+    outline: none;
+    padding: 8px;
+    width: 15vw;
+    border: solid 1px #113173;
+}
+.input-box div .div-image {
+    width: 19vw;
+    background-color: #232e61;
+    border: solid 1px #113173;
+    display: flex;
+    justify-content: center;
+}
+.input-box .div-image img{
+    width: 115px;
+    height: 115px;
+}
+.input-box textarea{
+    outline: none;
+    border: #113173 solid 1px;
+    resize: none;
+}
+
+.input-box input,textarea::placeholder{
+    font-size: 0.rem;
+    font-family: Poppins, sans-serif;
+
+    color: #525252;
+}
+
+#nome, #email, #telefone, #telefone-2, #log {
+    width: 30vw;
+}
+#num{
+    width: 8vw;
+}
+#bairro, #cep, #cidade, #pais, #comp, #uf, #foto {
+    width: 19vw;
+}
+#foto{
+    
+}
+
+#desc{
+    width: 503px; 
+    height: 87px;
+    overflow-y: scroll 2px;
+    padding: 5px;
+    /* height="87px" width="503px"*/
+}
+
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.continue-button button {
+    background-color: #113173;
+    border: 1px solid #113173;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14pt;
+    font-family: poppins, sans-serif;
+    padding: 3px;    
+    border: solid 1px #113173;
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+}
+
+.continue-button button a{
+    text-decoration-line: none;
+    color: #fff;
+}
+.continue-button button a:hover{
+    color: #113173;
+}
+
 
 
 
@@ -556,6 +675,7 @@
     {
         top: 5rem;
     }
+    
 }
 
 @media (max-width: 300px)
