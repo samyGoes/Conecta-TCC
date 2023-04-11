@@ -133,7 +133,7 @@
         <!-- <div class="uau"></div> -->
         <div class="main-conteudo-container-titulo">
             <h1>EDITAR PERFIL</h1>
-            <p>Digite as novas informações que deseka inserir</p>
+            <p>Digite as novas informações que deseja inserir</p>
         </div>
 
         <div class="form">
