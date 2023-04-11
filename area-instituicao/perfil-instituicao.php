@@ -1,7 +1,6 @@
 <?php include "../auth/verifica-logado.php";?>
 <?php
     require_once 'global.php'; 
-    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -142,7 +141,7 @@
                                     <div class="telefones">
                                         <p>
                                             <?php
-                                            
+                                                echo($_SESSION['numFoneUsuario1'])
                                             ?>
                                         </p>
                                         <p>
@@ -173,12 +172,7 @@
                     </div>
                     <div class="ocultar-sessao-desc">
                         <div class="texto">
-                            <p>Olá, meu nome é João, sou de Recife, Pernambuco. Sou estudante de Engenharia Elétrica e
-                                trabalho part-time como programador. Minhas principais habilidades são programação, lógica
-                                de programação, eletrônica, matemática, física e robótica. Adoro aventuras, fazer trilhas e
-                                curtir a natureza. Além disso, sou bastante curioso, sempre querendo aprender coisas novas.
-                                Gosto de ler sobre diversos assuntos e adoro ouvir música. Acredito que o conhecimento é
-                                algo que nos leva cada vez mais longe, por isso sempre procuro me aprimorar.</p>
+                            <p><?php echo($_SESSION['descUsuario']) ?></p>
                         </div>
                     </div>
                 </div>

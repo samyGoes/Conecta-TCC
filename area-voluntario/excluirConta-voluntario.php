@@ -1,3 +1,4 @@
+<?php include "../auth/verifica-logado.php";?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

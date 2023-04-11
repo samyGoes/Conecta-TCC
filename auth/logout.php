@@ -3,8 +3,6 @@
     header("location: ../form-login.php");
 
     session_start();
-    unset($_SESSION['user_vol']);
-    unset($_SESSION['user_inst']);
     session_destroy();
 
 ?>
