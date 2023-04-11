@@ -92,7 +92,7 @@
 
             $stmt->bindValue(1, $instituicao->getNomeInstituicao());
             $stmt->bindValue(2, $instituicao->getEmailInstituicao());
-            $stmt->bindValue(3, $instituicao->getCodInstituicao());
+            $stmt->bindValue(3, $instituicao->getIdInstituicao());
             $stmt->execute();
 
         }
