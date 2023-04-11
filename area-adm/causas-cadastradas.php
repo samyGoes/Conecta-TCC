@@ -62,7 +62,7 @@
                     <tr>
                         <th> </th>
                         <th> ID </th>
-                        <th>Nome</th>
+                        <th>Causas</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,16 +78,7 @@
                         <?php foreach ($listaInstituicao as $instituicao) { ?>
                             <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                             <td> <?php echo $instituicao['codInstituicao']; ?> </td>
-                            <td>
-                                <div class="box-img-lista">
-                                    <img src="img/user-cinza.png" alt="">
-                                </div>
-                            </td>
                             <td><?php echo $instituicao['nomeInstituicao']; ?></td>
-                            <td> <?php echo $instituicao['emailInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['cidadeInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['estadoInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['paisInstituicao']; ?> </td>
                     </tr>
                 <?php
                         }

@@ -40,7 +40,7 @@
         <main>
 
 
-            <h1>Voluntarios Cadastrados</h1>
+            <h1> Voluntários Cadastrados</h1>
 
 
             <div class="table-responsive">
