@@ -40,7 +40,7 @@
             $stmt3->execute();
             return 'Cadastrou';
         }
-
+        
         public static function listar(){
             $conexao = Conexao :: conectar();
             $querySelect = "SELECT codVoluntario, nomeVoluntario, emailVoluntario FROM tbVoluntario";
