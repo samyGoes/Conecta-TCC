@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/estilo-vagas-cadastradas.css">
+    <link rel="stylesheet" href="css/estilo-habilidades-cadastradas.css">
     <title>ADM</title>
 </head>
 
@@ -40,7 +40,7 @@
     <main>
 
 
-        <h1>Vagas Cadastradas</h1>
+        <h1>Habilidades Cadastrados</h1>
 
 
         <div class="table-responsive">
@@ -62,14 +62,7 @@
                     <tr>
                         <th> </th>
                         <th> ID </th>
-                        <th> Nome </th>
-                        <th>Período</th>
-                        <th>Horário</th>
-                        <th>Causa</th>
-                        <th>Instituição</th>
-                        <th>Cidadade</th>
-                        <th>UF</th>
-                        <th>País</th>
+                        <th>Habilidades</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,15 +78,7 @@
                         <?php foreach ($listaInstituicao as $instituicao) { ?>
                             <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                             <td> <?php echo $instituicao['codInstituicao']; ?> </td>
-                            <td>aaaaaaa</td>
-                            <td> aaaaa</td>
-                            <td>aaaa</td>
                             <td><?php echo $instituicao['nomeInstituicao']; ?></td>
-                            <td> <?php echo $instituicao['emailInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['cidadeInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['estadoInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['paisInstituicao']; ?> </td>
-                            
                     </tr>
                 <?php
                         }

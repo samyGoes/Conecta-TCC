@@ -149,7 +149,7 @@ header {
 /* TABELA */
 .table-responsive {
     margin-top: 10%;
-    max-width: 856px;
+    max-width: 885px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #6bb269;
@@ -271,52 +271,60 @@ thead tr {
 /* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
 th:nth-child(1),
 td:nth-child(1) {
-    width: 57px;
+    min-width: 57px;
     border-left: none !important;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-    width: 57px;
+    min-width: 57px;
 }
 
 th:nth-child(3) {
-    width: 70px;
+    min-width: 70px;
 }
 
 td:nth-child(3) {
     /* display: flex;
     justify-content: center; */
     padding-left: 9px;
-    width: 70px;
+    min-width: 70px;
 }
 
 th:nth-child(4),
 td:nth-child(4) {
-    width: 150px;
+    min-width: 162px;
+    padding: 0rem 1rem 0rem 1rem;
 }
 
 th:nth-child(5),
 td:nth-child(5) {
-    width: 230px;
+    min-width: 200px;
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+th:nth-child(5)
+{
+    min-width: 229px;
 }
 
 th:nth-child(6),
 td:nth-child(6) {
-    width: 230px;
+    min-width: 140px;
+    padding: 0rem 1rem 0rem 1rem;
 }
 
 th:nth-child(7),
 td:nth-child(7) {
-    width: 57px;
+    min-width: 60px;
 }
 
 th:nth-child(8) {
-    width: 102px;
+    min-width: 108px;
 }
 
 td:nth-child(8) {
-    width: 90px;
+    min-width: 96px;
 }
 
 th {
