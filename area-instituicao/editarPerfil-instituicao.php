@@ -1,3 +1,7 @@
+<?php 
+     require_once 'global.php'; 
+     session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <meta charset="UTF-8" />
@@ -101,11 +105,11 @@
                     <div class="input-box">
                         <div>
                             <label for="">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" />
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Digite seu email" />
+                            <input type="email" name="email" id="email" placeholder="Digite seu email" value="<?php echo $_SESSION['emailUsuario']; ?>" />
                         </div>
                     </div>
 
@@ -123,33 +127,39 @@
                     <div class="input-box">
                         <div>
                             <label for="">Logradouro</label>
-                            <input type="text" name="log" id="log" placeholder="Digite sua rua, avenida" />
+                            <input type="text" name="log" id="log" placeholder="Digite sua rua, avenida" value="<?php echo $_SESSION['logUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="número" id="num" placeholder="Digite o n°" />
+                            <input type="text" name="número" id="num" placeholder="Digite o n°"  value="<?php echo $_SESSION['numLogUsuario']; ?>"  />
                         </div>
                         <div>
                             <label for=" ">CEP</label>
-                            <input type="text " name="cep" id="cep" placeholder="Digite seu CEP" />
+                            <input type="text " name="cep" id="cep" placeholder="Digite seu CEP" value="<?php echo $_SESSION['cepUsuario']; ?>"  />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro" />
+                            <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro" value="<?php echo $_SESSION['bairroUsuario']; ?>"  />
                         </div>
                         <div>
                             <label for="cidade">Cidade</label>
                             <select name="cidade" id="cidade">
                                 <option disabled value="">Selecione sua cidade</option>
+                                <option value="São Paulo"<?php if($_SESSION['cidadeUsuario'] == 'São Paulo') echo 'selected'; ?>>São Paulo</option>
+                                <option value="Rio de Janeiro"<?php if($_SESSION['cidadeUsuario'] == 'Rio de Janeiro') echo 'selected'; ?>>Rio de Janeiro</option>
+                                <option value="Belo Horizonte"<?php if($_SESSION['cidadeUsuario'] == 'Belo Horizonte') echo 'selected'; ?>>Belo Horizonte</option>
                             </select>
                         </div>
                         <div>
                             <label for="uf">Estado</label>
                             <select name="uf" id="uf">
                                 <option disabled value="">Selecione seu estado</option>
+                                <option value="São Paulo"<?php if($_SESSION['cidadeUsuario'] == 'São Paulo') echo 'selected'; ?>>São Paulo</option>
+                                <option value="Rio de Janeiro"<?php if($_SESSION['cidadeUsuario'] == 'Rio de Janeiro') echo 'selected'; ?>>Rio de Janeiro</option>
+                                <option value="Belo Horizonte"<?php if($_SESSION['cidadeUsuario'] == 'Belo Horizonte') echo 'selected'; ?>>Belo Horizonte</option>
                             </select>
                         </div>
                     </div>
@@ -157,12 +167,15 @@
                     <div class="input-box">
                         <div>
                             <label for=" ">Complemento</label>
-                            <input type="text" name="complemento" id="comp" placeholder="Digite seu complemento" />
+                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['compUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">País</label>
                             <select name="Pais" id="pais">
                                 <option disabled>Selecione seu país</option>
+                                <option value="São Paulo"<?php if($_SESSION['cidadeUsuario'] == 'São Paulo') echo 'selected'; ?>>São Paulo</option>
+                                <option value="Rio de Janeiro"<?php if($_SESSION['cidadeUsuario'] == 'Rio de Janeiro') echo 'selected'; ?>>Rio de Janeiro</option>
+                                <option value="Belo Horizonte"<?php if($_SESSION['cidadeUsuario'] == 'Belo Horizonte') echo 'selected'; ?>>Belo Horizonte</option>
                             </select>
                         </div>
                         <div>

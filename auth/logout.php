@@ -1,6 +1,6 @@
 <?php
 
-    header("location: ../form-login-adm.php");
+    header("location: ../form-login.php");
 
     session_start();
     unset($_SESSION['user_vol']);
