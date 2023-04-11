@@ -93,7 +93,7 @@
         </nav>
 <!--
         <div class="form">
-            <form class="container" action="editarPerfil-instituicao.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
                 <div class="form-header">
                     <div class="form-title">
                         <h2>EDITAR PERFIL</h2>
