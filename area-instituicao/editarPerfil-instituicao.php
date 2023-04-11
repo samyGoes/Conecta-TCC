@@ -91,7 +91,7 @@
                 </li>
             </ul>
         </nav>
-<!--
+
         <div class="form">
             <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
                 <div class="form-header">
@@ -201,7 +201,7 @@
                 </div>
             </form>
         </div>
--->
+
     </main>
 
     <script src="js/menu-toggle.js"></script>
