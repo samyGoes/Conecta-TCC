@@ -84,14 +84,13 @@
                 </div>
             </div>
             
-            <!-- ESTADOS E CIDADES -->
+            <!-- SELECT ESTADOS E CIDADES -->
             <select class="select-estados" name="estados" id="estados">
-                <option selected disabled> estados </option>
-                <option class="select-option"></option>
+                <option selected disabled> Selecione o estado... </option>
             </select>
     
             <select class="select-cidade" name="cidades" id="cidades">
-                <option selected disabled> cidades </option>
+                <option selected disabled> Selecione a cidade... </option>
             </select>
         </form>           
 
@@ -110,11 +109,10 @@
                             <a href="../area-voluntario/perfil-voluntario.php">
                                 <div class="box-img"> <img src="img/user2.png"> </div> 
                             </a>    
-                            <a href="../area-voluntario/perfil-voluntario.php"><p> Sâmily Silva de Goes </p> </a> 
-                            <!-- <a href="../area-voluntario/perfil-voluntario.php"><p id="idade"> 12 anos </p> </a> -->
+                            <a href="../area-voluntario/perfil-voluntario.php"><p> Sâmily Sliva de Goes </p> </a> 
                         </div>
                 
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> joaoSilvas@gmail.com </p></div></a>
+                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> samygoes@gmail.com </p></div></a>
                         <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div></a>        
                     </div>                 
             <?php
@@ -182,17 +180,15 @@
                 <div class="box-icon-git">
                     <i class="fa-brands fa-github" id="icon-git"></i>
                 </div>
-                    
-                
-                <!-- <a href=""><img src="img/youtube.png" alt=""></a>
-                <a href=""><img src="img/instagram.png" alt=""></a>
-                <a href=""><img src="img/twitter.png" alt=""></a>
-                <a href=""><img src="img/github.png" alt=""></a> -->
             </div>
         </footer>
 
 
 
+
+
+        <!-- CRÉDITOS -->
+        <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
         <!-- SCRIPTS -->
         <script src="js/script.js"></script>

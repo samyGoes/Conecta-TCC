@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css" text-type="text/css">
          <!-- LINK ICONES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title> Instituições </title>
     </head>
     <body>
@@ -25,8 +25,8 @@
             <ul class="topicos-sessao-completa">   
                 <ul class="topicos">
                     <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                     <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                     <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
                     <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>  
@@ -54,8 +54,8 @@
         <div class="container-titulo">
             <h1 class="titulo"> Instituições </h1>
             <p class="frase"> 
-                Aqui você verá os perfis de todos as instituições disponíveis. Você também pode 
-                filtrar para que encontre a instituição que procura. Confira os filtros abaixo:
+                Aqui você verá os perfis de todas as instituições disponíveis. Você também pode 
+                filtrar para que encontre a instituição que deseja. Confira os filtros abaixo:
             </p>
         </div>
 
@@ -84,14 +84,13 @@
                 </div>
             </div>
             
-            <!-- ESTADOS E CIDADES -->
+            <!-- SELECT ESTADOS E CIDADES -->
             <select class="select-estados" name="estados" id="estados">
-                <option selected disabled> estados </option>
-                <option class="select-option"></option>
+                <option selected disabled> Selecione o estado... </option>
             </select>
     
             <select class="select-cidade" name="cidades" id="cidades">
-                <option selected disabled> cidades </option>
+                <option selected disabled> Selecione a cidade... </option>
             </select>
         </form>           
 
@@ -99,7 +98,7 @@
 
      
 
-        <!-- LISTA DE VOLUNTÁRIOS CADASTRADOS -->
+        <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
         <div class="lista-voluntario">
             <?php 
                 for($i = 1; $i <= 5; $i++)
@@ -110,11 +109,10 @@
                             <a href="../area-voluntario/perfil-voluntario.php">
                                 <div class="box-img"> <img src="img/user2.png"> </div> 
                             </a>    
-                            <a href="../area-voluntario/perfil-voluntario.php"><p> ONG das Flores </p> </a> 
-                            <a href="../area-voluntario/perfil-voluntario.php"><p id="idade">  </p> </a>
+                            <a href="../area-voluntario/perfil-voluntario.php"><p> ONG Flor do Norte </p> </a> 
                         </div>
                 
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> joaoSilvas@gmail.com </p></div></a>
+                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> florNorte@gmail.com </p></div></a>
                         <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div></a>        
                     </div>                 
             <?php
@@ -182,17 +180,15 @@
                 <div class="box-icon-git">
                     <i class="fa-brands fa-github" id="icon-git"></i>
                 </div>
-                    
-                
-                <!-- <a href=""><img src="img/youtube.png" alt=""></a>
-                <a href=""><img src="img/instagram.png" alt=""></a>
-                <a href=""><img src="img/twitter.png" alt=""></a>
-                <a href=""><img src="img/github.png" alt=""></a> -->
             </div>
         </footer>
 
 
 
+
+
+        <!-- CRÉDITOS -->
+        <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
         <!-- SCRIPTS -->
         <script src="js/script.js"></script>
