@@ -1,12 +1,18 @@
 <?php
     require_once 'global.php';
-
+    //classe usada para a comunicação com o banco de dados
     class VoluntarioDao{
 
+        //função de consulta caso o cpf e/ou email enviados pelo formulário já existem no banco de dados
+        public static function consultarExistencia($cpf,$email)
+        {
+
+
+        }
+
+        //função de cadastro do voluntário no banco de dados
         public static function cadastrar($voluntario){
             $conexao = Conexao :: conectar();
-
-            /* $queryInsert = */ 
             
             echo($voluntario->getDataNascVoluntario());
 
