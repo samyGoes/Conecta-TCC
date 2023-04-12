@@ -1,4 +1,7 @@
-
+<?php include "../auth/verifica-logado.php";?>
+<?php 
+     require_once 'global.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
