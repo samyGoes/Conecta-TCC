@@ -1,3 +1,7 @@
+<?php include "../auth/verifica-logado.php";?>
+<?php 
+     require_once 'global.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -254,8 +258,8 @@
                             <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"
                                 value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
                         </div>
-                        <div>
-                            <div class="div-image">
+                        <div class="div-image">
+                            <div class="image">
                                 <img src="../area-instituicao/img/userInstituicao.png" id="img" alt="user-instituição">
                             </div>
                         </div>
