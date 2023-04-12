@@ -1,7 +1,7 @@
 <?php
-    session_start();
-
     require_once 'global.php';
+
+    session_start();
 
     $conectar=Conexao::conectar();
 
@@ -12,9 +12,7 @@
         $login = $_POST['login'];
         $senha = $_POST['senha'];
 
-        $_SESSION['login']=$login;
-        $_SESSION['senha']=$senha;
-
+       
 
         if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cpf" )
         {
@@ -43,6 +41,8 @@
                 $codUsuario = $result[0];
         
                 // Armazena o código na sessão
+                $_SESSION['login']=$login;
+                $_SESSION['senha']=$senha;        
                 $_SESSION['codUsuario'] = $codUsuario;
                 $_SESSION['nomeUsuario'] = $result['nomeVoluntario'];
                 $_SESSION['dataNasc'] = $result['dataNascVoluntario'];
@@ -62,6 +62,7 @@
         
                 // Redireciona para a página inicial do sistema
                 header('Location: ../area-voluntario/perfil-voluntario.php');
+               
                 exit();
             } 
             else 
@@ -99,6 +100,8 @@
                 $codUsuario = $result[0];
         
                 // Armazena o código na sessão
+                $_SESSION['login']=$login;
+                $_SESSION['senha']=$senha;        
                 $_SESSION['codUsuario'] = $codUsuario;
                 $_SESSION['nomeUsuario'] = $result['nomeInstituicao'];
                 $_SESSION['emailUsuario'] = $result['emailInstituicao'];
@@ -117,6 +120,7 @@
         
                 // Redireciona para a página inicial do sistema
                 header('Location: ../area-instituicao/perfil-instituicao.php');
+                //var_dump($_SESSION);
                 exit();
 
             }
