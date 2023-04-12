@@ -42,26 +42,39 @@
 .input-box label{
     display: flex;
     color: #525252;
+    font-size: 14px;
 }
 
 .input-box input {
     outline: none;
     padding: 8px;
-    border: solid 1px #113173;
+    border: solid 1px #4567a5;
+    font-weight: 500;
 }
 
-.input-box select {
+/*.input-box select {
     outline: none;
     padding: 8px;
     width: 15vw;
     border: solid 1px #113173;
+}*/
+
+.input-box textarea{
+    outline: none;
+    border: #4567a5 solid 1px;
+    resize: none;
 }
 
+.input-box input,textarea::placeholder{
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
 .input-box .div-image {
     width: 22vw;
     height: 16.5vh;
-    background-color: #232e61;
-    border: solid 1px #232e61;
+    background-color: #cfe4fb;
+    border: solid 1px #4567a5;
     margin-top: 25px;
 }
 .input-box .div-image .image{
@@ -76,18 +89,6 @@
     height: 100%;
     object-fit: cover;
 }
-
-.input-box textarea{
-    outline: none;
-    border: #113173 solid 1px;
-    resize: vertical;
-}
-
-.input-box input,textarea::placeholder{
-    font-family: Poppins, sans-serif;
-    color: #525252;
-}
-
 #nome, #email, #telefone, #telefone-2, #log {
     width: 30vw;
 }
@@ -116,7 +117,7 @@
 .continue-button button {
     background-color: #113173;
     border: 1px solid #113173;
-    border-radius: 2px;
+    border-radius: 0.5rem;
     color: #fff;
     font-size: 14pt;
     font-family: poppins, sans-serif;
@@ -164,18 +165,7 @@
         width: 20vw;
     }
     .input-box .div-image .image img{
-        width: 115px;
-        height: 115px;
-    }
-    .continue-button{
-        display: flex;
-    }
-    .continue-button button{
-        width: auto;
-        font-size: 16pt;
-        right: 10%;
-        top: 40%;
-        position: absolute;
+        margin-bottom: 50px;
     }
 }
 
@@ -183,12 +173,6 @@
     .container{
         width: 100%;
         height: auto;
-    }
-    .input-group {
-        overflow-y: scroll;
-        flex-wrap: nowrap;
-        max-height: 25rem;
-        padding: 5%;
     }
     .input-box{
         display: flex;
@@ -201,26 +185,5 @@
     #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log{
         width: 50vw;
     }
-    .continue-button button{
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 35%;
-        right: 10%;
-        width: auto;
-    }
-}
-
-@media (max-width: 320px){
-    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log{
-        width: 40vw;
-    }
-
-    .input-box .div-image{
-        
-    }
-    .continue-button button{
-        font-size: 12px;
-        position: inherit;
-    }
+    
 }
