@@ -1,0 +1,272 @@
+
+
+
+.container-conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+
+
+/* SELECT ADICIONAR CAUSAS */
+.form-causas
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.box-filtro-causas
+{
+    position: relative;
+}
+ .filtro-causas /*, #estados, #cidades */
+{
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #cf8a3f;
+    width: 19rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+
+    background-image: url(../../img/seta.png);
+    background-repeat: no-repeat;
+    background-position: 274px center;
+    background-size: 17px;
+    
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #525252;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+
+.box-causas
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    min-width: 19rem;
+    max-height: 15.3rem;
+    border: 1px solid #cf8a3f;
+    padding: 1rem;
+    gap: 0.8rem;
+    position: absolute;
+    top: 3rem;
+    display: none;
+    overflow-y: scroll;
+}
+
+/* SCROLL */
+.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
+{
+    width: 11px;    
+}
+
+.box-causas::-webkit-scrollbar-track
+{
+    background: #f7ebdc;       
+    border-radius: 0.8rem;  
+}
+
+.box-causas::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
+{
+    background-color: #cf8a3f;    
+    border-radius: 20px;     
+    border: 2px solid #f7ebdc;  
+    transition: all 0.5s ease;
+}
+
+.box-causas::-webkit-scrollbar-track, #estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
+{
+    background: #f7ebdc;       
+}
+
+/* ESTILIZANDO CHECKBOX */
+#causas[type = "checkbox"]
+{
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #525252;
+    outline: none;
+    cursor: pointer;
+}
+#causas[type = "checkbox"]:checked::before
+{
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #cf8a3f;   
+    text-align: center;
+   
+    line-height: 13px;
+    font-size: 13px;
+}
+
+.box-causas-checkbox
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.box-causas-checkbox label
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #525252;
+}
+
+
+
+
+/* BOTÃO ADICIONAR */
+.form-botao-adicionar
+{
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
+    width: 11rem;
+    height: 2.5rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+
+    
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.form-botao-adicionar:hover
+{
+    background-color: #fff;
+    color: #cf8a3f;
+}
+
+
+
+
+
+
+/* CAUSAS */
+.causas 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 36rem;
+    box-shadow: 5px 5px 5px #b4d8e6;
+    border: 1px solid #4567a5;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    margin: 0rem 3rem 4rem 3rem;
+}
+
+.titulo-card
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    /* background-color: #252d51; */
+    width: 100%;
+    padding: 1rem 0rem 1rem 1rem;
+    
+}
+
+.icon-titulo-card
+{
+    display: flex;
+    align-items: end;
+    gap: 1%;
+    width: 100%;
+}
+
+.titulo-card h6 {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: Bitter, Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    color: #000000; 
+}
+
+.titulo-card i {
+    /* margin-right: 1%; */
+    font-size: 20px;
+}
+
+.tipo-causas
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 5%;
+    padding-left: 1%;
+}
+
+.tipo-causas button 
+{
+    padding: 0.8%;  
+    width: 10rem;
+    border: 1px solid #000000;
+    border-radius: 1.5rem;
+    height: 2.5rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+    /* TEXTO */
+    font-size: 16px;
+    font-weight: 400;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+}
+.tipo-causas button:hover
+{
+    transform: translateY(-5px);
+}
+#tipo-causas-1
+{
+    background-color: #e4fdff;
+}
+#tipo-causas-1:hover
+{
+    background-color: #b9edf1;
+}
+#tipo-causas-2
+{
+    background-color: #defff1;
+}
+#tipo-causas-2:hover
+{
+    background-color: #92facf;
+}
+#tipo-causas-3
+{
+    background-color: #f3e1ff;
+}
+#tipo-causas-3:hover
+{
+    background-color: #dbb3f5;
+}
