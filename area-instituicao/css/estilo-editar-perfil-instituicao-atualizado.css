@@ -48,7 +48,7 @@
 .input-box input {
     outline: none;
     padding: 8px;
-    border: solid 1px #cf8a3f;
+    border: solid 1px #4567a5;
     font-weight: 500;
 }
 
@@ -61,7 +61,7 @@
 
 .input-box textarea{
     outline: none;
-    border: #cf8a3f solid 1px;
+    border: #4567a5 solid 1px;
     resize: none;
 }
 
@@ -73,8 +73,8 @@
 .input-box .div-image {
     width: 22vw;
     height: 16.5vh;
-    background-color: #f3ebb1;
-    border: solid 1px #cf8a3f;
+    background-color: #cfe4fb;
+    border: solid 1px #4567a5;
     margin-top: 25px;
 }
 .input-box .div-image .image{

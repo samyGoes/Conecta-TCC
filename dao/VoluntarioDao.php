@@ -43,7 +43,7 @@
         
         public static function listar(){
             $conexao = Conexao :: conectar();
-            $querySelect = "SELECT codVoluntario, nomeVoluntario, emailVoluntario FROM tbVoluntario";
+            $querySelect = "SELECT codVoluntario, fotoVoluntario, nomeVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;
@@ -59,5 +59,6 @@
             $qtdVoluntario = $resultadoVoluntario -> fetchAll(PDO::FETCH_COLUMN);
             return $qtdVoluntario;
         }
+
     }
 ?>
