@@ -146,25 +146,25 @@
                     <?php
                     require_once 'global.php';
                     try {
-                        $listaInstituicao = ListarInstituicoes::listar();
+                        $listaVoluntario = VoluntarioDao::listar();
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
                     ?>
                     <tr>
-                        <?php foreach ($listaInstituicao as $instituicao) { ?>
+                        <?php foreach ($listaVoluntario as $voluntario) { ?>
                             <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                            <td> <?php echo $instituicao['codInstituicao']; ?> </td>
+                            <td> <?php echo $voluntario['codVoluntario']; ?> </td>
                             <td>
                                 <div class="box-img-lista">
                                     <img src="img/user-cinza.png" alt="">
                                 </div>
                             </td>
-                            <td><?php echo $instituicao['nomeInstituicao']; ?></td>
-                            <td> <?php echo $instituicao['emailInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['cidadeInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['estadoInstituicao']; ?> </td>
-                            <td> <?php echo $instituicao['paisInstituicao']; ?> </td>
+                            <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                            <td> <?php echo $voluntario['emailVoluntario']; ?> </td>
+                            <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
+                            <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
+                            <td> <?php echo $voluntario['paisVoluntario']; ?> </td>
                     </tr>
                 <?php
                         }

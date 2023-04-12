@@ -153,7 +153,7 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaInstituicao = ListarInstituicoes::listar();
+                            $listaInstituicao = InstituicaoDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
