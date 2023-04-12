@@ -1,4 +1,4 @@
-<?php include "../auth/verifica-logado.php";?>
+<?php include "../auth/loginUsuario.php";?>
 <?php 
      require_once 'global.php'; 
 ?>
@@ -91,9 +91,9 @@
                 </li>
             </ul>
         </nav>
-<!--
+
         <div class="form">
-            <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="update-instituicao.php" method="POST" enctype="multipart/form-data">
                 <div class="form-header">
                     <div class="form-title">
                         <h2>EDITAR PERFIL</h2>
@@ -201,10 +201,10 @@
                 </div>
             </form>
         </div>
--->
+
     </main>
 
     <script src="js/menu-toggle.js"></script>
     <script src="js/cidadesEstado.js"></script>
-</body>
+</bod>
 </html>
