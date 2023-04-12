@@ -1,7 +1,5 @@
+<?php include "loginUsuario.php";?>
 <?php
-    session_start();
-    $loginSession = $_SESSION['login'];
-    $senhaSession = $_SESSION['senha'];
 
     if(empty($_SESSION['codUsuario']))
     {

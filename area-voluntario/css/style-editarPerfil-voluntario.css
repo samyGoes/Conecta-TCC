@@ -95,8 +95,17 @@
 #num{
     width: 8vw;
 }
-#bairro, #cep, #cidade, #pais, #comp, #uf, #foto {
+#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #label {
     width: 19vw;
+}
+#label{
+    border: solid 1px #cf8a3f;
+    background-color: #cfcfcf;
+    display: flex;
+    justify-content: center;
+}
+#foto{
+    display: none;
 }
 #desc{
     width: 40.8vw;
@@ -119,11 +128,12 @@
     border: 1px solid #113173;
     border-radius: 0.5rem;
     color: #fff;
-    font-size: 14pt;
+    font-size: 16pt;
     font-family: poppins, sans-serif;
-    padding: 3px;    
+    padding: 0.8%;    
     border: solid 1px #113173;
     transition: all 0.3s ease;
+    width: 8rem;
 }
 
 .continue-button button:hover {

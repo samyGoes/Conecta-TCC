@@ -1,17 +1,24 @@
 <?php
-    require_once 'global.php';
+
     require_once '../auth/loginUsuario.php';
+    require_once 'global.php';
+    
     try
     {
+        // Mostrar erros no navegador
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
+
+        // Mostrar o conteúdo da sessão
+        var_dump($_SESSION);
         $instituicao = new Instituicao();
         $instituicao -> setIdInstituicao($_SESSION['codUsuario']);
         $instituicao -> setNomeInstituicao($_POST['nome']);
         $instituicao -> setTel1Instituicao($_POST['telefone1']);
         $instituicao -> setTel2Instituicao($_POST['telefone2']);
         $instituicao -> setEmailInstituicao($_POST['email']);
-        //$instituicao -> setCnpjInstituicao($_POST['cnpj']);
-        //$instituicao -> setSenhaInstituicao($_POST['senha']);
-        //$instituicao -> setConfSenhaInstituicao($_POST['confSenha']);
         $instituicao -> setLogradouroInstituicao($_POST['log']);
         $instituicao -> setnumeroInstituicao($_POST['numeroCasa']);
         $instituicao -> setCepInstituicao($_POST['cep']);

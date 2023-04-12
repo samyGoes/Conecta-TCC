@@ -247,8 +247,9 @@
                             </select>-->
                         </div>
                         <div>
-                            <label for="">Foto</label>
-                            <input type="file" accept="" id="foto" placeholder="Clique aqui para escolher uma foto" >
+                            <span>Foto</span>
+                            <label id="label" for="foto">Selecione a foto</label>
+                            <input type="file" accept="image/*" id="foto">
                         </div>
                     </div>
 
@@ -263,7 +264,6 @@
                                 <img src="../area-instituicao/img/userInstituicao.png" id="img" alt="user-instituição">
                             </div>
                         </div>
-
                     </div>
                 </div>
 
