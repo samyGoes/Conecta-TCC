@@ -6,6 +6,18 @@
         //função de consulta caso o cpf e/ou email enviados pelo formulário já existem no banco de dados
         public static function consultarExistencia($cpf,$email)
         {
+            //Váriavel de conexão ao banco de dados
+            $conexao = Conexao :: conectar();
+
+            //consultando se o email existe no banco
+            $verificaEmail=$conexao->prepare("SELECT codVoluntario FROM tbvoluntario WHERE emailVoluntario = ?");
+            $verificaEmail->bindValue(1, $email);
+            $verificaEmail->execute();
+
+            //consultando se o cpf existe no banco
+            $verificaCpf=$conexao->prepare("SELECT codVoluntario FROM tbvoluntario WHERE cpfVoluntario = ?");
+            $verificaCpf->bindValue(1,$cpf);
+            $verificaCpf->execute();
 
 
         }
