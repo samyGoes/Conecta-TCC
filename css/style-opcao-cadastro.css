@@ -95,18 +95,7 @@ main .container a :active{
 
 
 /*Responsividade*/
-@media (max-width: 876px){
-
-}
 @media (max-width: 425px){
-  /*.image-header{
-    width: 100vw;
-    height: 100vh;
-  }
-  .image-footer{
-    width: 100vw;
-    height: 100vh;
-  }*/
   .button-confirm button{
     font-size: 10px;
     width: 5vw;
