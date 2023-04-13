@@ -10,213 +10,21 @@
 }
 
 
-body {
-    display: flex;
-    justify-content: space-between;
-}
-
-main {
-    width: 100%;
-}
-
-main h1 {
-    margin-bottom: 4%;
-    text-transform: uppercase;
-    color: #000;
-    font-family: acme, serif;
-    font-weight: 400;
-}
-
-
-
-/* NAVBAR */
-.cabecalho {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 3rem 3rem;
-    align-items: center;
-    width: 100%;
-    background-color: #232f61;
-    position: fixed;
-    z-index: 2;
-    /* display: none; */
-}
-
-.logo {
-    justify-self: start;
-}
-
-.logo p {
-    font-family: poppins, sans-serif;
-    font-size: 30px;
-    color: #fff;
-    font-weight: 400;
-    margin-left: 3rem;
-    margin-top: 2.5rem;
-}
-
-.topicos-sessao-completa {
-    display: flex;
-    align-items: center;
-    padding-top: 2.9rem;
-}
-
-.topicos {
-    width: 100%;
-    display: flex;
-    gap: 3rem;
-    list-style: none;
-}
-
-#topicos-icon-fixo {
-    display: none;
-}
-
-#topicos-maozinha {
-    opacity: 0;
-    transition: all 0.5s ease;
-    color: #000000;
-    font-size: 30px;
-}
-
-.cabecalho-menu-item {
-    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.5s ease;
-}
-
-.cabecalho-menu-item:hover {
-    color: #f0a376;
-}
-
-.cabecalho-menu-item i,
-.topicos li i {
-    color: #fff;
-    margin-right: 0.4rem;
-    font-size: 18px;
-    transition: all 0.5s ease;
-}
-
-.cabecalho-menu-item i:hover {
-    color: #f0a376;
-}
-
-#check {
-    display: none;
-}
-
-.checkbtn {
-    font-size: 25px;
-    color: #fff;
-    /* float: right; */
-    /* line-height: 80px; */
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
-}
-
-
-
-/* DROP DOWN */
-.topicos-sessao-login {
-    /* display: flex; */
-    /* justify-self: end; */
-    width: 6rem;
-    margin-right: 3rem;
-}
-
-.topicos-sessao-login li {
-    list-style: none;
-}
-
-.topicos-sessa-login-linha {
-    position: relative;
-
-}
-
-.sub-topicos {
-    position: absolute;
-    display: none;
-    background-color: #ffffff;
-    border: 1px solid #232f61;
-    right: 0rem;
-    top: 6rem;
-    /* cima, direita, baixo, esquerda */
-    padding: 1rem 2rem 0.5rem 2rem;
-}
-
-.sub-topicos li {
-    list-style: none;
-    height: 2rem;
-    width: 8rem;
-    transition: all 0.5s ease;
-}
-
-.sub-topicos li a {
-    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
-    color: #252d51;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: capitalize;
-    text-decoration: none;
-    transition: all 0.5s ease;
-}
-
-.sub-topicos li a:hover {
-    color: #e67635;
-}
-
-#nav-seta-sub-topicos {
-    cursor: pointer;
-    font-size: 25px;
-    margin-left: 0.5rem;
-    position: absolute;
-    color: #fff;
-    /* background-color: #4567a5; */
-}
-
-
-
-
-
-/* TÍTULO */
-.container-titulo-configuracoes {
-    display: flex;
-    align-items: flex-end;
-    padding: 0rem 0rem 1rem 2rem;
-    border-bottom: 1px solid #113173;
-    width: 100%;
-    height: 10rem;
-    position: fixed;
-    z-index: 1;
-    background-color: #fff;
-    /* display: none; */
-}
-
-.container-titulo-configuracoes h1 {
-    font-family: acme, sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    color: #113173;
-}
-
-
-
-
-
-
 
 
 /* NAV LATERAL */
+
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-lateral {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 11rem 0rem 2rem 2rem;
+    padding: 2rem 0rem 2rem 2rem;
     left: 0;
     width: 17rem;
     height: 100vh;
@@ -292,12 +100,52 @@ main h1 {
     transition: all 0.5s ease;
     background-color: #fff;
     /* height: 100vh; */
-    margin-left: 30%;
-    padding-top: 9%;
+    margin-left: 17rem;
+}
+
+
+
+
+
+/* TÍTULO E FRASE */
+.main-conteudo-container-titulo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 5rem;
+    padding-top: 2rem;
+    gap: 0.7rem;
+    margin-bottom: 4rem;
+   
+}
+
+.main-conteudo-container-titulo h1
+{
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #000000;
+}
+
+.main-conteudo-container-titulo p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    max-width: 95%;
 }
 
 
 /* TABELA */
+
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .table-responsive {
     max-width: 885px;
     max-height: 600px;
