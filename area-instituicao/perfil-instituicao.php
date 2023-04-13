@@ -32,29 +32,22 @@
         <ul class="topicos-sessao-completa">
             <ul class="topicos">
                 <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">Início</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
                 <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
                 <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
                 <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">Vagas</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
                 <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">sobre nós</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
                 <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="" class="cabecalho-menu-item">contato</a>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div>
                 </li>
             </ul>
 
             <ul class="topicos-sessao-login">
                 <li class="topicos-sessao-login-linha"><a href="" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                    <div class="box-nav-img"> <img src="img/mao-nav.png"></div> </i>
+                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span> </i>
                     <ul class="sub-topicos">
                         <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
                         <li> <a href=""> Vagas </a> </li>
@@ -335,10 +328,18 @@
 
         </div>
         <div class="medias-sociais">
-            <a href=""><img src="img/youtube.png" alt=""></a>
-            <a href=""><img src="img/instagram.png" alt=""></a>
-            <a href=""><img src="img/twitter.png" alt=""></a>
-            <a href=""><img src="img/github.png" alt=""></a>
+            <div class="box-icon">
+                <i class="fa-brands fa-youtube"></i>
+            </div> 
+            <div class="box-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </div> 
+            <div class="box-icon">
+                <i class="fa-brands fa-twitter"></i>
+            </div> 
+            <div class="box-icon-git">
+                <i class="fa-brands fa-github" id="icon-git"></i>
+            </div>
         </div>
     </footer>
 

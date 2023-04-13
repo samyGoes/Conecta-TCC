@@ -1,3 +1,4 @@
+<?php include "../auth/verifica-logado.php";?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo-trocar-senha-instituicao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -75,7 +77,7 @@
                 <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                    <a href="editar-perfil-instituicao-atualizado.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                         </span></a>
                 </div>
 
@@ -129,13 +131,34 @@
 
         <!-- CONTEUDO  -->
         <main class="main-conteudo">
-            
+   
             <div class="main-conteudo-container-titulo">
-                <h1>EDITAR PERFIL</h1>
-                <p>Digite as novas informações que deseja inserir</p>
+                <h1>TROCAR SENHA</h1>
+                <p>
+                    Digite sua nova senha e confirme-a. Esta não pode ser igual a anterior
+                    e deve ter no mínimo 8 caracteres com letras maiúsculas, minúsculas, números e caracteres especiais
+                </p>
             </div>
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+
+            <div class="card">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="email">Nova senha</label>
+                        <input type="email" name="email" id="email" placeholder="Digite a nova senha">
+                        <small>Mínino de até 8 caracteres</small>
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Confirmar nova senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Confirme a nova senha">
+                        <small>Mínino de até 8 caracteres</small>
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button class="button">Salvar</button>
+                </div>
+            </div>
 
         </main>
 

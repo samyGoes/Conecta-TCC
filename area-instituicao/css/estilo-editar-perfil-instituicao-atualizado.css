@@ -15,12 +15,10 @@
     font-family: Poppins, sans-serif;
     display: flex;
     justify-content: center;
+    margin-top: -1rem;
 }
-
 .container{
-    margin-top: 3%;
     display: flex;
-   
     flex-direction: column;
 }
 .input-group{
@@ -42,6 +40,7 @@
 .input-box label{
     display: flex;
     color: #525252;
+    font-weight: 500;
     font-size: 14px;
 }
 
@@ -49,15 +48,7 @@
     outline: none;
     padding: 8px;
     border: solid 1px #4567a5;
-    font-weight: 500;
 }
-
-/*.input-box select {
-    outline: none;
-    padding: 8px;
-    width: 15vw;
-    border: solid 1px #113173;
-}*/
 
 .input-box textarea{
     outline: none;
@@ -71,21 +62,21 @@
     color: #525252;
 }
 .input-box .div-image {
-    width: 22vw;
-    height: 16.5vh;
-    background-color: #cfe4fb;
-    border: solid 1px #4567a5;
-    margin-top: 25px;
-}
-.input-box .div-image .image{
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 22vw;
+    height: 15.5vh;
+    background-color: #cfe4fb;
+    border: solid 1px #4567a5;
+    margin-top: 42px;
+}
+.input-box .div-image .image{
+    width: 6rem;
+    height: 6rem;
 }
 .input-box .div-image .image img{
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -99,11 +90,22 @@
     width: 19vw;
 }
 #label{
-    border: solid 1px #113173;
+    border: solid 1px #4567a5;
     background-color: #cfe4fb;
+    height: 2.5rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
+#label:hover
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
 #foto{
     display: none;
 }
@@ -115,38 +117,38 @@
     /* height="87px" width="503px"*/
 }
 
+/* BOTÃO */
 .continue-button {
     width: auto;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1.5rem;
 }
 
 .continue-button button {
-    background-color: #113173;
-    border: 1px solid #113173;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
     border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    padding: 0.8%;  
+    cursor: pointer;
+
     color: #fff;
     font-size: 16pt;
+    font-weight: 300;
     font-family: poppins, sans-serif;
-    padding: 0.8%;    
-    border: solid 1px #113173;
     transition: all 0.3s ease;
-    width: 8rem;
 }
 
 .continue-button button:hover {
     background-color: #fff;
+    color: #4567a5;
 }
 
-.continue-button button a{
-    text-decoration-line: none;
-    color: #fff;
-}
-.continue-button button a:hover{
-    color: #113173;
-}
+
 
 
 
@@ -157,6 +159,30 @@
 
 /* RESPONSIVIDADE */
 /*FORMULARIO*/
+@media (max-width: 1048px)
+{
+    #nome, #email, #telefone, #telefone-2, #log {
+        width: 33vw;
+    }
+
+    #bairro, #cidade, #pais, #comp, #uf, #foto, #label {
+        width: 20.9vw;
+    }
+    #num
+    {
+        width: 8.9vw;
+    }
+    #cep
+    {
+        width: 21vw;
+    }
+    #desc{
+        width: 45vw;
+    }
+    .input-box .div-image {
+        width: 24vw;
+    }
+}
 
 @media (max-width: 768px){
     .input-group{
@@ -167,7 +193,7 @@
         flex-direction: column;
     }
     #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
-        width: 50vw;
+        width: 60vw;
     }
     .input-box .div-image{
         border: none;
@@ -179,7 +205,14 @@
     }
 }
 
-@media (max-width: 450px){
+@media (max-width: 556px)
+{
+    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
+        width: 70vw;
+    }
+}
+
+/* @media (max-width: 450px){
     .container{
         width: 100%;
         height: auto;
@@ -188,12 +221,8 @@
         display: flex;
         flex-direction: column;
     }
-    .input-box .div-image .image img{
-        width: 100px;
-        height: 100px;
-    }
     #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
         width: 50vw;
     }
     
-}
+} */

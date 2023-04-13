@@ -1,3 +1,4 @@
+<?php //include "../auth/verifica-logado.php";?> 
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo-excluir-conta-instituicao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -75,7 +77,7 @@
                 <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                    <a href="editar-perfil-instituicao-atualizado.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                         </span></a>
                 </div>
 
@@ -129,13 +131,31 @@
 
         <!-- CONTEUDO  -->
         <main class="main-conteudo">
-            
+            <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+            <!-- <div class="uau"></div> -->
+        
             <div class="main-conteudo-container-titulo">
-                <h1>EDITAR PERFIL</h1>
-                <p>Digite as novas informações que deseja inserir</p>
+                <h1> EXCLUIR CONTA </h1>
+                <p> Para poder excluir sua conta digite seu email e senha para confirmar que é você. </p>
             </div>
 
-            <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+            <div class="card">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Digite seu email">
+                    </div>
+                    <div class="input-box">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                    </div>
+                </div>
+                <div class="continue-button">
+                    <button class="button">excluir</button>
+                </div>
+            </div>
+            
+
 
         </main>
 

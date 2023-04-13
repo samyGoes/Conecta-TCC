@@ -1,4 +1,4 @@
-<?php include "../auth/verifica-logado.php";?>
+<?php include "../auth/verifica-logado.php"; ?>
 <?php 
      require_once 'global.php'; 
 ?>
@@ -80,7 +80,7 @@
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                <a href="editar-perfil-instituicao-atualizado.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                     </span></a>
             </div>
 
@@ -113,7 +113,7 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
+                <a href="excluir-conta-instituicao-atualizado.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
                         class="nav-lateral-topico">Excluir Conta </span></a>
             </div>
         </div>
@@ -138,7 +138,10 @@
         <!-- <div class="uau"></div> -->
         <div class="main-conteudo-container-titulo">
             <h1>EDITAR PERFIL</h1>
-            <p>Digite as novas informações que deseja inserir</p>
+            <p>
+                Digite as novas informações que deseja inserir. Agora você também pode adicionar uma
+                descrição e uma foto de perfil.
+            </p>
         </div>
 
         <div class="form">
@@ -173,7 +176,7 @@
                     <div class="input-box">
                         <div>
                             <label for="">Logradouro</label>
-                            <input type="text" name="log" id="log" placeholder="Digite sua rua, avenida"
+                            <input type="text" name="log" id="log"
                                 value="<?php echo $_SESSION['logUsuario']; ?>" />
                         </div>
                         <div>
@@ -191,12 +194,12 @@
                     <div class="input-box">
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro"
+                            <input type="text" name="bairro" id="bairro"
                                 value="<?php echo $_SESSION['bairroUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" placeholder="Digite seu cidade">
+                            <input type="text" name="cidade" id="cidade">
                             <!--<select name="cidade" id="cidade">
                                 <option disabled value="">Selecione sua cidade</option>
                                 <option value="São Paulo" <?php if ($_SESSION['cidadeUsuario'] == 'São Paulo')
@@ -209,7 +212,7 @@
                         </div>
                         <div>
                             <label for="uf">Estado</label>
-                            <input type="text" name="uf" id="uf" placeholder="Digite seu estado">
+                            <input type="text" name="uf" id="uf">
                             <!--<select name="uf" id="uf">
                                 <option disabled value="">Selecione seu estado</option>
                                 <option value="SP" <?php if ($_SESSION['estadoUsuario'] == 'SP')
@@ -248,7 +251,7 @@
                         </div>
                         <div>
                             <span>Foto</span>
-                            <label id="label" for="foto">Selecione a foto</label>
+                            <label id="label" for="foto">Selecione uma foto</label>
                             <input type="file" accept="image/*" id="foto">
                         </div>
                     </div>
@@ -266,9 +269,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="continue-button">
-                    <button type="submit"><a href="">SALVAR</a></button>
+                <a href=""><div class="continue-button">
+                    <button type="submit">SALVAR</button>
+                </a>
                 </div>
             </form>
         </div>
