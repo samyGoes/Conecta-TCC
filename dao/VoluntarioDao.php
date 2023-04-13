@@ -1,30 +1,12 @@
 <?php
     require_once 'global.php';
-    //classe usada para a comunicação com o banco de dados
+
     class VoluntarioDao{
 
-        //função de consulta caso o cpf e/ou email enviados pelo formulário já existem no banco de dados
-        public static function consultarExistencia($cpf,$email)
-        {
-            //Váriavel de conexão ao banco de dados
-            $conexao = Conexao :: conectar();
-
-            //consultando se o email existe no banco
-            $verificaEmail=$conexao->prepare("SELECT codVoluntario FROM tbvoluntario WHERE emailVoluntario = ?");
-            $verificaEmail->bindValue(1, $email);
-            $verificaEmail->execute();
-
-            //consultando se o cpf existe no banco
-            $verificaCpf=$conexao->prepare("SELECT codVoluntario FROM tbvoluntario WHERE cpfVoluntario = ?");
-            $verificaCpf->bindValue(1,$cpf);
-            $verificaCpf->execute();
-
-
-        }
-
-        //função de cadastro do voluntário no banco de dados
         public static function cadastrar($voluntario){
             $conexao = Conexao :: conectar();
+
+            /* $queryInsert = */ 
             
             echo($voluntario->getDataNascVoluntario());
 
@@ -61,7 +43,7 @@
         
         public static function listar(){
             $conexao = Conexao :: conectar();
-            $querySelect = "SELECT codVoluntario, fotoVoluntario, nomeVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario";
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, emailVoluntario FROM tbVoluntario";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;
@@ -77,6 +59,5 @@
             $qtdVoluntario = $resultadoVoluntario -> fetchAll(PDO::FETCH_COLUMN);
             return $qtdVoluntario;
         }
-
     }
 ?>
