@@ -16,6 +16,16 @@
         private $codHabilidadeServico;
         private $codInstituicao;
         private $codCategoriaServico;
+        private $cepLocalServico;
+        private $bairroLocalServico;
+        private $estadoLocalServico;
+        private $logradouroLocalServico;
+        private $complementoLocalServico;
+        private $paisLocalServico;
+        private $numeroLocalServico;
+        private $cidadeLocalServico;
+
+
 
 
         //Getters//
@@ -78,8 +88,38 @@
             return $this->codCategoriaServico;
         }
 
-        
-        
+        public function getCepLocalServico(){
+            return $this->cepLocalServico;
+        }
+
+        public function getBairroLocalServico(){
+            return $this->bairroLocalServico;
+        }
+
+        public function getEstadoLocalServico(){
+            return $this->estadoLocalServico;
+        }
+
+        public function getLogradouroLocalServico(){
+            return $this->logradouroLocalservico;
+        }
+
+        public function getComplementoLocalServico(){
+            return $this->complementoLocalServico;
+        }
+
+        public function getPaisLocalServico(){
+            return $this->paisLocalServico;
+        }
+
+        public function getNumeroLocalServico(){
+            return $this->numeroLocalServico;
+        }
+
+        public function getCidadeLoocalServico(){
+            return $this->cidadelocalServico;
+        }
+
 
         //Setters//
 
@@ -87,92 +127,94 @@
             $this -> id = $id;
         }
 
-        public function setNomeVoluntario($nomeVoluntario){
-            $this -> nomeVoluntario = $nomeVoluntario;
+        public function setHorarioServico($horarioServico){
+            $this -> horarioServico = $horarioServico;
         }
 
-        public function setTelefone1Voluntario($telefone1Voluntario){
-            $this -> telefone1Voluntario = $telefone1Voluntario;
+        public function setPeriodoServico($periodoServico){
+            $this -> periodoServico = $periodoServico;
         }
 
-        public function setTelefone2Voluntario($telefone2Voluntario){
-            $this -> telefone2Voluntario = $telefone2Voluntario;
+        public function setAvaliacaoVoluntario($avaliacaoVoluntario){
+            $this -> avaliacaoVoluntario = $avaliacaoVoluntario;
         }
 
-        public function setCpfVoluntario($cpfVoluntario){
-            $this -> cpfVoluntario = $cpfVoluntario;
+        public function setAvaliacaoInstituicao($avaliacaoInstituicao){
+            $this -> avaliacaoInstituicao = $avaliacaoInstituicao;
         }
 
         
-        public function setDataNascVoluntario($dataNascVoluntario){
-            $this -> dataNascVoluntario = $dataNascVoluntario;
+        public function setStatusServico($statusServico){
+            $this -> statusServico = $statusServico;
         }
 
-        public function setEmailVoluntario($emailVoluntario){
-            $this -> emailVoluntario = $emailVoluntario;
+        public function setDescservico($descServico){
+            $this -> descServico = $descServico;
         }
 
-        public function setSenhaVoluntario($senhaVoluntario){
-            $this -> senhaVoluntario = $senhaVoluntario;
+        public function setNomeServico($nomeServico){
+            $this -> nomeServico = $nomeServico;
         }
 
-        public function setConfSenhaVoluntario($confSenhaVoluntario){
-            $this -> confSenhaVoluntario = $confSenhaVoluntario;
+        public function setTipoServico($tipoServico){
+            $this -> tipoServico = $tipoServico;
         }
 
-        public function setLogVoluntario($logVoluntario){
-            $this -> logVoluntario = $logVoluntario;
+        public function setDataInicioServvico($dataInicioServico){
+            $this -> dataInicioServico = $dataInicioServico;
         }
 
-        public function setNumLogVoluntario($numLogVoluntario){
-            $this -> numLogVoluntario = $numLogVoluntario;
+        public function setDataTerminoServico($dataTerminoServico){
+            $this -> dataTerminoServico = $dataTerminoServico;
         }
 
-        public function setCompVoluntario($compVoluntario){
-            $this -> compVoluntario = $compVoluntario;
+        public function setQntdVagaServico($qntdVagaServico){
+            $this -> qntdVagaServico = $qntdVagaServico;
         }
 
-        public function setBairroVoluntario($bairroVoluntario){
-            $this -> bairroVoluntario = $bairroVoluntario;
+        public function setCodHabilidadeServico($codHabilidadeServico){
+            $this -> codHabilidadeServico = $codHabilidadeServico;
         }
 
-        public function setCidadeVoluntario($cidadeVoluntario){
-            $this -> cidadeVoluntario = $cidadeVoluntario;
+        public function setCidadeVoluntario($codCategoriaServico){
+            $this -> codCategoriaServico = $codCategoriaServico;
         }
 
-        public function setDescVoluntario($descVoluntario){
-            $this -> descVoluntario = $descVoluntario;
+        public function setDescVoluntario($codInstituicao){
+            $this -> codInstituicao = $codInstituicao;
         }
 
-        public function setCepVoluntario($cepVoluntario){
-            $this -> cepVoluntario = $cepVoluntario;
+        public function setCepLocalServico($cepLocalServico){
+            $this -> cepLocalServico = $cepLocalServico;
         }
 
-        public function setFotoVoluntario($fotoVoluntario){
-            $this -> fotoVoluntario = $fotoVoluntario;
+        public function setBairroLocalServico($bairroLocalServico){
+            $this -> bairroLocalServico = $bairroLocalServico;
         }
 
-        public function setEstadoVoluntario($estadoVoluntario){
-            $this -> estadoVoluntario = $estadoVoluntario;
+        public function setEstadoLocalServico($estadoLocalServico){
+            $this -> estadoLocalServico = $estadoLocalServico;
         }
 
-        public function setPaisVoluntario($paisVoluntario){
-            $this -> paisVoluntario = $paisVoluntario;
+        public function setLogradouroLocalServico($logradouroLocalServico){
+            $this -> logradouroLocalServico = $logradouroLocalServico;
         }
 
+        public function setComplementoLocalServico($complementoLocalServico){
+            $this -> complementoLocaServico = $complementoLocalServico;
+        }
 
+        public function setPaisLocalServico($paisLocalServico){
+            $this -> paisLocalServico = $paisLocalServico;
+        }
+
+        public function setNumeroLocalServico($numeroLocalServico){
+            $this -> numeroLocalServico = $numeroLocalServico;
+        }
+
+        public function setCidadeLocalServico($cidadeLocalServico){
+            $this -> cidadeLocalServico = $cidadeLocalServico;
+        }
     }
 
-    class foneVoluntario{
-        private $numFoneVoluntario;
-        
-        public function getNumFoneVoluntario(){
-            return $this->numFoneVoluntario;
-        }
-
-        
-        public function setNumFoneVoluntario($numFoneVoluntario){
-            $this -> numFoneVoluntario = $numFoneVoluntario;
-        }
-
-    }
+  

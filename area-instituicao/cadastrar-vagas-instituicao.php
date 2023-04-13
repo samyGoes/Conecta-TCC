@@ -58,8 +58,6 @@
                     <label for="cidade">Cidade</label>
                     <input type="text" name="cidade" id="cidade" placeholder="Digite a cidade">
                 </div>
-
-
             </form>
         </div>
     </main>
