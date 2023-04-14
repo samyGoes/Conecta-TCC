@@ -22,7 +22,7 @@
     width: 100%;
     background-color: #232f61;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     /* display: none; */
 }
 .logo
@@ -182,7 +182,7 @@
     width: 100%;
     height: 10rem;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     background-color: #fff;
     /* display: none; */
 }
@@ -220,6 +220,7 @@
     border-top: none;
     transition: all 0.5s ease;
     /* opacity: 0.3; */
+    z-index: 1;
 }
 
 .nav-lateral-sessao-um
@@ -297,16 +298,12 @@
 .main-conteudo
 {
     transition: all 0.5s ease;
-    background-color: #fff;
-    /* height: 100vh; */
+    background-color: #ffffff;
 
     /* AJUSTEI DESSA FORMA PRA QUE TODA A MAIN NÃO FIQUE ENTRANDO DENTRO DAS NAVS */
     margin-left: 17rem;
     padding-top: 10rem;
     padding-bottom: 4rem;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 
 
@@ -601,6 +598,14 @@
     }
 }
 
+@media(max-width: 925px)
+{
+    .main-conteudo-container-titulo p
+    {
+        text-align: justify;
+    }
+}
+
 @media(max-width: 897px)
 {
     .main-conteudo-container-titulo
@@ -636,6 +641,10 @@
     {
         padding-left: 1rem;
     }
+    .main-conteudo
+    {
+        margin-left: 4rem;
+    }
 }
 
 @media(max-width: 444px)
@@ -654,4 +663,14 @@
     }
 }
 
-
+@media(max-width: 418px)
+{
+    .main-conteudo-container-titulo p
+    {
+        font-size: 12px;
+    }
+    .main-conteudo-container-titulo h1
+    {
+        font-size: 22px;
+    }
+}

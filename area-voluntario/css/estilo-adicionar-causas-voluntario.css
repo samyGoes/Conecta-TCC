@@ -55,7 +55,7 @@
     flex-direction: column;
     background-color: #fff;
     border-radius: 0.5rem;
-    min-width: 19rem;
+    width: 19rem;
     max-height: 15.3rem;
     border: 1px solid #cf8a3f;
     padding: 1rem;
@@ -175,11 +175,13 @@
     align-items: center;
     flex-direction: column;
     max-width: 36rem;
+    margin: 0rem 3rem 0rem 3rem;
+
     box-shadow: 5px 5px 5px #b4d8e6;
     border: 1px solid #4567a5;
     background-color: #ffffff;
     border-radius: 0.5rem;
-    margin: 0rem 3rem 0rem 3rem;
+   
 }
 
 .titulo-card
@@ -301,6 +303,14 @@
         height: 2.2rem;
         font-size: 14px;
     }
+    .icon-titulo-card h6
+    {
+        font-size: 14px;
+    }
+    .icon-titulo-card i
+    {
+        font-size: 18px;
+    }
 }
 @media(max-width: 535px)
 {
@@ -347,5 +357,58 @@
     .box-causas
     {
         width: 15rem;
+    }
+}
+
+@media(max-width: 376px)
+{
+    .filtro-causas
+    {
+        width: 13rem;
+        background-position: 180px center;
+    }
+    .box-causas
+    {
+        width: 13rem;
+    }
+    .form-botao-adicionar
+    {
+        font-size: 18px;
+        width: 9rem;
+    }
+}
+
+@media(max-width: 326px)
+{
+    .causas
+    {
+        width: 100%;
+        border-radius: 0;
+        border-left: none;
+    }
+}
+
+@media(max-width: 328px)
+{
+    .filtro-causas
+    {
+        width: 11rem;
+        height: 2rem;
+        background-position: 150px center;
+        font-size: 12px;
+    }
+    .box-causas
+    {
+        width: 11rem;
+    }
+    .form-botao-adicionar
+    {
+        height: 2rem;
+        font-size: 16px;
+        width: 8rem;
+    }
+    .form-causas
+    {
+        gap: 1rem;
     }
 }
