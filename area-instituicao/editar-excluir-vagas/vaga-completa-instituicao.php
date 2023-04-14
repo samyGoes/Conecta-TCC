@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+                    <a href="../trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">

@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@300;400;500&display=swap');
+
+*
+{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration-line: none;
+    list-style: none;
+}
+.form{
+    width: 100%;
+    height: 100%;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: -1rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+}
+
+.input-box{
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4.5%;
+}
+
+.input-box label{
+    display: flex;
+    color: #525252;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input-box input {
+    outline: none;
+    padding: 8px;
+    border: solid 1px #cf8a3f;
+}
+
+.input-box textarea{
+    outline: none;
+    border: #cf8a3f solid 1px;
+    resize: none;
+}
+
+.input-box input,textarea::placeholder{
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+.input-box .div-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22vw;
+    height: 15.5vh;
+    background-color: #fbf7c7;
+    border: solid 1px #cf8a3f;
+    margin-top: 42px;
+}
+.input-box .div-image .image{
+    width: 6rem;
+    height: 6rem;
+}
+.input-box .div-image .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#nome, #email, #telefone, #telefone-2, #log {
+    width: 30vw;
+}
+#num{
+    width: 8vw;
+}
+#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #label {
+    width: 19vw;
+}
+#label{
+    border: solid 1px #cf8a3f;
+    background-color: #fbf7c7;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+#label:hover
+{
+    background-color: #cf8a3f;
+    color: #fff;
+}
+
+#foto{
+    display: none;
+}
+#desc{
+    width: 40.8vw;
+    height: 15.5vh;
+    overflow-y: scroll 2px;
+    padding: 5px;
+    /* height="87px" width="503px"*/
+}
+
+/* BOTÃO */
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.continue-button button {
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    padding: 0.8%;  
+    cursor: pointer;
+
+    color: #fff;
+    font-size: 16pt;
+    font-weight: 300;
+    font-family: poppins, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    color: #cf8a3f;
+}
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+/*FORMULARIO*/
+@media (max-width: 1048px)
+{
+    #nome, #email, #telefone, #telefone-2, #log {
+        width: 33vw;
+    }
+
+    #bairro, #cidade, #pais, #comp, #uf, #foto, #label {
+        width: 20.9vw;
+    }
+    #num
+    {
+        width: 8.9vw;
+    }
+    #cep
+    {
+        width: 21vw;
+    }
+    #desc{
+        width: 45vw;
+    }
+    .input-box .div-image {
+        width: 24vw;
+    }
+}
+
+@media (max-width: 768px){
+    .input-group{
+        width: 100%;
+    }
+    .input-box{
+        display: flex;
+        flex-direction: column;
+    }
+    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
+        width: 60vw;
+    }
+    .input-box .div-image{
+        border: none;
+        background-color: #fff;
+        width: 20vw;
+    }
+    .input-box .div-image .image img{
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 556px)
+{
+    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
+        width: 70vw;
+    }
+}
+
+/* @media (max-width: 450px){
+    .container{
+        width: 100%;
+        height: auto;
+    }
+    .input-box{
+        display: flex;
+        flex-direction: column;
+    }
+    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
+        width: 50vw;
+    }
+    
+} */
