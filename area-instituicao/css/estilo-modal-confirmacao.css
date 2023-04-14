@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 
 .modal-responsive {
@@ -10,13 +10,12 @@
 }
 
 .form {
-    width: 350px;
-    height: 330px;
+    width: 400px;
+    height: 355px;
     background-color: #fff;
     border: 1px solid #4567a5;
-    border-radius: 0,3rem;
-    padding: 30px;
     border-radius: 0.5rem;
+    padding: 30px;
     position: fixed;
     max-width: 90%;
     transform: translate(-50%, -50%);
@@ -39,32 +38,25 @@
     cursor: pointer;
 }
 
-.abrir-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: poppins, sans-serif;
-}
 
-#open-modal {
-    background-color: #007bff;
-}
-
-.titulo {
+.modal-titulo {
     font-family: poppins, sans-serif;
     font-weight: 400;
+    font-size: 20px;
     color: #000;
 }
 
-.email {
+.modal-email {
     font-family: poppins, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 14px;
     color: #525252;
 }
 
-.senha {
+.modal-senha {
     font-family: poppins, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 14px;
     color: #525252;
 }
 .fade, .modal {
@@ -92,18 +84,18 @@
     line-height: 50px;
 }
 
-div input {
+.modal-input-box input {
     display: flex;
     justify-content: center;
-    width: 20em;
-    height: 2em;
+    width: 20.9rem;
+    padding: 8px;
     border: 1px solid #4567a5;
-    font-family: poppins, sans-serif;
-    font-weight: 500;
-    color: #525252;
-    border-radius: 0,3rem;
-    font-size: 1em;  
     outline: none;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+    font-size: 14px;   
 }
 .btn-confirmed{
     display: flex;
@@ -112,19 +104,20 @@ div input {
 
 .btn-confirmed button{
     margin-top: 2vw;
-    width: 7em;
-    height: auto;
+    width: 11rem;
+    height: 2.5rem;
     background-color: #4567a5;
     border: 1px solid #4567a5;
-    border-radius: 0.3rem;
-    font-family: poppins, sans-serif;
+    border-radius: 0.5rem;
+    margin-top: 2em;
+
     color: #fff;
     transition: all 0.5s ease;
     cursor: pointer;
+    font-family: poppins, sans-serif;
     text-transform: uppercase;
+    font-weight: 300;
     font-size: 20px;
-    margin-top: 2em;
-   
 }
 .btn-confirmed button:hover{
     background-color: #fff;
@@ -132,7 +125,7 @@ div input {
 }
 
 .modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -148,12 +141,13 @@ div input {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    transition: all 0.5s ease;
+    cursor: pointer;
   }
   
   .close:hover,
   .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
   }
   

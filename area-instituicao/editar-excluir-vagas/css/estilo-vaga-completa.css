@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@300;400;500&display=swap');
+
+
+/* TÍTULO E FRASE */
+/* .container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    width: 100%;
+   
+}
+.container h1
+{
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 35px;
+    color: #000000;
+    
+}
+.container p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: #000000;
+    padding: 0.5rem 1rem 2rem 0rem;
+} */
+
+.conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.conteiner-botoes
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.conteiner-botao-editar
+{
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    color: #fff;
+    width: 9rem;
+    height: 2.5rem;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 0.5rem;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.conteiner-botao-editar:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
+.conteiner-botao-excluir
+{
+    background-color: #af4141;
+    border: 1px solid #af4141;
+    color: #fff;
+    width: 9rem;
+    height: 2.5rem;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 0.5rem;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.conteiner-botao-excluir:hover
+{
+    background-color: #fff;
+    color: #af4141;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CARD */
+.card-completo 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    box-shadow: 5px 5px 5px #b4d8e6;
+    border: 1px solid #4567a5;
+    width: 50rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.card 
+{
+    width: 100%;
+}
+
+.titulos-card
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #4567a5;
+    padding: 1rem;
+
+}
+.titulos-card h1
+{
+    font-family:  Bitter, Verdana, Geneva, Tahoma, serif;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+.titulos-card h7 
+{
+    font-weight: 400;
+    font-size: 18px;
+    font-family: poppins, sans-serif;
+    text-transform: uppercase;
+    color: #2e2e2e; 
+}
+
+.descricao-da-vaga p 
+{
+    text-align: justify;
+    line-height: 1.9rem;
+    padding: 2.5rem;
+    font-size: 16px;
+    margin-top: 2rem;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+.info-ende
+{
+    display: flex;  
+    width: 100%;
+    border-bottom: 1px solid #4567a5; 
+}
+.topico-informacoes
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-right: 1px solid #4567a5; 
+    padding : 2rem;
+}
+.topico-informacoes p
+{
+    color: #525252;
+    font-family: poppins, sans-serif;
+    line-height: 1.9rem;
+    font-size: 16px;
+}
+.topico-informacoes h8
+{
+    color: #000000;
+    font-family: poppins, sans-serif;
+    line-height: 1.9rem;
+    font-size: 16px;
+}
+.topico-endereco
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2rem;
+}
+.topico-endereco p
+{
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+.titulo
+{
+    font-family: Bitter, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CAUSAS */
+.causas 
+{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+}
+.causas h6
+{
+    font-family: Bitter, serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+}
+.tipo-causas
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem;
+    padding-left: 1rem;
+}
+.tipo-causas button 
+{
+    padding: 0.8%;  
+    width: 10rem;
+    border: 1px solid #000000;
+    border-radius: 1.5rem;
+    height: 2.5rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    /* TEXTO */
+    font-size: 16px;
+    font-weight: 400;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    color: #000000;
+}
+.tipo-causas button:hover
+{
+    transform: translateY(-7px);
+}
+#tipo-causas-1
+{
+    background-color: #e4fdff;
+}
+#tipo-causas-1:hover
+{
+    background-color: #b9edf1;
+}
+#tipo-causas-2
+{
+    background-color: #defff1;
+}
+#tipo-causas-2:hover
+{
+    background-color: #92facf;
+}
+#tipo-causas-3
+{
+    background-color: #f3e1ff;
+}
+#tipo-causas-3:hover
+{
+    background-color: #dbb3f5;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*ULTIMA ABA CANDIDATAR-SE*/
+.area-candidatar
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #4567a5;
+    width: 100%;
+}
+.area-candidatar p 
+{
+    
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: #000000;
+    max-width: 95%;
+    margin: 1.5rem;
+}
+.area-candidatar button
+{
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    color: #fff;
+    width: 12rem;
+    height: 2.9rem;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius: 0.5rem;
+    margin: 1.5;
+    margin-bottom: 2.8rem;
+    font-weight: 300;
+    font-family: poppins, sans-serif;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.area-candidatar button:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
+
+
+
+
+
+
+
+
+
+

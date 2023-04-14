@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-*{
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
+
+.container-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modal-responsive {
     display: flex;
     align-items: center;
@@ -19,20 +22,20 @@ body{
 }
 .modal{
     border: 1px solid #4567a5;
-    box-shadow: 5px 5px 5px #c1d7f1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 370px;
+    width: 400px;
     height: auto;
     padding: 30px;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     background-color: #fff;
     line-height: 50px;
 }
-.titulo{
+.modal-titulo{
     font-family: poppins, sans-serif;
     font-weight: 400;
+    font-size: 16px;
     color: #000; 
 }
 .btn-exit{
@@ -44,22 +47,26 @@ body{
 .btn-exit button{
     background-color: #fbf7c7;
     border: 1px solid #000;
+    width: 8em;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
     font-family:  Poppins, sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 20px;
     transition: all 0.5s ease;
     text-transform: uppercase;
-    width: 7.5em;
-    border-radius: 0.4rem;
-    padding: 3px;
 }
 
 #cancelar:hover{
     background-color: #4567a5;
+    border: 1px solid #4567a5;
     color: #fff;
 }
 #excluir:hover{
-    background-color: #4567a5;
+    background-color: #af4141;
+    border: 1px solid #af4141;
     color: #fff;
 }
 

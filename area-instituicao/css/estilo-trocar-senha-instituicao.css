@@ -61,8 +61,8 @@
     padding: 0.2rem;
     border-radius: 0.5rem;
     margin-top: 10%;
-    background-color: #113173;
-    border: 1px solid #113173;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
     transition: all 0.5s ease;
     color: #fff;
     font-family: poppins, sans-serif;
@@ -75,7 +75,7 @@
 
 .continue-button button:hover {
     background-color: #fff;
-    color: #113173;
+    color: #4567a5;
 }
 
 

@@ -1,6 +1,6 @@
-var openModal = document.getElementById('open-modal');
-var modal = document.getElementById('modal');
-var closeModal = document.getElementsByClassName('close')[0];
+var openModal = document.querySelector('.conteiner-botao-excluir');
+var modal = document.querySelector('.container-modal');
+var closeModal = document.querySelector('#cancelar');
 
 openModal.onclick = function () {
     modal.style.display = "block";

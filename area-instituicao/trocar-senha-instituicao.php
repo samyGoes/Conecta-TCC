@@ -6,8 +6,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- LINKS CSS -->
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
         <link rel="stylesheet" href="css/estilo-trocar-senha-instituicao.css">
+        <link rel="stylesheet" href="css/estilo-modal-confirmacao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -142,6 +144,27 @@
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
 
+            <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
+            <div id="modal" class="modal">
+                <div class="form" id="form">
+                    <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
+
+                    <form class="form-modal" action="" method="POST" id="form-modal">
+                        <div class="modal-input-box" id="modal-input-box">
+                            <label for="" class="modal-email"> Email </label>
+                            <input placeholder="Digite seu email" type="email" name="email" id="email" class="modal-input-email">
+                        </div>
+                        <div class="modal-input-box">
+                            <label for="" class="modal-senha"> Senha </label>
+                            <input placeholder="Digite sua senha" type="password" name="senha" id="senha" class="modal-input-senha">
+                        </div>
+                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- CARD TROCAR SENHA -->
             <div class="card">
                 <div class="input-group">
                     <div class="input-box">
@@ -168,8 +191,9 @@
 
 
 
-
+        <!-- SCRIPTS -->
         <script src="js/script.js"></script>
+        <script src="js/modal-confirmacao.js"></script>
     </body>
 
 </html>

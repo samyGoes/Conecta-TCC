@@ -5,12 +5,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+        <!-- LINKS CSS -->
+        <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo-vaga-completa.css">
+        <link rel="stylesheet" href="css/estilo-modal-exclusao.css">
+
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Document</title>
+        <title>VAGA - Editar vagas</title>
     </head>
 
     <body>
@@ -131,13 +135,94 @@
         <main class="main-conteudo">
             
             <div class="main-conteudo-container-titulo">
-                <h1>TÍTULO</h1>
-                <p>
-                    Colocar a frase aqui :D
+                <h1>VAGA</h1>
+                <p> 
+                    Aqui está a sua vaga completa, veja todas as informações que desejar. Você também
+                    pode editá-la ou excluí-la.
                 </p>
             </div>
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+
+            <!-- CONTEUDO PRINCIPAL -->
+
+            <!-- MODAL EXCLUIR VAGA -->
+            <div id="container-modal" class="container-modal">
+                <div class="modal-responsive" id="modal-responsive">
+                    <div class="fade" id="fade">
+                        <div class="modal" id="modal">
+                            <label for="" class="modal-titulo" id="modal-titulo"> Deseja realmente excluir a vaga? </label>
+                            <div class="btn-exit" id="btn-exit">
+                                <button type="submit" id="excluir">excluir</button>
+                                <button type="submit" id="cancelar">cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="conteudo-completo">
+
+                <div class="conteiner-botoes">
+                    <button class="conteiner-botao-editar">EDITAR</button>
+                    <button class="conteiner-botao-excluir">EXCLUIR</button>
+                </div>
+                
+    
+                <div class="card-completo">
+                    <!-- DADOS DA INSTITUIÇÃO -->
+                    
+                    <div class="titulos-card">
+                        <h1> NOME DA FUNÇÃO DA VAGA </h1> 
+                        <h7> NOME DA INTITUIÇÃO ONDE REQUISITA A VAGA</h7>
+                                        
+                        <div class="descricao-da-vaga">
+                            <p>Olá, meu nome é João, sou de Recife, Pernambuco. Sou estudante de Engenharia Elétrica e
+                                trabalho part-time como programador. Minhas principais habilidades são programação, lógica
+                                de programação, eletrônica, matemática, física e robótica. Adoro aventuras, fazer trilhas e
+                                curtir a natureza. Além disso, sou bastante curioso, sempre querendo aprender coisas novas.
+                                Gosto de ler sobre diversos assuntos e adoro ouvir música. Acredito que o conhecimento é
+                                algo que nos leva cada vez mais longe, por isso sempre procuro me aprimorar.</p>
+                        </div>
+                    </div>
+    
+                    <div class="info-ende">
+                        <div class="topico-informacoes">
+                            <div class="titulo">Informações</div>                    
+                                <p>Horário:<h8> a combinar</h8></p>
+                                <p>Período:<h8> diurno</h8></p>
+                                <p>Tipo de vaga:<h8> presencial</h8></p>
+                                <p>Data de início:<h8> 20/03/2023</h8></p>
+                                <p>Habilidade:<h8> educação</h8></p>         
+                        </div>
+
+                        <div class="topico-endereco">
+                            <div class="titulo">Endereço</div>
+                            <p> Av. dos Ipês 909, Jardim  dos Ipês - São Paulo SP, Brasil</p>
+                        </div>         
+                    </div>           
+                    
+
+                    <!-- CAUSAS -->
+                    <div class="causas">
+                        <div class="icon-titulo-card-e-titulo">
+                            <h6>Causas ajudadas</h6>
+                        </div>
+                        <div class="tipo-causas">
+                            <a href=""><button id="tipo-causas-1">mulheres</button></a>
+                            <a href=""><button id="tipo-causas-2">crianças</button></a>
+                            <a href=""><button id="tipo-causas-3">idosos</button></a>
+                            <a href=""><button id="tipo-causas-1">animais</button></a>
+                        </div>
+                    </div>
+
+                    <div class="area-candidatar">
+                        <p>Candidate-se a esta vaga para ajudar em nossa causa!</p>
+                        <button>candidatar-se</button>
+                    </div>
+                </div>
+            </div>
 
         </main>
 
@@ -147,8 +232,10 @@
 
 
 
+        <!-- SCRIPTS -->
+        <script src="../js/script.js"></script>
+        <script src="js/modal-exclusao.js"></script>
 
-        <script src="js/script.js"></script>
     </body>
 
 </html>
