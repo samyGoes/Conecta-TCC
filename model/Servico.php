@@ -13,9 +13,9 @@
         private $dataInicioServico;
         private $dataTerminoServico;
         private $qntdVagaServico;
-        private $codHabilidadeServico;
-        private $codInstituicao;
-        private $codCategoriaServico;
+        private $habilidadeServico;
+        private $instituicao;
+        private $categoriaServico;
         private $cepLocalServico;
         private $bairroLocalServico;
         private $estadoLocalServico;
@@ -24,6 +24,7 @@
         private $paisLocalServico;
         private $numeroLocalServico;
         private $cidadeLocalServico;
+
 
 
 
@@ -45,7 +46,7 @@
             return $this->avaliacaoVoluntario;
         }
         public function getAvaliacaoInstituicao(){
-            return $this->cpfavaliacaoInstituicao;
+            return $this->avaliacaoInstituicao;
         }
 
         public function getStatusServico(){
@@ -53,7 +54,7 @@
         }
         
         public function getNomeServico(){
-            return $this->nomeServcio;
+            return $this->nomeServico;
         }
 
         public function getTipoServico(){
@@ -68,24 +69,24 @@
             return $this->dataTerminoServico;
         }
 
-        public function getQntdServico(){
-            return $this->qntdServico;
+        public function getQntdVagaServico(){
+            return $this->qntdVagaServico;
         }
 
         public function getDescServico(){
             return $this->descServico;
         }
 
-        public function getCodHabilidadeServico(){
-            return $this->codHabilidadeServico;
+        public function getHabilidadeServico(){
+            return $this->habilidadeServico;
         }
 
-        public function getCodInstituicao(){
-            return $this->codInstituicao;
+        public function getInstituicao(){
+            return $this->instituicao;
         }
 
-        public function getCodCategoriaServico(){
-            return $this->codCategoriaServico;
+        public function getCategoriaServico(){
+            return $this->categoriaServico;
         }
 
         public function getCepLocalServico(){
@@ -101,7 +102,7 @@
         }
 
         public function getLogradouroLocalServico(){
-            return $this->logradouroLocalservico;
+            return $this->logradouroLocalServico;
         }
 
         public function getComplementoLocalServico(){
@@ -117,7 +118,7 @@
         }
 
         public function getCidadeLoocalServico(){
-            return $this->cidadelocalServico;
+            return $this->cidadeLocalServico;
         }
 
 
@@ -160,7 +161,7 @@
             $this -> tipoServico = $tipoServico;
         }
 
-        public function setDataInicioServvico($dataInicioServico){
+        public function setDataInicioServico($dataInicioServico){
             $this -> dataInicioServico = $dataInicioServico;
         }
 
@@ -172,16 +173,16 @@
             $this -> qntdVagaServico = $qntdVagaServico;
         }
 
-        public function setCodHabilidadeServico($codHabilidadeServico){
-            $this -> codHabilidadeServico = $codHabilidadeServico;
+        public function sethabilidadeServico($habilidadeServico){
+            $this -> habilidadeServico = $habilidadeServico;
         }
 
-        public function setCidadeVoluntario($codCategoriaServico){
-            $this -> codCategoriaServico = $codCategoriaServico;
+        public function setCategoriaServico($categoriaServico){
+            $this -> categoriaServico = $categoriaServico;
         }
 
-        public function setDescVoluntario($codInstituicao){
-            $this -> codInstituicao = $codInstituicao;
+        public function setInstituicao($instituicao){
+            $this -> instituicao = $instituicao;
         }
 
         public function setCepLocalServico($cepLocalServico){
@@ -201,7 +202,7 @@
         }
 
         public function setComplementoLocalServico($complementoLocalServico){
-            $this -> complementoLocaServico = $complementoLocalServico;
+            $this -> complementoLocalServico = $complementoLocalServico;
         }
 
         public function setPaisLocalServico($paisLocalServico){
@@ -216,5 +217,4 @@
             $this -> cidadeLocalServico = $cidadeLocalServico;
         }
     }
-
-  
+?>

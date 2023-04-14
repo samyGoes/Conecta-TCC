@@ -88,11 +88,22 @@
         {
             $conectar=Conexao::conectar();
 
-            $stmt = $conectar->prepare("UPDATE tbinstituicao SET nomeInstituicao = ?, emailInstituicao = ? WHERE codInstituicao = ?");
+            $stmt = $conectar->prepare("UPDATE tbinstituicao SET nomeInstituicao = ?,logInstituicao = ?,numLogInstituicao = ?,
+            cepInstituicao = ?,compInstituicao = ?,bairroInstituicao = ?,cidadeInstituicao = ?,
+            estadoInstituicao = ?,paisInstituicao = ?,emailInstituicao = ?,descInstituicao = ? WHERE codInstituicao = ?");
 
             $stmt->bindValue(1, $instituicao->getNomeInstituicao());
-            $stmt->bindValue(2, $instituicao->getEmailInstituicao());
-            $stmt->bindValue(3, $instituicao->getIdInstituicao());
+            $stmt->bindValue(2, $instituicao->getLogradouroInstituicao());
+            $stmt->bindValue(3, $instituicao->getNumeroInstituicao());
+            $stmt->bindValue(4, $instituicao->getCepInstituicao());
+            $stmt->bindValue(5, $instituicao->getCompInstituicao());
+            $stmt->bindValue(6, $instituicao->getBairroInstituicao());
+            $stmt->bindValue(7, $instituicao->getCidadeInstituicao());
+            $stmt->bindValue(8, $instituicao->getEstadoInstituicao());
+            $stmt->bindValue(9, $instituicao->getPaisInstituicao());
+            $stmt->bindValue(10, $instituicao->getEmailInstituicao());
+            $stmt->bindValue(11, $instituicao->getDescInstituicao());
+            $stmt->bindValue(12, $instituicao->getIdInstituicao());
             $stmt->execute();
 
         }

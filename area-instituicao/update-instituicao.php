@@ -5,14 +5,8 @@
     
     try
     {
-        // Mostrar erros no navegador
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
-
+      
         // Mostrar o conteúdo da sessão
-        var_dump($_SESSION);
         $instituicao = new Instituicao();
         $instituicao -> setIdInstituicao($_SESSION['codUsuario']);
         $instituicao -> setNomeInstituicao($_POST['nome']);

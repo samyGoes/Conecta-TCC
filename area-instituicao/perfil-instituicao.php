@@ -51,7 +51,7 @@
                     <ul class="sub-topicos">
                         <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
                         <li> <a href=""> Vagas </a> </li>
-                        <li> <a href="editarPerfil-instituicao.php"> Configurações </a></li>
+                        <li> <a href="editar-perfil-instituicao-atualizado.php"> Configurações </a></li>
                         <li> <a href="../auth/logout.php"> Sair </a></li>
                     </ul>
                 </li>

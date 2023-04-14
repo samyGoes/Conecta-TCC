@@ -6,7 +6,7 @@
     $conectar=Conexao::conectar();
 
     // Verifica se o formulário foi submetido
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+    if (isset($_POST['login']) && isset($_POST['senha']))
     {
         // Obtém as credenciais do formulário
         $login = $_POST['login'];
@@ -120,7 +120,6 @@
         
                 // Redireciona para a página inicial do sistema
                 header('Location: ../area-instituicao/perfil-instituicao.php');
-                //var_dump($_SESSION);
                 exit();
 
             }
@@ -130,5 +129,5 @@
             }
         }
     }     
-?>?
+?>
 

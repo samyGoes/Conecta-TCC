@@ -3,11 +3,15 @@
 
     class ServicoDao
     {
-        function cadastrar($servico)
+        public static function cadastrar($servico)
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(nomeservico, tipoServico, descServico, cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, dataTerminoServico, dataInicioServico, qntdVagaServico, statusServico, avaliacaoInstituicao, avaliacaoVoluntario, periodoServico, horarioServico) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(nomeservico, tipoServico, descServico, cepLocalServico, bairroLocalServico, 
+            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, 
+            numeroLocalServico, cidadeLocalServico, dataTerminoServico, dataInicioServico, qntdVagaServico, 
+            statusServico, avaliacaoInstituicao, avaliacaoVoluntario, periodoServico, horarioServico,codInstituicao) 
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             $prepareStatement -> bindValue (1, $servico -> getNomeServico());
             $prepareStatement -> bindValue (2, $servico -> getTipoServico());
@@ -28,10 +32,36 @@
             $prepareStatement -> bindValue (17, $servico -> getAvaliacaoVoluntario());
             $prepareStatement -> bindValue (18, $servico -> getPeriodoServico());
             $prepareStatement -> bindValue (19, $servico -> getHorarioServico());
+            $prepareStatement -> bindValue (20, $servico -> getInstituicao() ->getIdInstituicao());
            
             $prepareStatement -> execute();
+        }
+
+        public static function consultarId($servico){
+            $conexao = Conexao::conectar();
+            $querySelect1 = "SELECT codInstituicao FROM tbinstituicao WHERE nomeInstituicao LIKE '".$servico->getInstituicao()."'";
+            $resultado1 = $conexao->query($querySelect1);
+            $lista1 = $resultado1->fetchAll();
+            foreach ($lista1 as $instituicao)
+                $id1 = $instituicao['codInstituicao'];
+            return $id1; 
+            
+            $querySelect2 = "SELECT codHabilidadeServico FROM tbhabilidadeServico WHERE nomeHabilidade LIKE '".$servico->getHabilidadeServico()."'";
+            $resultado2 = $conexao->query($querySelect2);
+            $lista2 = $resultado2->fetchAll();
+            foreach ($lista2 as $habilidadeServico)
+                $id2 = $habilidadeServico['codHabilidadeServico'];
+            return $id2;   
+
+            $querySelect3 = "SELECT codCategoriaServico FROM tbcategoriaServico WHERE descCategoriaServico LIKE '".$servico->getCategoriaServico()."'";
+            $resultado3 = $conexao->query($querySelect3);
+            $lista3 = $resultado3->fetchAll();
+            foreach ($lista3 as $categoriaServico)
+                $id3 = $categoriaServico['codCategoriaServico'];
+            return $id3;   
         }
     }
 
 
 ?>
+ 
