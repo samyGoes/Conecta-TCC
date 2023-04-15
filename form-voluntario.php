@@ -14,7 +14,7 @@
             <!-- <div id="form1"> -->
                 <div class="container" id="primeiroConteudo">
                     <div class="form-image">
-                        <img src="img/mao3.jpg" alt="">
+                        <img src="img/mao4.jpg" alt="">
                     </div>
                     <div class="form">
                         
@@ -138,11 +138,11 @@
                 form2.style.display = 'flex';
 
                 // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA  
-                botaoEndereco.style.backgroundColor = "#6588c9";
+                botaoEndereco.style.backgroundColor = "#cf8a3f";
                 botaoEndereco.style.color = "#fff";
 
                 botaoDados.style.backgroundColor = "#fff";
-                botaoDados.style.color = "#4567a5";
+                botaoDados.style.color = "#cf8a3f";
                       
             });
 
@@ -155,11 +155,11 @@
                 form2.style.display = 'none';
 
                 // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA
-                botaoDados.style.backgroundColor = "#6588c9";
+                botaoDados.style.backgroundColor = "#cf8a3f";
                 botaoDados.style.color = "#fff";
 
                 botaoEndereco.style.backgroundColor = "#fff";
-                botaoEndereco.style.color = "#6588c9";
+                botaoEndereco.style.color = "#cf8a3f";
                             
             });
         </script>
