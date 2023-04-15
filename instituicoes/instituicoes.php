@@ -114,27 +114,46 @@
                     { ?>
             
                         <div class="lista-voluntario-linha">
-                            <div class="lista-item"> 
+                            <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $instituicao['cidadeInstituicao']." -"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao'].", ".$instituicao['paisInstituicao']; ?>  </span></p></div>   
+
+                            <div class="lista-item" id="lista-item-nome"> 
+
                                 <a href="../area-voluntario/perfil-voluntario.php">
-                                    <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"> </div> 
-                                </a>    
-                                <a href="../area-voluntario/perfil-voluntario.php"><p> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a> 
-                            </div>
-                    
-                            <div class="lista-item" id="lista-item-email">
-                                <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> <?php echo $instituicao['emailInstituicao']; ?> </p></div></a>
-                            </div>
-                        
-                            <div class="lista-item" id="lista-item-local">
-                                <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $instituicao['cidadeInstituicao']."-"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao'].", ".$instituicao['paisInstituicao']; ?>  </span></p></div></a>        
-                            </div>
-                        
+                                    <div class="box-img"> <img src="../area-instituicao/img/user2.png"> </div> 
+                                </a>  
+                                <div class="lista-item-sessao-1">
+                                    <a href=""> <p class="nome"> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a>
+                                    <a href=""> <p class="email"> <?php echo $instituicao['emailInstituicao']; ?> </p> </a>
+                                </div>  
+
+                                <div class="lista-item-sessao-2">
+                                    <a href=""> <p class="descricao"> 
+                                        There are many variations of passages of Lorem Ipsum available, 
+                                        but the majority have suffered alteration in some form, by injected humour, or randomised 
+                                        words which don't look even slightly believable.  
+                                    </p> </a>
+                                </div>
+   
+                            </div>     
+                            <div class="lista-item-2">
+                                <?php 
+                                    for($i = 1; $i <= 4; $i++)
+                                    {
+                                ?>       
+                                            <!-- <div class="tipo-causas"> -->
+                                            <a href=""><button id="tipo-causas-1">mulheres</button></a>
+                                        <!-- </div>  -->
+                                <?php
+                                    }
+                                ?>
+                            </div>             
                         </div>                 
                 <?php
                     }
                 ?>
         </div>
        
+        <!-- <div class="box-img"> <img src="../area-instituicao/<?php //echo $instituicao['fotoInstituicao']; ?>"> </div>  -->
 
 
         

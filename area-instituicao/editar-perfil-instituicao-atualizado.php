@@ -175,20 +175,23 @@
 
                     <div class="input-box">
                         <div>
-                            <label for="">Logradouro</label>
-                            <input type="text" name="log" id="log"
-                                value="<?php echo $_SESSION['logUsuario']; ?>" />
+                            <label for=" ">CEP</label>
+                            <input type="text " name="cep" id="cep" placeholder="Digite seu CEP"
+                                value="<?php echo $_SESSION['cepUsuario']; ?>" />
                         </div>
+
                         <div>
                             <label for="">Número</label>
                             <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"
                                 value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
+
                         <div>
-                            <label for=" ">CEP</label>
-                            <input type="text " name="cep" id="cep" placeholder="Digite seu CEP"
-                                value="<?php echo $_SESSION['cepUsuario']; ?>" />
+                            <label for="">Logradouro</label>
+                            <input type="text" name="log" id="log"
+                                value="<?php echo $_SESSION['logUsuario']; ?>" />
                         </div>
+                                 
                     </div>
 
                     <div class="input-box">

@@ -251,18 +251,17 @@ body
 .lista-voluntario-linha
 {
     display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     border-bottom: 1px solid #000;
-    /* gap: 3.5rem; */
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     transition: all 0.5s;
     width: 100%;
 }
 
 .lista-voluntario-linha:hover
 {
-    background-color: #c7e4fb;
+    background-color: #dff1ff;
 }
 
 .lista-voluntario-linha:last-child
@@ -281,16 +280,77 @@ body
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
-    width: 33.33%;
-    background-color: #769be0;
+    /* width: 33.33%; */
+    /* background-color: #769be0; */
 }
 
-#lista-item-email, #lista-item-local
+.lista-item-sessao-1
 {
-    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    /* background-color: #a4bae2; */
+    /* width: 15rem; */
 }
 
+.lista-voluntario-linha .nome
+{
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+}
 
+.lista-item-sessao-1 .email
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #525252;
+    text-align: left;
+}
+
+.lista-item-sessao-2
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-left: 1rem;
+    border-left: 1px solid #a8a8a8;
+}
+
+.lista-item-sessao-2 .descricao
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #525252;
+}
+
+#localizacao
+{
+    /* background-color: #dd9191; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    padding-bottom: 0.7rem;
+}
+
+#localizacao p
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #000;
+    /* background-color: #9aa7df; */
+}
+
+#localizacao i
+{
+    font-size: 18px;
+    color: #000;
+}
 .box-img
 {
     width: 4rem;
@@ -306,26 +366,40 @@ body
     border-radius: 50%;
 }
 
-.lista-voluntario-linha p
+.lista-item-2
 {
-    font-family: poppins, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    /* border-top: 1px solid #000;
+    margin-top: 1rem; */
+    /* background-color: #4567a5; */
+}
+
+.lista-item-2 button 
+{ 
+    width: 8rem;
+    border: 1px solid #000000;
+    border-radius: 1.5rem;
+    height: 2rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+
+    /* TEXTO */
+    font-size: 14px;
     font-weight: 400;
-    font-size: 16px;
-    color: #000;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    color: #000000;
 }
 
-#localizacao, #email
+.lista-item-2 button:hover
 {
-    gap: 0.3rem;
+    background-color: #dbb3f5;
 }
-
-#localizacao i, #email i
-{
-    font-size: 20px;
-    color: #000;
-}
-
-
 
 
 
@@ -363,9 +437,10 @@ body
     }
 }
 
+
+ /* TÍTULO E FRASE */
 @media(max-width: 982px)
-{
-    /* TÍTULO E FRASE */
+{  
     .container-titulo 
     {
         max-width: 85%;
@@ -378,30 +453,6 @@ body
     {
         font-size: 14px;
     }
-}
-
-@media(max-width: 835px)
-{
-    /* .lista-voluntario-linha
-    {
-        gap: 1.5rem;
-    } */
-}
-
-@media(max-width: 818px)
-{
-    #email
-    {
-        display: none;
-    }
-    .lista-item
-    {
-        width: 50%;
-    }
-    /* .lista-voluntario-linha
-    {
-        align-items:normal;
-    } */
 }
 
 @media(max-width: 714px)
@@ -438,70 +489,90 @@ body
     }
 }
 
-@media(max-width: 600px)
+@media(max-width: 635px)
 {
-    .lista-voluntario-linha
+    .lista-item-sessao-2 .descricao
     {
-        gap: 1rem;
+        font-size: 11px;
     }
-}
-
-@media(max-width:556px)
-{
-    .filtro-causas
-    {
-        font-size: 17px;
-        /* width: 10rem; */
-        height: 2.3rem;
-    }
-    #estados, #cidades
-    {
-        /* width: 10rem; */
-        height: 2.3rem;
-    }
-    .box-causas
-    {
-        min-width: 10rem;
-    }
-}
-
-@media(max-width: 534px)
-{
-    .estado-pais
-    {
-        display: none;
-    }
-    .box-img
-    {
-        width: 55px;
-        height: 55px;
-    }
-    .lista-voluntario-linha
-    {
-        gap: 0rem;
-        padding: 1rem;
-    }
-    .lista-voluntario-linha p
-    {
-        font-size: 14px;
-    }
-    .lista-item-1
-    {
-        gap: 0.3rem;
-    }
-}
-
-@media(max-width: 340px)
-{
     .box-img
     {
         width: 50px;
         height: 50px;
     }
+    .lista-item
+    {
+        gap: 0.5rem;
+    }
 }
 
+@media(max-width: 592px)
+{
+    .lista-item-2
+    {
+        justify-content: flex-start;
+    }
+    .lista-item-2 button
+    {
+        width: 6rem;
+        height: 1.7rem;
+        font-size: 12px;
+    }
+}
 
+@media(max-width: 577px)
+{
+    .lista-item .lista-item-sessao-2
+    {
+        display: none;
+    }
+}
 
+@media(max-width:556px)
+{
+    .filtro-causas, #estados, #cidades
+    {
+        font-size: 17px;
+        height: 2.3rem;
+    }
+
+    #estados, #cidades
+    {
+        font-size: 13px;
+    }
+    .container-titulo .frase
+    {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 347px)
+{
+    .lista-item-2
+    {
+        justify-content: center;
+    }
+    .container-titulo .frase
+    {
+        font-size: 12px;
+    }
+    .filtro-causas, #estados, #cidades
+    {
+        width: 9rem;
+        height: 1.8rem;
+        font-size: 13px;
+    }
+    #estados, #cidades
+    {
+        font-size: 10px;
+        background-position: 125px;
+        background-size: 13px;
+    }
+    .form-filtro
+    {
+        gap: 1rem;
+    }
+}
 
 
 
