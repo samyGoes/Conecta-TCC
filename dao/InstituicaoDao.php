@@ -68,13 +68,13 @@
 
                 $id = $conectar->lastInsertId();
 
-                $stmt2=$conectar->prepare("INSERT INTO tbfoneinstituicao(numFoneInstituicao,codInstituicao)
-                                                                VALUES(?,$id)");
+                $stmt2=$conectar->prepare("INSERT INTO tbfoneinstituicao(numFoneInstituicao,codInstituicao,numSeqFone)
+                                                                VALUES(?,$id,1)");
                 $stmt2->bindValue(1, $instituicao->getTel1Instituicao());
                 $stmt2->execute();
 
-                $stmt3=$conectar->prepare("INSERT INTO tbfoneinstituicao(numFoneInstituicao,codInstituicao)
-                                                                VALUES(?,$id)");
+                $stmt3=$conectar->prepare("INSERT INTO tbfoneinstituicao(numFoneInstituicao,codInstituicao,numSeqFone)
+                                                                VALUES(?,$id,2)");
                 $stmt3->bindValue(1, $instituicao->getTel2Instituicao());
                 $stmt3->execute();
 
@@ -108,9 +108,25 @@
 
         }
 
+        public static function editarTel($instituicao)
+        {
+            $conectar=Conexao::conectar();
+
+            $stmtTelefone1 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneVoluntario = ?
+            WHERE codFoneInstituicao = ? AND numSeqFone = 1");
+            $stmtTelefone1->bindValue(1, $instituicao->getTel1Instituicao());
+            $stmtTelefone1->bindValue(2, $instituicao->getIdInstituicao());
+            $stmtTelefone1->execute();
+
+            $stmtTelefone2 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneVoluntario = ?
+            WHERE codFoneInstituicao = ? AND numSeqFone = 2");
+            $stmtTelefone2->bindValue(1,$instituicao->getTel2Instituicao());
+            $stmtTelefone2->bindValue(2,$instituicao->getIdInstituicao());
+            $stmtTelefone2->execute();
+        }
+
         public static function listar()
         {
-
             $conexao = Conexao::conectar();
             $querySelect = "SELECT codInstituicao, nomeInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
             $resultado = $conexao->query($querySelect);

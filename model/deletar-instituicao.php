@@ -2,7 +2,6 @@
 
 require_once 'global.php';
 include_once('Conexao.php');
-session_start();
 
 $conectar = Conexao::conectar();
 

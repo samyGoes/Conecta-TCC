@@ -48,10 +48,27 @@
 
         move_uploaded_file($arquivo, $nomecompleto);
 
+        //inserindo a foto na classe Instituicao
         $instituicao->setFtPerfilInstituicao($nomecompleto);
-        $_SESSION['ftPerfil'] = $nomecompleto;
 
+        //Chamando a função da classe Dao para atualizar a foto de perfil
         $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
+
+        //atualizando os dados da sessâo
+        $_SESSION['ftPerfil'] = $nomecompleto;
+        $_SESSION['nomeUsuario'] = $instituicao->getNomeInstituicao();
+        $_SESSION['emailUsuario'] = $instituicao->getEmailInstituicao();
+        //$_SESSION['numFoneUsuario1'] =;
+        //$_SESSION['numFoneUsuario2'] = ;
+        $_SESSION['logUsuario'] = $instituicao->getLogradouroInstituicao();
+        $_SESSION['numLogUsuario'] = $instituicao->getNumeroInstituicao();
+        $_SESSION['cepUsuario'] = $instituicao->getCepInstituicao();
+        $_SESSION['bairroUsuario'] = $instituicao->getBairroInstituicao();
+        $_SESSION['cidadeUsuario'] = $instituicao->getCidadeInstituicao();
+        $_SESSION['estadoUsuario'] = $instituicao->getEstadoInstituicao();
+        $_SESSION['compUsuario'] = $instituicao->getCompInstituicao();
+        $_SESSION['paisUsuario'] = $instituicao->getPaisInstituicao();
+        $_SESSION['descUsuario'] = $instituicao->getDescInstituicao();
         
     }
     catch(Exception $e)

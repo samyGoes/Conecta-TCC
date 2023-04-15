@@ -35,10 +35,10 @@ if(isset($_POST['cpf']) && ($_POST['email'])){
     $email = $_POST['email'];
     $conexao = new PDO("mysql:host=localhost;dbname=bdconecta","root","");
 
-$sqlCpf = "SELECT * FROM tbVoluntario WHERE cpfVoluntario = '$cpf'";
-$sqlEmail = "SELECT * FROM tbVoluntario WHERE emailVoluntario = '$email'";
-$resultCpf = $conexao->query($sqlCpf);
-$resultEmail = $conexao->query($sqlEmail);
+    $sqlCpf = "SELECT * FROM tbVoluntario WHERE cpfVoluntario = '$cpf'";
+    $sqlEmail = "SELECT * FROM tbVoluntario WHERE emailVoluntario = '$email'";
+    $resultCpf = $conexao->query($sqlCpf);
+    $resultEmail = $conexao->query($sqlEmail);
 
 if ($resultCpf-> rowCount()> 0 && $resultEmail->rowCount()>0) {
     echo  "<script>alert('Esse endereço de email e CPF já estão em uso por outro usuário!');</script>";
