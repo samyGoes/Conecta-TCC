@@ -143,13 +143,10 @@ require_once 'global.php';
                             <label for="">Período</label>
                             <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php echo $_SESSION['numFoneUsuario1']; ?>" />
                         </div>
-                        <div>
-                            <label for=" ">Tipo de Vaga</label>
-                            <select name="tipoVaga" id="tipoVaga"></select>
-                        </div>
                     </div>
 
                     <div class="input-box">
+
                         <div>
                             <label for="">Data de início</label>
                             <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
@@ -157,16 +154,8 @@ require_once 'global.php';
 
                         <div>
                             <label for="">Horário</label>
-                            <input type="text" name="horario" id="horario" placeholder="Digite p horário" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
+                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
                         </div>
-
-                        <div>
-                            <label for="">Quantidade de Vagas</label>
-                            <select name="quantidadeVagas" id="quantidadeVagas"></select>
-                        </div>
-
-
-
                     </div>
 
                     <div class="input-box">
@@ -179,7 +168,10 @@ require_once 'global.php';
                             <label for="">Causas</label>
                             <select name="causas" id="causas"></select>
                         </div>
-
+                        <div>
+                            <label for="">Número</label>
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
+                        </div>
                         <div>
                             <label for="">CEP</label>
                             <input type="text" name="cep" id="cep" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
@@ -188,20 +180,54 @@ require_once 'global.php';
                     </div>
 
                     <div class="input-box">
-
                         <div>
-                            <label for="">Número</label>
-                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
+                            <label for="">Quantidade de Vagas</label>
+                            <select name="quantidadeVagas" id="quantidadeVagas"></select>
+                        </div>
+                        <div>
+                            <label for=" ">Tipo de Vaga</label>
+                            <select name="tipoVaga" id="tipoVaga"></select>
                         </div>
                         <div>
                             <label for="">Logradoura</label>
                             <input type="text" name="logradouro" id="logradouro" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
+                    </div>
+
+                    <div class="input-box">
                         <div>
                             <label for=" ">Bairro</label>
                             <input type="text" name="bairro" id="bairro" value="<?php echo $_SESSION['bairroUsuario']; ?>" />
                         </div>
-
+                        <div>
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade">
+                            <!--<select name="cidade" id="cidade">
+                                <option disabled value="">Selecione sua cidade</option>
+                                <option value="São Paulo" <?php if ($_SESSION['cidadeUsuario'] == 'São Paulo')
+                                                                echo 'selected'; ?>>São Paulo</option>
+                                <option value="Rio de Janeiro" <?php if ($_SESSION['cidadeUsuario'] == 'Rio de Janeiro')
+                                                                    echo 'selected'; ?>>Rio de Janeiro</option>
+                                <option value="Belo Horizonte" <?php if ($_SESSION['cidadeUsuario'] == 'Belo Horizonte')
+                                                                    echo 'selected'; ?>>Belo Horizonte</option>
+                            </select>-->
+                        </div>
+                        <div>
+                            <label for="uf">Estado</label>
+                            <input type="text" name="uf" id="uf">
+                            <!--<select name="uf" id="uf">
+                                    <option disabled value="">Selecione seu estado</option>
+                                    <option value="SP" <?php if ($_SESSION['estadoUsuario'] == 'SP')
+                                                            echo 'selected'; ?>>SP
+                                    </option>
+                                    <option value="RJ" <?php if ($_SESSION['estadoUsuario'] == 'RJ')
+                                                            echo 'selected'; ?>>RJ
+                                    </option>
+                                    <option value="BH" <?php if ($_SESSION['estadoUsuario'] == 'BH')
+                                                            echo 'selected'; ?>>BH
+                                    </option>
+                                </select>-->
+                        </div>
                     </div>
 
                     <div class="input-box">
@@ -224,44 +250,12 @@ require_once 'global.php';
                                                                 echo 'selected'; ?>>Portugal</option>
                             </select>-->
                         </div>
-                        <div>
-                            <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade">
-                            <!--<select name="cidade" id="cidade">
-                                <option disabled value="">Selecione sua cidade</option>
-                                <option value="São Paulo" <?php if ($_SESSION['cidadeUsuario'] == 'São Paulo')
-                                                                echo 'selected'; ?>>São Paulo</option>
-                                <option value="Rio de Janeiro" <?php if ($_SESSION['cidadeUsuario'] == 'Rio de Janeiro')
-                                                                    echo 'selected'; ?>>Rio de Janeiro</option>
-                                <option value="Belo Horizonte" <?php if ($_SESSION['cidadeUsuario'] == 'Belo Horizonte')
-                                                                    echo 'selected'; ?>>Belo Horizonte</option>
-                            </select>-->
-                        </div>
                     </div>
-
-                    <div class="input-box">                        
-                        <dic class="form-footer">
-                            <div>
-                                <label for="uf">Estado</label>
-                                <input type="text" name="uf" id="uf">
-                                <!--<select name="uf" id="uf">
-                                    <option disabled value="">Selecione seu estado</option>
-                                    <option value="SP" <?php if ($_SESSION['estadoUsuario'] == 'SP')
-                                                            echo 'selected'; ?>>SP
-                                    </option>
-                                    <option value="RJ" <?php if ($_SESSION['estadoUsuario'] == 'RJ')
-                                                            echo 'selected'; ?>>RJ
-                                    </option>
-                                    <option value="BH" <?php if ($_SESSION['estadoUsuario'] == 'BH')
-                                                            echo 'selected'; ?>>BH
-                                    </option>
-                                </select>-->
-                            </div>
-                            <div>
-                                <label for="">Descrição</label>
-                                <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descriçao" value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
-                            </div>
-                        </dic>
+                    <div class="input-box">
+                        <div>
+                            <label for="">Descrição</label>
+                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descriçao" value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
+                        </div>
                     </div>
                 </div>
                 <a href="">

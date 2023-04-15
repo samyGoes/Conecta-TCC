@@ -9,10 +9,6 @@
     list-style: none;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
 .form {
     width: 100%;
     height: 100%;
@@ -92,31 +88,41 @@ textarea::placeholder {
 }
 
 #nome,
-#dataInicio,
 #periodo,
-#horario,
-#cep,
-#causas,
+#dataInicio,
+#horario {
+    width: 30vw;
+}
+
 #num,
+#cep {
+    width: 10vw;
+}
+
 #habilidades,
-#logradouro,
-#bairro,
-#cidade,
+#causas,
+#quantidadeVagas,
+#tipoVaga,
 #pais,
 #comp,
-#uf,
-#label,
-#quantidadeVagas,
-#tipoVaga
- {
-    width: 18vw;
+#cidade,
+#bairro {
+    width: 17.2vw;
+}
+
+#logradouro,
+#uf  {
+    width: 23vw;
+}
+
+#label {
+    width: 16.8vw;
 }
 
 #causas,
 #habilidades,
 #quantidadeVagas,
-#tipoVaga
-     {
+#tipoVaga {
     border: 1px solid #4567a5;
 }
 
@@ -144,19 +150,13 @@ textarea::placeholder {
 }
 
 #desc {
-    width: 40.8vw;
+    width: 63vw;
     height: 15.5vh;
     overflow-y: scroll 2px;
     padding: 5px;
     /* height="87px" width="503px"*/
 }
 
-.form-footer {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    gap: 7vh;
-}
 
 /* BOTÃO */
 .continue-button {
