@@ -19,6 +19,7 @@
         private $paisInstituicao;
         private $estadoInstituicao;
         private $descInstituicao;
+        private $ftPerfilInstituicao;
 
         //Getters
         public function getIdInstituicao(){
@@ -72,6 +73,9 @@
         public function getDescInstituicao(){
             return $this->descInstituicao;
         }
+        public function getFtPerfilInstituicao(){
+            return $this->ftPerfilInstituicao;
+        }
 
         //Setters
         public function setIdInstituicao($idInstituicao){
@@ -124,6 +128,9 @@
         }
         public function setDescInstituicao($descInstituicao){
             $this->descInstituicao=$descInstituicao;
+        }
+        public function setFtPerfilInstituicao($ftPerfilInstituicao){
+            $this->ftPerfilInstituicao=$ftPerfilInstituicao;
         }
     }
 ?>

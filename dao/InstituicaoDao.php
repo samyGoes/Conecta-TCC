@@ -108,13 +108,44 @@
 
         }
 
-        public static function listar(){
+        public static function listar()
+        {
 
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codInstituicao, nomeInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao FROM tbinstituicao";
+            $querySelect = "SELECT codInstituicao, nomeInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  
+        }
+
+        public static function consultarId($instituicao)
+        {
+            $conexao = Conexao::conectar();
+
+            $querySelect = "SELECT codInstituicao FROM tbinstituicao WHERE nomeInstituicao LIKE '".$instituicao->getNomeInstituicao()."'";
+
+            $resultado = $conexao->query($querySelect);
+
+            $lista = $resultado->fetchAll();
+
+            foreach ($lista as $instituicao)
+                $id = $instituicao['codInstituicao'];
+            return $id;   
+        }
+
+        public static function atualizarFotoPerfil($instituicao){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbInstituicao
+                            SET fotoInstituicao = ?
+                            WHERE codInstituicao = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $instituicao->getFtPerfilInstituicao());
+            $prepareStatement->bindValue(2, $instituicao->getIdInstituicao());
+
+            $prepareStatement->execute();
         }
     }
 ?>

@@ -23,9 +23,33 @@
         $instituicao -> setEstadoInstituicao($_POST['uf']);
         $instituicao -> setDescInstituicao($_POST['desc']);
 
-    
-
+        //Atualizando sem a foto
         $update = InstituicaoDao::editar($instituicao);
+
+        $idInstituicao = InstituicaoDao::consultarId($instituicao);
+        //inserindo o id da instituição na classe Instituicao
+        $instituicao ->setFtPerfilInstituicao($idInstituicao);
+
+        //nome original do arquivo no computador do usuário
+        $nome = $_FILES['foto']['name'];
+
+         //nome temporário do arquivo como foi armazenado no servidor, é o ARQUIVO!!!
+        $arquivo = $_FILES['foto'] ['tmp_name'];
+
+        $diretorio = "img-instituicao/";
+    
+        $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
+
+        $nomenovo = $instituicao->getIdInstituicao().$extensao;
+        $nomecompleto =  $diretorio.$nomenovo;
+        
+        // $nomecompleto =  $diretorio.$nome;
+
+        move_uploaded_file($arquivo, $nomecompleto);
+
+        $instituicao->setFtPerfilInstituicao($nomecompleto);
+
+        $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
         
     }
     catch(Exception $e)

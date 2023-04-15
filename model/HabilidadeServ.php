@@ -1,6 +1,6 @@
 <?php 
 
-    class Habilidade{
+    class HabilidadeServ{
         //Atributos
         private $idHabilidade;
         private $nomeHabilidade;
