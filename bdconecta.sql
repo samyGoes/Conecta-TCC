@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Abr-2023 às 04:25
+-- Generation Time: 15-Abr-2023 às 06:06
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -182,6 +182,14 @@ CREATE TABLE `tbservico` (
   `codCategoriaServico` int(11) NOT NULL,
   `codInstituicao` int(11) NOT NULL,
   `descServico` varchar(100) NOT NULL,
+  `cepLocalServico` int(9) NOT NULL,
+  `bairroLocalServico` varchar(100) NOT NULL,
+  `estadoLocalServico` varchar(60) NOT NULL,
+  `LogradouroLocalServico` varchar(100) NOT NULL,
+  `complementoLocalServico` varchar(50) NOT NULL,
+  `paisLocalServico` varchar(50) NOT NULL,
+  `numeroLocalServico` int(10) NOT NULL,
+  `cidadeLocalServico` varchar(100) NOT NULL,
   `nomeServico` varchar(100) NOT NULL,
   `tipoServico` varchar(50) NOT NULL,
   `dataInicioServico` date NOT NULL,
