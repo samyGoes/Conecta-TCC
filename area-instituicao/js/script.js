@@ -35,15 +35,16 @@ botaoNavLateral.addEventListener("click", function()
         {
             navLateral.style.width = "5rem";
             navLateral.style.paddingLeft = "1.5rem";
+            mainConteudo.style.marginLeft = "5rem";
         }
         else
         {
             navLateral.style.width = "4rem";
             navLateral.style.paddingLeft = "1.2rem";
         }
-        
-        mainConteudo.style.marginLeft = "5rem";
 
+        
+        
         // SUMINDO COM OS TÓPICOS QUANDO A NAV FOR FECHADA
         topicosNavLateral.forEach(function(topicoNavLateral)
         {

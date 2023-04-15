@@ -1,3 +1,7 @@
+<?php include "../auth/verifica-logado.php"; ?>
+<?php 
+     require_once 'global.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -26,7 +30,7 @@
             <ul class="topicos-sessao-completa">   
                 <ul class="topicos">
                     <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
                     <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                     <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                     <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
@@ -134,6 +138,10 @@
                 </form>
             
 
+
+
+
+                <!-- CAUSAS -->
                 <div class="causas">
                     <div class="titulo-card">
                         <div class="icon-titulo-card">
@@ -150,8 +158,7 @@
                                 <a href=""><button id="tipo-causas-1">animais</button></a>
                         <?php
                             }
-                        ?>
-                        
+                        ?>   
                     </div>
                 </div>
 
@@ -167,6 +174,6 @@
         
         <!-- SCRIPITS -->
         <script src="../area-instituicao/js/script.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/drop-down-botao-causas.js"></script>
     </body>
 </html>

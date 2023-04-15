@@ -167,15 +167,14 @@
                 <div class="conteiner-botoes">
                     <button class="conteiner-botao-editar">EDITAR</button>
                     <button class="conteiner-botao-excluir">EXCLUIR</button>
-                </div>
-                
-    
+                </div>         
+        
                 <div class="card-completo">
                     <!-- DADOS DA INSTITUIÇÃO -->
                     
                     <div class="titulos-card">
-                        <h1> NOME DA FUNÇÃO DA VAGA </h1> 
-                        <h7> NOME DA INTITUIÇÃO ONDE REQUISITA A VAGA</h7>
+                        <h1> PROFESSOR DE INGLÊS </h1> 
+                        <h7> ONG FLOR DO NORTE</h7>
                                         
                         <div class="descricao-da-vaga">
                             <p>Olá, meu nome é João, sou de Recife, Pernambuco. Sou estudante de Engenharia Elétrica e
@@ -189,25 +188,36 @@
     
                     <div class="info-ende">
                         <div class="topico-informacoes">
-                            <div class="titulo">Informações</div>                    
-                                <p>Horário:<h8> a combinar</h8></p>
-                                <p>Período:<h8> diurno</h8></p>
-                                <p>Tipo de vaga:<h8> presencial</h8></p>
-                                <p>Data de início:<h8> 20/03/2023</h8></p>
-                                <p>Habilidade:<h8> educação</h8></p>         
+                            <div class="titulo"><i class="fa-solid fa-circle-info"></i> <h6> Informações</h6></div>   
+                            <div class="topico-informacoes-texto">
+
+                                <div class="divisa-de-topicos-info">
+                                    <p>Horário:<span> a combinar</span></p>
+                                    <p>Período:<span> diurno</span></p>
+                                    <p>Tipo de vaga:<span> presencial</span></p>
+                                </div>
+                               
+                                <div class="divisao-de-topicos-info">
+                                    <p>Data de início:<span> 20/03/2023</span></p>
+                                    <p>Habilidade:<span> educação</span></p>
+                                </div>       
+                            </div>                 
+         
                         </div>
 
                         <div class="topico-endereco">
-                            <div class="titulo">Endereço</div>
-                            <p> Av. dos Ipês 909, Jardim  dos Ipês - São Paulo SP, Brasil</p>
+                            <div class="titulo"><i class="fa-sharp fa-solid fa-location-dot"></i><h6> Endereço</h6></div>
+                            <div class="topico-informacoes-texto">
+                                <p> Av. dos Ipês 909, Jardim  dos Ipês - São Paulo SP, Brasil</p>
+                            </div>
                         </div>         
                     </div>           
                     
 
                     <!-- CAUSAS -->
                     <div class="causas">
-                        <div class="icon-titulo-card-e-titulo">
-                            <h6>Causas ajudadas</h6>
+                        <div class="titulo">
+                            <i class="fa-sharp fa-solid fa-heart"></i> <h6 >Causas ajudadas</h6>
                         </div>
                         <div class="tipo-causas">
                             <a href=""><button id="tipo-causas-1">mulheres</button></a>
