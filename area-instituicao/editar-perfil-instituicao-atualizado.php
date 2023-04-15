@@ -56,7 +56,7 @@
                         <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                         <li> <a href=""> Vagas </a> </li>
                         <li> <a href="editar-perfil.php"> Configurações </a></li>
-                        <li> <a href="logout.php"> Sair </a></li>
+                        <li> <a href="../auth/logout.php"> Sair </a></li>
                     </ul>
                 </li>
             </ul>
@@ -252,7 +252,7 @@
                         <div>
                             <span>Foto</span>
                             <label id="label" for="foto">Selecione uma foto</label>
-                            <input type="file" accept="image/*" id="foto">
+                            <input type="file" accept="image/*" id="foto" name="foto">
                         </div>
                     </div>
 

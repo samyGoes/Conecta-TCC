@@ -1,6 +1,7 @@
 <?php include "../auth/verifica-logado.php";?>
 <?php
     require_once 'global.php'; 
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,8 +47,8 @@
                         <ul class="sub-topicos">
                             <li> <a href="../area-voluntario/perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
-                            <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="editar-perfil-instituicao-atualizado.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -78,7 +79,7 @@
                 <div class="ocultar-sessao">
                     <div class="dados-pessoais-1">
                         <div class="img-user">
-                            <img src="img/user2.png">
+                            <img src="<?php echo ($_SESSION['ftPerfil']) ?>">
                         </div>
                         <div class="dados-pessoais-1-stars">
                             <i class="fa-solid fa-star"></i>
