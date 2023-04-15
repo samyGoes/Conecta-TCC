@@ -486,14 +486,14 @@ main
 /* BOTÃO DOS DOIS CARROSSEL DE CARD */
 .card-carrossel-botao 
 {
-    background-color: #e29857;
+    background-color: #cf8a3f;
     padding: 4%;
     width: 6.2rem;
     border-radius: 0.4rem;
     margin-bottom: 1.5rem; 
     margin-top: 1rem;
     cursor: pointer;
-    border: 1px solid #e29857;
+    border: 1px solid #cf8a3f;
     transition: all 0.4s ease;
 
     font-family: poppins, sans-serif;
@@ -505,7 +505,7 @@ main
 
 .card-carrossel-botao:hover
 {
-    color: #e29857;
+    color: #cf8a3f;
     background-color: #fff;
 } 
 

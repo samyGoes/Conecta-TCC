@@ -101,20 +101,26 @@
 
         <!-- LISTA DE VOLUNTÁRIOS CADASTRADOS -->
         <div class="lista-voluntario">
-            <?php 
-                for($i = 1; $i <= 5; $i++)
-                {
-            ?>     
+            <?php
+                require_once 'global.php';
+                try {
+                    $listaVoluntario = VoluntarioDao::listar();
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+                        ?>
+                        
+            <?php foreach ($listaVoluntario as $voluntario) { ?>   
                     <div class="lista-voluntario-linha">
                         <div class="lista-item-1"> 
                             <a href="../area-voluntario/perfil-voluntario.php">
-                                <div class="box-img"> <img src="img/user2.png"> </div> 
+                                <div class="box-img"> <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"> </div> 
                             </a>    
-                            <a href="../area-voluntario/perfil-voluntario.php"><p> Sâmily Sliva de Goes </p> </a> 
+                            <a href="../area-voluntario/perfil-voluntario.php"><p> <?php echo $voluntario['nomeVoluntario']; ?> </p> </a> 
                         </div>
                 
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> samygoes@gmail.com </p></div></a>
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> São Paulo <span class="estado-pais"> - SP, Brasil </span></p></div></a>        
+                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> <?php echo $voluntario['emailVoluntario']; ?> </p></div></a>
+                        <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $voluntario['cidadeVoluntario'].","; ?> <span class="estado-pais"> <?php echo $voluntario['estadoVoluntario']."-".$voluntario['paisVoluntario']; ?></span></p></div></a>        
                     </div>                 
             <?php
                 }

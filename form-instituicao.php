@@ -26,9 +26,9 @@
                         </div>
 
                         <!-- BOTÕES PARA MUDAR OS CAMPOS DO FORMULÁRIO -->
-                        <div class="select-button">
-                            <button id="botao-dados-pessoais" type="button">Dados pessoais</button>
-                            <button id="botao-endereco" type="button">Endereço</button>
+                        <div id="select-button">
+                            <button id="botao-dados-pessoais-i">Dados comerciais</button>
+                            <button id= "botao-endereco-i">Endereço</button>
                         </div>
 
                         <!-- FORMULÁRIO COMPLETO -->
@@ -105,7 +105,7 @@
                                 </div>
                                 <br>
                             </div>
-                            <div class="continue-button">
+                            <div id="continue-button">
                                 <button type="submit">CADASTRAR</button>
                                 <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
                             </div>
@@ -123,8 +123,8 @@
         <script>
             const form1 = document.querySelector("#formulario1");
             const form2 = document.querySelector("#formulario2");
-            const botaoDados = document.querySelector("#botao-dados-pessoais");
-            const botaoEndereco = document.querySelector("#botao-endereco");
+            const botaoDados = document.querySelector("#botao-dados-pessoais-i");
+            const botaoEndereco = document.querySelector("#botao-endereco-i");
 
             botaoEndereco.addEventListener('click', function () {
                 // oculta o Formulário 1
@@ -134,11 +134,11 @@
                 form2.style.display = 'flex';
 
                 // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA  
-                botaoEndereco.style.backgroundColor = "#6588c9";
+                botaoEndereco.style.backgroundColor = "#4567a5";
                 botaoEndereco.style.color = "#fff";
 
                 botaoDados.style.backgroundColor = "#fff";
-                botaoDados.style.color = "#4567a5";
+                botaoDados.style.color = "#6588c9";
                       
             });
 
@@ -151,7 +151,7 @@
                 form2.style.display = 'none';
 
                 // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA
-                botaoDados.style.backgroundColor = "#6588c9";
+                botaoDados.style.backgroundColor = "#4567a5";
                 botaoDados.style.color = "#fff";
 
                 botaoEndereco.style.backgroundColor = "#fff";
