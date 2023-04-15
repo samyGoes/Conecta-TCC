@@ -101,32 +101,38 @@
 
         <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
         <div class="lista-voluntario">
-        <?php
-                        require_once 'global.php';
-                        try {
-                            $listaInstituicao = InstituicaoDao::listar();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        
-                            <?php foreach ($listaInstituicao as $instituicao) { ?>
-            
-
-                    <div class="lista-voluntario-linha">
-                        <div class="lista-item-1"> 
-                            <a href="../area-voluntario/perfil-voluntario.php">
-                                <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"> </div> 
-                            </a>    
-                            <a href="../area-voluntario/perfil-voluntario.php"><p> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a> 
-                        </div>
-                
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> <?php echo $instituicao['emailInstituicao']; ?> </p></div></a>
-                        <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $instituicao['cidadeInstituicao'].","; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao']."-".$instituicao['paisInstituicao']; ?>  </span></p></div></a>        
-                    </div>                 
             <?php
+                require_once 'global.php';
+                try {
+                    $listaInstituicao = InstituicaoDao::listar();
+                } catch (Exception $e) {
+                    echo $e->getMessage();
                 }
-            ?>
+                ?>
+                
+                    <?php foreach ($listaInstituicao as $instituicao) 
+                    { ?>
+            
+                        <div class="lista-voluntario-linha">
+                            <div class="lista-item"> 
+                                <a href="../area-voluntario/perfil-voluntario.php">
+                                    <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"> </div> 
+                                </a>    
+                                <a href="../area-voluntario/perfil-voluntario.php"><p> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a> 
+                            </div>
+                    
+                            <div class="lista-item" id="lista-item-email">
+                                <a href="../area-voluntario/perfil-voluntario.php"><div id="email"><i class="fa-solid fa-envelope"></i> <p> <?php echo $instituicao['emailInstituicao']; ?> </p></div></a>
+                            </div>
+                        
+                            <div class="lista-item" id="lista-item-local">
+                                <a href="../area-voluntario/perfil-voluntario.php"><div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $instituicao['cidadeInstituicao']."-"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao'].", ".$instituicao['paisInstituicao']; ?>  </span></p></div></a>        
+                            </div>
+                        
+                        </div>                 
+                <?php
+                    }
+                ?>
         </div>
        
 

@@ -70,7 +70,7 @@ body
 
 
 /* BOTÕES PARA MUDAR O FORMULÁRIO */
-.select-button 
+.select-button, #select-button 
 {
     margin-top: 1.5rem;
     display: flex;
@@ -83,7 +83,7 @@ body
     font-weight: 400;
     font-size: 16px;
     font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
-    color: #4567a5;
+    color: #cf8a3f;
     text-decoration: none;
     text-transform: capitalize;
     width: 9.5rem;
@@ -91,7 +91,7 @@ body
 }
 #botao-dados-pessoais
 {
-    background-color: #6588c9;
+    background-color: #cf8a3f;
     color: #fff;
     transition: all 0.5s ease-out;
     border-right: none;
@@ -104,14 +104,47 @@ body
 
 
 
+/* BOTÃO INSTITUIÇÃO */
+#select-button button 
+{
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #232e61;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+    color: #4567a5;
+    text-decoration: none;
+    text-transform: capitalize;
+    width: 10.7rem;
+    cursor: pointer;
+}
+
+#select-button #botao-dados-pessoais-i
+{
+    background-color: #4567a5;
+    color: #fff;
+    transition: all 0.5s ease-out;
+    border-right: none;
+}
+#botao-endereco-i
+{
+    transition: all 0.5s ease-out;
+}
+
+
+
+
+
+
+
+
 /* FORMULÁRIO */
 .formulario-completo 
 {
     max-width: 30rem;
     flex-wrap: wrap;
 }
-
-
 
 /* INPUTS */
 .input-group 
@@ -174,7 +207,7 @@ input::placeholder
 
 
 /* BOTÕES */
-.continue-button 
+.continue-button, #continue-button 
 {
     display: flex;
     flex-direction: column;
@@ -187,12 +220,12 @@ input::placeholder
 {
     display: block;
     width: 11rem;
-    background-color: #4567a5;
+    background-color: #cf8a3f;
     color: #ffffff;
     padding: 0.3rem;
     margin-bottom: 15px;
     border: none;
-    border: 1px solid #4567a5;
+    border: 1px solid #cf8a3f;
     border-radius: 5px;
     font-size: 1.3rem;
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
@@ -204,8 +237,8 @@ input::placeholder
 .continue-button button:hover 
 {
     background-color: #fff;
-    color: #4567a5;
-    border: 1px solid #4567a5;
+    color: #cf8a3f;
+    border: 1px solid #cf8a3f;
 }
 
 .continue-button a 
@@ -225,6 +258,57 @@ input::placeholder
 
 
 
+/* BOTÃO INSTITUIÇÃO */
+#continue-button button 
+{
+    display: block;
+    width: 11rem;
+    background-color: #4567a5;
+    color: #ffffff;
+    padding: 0.3rem;
+    margin-bottom: 15px;
+    border: none;
+    border: 1px solid #4567a5;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+#continue-button button:hover 
+{
+    background-color: #fff;
+    color: #4567a5;
+    border: 1px solid #4567a5;
+}
+
+#continue-button a 
+{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: Bitter;
+    color: #4567a5;
+    transition: all 0.5s ease;
+}
+
+#continue-button a:hover 
+{
+    color: #4567a5;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -233,7 +317,7 @@ input::placeholder
 {
     .body 
     {
-        background-image: url(../img/mao3.jpg);
+        background-image: url(../img/mao4.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -266,7 +350,7 @@ input::placeholder
 {
     .body 
     {
-        background-image: url(../img/mao3.jpg);
+        background-image: url(../img/mao4.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

@@ -12,7 +12,7 @@
     <body class="body">
         <div class="container">
             <div class="form-image">
-                <img src="img/laco.jpg" alt="">
+                <img src="img/laco-2.jpg" alt="">
             </div>
             <div class="form">
                 <form action="auth/loginUsuario.php" method="post" id="formulario">
