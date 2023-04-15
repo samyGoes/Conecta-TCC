@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../auth/loginUsuario.php';
+    require_once '../auth/verifica-logado.php';
     require_once 'global.php';
     
     try
@@ -41,6 +41,7 @@
         $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
 
         $nomenovo = $instituicao->getIdInstituicao().$extensao;
+
         $nomecompleto =  $diretorio.$nomenovo;
         
         // $nomecompleto =  $diretorio.$nome;
@@ -48,6 +49,7 @@
         move_uploaded_file($arquivo, $nomecompleto);
 
         $instituicao->setFtPerfilInstituicao($nomecompleto);
+        $_SESSION['ftPerfil'] = $nomecompleto;
 
         $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
         
