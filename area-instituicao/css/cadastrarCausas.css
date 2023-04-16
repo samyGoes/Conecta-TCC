@@ -326,6 +326,7 @@
     flex-direction: column;
     border: #232e61 solid 1px;
     border-radius: 0.5rem;
+    box-shadow: #6890e0 3px 3px 4px 1px ;
     width: 430px;
     height: 310px;
     align-items: center;
