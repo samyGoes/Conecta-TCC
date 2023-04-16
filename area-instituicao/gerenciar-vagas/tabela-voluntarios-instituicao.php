@@ -14,7 +14,7 @@
         <title>Document</title>
     </head>
 
-    <body>
+    <body class="body">
 
         <!-- BARRA DE NAVEGAÇÂO -->
         <nav class="cabecalho">
@@ -156,7 +156,8 @@
                     <h2 class="titulo-voluntarios"> Voluntários Candidatos </h2>
                     <p class="frase-voluntarios"> 
                         Esta é a lista de todos os voluntários que se candidataram a alguma vaga da sua
-                        instituição. Para ver o perfil do mesmo clique na foto do voluntário. 
+                        instituição. Para ver o perfil do mesmo clique na foto do voluntário. Você também 
+                        pode chamar este voluntário para a vaga correspondente ou rejeitá-lo.
                     </p>
                 </div>
 
