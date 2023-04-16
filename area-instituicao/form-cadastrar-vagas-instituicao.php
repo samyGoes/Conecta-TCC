@@ -338,6 +338,7 @@ require_once 'global.php';
         });
     </script>
 
+        <script src="../js/endereco-auto.js"></script>
     <script src="js/script.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
 </body>
