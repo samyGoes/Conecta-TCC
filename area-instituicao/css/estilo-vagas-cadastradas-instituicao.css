@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
+.cards {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+    /* background-color: #99a8eb; */
+    padding-top: 0.7rem;
+}
+
+.card-carrossel-dois
+{
+    min-width: 20%;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card-carrossel-dois:hover
+{
+    transform: translateY(-10px);
+}
+
+.content-it {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #4567a5;
+    border-radius: 0.6rem;
+}
+
+.header-card-carrossel-it {
+    display: flex;
+    align-items: flex-end;
+    margin: 3%;
+    width: 100%;
+    gap: 3%;
+    padding-left: 4%;
+}
+
+.header-card-carrossel-it i {
+    font-size: 18px;
+}
+
+.header-card-carrossel-it p {
+    font-family: bitter, serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.fundo {
+    display: flex;
+    /* border-radius: 0.6rem 0.6rem 0rem 0rem; */
+    background-color: #bbefd8;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.fundo-img {
+    width: 55px;
+    height: 55px;
+}
+
+.fundo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title-2 p {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.title-3 p {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.card-carrossel-botao {
+    background-color: #cf8a3f;
+    padding: 4%;
+    width: 6.2rem;
+    border-radius: 0.4rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: 1px solid #cf8a3f;
+    transition: all 0.4s ease;
+    font-family: poppins, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#botao-it {
+    margin-top: 0.5rem;
+}
+
+.titulo-card-carrossel
+{
+    font-family: bitter, sans-serif;
+    font-size: 22px; 
+    font-weight: 700; 
+    color: #000000; 
+    margin-top: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.texto-card p
+{
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    color: #525252;
+    font-weight: 400;
+}
+.texto-card span
+{
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+}
+.texto-card 
+{
+    text-align: left;
+    line-height: 160%;
+}
+
+.card-carrossel-botao:hover
+{
+    color: #4567a5;
+    background-color: #fff;
+    border: 1px solid #4567a5;
+} 

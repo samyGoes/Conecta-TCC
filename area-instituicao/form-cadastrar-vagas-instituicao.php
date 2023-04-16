@@ -160,45 +160,81 @@ require_once 'global.php';
 
                     <div class="input-box">
                         <div>
+                            <label for="">Quantidade de Vagas</label>
+                            <input type="text" name="quantidadeVagas" id="quantidadeVagas">
+                        </div>
+                        <div>
+                            <label for=" ">Tipo de Vaga</label>
+                            <select name="tipoVaga" id="tipoVaga">
+                                <option value="presencial">presencial</option>
+                                <option value="híbrido">Híbrido</option>
+                                <option value="ead">EAD</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="">Habilidades</label>
-                            <select name="habilidades" id="habilidades"></select>
+                            <div class="box-filtro-causas">
+                                <div class="filtro-habilidade"> Habilidades </div>
+                                <div class="box-habilidade">
+                                    <?php
+                                    for ($i = 1; $i <= 10; $i++) {
+                                    ?>
+                                        <div class="box-habilidade-checkbox">
+                                            <input type="checkbox" name="habilidade" id="habilidade">
+                                            <label for="habilidade"> Mulheres </label>
+                                        </div>
+
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
 
                         <div>
                             <label for="">Causas</label>
-                            <select name="causas" id="causas"></select>
+                            <div class="box-filtro-causas">
+                                <div class="filtro-causas"> CAUSAS </div>
+                                <div class="box-causas">
+                                    <?php
+                                    for ($i = 1; $i <= 10; $i++) {
+                                    ?>
+                                        <div class="box-causas-checkbox">
+                                            <input type="checkbox" name="causas" id="causas">
+                                            <label for="causas"> Mulheres </label>
+                                        </div>
+
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-box">
+                        <div>
+                            <label for="">CEP</label>
+                            <input type="text" name="cep" id="cep" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">Número</label>
                             <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
                         <div>
-                            <label for="">CEP</label>
-                            <input type="text" name="cep" id="cep" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
-                        </div>
-
-                    </div>
-
-                    <div class="input-box">
-                        <div>
-                            <label for="">Quantidade de Vagas</label>
-                            <select name="quantidadeVagas" id="quantidadeVagas"></select>
-                        </div>
-                        <div>
-                            <label for=" ">Tipo de Vaga</label>
-                            <select name="tipoVaga" id="tipoVaga"></select>
-                        </div>
-                        <div>
                             <label for="">Logradoura</label>
                             <input type="text" name="logradouro" id="logradouro" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
-                    </div>
-
-                    <div class="input-box">
                         <div>
                             <label for=" ">Bairro</label>
                             <input type="text" name="bairro" id="bairro" value="<?php echo $_SESSION['bairroUsuario']; ?>" />
                         </div>
+                    </div>
+
+                    <div class="input-box">
+
                         <div>
                             <label for="cidade">Cidade</label>
                             <input type="text" name="cidade" id="cidade">
@@ -228,13 +264,13 @@ require_once 'global.php';
                                     </option>
                                 </select>-->
                         </div>
-                    </div>
-
-                    <div class="input-box">
                         <div>
                             <label for=" ">Complemento</label>
                             <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['compUsuario']; ?>" />
                         </div>
+                    </div>
+
+                    <div class="input-box">
                         <div>
                             <label for="">País</label>
                             <input type="text" name="pais" id="pais" placeholder="Digite seu pais">
@@ -264,17 +300,43 @@ require_once 'global.php';
                 </a>
         </div>
         </form>
-        </div>
-
-
     </main>
 
+    <script>
+        // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
+        const botaoCausas = document.querySelector(".filtro-causas");
+        const botaoHabilidade = document.querySelector(".filtro-habilidade");
+        const boxCausas = document.querySelector(".box-causas");
+        const boxHabilidade = document.querySelector(".box-habilidade")
 
+        botaoCausas.addEventListener("click", function() {
+            if (boxCausas.style.display == "none") {
+                boxCausas.style.display = "flex";
+                botaoCausas.style.backgroundColor = "#4567a5";
+                botaoCausas.style.color = "#fff";
+                botaoCausas.style.borderColor = "#4567a5";
+            } else {
+                boxCausas.style.display = "none";
+                botaoCausas.style.backgroundColor = "#d6ebfd";
+                botaoCausas.style.color = "#000";
+                botaoCausas.style.borderColor = "#000";
+            }
+        });
 
-
-
-
-
+        botaoHabilidade.addEventListener("click", function() {
+            if (boxHabilidade.style.display == "none") {
+                boxHabilidade.style.display = "flex";
+                botaoHabilidade.style.backgroundColor = "#4567a5";
+                botaoHabilidade.style.color = "#fff";
+                botaoHabilidade.style.borderColor = "#4567a5";
+            } else {
+                boxHabilidade.style.display = "none";
+                botaoHabilidade.style.backgroundColor = "#d6ebfd";
+                botaoHabilidade.style.color = "#000";
+                botaoHabilidade.style.borderColor = "#000";
+            }
+        });
+    </script>
 
     <script src="js/script.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
