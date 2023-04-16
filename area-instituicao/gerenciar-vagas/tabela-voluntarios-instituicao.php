@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -131,11 +132,96 @@
         <main class="main-conteudo">
             
             <div class="main-conteudo-container-titulo">
-                <h1>EDITAR PERFIL</h1>
-                <p>Digite as novas informações que deseja inserir</p>
+                <h1> GERENCIAR VAGAS </h1>
+                <p> 
+                    Veja todas as informações necessárias para o gerenciamento de suas vagas e
+                    possíveis voluntários.
+                </p>
             </div>
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+            <div class="conteudo-completo">
+
+                <div class="container-botoes">
+                    <a href="" class="btn-dashboard"> <button> Dashboard </button></a>
+                    <a href="" class="btn-voluntarios"> <button> Voluntários </button></a>
+                    <a href="" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+                </div>
+
+
+
+
+                <!-- TÍTULO 1 -->
+                <div class="container-titulo-1">
+                    <h2 class="titulo-voluntarios"> Voluntários Candidatos </h2>
+                    <p class="frase-voluntarios"> 
+                        Esta é a lista de todos os voluntários que se candidataram a alguma vaga da sua
+                        instituição. Para ver o perfil do mesmo clique na foto do voluntário. 
+                    </p>
+                </div>
+
+
+
+                <!-- TABELA 1 -->
+                <div class="table">
+                    <div class="table-responsive">
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            </div>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> ID </th>
+                                    <th> Foto </th>
+                                    <th> Nome </th>
+                                    <th> Idade </th>
+                                    <th> Cidade </th>
+                                    <th> UF </th>
+                                    <th> Vaga </th>
+                                    <th> </th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once 'global.php';
+                                try {
+                                    $listaVoluntario = VoluntarioDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
+                                <tr>
+                                    <?php foreach ($listaVoluntario as $voluntario) { ?>
+                                        <td> <?php echo $voluntario['codVoluntario']; ?> </td>
+                                        <td>
+                                            <div class="box-img-lista">
+                                                <img src="img/user-cinza.png" alt="">
+                                            </div>
+                                        </td>
+                                        <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                                        <td> 18 anos</td>
+                                        <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
+                                        <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
+                                        <td> Professor </td>
+                                        <td> <button class="table-btn-chamar"> chamar </button> </td>
+                                        <td> <button class="table-btn-rejeitar"> rejeitar </button> </td>
+                                </tr>
+                            <?php
+                                    }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
 
         </main>
 
@@ -146,7 +232,7 @@
 
 
 
-        <script src="js/script.js"></script>
+        <script src="../js/script.js"></script>
     </body>
 
 </html>

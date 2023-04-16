@@ -19,7 +19,7 @@ body
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin-top: 9rem;
+    margin-top: 2rem;
     max-width: 70%;
 }
 
@@ -90,6 +90,19 @@ body
     color: #fff;
 }
 
+/* VOLUNTÁRIO */
+#filtro-causas
+{
+    background-color: #fbf7c7;   
+}
+
+#filtro-causas:hover
+{
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
+    color: #fff;
+}
+
 .box-causas
 {
     display: flex;
@@ -107,7 +120,7 @@ body
     overflow-y: scroll;
 }
 
-/* SCROLL */
+/* SCROLL INSTITUIÇÃO*/
 .box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
 {
     width: 11px;    
@@ -130,6 +143,32 @@ body
 #estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
 {
     background: #dce5f7;        
+}
+
+
+/* SCROLL VOLUNTÁRIO */
+.box-causas::-webkit-scrollbar, .select-estados::-webkit-scrollbar, .select-cidades::-webkit-scrollbar 
+{
+    width: 11px;    
+}
+
+.box-causas::-webkit-scrollbar-track
+{
+    background: #f7ebdc;       
+    border-radius: 0.8rem;  
+}
+
+.box-causas::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb 
+{
+    background-color: #cf8a3f;    
+    border-radius: 20px;     
+    border: 2px solid #f7ebdc;  
+    transition: all 0.5s ease;
+}
+
+.select-estados::-webkit-scrollbar-track, .select-cidades::-webkit-scrollbar-track 
+{
+    background: #f7ebdc;       
 }
 
 /* ESTILIZANDO CHECKBOX */
@@ -205,15 +244,6 @@ body
     text-overflow: ellipsis;
 }
 
-
-/* 
-#estados option:disabled, #cidades option:disabled, #estados option:checked, #cidades option:checked
-{
-    text-align: center;
-} */
-
-
-
 .select-option
 {
     background-color: #fff;
@@ -225,10 +255,42 @@ body
 
 
 
+.pesquisa-instituicao
+{
+    display: flex;
+    justify-content: flex-end;
+    margin: 7rem 2rem 0rem 0rem;
+    width: 100%;
+}
+
+.pesquisa-instituicao input
+{
+    border: 1px solid #000;
+    outline: none;
+    border-radius: 1.3rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+    width: 20rem;
+    transition: all 0.5s ease;
+
+    background-image: url("../../img/lupa.svg");
+    background-position: 290px;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #525252;
+}
+
+.pesquisa-instituicao input:focus
+{
+    border-color: #4567a5;
+}
 
 
 
-
+ 
 
 
 
@@ -546,6 +608,18 @@ body
     }
 }
 
+@media(max-width: 479px)
+{
+    .pesquisa-instituicao input
+    {
+        padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+        width: 16rem;
+        font-size: 13px;
+
+        background-position: 227px;
+    }
+}
+
 @media(max-width: 347px)
 {
     .lista-item-2
@@ -574,7 +648,23 @@ body
     }
 }
 
+@media(max-width: 289px)
+{
+    .pesquisa-instituicao 
+    {
+        justify-content: center;
+        margin-right: 0;
+    }
+    .pesquisa-instituicao input
+    {
+        padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+        width: 13rem;
+        font-size: 11px;
 
+        background-position: 184px;
+        background-size: 13px;
+    }
+}
 
 
 

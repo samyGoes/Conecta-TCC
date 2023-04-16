@@ -113,18 +113,18 @@ body
 }
 
 /* SCROLL */
-.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
+#box-causas::-webkit-scrollbar, .select-estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
 {
     width: 11px;    
 }
 
-.box-causas::-webkit-scrollbar-track
+#box-causas::-webkit-scrollbar-track
 {
     background: #f7ebdc;       
     border-radius: 0.8rem;  
 }
 
-.box-causas::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
+#box-causas::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
 {
     background-color: #cf8a3f;    
     border-radius: 20px;     
@@ -132,7 +132,7 @@ body
     transition: all 0.5s ease;
 }
 
-#estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
+.select-estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
 {
     background: #f7ebdc;       
 }
