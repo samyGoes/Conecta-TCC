@@ -151,7 +151,7 @@
             <div class="card-cadastrar">
                 <div class="card-form">
                     <label for="" id="label">Nome</label>
-                    <input type="text" name="nome" id="nome">
+                    <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                 </div>
                 <div class="continue-button">
                     <button type="submit">CADASTRAR</button>
