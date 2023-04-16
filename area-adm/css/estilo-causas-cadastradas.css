@@ -190,7 +190,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked::before {
-    content: '\2713';
+    content: '';
     display: block;
     color: #fff;
     background-color: #6bb269;

@@ -84,14 +84,14 @@ main .container a :active{
   font-weight: 300;
   font-family: poppins, sans-serif;
   color: #ffffff;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease; 
+  cursor: pointer;
 }
 
 .buttons-rows button:hover {
   background-color: #fff;
   color: #232e61;
 }
-
 
 
 /*Responsividade*/
