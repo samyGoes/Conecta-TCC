@@ -145,11 +145,11 @@
 }
 
 .table-responsive {
-    max-width: 400px;
-    max-height: 300px;
+    max-width: 430px;
+    max-height: 310px;
     border-radius: 0.5rem;
     border: 1px solid #113173;
-    box-shadow: 3px 3px 4px 1px #113173;
+    box-shadow: 3px 3px 4px 1px #6890e0;
 }
 
 .funcoes {
@@ -158,7 +158,26 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-    height: 78px;
+    height: 50px;
+}
+.funcoes i {
+    color: #113173;
+    font-size: 21px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+
+/*FUNÇÕES E ICONS DA TABELA*/
+
+.funcoes i:hover {
+    color: #6890e0;
+}
+.funcoes span {
+    color: #525252;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
 }
 
 .funcoes-sessao-1 {
@@ -168,12 +187,15 @@
     gap: 0.5rem;
 }
 
-.funcoes span {
-    color: #525252;
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 13px;
+
+.funcoes-sessao-2 {
+    display: flex;
+    margin-right: 3rem;
+    align-items: center;
+    gap: 50%;
+    flex-direction: row;
 }
+
 
 /* ESTILIZANDO CHECKBOX */
 input[type="checkbox"] {
@@ -190,43 +212,16 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked::before {
-    content: '\2713';
+    content: '';
     display: block;
     color: #fff;
     background-color: #113173;
     text-align: center;
-
     line-height: 13px;
     font-size: 13px;
 }
 
-
-#icone-x {
-    margin-left: 0.5rem;
-}
-
-.funcoes-sessao-2 {
-    display: flex;
-    margin-right: 1.7rem;
-    align-items: center;
-}
-
-.funcoes i {
-    color: #232e61;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.funcoes i:hover {
-    color: #232f61;
-}
-
-#icon-lupa {
-    font-size: 16px;
-}
-
-.funcoes #pesquisar {
+/* .funcoes #pesquisar {
     border: none;
     border-bottom: 1px solid #113173;
     outline: none;
@@ -246,13 +241,12 @@ input[type="checkbox"]:checked::before {
     font-size: 13px;
     color: #727272;
 }
+*/
 
 .table-responsive table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
-
 
 
 thead tr {
@@ -267,13 +261,13 @@ thead tr {
 /* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
 th:nth-child(1),
 td:nth-child(1) {
-    min-width: 57px;
+    min-width: 85px;
     border-left: none !important;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-    min-width: 57px;
+    min-width: 70px;
 }
 
 th:nth-child(3) {
@@ -281,7 +275,6 @@ th:nth-child(3) {
 }
 
 td:nth-child(3) {
-    padding-left: 9px;
     width: 400px;
 }
 
@@ -300,19 +293,19 @@ td:nth-child(3) {
 tbody {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 195px;
     overflow-y: scroll;
 }
 
 /* SCROLL */
 /* width */
 tbody::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
 }
 
 /* Track */
 tbody::-webkit-scrollbar-track {
-    background-color: rgb(200, 241, 221);
+    background-color: rgb(172, 210, 243);
     border-radius: 0px 0px 0.5rem 0px;
 }
 
@@ -324,7 +317,7 @@ tbody::-webkit-scrollbar-thumb {
 
 .table-responsive th,
 .table-responsive td {
-    border: 1px solid #113173;
+    border: 1px solid #6890e0;
     /* padding: 0px 20px 0px 20px; */
     text-align: center;
     color: #2e2e2e;
@@ -333,7 +326,7 @@ tbody::-webkit-scrollbar-thumb {
 }
 
 .table-responsive td {
-    height: 45px;
+    height: 55px;
 }
 
 /* IMAGEM */

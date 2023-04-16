@@ -309,7 +309,7 @@
     font-size: 16px;
     margin-left: 5%;
     justify-content: flex-start;
-    gap: 7%;
+    gap: 5%;
 }
 .card{
     font-family: poppins, sans-serif;
@@ -317,51 +317,55 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 1.5%;
     margin-left: 5%;
     gap: 5%;
-    margin-top: 3%;
-    
 }
 .card-cadastrar{
     display: flex;
     flex-direction: column;
     border: #232e61 solid 1px;
-    width: 400px;
-    height: 300px;
-    margin: 5%;
+    border-radius: 0.5rem;
+    width: 430px;
+    height: 310px;
     align-items: center;
 } 
 .card-cadastrar .card-form{
     display: flex;
     flex-direction: column;
+    margin: 15%;
 }
 .card-cadastrar .card-form label{
-    font-size: 14px;
+    font-size: 17.5px;
+    color: #000000;
+    margin-bottom: 5%;
 }
 .card-cadastrar .card-form input{
-    width: 7.5vw;
-    padding: 0.5rem;
-    font-size: 10px;
+    width: 20vw;
+    padding: 5%;
+    font-size: 16px;
     font-family: poppins, sans-serif;
+    color: #000000;
     outline: none;
     border: #113173 1px solid;
 }
 .card-cadastrar .card-form input::placeholder{
-    font-size: 10px;
+    font-size: 16px;
     font-family: poppins, sans-serif;
+    color: #525252;
 }
 
 .card-form .continue-button{
     display: flex;
 }
-.card-form .continue-button button {
-    width: 11rem;
+ .continue-button button {
+    width: 11vw;
     border: 1px solid #232e61;
     background-color: #232e61;
     padding: 1.2vh;
     border-radius: 10px;
     text-align: center;
-    font-size: 14pt;
+    font-size: 16pt;
     font-weight: 300;
     font-family: poppins, sans-serif;
     color: #ffffff;
@@ -372,16 +376,13 @@
 .card-form .continue-button button:hover {
     background-color: #fff;
     color: #232e61;
-  }
-
-.card-lista {
-    display: flex;
-    flex-direction: row;
-    width: 400px;
-    height: 300px;
 }
 
+
+
 /* RESPONSIVIDADE */
+
+
 /* NAVBAR */
 @media (max-width: 1579px) {
     .cabecalho {
@@ -510,6 +511,8 @@
         color: #232f61;
     }
 }
+
+
 
 
 @media (max-width: 774px) {

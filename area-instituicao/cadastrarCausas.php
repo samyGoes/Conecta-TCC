@@ -158,30 +158,28 @@
                 </div>
             </div>
 
-            <div class="card-lista">
-                <div class="table">
-                    <div class="table-responsive">
-                        <div class="funcoes">
-                            <div class="funcoes-sessao-1">
-                                <span>Selecionar todos</span>
-                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                                <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
-                            </div>
-                            <div class="funcoes-sessao-2">
-                                <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                            </div>
+            <div class="table">
+                <div class="table-responsive">
+                    <div class="funcoes">
+                        <div class="funcoes-sessao-1">
+                            <span>Selecionar todos</span>
+                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th> </th>
-                                    <th> ID </th>
-                                    <th>Causas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                        <div class="funcoes-sessao-2">
+                            <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                            <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>ID</th>
+                                <th>Causas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                                 require_once 'global.php';
                                 try {
                                     $listaInstituicao = ListarInstituicoes::listar();
@@ -189,25 +187,24 @@
                                     echo $e->getMessage();
                                 }
                                 ?>
-                                <tr>
-                                    <?php foreach ($listaInstituicao as $instituicao) { ?>
-                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                        <td>
-                                            <?php echo $instituicao['codInstituicao']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $instituicao['nomeInstituicao']; ?>
-                                        </td>
-                                    </tr>
-                                    <?php
+                            <tr>
+                                <?php foreach ($listaInstituicao as $instituicao) { ?>
+                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                <td>
+                                    <?php echo $instituicao['codInstituicao']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $instituicao['nomeInstituicao']; ?>
+                                </td>
+                            </tr>
+                            <?php
                                     }
                                     ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
+
         </div>
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
     </main>

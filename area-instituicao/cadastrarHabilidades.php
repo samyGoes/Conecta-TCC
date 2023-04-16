@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-causasHabilidades-instituicao.css">    
+    <link rel="stylesheet" href="css/estilo-causasHabilidades-instituicao.css">
     <link rel="stylesheet" href="css/cadastrarHabilidade.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <title>Document</title>
 </head>
 
@@ -140,48 +140,50 @@
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
-            <h1>CADASTRAR CAUSAS</h1>
-            <p>Cadastre as causas para quais você esteja auxiliando. Você também pode editá-las ou exclui-las</p>
+            <h1>CADASTRAR HABILIDADES</h1>
+            <p>Cadastre as habilidades necessárias, você poderá atribuí-las as vagas para que encontre voluntários com
+                as habilidades necessárias para cada vaga. Você também pode editá-las ou excluí-las </p>
         </div>
+
         <div class="card-title">
-            <p>Escreva o nome da causa que deseja cadastrar</p>
-            <p>Aqui está a lista de todas as causas cadastradas</p>
+            <p>Escreva o nome da habilidades que deseja cadastrar</p>
+            <p>Aqui está a lista de todas as habilidades cadastradas</p>
         </div>
+
         <div class="card">
+            
             <div class="card-cadastrar">
                 <div class="card-form">
                     <label for="" id="label">Nome</label>
-                    <input type="text" name="nome" id="nome">
+                    <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
                 </div>
                 <div class="continue-button">
                     <button type="submit">CADASTRAR</button>
                 </div>
             </div>
 
-            <div class="card-lista">
-                <div class="table">
-                    <div class="table-responsive">
-                        <div class="funcoes">
-                            <div class="funcoes-sessao-1">
-                                <span>Selecionar todos</span>
-                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                                <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
-                            </div>
-                            <div class="funcoes-sessao-2">
-                                <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                            </div>
+            <div class="table">
+                <div class="table-responsive">
+                    <div class="funcoes">
+                        <div class="funcoes-sessao-1">
+                            <span>Selecionar todos</span>
+                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th> </th>
-                                    <th> ID </th>
-                                    <th>Causas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
+                        <div class="funcoes-sessao-2">
+                            <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                            <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>ID</th>
+                                <th>Habilidades</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
                                 require_once 'global.php';
                                 try {
                                     $listaInstituicao = ListarInstituicoes::listar();
@@ -189,24 +191,22 @@
                                     echo $e->getMessage();
                                 }
                                 ?>
-                                <tr>
-                                    <?php foreach ($listaInstituicao as $instituicao) { ?>
-                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                        <td>
-                                            <?php echo $instituicao['codInstituicao']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $instituicao['nomeInstituicao']; ?>
-                                        </td>
-                                    </tr>
-                                    <?php
+                            <tr>
+                                <?php foreach ($listaInstituicao as $instituicao) { ?>
+                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                <td>
+                                    <?php echo $instituicao['codInstituicao']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $instituicao['nomeInstituicao']; ?>
+                                </td>
+                            </tr>
+                            <?php
                                     }
                                     ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
         </div>
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
