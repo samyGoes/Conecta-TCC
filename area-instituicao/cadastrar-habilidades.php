@@ -3,6 +3,7 @@
 
     try
     {
+        header('Location: form-cadastrar-habilidades-instituicao.php');
         
         $habilidadeServico = new HabilidadeServ();
 

@@ -3,6 +3,7 @@
 
     try
     {
+        header('Location: form-cadastrar-causas-instituicao.php');
         
         $categoriaServico = new CategoriaServ();
 
@@ -16,7 +17,7 @@
     }
     catch(Exception $e)
     {
-        echo "Erro cadastra-voluntario";
+        echo "Erro cadastra-causas";
         echo '<pre>';
             echo($e);
         echo '</pre>';
