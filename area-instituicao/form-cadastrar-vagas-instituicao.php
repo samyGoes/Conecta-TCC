@@ -177,11 +177,17 @@ require_once 'global.php';
                                 <div class="filtro-habilidade"> Habilidades </div>
                                 <div class="box-habilidade">
                                     <?php
-                                    for ($i = 1; $i <= 10; $i++) {
+                                    require_once 'global.php';
+                                    try {
+                                        $listaHabilidade = HabilidadeServicoDao::listar();
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
                                     ?>
+                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
                                         <div class="box-habilidade-checkbox">
-                                            <input type="checkbox" name="habilidade" id="habilidade">
-                                            <label for="habilidade"> Mulheres </label>
+                                            <input type="checkbox" name="habilidade" id="habilidade" value=<?php echo $habilidade['codHabilidade'];?>>
+                                            <label for="habilidade"> <?php echo $habilidade['nomeHabilidade']; ?> </label>
                                         </div>
 
                                     <?php
@@ -197,11 +203,17 @@ require_once 'global.php';
                                 <div class="filtro-causas"> CAUSAS </div>
                                 <div class="box-causas">
                                     <?php
-                                    for ($i = 1; $i <= 10; $i++) {
+                                      require_once 'global.php';
+                                      try {
+                                          $listaCausas = CategoriaServicoDao::listar();
+                                      } catch (Exception $e) {
+                                          echo $e->getMessage();
+                                      }
                                     ?>
+                                        <?php foreach ($listaCausas as $causas) { ?>
                                         <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas" id="causas">
-                                            <label for="causas"> Mulheres </label>
+                                            <input type="checkbox" name="causas" id="causas" value=<?php echo $causas['descCategoriaServico'];?>>
+                                            <label for="causas"> <?php echo $causas['descCategoriaServico']; ?> </label>
                                         </div>
 
                                     <?php

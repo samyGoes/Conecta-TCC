@@ -30,8 +30,10 @@
         $servico-> setCidadeLocalServico($_POST['cidade']);
         $servico-> setDescservico($_POST['desc']);
         $servico-> setInstituicao($_SESSION['codUsuario']);
-        //$servico-> setCategoriaServico($_POST['causas']);
-        //$servico-> sethabilidadeServico($_POST['habilidades']);
+        $servico-> setCategoriaServico($_POST['causas']);
+        $servico-> setHabilidadeServico($_POST['habilidade']);
+
+
 
         $cadastrar = ServicoDao::cadastrar($servico);
 

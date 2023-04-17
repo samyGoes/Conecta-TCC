@@ -9,8 +9,8 @@
 
             $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(nomeservico, tipoServico, descServico, cepLocalServico, bairroLocalServico, 
             estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, 
-            numeroLocalServico, cidadeLocalServico,dataInicioServico, qntdVagaServico,periodoServico, horarioServico,codInstituicao) 
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            numeroLocalServico, cidadeLocalServico,dataInicioServico, qntdVagaServico,periodoServico, horarioServico,codInstituicao, codHabilidadeServico, codCategoriaServico) 
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             $prepareStatement -> bindValue (1, $servico -> getNomeServico());
             $prepareStatement -> bindValue (2, $servico -> getTipoServico());
@@ -28,6 +28,9 @@
             $prepareStatement -> bindValue (14, $servico -> getPeriodoServico());
             $prepareStatement -> bindValue (15, $servico -> getHorarioServico());
             $prepareStatement -> bindValue (16, $servico -> getInstituicao());
+            $prepareStatement -> bindValue (17, $servico -> getHabilidadeServico());
+            $prepareStatement -> bindValue (18, $servico -> getCategoriaServico());
+            
            
             $prepareStatement -> execute();
         }

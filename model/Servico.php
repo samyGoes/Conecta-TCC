@@ -173,7 +173,7 @@
             $this -> qntdVagaServico = $qntdVagaServico;
         }
 
-        public function sethabilidadeServico($habilidadeServico){
+        public function setHabilidadeServico($habilidadeServico){
             $this -> habilidadeServico = $habilidadeServico;
         }
 
