@@ -32,12 +32,13 @@
                         </div>
 
                         <!-- FORMULÁRIO COMPLETO -->
-                        <form class="formulario-completo" action="cadastra-voluntario.php" method="POST">
+                        <form class="formulario-completo" id="formulario1" action="cadastra-voluntario.php" method="POST">
                             <div id="formulario1">
                                 <div class="input-group">
                                     <div class="input-box">
                                         <label for="name">Nome Completo</label>
-                                        <input type="name" name="nome" id="name" placeholder="Digite seu nome">
+                                        <input type="text" name="nome" class="inputs required" id="name" oninput="nameValidate()" placeholder="Digite seu nome">
+                                        <span class="span-required">O nome deve conter no minimo 3 caracteres</span>
                                     </div>
                                     <div class="input-box">
                                         <label for="date">Data de Nascimento</label>
@@ -45,7 +46,7 @@
                                     </div>
                                     <div class="input-box">
                                         <label for="cpf">CPF</label>
-                                        <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
+                                        <input type="text" name="cpf" class="inputs required" id="cpf"  placeholder="Digite seu CPF" oninput="cpfValidate()">
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone</label>
@@ -57,15 +58,15 @@
                                     </div>
                                     <div class="input-box">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" placeholder="Digite seu email">
+                                        <input type="email" name="email" class="inputs required" oninput="emailValidate()" id="email" placeholder="Digite seu email">
                                     </div>
                                     <div class="input-box">
                                         <label for="senha">Senha</label>
-                                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                                        <input type="password" name="senha"class="inputs required" id="senha" placeholder="Digite sua senha" oninput="passwordValidate()">
                                     </div>
                                     <div class="input-box">
                                         <label for="senha">Confirmar senha</label>
-                                        <input type="password" name="confSenha" id="senha" placeholder="Digite sua senha">
+                                        <input type="password" name="confSenha" class="inputs required" id="senha" placeholder="Digite sua senha" oninput="passwordValidate()">
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +123,7 @@
 
 
         <!-- <script src="js/script.js"></script> -->
+        <script src="js/validacoes.js"></script>
         <script src="js/endereco-auto.js"></script>
         <script src="js/mascara.js"></script>
         <script>

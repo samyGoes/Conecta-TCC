@@ -15,7 +15,7 @@
                 <img src="img/laco-2.jpg" alt="">
             </div>
             <div class="form">
-                <form action="auth/loginUsuario.php" method="post" id="formulario">
+                <form action="auth/loginUsuario.php" method="post" id="formularioLogin">
                     <div class="form-header">
                         <div class="title">
                             <h1>LOGIN</h1>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="input-box">
                             <label for="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                            <input type="password" name="senha" id="senha" oninput="validate()" placeholder="Digite sua senha">
                         </div>
                     </div>
                     <div class="continue-button">
