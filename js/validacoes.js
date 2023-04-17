@@ -4,7 +4,7 @@ const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
 function setError(index, message) {
-  campos[index].style.borderBottom = '2px solid #e63636';
+  campos[index].style.borderBottom = '1px solid #e63636';
   spans[index].textContent = message;
   spans[index].style.display = 'block';
 }
@@ -17,59 +17,92 @@ function removeError(index) {
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
-    setError(0, 'O nome deve conter no mínimo 3 caracteres');
+    setError(0);
   } else {
     removeError(0);
   }
 }
 
 function emailValidate() {
-  if (!emailRegex.test(campos[5].value)) {
-    setError(5, 'Endereço de e-mail inválido');
+  if (!emailRegex.test(campos[4].value)) {
+    setError(4, 'oi');
   } else {
-    removeError(5);
+    removeError(4);
   }
+}
+
+function validateCPF(cpf) {
+  // Check if the input contains only digits and has the correct format
+  if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
+    return false;
+  }
+
+  // Remove punctuation marks from the input
+  cpf = cpf.replace(/[^\d]+/g, '');
+
+  // Check if all digits are the same
+  if (/^(\d)\1{10}$/.test(cpf)) {
+    return false;
+  }
+
+  // Calculate the check digits
+  let sum = 0;
+  for (let i = 0; i < 9; i++) {
+    sum += parseInt(cpf.charAt(i)) * (10 - i);
+  }
+  let remainder = sum % 11;
+  let digit1 = remainder < 2 ? 0 : 11 - remainder;
+
+  sum = 0;
+  for (let i = 0; i < 10; i++) {
+    sum += parseInt(cpf.charAt(i)) * (11 - i);
+  }
+  remainder = sum % 11;
+  let digit2 = remainder < 2 ? 0 : 11 - remainder;
+
+  // Check if the check digits match
+  if (parseInt(cpf.charAt(9)) !== digit1 || parseInt(cpf.charAt(10)) !== digit2) {
+    return false;
+  }
+
+  return true;
 }
 
 function cpfValidate() {
-  const cpf = campos[2].value.replace(/[^\d]+/g, '');
-  let invalidCpf = false;
+  const cpf = campos[1].value;
+  let message = '';
 
-  if (cpf.length !== 11) {
-    invalidCpf = true;
-  } else {
-    for (let i = 0; i < 10; i++) {
-      if (cpf.substring(i, i + 1) === cpf.substring(i + 1, i + 2)) {
-        invalidCpf = true;
-        break;
-      }
-    }
+  if (!validateCPF(cpf)) {
+    message = 'CPF inválido';
   }
 
-  if (invalidCpf) {
-    setError(2, 'CPF inválido');
+  if (message !== '') {
+    setError(1);
   } else {
-    removeError(2);
+    removeError(1);
   }
 }
+
+function segura(senha) {
+  const senhaSegura = new SenhaSegura();
+  if(new SenhaSegura()){
+    return false
+    setError(5);
+  }
+  return senhaSegura.segura(senha);
+}
+
 
 function passwordValidate() {
-  const senha = campos[6].value;
-  const confSenha = campos[7].value;
-
+  const senha = campos[5].value;
+  const confSenha = campos[6].value;
+  
   if (senha !== confSenha) {
-    setError(7, 'As senhas não coincidem');
+    setError(6);
+  } else if (!segura(senha)) {
+    setError(5);
   } else {
-    removeError(7);
+    removeError(5);
+    removeError(6);
   }
 }
-
-formulario1.addEventListener('submit', function (event) {
-  event.preventDefault();
-  nameValidate();
-  cpfValidate();
-  emailValidate();
-  passwordValidate();
-    formulario1.submit();
-  
-});

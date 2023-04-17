@@ -68,20 +68,7 @@
             } 
             else 
             {
-                echo "<script>
-            const formularioLogin = document.getElementById('formularioLogin');
-            const campos = document.querySelectorAll('.required');
-
-            function setError(index, message) {
-                campos[index].style.borderBottom = '2px solid #e63636';
-                spans[index].textContent = message;
-                spans[index].style.display = 'block';
-            }
-
-            function validate() {
-                setError(0, 'O nome deve conter no mínimo 3 caracteres');
-            };
-        </script>";
+                echo"erro";
             }
         
         }

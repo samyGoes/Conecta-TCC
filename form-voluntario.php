@@ -50,11 +50,11 @@
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone</label>
-                                        <input type="text" name="telefone1" id="telefone" placeholder="Digite seu telefone">
+                                        <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone">
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone (opcional)</label>
-                                        <input type="text" name="telefone2" id="telefone" placeholder="Digite seu telefone">
+                                        <input type="text" name="telefone2" class="inputs required" id="telefone" placeholder="Digite seu telefone">
                                     </div>
                                     <div class="input-box">
                                         <label for="email">Email</label>
