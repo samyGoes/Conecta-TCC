@@ -217,7 +217,6 @@
                         <div class="tipo-causas">
                             <?php
                                 
-                                
                                 for($i=1; $i<=4;$i++)
                                 { 
                                     echo("<a href=><button id=tipo-causas-1>mulheres</button></a>");
