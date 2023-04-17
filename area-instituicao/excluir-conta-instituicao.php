@@ -1,4 +1,4 @@
-<?php //include "../auth/verifica-logado.php";?> 
+<?php include "../auth/verifica-logado.php";?> 
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,7 +53,7 @@
                             <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -140,19 +140,21 @@
             </div>
 
             <div class="card">
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu email">
+                <form action="delete-instituicao.php" method="POST">
+                    <div class="input-group">
+                            <div class="input-box">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" placeholder="Digite seu email">
+                            </div>
+                            <div class="input-box">
+                                <label for="senha">Senha</label>
+                                <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                            </div>
                     </div>
-                    <div class="input-box">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                    <div class="continue-button">
+                        <button class="button" type="submit">excluir</button>
                     </div>
-                </div>
-                <div class="continue-button">
-                    <button class="button">excluir</button>
-                </div>
+                </form>
             </div>
             
 

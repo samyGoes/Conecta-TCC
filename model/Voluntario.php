@@ -1,7 +1,7 @@
 <?php 
 
     class Voluntario{
-        private $id;
+        private $idVoluntario;
         private $nomeVoluntario;
         private $dataNascVoluntario;
         private $cpfVoluntario;
@@ -17,15 +17,15 @@
         private $cidadeVoluntario;
         private $descVoluntario;
         private $cepVoluntario;
-        private $fotoVoluntario;
+        private $fotoPerfilVoluntario;
         private $paisVoluntario;
         private $estadoVoluntario;
 
 
         //Getters//
 
-        public function getId(){
-            return $this->id;
+        public function getIdVoluntario(){
+            return $this->idVoluntario;
         }
 
         public function getNomeVoluntario(){
@@ -86,8 +86,8 @@
             return $this->cepVoluntario;
         }
         
-        public function getfotoVoluntario(){
-            return $this->fotoVoluntario;
+        public function getFotoPerfilVoluntario(){
+            return $this->fotoPerfilVoluntario;
         }
         public function getPaisVoluntario(){
             return $this->paisVoluntario;
@@ -98,8 +98,8 @@
 
         //Setters//
 
-        public function setId($id){
-            $this -> id = $id;
+        public function setIdVoluntario($idVoluntario){
+            $this -> idVoluntario = $idVoluntario;
         }
 
         public function setNomeVoluntario($nomeVoluntario){
@@ -163,8 +163,8 @@
             $this -> cepVoluntario = $cepVoluntario;
         }
 
-        public function setFotoVoluntario($fotoVoluntario){
-            $this -> fotoVoluntario = $fotoVoluntario;
+        public function setFotoPerfilVoluntario($fotoPerfilVoluntario){
+            $this -> fotoPerfilVoluntario = $fotoPerfilVoluntario;
         }
 
         public function setEstadoVoluntario($estadoVoluntario){

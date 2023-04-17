@@ -127,19 +127,21 @@
             </div>
 
             <div class="card">
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Digite seu email">
+                <form action="delete-voluntario.php" method="POST">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Digite seu email">
+                        </div>
+                        <div class="input-box">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                    <div class="continue-button">
+                        <button class="button" type="submit">excluir</button>
                     </div>
-                </div>
-                <div class="continue-button">
-                    <button class="button">excluir</button>
-                </div>
+                </form>
             </div>
             
 

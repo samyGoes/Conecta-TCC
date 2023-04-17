@@ -1,4 +1,5 @@
 <?php
+     require_once '../auth/verifica-logado.php';
     require_once 'global.php';  
 
     try
@@ -21,14 +22,16 @@
         $servico-> setHorarioServico($_POST['horario']);
         $servico-> setCepLocalServico($_POST['cep']);
         $servico-> setBairroLocalServico($_POST['bairro']);
-        $servico-> setEstadoLocalServico($_POST['estado']);
+        $servico-> setEstadoLocalServico($_POST['uf']);
         $servico-> setLogradouroLocalServico($_POST['logradouro']);
         $servico-> setComplementoLocalServico($_POST['complemento']);
         $servico-> setPaisLocalServico($_POST['pais']);
-        $servico-> setNumeroLocalServico($_POST['numero']);
+        $servico-> setNumeroLocalServico($_POST['numeroCasa']);
         $servico-> setCidadeLocalServico($_POST['cidade']);
-        $servico-> setCategoriaServico($_POST['causas']);
-        $servico-> sethabilidadeServico($_POST['habilidades']);
+        $servico-> setDescservico($_POST['desc']);
+        $servico-> setInstituicao($_SESSION['codUsuario']);
+        //$servico-> setCategoriaServico($_POST['causas']);
+        //$servico-> sethabilidadeServico($_POST['habilidades']);
 
         $cadastrar = ServicoDao::cadastrar($servico);
 

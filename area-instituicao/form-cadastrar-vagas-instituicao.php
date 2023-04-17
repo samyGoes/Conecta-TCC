@@ -132,7 +132,7 @@ require_once 'global.php';
         </div>
 
         <div class="form">
-            <form class="container" action="editarPerfil-instituicao.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="cadastrar-vagas.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <div class="input-box">
                         <div>
@@ -161,7 +161,7 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Quantidade de Vagas</label>
-                            <input type="text" name="quantidadeVagas" id="quantidadeVagas">
+                            <input type="text" name="quantidadeVaga" id="quantidadeVagas">
                         </div>
                         <div>
                             <label for=" ">Tipo de Vaga</label>
