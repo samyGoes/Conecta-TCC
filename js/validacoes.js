@@ -1,4 +1,4 @@
-const formulario1 = document.getElementById('formulario1');
+const formulario1 = document.getElementById('formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;

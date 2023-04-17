@@ -405,6 +405,26 @@ td button
 
 
 
+/* TABELA 2 */
+.box-status
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+.status-bolinha
+{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    background-color: #ffec41;
+    border-radius: 50%;
+}
+
+
+
+
 
 
 
@@ -417,10 +437,10 @@ td button
     }
     .table-responsive
     {
-        min-width: 100%;
+        min-width: 90%;
         overflow-x: scroll;
     }
-
+/* 
     th:nth-child(3),
     td:nth-child(3),
     th:nth-child(5),
@@ -434,18 +454,17 @@ td button
     td:nth-child(7) {
         min-width: 130px;
         max-width: 130px;
-    }
+    } */
 
 }
 
-@media(max-width: 1140px)
+/* @media(max-width: 1150px)
 {
     .table-responsive
     {
-        /* min-width: 1000px; */
         border-left: 0;
         border-right: 0;
         border-radius: 0;
     }
-}
+} */
 
