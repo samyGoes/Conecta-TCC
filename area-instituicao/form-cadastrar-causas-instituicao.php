@@ -126,69 +126,76 @@
             <h1>CADASTRAR CAUSAS</h1>
             <p>Cadastre as causas para quais você esteja auxiliando. Você também pode editá-las ou exclui-las</p>
         </div>
-        <div class="card-title">
-            <p>Escreva o nome da causa que deseja cadastrar</p>
-            <p>Aqui está a lista de todas as causas cadastradas</p>
-        </div>
-        <div class="card">
-            <div class="card-cadastrar">
-                <form class="card-form" action="cadastrar-causas.php" method="POST">
-                    <div class="input-box">
-                        <label for="" id="label">Nome</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite a causa">
-                    </div>
-                    <div class="continue-button">
-                        <button type="submit">CADASTRAR</button>
-                    </div>
-                </form>
-            </div>
 
-            <div class="table">
-                <div class="table-responsive">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <span>Selecionar todos</span>
-                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+
+     
+        <div class="card">
+            <div class="card-title">
+                <p>Escreva o nome da causa que deseja cadastrar</p>
+                <div class="card-cadastrar">
+                    <form class="card-form" action="cadastrar-causas.php" method="POST">
+                        <div class="input-box">
+                            <label for="" id="label">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                         </div>
-                        <div class="funcoes-sessao-2">
-                            <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
-                            <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                        <div class="continue-button">
+                            <button type="submit">CADASTRAR</button>
                         </div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> </th>
-                                <th>ID</th>
-                                <th>Causas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
-                            try {
-                                $listaCausas = CategoriaServicoDao::listar();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            <tr>
-                                <?php foreach ($listaCausas as $causas) { ?>
-                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td>
-                                        <?php echo $causas['codCategoriaServico']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $causas['descCategoriaServico']; ?>
-                                    </td>
-                            </tr>
-                        <?php
-                                }
-                        ?>
-                        </tbody>
-                    </table>
+                    </form>
                 </div>
             </div>
+           
+            <div class="card-title">
+                <p>Aqui está a lista de todas as causas cadastradas</p>
+                <div class="table">
+                    <div class="table-responsive">
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <span>Selecionar todos</span>
+                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                                <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                            </div>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>ID</th>
+                                    <th>Causas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once 'global.php';
+                                try {
+                                    $listaCausas = CategoriaServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
+                                <tr>
+                                    <?php foreach ($listaCausas as $causas) { ?>
+                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                        <td>
+                                            <?php echo $causas['codCategoriaServico']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $causas['descCategoriaServico']; ?>
+                                        </td>
+                                </tr>
+                            <?php
+                                    }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+           
 
         </div>
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
@@ -200,8 +207,10 @@
 
 
 
-
+    <!-- NAVS  -->
     <script src="js/script.js"></script>
+    <!-- CHECKBOX -->
+    <script src="js/checkbox.js"></script>
 </body>
 
 </html>

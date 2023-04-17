@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,19 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-causasHabilidades-instituicao.css">
-    <link rel="stylesheet" href="css/cadastrarHabilidade.css">
+    <link rel="stylesheet" href="css/estilo-causasCadastradas-instituicao.css">
+    <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
 <body>
 
-     <!-- BARRA DE NAVEGAÇÂO -->
-     <nav class="cabecalho">
+    <!-- BARRA DE NAVEGAÇÂO -->
+    <nav class="cabecalho">
         <div class="logo">
             <p> Conecta </p>
         </div>
@@ -40,10 +37,8 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item"
-                        id="cabecalho-menu-item-login">
-                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
-                        id="nav-seta-sub-topicos"> 🢓 </span></i>
+                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                     <ul class="sub-topicos">
                         <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
                         <li> <a href="editar-excluir-vagas/"> Vagas </a> </li>
@@ -72,43 +67,36 @@
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span
-                        class="nav-lateral-topico"> Editar Perfil
+                <a href="form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span
-                        class="nav-lateral-topico"> Cadastrar
+                <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
                         Causas </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span
-                        class="nav-lateral-topico"> Cadastrar Habilidades
+                <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
                     </span></a>
             </div>
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span
-                        class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
-
-            <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span
-                        class="nav-lateral-topico"> Editar Vagas
+                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span
-                        class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span
-                        class="nav-lateral-topico">Trocar Senha </span></a>
+                <a href="gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                    </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -119,8 +107,7 @@
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span
-                        class="nav-lateral-topico"> Sair </span></a>
+                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>
@@ -137,48 +124,51 @@
         <div class="main-conteudo-container-titulo">
             <h1>CADASTRAR HABILIDADES</h1>
             <p>Cadastre as habilidades necessárias, você poderá atribuí-las as vagas para que encontre voluntários com
-                as habilidades necessárias para cada vaga. Você também pode editá-las ou excluí-las </p>
+                as habilidades necessárias para cada vaga. Você também pode editá-las ou excluí-las. </p>
         </div>
 
-        <div class="card-title">
-            <p>Escreva o nome da habilidades que deseja cadastrar</p>
-            <p>Aqui está a lista de todas as habilidades cadastradas</p>
-        </div>
+
 
         <div class="card">
-            <div class="card-cadastrar">
-                <form class="card-form" action="cadastrar-causas.php" method="POST">
-                    <div class="input-box">
-                        <label for="" id="label">Nome</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite a Habilidade">
-                    </div>
-                    <div class="continue-button">
-                        <button type="submit">CADASTRAR</button>
-                    </div>
-                </form>
+            <div class="card-title">
+                <p>Escreva o nome da Habilidade que deseja cadastrar</p>
+                <div class="card-cadastrar">
+                    <form class="card-form" action="cadastrar-causas.php" method="POST">
+                        <div class="input-box">
+                            <label for="" id="label">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
+                        </div>
+                        <div class="continue-button">
+                            <button type="submit">CADASTRAR</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="table">
-                <div class="table-responsive">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <span>Selecionar todos</span>
-                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+
+            <div class="card-title">
+                <p>Aqui está a lista de todas as habilidades cadastradas</p>
+                <div class="table">
+                    <div class="table-responsive">
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <span>Selecionar todos</span>
+                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                                <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                            </div>
                         </div>
-                        <div class="funcoes-sessao-2">
-                            <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
-                            <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
-                        </div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> </th>
-                                <th>ID</th>
-                                <th>Habilidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>ID</th>
+                                    <th>habilidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                 require_once 'global.php';
                                 try {
                                     $listaHabilidade = HabilidadeServicoDao::listar();
@@ -186,23 +176,27 @@
                                     echo $e->getMessage();
                                 }
                                 ?>
-                            <tr>
-                                <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td>
-                                    <?php echo $habilidade['codHabilidades']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $habilidade['nomeHabilidade']; ?>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                        <td>
+                                            <?php echo $habilidade['codHabilidades']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $habilidade['nomeHabilidade']; ?>
+                                        </td>
+                                </tr>
                             <?php
                                     }
-                                    ?>
-                        </tbody>
-                    </table>
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+
+
         </div>
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
     </main>
@@ -213,8 +207,10 @@
 
 
 
-
+    <!-- NAVS  -->
     <script src="js/script.js"></script>
+    <!-- CHECKBOX -->
+    <script src="js/checkbox.js"></script>
 </body>
 
 </html>
