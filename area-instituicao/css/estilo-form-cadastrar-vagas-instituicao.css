@@ -67,13 +67,19 @@ textarea::placeholder {
 
 select {
     height: 40px;
+    color: #525252;
     font-size: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    padding-left: 14px;
     outline: none;
 }
 
 select option {
-    color: #000000;
+    color: #525252;
     font-size: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
 }
 
 .input-box .div-image {
@@ -99,52 +105,57 @@ select option {
 }
 
 #nome,
-#periodo,
-#dataInicio,
-#horario {
+#tipoVaga,
+#habilidade,
+#causas {
     width: 30vw;
 }
 
-#num,
-#cep {
-    width: 10vw;
+#quantidadeVagas {
+    width: 30vw;
 }
 
-#habilidades,
-#causas {
-    width: 13.6vw;
-}
-
-#pais,
-#comp,
-#cidade,
-#comp {
-    width: 20vw;
-}
-
-#quantidadeVagas,
-#tipoVaga {
-    width: 13.6vw;
-}
-
+#periodo,
+#dataInicio,
+#horario,
+#cep,
 #logradouro,
 #bairro,
-#uf {
-    width: 17.2vw;
+#cidade,
+#uf,
+#comp,
+#pais {
+    width: 19vw;
 }
 
-#label {
-    width: 16.8vw;
+#num {
+    width: 8vw;
 }
 
-#causas,
-#habilidades,
-#quantidadeVagas,
-#tipoVaga {
+
+
+#desc {
+    width: 515px;
+    height: 124px;
+    overflow: hidden;
+}
+
+#tipoVaga,
+#habilidade,
+#causas {
     border: 1px solid #4567a5;
 }
 
-
+#tipoVaga {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    
+    background-image: url("../../img/seta.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 15px;
+}
 
 #label {
     border: solid 1px #4567a5;
@@ -220,66 +231,51 @@ select option {
     {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    background-color: #d6ebfd;
-    border: 1px solid #000000;
-    width: 12rem;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    width: 30vw;
     height: 2.5rem;
-    padding: 0.2rem;
-    border-radius: 0.5rem;
-
+    padding: 8px;
+    border: solid 1px #4567a5;
     text-align: center;
     font-family: poppins, sans-serif;
     font-weight: 300;
-    font-size: 20px;
-    color: #000000;
-    text-transform: uppercase;
-    transition: all 0.5s ease;
-    cursor: pointer;
-}
+    font-size: 14px;
+    color: #525252;
+    overflow: hidden; 
+    white-space: nowrap;
 
-.filtro-causas:hover {
-    border: 1px solid #4567a5;
-    background-color: #4567a5;
-    color: #fff;
+    background-image: url("../../img/seta.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 15px;
 }
 
 .filtro-habilidade
 
 /*, #estados, #cidades */
-    {
+{
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    background-color: #d6ebfd;
-    border: 1px solid #000000;
-    width: 12rem;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    width: 30vw;
     height: 2.5rem;
-    padding: 0.2rem;
-    border-radius: 0.5rem;
-
+    padding: 8px;
+    border: solid 1px #4567a5;
     text-align: center;
     font-family: poppins, sans-serif;
     font-weight: 300;
-    font-size: 20px;
-    color: #000000;
-    text-transform: uppercase;
-    transition: all 0.5s ease;
-    cursor: pointer;
-}
+    font-size: 14px;
+    color: #525252;
+    overflow: hidden; 
+    white-space: nowrap;
 
-.filtro-causas:hover {
-    border: 1px solid #4567a5;
-    background-color: #4567a5;
-    color: #fff;
-}
-
-.filtro-habilidade:hover {
-    border: 1px solid #4567a5;
-    background-color: #4567a5;
-    color: #fff;
+    
+    background-image: url("../../img/seta.png");
+    background-repeat: no-repeat;
+    background-position: right ;
+    background-size: 15px;
 }
 
 .box-causas {
@@ -287,13 +283,12 @@ select option {
     flex-direction: column;
     background-color: #fff;
     border-radius: 0.5rem;
-    min-width: 12rem;
+    min-width: 30vw;
     max-height: 15.3rem;
     border: 1px solid #4567a5;
-    padding: 1rem;
-    gap: 0.8rem;
+    padding: 0.5rem 1rem 0.5rem 2rem;
     position: absolute;
-    top: 3rem;
+    top: 6.1rem;
     display: none;
     overflow-y: scroll;
 }
@@ -320,13 +315,12 @@ select option {
     flex-direction: column;
     background-color: #fff;
     border-radius: 0.5rem;
-    min-width: 12rem;
+    min-width: 30vw;
     max-height: 15.3rem;
     border: 1px solid #4567a5;
-    padding: 1rem;
-    gap: 0.8rem;
+    padding: 0.5rem 1rem 0.5rem 2rem;
     position: absolute;
-    top: 3rem;
+    top: 6.1rem;
     display: none;
     overflow-y: scroll;
 }
@@ -371,6 +365,34 @@ select option {
     background-color: #4567a5;
     text-align: center;
 
+    line-height: 13px;
+    font-size: 13px;
+}
+
+
+/* ESTILIZANDO CHECKBOX */
+#habilidade[type = "checkbox"]
+{
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #525252;
+    outline: none;
+    cursor: pointer;
+}
+#habilidade[type = "checkbox"]:checked::before
+{
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #4567a5; 
+    text-align: center;
+   
     line-height: 13px;
     font-size: 13px;
 }
@@ -434,42 +456,52 @@ select option {
 
 
 
+
+
+
+
+
+
+
 /* RESPONSIVIDADE */
 /*FORMULARIO*/
 @media (max-width: 1048px) {
 
     #nome,
-    #email,
-    #telefone,
-    #telefone-2,
+    #tipoCausa,
+    .filtro-causa,
+    .filtro-habilidade,
+    #quantidadeVagas,
     #log {
         width: 33vw;
     }
 
     #bairro,
+    #logradouro,
     #cidade,
     #pais,
     #comp,
-    #uf,
-    #foto,
-    #label {
-        width: 20.9vw;
+    #uf
+    {
+        width: 20.1vw;
     }
 
-    #num {
-        width: 8.9vw;
+    #periodo,
+    #dataInicio,
+    #horario {
+        width: 20.1vw;
     }
 
     #cep {
-        width: 21vw;
+        width: 19vw;
+    }
+
+    #num {
+        width: 8.2vw;
     }
 
     #desc {
-        width: 45vw;
-    }
-
-    .input-box .div-image {
-        width: 24vw;
+        width: 66.2vw;
     }
 }
 
@@ -490,14 +522,16 @@ select option {
     #pais,
     #comp,
     #uf,
-    #foto,
     #desc,
     #nome,
-    #email,
-    #telefone,
-    #telefone-2,
-    #log,
-    #label {
+    #logradouro,
+    #tipoVaga,
+    .filtro-habilidade,
+    .filtro-causas,
+    #periodo,
+    #dataInicio,
+    #horario,
+    #quantidadeVagas {
         width: 60vw;
     }
 
@@ -521,14 +555,16 @@ select option {
     #pais,
     #comp,
     #uf,
-    #foto,
     #desc,
     #nome,
-    #email,
-    #telefone,
-    #telefone-2,
-    #log,
-    #label {
+    #logradouro,
+    #tipoVaga,
+    .filtro-habilidade,
+    .filtro-causas,
+    #periodo,
+    #dataInicio,
+    #horario,
+    #quantidadeVagas {
         width: 70vw;
     }
 }
