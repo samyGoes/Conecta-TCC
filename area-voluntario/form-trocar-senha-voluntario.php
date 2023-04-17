@@ -1,4 +1,7 @@
-<?php include "../auth/verifica-logado.php";?>
+<?php include "../auth/verifica-logado.php"; ?>
+<?php 
+     require_once 'global.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,18 +35,12 @@
             <!-- TÓPICOS -->
             <ul class="topicos-sessao-completa">
                 <ul class="topicos">
-                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php"
-                            class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios.php"
-                            class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a
-                            href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
-                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php"
-                            class="cabecalho-menu-item">Vagas</a></li>
-                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a
-                            href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php"
-                            class="cabecalho-menu-item">contato</a></li>
+                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
+                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
+                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
                 </ul>
 
                 <ul class="topicos-sessao-login">
@@ -53,9 +50,9 @@
                             id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
                             <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
-                            <li> <a href=""> Vagas </a> </li>
-                            <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="vagas.php"> Vagas </a> </li>
+                            <li> <a href="form-editar-perfil-voluntario.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -80,11 +77,11 @@
                 <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="editar-perfil-voluntario.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil </span></a>
+                    <a href="form-editar-perfil-voluntario.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="adicionar-causas-voluntario.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Adicionar Causas </span></a>
+                    <a href="form-adicionar-causas-voluntario.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Adicionar Causas </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
@@ -92,11 +89,11 @@
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="trocar-senha-voluntario.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+                    <a href="form-trocar-senha-voluntario.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="excluir-conta-voluntario.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
+                    <a href="form-excluir-conta-voluntario.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
                 </div>
             </div>
 
@@ -133,8 +130,8 @@
 
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box" id="modal-input-box">
-                            <label for="" class="modal-email"> Email </label>
-                            <input placeholder="Digite seu email" type="email" name="email" id="email" class="modal-input-email">
+                            <label for="" class="modal-email"> CPF </label>
+                            <input placeholder="Digite seu CPF" type="text" name="email" id="email" class="modal-input-email">
                         </div>
                         <div class="modal-input-box">
                             <label for="" class="modal-senha"> Senha </label>

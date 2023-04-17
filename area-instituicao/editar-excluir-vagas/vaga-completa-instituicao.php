@@ -1,3 +1,7 @@
+<?php include "../auth/verifica-logado.php"; ?>
+<?php 
+     require_once 'global.php'; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,8 +23,8 @@
 
     <body>
 
-        <!-- BARRA DE NAVEGAÇÂO -->
-        <nav class="cabecalho">
+         <!-- BARRA DE NAVEGAÇÂO -->
+         <nav class="cabecalho">
             <div class="logo">
                 <p> Conecta </p>
             </div>
@@ -32,18 +36,12 @@
             <!-- TÓPICOS -->
             <ul class="topicos-sessao-completa">
                 <ul class="topicos">
-                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php"
-                            class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios.php"
-                            class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a
-                            href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
-                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php"
-                            class="cabecalho-menu-item">Vagas</a></li>
-                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a
-                            href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php"
-                            class="cabecalho-menu-item">contato</a></li>
+                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../../index.php" class="cabecalho-menu-item">Início</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
+                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
+                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
                 </ul>
 
                 <ul class="topicos-sessao-login">
@@ -54,8 +52,8 @@
                         <ul class="sub-topicos">
                             <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
-                            <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="../editar-perfil-instituicao-atualizado.php"> Configurações </a></li>
+                            <li> <a href="../../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -79,40 +77,40 @@
                 <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                    <a href="../form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                         </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
+                    <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
                             Causas </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
+                    <a href="../form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
                         </span></a>
                 </div>
                 <div class="nav-lateral-box-icon">
-                    <a href="cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                        </span></a>
-                </div>
-
-                <div class="nav-lateral-box-icon">
-                    <a href="editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                    <a href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
                         </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="gerenciar-vagas/gerenciar-vagas.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                    <a href="../editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
                         </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="../trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+                    <a href="dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                        </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="excluir-conta-instituicao.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
+                    <a href="../form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+                </div>
+
+                <div class="nav-lateral-box-icon">
+                    <a href="../form-excluir-conta-instituicao.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
                             class="nav-lateral-topico">Excluir Conta </span></a>
                 </div>
             </div>

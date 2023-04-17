@@ -34,7 +34,7 @@
             <ul class="topicos-sessao-completa">   
                 <ul class="topicos">
                     <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
                     <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                     <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                     <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
@@ -45,9 +45,9 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="../area-voluntario/perfil-voluntario.php"> Meu Perfil </a></li>
-                            <li> <a href=""> Vagas </a> </li>
-                            <li> <a href="editar-perfil-instituicao-atualizado.php"> Configurações </a></li>
+                            <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
+                            <li> <a href="editar-excluir-vagas/"> Vagas </a> </li>
+                            <li> <a href="form-editar-perfil-instituicao.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>

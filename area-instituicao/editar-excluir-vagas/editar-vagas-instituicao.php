@@ -5,22 +5,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
-        <!-- LINK ICONES -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="css/estilo-vagas-cadastradas-instituicao.css">
+    <!-- LINK ICONES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
 
-    <body>
+<body>
 
-         <!-- BARRA DE NAVEGAÇÂO -->
-         <nav class="cabecalho">
+      <!-- BARRA DE NAVEGAÇÂO -->
+      <nav class="cabecalho">
             <div class="logo">
                 <p> Conecta </p>
             </div>
@@ -124,23 +123,52 @@
 
 
 
+    <!-- CONTEUDO  -->
+    <main class="main-conteudo">
 
-        <!-- CONTEUDO  -->
-        <main class="main-conteudo">
-            
-            <div class="main-conteudo-container-titulo">
-                <h1>DASHBOARD</h1>
-                <p>Aqui você terá uma visão geral para administrar tudo que precisa.</p>
-            </div>
+        <div class="main-conteudo-container-titulo">
+            <h1>Editar Vagas</h1>
+            <p>
+                Aqui você verá todas as vagas que cadastrou. Selecione uma das vagas para visualizá-la, edita-la ou excluí-la.
+            </p>
+        </div>
 
-            <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
-            <div class="container-botoes">
-                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
-                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
-                <a href="vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
-            </div>
+        <div class="cards">
+            <?php
+            for ($i = 1; $i <= 3; $i++) {
+            ?>
+                <div class="card-carrossel-dois">
+                    <div class="content-it">
+                        <div class="header-card-carrossel-it">
+                            <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
+                            <i id="icon-maps" class="fa-solid fa-location-dot"></i>
+                            <p> São Paulo </p>
+                        </div>
+                        <div class="fundo">
+                            <div class="fundo-img">
+                                <img src="img/user2.png">
+                            </div>
+                            <div class="title-1">
+                                <p> ONG abraço </p>
+                            </div>
+                        </div>
+                        <div class="title-2">
+                            <p>Cuidador de Animais</p>
+                        </div>
+                        <div class="title-3">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis consequatur numquam, neque hic quaerat sint, quae optio odit adipisci nemo quo laboriosam quam tenetur eveniet laudantium, illum eius ipsa voluptate!</p>
+                        </div>
+                        <a href="#"><button class="card-carrossel-botao" id="botao-it">
+                                VER VAGA
+                            </button></a>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
 
-        </main>
+        </div>
+    </main>
 
 
 
@@ -148,8 +176,8 @@
 
 
 
-
-        <script src="js/script.js"></script>
-    </body>
+    <script src="../area-voluntario/js/carrossel-vagas.js"></script>
+    <script src="js/script.js"></script>
+</body>
 
 </html>
