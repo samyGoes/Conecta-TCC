@@ -17,7 +17,7 @@
         if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cpf" )
         {
             $stmt=$conectar->prepare("SELECT tbVoluntario.codVoluntario, nomeVoluntario, dataNascVoluntario, 
-            emailVoluntario, 
+            emailVoluntario,descVoluntario,fotoVoluntario,
             COALESCE(tbFoneVoluntario1.numFoneVoluntario, '') AS telefone1,
             COALESCE(tbFoneVoluntario2.numFoneVoluntario, '') AS telefone2,
             logVoluntario, numLogVoluntario, cepVoluntario, bairroVoluntario, 
@@ -59,6 +59,7 @@
                 $_SESSION['paisUsuario'] = $result['paisVoluntario'];
                 $_SESSION['idadeUsuario'] = $result['idade'];
                 $_SESSION['descUsuario'] = $result['descVoluntario'];
+                $_SESSION['ftPerfil'] = $result['fotoVoluntario'];
         
                 // Redireciona para a página inicial do sistema
                 header('Location: ../area-voluntario/perfil-voluntario.php');
@@ -91,7 +92,7 @@
             COALESCE(tbFoneInstituicao2.numFoneInstituicao, '') AS telefone2,
             logInstituicao, numLogInstituicao, cepInstituicao, bairroInstituicao, 
             cidadeInstituicao, estadoInstituicao, paisInstituicao, compInstituicao, 
-            descInstituicao 
+            descInstituicao,fotoInstituicao
             FROM tbInstituicao 
             INNER JOIN tbFoneInstituicao tbFoneInstituicao1 
                 ON tbInstituicao.codInstituicao = tbFoneInstituicao1.codInstituicao 
@@ -128,6 +129,7 @@
                 $_SESSION['compUsuario'] = $result['compInstituicao'];
                 $_SESSION['paisUsuario'] = $result['paisInstituicao'];
                 $_SESSION['descUsuario'] = $result['descInstituicao'];
+                $_SESSION['ftPerfil'] = $result['fotoInstituicao'];
                 
         
                 // Redireciona para a página inicial do sistema

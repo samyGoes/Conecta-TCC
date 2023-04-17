@@ -46,7 +46,7 @@
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
                             <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
-                            <li> <a href="editar-excluir-vagas/"> Vagas </a> </li>
+                            <li> <a href="form-trocar-senha-instituicao.php"> Vagas </a> </li>
                             <li> <a href="form-editar-perfil-instituicao.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>

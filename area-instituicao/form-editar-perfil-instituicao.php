@@ -231,8 +231,7 @@
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"
-                                value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
+                            <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"><?php echo $_SESSION['descUsuario']; ?></textarea>
                         </div>
                         <div class="div-image">
                             <div class="image">

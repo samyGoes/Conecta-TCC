@@ -177,32 +177,11 @@
                             </div>
                             <div>
                                 <label for="cidade">Cidade</label>
-                                <input type="text" name="cidade" id="cidade">
-                                <!--<select name="cidade" id="cidade">
-                                    <option disabled value="">Selecione sua cidade</option>
-                                    <option value="São Paulo" <?php if ($_SESSION['cidadeUsuario'] == 'São Paulo')
-                                        echo 'selected'; ?>>São Paulo</option>
-                                    <option value="Rio de Janeiro" <?php if ($_SESSION['cidadeUsuario'] == 'Rio de Janeiro')
-                                        echo 'selected'; ?>>Rio de Janeiro</option>
-                                    <option value="Belo Horizonte" <?php if ($_SESSION['cidadeUsuario'] == 'Belo Horizonte')
-                                        echo 'selected'; ?>>Belo Horizonte</option>
-                                </select>-->
+                                <input type="text" name="cidade" id="cidade" value="<?php echo $_SESSION['cidadeUsuario']; ?>">
                             </div>
                             <div>
                                 <label for="uf">Estado</label>
-                                <input type="text" name="uf" id="uf">
-                                <!--<select name="uf" id="uf">
-                                    <option disabled value="">Selecione seu estado</option>
-                                    <option value="SP" <?php if ($_SESSION['estadoUsuario'] == 'SP')
-                                        echo 'selected'; ?>>SP
-                                    </option>
-                                    <option value="RJ" <?php if ($_SESSION['estadoUsuario'] == 'RJ')
-                                        echo 'selected'; ?>>RJ
-                                    </option>
-                                    <option value="BH" <?php if ($_SESSION['estadoUsuario'] == 'BH')
-                                        echo 'selected'; ?>>BH
-                                    </option>
-                                </select>-->
+                                <input type="text" name="uf" id="uf"  value="<?php echo $_SESSION['estadoUsuario']; ?>">
                             </div>
                         </div>
 
@@ -214,18 +193,7 @@
                             </div>
                             <div>
                                 <label for="">País</label>
-                                <input type="text" name="pais" id="pais" placeholder="Digite seu pais">
-                                <!--<select name="pais" id="pais">
-                                    <option disabled>Selecione seu país</option>
-                                    <option value="Brasil" <?php if ($_SESSION['paisUsuario'] == 'Brasil')
-                                        echo 'selected'; ?>>
-                                        Brasil</option>
-                                    <option value="Japão" <?php if ($_SESSION['paisUsuario'] == 'Japão')
-                                        echo 'selected'; ?>>
-                                        Japão</option>
-                                    <option value="Portugal" <?php if ($_SESSION['paisUsuario'] == 'Portugal')
-                                        echo 'selected'; ?>>Portugal</option>
-                                </select>-->
+                                <input type="text" name="pais" id="pais" placeholder="Digite seu pais"  value="<?php echo $_SESSION['paisUsuario']; ?>">
                             </div>
                             <div>
                                 <span>Foto</span>
@@ -237,12 +205,11 @@
                         <div class="input-box">
                             <div>
                                 <label for="">Descrição</label>
-                                <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"
-                                    value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
+                                <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"><?php echo $_SESSION['descUsuario']; ?></textarea>
                             </div>
                             <div class="div-image">
                                 <div class="image">
-                                    <img src="img/userVoluntario.png" id="img" alt="user-instituição">
+                                    <img src="<?php echo ($_SESSION['ftPerfil']) ?>" id="img" alt="user-instituição">
                                 </div>
                             </div>
                         </div>

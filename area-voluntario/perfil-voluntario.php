@@ -82,7 +82,7 @@
                 <div class="ocultar-sessao">
                     <div class="dados-pessoais-1">
                         <div class="img-user">
-                            <img src="img/user2.png">
+                            <img src="<?php echo ($_SESSION['ftPerfil']) ?>">
                         </div>
                         <div class="dados-pessoais-1-stars">
                             <i class="fa-solid fa-star"></i>
