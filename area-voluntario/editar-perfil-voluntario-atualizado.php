@@ -58,7 +58,7 @@
                             <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="editar-perfil.php"> Configurações </a></li>
-                            <li> <a href="logout.php"> Sair </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -105,7 +105,7 @@
 
             <div class="nav-lateral-sessao-dois">
                 <div class="nav-lateral-box-icon">
-                    <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+                    <a href=""> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
                 </div>
             </div>    
         </nav>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="form">
-                <form class="container" action="editarPerfil-instituicao.php" method="post" enctype="multipart/form-data">
+                <form class="container" action="update-voluntario.php" method="post" enctype="multipart/form-data">
                     <div class="input-group">
                         <div class="input-box">
                             <div>
@@ -236,7 +236,7 @@
                             <div>
                                 <span>Foto</span>
                                 <label id="label" for="foto">Selecione uma foto</label>
-                                <input type="file" accept="image/*" id="foto">
+                                <input type="file" accept="image/*" id="foto" name="foto">
                             </div>
                         </div>
 

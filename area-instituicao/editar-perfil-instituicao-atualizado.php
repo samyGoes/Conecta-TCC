@@ -85,16 +85,16 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
+                <a href="cadastrarCausas.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
                         Causas </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
+                <a href="cadastrarHabilidades.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
                     </span></a>
             </div>
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
+                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
                     </span></a>
             </div>
 
@@ -113,7 +113,7 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="excluir-conta-instituicao-atualizado.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
+                <a href="excluir-conta-instituicao.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span
                         class="nav-lateral-topico">Excluir Conta </span></a>
             </div>
         </div>

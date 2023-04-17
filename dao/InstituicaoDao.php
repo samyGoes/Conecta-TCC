@@ -108,21 +108,59 @@
 
         }
 
+        public static function atualizarFotoPerfil($instituicao){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbInstituicao
+                            SET fotoInstituicao = ?
+                            WHERE codInstituicao = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $instituicao->getFtPerfilInstituicao());
+            $prepareStatement->bindValue(2, $instituicao->getIdInstituicao());
+
+            $prepareStatement->execute();
+        }
+
         public static function editarTel($instituicao)
         {
             $conectar=Conexao::conectar();
 
-            $stmtTelefone1 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneVoluntario = ?
-            WHERE codFoneInstituicao = ? AND numSeqFone = 1");
+            $stmtTelefone1 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneInstituicao = ?
+            WHERE codInstituicao = ? AND numSeqFone = 1");
             $stmtTelefone1->bindValue(1, $instituicao->getTel1Instituicao());
             $stmtTelefone1->bindValue(2, $instituicao->getIdInstituicao());
             $stmtTelefone1->execute();
 
-            $stmtTelefone2 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneVoluntario = ?
-            WHERE codFoneInstituicao = ? AND numSeqFone = 2");
+            $stmtTelefone2 = $conectar->prepare("UPDATE tbFoneInstituicao SET numFoneInstituicao = ?
+            WHERE codInstituicao = ? AND numSeqFone = 2");
             $stmtTelefone2->bindValue(1,$instituicao->getTel2Instituicao());
             $stmtTelefone2->bindValue(2,$instituicao->getIdInstituicao());
             $stmtTelefone2->execute();
+        }
+
+        public static function excluir($email,$senha,$instituicao)
+        {
+            $conectar=Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT codInstituicao FROM tbInstituicao WHERE emailInstituicao = ? AND senhaInstituicao = ? ");
+            $querySelect->bindValue(1,$email);
+            $querySelect->bindValue(2,$senha);
+            $querySelect->execute();
+
+            if ($querySelect->rowCount() > 0) 
+            {
+                $deleteFone = $conectar->prepare("DELETE FROM tbfoneInstituicao WHERE codInstituicao = ?");
+                $deleteFone->bindValue(1,$instituicao->getIdInstituicao());
+                $deleteFone->execute();
+
+                $deleteInstituicao = $conectar->prepare("DELETE FROM tbInstituicao WHERE codInstituicao = ?");
+                $deleteInstituicao->bindValue(1,$instituicao->getIdInstituicao());
+                $deleteInstituicao->execute();
+
+                return true;
+            }
         }
 
         public static function listar()
@@ -149,19 +187,5 @@
             return $id;   
         }
 
-        public static function atualizarFotoPerfil($instituicao){
-            $conexao = Conexao::conectar();
-
-            $queryInsert = "UPDATE tbInstituicao
-                            SET fotoInstituicao = ?
-                            WHERE codInstituicao = ?";
-            
-            $prepareStatement = $conexao->prepare($queryInsert);
-            
-            $prepareStatement->bindValue(1, $instituicao->getFtPerfilInstituicao());
-            $prepareStatement->bindValue(2, $instituicao->getIdInstituicao());
-
-            $prepareStatement->execute();
-        }
     }
 ?>

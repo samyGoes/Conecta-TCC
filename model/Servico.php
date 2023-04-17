@@ -117,7 +117,7 @@
             return $this->numeroLocalServico;
         }
 
-        public function getCidadeLoocalServico(){
+        public function getCidadeLocalServico(){
             return $this->cidadeLocalServico;
         }
 

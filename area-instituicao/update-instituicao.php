@@ -6,7 +6,6 @@
     try
     {
       
-        // Mostrar o conteúdo da sessão
         $instituicao = new Instituicao();
         $instituicao -> setIdInstituicao($_SESSION['codUsuario']);
         $instituicao -> setNomeInstituicao($_POST['nome']);
@@ -26,49 +25,39 @@
         //Atualizando sem a foto
         $update = InstituicaoDao::editar($instituicao);
 
+        //Atualizar telefones
+        $updateTel = InstituicaoDao::editarTel($instituicao);
+
         $idInstituicao = InstituicaoDao::consultarId($instituicao);
-        //inserindo o id da instituição na classe Instituicao
-        $instituicao ->setFtPerfilInstituicao($idInstituicao);
 
-        //nome original do arquivo no computador do usuário
-        $nome = $_FILES['foto']['name'];
+        if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) 
+        {
+            //nome original do arquivo no computador do usuário
+            $nome = $_FILES['foto']['name'];
 
-         //nome temporário do arquivo como foi armazenado no servidor, é o ARQUIVO!!!
-        $arquivo = $_FILES['foto'] ['tmp_name'];
+            //nome temporário do arquivo como foi armazenado no servidor, é o ARQUIVO!!!
+            $arquivo = $_FILES['foto'] ['tmp_name'];
 
-        $diretorio = "img-instituicao/";
-    
-        $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
-
-        $nomenovo = $instituicao->getIdInstituicao().$extensao;
-
-        $nomecompleto =  $diretorio.$nomenovo;
+            $diretorio = "img-instituicao/";
         
-        // $nomecompleto =  $diretorio.$nome;
+            $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
 
-        move_uploaded_file($arquivo, $nomecompleto);
+            $nomenovo = $idInstituicao.$extensao;
 
-        //inserindo a foto na classe Instituicao
-        $instituicao->setFtPerfilInstituicao($nomecompleto);
+            $nomecompleto =  $diretorio.$nomenovo;
+            
+            // $nomecompleto =  $diretorio.$nome;
 
-        //Chamando a função da classe Dao para atualizar a foto de perfil
-        $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
+            move_uploaded_file($arquivo, $nomecompleto);
 
-        //atualizando os dados da sessâo
-        $_SESSION['ftPerfil'] = $nomecompleto;
-        $_SESSION['nomeUsuario'] = $instituicao->getNomeInstituicao();
-        $_SESSION['emailUsuario'] = $instituicao->getEmailInstituicao();
-        //$_SESSION['numFoneUsuario1'] =;
-        //$_SESSION['numFoneUsuario2'] = ;
-        $_SESSION['logUsuario'] = $instituicao->getLogradouroInstituicao();
-        $_SESSION['numLogUsuario'] = $instituicao->getNumeroInstituicao();
-        $_SESSION['cepUsuario'] = $instituicao->getCepInstituicao();
-        $_SESSION['bairroUsuario'] = $instituicao->getBairroInstituicao();
-        $_SESSION['cidadeUsuario'] = $instituicao->getCidadeInstituicao();
-        $_SESSION['estadoUsuario'] = $instituicao->getEstadoInstituicao();
-        $_SESSION['compUsuario'] = $instituicao->getCompInstituicao();
-        $_SESSION['paisUsuario'] = $instituicao->getPaisInstituicao();
-        $_SESSION['descUsuario'] = $instituicao->getDescInstituicao();
+            //inserindo a foto na classe Instituicao
+            $instituicao->setFtPerfilInstituicao($nomecompleto);
+
+            //Chamando a função da classe Dao para atualizar a foto de perfil
+            $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
+        }
+        
+
         
     }
     catch(Exception $e)

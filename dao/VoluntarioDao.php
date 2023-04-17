@@ -29,18 +29,98 @@
 
             $id = $conexao->lastInsertId();
 
-            $stmt2=$conexao->prepare("INSERT INTO tbfonevoluntario(numFoneVoluntario,codVoluntario)
-                                                                VALUES(?,$id)");
+            $stmt2=$conexao->prepare("INSERT INTO tbfonevoluntario(numFoneVoluntario,codVoluntario,numSeqFone)
+                                                                VALUES(?,$id,1)");
             $stmt2->bindValue(1, $voluntario->getTelefone1Voluntario());
             $stmt2->execute();
 
-            $stmt3=$conexao->prepare("INSERT INTO tbfonevoluntario(numFoneVoluntario,codVoluntario)
-                                                                VALUES(?,$id)");
+            $stmt3=$conexao->prepare("INSERT INTO tbfonevoluntario(numFoneVoluntario,codVoluntario,numSeqFone)
+                                                                VALUES(?,$id,2)");
             $stmt3->bindValue(1, $voluntario->getTelefone2Voluntario());
             $stmt3->execute();
             return 'Cadastrou';
         }
-        
+
+
+        public static function editar($voluntario)
+        {
+            $conectar=Conexao::conectar();
+
+            $stmt = $conectar->prepare("UPDATE tbvoluntario SET nomeVoluntario = ?,logVoluntario = ?,numLogVoluntario = ?,
+            cepVoluntario = ?,compVoluntario = ?,bairroVoluntario = ?,cidadeVoluntario = ?,
+            estadoVoluntario = ?,paisVoluntario = ?,emailVoluntario = ?,descVoluntario = ? WHERE codVoluntario = ?");
+
+            $stmt->bindValue(1, $voluntario->getNomeVoluntario());
+            $stmt->bindValue(2, $voluntario->getLogVoluntario());
+            $stmt->bindValue(3, $voluntario->getNumLogVoluntario());
+            $stmt->bindValue(4, $voluntario->getCepVoluntario());
+            $stmt->bindValue(5, $voluntario->getCompVoluntario());
+            $stmt->bindValue(6, $voluntario->getBairroVoluntario());
+            $stmt->bindValue(7, $voluntario->getCidadeVoluntario());
+            $stmt->bindValue(8, $voluntario->getEstadoVoluntario());
+            $stmt->bindValue(9, $voluntario->getPaisVoluntario());
+            $stmt->bindValue(10, $voluntario->getEmailVoluntario());
+            $stmt->bindValue(11, $voluntario->getDescVoluntario());
+            $stmt->bindValue(12, $voluntario->getIdVoluntario());
+            $stmt->execute();
+
+        }
+
+        public static function atualizarFotoPerfil($voluntario){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbVoluntario
+                            SET fotoVoluntario = ?
+                            WHERE codVoluntario = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $voluntario->getFotoPerfilVoluntario());
+            $prepareStatement->bindValue(2, $voluntario->getIdVoluntario());
+
+            $prepareStatement->execute();
+        }
+
+        public static function editarTel($voluntario)
+        {
+            $conectar=Conexao::conectar();
+
+            $stmtTelefone1 = $conectar->prepare("UPDATE tbFoneVoluntario SET numFoneVoluntario = ?
+            WHERE codVoluntario = ? AND numSeqFone = 1");
+            $stmtTelefone1->bindValue(1, $voluntario->getTelefone1Voluntario());
+            $stmtTelefone1->bindValue(2, $voluntario->getIdVoluntario());
+            $stmtTelefone1->execute();
+
+            $stmtTelefone2 = $conectar->prepare("UPDATE tbFoneVoluntario SET numFoneVoluntario = ?
+            WHERE codVoluntario = ? AND numSeqFone = 2");
+            $stmtTelefone2->bindValue(1,$voluntario->getTelefone2Voluntario());
+            $stmtTelefone2->bindValue(2,$voluntario->getIdVoluntario());
+            $stmtTelefone2->execute();
+        }
+
+        public static function excluir($email,$senha,$voluntario)
+        {
+            $conectar=Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT codVoluntario FROM tbVoluntario WHERE emailVoluntario = ? AND senhaVoluntario = ? ");
+            $querySelect->bindValue(1,$email);
+            $querySelect->bindValue(2,$senha);
+            $querySelect->execute();
+
+            if ($querySelect->rowCount() > 0) 
+            {
+                $deleteFone = $conectar->prepare("DELETE FROM tbfonevoluntario WHERE codVoluntario = ?");
+                $deleteFone->bindValue(1,$voluntario->getIdVoluntario());
+                $deleteFone->execute();
+
+                $deleteInstituicao = $conectar->prepare("DELETE FROM tbVoluntario WHERE codVoluntario = ?");
+                $deleteInstituicao->bindValue(1,$voluntario->getIdVoluntario());
+                $deleteInstituicao->execute();
+
+                return true;
+            }
+        }
+
         public static function listar(){
             $conexao = Conexao :: conectar();
             $querySelect = "SELECT codVoluntario, nomeVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario";
@@ -59,5 +139,21 @@
             $qtdVoluntario = $resultadoVoluntario -> fetchAll(PDO::FETCH_COLUMN);
             return $qtdVoluntario;
         }
+
+        public static function consultarId($voluntario)
+        {
+            $conexao = Conexao::conectar();
+
+            $querySelect = "SELECT codVoluntario FROM tbvoluntario WHERE nomeVoluntario LIKE '".$voluntario->getNomeVoluntario()."'";
+
+            $resultado = $conexao->query($querySelect);
+
+            $lista = $resultado->fetchAll();
+
+            foreach ($lista as $voluntario)
+                $id = $voluntario['codVoluntario'];
+            return $id;   
+        }
+
     }
 ?>

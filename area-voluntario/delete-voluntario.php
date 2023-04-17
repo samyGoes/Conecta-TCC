@@ -7,10 +7,10 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $instituicao = new Instituicao();
-        $instituicao -> setIdInstituicao($_SESSION['codUsuario']);
+        $voluntario = new Voluntario();
+        $voluntario -> setIdVoluntario($_SESSION['codUsuario']);
 
-        $excluir = InstituicaoDao::excluir($email,$senha,$instituicao);
+        $excluir = VoluntarioDao::excluir($email,$senha,$voluntario);
 
         if($excluir == true)
         {
