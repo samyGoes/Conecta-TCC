@@ -1,7 +1,4 @@
-<?php include "../auth/verifica-logado.php"; ?>
-<?php 
-     require_once 'global.php'; 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -218,10 +215,14 @@
                             <i class="fa-sharp fa-solid fa-heart"></i> <h6 >Causas ajudadas</h6>
                         </div>
                         <div class="tipo-causas">
-                            <a href=""><button id="tipo-causas-1">mulheres</button></a>
-                            <a href=""><button id="tipo-causas-2">crianças</button></a>
-                            <a href=""><button id="tipo-causas-3">idosos</button></a>
-                            <a href=""><button id="tipo-causas-1">animais</button></a>
+                            <?php
+                                
+                                
+                                for($i=1; $i<=4;$i++)
+                                { 
+                                    echo("<a href=><button id=tipo-causas-1>mulheres</button></a>");
+                                }
+                            ?>
                         </div>
                     </div>
 
