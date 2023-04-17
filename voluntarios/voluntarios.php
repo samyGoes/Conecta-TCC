@@ -132,7 +132,7 @@
                         <div class="lista-item" id="lista-item-nome"> 
 
                             <a href="../area-voluntario/perfil-voluntario.php">
-                            <div class="box-img"> <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"> </div> 
+                            <div class="box-img"> <img src="../area-voluntario/<?php //echo $voluntario['fotoVoluntario']; ?>"> </div> 
                             </a>  
                             <div class="lista-item-sessao-1">
                                 <a href=""> <p class="nome">  <?php echo $voluntario['nomeVoluntario']; ?> </p> </a>
