@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Abr-2023 às 06:06
+-- Generation Time: 17-Abr-2023 às 00:44
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -56,6 +56,7 @@ CREATE TABLE `tbcategoriaservico` (
 CREATE TABLE `tbfoneinstituicao` (
   `codFoneInstituicao` int(11) NOT NULL,
   `numFoneInstituicao` varchar(15) NOT NULL,
+  `numSeqFone` int(20) NOT NULL,
   `codInstituicao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,23 +64,23 @@ CREATE TABLE `tbfoneinstituicao` (
 -- Extraindo dados da tabela `tbfoneinstituicao`
 --
 
-INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `codInstituicao`) VALUES
-(1, '11111111111', 1),
-(2, '111111111', 1),
-(3, '11111111111', 2),
-(4, '11111111111', 2),
-(5, '11965874333', 3),
-(6, '1120168242', 3),
-(7, '11965874333', 4),
-(8, '1120168242', 4),
-(9, '11965874333', 5),
-(10, '1120168242', 5),
-(11, '11965874333', 6),
-(12, '1120168242', 6),
-(13, '11965874333', 7),
-(14, '1120168242', 7),
-(15, '11965874333', 8),
-(16, '1120168242', 8);
+INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `numSeqFone`, `codInstituicao`) VALUES
+(1, '11111111111', 0, 1),
+(2, '111111111', 0, 1),
+(3, '11111111111', 0, 2),
+(4, '11111111111', 0, 2),
+(5, '11965874333', 0, 3),
+(6, '1120168242', 0, 3),
+(7, '11965874333', 0, 4),
+(8, '1120168242', 0, 4),
+(9, '11965874333', 0, 5),
+(10, '1120168242', 0, 5),
+(11, '11965874333', 0, 6),
+(12, '1120168242', 0, 6),
+(13, '11965874333', 0, 7),
+(14, '1120168242', 0, 7),
+(15, '11965874333', 0, 8),
+(16, '1120168242', 0, 8);
 
 -- --------------------------------------------------------
 
@@ -90,6 +91,7 @@ INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `co
 CREATE TABLE `tbfonevoluntario` (
   `codFoneVoluntario` int(11) NOT NULL,
   `numFoneVoluntario` varchar(15) NOT NULL,
+  `numSeqFone` int(20) NOT NULL,
   `codVoluntario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,13 +99,13 @@ CREATE TABLE `tbfonevoluntario` (
 -- Extraindo dados da tabela `tbfonevoluntario`
 --
 
-INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `codVoluntario`) VALUES
-(1, '11965874333', 1),
-(2, '1120168242', 1),
-(3, '11111111111', 2),
-(4, '11111111111', 2),
-(5, '11965874333', 3),
-(6, '1120168242', 3);
+INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `numSeqFone`, `codVoluntario`) VALUES
+(1, '11965874333', 0, 1),
+(2, '1120168242', 0, 1),
+(3, '11111111111', 0, 2),
+(4, '11111111111', 0, 2),
+(5, '11965874333', 0, 3),
+(6, '1120168242', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -157,7 +159,7 @@ CREATE TABLE `tbinstituicao` (
 --
 
 INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituicao`, `numLogInstituicao`, `cepInstituicao`, `compInstituicao`, `bairroInstituicao`, `cidadeInstituicao`, `estadoInstituicao`, `paisInstituicao`, `emailInstituicao`, `cnpjInstituicao`, `senhaInstituicao`, `descInstituicao`, `fotoInstituicao`) VALUES
-(1, 'ascdf', 'Avenida dos IpÃªs', '234', '08161-000', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'aaa@gmail.com', '93.491.338/0001-74', '1234', '', ''),
+(1, 'ascdf', 'Avenida dos IpÃªs', '234', '08161-000', 'casa', 'Jardim dos IpÃªs', '', '', '', 'aaa@gmail.com', '93.491.338/0001-74', '1234', '', 'img-instituicao/1.jpg'),
 (2, 'Ong AbraÃ§o', 'Avenida dos IpÃªs', '123', '08161-000', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'ong@gmail.com', '62823257011801', '123', '', ''),
 (3, 'ong cachorros fofos', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongDogs@gmail.com', '30.790.743/0001-73', '123', '', ''),
 (4, 'ong cachorros fofos', '', '03', '08460-600', 'casa', '', '', '', 'Brasil', 'ongDogs1@gmail.com', '02.178.282/0001-47', '123', '', ''),

@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
 .cards {
     display: flex;
     flex-flow: row nowrap;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
     /* background-color: #99a8eb; */
     padding-top: 0.7rem;
 }
 
-.card-carrossel-dois
-{
-    min-width: 20%;
+.card-carrossel-dois {
+    width: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
 }
 
-.card-carrossel-dois:hover
-{
+.card-carrossel-dois:hover {
     transform: translateY(-10px);
 }
 
@@ -25,6 +25,7 @@
     align-items: center;
     border: 1px solid #4567a5;
     border-radius: 0.6rem;
+    box-shadow: 2px 2px 5px 0px #4567a5;
 }
 
 .header-card-carrossel-it {
@@ -69,16 +70,26 @@
     object-fit: cover;
 }
 
-.title-2 p {
+.title-1 p {
     font-family: poppins, sans-serif;
     font-size: 16px;
     color: #000000;
     font-weight: 400;
 }
 
+.title-2 p {
+    margin: 10px 0px 0px 10px;
+    font-family: poppins, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
 .title-3 p {
     font-family: poppins, sans-serif;
-    font-size: 16px;
+    font-size: 13px;
+    margin: 15px 0px 15px 0px;
+    text-align: left;
+    padding: 0px 15px 0px 15px;
     color: #000000;
     font-weight: 400;
 }
@@ -86,7 +97,7 @@
 .card-carrossel-botao {
     background-color: #cf8a3f;
     padding: 4%;
-    width: 6.2rem;
+    width: 11.2rem;
     border-radius: 0.4rem;
     margin-bottom: 1.5rem;
     margin-top: 1rem;
@@ -104,39 +115,36 @@
     margin-top: 0.5rem;
 }
 
-.titulo-card-carrossel
-{
+.titulo-card-carrossel {
     font-family: bitter, sans-serif;
-    font-size: 22px; 
-    font-weight: 700; 
-    color: #000000; 
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
     margin-top: 2.3rem;
     margin-bottom: 1rem;
 }
 
-.texto-card p
-{
+.texto-card p {
     font-family: poppins, sans-serif;
     font-size: 14px;
     color: #525252;
     font-weight: 400;
 }
-.texto-card span
-{
+
+.texto-card span {
     font-family: poppins, sans-serif;
     font-size: 14px;
     color: #000000;
     font-weight: 400;
 }
-.texto-card 
-{
+
+.texto-card {
     text-align: left;
     line-height: 160%;
 }
 
-.card-carrossel-botao:hover
-{
+.card-carrossel-botao:hover {
     color: #4567a5;
     background-color: #fff;
     border: 1px solid #4567a5;
-} 
+}
