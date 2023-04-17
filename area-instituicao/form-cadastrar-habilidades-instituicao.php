@@ -1,7 +1,4 @@
-<?php include "../auth/verifica-logado.php"; ?>
-<?php 
-     require_once 'global.php'; 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -149,19 +146,17 @@
         </div>
 
         <div class="card">
-            
             <div class="card-cadastrar">
-                <div class="card-form">
-                    <form action="cadastrar-habilidades.php" method="POST">
+                <form class="card-form" action="cadastrar-causas.php" method="POST">
+                    <div class="input-box">
                         <label for="" id="label">Nome</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
-                </div>
-                <div class="continue-button">
-                    <button type="submit">CADASTRAR</button>
-                </div>
-                    </form>
+                        <input type="text" name="nome" id="nome" placeholder="Digite a Habilidade">
+                    </div>
+                    <div class="continue-button">
+                        <button type="submit">CADASTRAR</button>
+                    </div>
+                </form>
             </div>
-
             <div class="table">
                 <div class="table-responsive">
                     <div class="funcoes">

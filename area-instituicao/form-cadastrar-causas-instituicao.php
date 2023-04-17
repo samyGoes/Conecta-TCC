@@ -1,7 +1,4 @@
-<?php include "../auth/verifica-logado.php"; ?>
-<?php 
-     require_once 'global.php'; 
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,9 +10,7 @@
     <link rel="stylesheet" href="css/estilo-causasCadastradas-instituicao.css">
     <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
@@ -43,10 +38,8 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item"
-                        id="cabecalho-menu-item-login">
-                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
-                        id="nav-seta-sub-topicos"> 🢓 </span></i>
+                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                     <ul class="sub-topicos">
                         <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
                         <li> <a href="editar-excluir-vagas/"> Vagas </a> </li>
@@ -75,43 +68,36 @@
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span
-                        class="nav-lateral-topico"> Editar Perfil
+                <a href="form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span
-                        class="nav-lateral-topico"> Cadastrar
+                <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
                         Causas </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span
-                        class="nav-lateral-topico"> Cadastrar Habilidades
+                <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
                     </span></a>
             </div>
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span
-                        class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
-
-            <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span
-                        class="nav-lateral-topico"> Editar Vagas
+                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span
-                        class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span
-                        class="nav-lateral-topico">Trocar Senha </span></a>
+                <a href="gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                    </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -122,8 +108,7 @@
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span
-                        class="nav-lateral-topico"> Sair </span></a>
+                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>
@@ -147,15 +132,15 @@
         </div>
         <div class="card">
             <div class="card-cadastrar">
-                <div class="card-form">
-                    <form action="cadastrar-causas.php" method="POST">
+                <form class="card-form" action="cadastrar-causas.php" method="POST">
+                    <div class="input-box">
                         <label for="" id="label">Nome</label>
                         <input type="text" name="nome" id="nome" placeholder="Digite a causa">
-                </div>
-                <div class="continue-button">
-                    <button type="submit">CADASTRAR</button>
-                </div>
-                    </form>
+                    </div>
+                    <div class="continue-button">
+                        <button type="submit">CADASTRAR</button>
+                    </div>
+                </form>
             </div>
 
             <div class="table">
@@ -180,26 +165,26 @@
                         </thead>
                         <tbody>
                             <?php
-                                require_once 'global.php';
-                                try {
-                                    $listaCausas = CategoriaServicoDao::listar();
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
-                                ?>
+                            require_once 'global.php';
+                            try {
+                                $listaCausas = CategoriaServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
                             <tr>
                                 <?php foreach ($listaCausas as $causas) { ?>
-                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td>
-                                    <?php echo $causas['codCategoriaServico']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $causas['descCategoriaServico']; ?>
-                                </td>
+                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                    <td>
+                                        <?php echo $causas['codCategoriaServico']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $causas['descCategoriaServico']; ?>
+                                    </td>
                             </tr>
-                            <?php
-                                    }
-                                    ?>
+                        <?php
+                                }
+                        ?>
                         </tbody>
                     </table>
                 </div>

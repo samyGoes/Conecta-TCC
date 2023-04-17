@@ -302,6 +302,7 @@
     max-width: 95%;
 }
 
+
 .card-title{
     display: flex;
     flex-direction: row;
@@ -323,34 +324,40 @@
 }
 .card-cadastrar{
     display: flex;
-    flex-direction: column;
-    border: #232e61 solid 1px;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center;
+    border: #4567a5 solid 1px;
     border-radius: 0.5rem;
-    box-shadow: #6890e0 3px 3px 4px 1px ;
+    box-shadow: #b4d8e6 3px 3px 4px 1px ;
     width: 430px;
     height: 310px;
-    align-items: center;
 } 
-.card-cadastrar .card-form{
+.card-cadastrar .card-form {
     display: flex;
     flex-direction: column;
-    margin: 15%;
+    gap: 20%;
 }
-.card-cadastrar .card-form label{
-    font-size: 17.5px;
+.card-cadastrar .card-form .input-box{
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+
+.card-cadastrar .card-form .input-box label{
+    font-size: 17px;
     color: #000000;
-    margin-bottom: 5%;
 }
-.card-cadastrar .card-form input{
-    width: 20vw;
-    padding: 5%;
+.card-cadastrar .card-form .input-box input{
+    width: 17vw;
+    padding: 3%;
     font-size: 16px;
     font-family: poppins, sans-serif;
     color: #000000;
     outline: none;
-    border: #113173 1px solid;
+    border: #4567a5 1px solid;
 }
-.card-cadastrar .card-form input::placeholder{
+.card-cadastrar .card-form .input-boxs input::placeholder{
     font-size: 16px;
     font-family: poppins, sans-serif;
     color: #525252;
@@ -358,26 +365,41 @@
 
 .card-form .continue-button{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
- .continue-button button {
-    width: 11vw;
-    border: 1px solid #232e61;
-    background-color: #232e61;
-    padding: 1.2vh;
-    border-radius: 10px;
-    text-align: center;
+/* BOTÃO */
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.continue-button button {
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    padding: 0.8%;  
+    cursor: pointer;
+    color: #fff;
     font-size: 16pt;
     font-weight: 300;
     font-family: poppins, sans-serif;
-    color: #ffffff;
-    transition: all 0.5s ease; 
-    cursor: pointer;
-  }
-  
-.card-form .continue-button button:hover {
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
     background-color: #fff;
-    color: #232e61;
-  }
+    color: #4567a5;
+}
+
 
 /* RESPONSIVIDADE */
 /* NAVBAR */
@@ -672,3 +694,7 @@
         font-size: 22px;
     }
 }
+
+
+
+/*CARDS*/
