@@ -2,9 +2,10 @@
 
 .cards {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin: 0rem 3rem 0rem 3rem;
     /* background-color: #99a8eb; */
     padding-top: 0.7rem;
 }
