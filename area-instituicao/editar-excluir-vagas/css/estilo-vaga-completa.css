@@ -39,11 +39,10 @@
 {
     display: flex;
     justify-content:flex-end;
+    width: 100%;
     max-width: 50rem;
     gap: 1rem;
     margin-bottom: 2rem;
-    background-color: #92facf;
-    /* display: none; */
 }
 .conteiner-botao-editar
 {
@@ -378,8 +377,6 @@
         border-left: none;
     }
 }
-
-
 @media (max-width:681px)
 {
     .info-ende
