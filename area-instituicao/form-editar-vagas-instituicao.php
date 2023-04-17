@@ -127,9 +127,9 @@ require_once 'global.php';
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <!-- <div class="uau"></div> -->
         <div class="main-conteudo-container-titulo">
-            <h1>Cadastrar Vagas</h1>
+            <h1>Editar Vagas</h1>
             <p>
-                Aqui você pode cadastrar as vagas da sua instituição
+                Aqui você poderá editar as informações que desejar da vaga selecionada anteriormente.
             </p>
         </div>
 
@@ -139,7 +139,7 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga"/>
+                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
                         </div>
                         <div>
                             <label for=" ">Tipo de Vaga</label>
@@ -216,68 +216,68 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Período</label>
-                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período"/>
+                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php //echo $_SESSION['numFoneUsuario1']; ?>" />
                         </div>
                         <div>
                             <label for="">Data de início</label>
-                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de início"/>
+                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
                         </div>
 
                         <div>
                             <label for="">Horário</label>
-                            <input type="text" name="horario" id="horario" placeholder="Digite o horário"/>
+                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Quantidade de Vagas</label>
-                            <input type="text" name="quantidadeVaga" id="quantidadeVagas" placeholder="Digite a quantidade de vagas">
+                            <input type="text" name="quantidadeVaga" id="quantidadeVagas"  placeholder="Digite a quantidade de vagas" value="<?php //echo $_SESSION['qntdVagaServico']; ?>">
                         </div>
                         <div>
                             <label for="">CEP</label>
-                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP"/>
+                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP°" value="<?php echo $_SESSION['cepUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"/>
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
-                            <label for="">Logradoura</label>
-                            <input type="text" name="logradouro" id="logradouro" readonly/>
+                            <label for="">Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro" readonly value="<?php //echo $_SESSION['LogradouroLocalServico']; ?>" />
                         </div>
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" readonly/>
+                            <input type="text" name="bairro" id="bairro" readonly value="<?php echo $_SESSION['bairroUsuario']; ?>" />
                         </div>
 
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" readonly>
+                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['cidadeUsuario']; ?>" >
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="uf">UF</label>
-                            <input type="text" name="uf" id="uf" readonly>
+                            <input type="text" name="uf" id="uf" readonly value="<?php echo $_SESSION['estadoUsuario']; ?>" >
                         </div>
                         <div>
                             <label for=" ">Complemento</label>
-                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento"/>
+                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['compUsuario']; ?>" />
                         </div>
                         <div>
                             <label for="">País</label>
-                            <input type="text" name="pais" id="pais" placeholder="Digite o pais">
+                            <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['paisUsuario']; ?>" >
                         </div>
                     </div>
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite a descrição da vaga..."></textarea>
+                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..." value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
                         </div>
                     </div>
                 </div>
