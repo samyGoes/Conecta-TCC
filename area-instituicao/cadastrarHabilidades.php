@@ -154,12 +154,14 @@
             
             <div class="card-cadastrar">
                 <div class="card-form">
-                    <label for="" id="label">Nome</label>
-                    <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
+                    <form action="cadastrar-habilidades.php" method="POST">
+                        <label for="" id="label">Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
                 </div>
                 <div class="continue-button">
                     <button type="submit">CADASTRAR</button>
                 </div>
+                    </form>
             </div>
 
             <div class="table">
@@ -186,19 +188,19 @@
                             <?php
                                 require_once 'global.php';
                                 try {
-                                    $listaInstituicao = ListarInstituicoes::listar();
+                                    $listaHabilidade = HabilidadeServicoDao::listar();
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
                                 ?>
                             <tr>
-                                <?php foreach ($listaInstituicao as $instituicao) { ?>
+                                <?php foreach ($listaHabilidade as $habilidade) { ?>
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                 <td>
-                                    <?php echo $instituicao['codInstituicao']; ?>
+                                    <?php echo $habilidade['codHabilidades']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $instituicao['nomeInstituicao']; ?>
+                                    <?php echo $habilidade['nomeHabilidade']; ?>
                                 </td>
                             </tr>
                             <?php

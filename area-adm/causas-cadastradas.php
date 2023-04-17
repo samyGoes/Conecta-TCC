@@ -97,16 +97,16 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaInstituicao = ListarInstituicoes::listar();
+                            $listaCausas = HabilidadeServicoDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
                         ?>
                         <tr>
-                            <?php foreach ($listaInstituicao as $instituicao) { ?>
+                            <?php foreach ($listaCausas as $causas) { ?>
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $instituicao['codInstituicao']; ?> </td>
-                                <td><?php echo $instituicao['nomeInstituicao']; ?></td>
+                                <td> <?php echo $causas['codHabilidades']; ?> </td>
+                                <td><?php echo $causas['nomeHabilidade']; ?></td>
                         </tr>
                     <?php
                             }

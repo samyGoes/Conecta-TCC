@@ -79,13 +79,18 @@
             <div class="box-filtro-causas">
                 <div class="filtro-causas"> CAUSAS </div>
                 <div class="box-causas">
-                    <?php 
-                        for($i = 1; $i <= 10; $i++)
-                        {
-                    ?>      
+                    <?php
+                        require_once 'global.php';
+                            try {
+                                $listaCausas = CategoriaServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                    ?>     
+                            <?php foreach ($listaCausas as $causas) { ?>
                             <div class="box-causas-checkbox">
                                 <input type="checkbox" name="causas" id="causas"> 
-                                <label for="causas"> Mulheres </label>
+                                <label for="causas"> <?php echo $causas['descCategoriaServico']; ?> </label>
                             </div>
                         
                     <?php

@@ -101,16 +101,16 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaInstituicao = ListarInstituicoes::listar();
+                            $listaHabilidade = HabilidadeServicoDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
                         ?>
                         <tr>
-                            <?php foreach ($listaInstituicao as $instituicao) { ?>
+                            <?php foreach ($listaHabilidade as $habilidade) { ?>
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $instituicao['codInstituicao']; ?> </td>
-                                <td><?php echo $instituicao['nomeInstituicao']; ?></td>
+                                <td> <?php echo $habilidade['codHabilidades']; ?> </td>
+                                <td><?php echo $habilidade['nomeHabilidade']; ?></td>
                         </tr>
                     <?php
                             }

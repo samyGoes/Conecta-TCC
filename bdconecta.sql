@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Abr-2023 às 00:44
+-- Generation Time: 17-Abr-2023 às 04:33
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -43,9 +43,18 @@ CREATE TABLE `tbadm` (
 
 CREATE TABLE `tbcategoriaservico` (
   `codCategoriaServico` int(11) NOT NULL,
-  `descCategoriaServico` varchar(100) NOT NULL,
-  `codVoluntario` int(11) NOT NULL
+  `descCategoriaServico` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbcategoriaservico`
+--
+
+INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `descCategoriaServico`) VALUES
+(1, 'mulher'),
+(4, 'crianÃ§as'),
+(5, 'cachorros'),
+(6, 'moradores de rua');
 
 -- --------------------------------------------------------
 
@@ -127,8 +136,17 @@ CREATE TABLE `tbfotosinstituicao` (
 
 CREATE TABLE `tbhabilidadeservico` (
   `codHabilidades` int(11) NOT NULL,
-  `nomeHabilidade` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nomeHabilidade` varchar(100) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbhabilidadeservico`
+--
+
+INSERT INTO `tbhabilidadeservico` (`codHabilidades`, `nomeHabilidade`) VALUES
+(1, 'inglÃªs'),
+(2, 'mÃ£e'),
+(3, 'inglÃªs');
 
 -- --------------------------------------------------------
 
@@ -248,8 +266,7 @@ ALTER TABLE `tbadm`
 -- Indexes for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  ADD PRIMARY KEY (`codCategoriaServico`),
-  ADD KEY `codVoluntario` (`codVoluntario`);
+  ADD PRIMARY KEY (`codCategoriaServico`);
 
 --
 -- Indexes for table `tbfoneinstituicao`
@@ -313,7 +330,7 @@ ALTER TABLE `tbadm`
 -- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbfoneinstituicao`
@@ -337,7 +354,7 @@ ALTER TABLE `tbfotosinstituicao`
 -- AUTO_INCREMENT for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidades` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codHabilidades` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbinstituicao`
@@ -362,12 +379,6 @@ ALTER TABLE `tbvoluntario`
 --
 
 --
--- Limitadores para a tabela `tbcategoriaservico`
---
-ALTER TABLE `tbcategoriaservico`
-  ADD CONSTRAINT `tbcategoriaservico_ibfk_1` FOREIGN KEY (`codVoluntario`) REFERENCES `tbvoluntario` (`codVoluntario`);
-
---
 -- Limitadores para a tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
@@ -390,7 +401,8 @@ ALTER TABLE `tbfotosinstituicao`
 --
 ALTER TABLE `tbservico`
   ADD CONSTRAINT `tbservico_ibfk_1` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
-  ADD CONSTRAINT `tbservico_ibfk_2` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
+  ADD CONSTRAINT `tbservico_ibfk_2` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`),
+  ADD CONSTRAINT `tbservico_ibfk_3` FOREIGN KEY (`codHabilidadeServico`) REFERENCES `tbhabilidadeservico` (`codHabilidades`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
