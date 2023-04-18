@@ -82,15 +82,15 @@
                     <?php 
                         require_once 'global.php';
                         try {
-                            $listahabi = HabilidadeServicoDao::listar();
+                            $listaCausas = CategoriaServicoDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
                     ?>      
-                            <?php foreach ($listahabi as $habi) { ?>
+                            <?php foreach ($listaCausas as $causas) { ?>
                             <div class="box-causas-checkbox">
                                 <input type="checkbox" name="causas" id="causas"> 
-                                <label for="causas"><?php echo $habi['nomeHabilidadeServico']; ?></label>
+                                <label for="causas"><?php echo $causas['nomeCategoria']; ?></label>
                             </div>
                         
                     <?php
@@ -155,15 +155,15 @@
                         </div>     
                         <div class="lista-item-2">
                             <?php 
-                               require_once 'global.php';
-                               try {
-                                   $listahabi = HabilidadeServicoDao::listar();
-                               } catch (Exception $e) {
-                                   echo $e->getMessage();
-                               }
-                            ?>     
-                                    <?php foreach ($listahabi as $habi) { ?>
-                                    <a href=""><button id="tipo-causas-1"><?php echo $habi['nomeHabilidadeServico']; ?></button></a>
+                                require_once 'global.php';
+                                try {
+                                    $listaCausas = CategoriaServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                            ?>
+                                    <?php foreach ($listaCausas as $causas) { ?>
+                                    <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                             <?php
                                 }
                             ?>

@@ -8,8 +8,9 @@
             $conexao = Conexao :: conectar();
 
             $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(horarioServico, periodoServico, codInstituicao,descServico, cepLocalServico, bairroLocalServico, 
-            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, nomeservico, tipoServico) 
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, nomeservico, tipoServico, 
+            ,dataInicioServico, qntdVagaServico) 
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             $prepareStatement -> bindValue (1, $servico -> getHorarioServico());
             $prepareStatement -> bindValue (2, $servico -> getPeriodoServico());
@@ -25,8 +26,8 @@
             $prepareStatement -> bindValue (12, $servico -> getCidadeLocalServico());
             $prepareStatement -> bindValue (13, $servico -> getNomeServico());
             $prepareStatement -> bindValue (14, $servico -> getTipoServico());
-            //$prepareStatement -> bindValue (15, $servico -> getDataInicioServico());
-            //$prepareStatement -> bindValue (16, $servico -> getQntdVagaServico());
+            $prepareStatement -> bindValue (15, $servico -> getDataInicioServico());
+            $prepareStatement -> bindValue (16, $servico -> getQntdVagaServico());
             
            
             $prepareStatement -> execute();
