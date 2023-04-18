@@ -8,7 +8,7 @@
             $conexao = Conexao :: conectar();
 
             $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(horarioServico, periodoServico, codInstituicao,descServico, cepLocalServico, bairroLocalServico, 
-            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, nomeservico, tipoServico, 
+            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, nomeservico, tipoServico
             ,dataInicioServico, qntdVagaServico) 
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
