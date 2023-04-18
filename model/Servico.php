@@ -13,9 +13,9 @@
         private $dataInicioServico;
         private $dataTerminoServico;
         private $qntdVagaServico;
-        private $habilidadeServico;
+        private $habilidadeServico = array();
         private $instituicao;
-        private $categoriaServico;
+        private $categoriaServico = array();
         private $cepLocalServico;
         private $bairroLocalServico;
         private $estadoLocalServico;
