@@ -138,7 +138,7 @@
                         </div>
                         <div class="fundo">
                             <div class="fundo-img">
-                                <img src="img/user2.png">
+                                <img src="../img/user.png">
                             </div>
                             <div class="title-1">
                                 <p> ONG abraço </p>
