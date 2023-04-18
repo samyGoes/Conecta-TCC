@@ -74,7 +74,7 @@
             return $id3;   
         }
 
-        public static function excluir()
+        public static function excluir($servico)
         {
             $conectar=Conexao::conectar();
 
@@ -92,6 +92,27 @@
 
             
         }
+
+        public static function listarVagas($conectar)
+        {
+            $conectar= Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT codServico,horarioServico,
+            periodoServico,descServico,cepLocalServico,bairroLocalServico,
+            estadoLocalServico,logradouroLocalServico,complementoLocalServico,
+            paisLocalServico,numeroLocalServico,cidadeLocalServico,nomeservico,
+            tipoServico,dataInicioServico,qntdVagaServico,codInstituicao,
+            nomeInstituicao,fotoInstituicao FROM tbServico
+            INNER JOIN tbInstituicao 			
+            ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+            WHERE codInstituicao = ?");
+            $querySelect->bindValue(1,$_SESSION['codUsuario']);
+            $querySelect->execute();
+
+            return "Foi!!";
+        }
+
+
     }
 
 
