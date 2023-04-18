@@ -97,7 +97,7 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaCausas = HabilidadeServicoDao::listar();
+                            $listaCausas = CategoriaServicoDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
@@ -105,8 +105,8 @@
                         <tr>
                             <?php foreach ($listaCausas as $causas) { ?>
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $causas['codHabilidades']; ?> </td>
-                                <td><?php echo $causas['nomeHabilidade']; ?></td>
+                                <td> <?php echo $causas['codCategoriaServico']; ?> </td>
+                                <td><?php echo $causas['nomeCategoria']; ?></td>
                         </tr>
                     <?php
                             }

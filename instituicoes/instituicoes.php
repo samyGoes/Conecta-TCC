@@ -90,7 +90,7 @@
                             <?php foreach ($listaCausas as $causas) { ?>
                             <div class="box-causas-checkbox">
                                 <input type="checkbox" name="causas" id="causas"> 
-                                <label for="causas"> <?php echo $causas['descCategoriaServico']; ?> </label>
+                                <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                             </div>
                         
                     <?php
@@ -155,10 +155,15 @@
                         </div>     
                         <div class="lista-item-2">
                             <?php 
-                                for($i = 1; $i <= 4; $i++)
-                                {
+                                require_once 'global.php';
+                                try {
+                                    $listaCausas = CategoriaServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
                             ?>     
-                                    <a href=""><button id="tipo-causas-1">mulheres</button></a>
+                                    <?php foreach ($listaCausas as $causas) { ?>
+                                    <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                             <?php
                                 }
                             ?>

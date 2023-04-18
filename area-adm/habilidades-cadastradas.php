@@ -109,8 +109,8 @@
                         <tr>
                             <?php foreach ($listaHabilidade as $habilidade) { ?>
                                 <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $habilidade['codHabilidades']; ?> </td>
-                                <td><?php echo $habilidade['nomeHabilidade']; ?></td>
+                                <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
+                                <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
                         </tr>
                     <?php
                             }

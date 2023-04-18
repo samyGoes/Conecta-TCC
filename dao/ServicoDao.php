@@ -7,29 +7,26 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(nomeservico, tipoServico, descServico, cepLocalServico, bairroLocalServico, 
-            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, 
-            numeroLocalServico, cidadeLocalServico,dataInicioServico, qntdVagaServico,periodoServico, horarioServico,codInstituicao, codHabilidadeServico, codCategoriaServico) 
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbservico(horarioServico, periodoServico, codInstituicao,descServico, cepLocalServico, bairroLocalServico, 
+            estadoLocalServico, logradouroLocalServico, complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, nomeservico, tipoServico) 
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-            $prepareStatement -> bindValue (1, $servico -> getNomeServico());
-            $prepareStatement -> bindValue (2, $servico -> getTipoServico());
-            $prepareStatement -> bindValue (3, $servico -> getDescServico());
-            $prepareStatement -> bindValue (4, $servico -> getCepLocalServico());      
-            $prepareStatement -> bindValue (5, $servico -> getBairroLocalServico());
-            $prepareStatement -> bindValue (6, $servico -> getEstadoLocalServico());
-            $prepareStatement -> bindValue (7, $servico -> getLogradouroLocalServico());
-            $prepareStatement -> bindValue (8, $servico -> getComplementoLocalServico());      
-            $prepareStatement -> bindValue (9, $servico -> getPaisLocalServico());
-            $prepareStatement -> bindValue (10, $servico -> getNumeroLocalServico());
-            $prepareStatement -> bindValue (11, $servico -> getCidadeLocalServico());
-            $prepareStatement -> bindValue (12, $servico -> getDataInicioServico());
-            $prepareStatement -> bindValue (13, $servico -> getQntdVagaServico());
-            $prepareStatement -> bindValue (14, $servico -> getPeriodoServico());
-            $prepareStatement -> bindValue (15, $servico -> getHorarioServico());
-            $prepareStatement -> bindValue (16, $servico -> getInstituicao());
-            $prepareStatement -> bindValue (17, $servico -> getHabilidadeServico());
-            $prepareStatement -> bindValue (18, $servico -> getCategoriaServico());
+            $prepareStatement -> bindValue (1, $servico -> getHorarioServico());
+            $prepareStatement -> bindValue (2, $servico -> getPeriodoServico());
+            $prepareStatement -> bindValue (3, $servico -> getInstituicao());
+            $prepareStatement -> bindValue (4, $servico -> getDescServico());
+            $prepareStatement -> bindValue (5, $servico -> getCepLocalServico());      
+            $prepareStatement -> bindValue (6, $servico -> getBairroLocalServico());
+            $prepareStatement -> bindValue (7, $servico -> getEstadoLocalServico());
+            $prepareStatement -> bindValue (8, $servico -> getLogradouroLocalServico());
+            $prepareStatement -> bindValue (9, $servico -> getComplementoLocalServico());      
+            $prepareStatement -> bindValue (10, $servico -> getPaisLocalServico());
+            $prepareStatement -> bindValue (11, $servico -> getNumeroLocalServico());
+            $prepareStatement -> bindValue (12, $servico -> getCidadeLocalServico());
+            $prepareStatement -> bindValue (13, $servico -> getNomeServico());
+            $prepareStatement -> bindValue (14, $servico -> getTipoServico());
+            //$prepareStatement -> bindValue (15, $servico -> getDataInicioServico());
+            //$prepareStatement -> bindValue (16, $servico -> getQntdVagaServico());
             
            
             $prepareStatement -> execute();

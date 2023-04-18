@@ -133,7 +133,7 @@
             <div class="card-title">
                 <p>Escreva o nome da Habilidade que deseja cadastrar</p>
                 <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-causas.php" method="POST">
+                    <form class="card-form" action="cadastrar-habilidades.php" method="POST">
                         <div class="input-box">
                             <label for="" id="label">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
@@ -180,10 +180,10 @@
                                     <?php foreach ($listaHabilidade as $habilidade) { ?>
                                         <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                         <td>
-                                            <?php echo $habilidade['codHabilidades']; ?>
+                                            <?php echo $habilidade['codHabilidadeServico']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $habilidade['nomeHabilidade']; ?>
+                                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                         </td>
                                 </tr>
                             <?php

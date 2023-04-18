@@ -7,7 +7,7 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbcategoriaServico(descCategoriaServico) 
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbcategoriaServico(nomeCategoria) 
             VALUES(?)");
 
             $prepareStatement -> bindValue (1, $categoriaServico -> getNomeCategoria());
@@ -17,7 +17,7 @@
         public static function listar()
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codCategoriaServico, descCategoriaServico FROM tbcategoriaServico";
+            $querySelect = "SELECT codCategoriaServico, nomeCategoria FROM tbcategoriaServico";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  

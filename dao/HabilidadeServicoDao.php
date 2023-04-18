@@ -7,7 +7,7 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbhabilidadeServico(nomeHabilidade) 
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbhabilidadeServico(nomeHabilidadeServico) 
             VALUES(?)");
 
             $prepareStatement -> bindValue (1, $habilidadeServico -> getNomeHabilidade());
@@ -18,7 +18,7 @@
         public static function listar()
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codHabilidades, nomeHabilidade FROM tbhabilidadeServico";
+            $querySelect = "SELECT codHabilidadeServico, nomeHabilidadeServico FROM tbhabilidadeServico";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  
