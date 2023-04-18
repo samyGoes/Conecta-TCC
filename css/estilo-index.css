@@ -1,0 +1,16 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cabecalho-completo
+{
+    width: 100%;
+}
+
+.conteudo-completo
+{
+    
+}

@@ -46,7 +46,7 @@ navSetaDrop.addEventListener("click", function dropDown()
     if (navSubTopicos.style.display == "none")
     {
         navSubTopicos.style.display = "flex";
-        navSubTopicos.style. flexDirection = "column";
+        navSubTopicos.style.flexDirection = "column";
     }
     else
     {
