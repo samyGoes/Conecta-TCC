@@ -2,16 +2,15 @@ const formulario1 = document.getElementById('formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
 
-function setError(index, message) {
+function setError(index) {
   campos[index].style.borderBottom = '1px solid #e63636';
-  spans[index].textContent = message;
-  spans[index].style.display = 'block';
+
 }
 
 function removeError(index) {
   campos[index].style.borderBottom = '';
-  spans[index].textContent = '';
   spans[index].style.display = 'none';
 }
 
@@ -83,15 +82,16 @@ function cpfValidate() {
   }
 }
 
-function segura(senha) {
-  const senhaSegura = new SenhaSegura();
-  if(new SenhaSegura()){
-    return false
-    setError(5);
+function senhaValidate() {
+  const senha = campos[5].value;
+  
+  if (!senhaRegex.test(senha)) {
+  console.log('Senha inválida. Deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caracter especial (!@#$%&)');
+  setError(5, 'Senha inválida. Deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caracter especial (!@#$%&)');
+  } else {
+  removeError(5);
   }
-  return senhaSegura.segura(senha);
-}
-
+  }
 
 function passwordValidate() {
   const senha = campos[5].value;
@@ -99,7 +99,7 @@ function passwordValidate() {
   
   if (senha !== confSenha) {
     setError(6);
-  } else if (!segura(senha)) {
+  } else if (!senhaValidate()) {
     setError(5);
   } else {
     removeError(5);
