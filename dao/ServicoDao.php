@@ -34,19 +34,20 @@
             $idVaga = $conexao->lastInsertId();
 
             // Insere as habilidades e causas vinculadas à vaga na tabela tbvagahabilidadecausa
-            foreach ($vaga->getHabilidades() as $habilidade) {
-                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+            foreach ($servico->getHabilidadeServico() as $habilidade) {
+                $prepareStatement = $conexao->prepare("INSERT INTO  tbhabivaga (codServico, codHabilidadeServico) 
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
                 $prepareStatement->bindValue(2, $habilidade);
                 $prepareStatement->execute();
-            }
-            foreach ($vaga->getCausas() as $causa) {
-                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+              }
+              foreach ($servico->getCategoriaServico() as $causa) {
+                $prepareStatement = $conexao->prepare("INSERT INTO tbCausaVaga (codServico,codCategoriaServico)
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
-                $prepareStatement->bindValue(2, NULL);
-                $prepareStatement->bindValue(3, $causa);
+                $prepareStatement->bindValue(2, $causa);
                 $prepareStatement->execute();
-            }
+              }
         }
 
         public static function consultarId($servico){

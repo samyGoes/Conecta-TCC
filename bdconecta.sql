@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Abr-2023 às 02:11
+-- Generation Time: 18-Abr-2023 às 21:40
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -46,18 +46,46 @@ CREATE TABLE `tbcategoriaservico` (
   `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbcategoriaservico`
+--
+
+INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`) VALUES
+(1, 'inglÃªs'),
+(2, 'inglÃªs'),
+(3, 'tocar violÃ£o');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcausaservico`
+-- Estrutura da tabela `tbcausavaga`
 --
 
-CREATE TABLE `tbcausaservico` (
-  `codCausaServico` int(11) NOT NULL,
-  `codCategoriaServico` int(11) NOT NULL,
-  `codHabilidadeServico` int(11) NOT NULL,
-  `codServico` int(11) NOT NULL
+CREATE TABLE `tbcausavaga` (
+  `codCausaVaga` int(11) NOT NULL,
+  `codServico` int(11) NOT NULL,
+  `codCategoriaServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbcausavaga`
+--
+
+INSERT INTO `tbcausavaga` (`codCausaVaga`, `codServico`, `codCategoriaServico`) VALUES
+(1, 15, 1),
+(2, 15, 2),
+(3, 18, 1),
+(4, 18, 2),
+(5, 18, 3),
+(6, 19, 1),
+(7, 19, 2),
+(8, 19, 3),
+(9, 20, 1),
+(10, 20, 2),
+(11, 20, 3),
+(12, 21, 1),
+(13, 21, 2),
+(14, 21, 3);
 
 -- --------------------------------------------------------
 
@@ -142,6 +170,38 @@ CREATE TABLE `tbhabilidadeservico` (
   `nomeHabilidadeServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbhabilidadeservico`
+--
+
+INSERT INTO `tbhabilidadeservico` (`codHabilidadeServico`, `nomeHabilidadeServico`) VALUES
+(1, 'inglÃªs'),
+(2, 'tocar ');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbhabivaga`
+--
+
+CREATE TABLE `tbhabivaga` (
+  `codHabiVaga` int(11) NOT NULL,
+  `codServico` int(11) DEFAULT NULL,
+  `codHabilidadeServico` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbhabivaga`
+--
+
+INSERT INTO `tbhabivaga` (`codHabiVaga`, `codServico`, `codHabilidadeServico`) VALUES
+(1, 19, 1),
+(2, 19, 2),
+(3, 20, 1),
+(4, 20, 2),
+(5, 21, 1),
+(6, 21, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -171,7 +231,7 @@ CREATE TABLE `tbinstituicao` (
 --
 
 INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituicao`, `numLogInstituicao`, `cepInstituicao`, `compInstituicao`, `bairroInstituicao`, `cidadeInstituicao`, `estadoInstituicao`, `paisInstituicao`, `emailInstituicao`, `cnpjInstituicao`, `senhaInstituicao`, `descInstituicao`, `fotoInstituicao`) VALUES
-(1, 'ascdf', 'Avenida dos IpÃªs', '234', '08161-000', 'casa', 'Jardim dos IpÃªs', '', '', '', 'aaa@gmail.com', '93.491.338/0001-74', '1234', '', 'img-instituicao/1.jpg'),
+(1, '', '', '', '', '', '', '', '', '', '', '93.491.338/0001-74', '1234', '', 'img-instituicao/1.jpg'),
 (2, 'Ong AbraÃ§o', 'Avenida dos IpÃªs', '123', '08161-000', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'ong@gmail.com', '62823257011801', '123', '', ''),
 (3, 'ong cachorros fofos', 'Rua Moreira Neto', '03', '08460-600', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'ongDogs@gmail.com', '30.790.743/0001-73', '123', '', ''),
 (4, 'ong cachorros fofos', '', '03', '08460-600', 'casa', '', '', '', 'Brasil', 'ongDogs1@gmail.com', '02.178.282/0001-47', '123', '', ''),
@@ -203,9 +263,31 @@ CREATE TABLE `tbservico` (
   `nomeservico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipoServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dataInicioServico` date NOT NULL,
-  `qntdVagaServico` int(11) NOT NULL,
-  `codCausaServico` int(11) NOT NULL
+  `qntdVagaServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbservico`
+--
+
+INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codInstituicao`, `descServico`, `cepLocalServico`, `bairroLocalServico`, `estadoLocalServico`, `logradouroLocalServico`, `complementoLocalServico`, `paisLocalServico`, `numeroLocalServico`, `cidadeLocalServico`, `nomeservico`, `tipoServico`, `dataInicioServico`, `qntdVagaServico`) VALUES
+(5, '15:00:00', 'diurno', 1, 'djnvidivjikjijopvo aoao', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '600', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(6, '15:00:00', 'diurno', 1, 'djnvidivjikjijopvo aoao', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '600', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(7, '15:00:00', 'diurno', 1, 'djnvidivjikjijopvo aoao', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '600', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(8, '13:00:00', 'diurno', 1, 'fjkibfkjbkdfk bkifmjfkm', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(9, '12:00:00', 'diurno', 1, 'hbhjbhbjhjjnjujhuj', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(10, '12:00:00', 'diurno', 1, 'hbhjbhbjhjjnjujhuj', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(11, '12:00:00', 'diurno', 1, 'hbhjbhbjhjjnjujhuj', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(12, '12:00:00', 'diurno', 1, 'hbhjbhbjhjjnjujhuj', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(13, '12:00:00', 'diurno', 1, 'hbhjbhbjhjjnjujhuj', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'cozinheiro', 'presencial', '0000-00-00', 5),
+(14, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(15, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(16, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(17, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(18, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(19, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(20, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(21, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -258,13 +340,12 @@ ALTER TABLE `tbcategoriaservico`
   ADD PRIMARY KEY (`codCategoriaServico`);
 
 --
--- Indexes for table `tbcausaservico`
+-- Indexes for table `tbcausavaga`
 --
-ALTER TABLE `tbcausaservico`
-  ADD PRIMARY KEY (`codCausaServico`),
-  ADD KEY `codServico` (`codServico`),
-  ADD KEY `codCategoriaServico` (`codCategoriaServico`),
-  ADD KEY `codHabilidadeServico` (`codHabilidadeServico`);
+ALTER TABLE `tbcausavaga`
+  ADD PRIMARY KEY (`codCausaVaga`),
+  ADD KEY `fk_CausaVaga` (`codCategoriaServico`),
+  ADD KEY `fk_ServicoVaga` (`codServico`);
 
 --
 -- Indexes for table `tbfoneinstituicao`
@@ -294,6 +375,14 @@ ALTER TABLE `tbhabilidadeservico`
   ADD PRIMARY KEY (`codHabilidadeServico`);
 
 --
+-- Indexes for table `tbhabivaga`
+--
+ALTER TABLE `tbhabivaga`
+  ADD PRIMARY KEY (`codHabiVaga`),
+  ADD KEY `fk_habiVagaServ` (`codHabilidadeServico`),
+  ADD KEY `fk_serv` (`codServico`);
+
+--
 -- Indexes for table `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
@@ -304,8 +393,7 @@ ALTER TABLE `tbinstituicao`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
-  ADD KEY `fk_Instituicao` (`codInstituicao`),
-  ADD KEY `fk_Causa` (`codCausaServico`);
+  ADD KEY `fk_Instituicao` (`codInstituicao`);
 
 --
 -- Indexes for table `tbvoluntario`
@@ -327,13 +415,13 @@ ALTER TABLE `tbadm`
 -- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbcausaservico`
+-- AUTO_INCREMENT for table `tbcausavaga`
 --
-ALTER TABLE `tbcausaservico`
-  MODIFY `codCausaServico` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbcausavaga`
+  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbfoneinstituicao`
@@ -357,7 +445,13 @@ ALTER TABLE `tbfotosinstituicao`
 -- AUTO_INCREMENT for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbhabivaga`
+--
+ALTER TABLE `tbhabivaga`
+  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbinstituicao`
@@ -369,7 +463,7 @@ ALTER TABLE `tbinstituicao`
 -- AUTO_INCREMENT for table `tbservico`
 --
 ALTER TABLE `tbservico`
-  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbvoluntario`
@@ -382,12 +476,11 @@ ALTER TABLE `tbvoluntario`
 --
 
 --
--- Limitadores para a tabela `tbcausaservico`
+-- Limitadores para a tabela `tbcausavaga`
 --
-ALTER TABLE `tbcausaservico`
-  ADD CONSTRAINT `tbcausaservico_ibfk_1` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`),
-  ADD CONSTRAINT `tbcausaservico_ibfk_2` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
-  ADD CONSTRAINT `tbcausaservico_ibfk_3` FOREIGN KEY (`codHabilidadeServico`) REFERENCES `tbhabilidadeservico` (`codHabilidadeServico`);
+ALTER TABLE `tbcausavaga`
+  ADD CONSTRAINT `fk_CausaVaga` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
+  ADD CONSTRAINT `fk_ServicoVaga` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
 
 --
 -- Limitadores para a tabela `tbfoneinstituicao`
@@ -408,10 +501,16 @@ ALTER TABLE `tbfotosinstituicao`
   ADD CONSTRAINT `tbfotosinstituicao_ibfk_1` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 
 --
+-- Limitadores para a tabela `tbhabivaga`
+--
+ALTER TABLE `tbhabivaga`
+  ADD CONSTRAINT `fk_habiVagaServ` FOREIGN KEY (`codHabilidadeServico`) REFERENCES `tbhabilidadeservico` (`codHabilidadeServico`),
+  ADD CONSTRAINT `fk_serv` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
+
+--
 -- Limitadores para a tabela `tbservico`
 --
 ALTER TABLE `tbservico`
-  ADD CONSTRAINT `fk_Causa` FOREIGN KEY (`codCausaServico`) REFERENCES `tbcausaservico` (`codCausaServico`),
   ADD CONSTRAINT `fk_Instituicao` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 COMMIT;
 

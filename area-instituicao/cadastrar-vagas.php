@@ -4,12 +4,7 @@
 
     try
     {
-        //criando um objeto da classe Instituição
-        $instituicao = new Instituicao();
-        //criando um objeto da classe HabilidadeServ
-        $instituicao = new HabilidadeServ;
-        //criando um objeto da classe CategoriaServ
-        $instituicao = new CategoriaServ;
+        header('Location: form-cadastrar-vagas-instituicao.php');
         //criando um objeto da classe Serviço
         $servico= new Servico();
     
