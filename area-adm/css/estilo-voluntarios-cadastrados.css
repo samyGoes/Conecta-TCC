@@ -147,7 +147,7 @@
 }
 
 .table-responsive {
-    max-width: 885px;
+    max-width: 955px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #6bb269;
@@ -302,7 +302,7 @@ td:nth-child(5) {
 }
 
 th:nth-child(5) {
-    min-width: 229px;
+    min-width: 299px;
 }
 
 th:nth-child(6),
