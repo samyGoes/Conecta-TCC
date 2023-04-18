@@ -144,7 +144,7 @@ require_once 'global.php';
                         <div>
                             <label for=" ">Tipo de Vaga</label>
                             <select name="tipoVaga" id="tipoVaga">
-                                <option value="presencial">presencial</option>
+                                <option value="presencial">Presencial</option>
                                 <option value="híbrido">Híbrido</option>
                                 <option value="ead">EAD</option>
                             </select>

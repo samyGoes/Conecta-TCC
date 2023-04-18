@@ -29,8 +29,24 @@
             $prepareStatement -> bindValue (15, $servico -> getDataInicioServico());
             $prepareStatement -> bindValue (16, $servico -> getQntdVagaServico());
             
-           
             $prepareStatement -> execute();
+
+            $idVaga = $conexao->lastInsertId();
+
+            // Insere as habilidades e causas vinculadas à vaga na tabela tbvagahabilidadecausa
+            foreach ($vaga->getHabilidades() as $habilidade) {
+                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+                $prepareStatement->bindValue(1, $idVaga);
+                $prepareStatement->bindValue(2, $habilidade);
+                $prepareStatement->execute();
+            }
+            foreach ($vaga->getCausas() as $causa) {
+                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+                $prepareStatement->bindValue(1, $idVaga);
+                $prepareStatement->bindValue(2, NULL);
+                $prepareStatement->bindValue(3, $causa);
+                $prepareStatement->execute();
+            }
         }
 
         public static function consultarId($servico){
