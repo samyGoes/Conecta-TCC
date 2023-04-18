@@ -122,13 +122,21 @@
                     <div class="box-filtro-causas">
                     <div class="filtro-causas"> Selecione as causas... </div>
                         <div class="box-causas">
+                        <?php 
+                            require_once 'global.php';
+                            try {
+                                $listaCausas = CategoriaServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        ?> 
                                 <?php 
-                                    for($i = 1; $i <= 10; $i++)
+                                    foreach ($listaCausas as $causas)
                                     {
                                 ?>      
                                         <div class="box-causas-checkbox">
                                             <input type="checkbox" name="causas" id="causas"> 
-                                            <label for="causas"> Mulheres </label>
+                                            <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                                         </div>
                                     
                                 <?php
@@ -154,11 +162,19 @@
                     </div>
                 
                     <div class="tipo-causas">
+                    <?php 
+                        require_once 'global.php';
+                        try {
+                            $listaCausas = CategoriaServicoDao::listar();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+                    ?> 
                         <?php 
-                            for($i = 1; $i <= 4; $i++)
+                            foreach ($listaCausas as $causas)
                             {
                         ?>
-                                <a href=""><button id="tipo-causas-1">animais</button></a>
+                                <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                         <?php
                             }
                         ?>   
