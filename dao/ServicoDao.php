@@ -1,5 +1,8 @@
+<?php include "../auth/verifica-logado.php"; ?>
 <?php
+
     require_once 'global.php';
+    
 
     class ServicoDao
     {
@@ -93,7 +96,7 @@
             
         }
 
-        public static function listarVagas($conectar)
+        public static function listarVagas()
         {
             $conectar= Conexao::conectar();
 
@@ -106,10 +109,14 @@
             INNER JOIN tbInstituicao 			
             ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
             WHERE codInstituicao = ?");
+
             $querySelect->bindValue(1,$_SESSION['codUsuario']);
+
             $querySelect->execute();
 
-            return "Foi!!";
+            $lista = $querySelect->fetchAll();
+
+            return $lista;   
         }
 
 

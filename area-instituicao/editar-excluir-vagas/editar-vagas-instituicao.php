@@ -126,16 +126,17 @@
         </div>
 
         <div class="cards">
-            <?php
+        <?php
                 require_once 'global.php';
                 try {
-                    $listarVagas = ServicoDao::listarVagas();
+                    $listaVaga = ServicoDao::listarVagas();
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
-            ?> 
+            ?>
+                
             <?php 
-                foreach ($listarVagas as $vaga) 
+                foreach ($listaVaga as $voluntario) 
                 {
             ?>
                 <div class="card-carrossel-dois">
