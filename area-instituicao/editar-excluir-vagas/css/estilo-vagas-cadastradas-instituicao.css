@@ -63,6 +63,7 @@
 .fundo-img {
     width: 55px;
     height: 55px;
+    margin: 4% 0px 4% 0px;
 }
 
 .fundo-img img {
@@ -76,6 +77,7 @@
     font-size: 16px;
     color: #000000;
     font-weight: 400;
+    margin-bottom: 5%;
 }
 
 .title-2 p {

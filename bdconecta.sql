@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Abr-2023 às 04:33
+-- Generation Time: 18-Abr-2023 às 02:11
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -43,18 +43,21 @@ CREATE TABLE `tbadm` (
 
 CREATE TABLE `tbcategoriaservico` (
   `codCategoriaServico` int(11) NOT NULL,
-  `descCategoriaServico` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Extraindo dados da tabela `tbcategoriaservico`
+-- Estrutura da tabela `tbcausaservico`
 --
 
-INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `descCategoriaServico`) VALUES
-(1, 'mulher'),
-(4, 'crianÃ§as'),
-(5, 'cachorros'),
-(6, 'moradores de rua');
+CREATE TABLE `tbcausaservico` (
+  `codCausaServico` int(11) NOT NULL,
+  `codCategoriaServico` int(11) NOT NULL,
+  `codHabilidadeServico` int(11) NOT NULL,
+  `codServico` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -135,18 +138,9 @@ CREATE TABLE `tbfotosinstituicao` (
 --
 
 CREATE TABLE `tbhabilidadeservico` (
-  `codHabilidades` int(11) NOT NULL,
-  `nomeHabilidade` varchar(100) CHARACTER SET latin1 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tbhabilidadeservico`
---
-
-INSERT INTO `tbhabilidadeservico` (`codHabilidades`, `nomeHabilidade`) VALUES
-(1, 'inglÃªs'),
-(2, 'mÃ£e'),
-(3, 'inglÃªs');
+  `codHabilidadeServico` int(11) NOT NULL,
+  `nomeHabilidadeServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -195,28 +189,23 @@ INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituica
 CREATE TABLE `tbservico` (
   `codServico` int(11) NOT NULL,
   `horarioServico` time NOT NULL,
-  `periodoServico` varchar(50) NOT NULL,
-  `avaliacaoVoluntario` varchar(100) NOT NULL,
-  `avaliacaoInstituicao` varchar(100) NOT NULL,
-  `statusServico` varchar(100) NOT NULL,
-  `codCategoriaServico` int(11) NOT NULL,
+  `periodoServico` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `codInstituicao` int(11) NOT NULL,
-  `descServico` varchar(100) NOT NULL,
-  `cepLocalServico` int(9) NOT NULL,
-  `bairroLocalServico` varchar(100) NOT NULL,
-  `estadoLocalServico` varchar(60) NOT NULL,
-  `LogradouroLocalServico` varchar(100) NOT NULL,
-  `complementoLocalServico` varchar(50) NOT NULL,
-  `paisLocalServico` varchar(50) NOT NULL,
-  `numeroLocalServico` int(10) NOT NULL,
-  `cidadeLocalServico` varchar(100) NOT NULL,
-  `nomeServico` varchar(100) NOT NULL,
-  `tipoServico` varchar(50) NOT NULL,
+  `descServico` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cepLocalServico` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bairroLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estadoLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logradouroLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `complementoLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `paisLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numeroLocalServico` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cidadeLocalServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomeservico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipoServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dataInicioServico` date NOT NULL,
-  `dataTerminoServico` date NOT NULL,
   `qntdVagaServico` int(11) NOT NULL,
-  `codHabilidadeServico` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `codCausaServico` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -269,6 +258,15 @@ ALTER TABLE `tbcategoriaservico`
   ADD PRIMARY KEY (`codCategoriaServico`);
 
 --
+-- Indexes for table `tbcausaservico`
+--
+ALTER TABLE `tbcausaservico`
+  ADD PRIMARY KEY (`codCausaServico`),
+  ADD KEY `codServico` (`codServico`),
+  ADD KEY `codCategoriaServico` (`codCategoriaServico`),
+  ADD KEY `codHabilidadeServico` (`codHabilidadeServico`);
+
+--
 -- Indexes for table `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
@@ -293,7 +291,7 @@ ALTER TABLE `tbfotosinstituicao`
 -- Indexes for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  ADD PRIMARY KEY (`codHabilidades`);
+  ADD PRIMARY KEY (`codHabilidadeServico`);
 
 --
 -- Indexes for table `tbinstituicao`
@@ -306,9 +304,8 @@ ALTER TABLE `tbinstituicao`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
-  ADD UNIQUE KEY `codHabilidadeServico` (`codHabilidadeServico`),
-  ADD KEY `codCategoriaServico` (`codCategoriaServico`),
-  ADD KEY `codInstituicao` (`codInstituicao`);
+  ADD KEY `fk_Instituicao` (`codInstituicao`),
+  ADD KEY `fk_Causa` (`codCausaServico`);
 
 --
 -- Indexes for table `tbvoluntario`
@@ -330,7 +327,13 @@ ALTER TABLE `tbadm`
 -- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbcausaservico`
+--
+ALTER TABLE `tbcausaservico`
+  MODIFY `codCausaServico` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbfoneinstituicao`
@@ -354,7 +357,7 @@ ALTER TABLE `tbfotosinstituicao`
 -- AUTO_INCREMENT for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidades` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbinstituicao`
@@ -379,6 +382,14 @@ ALTER TABLE `tbvoluntario`
 --
 
 --
+-- Limitadores para a tabela `tbcausaservico`
+--
+ALTER TABLE `tbcausaservico`
+  ADD CONSTRAINT `tbcausaservico_ibfk_1` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`),
+  ADD CONSTRAINT `tbcausaservico_ibfk_2` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
+  ADD CONSTRAINT `tbcausaservico_ibfk_3` FOREIGN KEY (`codHabilidadeServico`) REFERENCES `tbhabilidadeservico` (`codHabilidadeServico`);
+
+--
 -- Limitadores para a tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
@@ -400,9 +411,8 @@ ALTER TABLE `tbfotosinstituicao`
 -- Limitadores para a tabela `tbservico`
 --
 ALTER TABLE `tbservico`
-  ADD CONSTRAINT `tbservico_ibfk_1` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
-  ADD CONSTRAINT `tbservico_ibfk_2` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`),
-  ADD CONSTRAINT `tbservico_ibfk_3` FOREIGN KEY (`codHabilidadeServico`) REFERENCES `tbhabilidadeservico` (`codHabilidades`);
+  ADD CONSTRAINT `fk_Causa` FOREIGN KEY (`codCausaServico`) REFERENCES `tbcausaservico` (`codCausaServico`),
+  ADD CONSTRAINT `fk_Instituicao` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

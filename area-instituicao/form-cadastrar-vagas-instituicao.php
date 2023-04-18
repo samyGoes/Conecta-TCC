@@ -168,9 +168,9 @@ require_once 'global.php';
                                     <?php foreach ($listaHabilidade as $habilidade) { ?>
                                         <div class="box-habilidade-checkbox">
                                             <input type="checkbox" name="habilidade" id="habilidade" value=<?php echo
-                                                                                                                $habilidade['codHabilidades']; ?>>
+                                                                                                                $habilidade['codHabilidadeServico']; ?>>
                                             <label for="habilidade">
-                                                <?php echo $habilidade['nomeHabilidade']; ?>
+                                                <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                             </label>
                                         </div>
 
@@ -198,7 +198,7 @@ require_once 'global.php';
                                             <input type="checkbox" name="causas" id="causas" value=<?php echo
                                                                                                     $causas['codCategoriaServico']; ?>>
                                             <label for="causas">
-                                                <?php echo $causas['descCategoriaServico']; ?>
+                                                <?php echo $causas['nomeCategoria']; ?>
                                             </label>
                                         </div>
 

@@ -183,7 +183,7 @@
                                             <?php echo $causas['codCategoriaServico']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $causas['descCategoriaServico']; ?>
+                                            <?php echo $causas['nomeCategoria']; ?>
                                         </td>
                                 </tr>
                             <?php

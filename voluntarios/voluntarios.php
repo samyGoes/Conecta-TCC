@@ -80,12 +80,17 @@
                 <div class="filtro-causas" id="filtro-causas"> CAUSAS </div>
                 <div class="box-causas" id="box-causas">
                     <?php 
-                        for($i = 1; $i <= 10; $i++)
-                        {
+                        require_once 'global.php';
+                        try {
+                            $listahabi = HabilidadeServicoDao::listar();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
                     ?>      
+                            <?php foreach ($listahabi as $habi) { ?>
                             <div class="box-causas-checkbox">
                                 <input type="checkbox" name="causas" id="causas"> 
-                                <label for="causas"> Mulheres </label>
+                                <label for="causas"><?php echo $habi['nomeHabilidadeServico']; ?></label>
                             </div>
                         
                     <?php
@@ -150,10 +155,15 @@
                         </div>     
                         <div class="lista-item-2">
                             <?php 
-                                for($i = 1; $i <= 4; $i++)
-                                {
+                               require_once 'global.php';
+                               try {
+                                   $listahabi = HabilidadeServicoDao::listar();
+                               } catch (Exception $e) {
+                                   echo $e->getMessage();
+                               }
                             ?>     
-                                    <a href=""><button id="tipo-causas-1">mulheres</button></a>
+                                    <?php foreach ($listahabi as $habi) { ?>
+                                    <a href=""><button id="tipo-causas-1"><?php echo $habi['nomeHabilidadeServico']; ?></button></a>
                             <?php
                                 }
                             ?>
