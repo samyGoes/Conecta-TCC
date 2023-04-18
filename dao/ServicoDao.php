@@ -73,6 +73,25 @@
                 $id3 = $categoriaServico['codCategoriaServico'];
             return $id3;   
         }
+
+        public static function excluir()
+        {
+            $conectar=Conexao::conectar();
+
+                $deleteServico = $conectar->prepare("DELETE FROM tbServico WHERE codServico = ?");
+                $deleteServico->bindValue(1,$servico->getId());
+                $deleteServico->execute();
+
+                $deleteHabiVaga = $conectar->prepare("DELETE FROM tbHabiVaga WHERE codServico = ?");
+                $deleteHabiVaga->bindValue(1,$servico->getId());
+                $deleteHabiVaga->execute();
+
+                $deleteCausa = $conectar->prepare("DELETE FROM tbCausaVaga WHERE codServico = ?");
+                $deleteCausa->bindValue(1,$servico->getId());
+                $deleteCausa->execute();
+
+            
+        }
     }
 
 
