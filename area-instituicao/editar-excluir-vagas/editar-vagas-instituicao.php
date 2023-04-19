@@ -133,13 +133,13 @@
         <?php
                 require_once 'global.php';
                 try {
-                    $listaVaga = ServicoDao::listarVagas();
+                    $listaVaga = ServicoDao::listarVagas($_SESSION['codUsuario']);
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
             ?> 
             <?php 
-                foreach ($listaVaga as $voluntario) 
+                foreach ($listaVaga as $vaga) 
                 {
             ?>
                 <div class="card-carrossel-dois">
