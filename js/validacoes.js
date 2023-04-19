@@ -2,17 +2,28 @@ const formulario1 = document.getElementById('formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
+//const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
 
 function setError(index) {
   campos[index].style.borderBottom = '1px solid #e63636';
+  spans[index].style.display= 'block';
 
 }
 
 function removeError(index) {
   campos[index].style.borderBottom = '';
-  spans[index].style.display = 'none';
+  spans[index].style.display= '';
+
 }
+
+/*formulario1.addEventListener('submit', (event) => {
+  event.preventDefault();
+  nameValidate();
+  emailValidate();
+  cpfValidate();
+  passwordValidate();
+
+})*/
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
@@ -24,7 +35,7 @@ function nameValidate() {
 
 function emailValidate() {
   if (!emailRegex.test(campos[4].value)) {
-    setError(4, 'oi');
+    setError(4);
   } else {
     removeError(4);
   }
@@ -82,27 +93,62 @@ function cpfValidate() {
   }
 }
 
-function senhaValidate() {
-  const senha = campos[5].value;
-  
-  if (!senhaRegex.test(senha)) {
-  console.log('Senha inválida. Deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caracter especial (!@#$%&)');
-  setError(5, 'Senha inválida. Deve conter pelo menos 8 caracteres, uma letra maiúscula, um número e um caracter especial (!@#$%&)');
+/*function passwordValidate() {
+  if (senhaRegex.test(campos[5].value)) {
+  setError(5);
   } else {
   removeError(5);
   }
-  }
-
-function passwordValidate() {
-  const senha = campos[5].value;
-  const confSenha = campos[6].value;
+  }*/
+  function passwordValidate() {
+    const senha = campos[5].value;
+    let temDigito = false;
+    let temEspecial = false;
+    let temMaiuscula = false;
   
-  if (senha !== confSenha) {
+    // Verifica se a senha tem pelo menos 8 caracteres
+    if (senha.length < 8) {
+      removeError(5);
+      return;
+    }
+  
+    // Percorre todos os caracteres da senha
+    for (let i = 0; i < senha.length; i++) {
+      const caractere = senha[i];
+  
+      // Verifica se o caractere é um dígito numérico
+      if (/\d/.test(caractere)) {
+        temDigito = true;
+      }
+  
+      // Verifica se o caractere é um caractere especial
+      if (/[!@#$%&*]/.test(caractere)) {
+        temEspecial = true;
+      }
+  
+      // Verifica se o caractere é uma letra maiúscula
+      if (/[A-Z]/.test(caractere)) {
+        temMaiuscula = true;
+      }
+    }
+  
+    // Verifica se a senha tem pelo menos um dígito numérico, um caractere especial e uma letra maiúscula
+    if (temDigito && temEspecial && temMaiuscula) {
+      removeError(5);
+    } else {
+      setError(5);
+    }
+  }
+  
+
+  function passwordValidate() {
+    var senha = campos[5].value;
+    var confSenha = campos[6].value;
+    
+    if (senha !== confSenha) {
     setError(6);
-  } else if (!senhaValidate()) {
-    setError(5);
-  } else {
+    } else {
     removeError(5);
     removeError(6);
-  }
-}
+    }
+    }
