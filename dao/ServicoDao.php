@@ -1,5 +1,8 @@
+<?php include "../auth/verifica-logado.php"; ?>
 <?php
+
     require_once 'global.php';
+    
 
     class ServicoDao
     {
@@ -34,19 +37,20 @@
             $idVaga = $conexao->lastInsertId();
 
             // Insere as habilidades e causas vinculadas à vaga na tabela tbvagahabilidadecausa
-            foreach ($vaga->getHabilidades() as $habilidade) {
-                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+            foreach ($servico->getHabilidadeServico() as $habilidade) {
+                $prepareStatement = $conexao->prepare("INSERT INTO  tbhabivaga (codServico, codHabilidadeServico) 
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
                 $prepareStatement->bindValue(2, $habilidade);
                 $prepareStatement->execute();
-            }
-            foreach ($vaga->getCausas() as $causa) {
-                $prepareStatement = $conexao->prepare("INSERT INTO tbvagahabilidadecausa (idVaga, idHabilidade, idCausa) VALUES (?,?,NULL)");
+              }
+              foreach ($servico->getCategoriaServico() as $causa) {
+                $prepareStatement = $conexao->prepare("INSERT INTO tbCausaVaga (codServico,codCategoriaServico)
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
-                $prepareStatement->bindValue(2, NULL);
-                $prepareStatement->bindValue(3, $causa);
+                $prepareStatement->bindValue(2, $causa);
                 $prepareStatement->execute();
-            }
+              }
         }
 
         public static function consultarId($servico){
@@ -72,6 +76,50 @@
                 $id3 = $categoriaServico['codCategoriaServico'];
             return $id3;   
         }
+
+        public static function excluir($servico)
+        {
+            $conectar=Conexao::conectar();
+
+                $deleteServico = $conectar->prepare("DELETE FROM tbServico WHERE codServico = ?");
+                $deleteServico->bindValue(1,$servico->getId());
+                $deleteServico->execute();
+
+                $deleteHabiVaga = $conectar->prepare("DELETE FROM tbHabiVaga WHERE codServico = ?");
+                $deleteHabiVaga->bindValue(1,$servico->getId());
+                $deleteHabiVaga->execute();
+
+                $deleteCausa = $conectar->prepare("DELETE FROM tbCausaVaga WHERE codServico = ?");
+                $deleteCausa->bindValue(1,$servico->getId());
+                $deleteCausa->execute();
+
+            
+        }
+
+        public static function listarVagas()
+        {
+            $conectar= Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT codServico,horarioServico,
+            periodoServico,descServico,cepLocalServico,bairroLocalServico,
+            estadoLocalServico,logradouroLocalServico,complementoLocalServico,
+            paisLocalServico,numeroLocalServico,cidadeLocalServico,nomeservico,
+            tipoServico,dataInicioServico,qntdVagaServico,codInstituicao,
+            nomeInstituicao,fotoInstituicao FROM tbServico
+            INNER JOIN tbInstituicao 			
+            ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+            WHERE codInstituicao = ?");
+
+            $querySelect->bindValue(1,$_SESSION['codUsuario']);
+
+            $querySelect->execute();
+
+            $lista = $querySelect->fetchAll();
+
+            return $lista;   
+        }
+
+
     }
 
 

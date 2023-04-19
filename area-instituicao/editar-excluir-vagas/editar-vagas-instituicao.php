@@ -127,29 +127,37 @@
 
         <div class="cards">
             <?php
-            for ($i = 1; $i <= 3; $i++) {
+                require_once 'global.php';
+                try {
+                    $listarVagas = ServicoDao::listarVagas();
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            ?> 
+            <?php 
+                foreach ($listarVagas as $vaga) 
+                {
             ?>
                 <div class="card-carrossel-dois">
                     <div class="content-it">
                         <div class="header-card-carrossel-it">
                             <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
                             <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                            <p> São Paulo </p>
+                            <p><?php echo $vaga['cidadeLocalServico']; ?></p>
                         </div>
                         <div class="fundo">
                             <div class="fundo-img">
-                                <img src="../img/user.png">
+                                <img src="<?php echo $vaga['fotoInstituicao']; ?>">
                             </div>
                             <div class="title-1">
-                                <p> ONG abraço </p>
+                                <p><?php echo $vaga['nomeInstituicao']; ?></p>
                             </div>
                         </div>
                         <div class="title-2">
-                            <p>Cuidador de Animais</p>
+                                <p><?php echo $vaga['nomeServico']; ?></p>
                         </div>
                         <div class="title-3">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis consequatur numquam, neque hic quaerat sint, quae optio odit adipisci 
-                                nemo quo laboriosam quam tenetur eveniet laudantium, illum eius ipsa voluptate!</p>
+                            <p><?php echo $vaga['descServico']; ?></p>
                         </div>
                         <a href="#"><button class="card-carrossel-botao" id="botao-it">
                                 VER VAGA
