@@ -7,7 +7,6 @@
     align-items: center;
 }
 
-
 .container-botoes
 {
     display: flex;
@@ -171,7 +170,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 90%;
+    max-width: 80%;
     gap: 2rem;
 }
 
