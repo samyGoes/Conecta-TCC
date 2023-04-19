@@ -249,14 +249,20 @@
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($j = 1; $j <= 9; $j++) {
+                                        require_once 'global.php';
+                                        try {
+                                            $listaVaga = ServicoDao::listarVagas($_SESSION['codUsuario']);
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
                                     ?>
+                                    <?php foreach ($listaVaga as $vaga) {?>
                                         <div class="card-carrossel">
-                                            <p class="titulo-card-carrossel"> Atendende </p>
+                                            <p class="titulo-card-carrossel"> <?php echo $vaga['nomeservico']; ?> </p>
                                             <div class="texto-card">
                                                 <p> Duração: <span> 1 mês </span> </p>
-                                                <p> Período: <span> A combinar </span> </p>
-                                                <p> Cidade: <span> São Paulo </span> </p>
+                                                <p> Período: <span><?php echo $vaga['periodoServico']; ?></span> </p>
+                                                <p> Cidade: <span> <?php echo $vaga['cidadeLocalServico']; ?> </span> </p>
                                             </div>
                                             <a href="#"><button class="card-carrossel-botao">
                                                     VER
