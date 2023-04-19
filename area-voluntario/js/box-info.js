@@ -30,18 +30,18 @@ botaoCard.addEventListener("mouseout", function()
 
 
 // INFO TABELA
-const boxInfoT = document.querySelector(".box-icon-tabela");
+const boxInfoT = document.querySelector(".box-info-t");
 const botaoTabela = document.querySelector("#icon-table");
 
 const infoT = document.createElement("span");
 
 infoT.textContent = "Tabela";
-boxInfo.appendChild(infoT);
+boxInfoT.appendChild(infoT);
 infoT.style.display = "none";
 
 botaoTabela.addEventListener("mouseover", function()
 {
-    boxInfo.style.display = "flex";
+    boxInfoT.style.display = "flex";
     infoT.style.display = "block";
     /* ESTILIZANDO FONT */
     infoT.style.fontFamily = "poppins, sans-serif";
@@ -52,6 +52,6 @@ botaoTabela.addEventListener("mouseover", function()
 
 botaoTabela.addEventListener("mouseout", function()
 {
-    boxInfo.style.display = "none";
+    boxInfoT.style.display = "none";
     infoT.style.display = "none";
 });

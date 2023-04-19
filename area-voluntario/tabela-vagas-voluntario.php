@@ -122,11 +122,17 @@ require_once 'global.php';
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
 
-         
-        <div class="container-botoes">
-            <a href="card-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>
-            <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
-        </div>
+            <div class="container-botoes">                 
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
+                </div>     
+                
+                <div class="box-icon-tabela">
+                    <div class="box-info-t"></div>
+                    <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
+                </div>   
+            </div>
 
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1 c">
@@ -191,8 +197,8 @@ require_once 'global.php';
 
 
 
-             <!-- TÍTULO 2 -->
-             <div class="container-titulo-1">
+            <!-- TÍTULO 2 -->
+            <div class="container-titulo-1">
                 <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
                 <p class="frase-voluntarios">
                     Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
@@ -244,8 +250,6 @@ require_once 'global.php';
                     </table>
                 </div>
             </div>
-
-
         </div>
 
     </main>
@@ -258,6 +262,7 @@ require_once 'global.php';
 
 
     <script src="../area-instituicao/js/script.js"></script>
+    <script src="js/box-info.js"></script>
 </body>
 
 </html>

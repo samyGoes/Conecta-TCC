@@ -122,108 +122,119 @@ require_once 'global.php';
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
 
-         
-        <div class="container-botoes">           
-            
-            <div class="box-icon">
-                <div class="box-info"></div>
-                <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
-            </div>     
-            
-            <div class="box-icon-tabela">
-                <div class="box-info"></div>
-                <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
-            </div>
-        
-        </div>
-
-            <!-- TÍTULO 1 -->
-            <div class="container-titulo-1 c">
-                <h2 class="titulo-voluntarios"> Vagas em que se Candidatou </h2>
-                <p class="frase-voluntarios">
-                    Esta é a lista de todas as vagas que você se candidatou, você pode ver o status da vaga
-                    ou retirar sua candidatura. Para ver a vaga completa clique no nome da vaga.
-                </p>
-            </div>
-
-
-
-             <!-- PESQUISA -->
-            <div class="pesquisa-instituicao">
-                <div class="pesquisa-box-icon">
-                    <i class="fa-solid fa-sliders"></i>
+            <!-- BOTÕES CARD E TABELA -->
+            <div class="container-botoes">                         
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
+                </div>     
+                
+                <div class="box-icon-tabela">
+                    <div class="box-info-t"></div>
+                    <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
                 </div>          
-                <input type="text" placeholder="Pesquisar...">
             </div>
 
 
 
-
-            <div class="container-cards">
-                <?php 
-                    for($i = 1; $i <= 6; $i++)
-                    {
-                ?>
-                        <div class="card">                       
-                            <div class="box-status">
-                                <div class="status-bolinha"></div>
-                                <p class="status"> Pendente </p>
-                            </div>      
-                            <div class="card-conteudo">
-                                <a href=""> <p class="card-nome-vaga"> Nome da vaga </p> </a>
-                                <button class="card-btn-rejeitar"> retirar </button>
-                            </div>      
-                        </div>
-                <?php
-                    }
-                ?>
-            </div>
+                <!-- TÍTULO 1 -->
+                <div class="container-titulo-1 c">
+                    <h2 class="titulo-voluntarios"> Vagas em que se Candidatou </h2>
+                    <p class="frase-voluntarios">
+                        Esta é a lista de todas as vagas que você se candidatou, você pode ver o status da vaga
+                        ou retirar sua candidatura. Para ver a vaga completa clique no nome da vaga.
+                    </p>
+                </div>
 
 
 
-
-             <!-- TÍTULO 2 -->
-             <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
-                <p class="frase-voluntarios">
-                    Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
-                    ou rejeitá-la. Para ver a vaga completa clique no nome da vaga.
-                </p>
-            </div>
-
-
-            <!-- PESQUISA -->
-            <div class="pesquisa-instituicao">
-                <i class="fa-solid fa-sliders"></i>
-                <input type="text" placeholder="Pesquisar...">
-            </div>
+                <!-- PESQUISA -->
+                <div class="pesquisa-instituicao">
+                    <i class="fa-solid fa-sliders"></i>         
+                    <input type="text" placeholder="Pesquisar...">
+                </div>
 
 
 
+                <!-- CARDS 1 -->
+                <div class="container-cards">
+                    <?php
+                        try {
+                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+                    ?>
+                    <?php 
+                        //foreach ($listaVaga as $vaga) 
+                        for($i = 1; $i <= 6; $i++)
+                        {
+                    ?>
+                            <div class="card">                       
+                                <div class="box-status">
+                                    <div class="status-bolinha"></div>
+                                    <p class="status"> Pendente </p>
+                                </div>      
+                                <div class="card-conteudo">
+                                    <a href=""> <p class="card-nome-vaga"> Nome da Vaga<?php //echo $vaga['nomeservico']; ?> </p> </a>
+                                    <button class="card-btn-rejeitar"> retirar </button>
+                                </div>      
+                            </div>
+                    <?php
+                        }
+                    ?>
+                </div>
 
 
-            <div class="container-cards">
-                <?php 
-                    for($i = 1; $i <= 6; $i++)
-                    {
-                ?>
-                        <div class="card">                         
-                            <div class="card-conteudo dois">
-                                <a href=""> <p class="card-nome-vaga"> Nome da vaga </p> </a>
-                                <div class="card-botoes">
-                                    <button class="card-btn-chamar"> aceitar </button>
-                                    <button class="card-btn-rejeitar r"> rejeitar </button>
-                                </div>                          
-                            </div>      
-                        </div>
-                <?php
-                    }
-                ?>
-            </div>
-
-          
 
 
+                <!-- TÍTULO 2 -->
+                <div class="container-titulo-1">
+                    <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
+                    <p class="frase-voluntarios">
+                        Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
+                        ou rejeitá-la. Para ver a vaga completa clique no nome da vaga.
+                    </p>
+                </div>
+
+
+                <!-- PESQUISA -->
+                <div class="pesquisa-instituicao">
+                    <i class="fa-solid fa-sliders"></i>
+                    <input type="text" placeholder="Pesquisar...">
+                </div>
+
+
+
+
+                <!-- CARD 2 -->
+                <div class="container-cards">
+                    <?php
+                        
+                        // try {
+                        //     $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                        // } catch (Exception $e) {
+                        //     echo $e->getMessage();
+                        // }
+                    ?> 
+                    <?php 
+                        //foreach ($listaVaga as $vaga) 
+                        for($i = 1; $i <= 6; $i++)
+                        {
+                    ?>
+                            <div class="card">                         
+                                <div class="card-conteudo dois">
+                                    <a href=""> <p class="card-nome-vaga"> Nome da Vaga <?php // echo $vaga['nomeservico']; ?> </p> </a>
+                                    <div class="card-botoes">
+                                        <button class="card-btn-chamar"> aceitar </button>
+                                        <button class="card-btn-rejeitar r"> rejeitar </button>
+                                    </div>                          
+                                </div>      
+                            </div>
+                    <?php
+                        }
+                    ?>
+                </div>
         </div>
 
     </main>
