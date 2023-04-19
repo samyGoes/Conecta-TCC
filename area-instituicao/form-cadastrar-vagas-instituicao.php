@@ -188,7 +188,7 @@ require_once 'global.php';
                                     <?php
                                     require_once 'global.php';
                                     try {
-                                        $listaCausas = CategoriaServicoDao::listar();
+                                        $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }

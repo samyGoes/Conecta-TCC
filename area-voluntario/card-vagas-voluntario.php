@@ -156,7 +156,7 @@ require_once 'global.php';
 
 
 
-                <!-- CARDS 1 -->
+                <!-- CARDS 1 -->          
                 <div class="container-cards">
                     <?php
                         try {
@@ -184,8 +184,8 @@ require_once 'global.php';
                         }
                     ?>
                 </div>
-
-
+             
+               
 
 
                 <!-- TÍTULO 2 -->
