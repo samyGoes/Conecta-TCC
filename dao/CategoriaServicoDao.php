@@ -1,3 +1,4 @@
+
 <?php
     require_once 'global.php';
 
@@ -18,6 +19,24 @@
         {
             $conexao = Conexao::conectar();
             $querySelect = "SELECT codCategoriaServico, nomeCategoria FROM tbcategoriaServico";
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
+        
+        public static function listarCausa()
+        {
+
+            $codInstituicao = $_SESSION['codUsuario'];
+            $conexao = Conexao::conectar();
+            
+            $querySelect = ( "SELECT DISTINCT tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria
+            FROM tbCategoriaServico
+            INNER JOIN tbCausaVaga ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico
+            INNER JOIN tbServico ON tbCausaVaga.codServico = tbServico.codServico
+            WHERE tbServico.codInstituicao = $codInstituicao");
+
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  
