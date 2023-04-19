@@ -1,6 +1,6 @@
-<?php 
-    require_once 'global.php';
-    include "../../auth/verifica-logado.php";
+<?php
+require_once 'global.php';
+include "../../auth/verifica-logado.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -130,17 +130,16 @@
         </div>
 
         <div class="cards">
-        <?php
-                
-                try {
-                    $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-            ?> 
-            <?php 
-                foreach ($listaVaga as $vaga) 
-                {
+            <?php
+
+            try {
+                $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            ?>
+            <?php
+            foreach ($listaVaga as $vaga) {
             ?>
                 <div class="card-carrossel-dois">
                     <div class="content-it">
@@ -158,7 +157,7 @@
                             </div>
                         </div>
                         <div class="title-2">
-                                <p><?php echo $vaga['nomeservico']; ?></p>
+                            <p><?php echo $vaga['nomeservico']; ?></p>
                         </div>
                         <div class="title-3">
                             <p><?php echo $vaga['descServico']; ?></p>
@@ -166,9 +165,9 @@
                         <form action="redirecionar-vaga-completa.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
                             <a href="#"><button class="card-carrossel-botao" id="botao-it">
-                            VER VAGA
-                            </button></a>
-                        </form> 
+                                    VER VAGA
+                                </button></a>
+                        </form>
                     </div>
                 </div>
             <?php

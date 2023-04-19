@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilo-voluntarios-cadastrados.css">
+    <link rel="stylesheet" href="css/arquivo-modelo.css">
     <title>ADM</title>
 </head>
 
@@ -17,42 +18,33 @@
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
+            <div class="user">
+                <img src="./img/user-branco.png" width="100px" height="100px" alt="">
+                <p>Olá, ADM!</p>
+            </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                <a href="dashboard.php"> <i class="fa-solid fa-chart-line"></i> <span class="nav-lateral-topico"> Dashboard
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
+                <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
                         Causas </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
+                <a href="causas-cadastradas.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Causas
                     </span></a>
             </div>
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
-
-            <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                <a href="vagas-cadastradas.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="voluntarios-cadastrados.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> voluntários
                     </span></a>
-            </div>
-
-            <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
-            </div>
-
-            <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
             </div>
         </div>
 
@@ -71,6 +63,9 @@
         <div class="main-conteudo-container-titulo">
             <h1>EDITAR PERFIL</h1>
             <p>Digite as novas informações que deseja inserir</p>
+        </div>
+        <div class="gerarPdf">
+            <button><i class="fa-solid fa-file-pdf"></i>Gerar pdf</button>
         </div>
 
 

@@ -1,7 +1,8 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php
 require_once 'global.php';
 ?>
+<?php include "../../auth/verifica-logado.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,8 +10,8 @@ require_once 'global.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo-form-cadastrar-vagas-instituicao.css">
-    <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="../css/estilo-form-cadastrar-vagas-instituicao.css">
+    <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
@@ -139,15 +140,15 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
+                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga" value="<?php echo $_SESSION['vaga']['nomeservico']; ?>" />
                         </div>
                         <div>
-                            <label for=" ">Tipo de Vaga</label>
-                            <select name="tipoVaga" id="tipoVaga">
-                                <option value="presencial">presencial</option>
-                                <option value="híbrido">Híbrido</option>
-                                <option value="ead">EAD</option>
-                            </select>
+                        <label for="tipoVaga">Tipo de Vaga</label>
+                        <select name="tipoVaga" id="tipoVaga">
+                            <option value="Presencial" <?php echo ($_SESSION['vaga']['tipoServico'] == 'Presencial') ? 'selected' : ''; ?>>Presencial</option>
+                            <option value="híbrido" <?php echo ($_SESSION['vaga']['tipoServico'] == 'híbrido') ? 'selected' : ''; ?>>Híbrido</option>
+                            <option value="ead" <?php echo ($_SESSION['vaga']['tipoServico'] == 'ead') ? 'selected' : ''; ?>>EAD</option>
+                        </select>
                         </div>
                     </div>
 
@@ -158,7 +159,6 @@ require_once 'global.php';
                                 <div class="filtro-habilidade"> Selecione as habilidades... </div>
                                 <div class="box-habilidade">
                                     <?php
-                                    require_once 'global.php';
                                     try {
                                         $listaHabilidade = HabilidadeServicoDao::listar();
                                     } catch (Exception $e) {
@@ -216,68 +216,68 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Período</label>
-                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php //echo $_SESSION['numFoneUsuario1']; ?>" />
+                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php echo $_SESSION['vaga']['periodoServico']; ?>" />
                         </div>
                         <div>
                             <label for="">Data de início</label>
-                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['nomeUsuario']; ?>" />
+                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['vaga']['dataInicioServico']; ?>" />
                         </div>
 
                         <div>
                             <label for="">Horário</label>
-                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
+                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['vaga']['horarioServico']; ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Quantidade de Vagas</label>
-                            <input type="text" name="quantidadeVaga" id="quantidadeVagas"  placeholder="Digite a quantidade de vagas" value="<?php //echo $_SESSION['qntdVagaServico']; ?>">
+                            <input type="text" name="quantidadeVaga" id="quantidadeVagas"  placeholder="Digite a quantidade de vagas" value="<?php echo $_SESSION['vaga']['qntdVagaServico']; ?>">
                         </div>
                         <div>
                             <label for="">CEP</label>
-                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP°" value="<?php echo $_SESSION['cepUsuario']; ?>" />
+                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP°" value="<?php echo $_SESSION['vaga']['cepLocalServico']; ?>" />
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['numLogUsuario']; ?>" />
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['vaga']['numeroLocalServico']; ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Logradouro</label>
-                            <input type="text" name="logradouro" id="logradouro" readonly value="<?php //echo $_SESSION['LogradouroLocalServico']; ?>" />
+                            <input type="text" name="logradouro" id="logradouro" readonly value="<?php echo $_SESSION['vaga']['logradouroLocalServico']; ?>" />
                         </div>
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" readonly value="<?php echo $_SESSION['bairroUsuario']; ?>" />
+                            <input type="text" name="bairro" id="bairro" readonly value="<?php echo $_SESSION['vaga']['bairroLocalServico']; ?>" />
                         </div>
 
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['cidadeUsuario']; ?>" >
+                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['vaga']['cidadeLocalServico']; ?>" >
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="uf">UF</label>
-                            <input type="text" name="uf" id="uf" readonly value="<?php echo $_SESSION['estadoUsuario']; ?>" >
+                            <input type="text" name="uf" id="uf" readonly value="<?php echo $_SESSION['vaga']['estadoLocalServico']; ?>" >
                         </div>
                         <div>
                             <label for=" ">Complemento</label>
-                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['compUsuario']; ?>" />
+                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['vaga']['complementoLocalServico']; ?>" />
                         </div>
                         <div>
                             <label for="">País</label>
-                            <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['paisUsuario']; ?>" >
+                            <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['vaga']['paisLocalServico']; ?>" >
                         </div>
                     </div>
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..." value="<?php echo $_SESSION['descUsuario']; ?>"></textarea>
+                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..."><?php echo $_SESSION['vaga']['descServico']; ?></textarea>
                         </div>
                     </div>
                 </div>

@@ -163,7 +163,7 @@
             <div class="conteudo-completo">
 
                 <div class="conteiner-botoes">
-                    <button class="conteiner-botao-editar">EDITAR</button>
+                <a href="form-editar-vagas-instituicao.php"><button class="conteiner-botao-editar">EDITAR</button></a> 
                     <button class="conteiner-botao-excluir">EXCLUIR</button>
                 </div>         
         
