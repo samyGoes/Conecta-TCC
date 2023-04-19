@@ -1,4 +1,3 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php
 
     require_once 'global.php';
@@ -96,21 +95,20 @@
             
         }
 
-        public static function listarVagas()
+        public static function listarVagas($cod)
         {
             $conectar= Conexao::conectar();
 
-            $querySelect = $conectar->prepare("SELECT codServico,horarioServico,
-            periodoServico,descServico,cepLocalServico,bairroLocalServico,
-            estadoLocalServico,logradouroLocalServico,complementoLocalServico,
-            paisLocalServico,numeroLocalServico,cidadeLocalServico,nomeservico,
-            tipoServico,dataInicioServico,qntdVagaServico,codInstituicao,
-            nomeInstituicao,fotoInstituicao FROM tbServico
-            INNER JOIN tbInstituicao 			
-            ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
-            WHERE codInstituicao = ?");
+            $querySelect = $conectar->prepare("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+            cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
+            complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
+            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
+            nomeInstituicao, fotoInstituicao 
+            FROM tbServico
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+            WHERE tbInstituicao.codInstituicao = ?");
 
-            $querySelect->bindValue(1,$_SESSION['codUsuario']);
+            $querySelect->bindValue(1,$cod);
 
             $querySelect->execute();
 
