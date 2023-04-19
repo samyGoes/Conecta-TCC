@@ -251,7 +251,7 @@
                                     <?php
                                         require_once 'global.php';
                                         try {
-                                            $listaVaga = ServicoDao::consultarVaga($_SESSION['codUsuario']);
+                                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
                                         } catch (Exception $e) {
                                             echo $e->getMessage();
                                         }
