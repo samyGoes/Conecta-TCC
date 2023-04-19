@@ -123,9 +123,18 @@ require_once 'global.php';
         <div class="conteudo-completo">
 
          
-        <div class="container-botoes">
-            <a href="card-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>
-            <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
+        <div class="container-botoes">           
+            
+            <div class="box-icon">
+                <div class="box-info"></div>
+                <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
+            </div>     
+            
+            <div class="box-icon-tabela">
+                <div class="box-info"></div>
+                <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
+            </div>
+        
         </div>
 
             <!-- TÍTULO 1 -->
@@ -139,10 +148,18 @@ require_once 'global.php';
 
 
 
+             <!-- PESQUISA -->
+            <div class="pesquisa-instituicao">
+                <div class="pesquisa-box-icon">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>          
+                <input type="text" placeholder="Pesquisar...">
+            </div>
+
+
 
 
             <div class="container-cards">
-
                 <?php 
                     for($i = 1; $i <= 6; $i++)
                     {
@@ -160,7 +177,6 @@ require_once 'global.php';
                 <?php
                     }
                 ?>
-
             </div>
 
 
@@ -176,6 +192,34 @@ require_once 'global.php';
             </div>
 
 
+            <!-- PESQUISA -->
+            <div class="pesquisa-instituicao">
+                <i class="fa-solid fa-sliders"></i>
+                <input type="text" placeholder="Pesquisar...">
+            </div>
+
+
+
+
+
+            <div class="container-cards">
+                <?php 
+                    for($i = 1; $i <= 6; $i++)
+                    {
+                ?>
+                        <div class="card">                         
+                            <div class="card-conteudo dois">
+                                <a href=""> <p class="card-nome-vaga"> Nome da vaga </p> </a>
+                                <div class="card-botoes">
+                                    <button class="card-btn-chamar"> aceitar </button>
+                                    <button class="card-btn-rejeitar r"> rejeitar </button>
+                                </div>                          
+                            </div>      
+                        </div>
+                <?php
+                    }
+                ?>
+            </div>
 
           
 
@@ -192,6 +236,7 @@ require_once 'global.php';
 
 
     <script src="../area-instituicao/js/script.js"></script>
+    <script src="js/box-info.js"></script>
 </body>
 
 </html>
