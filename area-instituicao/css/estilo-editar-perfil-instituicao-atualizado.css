@@ -61,34 +61,41 @@
     font-weight: 400;
     color: #525252;
 }
+
 .input-box .div-image {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 22vw;
-    height: 15.5vh;
+    height: 16vh;
     background-color: #cfe4fb;
     border: solid 1px #4567a5;
-    margin-top: 42px;
+    margin-top: 30px;
 }
+
 .input-box .div-image .image{
     width: 6rem;
     height: 6rem;
 }
+
 .input-box .div-image .image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 #nome, #email, #telefone, #telefone-2, #log {
     width: 30vw;
 }
+
 #num{
     width: 8vw;
 }
+
 #bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #label {
     width: 19vw;
 }
+
 #label{
     border: solid 1px #4567a5;
     background-color: #cfe4fb;
@@ -100,8 +107,8 @@
     cursor: pointer;
     transition: all 0.5s ease;
 }
-#label:hover
-{
+
+#label:hover{
     background-color: #4567a5;
     color: #fff;
 }
@@ -109,14 +116,29 @@
 #foto{
     display: none;
 }
+
 #desc{
     width: 40.8vw;
-    height: 15.5vh;
-    overflow-y: scroll 2px;
+    height: 16vh;
     padding: 5px;
-    /* height="87px" width="503px"*/
 }
 
+#desc::-webkit-scrollbar {
+    width: 8px;
+    background-color: #4567a5;
+    border-radius: 5px;
+  }
+  
+#desc::-webkit-scrollbar-thumb {
+    background-color: rgb(172, 210, 243);
+    border-radius: 5px
+  }
+  
+#desc::-webkit-scrollbar-thumb:hover {
+    background-color: #cfe4fb; 
+  }
+
+  
 /* BOTÃO */
 .continue-button {
     width: auto;
