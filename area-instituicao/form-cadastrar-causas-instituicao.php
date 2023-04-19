@@ -130,7 +130,7 @@
 
      
         <div class="card">
-            <div class="card-title">
+            <div class="card-1">
                 <p>Escreva o nome da causa que deseja cadastrar</p>
                 <div class="card-cadastrar">
                     <form class="card-form" action="cadastrar-causas.php" method="POST">
@@ -145,7 +145,7 @@
                 </div>
             </div>
            
-            <div class="card-title">
+            <div class="card-2">
                 <p>Aqui está a lista de todas as causas cadastradas</p>
                 <div class="table">
                     <div class="table-responsive">
