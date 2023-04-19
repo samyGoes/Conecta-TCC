@@ -131,9 +131,9 @@
 
         <div class="cards">
         <?php
-                require_once 'global.php';
+                
                 try {
-                    $listaVaga = ServicoDao::listarVagas($_SESSION['codUsuario']);
+                    $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
@@ -163,9 +163,12 @@
                         <div class="title-3">
                             <p><?php echo $vaga['descServico']; ?></p>
                         </div>
-                        <a href="#"><button class="card-carrossel-botao" id="botao-it">
-                                VER VAGA
+                        <form action="redirecionar-vaga-completa.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                            <a href="#"><button class="card-carrossel-botao" id="botao-it">
+                            VER VAGA
                             </button></a>
+                        </form> 
                     </div>
                 </div>
             <?php

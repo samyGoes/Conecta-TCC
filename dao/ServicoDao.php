@@ -95,7 +95,7 @@
             
         }
 
-        public static function listarVagas($cod)
+        public static function listarVaga($cod)
         {
             $conectar= Conexao::conectar();
 
@@ -117,9 +117,40 @@
             return $lista;   
         }
 
+        public static function consultarVaga($cod)
+        {
+            $conectar= Conexao::conectar();
 
+            $querySelect = $conectar->prepare("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+            cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
+            complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
+            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
+            nomeInstituicao, fotoInstituicao, tbCategoriaServico.codCategoriaServico, 
+            GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as causas, 
+            tbHabilidadeServico.codHabilidadeServico, 
+            GROUP_CONCAT(tbHabilidadeServico.nomeHabilidadeServico) as habilidades
+            FROM tbServico
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+            INNER JOIN tbcausavaga ON tbcausavaga.codServico = tbServico.codServico
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbcausavaga.codCategoriaServico
+            INNER JOIN tbHabivaga ON tbhabivaga.codServico = tbServico.codServico
+            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbhabivaga.codHabilidadeServico
+            WHERE tbServico.codServico = ?
+            GROUP BY tbServico.codServico");
+
+            $querySelect->bindParam(1, $cod);
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
+
+            if ($resultado) 
+            {
+                $causas = explode(",", $resultado["causas"]);
+                $habilidades = explode(",", $resultado["habilidades"]);
+            }
+                    
+            return $resultado;
+        }
     }
-
 
 ?>
  
