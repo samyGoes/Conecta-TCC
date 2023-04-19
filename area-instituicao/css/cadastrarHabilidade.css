@@ -259,12 +259,6 @@
 }
 
 
-
-
-
-
-
-
 /* CONTEÚDO DA PÁGINA */
 .main-conteudo {
     transition: all 0.5s ease;
@@ -302,15 +296,8 @@
     max-width: 95%;
 }
 
-.card-title{
-    display: flex;
-    flex-direction: row;
-    font-family: poppins, sans-serif;
-    font-size: 16px;
-    margin-left: 5%;
-    justify-content: flex-start;
-    gap: 10%;
-}
+
+/*CARDS*/
 .card{
     font-family: poppins, sans-serif;
     width: 100%;
@@ -321,6 +308,26 @@
     margin-left: 5%;
     gap: 5%;
 }
+.card-1{
+    display: flex;
+    flex-direction: row;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    margin-left: 5%;
+    justify-content: flex-start;
+    gap: 10%;
+}
+
+.card-2{
+    display: flex;
+    flex-direction: row;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    margin-left: 5%;
+    justify-content: flex-start;
+    gap: 10%;
+}
+
 .card-cadastrar{
     display: flex;
     flex-direction: column;  
@@ -347,6 +354,7 @@
     font-size: 17px;
     color: #000000;
 }
+
 .card-cadastrar .card-form .input-box input{
     width: 17vw;
     padding: 3%;
@@ -356,6 +364,7 @@
     outline: none;
     border: #4567a5 1px solid;
 }
+
 .card-cadastrar .card-form .input-boxs input::placeholder{
     font-size: 16px;
     font-family: poppins, sans-serif;
@@ -369,6 +378,8 @@
     width: 100%;
     height: 100%;
 }
+
+
 /* BOTÃO */
 .continue-button {
     width: auto;

@@ -1,3 +1,7 @@
+<?php 
+    require_once 'global.php';
+    include "../../auth/verifica-logado.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -129,14 +133,13 @@
         <?php
                 require_once 'global.php';
                 try {
-                    $listaVaga = ServicoDao::listarVagas();
+                    $listaVaga = ServicoDao::listarVagas($_SESSION['codUsuario']);
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
-            ?>
-                
+            ?> 
             <?php 
-                foreach ($listaVaga as $voluntario) 
+                foreach ($listaVaga as $vaga) 
                 {
             ?>
                 <div class="card-carrossel-dois">
@@ -148,14 +151,14 @@
                         </div>
                         <div class="fundo">
                             <div class="fundo-img">
-                                <img src="<?php echo $vaga['fotoInstituicao']; ?>">
+                                <img src="../<?php echo $vaga['fotoInstituicao']; ?>">
                             </div>
                             <div class="title-1">
                                 <p><?php echo $vaga['nomeInstituicao']; ?></p>
                             </div>
                         </div>
                         <div class="title-2">
-                                <p><?php echo $vaga['nomeServico']; ?></p>
+                                <p><?php echo $vaga['nomeservico']; ?></p>
                         </div>
                         <div class="title-3">
                             <p><?php echo $vaga['descServico']; ?></p>

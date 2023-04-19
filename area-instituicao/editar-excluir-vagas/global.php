@@ -16,9 +16,9 @@
         {
             require_once '../../model/' . $nomeClasse . '.php';
         }
-        if(file_exists('../auth/' . $nomeClasse . '.php')) 
+        if(file_exists('../../auth/' . $nomeClasse . '.php')) 
         {
-            require_once '../auth/' . $nomeClasse . '.php';
+            require_once '../../auth/' . $nomeClasse . '.php';
         }
     }
 
