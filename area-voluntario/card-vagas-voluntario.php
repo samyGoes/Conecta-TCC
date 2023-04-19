@@ -1,29 +1,26 @@
-<?php include "../auth/verifica-logado.php"; ?>
-<?php 
-     require_once 'global.php'; 
+<?php
+require_once 'global.php';
 ?>
+<?php include "../auth/verifica-logado.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- LINKS CSS -->
-        <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
-        <link rel="stylesheet" href="css/estilo-trocar-senha-voluntario.css">
-        <link rel="stylesheet" href="css/estilo-modal-confirmacao.css">
-        <!-- LINK ICONES -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="css/estilo-card-vagas.css">
+    <!-- LINK ICONES -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
 
-    <body>
+<body class="body">
 
-        <!-- BARRA DE NAVEGAÇÂO -->
-        <nav class="cabecalho">
+   <!-- BARRA DE NAVEGAÇÂO -->
+   <nav class="cabecalho">
             <div class="logo">
                 <p> Conecta </p>
             </div>
@@ -110,59 +107,82 @@
 
 
 
-        <!-- CONTEUDO  -->
-        <main class="main-conteudo">
-   
-            <div class="main-conteudo-container-titulo">
-                <h1>TROCAR SENHA</h1>
-                <p>
-                    Digite sua nova senha e confirme-a. Esta não pode ser igual a anterior
-                    e deve ter no mínimo 8 caracteres com letras maiúsculas, minúsculas, números e caracteres especiais
+
+    <!-- CONTEUDO  -->
+    <main class="main-conteudo">
+
+        <div class="main-conteudo-container-titulo">
+            <h1> GERENCIAR VAGAS </h1>
+            <p>
+                Veja todas as informações necessárias para o gerenciamento de suas vagas e
+                possíveis voluntários.
+            </p>
+        </div>
+
+        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+        <div class="conteudo-completo">
+
+         
+        <div class="container-botoes">
+            <a href="card-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>
+            <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
+        </div>
+
+            <!-- TÍTULO 1 -->
+            <div class="container-titulo-1 c">
+                <h2 class="titulo-voluntarios"> Vagas em que se Candidatou </h2>
+                <p class="frase-voluntarios">
+                    Esta é a lista de todas as vagas que você se candidatou, você pode ver o status da vaga
+                    ou retirar sua candidatura. Para ver a vaga completa clique no nome da vaga.
                 </p>
             </div>
 
-            <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
 
-            <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
-            <div id="modal" class="modal">
-                <div class="form" id="form">
-                    <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
 
-                    <form class="form-modal" action="" method="POST" id="form-modal">
-                        <div class="modal-input-box" id="modal-input-box">
-                            <label for="" class="modal-email"> CPF </label>
-                            <input placeholder="Digite seu CPF" type="text" name="email" id="email" class="modal-input-email">
+
+
+            <div class="container-cards">
+
+                <?php 
+                    for($i = 1; $i <= 6; $i++)
+                    {
+                ?>
+                        <div class="card">                       
+                            <div class="box-status">
+                                <div class="status-bolinha"></div>
+                                <p class="status"> Pendente </p>
+                            </div>      
+                            <div class="card-conteudo">
+                                <a href=""> <p class="card-nome-vaga"> Nome da vaga </p> </a>
+                                <button class="card-btn-rejeitar"> retirar </button>
+                            </div>      
                         </div>
-                        <div class="modal-input-box">
-                            <label for="" class="modal-senha"> Senha </label>
-                            <input placeholder="Digite sua senha" type="password" name="senha" id="senha" class="modal-input-senha">
-                        </div>
-                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
-                    </form>
-                </div>
+                <?php
+                    }
+                ?>
+
             </div>
 
 
-            <!-- CARD TROCAR SENHA -->
-            <div class="card">
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="email">Nova senha</label>
-                        <input type="email" name="email" id="email" placeholder="Digite a nova senha">
-                        <small>Mínino de até 8 caracteres</small>
-                    </div>
-                    <div class="input-box">
-                        <label for="senha">Confirmar nova senha</label>
-                        <input type="password" name="senha" id="senha" placeholder="Confirme a nova senha">
-                        <small>Mínino de até 8 caracteres</small>
-                    </div>
-                </div>
-                <div class="continue-button">
-                    <button class="button">Salvar</button>
-                </div>
+
+
+             <!-- TÍTULO 2 -->
+             <div class="container-titulo-1">
+                <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
+                <p class="frase-voluntarios">
+                    Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
+                    ou rejeitá-la. Para ver a vaga completa clique no nome da vaga.
+                </p>
             </div>
 
-        </main>
+
+
+          
+
+
+        </div>
+
+    </main>
 
 
 
@@ -170,9 +190,8 @@
 
 
 
-        <!-- SCRIPTS -->
-        <script src="js/script.js"></script>
-        <script src="js/modal-confirmacao.js"></script>
-    </body>
+
+    <script src="../area-instituicao/js/script.js"></script>
+</body>
 
 </html>

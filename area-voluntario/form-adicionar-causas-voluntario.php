@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="vagas-voluntario.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas </span></a>
+                    <a href="tabela-vagas-voluntario.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas </span></a>
                 </div>
 
                 <div class="nav-lateral-box-icon">
