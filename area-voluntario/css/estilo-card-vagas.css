@@ -299,3 +299,153 @@
 
 
 
+
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+@media(max-width: 813px)
+{
+    .container-botoes
+    {
+        margin-top: -2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width: 897px)
+{
+    .container-titulo-1
+    {
+        max-width: 91%;
+    }
+    .container-botoes
+    {
+        margin-left: 2.5rem;
+    }
+}
+
+@media(max-width: 772px)
+{
+    .container-cards
+    {
+        max-width: 90%;
+    }
+}
+
+@media(max-width: 675px)
+{
+    .card-conteudo
+    {
+        padding: 1rem 2.2rem 2rem 2.2rem;
+    }
+    .card-nome-vaga
+    {
+        font-size: 18px;
+    }
+    .card .card-btn-rejeitar
+    {
+        font-size: 18px;
+        width: 6.2rem;
+        height: 2.3rem;
+    }
+}
+
+@media(max-width: 639px)
+{
+    .container-botoes
+    {
+        margin-left: 2rem;
+    }
+    .fundo-icon
+    {
+        width: 45px;
+        height: 45px;
+    }
+    .box-img-icon
+    {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media(max-width: 581px)
+{
+    .pesquisa-instituicao
+    {
+        gap: 0rem;
+    }
+    .pesquisa-instituicao input
+    {
+        width: 15rem;
+        margin-left: 1rem;
+        background-position: 210px;
+    }
+}
+
+@media(max-width: 535px)
+{
+    .container-titulo-1 h2
+    {
+        font-size: 22px;
+    }
+    .container-titulo-1 p
+    {
+        font-size: 14px;
+    }
+    .container-botoes
+    {
+        align-self: center;
+        margin-left: 0;
+        gap: 0.7rem;
+    }
+
+    
+}
+
+@media(max-width: 418px)
+{
+    .container-titulo-1 h2
+    {
+        font-size: 20px;
+    }
+    .container-titulo-1 p, .table-responsive-v th, .table-responsive-v td
+    {
+        font-size: 12px;
+    }
+    .fundo-icon
+    {
+        width: 40px;
+        height: 40px;
+    }
+    .box-img-icon
+    {
+        width: 19px;
+        height: 19px;
+    }
+    .card-conteudo
+    {
+        padding: 1rem 2.2rem 1rem 2.2rem;
+    }
+    .card-nome-vaga
+    {
+        font-size: 16px;
+    }
+    .card .card-btn-rejeitar
+    {
+        font-size: 16px;
+        width: 6rem;
+        height: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
