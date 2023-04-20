@@ -1,14 +1,15 @@
 <?php
-    require_once '../auth/verifica-logado.php';
-    require_once 'global.php';  
+     require_once 'global.php';  
+     require_once '../../auth/verifica-logado.php';
 
-    try
+     try
     {
-        header('Location: form-cadastrar-vagas-instituicao.php');
+        header('Location: vaga-completa-instituicao.php');
         //criando um objeto da classe Serviço
         $servico= new Servico();
     
         //Inserindo os dados vindos do formulário nos atributos da classe
+        $servico -> setId($_SESSION['vaga']['codServico']);
         $servico -> setNomeServico($_POST ['nome']);
         $servico-> setTipoServico($_POST['tipoVaga']);
         $servico-> setQntdVagaServico($_POST['quantidadeVaga']);
@@ -32,9 +33,12 @@
         $data_americana = date('Y-m-d', strtotime(str_replace('/', '-', $data_brasil)));
         $servico-> setDataInicioServico($data_americana);
 
+        $update = ServicoDao::editar($servico);
 
+         //Atualizando as sessões
+         $vaga = ServicoDao::consultarVaga($_SESSION['codVaga']);
+         $_SESSION['vaga'] = $vaga;
 
-        $cadastrar = ServicoDao::cadastrar($servico);
 
     }
     catch(Exception $e)
@@ -45,4 +49,8 @@
         echo '</pre>';
          
     }
+?>
+
+
+
 ?>

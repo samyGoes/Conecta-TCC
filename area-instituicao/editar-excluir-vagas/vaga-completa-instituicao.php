@@ -138,7 +138,7 @@
                     Aqui está a sua vaga completa, veja todas as informações que desejar. Você também
                     pode editá-la ou excluí-la.
                 </p>
-            </div>
+            </div>         
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
 
@@ -151,7 +151,9 @@
                         <div class="modal" id="modal">
                             <label for="" class="modal-titulo" id="modal-titulo"> Deseja realmente excluir a vaga? </label>
                             <div class="btn-exit" id="btn-exit">
-                                <button type="submit" id="excluir">excluir</button>
+                            <form action="delete-vaga-instituicao.php" method="post">
+                                 <button type="submit" id="excluir">excluir</button>
+                            </form>
                                 <button type="submit" id="cancelar">cancelar</button>
                             </div>
                         </div>

@@ -135,7 +135,7 @@ require_once 'global.php';
         </div>
 
         <div class="form">
-            <form class="container" action="cadastrar-vagas.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="update-vaga-instituicao.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <div class="input-box">
                         <div>

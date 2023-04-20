@@ -158,7 +158,6 @@ require_once 'global.php';
                                 <div class="filtro-habilidade"> Selecione as habilidades... </div>
                                 <div class="box-habilidade">
                                     <?php
-                                    require_once 'global.php';
                                     try {
                                         $listaHabilidade = HabilidadeServicoDao::listar();
                                     } catch (Exception $e) {
@@ -186,7 +185,6 @@ require_once 'global.php';
                                 <div class="filtro-causas"> Selecione as causas... </div>
                                 <div class="box-causas">
                                     <?php
-                                    require_once 'global.php';
                                     try {
                                         $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
                                     } catch (Exception $e) {

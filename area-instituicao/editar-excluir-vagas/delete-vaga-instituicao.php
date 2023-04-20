@@ -4,13 +4,10 @@
    
     try
     {
-        header('Location: vaga-completa-instituicao.php');
+        header('Location: editar-vagas-instituicao.php');
     
-        $id = $_POST['id'];
-
-        $vaga = ServicoDao::consultarVaga($id);
-        $_SESSION['vaga'] = $vaga;
-        $_SESSION['codVaga']=$id;
+        $excluir = ServicoDao::excluir($_SESSION['codVaga']);
+      
 
     }
     catch(Exception $e)
