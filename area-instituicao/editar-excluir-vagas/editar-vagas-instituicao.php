@@ -164,9 +164,9 @@ include "../../auth/verifica-logado.php";
                         </div>
                         <form action="redirecionar-vaga-completa.php" method="post">
                             <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                            <a href="#"><button class="card-carrossel-botao" id="botao-it">
+                            <button class="card-carrossel-botao" id="botao-it" type="submit">
                                     VER VAGA
-                                </button></a>
+                                </button>
                         </form>
                     </div>
                 </div>

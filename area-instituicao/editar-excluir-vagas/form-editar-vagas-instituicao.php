@@ -283,7 +283,7 @@ require_once 'global.php';
                         <div>
                             <label for="">Descrição</label>
                             <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..."><?php echo $_SESSION['vaga']['descServico'] ?></textarea>
-                        </div>)
+                        </div>
                     </div>
                 </div>
                 <a href="">
