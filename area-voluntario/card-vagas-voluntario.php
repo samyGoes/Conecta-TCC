@@ -123,16 +123,16 @@ require_once 'global.php';
         <div class="conteudo-completo">
 
             <!-- BOTÕES CARD E TABELA -->
-            <div class="container-botoes">                         
-                <div class="box-icon">
-                    <div class="box-info"></div>
-                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
-                </div>     
-                
+            <div class="container-botoes">   
                 <div class="box-icon-tabela">
                     <div class="box-info-t"></div>
                     <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
-                </div>          
+                </div>    
+
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
+                </div>                         
             </div>
 
 
@@ -164,10 +164,21 @@ require_once 'global.php';
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
+
+                        $vetor = array
+                        (
+                            'professor',
+                            'motorista particular',
+                            'atendente',
+                            'cozinheira',
+                            'recepcionista',
+                            'professor de espanhol e Professor de inglês'
+                        );
+
                     ?>
                     <?php 
                         //foreach ($listaVaga as $vaga) 
-                        for($i = 1; $i <= 6; $i++)
+                        foreach($vetor as $i)
                         {
                     ?>
                             <div class="card">                       
@@ -176,9 +187,9 @@ require_once 'global.php';
                                     <p class="status"> Pendente </p>
                                 </div>      
                                 <div class="card-conteudo">
-                                    <a href=""> <p class="card-nome-vaga"> Nome da Vaga<?php //echo $vaga['nomeservico']; ?> </p> </a>
-                                    <button class="card-btn-rejeitar"> retirar </button>
+                                    <a href=""> <p class="card-nome-vaga"> <?php echo($i); //echo $vaga['nomeservico']; ?> </p> </a>                                  
                                 </div>      
+                                <button class="card-btn-rejeitar"> retirar </button>
                             </div>
                     <?php
                         }
@@ -219,17 +230,17 @@ require_once 'global.php';
                     ?> 
                     <?php 
                         //foreach ($listaVaga as $vaga) 
-                        for($i = 1; $i <= 6; $i++)
+                        foreach($vetor as $i)
                         {
                     ?>
-                            <div class="card">                         
+                            <div class="card dois">                         
                                 <div class="card-conteudo dois">
-                                    <a href=""> <p class="card-nome-vaga"> Nome da Vaga <?php // echo $vaga['nomeservico']; ?> </p> </a>
-                                    <div class="card-botoes">
-                                        <button class="card-btn-chamar"> aceitar </button>
-                                        <button class="card-btn-rejeitar r"> rejeitar </button>
-                                    </div>                          
-                                </div>      
+                                    <a href=""> <p class="card-nome-vaga"> <?php echo($i); //echo $vaga['nomeservico']; ?> </p> </a>                          
+                                </div>     
+                                <div class="card-botoes">
+                                    <button class="card-btn-chamar"> aceitar </button>
+                                    <button class="card-btn-rejeitar r"> rejeitar </button>
+                                </div>    
                             </div>
                     <?php
                         }

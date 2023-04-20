@@ -96,6 +96,7 @@
     font-weight: 400;
     font-size: 26px;
     color: #2e2e2e;
+    text-align: center;
 }
 
 .frase-voluntarios
@@ -178,11 +179,16 @@
 {
     display: flex;
     flex-direction: column;
-    /* width: 10rem;
-    height: 10rem; */
+    justify-content: space-between;
+    align-items: center;
+    width: 13rem;
+    height: 12rem;
+    padding-bottom: 1.4rem;
+
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
     box-shadow: 5px 5px 5px #b4d8e6;
+    background-color: #fff;
     transition: all 0.5s ease;
 }
 
@@ -219,28 +225,34 @@
     color: #000;
 }
 
-
 .card-conteudo
 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 3rem 2rem 3rem;
-    gap: 2rem;
-}
-
-.card-conteudo.dois
-{
-    padding: 3rem 3rem 2rem 3rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem 1rem 0rem 1rem;
+    max-width: 11rem;
+    max-height: 4rem;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+    white-space: normal;                  
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    /* background-color: #af4141; */
 }
 
 .card-nome-vaga
 {
     font-family: poppins, sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 19px;
     color: #000;
     transition: all 0.5s ease;
+    
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1.4rem;
+    /* height: 2.8rem; 
+    overflow: hidden;  */
+    /* background-color: #88a2d4; */
 }
 
 .card-nome-vaga:hover
@@ -256,8 +268,8 @@
 
 .card .card-btn-rejeitar, .card .card-btn-chamar
 {
-    width: 8rem;
-    height: 2.5rem;
+    width: 7rem;
+    height: 2.3rem;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -266,7 +278,7 @@
 
     font-family: poppins, sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
     text-transform: uppercase;
 }
@@ -299,7 +311,19 @@
 
 
 
+/* CARD 2 */
+.card.dois
+{
+    width: 16rem;
+    height: 9rem;
+}
 
+.card-conteudo.dois
+{
+    margin-top: 2rem;
+    max-width: 14rem;
+    max-height: 3rem;
+}
 
 
 
@@ -338,9 +362,16 @@
 
 @media(max-width: 675px)
 {
+    .card
+    {
+        height: 11rem;
+        width: 12rem;
+        padding-bottom: 1rem;
+    }
     .card-conteudo
     {
-        padding: 1rem 2.2rem 2rem 2.2rem;
+        max-width: 10rem;
+        max-height: 3rem;
     }
     .card-nome-vaga
     {
@@ -402,8 +433,6 @@
         margin-left: 0;
         gap: 0.7rem;
     }
-
-    
 }
 
 @media(max-width: 418px)
@@ -426,10 +455,6 @@
         width: 19px;
         height: 19px;
     }
-    .card-conteudo
-    {
-        padding: 1rem 2.2rem 1rem 2.2rem;
-    }
     .card-nome-vaga
     {
         font-size: 16px;
@@ -440,9 +465,82 @@
         width: 6rem;
         height: 2rem;
     }
+    .pesquisa-instituicao
+    {
+        margin: 1rem 0rem 2rem 0rem;
+    }
+    .pesquisa-instituicao input
+    {
+        width: 12rem;
+        margin-left: 0.5rem;
+        padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+
+        background-position: 168px;
+        background-size: 14px;
+    }
+    .pesquisa-instituicao input::placeholder
+    {
+        font-size: 12px;
+    }
+    .pesquisa-instituicao i
+    {
+        font-size: 21px;
+    }
+
+    .card .card-btn-rejeitar.r, .card .card-btn-chamar
+    {
+        width: 5rem;
+        height: 2rem;
+        font-size: 14px;
+    }
+    .container-titulo-1
+    {
+        margin: 3rem 0rem 2rem 0rem;
+    }
+    .container-titulo-1.c
+    {
+        margin: 1rem 0rem 2rem 0rem;
+    }
+    .card-botoes
+    {
+        gap: 0.5rem;
+    }
+
+    .card
+    {
+        width: 10rem;
+        height: 9.5rem;
+    }
+    .card.dois
+    {
+        width: 14.8rem;
+        height: 8rem;
+    }
+    .card-conteudo.dois
+    {
+        max-height: 1.5rem;
+    }
 }
 
+@media(max-width: 334px)
+{
+    .card.dois
+    {
+        width: 13rem;
+    }
+    .pesquisa-instituicao input
+    {
+        width: 10rem;
+        padding: 0.2rem 0.7rem 0.2rem 0.7rem;
 
+        background-position: 136px;
+        background-size: 13px;
+    }
+    .pesquisa-instituicao i
+    {
+        font-size: 19px;
+    }
+}
 
 
 

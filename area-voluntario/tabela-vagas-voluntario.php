@@ -122,16 +122,16 @@ require_once 'global.php';
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
 
-            <div class="container-botoes">                 
-                <div class="box-icon">
-                    <div class="box-info"></div>
-                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
-                </div>     
-                
+            <div class="container-botoes">     
                 <div class="box-icon-tabela">
                     <div class="box-info-t"></div>
                     <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
-                </div>   
+                </div>  
+                            
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
+                </div>                 
             </div>
 
             <!-- TÍTULO 1 -->

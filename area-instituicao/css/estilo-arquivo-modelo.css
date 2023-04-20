@@ -510,6 +510,20 @@
         width: 60%;
     }
 }
+
+@media(max-width: 539px)
+{
+    .container-titulo-configuracoes
+    {
+        padding: 0rem 0rem 0.7rem 1rem;
+        height: 9.3rem;
+    }
+    .container-titulo-configuracoes h1
+    {
+        font-size: 22px;
+    }
+}
+
 @media (max-width: 500px)
 {
     .topicos-sessao-completa
@@ -559,7 +573,10 @@
     {
         top: 5rem;
     }
-    
+    .container-titulo-configuracoes
+    {
+        height: 8.3rem;
+    }    
 }
 
 @media (max-width: 300px)
@@ -615,19 +632,7 @@
     }
 }
 
-@media(max-width: 535px)
-{
-    .main-conteudo-container-titulo h1
-    {
-        font-size: 25px;
-    }
-    .main-conteudo-container-titulo p
-    {
-        font-size: 14px;
-    }
-}
-
-@media(max-width: 455px)
+@media(max-width: 675px)
 {
     .nav-lateral
     {
@@ -648,12 +653,41 @@
     }
 }
 
+@media(max-width: 535px)
+{
+    .main-conteudo-container-titulo h1
+    {
+        font-size: 25px;
+    }
+    .main-conteudo-container-titulo p
+    {
+        font-size: 14px;
+    }
+}
+
+/* @media(max-width: 455px)
+{
+    .nav-lateral
+    {
+        width: 4rem;
+        padding-left: 1.2rem;
+    }
+    .nav-lateral-box-icon i, #nav-lateral-icon-lista
+    {
+        font-size: 22px;
+    }
+    .main-conteudo-container-titulo
+    {
+        padding-left: 1rem;
+    }
+    .main-conteudo
+    {
+        margin-left: 4rem;
+    }
+} */
+
 @media(max-width: 444px)
 {
-    .container-titulo-configuracoes
-    {
-        height: 9rem;
-    }
     .main-conteudo-container-titulo
     {
         padding-top: 1rem;
@@ -673,5 +707,38 @@
     .main-conteudo-container-titulo h1
     {
         font-size: 22px;
+    }
+}
+
+@media(max-width: 349px)
+{
+    .nav-lateral
+    {
+        width: 3rem;
+        padding: 10rem 0rem 1rem 0.8rem;
+    }
+    .nav-lateral-sessao-um
+    {
+        gap: 0.8rem;
+    }
+    .nav-lateral-box-icon i, #nav-lateral-icon-lista
+    {
+        font-size: 20px;
+    }
+    #nav-lateral-icon-excluir
+    {
+        font-size: 27px;
+    }
+    .nav-lateral-box-icon a
+    {
+        font-size: 13px;
+    }
+    .main-conteudo-container-titulo
+    {
+        padding-left: 1rem;
+    }
+    .main-conteudo
+    {
+        margin-left: 3rem;
     }
 }
