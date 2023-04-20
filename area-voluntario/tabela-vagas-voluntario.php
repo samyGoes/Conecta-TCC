@@ -112,10 +112,10 @@ require_once 'global.php';
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
-            <h1> GERENCIAR VAGAS </h1>
+            <h1> VAGAS </h1>
             <p>
-                Veja todas as informações necessárias para o gerenciamento de suas vagas e
-                possíveis voluntários.
+                Aqui você verá as listas das vagas para as quais se candidatou e as vagas em que foi
+                requisitado.
             </p>
         </div>
 
@@ -147,7 +147,7 @@ require_once 'global.php';
 
             <!-- TABELA 1 -->
             <div class="table">
-                <div class="table-responsive">
+                <div class="table-responsive-v">
                     <div class="funcoes">
                         <div class="funcoes-sessao-1">
                             <i class="fa-solid fa-sliders"></i>
@@ -210,7 +210,7 @@ require_once 'global.php';
 
             <!-- TABELA 2 -->
             <div class="table">
-                <div class="table-responsive">
+                <div class="table-responsive-v">
                     <div class="funcoes">
                         <div class="funcoes-sessao-1">
                             <i class="fa-solid fa-sliders"></i>

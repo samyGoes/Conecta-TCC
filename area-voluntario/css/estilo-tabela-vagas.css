@@ -101,6 +101,7 @@
     font-weight: 400;
     font-size: 26px;
     color: #2e2e2e;
+    text-align: center;
 }
 
 .frase-voluntarios
@@ -128,9 +129,9 @@
     /* background-color: #b9c7e0; */
 }
 
-.table-responsive {
+.table-responsive-v {
     width: 414px;
-    max-height: 600px;
+    height: 358px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
     box-shadow: 5px 5px 5px #b4d8e6;
@@ -218,10 +219,10 @@ input[type="checkbox"]:checked::before {
     padding: 0.2rem 0rem 0.2rem 0rem;
     transition: all 0.2s ease;
 
-    font-family: poppins, sans-serif;
+    /* font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #2e2e2e;
+    color: #2e2e2e; */
 }
 
 
@@ -232,7 +233,7 @@ input[type="checkbox"]:checked::before {
     color: #727272;
 }
 
-.table-responsive table {
+.table-responsive-v table {
     border-collapse: collapse;
     border-spacing: 0;
 }
@@ -245,7 +246,7 @@ thead tr {
     width: 100%;
 }
 
-.table-responsive th {
+.table-responsive-v th {
     font-weight: 500 !important;
 }
 
@@ -308,39 +309,39 @@ td:nth-child(3)
 tbody {
     display: block;
     width: 100%;
-    height: 334px;
+    height: 239px;
     overflow-y: scroll;
 }
 
 /* SCROLL */
 /* width */
-tbody::-webkit-scrollbar, .table-responsive::-webkit-scrollbar
+tbody::-webkit-scrollbar, .table-responsive-v::-webkit-scrollbar
 {
     width: 12px;
 }
 
-.table-responsive::-webkit-scrollbar
+.table-responsive-v::-webkit-scrollbar
 {
     height: 12px;
 }
 
 /* Track */
-tbody::-webkit-scrollbar-track, .table-responsive::-webkit-scrollbar-track 
+tbody::-webkit-scrollbar-track, .table-responsive-v::-webkit-scrollbar-track 
 {
     background-color: #d7e0f0;
     border-radius: 0px 0px 0.5rem 0px;
 }
 
 /* Handle */
-tbody::-webkit-scrollbar-thumb, .table-responsive::-webkit-scrollbar-thumb
+tbody::-webkit-scrollbar-thumb, .table-responsive-v::-webkit-scrollbar-thumb
 {
     background-color: #4567a5;
     border-radius: 0.5rem;
     border: 2px solid #d7e0f0;
 }
 
-.table-responsive th,
-.table-responsive td {
+.table-responsive-v th,
+.table-responsive-v td {
     border: 1px solid #4567a5;
     /* padding: 0px 20px 0px 20px; */
     text-align: center;
@@ -436,13 +437,166 @@ td button
 /* RESPONSIVIDADE */
 @media(max-width: 1203px)
 {
+ 
+}
+
+@media(max-width: 813px)
+{
+    .container-botoes
+    {
+        margin-top: -2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width: 897px)
+{
+    .container-titulo-1
+    {
+        max-width: 91%;
+    }
+    .container-botoes
+    {
+        margin-left: 2.5rem;
+    }
+}
+
+@media(max-width: 639px)
+{
+    .container-botoes
+    {
+        margin-left: 2rem;
+    }
+    .fundo-icon
+    {
+        width: 45px;
+        height: 45px;
+    }
+    .box-img-icon
+    {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media(max-width: 535px)
+{
+    .container-titulo-1 h2
+    {
+        font-size: 22px;
+    }
+    .container-titulo-1 p
+    {
+        font-size: 14px;
+    }
+    .container-botoes
+    {
+        align-self: center;
+        margin-left: 0;
+        gap: 0.7rem;
+    }
+}
+
+@media(max-width: 494px)
+{
+    .table-responsive-v
+    {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
     .body
     {
         overflow-x: hidden;
     }
-    .table-responsive
+    .table-responsive-v
     {
         overflow-x: scroll;
+        overflow-y: hidden;
     }
 }
+@media(max-width: 418px)
+{
+    .container-titulo-1 h2
+    {
+        font-size: 20px;
+    }
+    .container-titulo-1 p, .table-responsive-v th, .table-responsive-v td
+    {
+        font-size: 12px;
+    }
+    .fundo-icon
+    {
+        width: 40px;
+        height: 40px;
+    }
+    .box-img-icon
+    {
+        width: 19px;
+        height: 19px;
+    }
+    th:nth-child(1),
+    td:nth-child(1)
+    {
+        min-width: 130px;
+        max-width: 130px;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2),
+    th:nth-child(3),
+    td:nth-child(3)
+    {
+        min-width: 100px;
+        max-width: 100px;
+    }
+    td button
+    {
+        font-size: 14px;
+        height: 1.9rem;
+        width: 4.7rem;
+    }
+    .funcoes
+    {
+        height: 60px;
+    }
+    .funcoes i
+    {
+        font-size: 20px;
+    }
+    .funcoes #pesquisar
+    {
+        width: 9rem;
+    }
+    #pesquisar::placeholder
+    {
+        font-size: 11px;
+    }
+    #icon-lupa
+    {
+        font-size: 14px;
+    }
+}
+
+
+@media(max-width: 352px) 
+{
+    .funcoes-sessao-1
+    {
+        margin-left: 1rem;
+    }    
+    .funcoes-sessao-2
+    {
+        margin-right: 1rem;
+    }
+}
+
+@media(max-width: 343px) 
+{
+  
+}
+
+
+
+
 
