@@ -160,23 +160,25 @@ require_once 'global.php';
                                 <div class="box-habilidade">
                                     <?php
                                     try {
+                                        $habilidadeSelecionada =explode(',', $_SESSION['vaga']['habilidade_id']);
                                         $listaHabilidade = HabilidadeServicoDao::listar();
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
                                     ?>
-                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                    <?php foreach ($listaHabilidade as $habilidade) { 
+                                        // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
+                                        $marcado = in_array($habilidade['codHabilidadeServico'], $habilidadeSelecionada)
+                                        ?>
                                         <div class="box-habilidade-checkbox">
-                                            <input type="checkbox" name="habilidade" id="habilidade" value=<?php echo
-                                                                                                                $habilidade['codHabilidades']; ?>>
+                                            <input type="checkbox" name="habilidade[]" id="habilidade" 
+                                            value="<?php echo $habilidade['codHabilidadeServico'] ?>" 
+                                            <?php echo $marcado ? 'checked' : ''; ?>>
                                             <label for="habilidade">
-                                                <?php echo $habilidade['nomeHabilidade']; ?>
+                                                <?php echo $habilidade['nomeHabilidadeServico'] ?>
                                             </label>
                                         </div>
-
-                                    <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -186,22 +188,25 @@ require_once 'global.php';
                                 <div class="filtro-causas"> Selecione as causas... </div>
                                 <div class="box-causas">
                                     <?php
-                                    require_once 'global.php';
                                     try {
-                                        $listaCausas = CategoriaServicoDao::listar();
+                                        $causaSelecionada =explode(',', $_SESSION['vaga']['categoria_id']);
+                                        $listaCausa = CategoriaServicoDao::listar();
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
                                     ?>
-                                    <?php foreach ($listaCausas as $causas) { ?>
+                                    <?php foreach ($listaCausa as $causa) { 
+                                        // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
+                                        $marcado = in_array($causa['codCategoriaServico'], $causaSelecionada)
+                                        ?>
                                         <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas" id="causas" value=<?php echo
-                                                                                                    $causas['codCategoriaServico']; ?>>
+                                        <input type="checkbox" name="causas[]" id="causas" 
+                                            value="<?php echo $causa['codCategoriaServico'] ?>" 
+                                            <?php echo $marcado ? 'checked' : ''; ?>>
                                             <label for="causas">
-                                                <?php echo $causas['descCategoriaServico']; ?>
+                                                <?php echo $causa['nomeCategoria'] ?>
                                             </label>
                                         </div>
-
                                     <?php
                                     }
                                     ?>
@@ -216,69 +221,69 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Período</label>
-                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php echo $_SESSION['vaga']['periodoServico']; ?>" />
+                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php echo $_SESSION['vaga']['periodoServico'] ?>" />
                         </div>
                         <div>
                             <label for="">Data de início</label>
-                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['vaga']['dataInicioServico']; ?>" />
+                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de inicio" value="<?php echo $_SESSION['vaga']['dataInicioServico'] ?>" />
                         </div>
 
                         <div>
                             <label for="">Horário</label>
-                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['vaga']['horarioServico']; ?>" />
+                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" value="<?php echo $_SESSION['vaga']['horarioServico'] ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Quantidade de Vagas</label>
-                            <input type="text" name="quantidadeVaga" id="quantidadeVagas"  placeholder="Digite a quantidade de vagas" value="<?php echo $_SESSION['vaga']['qntdVagaServico']; ?>">
+                            <input type="text" name="quantidadeVaga" id="quantidadeVagas"  placeholder="Digite a quantidade de vagas" value="<?php echo $_SESSION['vaga']['qntdVagaServico'] ?>">
                         </div>
                         <div>
                             <label for="">CEP</label>
-                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP°" value="<?php echo $_SESSION['vaga']['cepLocalServico']; ?>" />
+                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP°" value="<?php echo $_SESSION['vaga']['cepLocalServico'] ?>" />
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['vaga']['numeroLocalServico']; ?>" />
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" value="<?php echo $_SESSION['vaga']['numeroLocalServico'] ?>" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Logradouro</label>
-                            <input type="text" name="logradouro" id="logradouro" readonly value="<?php echo $_SESSION['vaga']['logradouroLocalServico']; ?>" />
+                            <input type="text" name="logradouro" id="logradouro" readonly value="<?php echo $_SESSION['vaga']['logradouroLocalServico'] ?>" />
                         </div>
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" readonly value="<?php echo $_SESSION['vaga']['bairroLocalServico']; ?>" />
+                            <input type="text" name="bairro" id="bairro" readonly value="<?php echo $_SESSION['vaga']['bairroLocalServico'] ?>" />
                         </div>
 
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['vaga']['cidadeLocalServico']; ?>" >
+                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['vaga']['cidadeLocalServico'] ?>" >
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="uf">UF</label>
-                            <input type="text" name="uf" id="uf" readonly value="<?php echo $_SESSION['vaga']['estadoLocalServico']; ?>" >
+                            <input type="text" name="uf" id="uf" readonly value="<?php echo $_SESSION['vaga']['estadoLocalServico'] ?>" >
                         </div>
                         <div>
                             <label for=" ">Complemento</label>
-                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['vaga']['complementoLocalServico']; ?>" />
+                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" value="<?php echo $_SESSION['vaga']['complementoLocalServico'] ?>" />
                         </div>
                         <div>
                             <label for="">País</label>
-                            <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['vaga']['paisLocalServico']; ?>" >
+                            <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['vaga']['paisLocalServico'] ?>" >
                         </div>
                     </div>
                     <div class="input-box">
                         <div>
                             <label for="">Descrição</label>
-                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..."><?php echo $_SESSION['vaga']['descServico']; ?></textarea>
-                        </div>
+                            <textarea name="desc" id="desc" cols="70" rows="10" placeholder="Digite sua descrição..."><?php echo $_SESSION['vaga']['descServico'] ?></textarea>
+                        </div>)
                     </div>
                 </div>
                 <a href="">

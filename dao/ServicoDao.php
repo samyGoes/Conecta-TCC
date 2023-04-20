@@ -125,9 +125,10 @@
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
             nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
-            nomeInstituicao, fotoInstituicao, tbCategoriaServico.codCategoriaServico, 
+            nomeInstituicao, fotoInstituicao, 
+            GROUP_CONCAT(tbCategoriaServico.codCategoriaServico) as categoria_id, 
             GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as causas, 
-            tbHabilidadeServico.codHabilidadeServico, 
+            GROUP_CONCAT(tbHabilidadeServico.codHabilidadeServico) as habilidade_id, 
             GROUP_CONCAT(tbHabilidadeServico.nomeHabilidadeServico) as habilidades
             FROM tbServico
             INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
