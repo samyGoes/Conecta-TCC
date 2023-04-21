@@ -121,6 +121,7 @@
         <script src="js/endereco-auto.js"></script>
         <script src="js/mascarasForm.js"></script>
         <script src="js/mascara.js"></script>
+        <script src="js/validacoes.js"></script>
         <script>
             const form1 = document.querySelector("#formulario1");
             const form2 = document.querySelector("#formulario2");
