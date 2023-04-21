@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/estilo-navbar-rodape.css">
 
     <!-- LINK ICONES -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> INÍCIO </title>
 </head>
 
@@ -30,17 +32,25 @@
             <!-- TÓPICOS -->
             <ul class="topicos-sessao-completa">
                 <ul class="topicos">
-                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="index.php" class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
-                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
-                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="contato/contato.php" class="cabecalho-menu-item">contato</a></li>
+                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="index.php"
+                            class="cabecalho-menu-item">Início</a></li>
+                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios/voluntarios.php"
+                            class="cabecalho-menu-item">voluntários</a></li>
+                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a
+                            href="instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="vagas/vagas.php"
+                            class="cabecalho-menu-item">Vagas</a></li>
+                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a
+                            href="sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
+                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="contato/contato.php"
+                            class="cabecalho-menu-item">contato</a></li>
                 </ul>
 
                 <ul class="topicos-sessao-login">
-                    <li class="topicos-sessao-login-linha"><a href="form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
+                    <li class="topicos-sessao-login-linha"><a href="form-login.php" class="cabecalho-menu-item"
+                            id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
+                            id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
                             <li> <a href=""> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
@@ -58,7 +68,9 @@
             <div class="conteudo-direita">
                 <div class="titulo-conteudo-direita">
                     <h1>O Trabalho Voluntário Aliado <br>as ONGs</h1>
-                    <p>Conheça as Conecta, um portal para voluntários <br> e instituições, tendo como objetivo incentivar o <br> trabalho voluntário, facilitar o acesso e informar <br> a população sobre um assunto de extrema <br> importancia</p>
+                    <p>Conheça as Conecta, um portal para voluntários <br> e instituições, tendo como objetivo
+                        incentivar o <br> trabalho voluntário, facilitar o acesso e informar <br> a população sobre um
+                        assunto de extrema <br> importancia</p>
                 </div>
                 <div class="continuar-botao">
                     <button type="submit" id="">junte-se a nós</button>
@@ -75,11 +87,85 @@
 
 
     <main class="conteudo-completo">
-        <div class="container-conteudo-1">
-            <div class="conteudo-imagem-1">
-                <img src="img/mao-coracao.jpg" alt="">
+        <!-- TITULO DO PRIMEIRO CONTEUDO-->
+        <div class="card-1">
+
+            <div class="titulo-container-conteudo-1">
+                <h1>Um pouco sobre o trabalho voluntário</h1>
+            </div>
+            <!-- CONTEUDO 1 -->
+            <div class="container-conteudo-1">
+                <!-- CONTAINER -->
+                <div class="conteudo-imagem-1">
+                    <img src="img/mao-coracao.jpg" alt="">
+                </div>
+
+                <div class="conteudo-escrito-1">
+
+                    <div class="titulo-conteudo-escrito">
+                        <h1>O que é o trabalho voluntário?</h1>
+                    </div>
+
+                    <div class="texto-conteudo-escrito">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis aperiam ab earum
+                            molestiae
+                            dolores quisquam sequi exercitationem, minus voluptas inventore ut alias quis doloribus
+                            laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nemo
+                            explicabo.
+                        </p>
+                    </div>
+
+                    <div class="botao-conteudo-escrito">
+                        <button type="submit" id="">voluntários</button>
+                    </div>
+
+                </div>
             </div>
         </div>
+
+        <div class="card-2">
+
+            <div class="titulo-container-conteudo-2">
+                <h1>Um pouco sobre o Terceiro Setor</h1>
+            </div>
+
+            <div class="container-conteudo-2">
+                <div class="conteudo-vazio"></div>
+                
+                <div class="conteudo-escrito-2">
+
+                    <div class="titulo-conteudo-escrito-2">
+                        <h1>O que é o trabalho voluntário?</h1>
+                    </div>
+
+                    <div class="texto-conteudo-escrito-2">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis aperiam ab earum
+                            molestiae
+                            dolores quisquam sequi exercitationem, minus voluptas inventore ut alias quis doloribus
+                            laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nemo
+                            explicabo.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, nostrum ad impedit
+                            officia id sed, reprehenderit expedita at exercitationem dolor quis eum, aut laborum minima
+                            maxime cupiditate totam maiores cum.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis, debitis esse facere
+                            iste, similique sed optio amet voluptatibus dolorum voluptates aspernatur officia quo
+                            quaerat consequatur mollitia velit. Quod, deleniti!
+                        </p>
+                    </div>
+
+                    <div class="botao-conteudo-escrito-2">
+                        <button type="submit" id="">instituições</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
     </main>
 
 
