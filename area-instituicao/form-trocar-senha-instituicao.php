@@ -19,7 +19,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- BIBLIOTECA QUE PERMITE ENVIAR EMAIL -->
         <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-        <title>Document</title>
+        <title> CONFIGURAÇÕES DO PERFIL - Trocar senha</title>
     </head>
 
     <body>
@@ -135,6 +135,10 @@
 
 
 
+        <!-- EMAIL E NOME DA PESSOA LOGADA PARA CÓDIGO DE VERIFICAÇÃO DO MODAL -->
+        <p style="display: none;" class="email-logado"> <?php echo $_SESSION["emailUsuario"]; ?> </p>
+        <p style="display: none;" class="nome-logado"> <?php echo $_SESSION["nomeUsuario"]; ?> </p>
+
 
 
         <!-- CONTEUDO  -->
@@ -156,8 +160,9 @@
            <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
            <div id="modal" class="modal">
                 <div class="form" id="form">
-                    <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
+                    
                     <div class="modal-sessao-1">
+                        <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
                         <p class="modal-frase"> Clique <a id="envia-email" href="#"> aqui </a> para que um código de verificação seja enviado no seu email.</p>
 
                         <form class="form-modal" action="" method="POST" id="form-modal">
@@ -167,10 +172,13 @@
                             </div>
                             <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                         </form>
+
+                        <a class="voltar-anterior" href="#"> Voltar para a página anterior </a>
                     </div>
 
                     <div class="modal-sessao-2">
-                        <p class="modal-frase"> Verificação feita com sucesso! Agora você já pode alterar sua senha. </p>
+                        <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                        <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
                     </div>                
                 </div>
@@ -211,7 +219,7 @@
         <!-- SCRIPTS -->
         <script src="js/script.js"></script>
         <script src="js/modal-confirmacao.js"></script>
-        <script src="../area-voluntario/js/envia-email.js"></script>
+        <script type="module" src="../area-voluntario/js/main.js"></script>
     </body>
 
 </html>
