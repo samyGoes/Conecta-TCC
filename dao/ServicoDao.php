@@ -184,31 +184,56 @@
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
             nomeservico, tipoServico, DATE_FORMAT(dataInicioServico, '%d/%m/%Y') as dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
-            nomeInstituicao, fotoInstituicao, 
-            GROUP_CONCAT(tbCategoriaServico.codCategoriaServico) as categoria_id, 
-            GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as causas, 
-            GROUP_CONCAT(tbHabilidadeServico.codHabilidadeServico) as habilidade_id, 
-            GROUP_CONCAT(tbHabilidadeServico.nomeHabilidadeServico) as habilidades
+            nomeInstituicao, fotoInstituicao 
             FROM tbServico
             INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
-            INNER JOIN tbcausavaga ON tbcausavaga.codServico = tbServico.codServico
-            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbcausavaga.codCategoriaServico
-            INNER JOIN tbHabivaga ON tbhabivaga.codServico = tbServico.codServico
-            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbhabivaga.codHabilidadeServico
             WHERE tbServico.codServico = ?");
 
             $querySelect->bindParam(1, $cod);
             $querySelect->execute();
             $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
-
-            if ($resultado) 
-            {
-                $causas = explode(",", $resultado["causas"]);
-                $habilidades = explode(",", $resultado["habilidades"]);
-            }
                     
             return $resultado;
         }
+
+        public static function consultarCausa($cod)
+        {
+            $conectar= Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT tbcausavaga.codCausaVaga,
+            GROUP_CONCAT(tbCategoriaServico.codCategoriaServico) as categoria_id, 
+            GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as nomeCausa
+            FROM tbcausavaga
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbcausavaga.codCategoriaServico
+            WHERE tbcausavaga.codServico = ?"); 
+
+            $querySelect->bindParam(1, $cod);
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
+                    
+            return $resultado;
+       
+        }
+
+        public static function consultarHabilidade($cod)
+        {
+            $conectar= Conexao::conectar();
+
+            $querySelect = $conectar->prepare("SELECT tbhabivaga.codHabivaga,
+            GROUP_CONCAT(tbHabilidadeServico.codHabilidadeServico) as habilidade_id, 
+            GROUP_CONCAT(tbHabilidadeServico.nomeHabilidadeServico) as nomeHabilidade
+            FROM tbhabivaga
+            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbhabivaga.codHabilidadeServico
+            WHERE tbhabivaga.codServico = ?"); 
+
+            $querySelect->bindParam(1, $cod);
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
+                    
+            return $resultado;
+        }
+      
+       
     }
 
 ?>

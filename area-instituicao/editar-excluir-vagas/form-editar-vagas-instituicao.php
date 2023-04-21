@@ -160,7 +160,7 @@ require_once 'global.php';
                                 <div class="box-habilidade">
                                     <?php
                                     try {
-                                        $habilidadeSelecionada =explode(',', $_SESSION['vaga']['habilidade_id']);
+                                        $habilidadeSelecionada =explode(',', $_SESSION['habilidade']['habilidade_id']);
                                         $listaHabilidade = HabilidadeServicoDao::listar();
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
@@ -189,7 +189,7 @@ require_once 'global.php';
                                 <div class="box-causas">
                                     <?php
                                     try {
-                                        $causaSelecionada =explode(',', $_SESSION['vaga']['categoria_id']);
+                                        $causaSelecionada =explode(',', $_SESSION['causa']['categoria_id']);
                                         $listaCausa = CategoriaServicoDao::listar();
                                     } catch (Exception $e) {
                                         echo $e->getMessage();

@@ -196,7 +196,7 @@
                                     <p>Data de início:<span><?php echo ($_SESSION['vaga']['dataInicioServico']); ?></span></p>
                                     <p>Habilidade:<span>
                                         <?php
-                                            $habilidades = $_SESSION['vaga']['habilidades'];
+                                            $habilidades = $_SESSION['habilidade']['nomeHabilidade'];
                                             $habilidades = array_unique(explode(",", $habilidades));
                                             echo implode(", ", $habilidades);
                                         ?>
@@ -223,17 +223,17 @@
                         </div>
                         <div class="tipo-causas">
                             <?php
-                             $causas = $_SESSION['vaga']['causas'];
-                             $causas = array_unique(explode(",", $causas));
-                             $tamanhoarray = count($causas);
-
-                            if($tamanhoarray > 1)
+                            if (!is_null($_SESSION['causa']['nomeCausa'])) 
                             {
+                                $causas = $_SESSION['causa']['nomeCausa'];
+                                $causas = array_unique(explode(",", $causas));
+                              
+
                                 foreach($causas as $causa)
                                 { 
                                     ?>
                                     <a href=><button id=tipo-causas-1><?php echo $causa ?></button></a>
-                                 <?php 
+                                    <?php 
                                 }
                             }
                             ?>

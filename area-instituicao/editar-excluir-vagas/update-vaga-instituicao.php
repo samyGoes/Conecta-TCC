@@ -38,7 +38,10 @@
          //Atualizando as sessões
          $vaga = ServicoDao::consultarVaga($_SESSION['codVaga']);
          $_SESSION['vaga'] = $vaga;
-
+         $causa = ServicoDao::consultarCausa($_SESSION['codVaga']);
+         $_SESSION['causa'] = $causa;
+         $habilidade = ServicoDao::consultarHabilidade($_SESSION['codVaga']);
+         $_SESSION['habilidade'] = $habilidade;
 
     }
     catch(Exception $e)
