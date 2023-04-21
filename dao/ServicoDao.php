@@ -54,8 +54,10 @@
 
         public static function editar($servico)
         {
+            //Conexão com o banco de dados
             $conectar=Conexao::conectar();
 
+            //Editando os dados da vaga sem as causas e habilidades.
             $prepareStatement = $conectar->prepare("UPDATE tbservico SET horarioServico = ?,periodoServico = ?,codInstituicao = ?,
             descServico = ?,cepLocalServico = ?,bairroLocalServico = ?,estadoLocalServico = ?,
             logradouroLocalServico = ?,complementoLocalServico = ?,paisLocalServico = ?,numeroLocalServico = ?,cidadeLocalServico = ?,
@@ -81,70 +83,33 @@
 
             $prepareStatement -> execute();
 
+            //Guardando o id da vaga editada
             $idVaga = $servico->getId();
 
-           
-            // Atualiza as habilidades vinculadas à vaga na tabela tbhabivaga
-            foreach ($servico->getHabilidadeServico() as $habilidade) 
-            {
-                $prepareStatement = $conectar->prepare("SELECT * FROM tbhabivaga WHERE codServico = ? AND codHabilidadeServico = ?");
+            //Excluindo todos as causas e habilidades ligadas a essa vaga do banco de dados
+            $deleteHabiVaga = $conectar->prepare("DELETE FROM tbHabiVaga WHERE codServico = ?");
+            $deleteHabiVaga->bindValue(1,$idVaga);
+            $deleteHabiVaga->execute();
+            
+            $deleteCausa = $conectar->prepare("DELETE FROM tbCausaVaga WHERE codServico = ?");
+            $deleteCausa->bindValue(1,$idVaga);
+            $deleteCausa->execute();
+
+             // Inserindo as habilidades e causas vinculadas à vaga nas tabelas novamente de acordo com a edição
+             foreach ($servico->getHabilidadeServico() as $habilidade) {
+                $prepareStatement = $conectar->prepare("INSERT INTO  tbhabivaga (codServico, codHabilidadeServico) 
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
                 $prepareStatement->bindValue(2, $habilidade);
                 $prepareStatement->execute();
-                
-                $result = $prepareStatement->fetch(PDO::FETCH_ASSOC);
-                
-                if ($result) {
-                    // Habilidade já existe na tabela, atualiza o registro existente
-                    $prepareStatement = $conectar->prepare("UPDATE tbhabivaga SET codServico = ?, codHabilidadeServico = ? WHERE id = ?");
-                    $prepareStatement->bindValue(1, $idVaga);
-                    $prepareStatement->bindValue(2, $habilidade);
-                    $prepareStatement->bindValue(3, $result['id']);
-                    $prepareStatement->execute();
-                } else {
-                    // Habilidade não existe na tabela, insere um novo registro
-                    $prepareStatement = $conectar->prepare("INSERT INTO tbhabivaga (codServico, codHabilidadeServico) VALUES (?, ?)");
-                    $prepareStatement->bindValue(1, $idVaga);
-                    $prepareStatement->bindValue(2, $habilidade);
-                    $prepareStatement->execute();
-                }
-            }
-
-            // Atualiza as causas vinculadas à vaga na tabela tbCausaVaga
-            foreach ($servico->getCategoriaServico() as $causa) {
-                $prepareStatement = $conectar->prepare("SELECT * FROM tbcausavaga WHERE codServico = ? AND codCategoriaServico = ?");
+              }
+              foreach ($servico->getCategoriaServico() as $causa) {
+                $prepareStatement = $conectar->prepare("INSERT INTO tbCausaVaga (codServico,codCategoriaServico)
+                VALUES (?,?)");
                 $prepareStatement->bindValue(1, $idVaga);
                 $prepareStatement->bindValue(2, $causa);
                 $prepareStatement->execute();
-                
-                $result = $prepareStatement->fetch(PDO::FETCH_ASSOC);
-                
-                if (isset($_POST['causa_' . $causa])) {
-                    // Checkbox marcado, atualiza ou insere na tabela
-                    if ($result) {
-                        // Causa já existe na tabela, atualiza o registro existente
-                        $prepareStatement = $conectar->prepare("UPDATE tbcausavaga SET codServico = ?, codCategoriaServico = ? WHERE id = ?");
-                        $prepareStatement->bindValue(1, $idVaga);
-                        $prepareStatement->bindValue(2, $causa);
-                        $prepareStatement->bindValue(3, $result['id']);
-                        $prepareStatement->execute();
-                    } else {
-                        // Causa não existe na tabela, insere um novo registro
-                        $prepareStatement = $conectar->prepare("INSERT INTO tbcausavaga (codServico, codCategoriaServico) VALUES (?, ?)");
-                        $prepareStatement->bindValue(1, $idVaga);
-                        $prepareStatement->bindValue(2, $causa);
-                        $prepareStatement->execute();
-                    }
-                } else {
-                    // Checkbox desmarcado, exclui o registro da tabela (se existir)
-                    if ($result) {
-                        $prepareStatement = $conectar->prepare("DELETE FROM tbcausavaga WHERE id = ?");
-                        $prepareStatement->bindValue(1, $result['id']);
-                        $prepareStatement->execute();
-                    }
-                }
-            }
-
+              }
         }
 
         public static function consultarId($servico){
