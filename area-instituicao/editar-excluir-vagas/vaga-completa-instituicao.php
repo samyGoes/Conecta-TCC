@@ -1,4 +1,7 @@
-
+<?php
+     require_once 'global.php';  
+     require_once '../../auth/verifica-logado.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -98,7 +101,7 @@
                 </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                    <a href="../gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
                         </span></a>
                 </div>
 
@@ -135,7 +138,7 @@
                     Aqui está a sua vaga completa, veja todas as informações que desejar. Você também
                     pode editá-la ou excluí-la.
                 </p>
-            </div>
+            </div>         
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
 
@@ -148,7 +151,9 @@
                         <div class="modal" id="modal">
                             <label for="" class="modal-titulo" id="modal-titulo"> Deseja realmente excluir a vaga? </label>
                             <div class="btn-exit" id="btn-exit">
-                                <button type="submit" id="excluir">excluir</button>
+                            <form action="delete-vaga-instituicao.php" method="post">
+                                 <button type="submit" id="excluir">excluir</button>
+                            </form>
                                 <button type="submit" id="cancelar">cancelar</button>
                             </div>
                         </div>
@@ -160,7 +165,7 @@
             <div class="conteudo-completo">
 
                 <div class="conteiner-botoes">
-                    <button class="conteiner-botao-editar">EDITAR</button>
+                <a href="form-editar-vagas-instituicao.php"><button class="conteiner-botao-editar">EDITAR</button></a> 
                     <button class="conteiner-botao-excluir">EXCLUIR</button>
                 </div>         
         
@@ -168,16 +173,11 @@
                     <!-- DADOS DA INSTITUIÇÃO -->
                     
                     <div class="titulos-card">
-                        <h1> PROFESSOR DE INGLÊS </h1> 
-                        <h7> ONG FLOR DO NORTE</h7>
+                        <h1><?php echo ($_SESSION['vaga']['nomeservico']); ?></h1> 
+                        <h7><?php echo ($_SESSION['vaga']['nomeInstituicao']); ?></h7>
                                         
                         <div class="descricao-da-vaga">
-                            <p>Olá, meu nome é João, sou de Recife, Pernambuco. Sou estudante de Engenharia Elétrica e
-                                trabalho part-time como programador. Minhas principais habilidades são programação, lógica
-                                de programação, eletrônica, matemática, física e robótica. Adoro aventuras, fazer trilhas e
-                                curtir a natureza. Além disso, sou bastante curioso, sempre querendo aprender coisas novas.
-                                Gosto de ler sobre diversos assuntos e adoro ouvir música. Acredito que o conhecimento é
-                                algo que nos leva cada vez mais longe, por isso sempre procuro me aprimorar.</p>
+                            <p><?php echo ($_SESSION['vaga']['descServico']); ?></p>
                         </div>
                     </div>
     
@@ -187,14 +187,20 @@
                             <div class="topico-informacoes-texto">
 
                                 <div class="divisa-de-topicos-info">
-                                    <p>Horário:<span> a combinar</span></p>
-                                    <p>Período:<span> diurno</span></p>
-                                    <p>Tipo de vaga:<span> presencial</span></p>
+                                    <p>Horário:<span><?php echo ($_SESSION['vaga']['horarioServico']); ?></span></p>
+                                    <p>Período:<span><?php echo ($_SESSION['vaga']['periodoServico']); ?></span></p>
+                                    <p>Tipo de vaga:<span><?php echo ($_SESSION['vaga']['tipoServico']); ?></span></p>
                                 </div>
                                
                                 <div class="divisao-de-topicos-info">
-                                    <p>Data de início:<span> 20/03/2023</span></p>
-                                    <p>Habilidade:<span> educação</span></p>
+                                    <p>Data de início:<span><?php echo ($_SESSION['vaga']['dataInicioServico']); ?></span></p>
+                                    <p>Habilidade:<span>
+                                        <?php
+                                            $habilidades = $_SESSION['vaga']['habilidades'];
+                                            $habilidades = array_unique(explode(",", $habilidades));
+                                            echo implode(", ", $habilidades);
+                                        ?>
+                                    </span></p>
                                 </div>       
                             </div>                 
          
@@ -203,7 +209,8 @@
                         <div class="topico-endereco">
                             <div class="titulo"><i class="fa-sharp fa-solid fa-location-dot"></i><h6> Endereço</h6></div>
                             <div class="topico-informacoes-texto">
-                                <p> Av. dos Ipês 909, Jardim  dos Ipês - São Paulo SP, Brasil</p>
+                                <p><?php echo ($_SESSION['vaga']['logradouroLocalServico'] . " " . $_SESSION['vaga']['numeroLocalServico'] . ", " . $_SESSION['vaga']['bairroLocalServico'] . " - " . $_SESSION['vaga']['cidadeLocalServico'] . " " . $_SESSION['vaga']['estadoLocalServico'] . ", " . $_SESSION['vaga']['paisLocalServico']);
+                                ?></p>
                             </div>
                         </div>         
                     </div>           
@@ -216,11 +223,16 @@
                         </div>
                         <div class="tipo-causas">
                             <?php
+                             $causas = $_SESSION['vaga']['causas'];
+                             $causas = array_unique(explode(",", $causas));
+
                                 
-                                for($i=1; $i<=4;$i++)
+                                foreach($causas as $causa)
                                 { 
-                                    echo("<a href=><button id=tipo-causas-1>mulheres</button></a>");
-                                }
+                                    ?>
+                                    <a href=><button id=tipo-causas-1><?php echo $causa ?></button></a>
+
+                               <?php } 
                             ?>
                         </div>
                     </div>

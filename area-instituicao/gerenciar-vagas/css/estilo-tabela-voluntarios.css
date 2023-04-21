@@ -58,7 +58,7 @@
     align-items: center;
     margin: 3rem 0rem 2rem 0rem;
     gap: 0.8rem;
-    max-width: 80%;
+    width: 80%; 
 }
 
 .titulo-voluntarios

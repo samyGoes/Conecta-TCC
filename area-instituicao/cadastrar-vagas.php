@@ -1,5 +1,5 @@
 <?php
-     require_once '../auth/verifica-logado.php';
+    require_once '../auth/verifica-logado.php';
     require_once 'global.php';  
 
     try
@@ -11,7 +11,6 @@
         //Inserindo os dados vindos do formulário nos atributos da classe
         $servico -> setNomeServico($_POST ['nome']);
         $servico-> setTipoServico($_POST['tipoVaga']);
-        $servico-> setDataInicioServico($_POST['dataInicio']);
         $servico-> setQntdVagaServico($_POST['quantidadeVaga']);
         $servico-> setPeriodoServico($_POST['periodo']);
         $servico-> setHorarioServico($_POST['horario']);
@@ -27,6 +26,11 @@
         $servico-> setInstituicao($_SESSION['codUsuario']);
         $servico-> setCategoriaServico($_POST['causas']);
         $servico-> setHabilidadeServico($_POST['habilidade']);
+
+        //Transformando a data brasileira digitada pelo usuário em uma data americana
+        $data_brasil = $_POST['dataInicio'];
+        $data_americana = date('Y-m-d', strtotime(str_replace('/', '-', $data_brasil)));
+        $servico-> setDataInicioServico($data_americana);
 
 
 

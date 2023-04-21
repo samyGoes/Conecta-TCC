@@ -218,10 +218,21 @@
                     </div>
                     <div class="ocultar-sessao-causa">
                         <div class="tipo-causas">
-                            <a href=""><button id="tipo-causas-1">mulheres</button></a>
-                            <a href=""><button id="tipo-causas-2">crianças</button></a>
-                            <a href=""><button id="tipo-causas-3">idosos</button></a>
-                            <a href=""><button id="tipo-causas-1">animais</button></a>
+                            <?php
+                                try {
+
+                                    $listaCausas = CategoriaServicoDao::listarCausa();
+                                    print_r($listaCausas);
+                                    print_r($_SESSION['codUsuario']);
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                            ?>
+                             <?php foreach ($listaCausas as $causas) { ?>
+                            <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
+                            <?php
+                             }
+                             ?>
                         </div>
                     </div>
                 </div>
@@ -248,23 +259,27 @@
 
                             <div class="slider">
                                 <div class="cards">
-                                    <?php
-                                    for ($j = 1; $j <= 9; $j++) {
-                                    ?>
-                                        <div class="card-carrossel">
-                                            <p class="titulo-card-carrossel"> Atendende </p>
-                                            <div class="texto-card">
-                                                <p> Duração: <span> 1 mês </span> </p>
-                                                <p> Período: <span> A combinar </span> </p>
-                                                <p> Cidade: <span> São Paulo </span> </p>
-                                            </div>
-                                            <a href="#"><button class="card-carrossel-botao">
-                                                    VER
-                                                </button></a>
-                                        </div>
-                                    <?php
+                                <?php
+                                    require_once 'global.php';
+                                    try {
+                                        $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
                                     }
                                     ?>
+                                    <?php foreach ($listaVaga as $vaga) {?>
+                                        <div class="card-carrossel">
+                                            <p class="titulo-card-carrossel"> <?php echo $vaga['nomeservico']; ?> </p>
+                                            <div class="texto-card">
+                                                <p> Duração: <span> 1 mês </span> </p>
+                                                <p> Período: <span><?php echo $vaga['periodoServico']; ?></span> </p>
+                                                <p> Cidade: <span> <?php echo $vaga['cidadeLocalServico']; ?> </span> </p>
+                                            </div>
+                                            <a href="#"><button class="card-carrossel-botao">
+                                                VER
+                                            </button></a>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

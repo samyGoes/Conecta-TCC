@@ -26,7 +26,7 @@ const tabela = document.querySelector(".table-responsive");
 
 /* RESPONSIVIDADE NAV LATERAL E CONTEUDO */
 let telaUm = window.matchMedia("(min-width: 1049px)");
-let telaDois = window.matchMedia("(max-width: 455px)");
+let telaDois = window.matchMedia("(max-width: 675px)");
 let telaTres = window.matchMedia("(max-width: 1203px)");
 let telaQuatro = window.matchMedia("(max-width: 1150px)");
 

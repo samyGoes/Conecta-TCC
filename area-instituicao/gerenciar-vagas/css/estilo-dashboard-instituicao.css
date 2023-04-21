@@ -1,0 +1,47 @@
+.conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.container-botoes
+{
+    display: flex;
+    /* border: 1px solid #4567a5; */
+    padding: 0rem 0.4rem 0rem 0.4rem;
+}
+
+.container-botoes button
+{
+    width: 11rem;
+    height: 1.7rem;
+    border: 1px solid #4567a5;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #4567a5;
+}
+
+.btn-dashboard button, .btn-voluntarios button
+{
+    border-right: none;
+}
+
+.btn-dashboard button
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
+.container-botoes button:hover
+{
+    background-color: #4567a5;
+    color: #fff;
+}

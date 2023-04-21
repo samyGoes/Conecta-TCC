@@ -1,7 +1,8 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php
 require_once 'global.php';
 ?>
+<?php include "../../auth/verifica-logado.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -137,7 +138,7 @@ require_once 'global.php';
             <div class="container-botoes">
                 <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
                 <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
-                <a href="vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+                <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
             </div>
 
 

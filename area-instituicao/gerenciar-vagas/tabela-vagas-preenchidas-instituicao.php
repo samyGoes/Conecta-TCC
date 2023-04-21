@@ -1,7 +1,8 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php
 require_once 'global.php';
 ?>
+<?php include "../../auth/verifica-logado.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,13 +11,13 @@ require_once 'global.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="../gerenciar-vagas/css/estilo-tabela-vagas-preechidas-instituicao.css">
+    <link rel="stylesheet" href="css/estilo-tabela-vagas-preechidas-instituicao.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
-<body>
+<body class="body">
 
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
@@ -119,91 +120,80 @@ require_once 'global.php';
 
 
 
+
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
             <h1> GERENCIAR VAGAS </h1>
-            <p> Veja todas as informações necessárias para o gerenciamento de suas vagas e possíveis voluntários. </p>
-        </div>
-
-        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
-
-        <div class="container-botoes">
-            <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
-            <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
-            <a href="vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
-        </div>
-
-        <!-- TÍTULO 1 -->
-        <div class="container-titulo-1">
-            <h2 class="titulo"> Vagas Preenchidas </h2>
-            <p class="subtitulo">
-                Esta lista mostra as vagas disponíveis junto da quantidade de ocupações disponíveis para cada vaga e o tanto de ocupações que já foram preenchidas.
-                Para vizualizar os voluntários que preencheram as vagas clique na quantidade de vagas preenchidas.
+            <p>
+                Veja todas as informações necessárias para o gerenciamento de suas vagas e
+                possíveis voluntários.
             </p>
         </div>
 
-        <div class="table">
-            <div class="table-responsive">
+        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+        <div class="conteudo-completo">
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th> VAGAS </th>
-                            <th> OCUPAÇÕES </th>
-                            <th> PREENCHIDAS </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        require_once 'global.php';
-                        try {
-                            $listaCausas = CategoriaServicoDao::listar();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        <tr>
-                            <?php foreach ($listaCausas as $causas) { ?>
-                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td>
-                                    <?php echo $causas['codCategoriaServico']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $causas['nomeCategoria']; ?>
-                                </td>
-                        </tr>
-                    <?php
+            <div class="container-botoes">
+                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
+                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
+                <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+            </div>
+
+
+
+        <div class="conteudo-completo">
+            <!-- TÍTULO 1 -->
+            <div class="container-titulo-1">
+                <h2 class="titulo-voluntarios"> Vagas Preenchidas </h2>
+                <p class="frase-voluntarios">
+                Esta lista mostra as vagas disponíveis junto da quantidade de ocupações disponíveis para cada 
+                vaga e o tanto de ocupações que já foram preenchidas. Para vizualizar os voluntários que 
+                preencheram as vagas clique na quantidade de vagas preenchidas.
+                </p>
+            </div>
+
+
+            <div class="table">
+                <div class="table-responsive">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> VAGAS </th>
+                                <th> OCUPAÇÕES </th>
+                                <th> PREENCHIDAS </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            require_once 'global.php';
+                            try {
+                                $listaCausas = CategoriaServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
                             }
-                    ?>
-                    <tr>
-                        <td>
-                            a
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            a
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            monstro 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            aulas 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                    </tr>
-                    </tbody>
-                </table>
+                            ?>
+                            <tr>
+                                <?php foreach ($listaCausas as $causas) { ?>
+                                    <td>  </td>
+                                    <td>
+                                        <?php echo $causas['codCategoriaServico']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $causas['nomeCategoria']; ?>
+                                    </td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+           
 
     </main>
 
@@ -214,7 +204,7 @@ require_once 'global.php';
 
 
 
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

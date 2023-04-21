@@ -1,7 +1,8 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php 
      require_once 'global.php'; 
 ?>
+<?php include "../../auth/verifica-logado.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,6 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo-dashboard-instituicao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -134,11 +136,15 @@
             </div>
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
-            <div class="container-botoes">
-                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
-                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
-                <a href="vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+
+            <div class="conteudo-completo">
+                <div class="container-botoes">
+                    <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
+                    <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
+                    <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+                </div>
             </div>
+           
 
         </main>
 

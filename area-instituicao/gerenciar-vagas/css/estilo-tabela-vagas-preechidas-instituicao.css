@@ -1,5 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@200;300;400;500&display=swap');
 
+
+
+.conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.container-botoes
+{
+    display: flex;
+    /* border: 1px solid #4567a5; */
+    padding: 0rem 0.4rem 0rem 0.4rem;
+}
+
+.container-botoes button
+{
+    width: 11rem;
+    height: 1.7rem;
+    border: 1px solid #4567a5;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #4567a5;
+}
+
+.btn-dashboard button, .btn-voluntarios button
+{
+    border-right: none;
+}
+
+.btn-vagas button
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
+.container-botoes button:hover
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
+
+
+
+
+
+/* TÍTULO 1 */
+.container-titulo-1
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0rem 2rem 0rem;
+    gap: 0.8rem;
+    width: 80%; 
+}
+
+.titulo-voluntarios
+{
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #2e2e2e;
+}
+
+.frase-voluntarios
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: justify;
+}
+
+
+
 .table {
     display: flex;
     align-items: center;
@@ -11,7 +96,7 @@
     height: 260px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
-    box-shadow: 3px 3px 4px 1px #b4d8e6;
+    box-shadow: 1px 2px 2px 2px #b4d8e6;
 }
 
 .table-responsive table {
@@ -42,7 +127,7 @@ td:nth-child(2) {
 th:nth-child(3),
 td:nth-child(3) {
     min-width: 130px;
-
+    border-right: none;
 }
 
 th {
@@ -61,7 +146,6 @@ tbody {
     display: block;
     width: 100%;
     height: 220px;
-    overflow-y: scroll;
 }
 
 /* SCROLL */
@@ -108,40 +192,4 @@ tbody::-webkit-scrollbar-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/*TITULO DA PAGINA*/
-.container-titulo-1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    margin: 2rem;
-}
-.titulo{
-    font-size: 30px;
-    font-family: acme, sans-serif;
-    font-weight: 200;
-}    
-.subtitulo{
-    font-size: 16px;
-    font-family: poppins, sans-serif;
-    text-align: center;
-}
-
-/*BOTÕES*/
-
-.container-botoes{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.container-botoes button{
-    width: 11rem;
-    padding: 3%;
-    color: #2e2e2e;
-    border: 1px solid #4567a5;
-    font-family: poppins, sans-serif;
-    font-size: 15px;
-    background-color: #fff;
 }
