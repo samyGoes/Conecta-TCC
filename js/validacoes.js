@@ -4,6 +4,32 @@ const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 //const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
 
+
+function validateRequiredFields() {
+  let allFieldsFilled = true;
+  for (let i = 0; i < campos.length; i++) {
+    if (campos[i].value.trim() === '') {
+      setError(i);
+      allFieldsFilled = false;
+    } else {
+      removeError(i);
+    }
+  }
+  return allFieldsFilled;
+}
+
+formulario1.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const allFieldsFilled = validateRequiredFields();
+  if (allFieldsFilled) {
+    nameValidate();
+    emailValidate();
+    cpfValidate();
+    passwordValidate();
+    // Se todos os campos obrigatórios estiverem preenchidos, faça o envio do formulário
+    formulario1.submit();
+  }
+});
 function setError(index) {
   campos[index].style.borderBottom = '1px solid #e63636';
   spans[index].style.display= 'block';
@@ -42,7 +68,7 @@ function emailValidate() {
 }
 
 function validateCPF(cpf) {
-  // Check if the input contains only digits and has the correct format
+ 
   if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
     return false;
   }
@@ -50,12 +76,12 @@ function validateCPF(cpf) {
   // Remove punctuation marks from the input
   cpf = cpf.replace(/[^\d]+/g, '');
 
-  // Check if all digits are the same
+
   if (/^(\d)\1{10}$/.test(cpf)) {
     return false;
   }
 
-  // Calculate the check digits
+
   let sum = 0;
   for (let i = 0; i < 9; i++) {
     sum += parseInt(cpf.charAt(i)) * (10 - i);
@@ -70,7 +96,7 @@ function validateCPF(cpf) {
   remainder = sum % 11;
   let digit2 = remainder < 2 ? 0 : 11 - remainder;
 
-  // Check if the check digits match
+
   if (parseInt(cpf.charAt(9)) !== digit1 || parseInt(cpf.charAt(10)) !== digit2) {
     return false;
   }
@@ -92,6 +118,58 @@ function cpfValidate() {
     removeError(1);
   }
 }
+
+function validateCNPJ(cnpj) {
+ 
+  if (!/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(cnpj)) {
+    return false;
+  }
+
+  // Remove punctuation marks from the input
+  cnpj = cnpj.replace(/[^\d]+/g, '');
+
+  if (/^(\d)\1{13}$/.test(cnpj)) {
+    return false;
+  }
+
+  let sum = 0;
+  let factor = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  for (let i = 0; i < 12; i++) {
+    sum += parseInt(cnpj.charAt(i)) * factor[i+1];
+  }
+  let remainder = sum % 11;
+  let digit1 = remainder < 2 ? 0 : 11 - remainder;
+
+  sum = 0;
+  factor = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+  for (let i = 0; i < 13; i++) {
+    sum += parseInt(cnpj.charAt(i)) * factor[i];
+  }
+  remainder = sum % 11;
+  let digit2 = remainder < 2 ? 0 : 11 - remainder;
+
+  if (parseInt(cnpj.charAt(12)) !== digit1 || parseInt(cnpj.charAt(13)) !== digit2) {
+    return false;
+  }
+
+  return true;
+}
+
+function cnpjValidate() {
+  const cnpj = campos[1].value;
+  let message = '';
+
+  if (!validateCNPJ(cnpj)) {
+    message = 'CNPJ inválido';
+  }
+
+  if (message !== '') {
+    setError(1);
+  } else {
+    removeError(1);
+  }
+}
+
 
 /*function passwordValidate() {
   if (senhaRegex.test(campos[5].value)) {
