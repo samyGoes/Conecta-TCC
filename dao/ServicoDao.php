@@ -180,10 +180,10 @@
         {
             $conectar= Conexao::conectar();
 
-            $querySelect = $conectar->prepare("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+            $querySelect = $conectar->prepare("SELECT tbServico.codServico,DATE_FORMAT(horarioServico, '%H:%i') as horarioServico, periodoServico, descServico, 
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
-            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
+            nomeservico, tipoServico, DATE_FORMAT(dataInicioServico, '%d/%m/%Y') as dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
             nomeInstituicao, fotoInstituicao, 
             GROUP_CONCAT(tbCategoriaServico.codCategoriaServico) as categoria_id, 
             GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as causas, 
@@ -195,8 +195,7 @@
             INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbcausavaga.codCategoriaServico
             INNER JOIN tbHabivaga ON tbhabivaga.codServico = tbServico.codServico
             INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbhabivaga.codHabilidadeServico
-            WHERE tbServico.codServico = ?
-            GROUP BY tbServico.codServico");
+            WHERE tbServico.codServico = ?");
 
             $querySelect->bindParam(1, $cod);
             $querySelect->execute();

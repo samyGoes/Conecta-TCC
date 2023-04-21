@@ -226,13 +226,12 @@
                              $causas = $_SESSION['vaga']['causas'];
                              $causas = array_unique(explode(",", $causas));
 
-                                
                                 foreach($causas as $causa)
                                 { 
                                     ?>
                                     <a href=><button id=tipo-causas-1><?php echo $causa ?></button></a>
-
-                               <?php } 
+                                <?php 
+                               } 
                             ?>
                         </div>
                     </div>

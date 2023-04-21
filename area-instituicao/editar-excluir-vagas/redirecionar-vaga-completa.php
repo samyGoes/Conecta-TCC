@@ -7,7 +7,6 @@
         header('Location: vaga-completa-instituicao.php');
     
         $id = $_POST['id'];
-
         $vaga = ServicoDao::consultarVaga($id);
         $_SESSION['vaga'] = $vaga;
         $_SESSION['codVaga']=$id;
