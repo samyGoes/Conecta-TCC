@@ -20,6 +20,9 @@
 
         <!-- BIBLIOTECA QUE PERMITE ENVIAR EMAIL -->
         <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+
+        <!-- SCRIPT -->
+        <script type="module" src="js/main.js"></script>
         <title> Configurações do Perfil - trocar senha</title>
     </head>
 
@@ -118,8 +121,7 @@
 
 
         <!-- CONTEUDO  -->
-        <main class="main-conteudo">
-   
+        <main class="main-conteudo"> 
             <div class="main-conteudo-container-titulo">
                 <h1>TROCAR SENHA</h1>
                 <p>
@@ -135,8 +137,9 @@
             <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
             <div id="modal" class="modal">
                 <div class="form" id="form">
-                    <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
+                    
                     <div class="modal-sessao-1">
+                        <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
                         <p class="modal-frase"> Clique <a id="envia-email" href="#"> aqui </a> para que um código de verificação seja enviado no seu email.</p>
 
                         <form class="form-modal" action="" method="POST" id="form-modal">
@@ -146,10 +149,13 @@
                             </div>
                             <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                         </form>
+
+                        <a class="voltar-anterior" href="#"> Voltar para a página anterior </a>
                     </div>
 
                     <div class="modal-sessao-2">
-                        <p class="modal-frase"> Verificação feita com sucesso! Agora você já pode alterar sua senha. </p>
+                        <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                        <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
                     </div>                
                 </div>
@@ -184,10 +190,13 @@
 
 
         <!-- SCRIPTS -->
-        <script src="js/script.js"></script>
-        <script src="js/modal-confirmacao.js"></script>
+
         <!-- ENVIANDO O EMAIL -->
-        <script src="js/envia-email.js"></script>
+        <!-- <script src="js/envia-email.js"></script> -->
+        
+        <script>
+            // import {  } from "js/envia-email.js";
+        </script>
     </body>
 
 </html>
