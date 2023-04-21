@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 
-.modal-responsive {
+.modal-responsive 
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,13 +10,13 @@
     font-family: poppins, sans-serif;
 }
 
-.form {
+.form 
+{
     width: 400px;
-    height: 355px;
+    height: 341px;
     background-color: #fff;
-    border: 1px solid #4567a5;
     border-radius: 0.5rem;
-    padding: 30px;
+    padding: 30px 30px 25px 30px;
     position: fixed;
     max-width: 90%;
     transform: translate(-50%, -50%);
@@ -24,14 +25,16 @@
     top: 50%;
 }
 
-.modal-texto {
+.modal-texto 
+{
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: poppins, sans-serif;
 }
 
-#open-modal {
+#open-modal 
+{
     font-family: poppins, sans-serif;
     border-radius: 0.3rem;
     color: #fff;
@@ -39,33 +42,50 @@
 }
 
 
-.modal-titulo {
+.modal-titulo 
+{
     font-family: poppins, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
     color: #000;
 }
 
-.modal-email {
+.modal-frase
+{
     font-family: poppins, sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
-    color: #525252;
+    color: #000;
+    margin: 1.6rem 0rem 0.5rem 0rem;
 }
 
-.modal-senha {
+.modal-frase a
+{
+    font-weight: 500;
+    color: #c48139;
+    transition: all 0.5s ease;
+}
+.modal-frase a:hover
+{
+    color: #3fa1cf;
+}
+
+.modal-senha 
+{
     font-family: poppins, sans-serif;
     font-weight: 500;
     font-size: 14px;
     color: #525252;
 }
-.fade, .modal {
+.fade, .modal
+{
     transition: 0.5s;
     opacity: 1;
     pointer-events: all;
 }
 
-.fade {
+.fade 
+{
     position: fixed;
     top: 0;
     left: 0;
@@ -75,21 +95,29 @@
     z-index: 5;
 }
 
-.modal.hide, .fade.hide {
+.modal.hide, .fade.hide 
+{
     opacity: 0;
     pointer-events: none;
 }
 
-.form-modal{
+.form-modal
+{
     line-height: 50px;
 }
 
-.modal-input-box input {
+.modal-input-box
+{
+    position: relative;
+}
+
+.modal-input-box input 
+{
     display: flex;
     justify-content: center;
     width: 20.9rem;
     padding: 8px;
-    border: 1px solid #4567a5;
+    border: 1px solid #cf8a3f;
     outline: none;
 
     font-family: poppins, sans-serif;
@@ -97,17 +125,19 @@
     color: #525252;
     font-size: 14px;   
 }
-.btn-confirmed{
+.btn-confirmed
+{
     display: flex;
     justify-content: center;
 }
 
-.btn-confirmed button{
+.btn-confirmed button
+{
     margin-top: 2vw;
     width: 11rem;
     height: 2.5rem;
-    background-color: #4567a5;
-    border: 1px solid #4567a5;
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
     border-radius: 0.5rem;
     margin-top: 2em;
 
@@ -119,12 +149,14 @@
     font-weight: 300;
     font-size: 20px;
 }
-.btn-confirmed button:hover{
+.btn-confirmed button:hover
+{
     background-color: #fff;
-    color: #4567a5;
+    color: #cf8a3f;
 }
 
-.modal {
+.modal 
+{
     /* display: none; */
     position: fixed;
     z-index: 4;
@@ -134,20 +166,27 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-  }
-  
+}
+/*   
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+transition: all 0.5s ease;
+cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+}
+*/
+
+
+.modal-sessao-2
+{
+    display: none;
+    flex-direction: column;
+}

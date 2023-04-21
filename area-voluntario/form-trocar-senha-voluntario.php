@@ -17,7 +17,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Document</title>
+
+        <!-- BIBLIOTECA QUE PERMITE ENVIAR EMAIL -->
+        <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+        <title> Configurações do Perfil - trocar senha</title>
     </head>
 
     <body>
@@ -106,6 +109,10 @@
 
 
 
+        <!-- EMAIL E NOME DA PESSOA LOGADA PARA CÓDIGO DE VERIFICAÇÃO DO MODAL -->
+        <p style="display: none;" class="email-logado"> <?php echo $_SESSION["emailUsuario"]; ?> </p>
+        <p style="display: none;" class="nome-logado"> <?php echo $_SESSION["nomeUsuario"]; ?> </p>
+
 
 
 
@@ -123,22 +130,28 @@
 
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
 
+
+
             <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
             <div id="modal" class="modal">
                 <div class="form" id="form">
                     <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
+                    <div class="modal-sessao-1">
+                        <p class="modal-frase"> Clique <a id="envia-email" href="#"> aqui </a> para que um código de verificação seja enviado no seu email.</p>
 
-                    <form class="form-modal" action="" method="POST" id="form-modal">
-                        <div class="modal-input-box" id="modal-input-box">
-                            <label for="" class="modal-email"> CPF </label>
-                            <input placeholder="Digite seu CPF" type="text" name="email" id="email" class="modal-input-email">
-                        </div>
-                        <div class="modal-input-box">
-                            <label for="" class="modal-senha"> Senha </label>
-                            <input placeholder="Digite sua senha" type="password" name="senha" id="senha" class="modal-input-senha">
-                        </div>
-                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
-                    </form>
+                        <form class="form-modal" action="" method="POST" id="form-modal">
+                            <div class="modal-input-box">
+                                <label for="" class="modal-senha"> Código </label>
+                                <input placeholder="Digite o código" type="text" name="senha" id="senha" class="modal-input-senha">
+                            </div>
+                            <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
+                        </form>
+                    </div>
+
+                    <div class="modal-sessao-2">
+                        <p class="modal-frase"> Verificação feita com sucesso! Agora você já pode alterar sua senha. </p>
+                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
+                    </div>                
                 </div>
             </div>
 
@@ -173,6 +186,8 @@
         <!-- SCRIPTS -->
         <script src="js/script.js"></script>
         <script src="js/modal-confirmacao.js"></script>
+        <!-- ENVIANDO O EMAIL -->
+        <script src="js/envia-email.js"></script>
     </body>
 
 </html>
