@@ -16,7 +16,7 @@
 
         if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cpf" )
         {
-            $stmt=$conectar->prepare("SELECT tbVoluntario.codVoluntario, nomeVoluntario, dataNascVoluntario, 
+            $stmt=$conectar->prepare("SELECT tbVoluntario.codVoluntario,nomeVoluntario,DATE_FORMAT(dataNascVoluntario, '%d/%m/%Y') as dataNascVoluntario, 
             emailVoluntario,descVoluntario,fotoVoluntario,
             COALESCE(tbFoneVoluntario1.numFoneVoluntario, '') AS telefone1,
             COALESCE(tbFoneVoluntario2.numFoneVoluntario, '') AS telefone2,
@@ -62,7 +62,7 @@
                 $_SESSION['ftPerfil'] = $result['fotoVoluntario'];
         
                 // Redireciona para a página inicial do sistema
-                header('Location: ../area-voluntario/perfil-voluntario.php');
+                header('Location: ../index.php');
                
                 exit();
             } 
@@ -120,7 +120,7 @@
                 
         
                 // Redireciona para a página inicial do sistema
-                header('Location: ../area-instituicao/perfil-instituicao.php');
+                header('Location: ../index.php');
                 exit();
 
             }

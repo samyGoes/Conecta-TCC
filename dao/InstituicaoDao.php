@@ -192,9 +192,23 @@
         {
             $conexao = Conexao::conectar();
 
-            
+            $querySelect = $conexao->prepare("SELECT tbInstituicao.codInstituicao, nomeInstituicao, emailInstituicao, 
+            COALESCE(tbFoneInstituicao1.numFoneInstituicao, '') AS telefone1,
+            COALESCE(tbFoneInstituicao2.numFoneInstituicao, '') AS telefone2,
+            logInstituicao, numLogInstituicao, cepInstituicao, bairroInstituicao, 
+            cidadeInstituicao, estadoInstituicao, paisInstituicao, compInstituicao, 
+            descInstituicao,fotoInstituicao
+            FROM tbInstituicao 
+            INNER JOIN tbFoneInstituicao tbFoneInstituicao1 
+                ON tbInstituicao.codInstituicao = tbFoneInstituicao1.codInstituicao 
+                    INNER JOIN tbFoneInstituicao tbFoneInstituicao2 
+                        ON tbInstituicao.codInstituicao = tbFoneInstituicao2.codInstituicao 
+                        AND tbFoneInstituicao1.codFoneInstituicao <> tbFoneInstituicao2.codFoneInstituicao 
+                        WHERE codInstituicao = ?");
 
-
+            $querySelect->bindValue(1, $cod);
+            $resultado=$querySelect->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
         }
 
     }

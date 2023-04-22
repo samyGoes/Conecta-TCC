@@ -156,5 +156,27 @@
             return $id;   
         }
 
+        public static function consultarVoluntario($cod)
+        {
+            $conexao = Conexao::conectar();
+
+            $querySelect = $conexao->prepare("SELECT tbVoluntario.codVoluntario,nomeVoluntario,DATE_FORMAT(dataNascVoluntario, '%d/%m/%Y') as dataNascVoluntario, 
+            emailVoluntario,descVoluntario,fotoVoluntario,
+            COALESCE(tbFoneVoluntario1.numFoneVoluntario, '') AS telefone1,
+            COALESCE(tbFoneVoluntario2.numFoneVoluntario, '') AS telefone2,
+            logVoluntario, numLogVoluntario, cepVoluntario, bairroVoluntario, 
+            cidadeVoluntario, estadoVoluntario, paisVoluntario, compVoluntario, 
+            descVoluntario,TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario 
+            INNER JOIN tbFoneVoluntario tbFoneVoluntario1 ON tbFoneVoluntario1.codVoluntario = tbVoluntario.codVoluntario 
+                INNER JOIN tbFoneVoluntario tbFoneVoluntario2 
+                    ON tbFoneVoluntario1.codVoluntario = tbFoneVoluntario2.codVoluntario 
+                        AND tbFoneVoluntario1.codFoneVoluntario <> tbFoneVoluntario2.codFoneVoluntario 
+                        WHERE codVoluntario = ?");
+
+            $querySelect->bindValue(1, $cod);
+            $resultado=$querySelect->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+        }
+
     }
 ?>
