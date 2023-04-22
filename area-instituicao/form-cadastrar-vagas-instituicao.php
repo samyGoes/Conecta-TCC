@@ -21,7 +21,7 @@ require_once 'global.php';
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
-            <p> Conecta </p>
+            <img src="../img/logo-conecta.png">
         </div>
 
         <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -129,7 +129,7 @@ require_once 'global.php';
         <div class="main-conteudo-container-titulo">
             <h1>Cadastrar Vagas</h1>
             <p>
-                Aqui você pode cadastrar as vagas da sua instituição
+                Aqui você poderá cadastrar as vagas que deseja para a sua instituição.
             </p>
         </div>
 
@@ -155,55 +155,62 @@ require_once 'global.php';
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">Habilidades</label>
-                                <div class="filtro-habilidade"> Selecione as habilidades... </div>
-                                <div class="box-habilidade">
-                                    <?php
-                                    try {
-                                        $listaHabilidade = HabilidadeServicoDao::listar();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                    ?>
-                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                        <div class="box-habilidade-checkbox">
-                                            <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
-                                                                                                                $habilidade['codHabilidadeServico']; ?>>
-                                            <label for="habilidade">
-                                                <?php echo $habilidade['nomeHabilidadeServico']; ?>
-                                            </label>
-                                        </div>
 
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
+                                <div class="clique-fora-h">
+                                    <div class="filtro-habilidade"> Selecione as habilidades... </div>
+                                    <div class="box-habilidade">
+                                        <?php
+                                        try {
+                                            $listaHabilidade = HabilidadeServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        ?>
+                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                            <div class="box-habilidade-checkbox">
+                                                <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
+                                                                                                                    $habilidade['codHabilidadeServico']; ?>>
+                                                <label for="habilidade">
+                                                    <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                                </label>
+                                            </div>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>                      
                             </div>
                         </div>
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">Causas</label>
-                                <div class="filtro-causas"> Selecione as causas... </div>
-                                <div class="box-causas">
-                                    <?php
-                                    try {
-                                        $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                    ?>
-                                    <?php foreach ($listaCausas as $causas) { ?>
-                                        <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas[]" id="causas" value=<?php echo
-                                                                                                    $causas['codCategoriaServico']; ?>>
-                                            <label for="causas">
-                                                <?php echo $causas['nomeCategoria']; ?>
-                                            </label>
-                                        </div>
 
-                                    <?php
-                                    }
-                                    ?>
+                                <div class="clique-fora">
+                                    <div class="filtro-causas"> Selecione as causas... </div>
+                                    <div class="box-causas">
+                                        <?php
+                                        try {
+                                            $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        ?>
+                                        <?php foreach ($listaCausas as $causas) { ?>
+                                            <div class="box-causas-checkbox">
+                                                <input type="checkbox" name="causas[]" id="causas" value=<?php echo
+                                                                                                        $causas['codCategoriaServico']; ?>>
+                                                <label for="causas">
+                                                    <?php echo $causas['nomeCategoria']; ?>
+                                                </label>
+                                            </div>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
+                              
                             </div>
 
                         </div>
@@ -281,7 +288,7 @@ require_once 'global.php';
                 </div>
                 <a href="">
                     <div class="continue-button">
-                        <button type="submit">SALVAR</button>
+                        <button type="submit">CADASTRAR</button>
                 </a>
         </div>
         </form>
@@ -293,22 +300,52 @@ require_once 'global.php';
         const botaoHabilidade = document.querySelector(".filtro-habilidade");
         const boxCausas = document.querySelector(".box-causas");
         const boxHabilidade = document.querySelector(".box-habilidade")
+        const dropCausas = document.querySelector('.clique-fora');
+        const dropHab = document.querySelector(".clique-fora-h");
 
-        botaoCausas.addEventListener("click", function() {
-            if (boxCausas.style.display == "none") {
+
+        botaoCausas.addEventListener("click", function() 
+        {
+            if (boxCausas.style.display == "none") 
+            {
                 boxCausas.style.display = "flex";
-            } else {
+            } 
+            else 
+            {
                 boxCausas.style.display = "none";
             }
         });
 
-        botaoHabilidade.addEventListener("click", function() {
-            if (boxHabilidade.style.display == "none") {
+        document.addEventListener('click', function(event) 
+        {
+            const target = event.target;
+            if (!dropCausas.contains(target)) 
+            {
+                boxCausas.style.display = "none";
+            }
+        });
+
+        botaoHabilidade.addEventListener("click", function() 
+        {
+            if (boxHabilidade.style.display == "none") 
+            {
                 boxHabilidade.style.display = "flex";
-            } else {
+            } 
+            else 
+            {
                 boxHabilidade.style.display = "none";
             }
         });
+
+        document.addEventListener('click', function(eventh) 
+        {
+            const targetH = eventh.target;
+            if (!dropHab.contains(targetH)) 
+            {
+                boxHabilidade.style.display = "none";
+            }
+        });
+
     </script>
 
     <script src="../js/endereco-auto.js"></script>

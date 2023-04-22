@@ -152,8 +152,8 @@ require_once 'global.php';
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <!-- <div class="input-box">
+                        <div> -->
                             <div class="box-filtro-causas">
                                 <label for="">Habilidades</label>
                                 <div class="filtro-habilidade"> Selecione as habilidades... </div>
@@ -181,7 +181,7 @@ require_once 'global.php';
                                     <?php } ?>
                                 </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">Causas</label>
@@ -213,10 +213,10 @@ require_once 'global.php';
                                 </div>
                             </div>
 
-                        </div>
+                        <!-- </div> -->
 
 
-                    </div>
+                    <!-- </div> -->
 
                     <div class="input-box">
                         <div>
