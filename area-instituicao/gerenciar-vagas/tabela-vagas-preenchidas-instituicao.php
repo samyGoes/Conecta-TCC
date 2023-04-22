@@ -161,9 +161,9 @@ require_once 'global.php';
                     <table>
                         <thead>
                             <tr>
-                                <th> VAGAS </th>
-                                <th> OCUPAÇÕES </th>
-                                <th> PREENCHIDAS </th>
+                                <th> Vagas </th>
+                                <th> Ocupações </th>
+                                <th> Preenchidas </th>
                             </tr>
                         </thead>
                         <tbody>
