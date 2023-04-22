@@ -124,7 +124,7 @@
 
         public static function listar(){
             $conexao = Conexao :: conectar();
-            $querySelect = "SELECT codVoluntario, nomeVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario FROM tbVoluntario";
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;

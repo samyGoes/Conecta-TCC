@@ -19,7 +19,7 @@
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
-            <p> Conecta </p>
+            <img src="../img/logo-conecta.png">
         </div>
 
         <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -210,7 +210,7 @@
     <!-- NAVS  -->
     <script src="js/script.js"></script>
     <!-- CHECKBOX -->
-    <script src="js/checkbox.js"></script>
+                                    
 </body>
 
 </html>

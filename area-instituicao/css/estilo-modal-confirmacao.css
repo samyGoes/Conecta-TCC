@@ -57,12 +57,12 @@
 .modal-frase a
 {
     font-weight: 500;
-    color: #c48139;
+    color: #3fa1cf;
     transition: all 0.5s ease;
 }
 .modal-frase a:hover
 {
-    color: #3fa1cf;
+    color: #cf8a3f;
 }
 
 .modal-senha 
@@ -101,7 +101,7 @@
     justify-content: center;
     width: 20.9rem;
     padding: 8px;
-    border: 1px solid #cf8a3f;
+    border: 1px solid #4567a5;
     outline: none;
 
     font-family: poppins, sans-serif;
@@ -120,8 +120,8 @@
     margin: 2.5rem 0rem 1rem 0rem;
     width: 11rem;
     height: 2.5rem;
-    background-color: #cf8a3f;
-    border: 1px solid #cf8a3f;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
     border-radius: 0.5rem;
     outline: none;
 
@@ -136,7 +136,7 @@
 .btn-confirmed button:hover
 {
     background-color: #fff;
-    color: #cf8a3f;
+    color: #4567a5;
 }
 
 .voltar-anterior
@@ -146,13 +146,13 @@
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #cf8a3f;
+    color: #3fa1cf;
     transition: all 0.5s ease;
 }
 
 .voltar-anterior:hover
 {
-    color: #3fa1cf;
+    color: #cf8a3f;
 }
 
 

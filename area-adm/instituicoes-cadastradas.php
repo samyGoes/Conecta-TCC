@@ -114,7 +114,7 @@
                                 <td> <?php echo $instituicao['codInstituicao']; ?> </td>
                                 <td>
                                     <div class="box-img-lista">
-                                        <img src="img/user-cinza.png" alt="">
+                                        <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>">
                                     </div>
                                 </td>
                                 <td><?php echo $instituicao['nomeInstituicao']; ?></td>

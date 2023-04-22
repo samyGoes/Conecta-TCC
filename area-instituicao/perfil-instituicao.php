@@ -23,7 +23,7 @@
    <!-- BARRA DE NAVEGAÇÂO -->
    <nav class="cabecalho">     
             <div class="logo">
-                <p> Conecta </p>
+                <img src="../img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -222,8 +222,6 @@
                                 try {
 
                                     $listaCausas = CategoriaServicoDao::listarCausa();
-                                    print_r($listaCausas);
-                                    print_r($_SESSION['codUsuario']);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }

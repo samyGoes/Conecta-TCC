@@ -111,7 +111,7 @@
                                 <td> <?php echo $voluntario['codVoluntario']; ?> </td>
                                 <td>
                                     <div class="box-img-lista">
-                                        <img src="img/user-cinza.png" alt="">
+                                        <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
                                     </div>
                                 </td>
                                 <td><?php echo $voluntario['nomeVoluntario']; ?></td>
