@@ -22,22 +22,25 @@
     width: 100%;
     background-color: #232f61;
     position: fixed;
-    z-index: 3;
+    z-index: 10;
     /* display: none; */
 }
 .logo
 {
     justify-self: start;
+    width: 170px;
+    height: 50px;
+    margin-left: 1.6rem;
+    margin-top: 2.3rem;
 }
-.logo p
+.logo img
 {
-    font-family: poppins, sans-serif;
-    font-size: 30px;
-    color: #fff;
-    font-weight: 400;
-    margin-left: 3rem;
-    margin-top: 2.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
+
+
 .topicos-sessao-completa
 {
     display: flex;
@@ -182,7 +185,7 @@
     width: 100%;
     height: 10rem;
     position: fixed;
-    z-index: 2;
+    z-index: 9;
     background-color: #fff;
     /* display: none; */
 }
@@ -220,7 +223,7 @@
     border-top: none;
     transition: all 0.5s ease;
     /* opacity: 0.3; */
-    z-index: 1;
+    z-index: 8;
 }
 
 .nav-lateral-sessao-um

@@ -59,7 +59,7 @@
 }
 
 .input-box input,
-textarea::placeholder {
+.input-box textarea {
     font-family: Poppins, sans-serif;
     font-weight: 400;
     color: #525252;
@@ -105,9 +105,8 @@ select option {
 }
 
 #nome,
-#tipoVaga,
-#habilidade,
-#causas {
+#tipoVaga
+{
     width: 30vw;
 }
 
@@ -207,7 +206,7 @@ select option {
     cursor: pointer;
 
     color: #fff;
-    font-size: 16pt;
+    font-size: 20px;
     font-weight: 300;
     font-family: poppins, sans-serif;
     transition: all 0.3s ease;
@@ -219,16 +218,14 @@ select option {
 }
 
 
-
-
-.box-filtro-causas {
+/* CAUSAS E HABILIDADES */
+.box-filtro-causas 
+{
     position: relative;
 }
 
-.filtro-causas
-
-/*, #estados, #cidades */
-    {
+.filtro-causas, .filtro-habilidade
+{
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -251,132 +248,70 @@ select option {
     background-size: 15px;
 }
 
-.filtro-habilidade
-
-/*, #estados, #cidades */
+.box-causas, .box-habilidade
 {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    /* min-width: 30vw;
+    max-height: 15.3rem; */
+    width: 30vw;
+    height: 9rem;
+    border: 1px solid #4567a5;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    position: absolute;
+    top: 6.1rem;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+.box-habilidade
+{
+    z-index: 2;
+}
+
+
+/* SCROLL */
+.box-causas::-webkit-scrollbar, .box-habilidade::-webkit-scrollbar {
+    width: 11px;
+}
+
+.box-causas::-webkit-scrollbar-track, .box-habilidade::-webkit-scrollbar-track {
+    background: #dce5f7;
+    border-radius: 0.8rem;
+}
+
+.box-causas::-webkit-scrollbar-thumb, .box-habilidade::-webkit-scrollbar-thumb {
+    background-color: #4567a5;
+    border-radius: 20px;
+    border: 2px solid #dce5f7;
+    transition: all 0.5s ease;
+}
+
+
+.box-causas-checkbox, .box-habilidade-checkbox {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    background-color: #ffffff;
-    width: 30vw;
-    height: 2.5rem;
-    padding: 8px;
-    border: solid 1px #4567a5;
-    text-align: center;
+    gap: 0.5rem;
+}
+
+.box-causas-checkbox label, .box-habilidade-checkbox label {
     font-family: poppins, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     color: #525252;
-    overflow: hidden; 
-    white-space: nowrap;
-
-    
-    background-image: url("../../img/seta.png");
-    background-repeat: no-repeat;
-    background-position: right ;
-    background-size: 15px;
-}
-
-.box-causas {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    min-width: 30vw;
-    max-height: 15.3rem;
-    border: 1px solid #4567a5;
-    padding: 0.5rem 1rem 0.5rem 2rem;
-    position: absolute;
-    top: 6.1rem;
-    display: none;
-    overflow-y: scroll;
-}
-
-/* SCROLL */
-.box-causas::-webkit-scrollbar {
-    width: 11px;
-}
-
-.box-causas::-webkit-scrollbar-track {
-    background: #dce5f7;
-    border-radius: 0.8rem;
-}
-
-.box-causas::-webkit-scrollbar-thumb {
-    background-color: #4567a5;
-    border-radius: 20px;
-    border: 2px solid #dce5f7;
-    transition: all 0.5s ease;
-}
-
-.box-habilidade {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    min-width: 30vw;
-    max-height: 15.3rem;
-    border: 1px solid #4567a5;
-    padding: 0.5rem 1rem 0.5rem 2rem;
-    position: absolute;
-    top: 6.1rem;
-    display: none;
-    overflow-y: scroll;
-}
-
-/* SCROLL */
-.box-habilidade::-webkit-scrollbar {
-    width: 11px;
-}
-
-.box-habilidade::-webkit-scrollbar-track {
-    background: #dce5f7;
-    border-radius: 0.8rem;
-}
-
-.box-habilidade::-webkit-scrollbar-thumb {
-    background-color: #4567a5;
-    border-radius: 20px;
-    border: 2px solid #dce5f7;
-    transition: all 0.5s ease;
 }
 
 
 /* ESTILIZANDO CHECKBOX */
-#causas[type="checkbox"] {
-    /* ZERAR CONFIGURAÇÃO PADRÃO */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
-    border: 1px solid #525252;
-    outline: none;
-    cursor: pointer;
-}
-
-#causas[type="checkbox"]:checked::before {
-    content: '\2713';
-    display: block;
-    color: #fff;
-    background-color: #4567a5;
-    text-align: center;
-
-    line-height: 13px;
-    font-size: 13px;
-}
-
-
-/* ESTILIZANDO CHECKBOX */
+#causas[type = "checkbox"],
 #habilidade[type = "checkbox"]
 {
     /* ZERAR CONFIGURAÇÃO PADRÃO */
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; */
     
     width: 15px;
     height: 15px;
@@ -385,71 +320,18 @@ select option {
     outline: none;
     cursor: pointer;
 }
+#causas[type = "checkbox"]:checked::before,
 #habilidade[type = "checkbox"]:checked::before
 {
     content: '\2713';
     display: block;
+    border-radius: 3px;
     color: #fff;
     background-color: #4567a5; 
     text-align: center;
    
-    line-height: 13px;
+    line-height: 15px;
     font-size: 13px;
-}
-
-.box-causas-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.box-causas-checkbox label {
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #525252;
-}
-
-
-
-
-
-#habilidade[type="checkbox"] {
-    /* ZERAR CONFIGURAÇÃO PADRÃO */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
-    border: 1px solid #525252;
-    outline: none;
-    cursor: pointer;
-}
-
-#habilidade[type="checkbox"]:checked::before {
-    content: '\2713';
-    display: block;
-    color: #fff;
-    background-color: #4567a5;
-    text-align: center;
-
-    line-height: 13px;
-    font-size: 13px;
-}
-
-.box-habilidade-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.box-habilidade-checkbox label {
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #525252;
 }
 
 
@@ -467,12 +349,14 @@ select option {
 /*FORMULARIO*/
 @media (max-width: 1048px) {
 
-    #nome,
-    #tipoCausa,
-    .filtro-causa,
-    .filtro-habilidade,
+    #nome, 
+    #tipoVaga, 
+    .filtro-causas, 
+    .filtro-habilidade, 
     #quantidadeVagas,
-    #log {
+    #log, 
+    .box-habilidade, 
+    .box-causas {
         width: 33vw;
     }
 
@@ -481,27 +365,21 @@ select option {
     #cidade,
     #pais,
     #comp,
-    #uf
-    {
-        width: 20.1vw;
-    }
-
+    #uf,
     #periodo,
     #dataInicio,
-    #horario {
-        width: 20.1vw;
-    }
-
-    #cep {
-        width: 19vw;
+    #horario,
+    #cep
+    {
+        width: 20.9vw;
     }
 
     #num {
-        width: 8.2vw;
+        width: 8.6vw;
     }
 
     #desc {
-        width: 66.2vw;
+        width: 68.6vw;
     }
 }
 
@@ -515,25 +393,27 @@ select option {
         flex-direction: column;
     }
 
-    #num,
-    #bairro,
-    #cep,
-    #cidade,
-    #pais,
-    #comp,
-    #uf,
-    #desc,
-    #nome,
-    #logradouro,
-    #tipoVaga,
-    .filtro-habilidade,
-    .filtro-causas,
-    #periodo,
-    #dataInicio,
-    #horario,
-    #quantidadeVagas {
-        width: 60vw;
-    }
+        #num,
+        #bairro,
+        #cep,
+        #cidade,
+        #pais,
+        #comp,
+        #uf,
+        #desc,
+        #nome,
+        #logradouro,
+        #tipoVaga,
+        .filtro-habilidade,
+        .filtro-causas,
+        #periodo,
+        #dataInicio,
+        #horario,
+        #quantidadeVagas,
+        .box-causas,
+        .box-habilidade {
+            width: 60vw;
+        }
 
     .input-box .div-image {
         border: none;
@@ -564,7 +444,9 @@ select option {
     #periodo,
     #dataInicio,
     #horario,
-    #quantidadeVagas {
+    #quantidadeVagas,
+    .box-causas,
+    .box-habilidade {
         width: 70vw;
     }
 }
