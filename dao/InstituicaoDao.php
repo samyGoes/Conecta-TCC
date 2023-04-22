@@ -167,7 +167,7 @@
         public static function listar()
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codInstituicao, nomeInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
+            $querySelect = "SELECT codInstituicao, nomeInstituicao, descInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  

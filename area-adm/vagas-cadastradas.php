@@ -104,23 +104,24 @@
                             <?php
                             require_once 'global.php';
                             try {
-                                $listaInstituicao = ListarInstituicoes::listar();
+                                $listaVagas = ServicoDao::listarVagaAdm();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
                             <tr>
-                                <?php foreach ($listaInstituicao as $instituicao) { ?>
+                                <?php foreach ($listaVagas as $vaga) { ?>
                                     <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td> <?php echo $instituicao['codInstituicao']; ?> </td>
-                                    <td>aaaaaaa</td>
-                                    <td> aaaaa</td>
-                                    <td>aaaa</td>
-                                    <td><?php echo $instituicao['nomeInstituicao']; ?></td>
-                                    <td> <?php echo $instituicao['emailInstituicao']; ?> </td>
-                                    <td> <?php echo $instituicao['cidadeInstituicao']; ?> </td>
-                                    <td> <?php echo $instituicao['estadoInstituicao']; ?> </td>
-                                    <td> <?php echo $instituicao['paisInstituicao']; ?> </td>
+                                    <td> <?php echo $vaga['codServico']; ?> </td>
+                                    <td><?php echo $vaga['nomeservico']; ?></td>
+                                    <td> <?php echo $vaga['periodoServico']; ?></td>
+                                    <td><?php echo $vaga['horarioServico']; ?></td>
+                                    <td> <?php echo $vaga['nomeCategoria']; ?></td>
+                                    <td> <?php echo $vaga['nomeHabilidadeServico']; ?>  </td>
+                                    <td> <?php echo $vaga['nomeInstituicao']; ?> </td>
+                                    <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
+                                    <td> <?php echo $vaga['estadoLocalServico']; ?></td>
+                                    <td> <?php echo $vaga['paisLocalServico']; ?></td>
                             </tr>
                         <?php
                                 }

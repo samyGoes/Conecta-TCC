@@ -222,8 +222,6 @@
                                 try {
 
                                     $listaCausas = CategoriaServicoDao::listarCausa();
-                                    print_r($listaCausas);
-                                    print_r($_SESSION['codUsuario']);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }

@@ -144,7 +144,7 @@ include "../auth/verifica-logado.php";
         <?php
 
         try {
-            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+            $listaVaga = ServicoDao::listarVagaAdm();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -161,7 +161,7 @@ include "../auth/verifica-logado.php";
                     </div>
                     <div class="fundo">
                         <div class="fundo-img">
-                            <img src="../<?php echo $vaga['fotoInstituicao']; ?>">
+                            <img src="../area-instituicao/<?php echo $vaga['fotoInstituicao']; ?>">
                         </div>
                         <div class="title-1">
                             <p><?php echo $vaga['nomeInstituicao']; ?></p>

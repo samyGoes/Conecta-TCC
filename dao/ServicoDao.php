@@ -154,6 +154,25 @@
 
         }
 
+        public static function listarVagaAdm()
+        {
+            $conexao = Conexao::conectar();
+            $querySelect = ("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+            cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
+            complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
+            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
+            nomeInstituicao, fotoInstituicao, nomeCategoria, nomeHabilidadeServico 
+            FROM tbServico
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao
+            INNER JOIN tbCausaVaga ON tbCausaVaga.codServico = tbServico.codServico
+            INNER JOIN tbHabiVaga ON tbHabiVaga.codServico = tbServico.codServico
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico
+            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico") ;
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
         public static function listarVaga($cod)
         {
             $conectar= Conexao::conectar();
