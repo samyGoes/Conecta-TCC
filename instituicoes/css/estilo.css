@@ -515,13 +515,13 @@ body
     gap: 2%;
     justify-content: flex-end;
     padding-top: 1rem;
-    /* border-top: 1px solid #000;
-    margin-top: 1rem; */
-    /* background-color: #4567a5; */
 }
 
 .lista-item-2 button 
 { 
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
     width: 8rem;
     border: 1px solid #000000;
     border-radius: 1.5rem;
@@ -529,6 +529,10 @@ body
     transition: all 0.5s ease;
     cursor: pointer;
     margin-bottom: 0.5rem;
+    background-color: #ecd1f7;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    padding: 0rem 0.6rem 0rem 0.6rem;
 
     /* TEXTO */
     font-size: 14px;
@@ -536,6 +540,7 @@ body
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     color: #000000;
+    white-space: nowrap;
 }
 
 .lista-item-2 button:hover

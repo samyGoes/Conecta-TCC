@@ -362,6 +362,9 @@ main
     height: 2.5rem;
     transition: all 0.5s ease;
     cursor: pointer;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    padding: 0rem 0.6rem 0rem 0.6rem;
 
     /* TEXTO */
     font-size: 16px;
@@ -369,6 +372,7 @@ main
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     color: #000000;
+    white-space: nowrap;
 }
 .tipo-causas button:hover
 {

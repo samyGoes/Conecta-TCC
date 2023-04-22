@@ -24,15 +24,16 @@
     border: 1px solid #4567a5;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 400px;
-    height: auto;
+    height: 200px;
     padding: 30px;
     border-radius: 0.5rem;
     background-color: #fff;
-    line-height: 50px;
 }
 .modal-titulo{
+    align-self: flex-start;
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -41,20 +42,20 @@
 .btn-exit{
     margin-top: 10px;   
     display: flex;
-    flex-direction: row;
-    gap: 8%;
+    align-items: center;
+    gap: 1rem;
 }
 .btn-exit button{
     background-color: #fbf7c7;
     border: 1px solid #000;
     width: 8em;
-    height: 2.5rem;
+    height: 2.3rem;
     border-radius: 0.5rem;
     cursor: pointer;
 
     font-family:  Poppins, sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px;
     transition: all 0.5s ease;
     text-transform: uppercase;
 }
