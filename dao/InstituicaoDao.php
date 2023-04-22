@@ -49,8 +49,8 @@
             else
             {
                 $stmt=$conectar->prepare("INSERT INTO tbinstituicao(nomeInstituicao,emailInstituicao,cnpjInstituicao,senhaInstituicao,logInstituicao,
-                                                                numLogInstituicao,cepInstituicao,bairroInstituicao,cidadeInstituicao,compInstituicao,estadoInstituicao,paisInstituicao)
-                                                                VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+                                                                numLogInstituicao,cepInstituicao,bairroInstituicao,cidadeInstituicao,compInstituicao,estadoInstituicao,paisInstituicao,fotoInstituicao)
+                                                                VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
            
                 $stmt->bindValue(1, $instituicao->getNomeInstituicao());
                 $stmt->bindValue(2, $instituicao->getEmailInstituicao());
@@ -64,6 +64,7 @@
                 $stmt->bindValue(10, $instituicao->getCompInstituicao());
                 $stmt->bindValue(11, $instituicao->getEstadoInstituicao());
                 $stmt->bindValue(12, $instituicao->getPaisInstituicao());
+                $stmt->bindValue(13, $instituicao->getFtPerfilInstituicao());
                 $stmt->execute();
 
                 $id = $conectar->lastInsertId();
@@ -185,6 +186,15 @@
             foreach ($lista as $instituicao)
                 $id = $instituicao['codInstituicao'];
             return $id;   
+        }
+
+        public static function consultarInstituicao($cod)
+        {
+            $conexao = Conexao::conectar();
+
+            
+
+
         }
 
     }

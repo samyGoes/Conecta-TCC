@@ -3,7 +3,7 @@
 require_once 'global.php';  
 
 
-header("Location: form-login.php");
+header("Location: /tcc/form-login.php");
 try{
 
 $validaSenha= new Senha();
@@ -29,6 +29,12 @@ $voluntario-> setPaisVoluntario($_POST['pais']);
 $data_brasil = $_POST['date'];
 $data_americana = date('Y-m-d', strtotime(str_replace('/', '-', $data_brasil)));
 $voluntario->setDataNascVoluntario($data_americana);
+
+//Guardando caminho da foto de perfil padrão
+$user = "img/user.png";
+
+//inserindo a foto na classe Voluntário
+$voluntario -> setFotoPerfilVoluntario ($user);
 
 if(isset($_POST['cpf']) && ($_POST['email'])){
     $cpf = $_POST['cpf'];
@@ -59,6 +65,8 @@ else if($validaSenha->validar($voluntario->getSenhaVoluntario(),$voluntario->get
 }
 else{
     $cadastrar =VoluntarioDao::Cadastrar($voluntario);
+    //Chamando a função da classe Dao para atualizar a foto de perfil
+    $atualizar=VoluntarioDao::atualizarFotoPerfil($voluntario);
     echo  "<script>alert('Cadastro feito com sucesso!');</script>";
 }
 }

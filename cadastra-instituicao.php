@@ -1,6 +1,6 @@
 <?php
     require_once 'global.php';
-    
+
     //Cadastrando os dados informados no formulário pela instituição na classe Instituicao.
     try
     {
@@ -21,7 +21,14 @@
         $instituicao -> setPaisInstituicao($_POST['pais']);
         $instituicao -> setEstadoInstituicao($_POST['uf']);
 
+        //Guardando caminho da foto de perfil padrão
+        $user = "img/user.png";
+
+        //inserindo a foto na classe Instituição
+        $instituicao -> setFtPerfilInstituicao($user);
+
         $cadastrar = InstituicaoDao::cadastrar($instituicao);
+     
     }
     catch(Exception $e)
     {

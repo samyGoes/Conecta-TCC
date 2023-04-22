@@ -26,13 +26,14 @@
         //Atualizando sem a foto
         $update =VoluntarioDao::editar($voluntario);
 
-         //Atualizar telefones
-         $updateTel = VoluntarioDao::editarTel($voluntario);
-
-        $idVoluntario = VoluntarioDao::consultarId($voluntario);
+        //Atualizar telefones
+        $updateTel = VoluntarioDao::editarTel($voluntario);
 
         if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) 
         {
+            //Consultando o id do Voluntário
+            $idVoluntario = VoluntarioDao::consultarId($voluntario);
+
             //nome original do arquivo no computador do usuário
             $nome = $_FILES['foto']['name'];
 
@@ -51,7 +52,7 @@
     
             move_uploaded_file($arquivo, $nomecompleto);
     
-            //inserindo a foto na classe Instituicao
+            //inserindo a foto na classe Voluntário
             $voluntario -> setFotoPerfilVoluntario ($nomecompleto);
     
             //Chamando a função da classe Dao para atualizar a foto de perfil
