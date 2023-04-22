@@ -10,7 +10,7 @@
             
             echo($voluntario->getDataNascVoluntario());
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbvoluntario(nomeVoluntario, cpfVoluntario, logVoluntario, numLogVoluntario, cepVoluntario, compVoluntario, bairroVoluntario, cidadeVoluntario, emailVoluntario, senhaVoluntario,paisVoluntario,estadoVoluntario,dataNascVoluntario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbvoluntario(nomeVoluntario, cpfVoluntario, logVoluntario, numLogVoluntario, cepVoluntario, compVoluntario, bairroVoluntario, cidadeVoluntario, emailVoluntario, senhaVoluntario,paisVoluntario,estadoVoluntario,dataNascVoluntario,fotoVoluntario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             $prepareStatement -> bindValue (1, $voluntario -> getNomeVoluntario());
             $prepareStatement -> bindValue (2, $voluntario -> getCpfVoluntario());
@@ -25,6 +25,7 @@
             $prepareStatement -> bindValue (11, $voluntario -> getPaisVoluntario());
             $prepareStatement -> bindValue (12, $voluntario -> getEstadoVoluntario());
             $prepareStatement -> bindValue (13, $voluntario -> getDataNascVoluntario());
+            $prepareStatement -> bindValue (14, $voluntario -> getFotoPerfilVoluntario());
             $prepareStatement -> execute();
 
             $id = $conexao->lastInsertId();
