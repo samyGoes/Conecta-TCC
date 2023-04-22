@@ -16,7 +16,7 @@
         <!-- BARRA DE NAVEGAÇÂO -->
         <nav class="cabecalho">     
             <div class="logo">
-                <p> Conecta </p>
+                <img src="../img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -78,26 +78,29 @@
         <form class="form-filtro" method="POST" action="">
             <!-- CAUSAS -->
             <div class="box-filtro-causas">
-                <div class="filtro-causas" id="filtro-causas"> CAUSAS </div>
-                <div class="box-causas" id="box-causas">
-                    <?php 
-                        require_once 'global.php';
-                        try {
-                            $listaCausas = CategoriaServicoDao::listar();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                    ?>      
-                            <?php foreach ($listaCausas as $causas) { ?>
-                            <div class="box-causas-checkbox">
-                                <input type="checkbox" name="causas" id="causas"> 
-                                <label for="causas"><?php echo $causas['nomeCategoria']; ?></label>
-                            </div>
-                        
-                    <?php
-                        }
-                    ?>  
-                </div>
+
+                <div class="clique-fora">
+                    <div class="filtro-causas"> CAUSAS </div>
+                    <div class="box-causas">
+                        <?php 
+                            require_once 'global.php';
+                            try {
+                                $listaCausas = CategoriaServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        ?>      
+                                <?php foreach ($listaCausas as $causas) { ?>
+                                <div class="box-causas-checkbox">
+                                    <input class="checkbox-causas" type="checkbox" name="causas" id="causas"> 
+                                    <label for="causas"><?php echo $causas['nomeCategoria']; ?></label>
+                                </div>
+                            
+                        <?php
+                            }
+                        ?>  
+                    </div>
+                </div>            
             </div>
             
             <!-- SELECT ESTADOS E CIDADES -->

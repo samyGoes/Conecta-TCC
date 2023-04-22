@@ -22,7 +22,7 @@
     <header class="cabecalho-completo">
         <nav class="cabecalho">
             <div class="logo">
-                <p> Conecta </p>
+                <img src="img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->

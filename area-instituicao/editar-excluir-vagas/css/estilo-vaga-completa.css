@@ -122,7 +122,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #4567a5;
     padding: 4rem 1rem 1rem 1rem;
 }
 .titulos-card h1
@@ -171,6 +170,7 @@
     display: flex;  
     width: 100%;
     border-bottom: 1px solid #4567a5; 
+    border-top: 1px solid #4567a5; 
 }
 .topico-informacoes
 {
@@ -368,15 +368,33 @@
 
 
 
-@media (max-width: 1222px)
+@media (max-width: 1072px)
 {
     .card-completo
     {
-        max-width: 100%;
         border-radius: 0;
         border-left: none;
     }
 }
+
+@media(max-width: 1048px)
+{
+    .card-completo
+    {
+        border-radius: 20px;
+        border-left: 1px solid #4567a5; 
+    } 
+}
+
+@media(max-width: 879px)
+{
+    .card-completo
+    {
+        border-radius: 0;
+        border-left: none;
+    }
+}
+
 @media (max-width:681px)
 {
     .info-ende

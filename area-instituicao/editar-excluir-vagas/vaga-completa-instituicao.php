@@ -26,7 +26,7 @@
          <!-- BARRA DE NAVEGAÇÂO -->
          <nav class="cabecalho">
             <div class="logo">
-                <img src="../img/logo-conecta.png">
+                <img src="../../img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->

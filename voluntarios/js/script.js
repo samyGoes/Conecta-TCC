@@ -1,24 +1,39 @@
-// DROP DOWN DO BOTÃO DAS CAUSAS + MUDANDO BOTÃO DE COR
-const botaoCausas = document.querySelector(".filtro-causas");
-const boxCausas = document.querySelector(".box-causas");
+// DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
+ const botaoCausas = document.querySelector(".filtro-causas");
+ const boxCausas = document.querySelector(".box-causas");
+ const dropCausas = document.querySelector('.clique-fora');
 
-botaoCausas.addEventListener("click", function()
-{
-    if(boxCausas.style.display == "none")
-    {
+ botaoCausas.addEventListener("click", function() 
+ {
+     if (boxCausas.style.display == "none") 
+     {
         boxCausas.style.display = "flex";
         botaoCausas.style.backgroundColor = "#cf8a3f";
         botaoCausas.style.color = "#fff";
         botaoCausas.style.borderColor = "#cf8a3f";
-    }
-    else
-    {
+     } 
+     else 
+     {
         boxCausas.style.display = "none";
         botaoCausas.style.backgroundColor = "#fbf7c7";
         botaoCausas.style.color = "#000";
         botaoCausas.style.borderColor = "#000";
-    }
-});
+     }
+ });
+
+ document.addEventListener('click', function(event) 
+ {
+     const target = event.target;
+     if (!dropCausas.contains(target)) 
+     {
+         boxCausas.style.display = "none";
+         botaoCausas.style.backgroundColor = "#fbf7c7";
+         botaoCausas.style.color = "#000";
+         botaoCausas.style.borderColor = "#000";
+     }
+ });
+
+
 
 // document.addEventListener("click", function(event) 
 // {
