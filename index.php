@@ -88,14 +88,14 @@
 
     <main class="conteudo-completo">
         <!-- TITULO DO PRIMEIRO CONTEUDO-->
-        <div class="card-1">
+        <div class="container-1">
 
             <div class="titulo-container-conteudo-1">
                 <h1>Um pouco sobre o trabalho voluntário</h1>
             </div>
             <!-- CONTEUDO 1 -->
-            <div class="container-conteudo-1">
-                <!-- CONTAINER -->
+            <div class="card-conteudo-1">
+                <!-- CARD -->
                 <div class="conteudo-imagem-1">
                     <img src="img/mao-coracao.jpg" alt="">
                 </div>
@@ -125,19 +125,19 @@
             </div>
         </div>
 
-        <div class="card-2">
+        <div class="container-2">
 
             <div class="titulo-container-conteudo-2">
                 <h1>Um pouco sobre o Terceiro Setor</h1>
             </div>
 
-            <div class="container-conteudo-2">
+            <div class="card-conteudo-2">
                 <div class="conteudo-vazio"></div>
-                
+
                 <div class="conteudo-escrito-2">
 
                     <div class="titulo-conteudo-escrito-2">
-                        <h1>O que é o trabalho voluntário?</h1>
+                        <h1>O que é o Terceiro Setor?</h1>
                     </div>
 
                     <div class="texto-conteudo-escrito-2">
@@ -164,6 +164,55 @@
                 </div>
             </div>
 
+        </div>
+        <div class="container-3">
+
+            <div class="titulo-container-conteudo-3">
+                <h1>Por que ser um voluntário?</h1>
+            </div>
+            <div class="topicos-container-3">
+                <div class="habilidade">
+                    <div class="imagem-habilidade">
+                        <img src="img/habilidade.png" alt="">
+                    </div>
+                    <div class="conteudo-escrito-habiliidade">
+                        <p>Você ira aperfeiçoar suas     habilidades</p>
+                    </div>
+                </div>
+
+                <div class="experiencia">
+                    <div class="imagem-experiencia">
+                        <img src="img/experiencia.png" alt="">
+                    </div>
+                    <div class="conteudo-escrito-experiencias">
+                        <p>Obtera experiencia dentro de alguma area de atuação</p>
+                    </div>
+                </div>
+
+                <div class="curriculo">
+                    <div class="imagem-curriculo">
+                        <img src="img/curriculo.png" alt="">
+                    </div>
+                    <div class="conteudo-escrito-curriculo">
+                        <p>Poderá adicionar este componente em seu currículo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-4">
+            <div class="titulo-container-4">
+                <h1>Seja um Voluntário</h1>
+                <p>Agora você já sabe como funciona e da importânciade ajudar, considere se candidatar a uma vaga.</p>
+            </div>
+
+
+            <!--CAROUSEL COM OS CARDS DE VAGAS-->
+
+            <div class="botao-vagas">
+                <button type="submit" id="">mais vagas</button>
+            </div>
         </div>
 
     </main>

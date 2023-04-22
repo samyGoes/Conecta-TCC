@@ -99,14 +99,16 @@ body {
     height: 600vh;
 }
 
-/*CARD 1*/
+/*CONTAINER 1*/
 
 
-.card-1{
+.container-1{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 }
 
 .titulo-container-conteudo-1 h1 {
@@ -114,9 +116,10 @@ body {
     font-weight: 400;
     font-size: 2rem;
     color: #232e61;
+    text-align: center;
 }
 
-.container-conteudo-1 {
+.card-conteudo-1 {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -184,8 +187,8 @@ body {
 }
 
 
-/*CARD 2*/
-.card-2{
+/*CONTAINER 2*/
+.container-2{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,8 +206,9 @@ body {
     font-weight: 400;
     font-size: 2rem;
     color: #232e61;
+    text-align: center;
 }
-.container-conteudo-2{
+.card-conteudo-2{
     display: flex;
     flex-direction: row; 
     width: 90%;
@@ -246,10 +250,18 @@ body {
     color: #000;
 }
 
+.botao-conteudo-escrito-2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .botao-conteudo-escrito-2 button {
     text-transform: uppercase;
-    background-color: #232e61;
-    border: 1px solid #232e61;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;    
+    color: #fff;
     width: 12rem;
     height: 2.5rem;
     cursor: pointer;
@@ -257,6 +269,101 @@ body {
     border-radius: 0.5rem;
     font-family: poppins, sans-serif;
     font-weight: 300;
+    font-size: 20px;
+}
+
+
+/*CONATINER 3*/
+.container-3{
+    background-color: #d97925;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    gap: 5%;
+}
+.titulo-container-conteudo-3 h1{
+    font-family: acme, sans-serif;
+    font-weight: 400;
     color: #fff;
+    text-align: center;
+}
+.topicos-container-3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.habilidade, .experiencia, .curriculo{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img{
+    width: 150px;
+    height: 150px;
+}
+
+.conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+}
+
+
+/*CONTAINER 4*/
+
+.container-4 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+}
+.titulo-container-4{
+    line-height: 3rem;
+}
+.titulo-container-4 h1{
+    text-align: center;
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    color: #4567a5;
+}
+
+.titulo-container-4 p{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #000;
+}
+.botao-vagas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-vagas button{
+    text-transform: uppercase;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;    
+    color: #fff;
+    width: 12rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-radius: 0.5rem;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
     font-size: 20px;
 }
