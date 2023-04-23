@@ -51,6 +51,7 @@ body {
     font-weight: 400;
     color: #000;
     line-height: 35px;
+    text-align: justify;
 }
 
 .continuar-botao {
@@ -65,6 +66,7 @@ body {
     background-color: #cf8a3f;
     border: 1px solid #cf8a3f;
     height: 2.5rem;
+    width: 12rem;
     cursor: pointer;
     transition: all 0.5s ease;
     border-radius: 0.5rem;
@@ -86,8 +88,8 @@ body {
 }
 
 .conteudo-imagem img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 
@@ -117,6 +119,7 @@ body {
     font-size: 2rem;
     color: #232e61;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .card-conteudo-1 {
@@ -186,6 +189,11 @@ body {
     font-size: 20px;
 }
 
+.botao-conteudo-escrito button:hover {
+    background-color: #fff;
+    color: #cf8a3f;
+}
+
 
 /*CONTAINER 2*/
 .container-2{
@@ -197,7 +205,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    height: 150vh;
+    height: 145vh;
     gap: 5%;
 }
 
@@ -212,7 +220,7 @@ body {
     display: flex;
     flex-direction: row; 
     width: 90%;
-    height: 120vh;
+    height: 80%;
 }
 .conteudo-vazio{
     width: 50%;
@@ -254,7 +262,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .botao-conteudo-escrito-2 button {
@@ -272,18 +280,24 @@ body {
     font-size: 20px;
 }
 
+.botao-conteudo-escrito-2 button:hover{
+    background-color: #fff;
+    color: #4567a5;
+}
+
 
 /*CONATINER 3*/
 .container-3{
     background-color: #d97925;
     width: 100%;
-    height: 100vh;
+    height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: center;   
     gap: 5%;
 }
 .titulo-container-conteudo-3 h1{
+    margin-top: 5%;
     font-family: acme, sans-serif;
     font-weight: 400;
     color: #fff;
@@ -325,7 +339,7 @@ body {
 /*CONTAINER 4*/
 
 .container-4 {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;   
@@ -366,4 +380,8 @@ body {
     font-family: poppins, sans-serif;
     font-weight: 300;
     font-size: 20px;
+}
+.botao-vagas button:hover{
+    background-color: #fff;
+    color: #4567a5;
 }
