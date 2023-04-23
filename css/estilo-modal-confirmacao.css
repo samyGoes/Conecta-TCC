@@ -177,6 +177,7 @@ text-decoration: none;
 .modal-sessao-1
 {
     display: none;
+    flex-direction: column;
 }
 
 .modal-sessao-2

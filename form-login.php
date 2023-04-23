@@ -15,6 +15,7 @@
 
     <body class="body">
 
+
         <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
         <div id="modal" class="modal">
             <div class="modal-form" id="modal-form">
@@ -35,8 +36,8 @@
 
                 <div class="modal-sessao-1">
                     <h2 class="modal-titulo" id="modal-titulo"> Confirmação de acesso </h2>
-                    <p class="modal-frase"> Clique <a id="envia-email" href="#"> aqui </a> para que um código de verificação seja enviado no seu email.</p>
-
+                    <p class="modal-frase"> Digite o código de verificação enviado no seu email para que você possa ter acesso a troca de senha. </p>
+                    
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
                             <label for="" class="modal-senha"> Código </label>
@@ -45,7 +46,7 @@
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                     </form>
 
-                    <a class="voltar-anterior" href="#"> Voltar para a página anterior </a>
+                    <a class="voltar-login" href="#"> Voltar para o login </a>
                 </div>
 
                 <div class="modal-sessao-2">
@@ -98,8 +99,8 @@
 
 
         <script src="js/mascaraLoginUsuario.js"></script>
-        <!-- <script type="module" src="js/main.js"></script> -->
-        <script src="js/envia-email-login.js"></script>
+        <script type="module" src="js/main.js"></script>
+        <!-- <script type="module" src="js/envia-email-login.js"></script> -->
     </body>
 
 </html>

@@ -57,7 +57,7 @@
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+                <a href="logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>

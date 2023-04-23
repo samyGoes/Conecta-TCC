@@ -231,7 +231,7 @@ require_once 'global.php';
                     Esta é a lista de todos os voluntários que você requisitou a alguma vaga da sua
                     instituição. Para ver o perfil do mesmo clique na foto do voluntário. Você também
                     pode ver o status de confirmação do voluntário ou retirar a requisição se o status
-                    não estiver como "aceito".
+                    ainda estiver como "pendente".
                 </p>
             </div>
 

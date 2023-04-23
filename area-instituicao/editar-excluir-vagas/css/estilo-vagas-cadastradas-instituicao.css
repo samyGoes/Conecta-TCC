@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
 
+.container-cards
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .cards {
     display: flex;
     flex-flow: wrap;
@@ -8,6 +15,7 @@
     margin: 0rem 3rem 0rem 3rem;
     /* background-color: #99a8eb; */
     padding-top: 0.7rem;
+    max-width: 90%;
 }
 
 .card-carrossel-dois {
@@ -24,6 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 24rem;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 5px #b4d8e6;
@@ -44,7 +53,7 @@
 
 .header-card-carrossel-it p {
     font-family: bitter, serif;
-    font-weight: 500;
+    font-weight: 800;
     font-size: 12px;
     color: #000000;
     text-transform: uppercase;
@@ -61,15 +70,27 @@
 }
 
 .fundo-img {
-    width: 55px;
-    height: 55px;
-    margin: 4% 0px 4% 0px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 4% 0px 3% 0px;
 }
 
 .fundo-img img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
+}
+
+.box-conteudo-card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }
 
 .title-1 p {
@@ -80,22 +101,35 @@
     margin-bottom: 5%;
 }
 
+.title-2
+{
+    overflow: hidden;
+    width: 80%;
+}
+
 .title-2 p {
-    margin: 20px 0px 0px 10px;
+    margin-top: 20px;
     font-family: bitter, serif;
     font-size: 18px;
     font-weight: 600;
     color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.title-3
+{
+    height: 6rem;
+    overflow: hidden;
+    padding: 0rem 1.6rem 1.6rem 1.6rem;
 }
 
 .title-3 p {
     font-family: bitter, serif;
     font-size: 14px;
-    max-height: 7rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0.8rem 1.6rem 1.6rem 1.6rem;
-    margin-bottom: 0.7rem;
+    text-overflow: ellipsis;  
+    /* margin-bottom: 0.7rem; */
 
     color: #525252;
     font-weight: 500;
