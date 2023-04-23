@@ -189,14 +189,6 @@
 
 
 
-        <!-- SCRIPTS -->
-
-        <!-- ENVIANDO O EMAIL -->
-        <!-- <script src="js/envia-email.js"></script> -->
-        
-        <script>
-            // import {  } from "js/envia-email.js";
-        </script>
     </body>
 
 </html>
