@@ -24,13 +24,13 @@
                     <p class="modal-frase"> Digite seu email para que um código de verificação seja enviado no seu email. </p>
 
                     <form class="form-modal-email" action="" method="POST" id="form-modal-email">
-                        <div class="modal-input-box">
+                        <div class="modal-input-box-email">
                             <label for="" class="modal-senha"> Email </label>
                             <input placeholder="Digite seu email" type="text" name="email" id="email" class="modal-input-senha">
                         </div>
                         <div class="btn-confirmed"><button id="verifica-email" type="submit"> ENVIAR </button></div>
                     </form>
-                    <a class="voltar-anterior" href="#"> Voltar para o login </a>
+                    <a class="voltar-login" href="#"> Voltar para o login </a>
                 </div>
 
                 <div class="modal-sessao-1">

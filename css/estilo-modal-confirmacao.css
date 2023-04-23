@@ -90,12 +90,12 @@
     line-height: 50px;
 }
 
-.modal-input-box
+.modal-input-box, .modal-input-box-email
 {
     position: relative;
 }
 
-.modal-input-box input 
+.modal-input-box input, .modal-input-box-email input 
 {
     display: flex;
     justify-content: center;
@@ -139,7 +139,7 @@
     color: #cf8a3f;
 }
 
-.voltar-anterior
+.voltar-anterior, .voltar-login
 {
     display: flex;
     justify-content: center;
@@ -151,7 +151,7 @@
     text-decoration-line: none;
 }
 
-.voltar-anterior:hover
+.voltar-anterior:hover, .voltar-login:hover
 {
     color: #3fa1cf;
 }
