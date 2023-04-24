@@ -19,8 +19,8 @@
 
 
         <?php 
-            include 'busca-email.php';
-            $nome = nomeEmail($email);
+            //include 'busca-email.php';
+            //$nome = nomeEmail($email);
         ?>
 
             
