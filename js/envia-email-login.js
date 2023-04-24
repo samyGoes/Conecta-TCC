@@ -93,66 +93,29 @@ document.getElementById("verifica-email").addEventListener("click", verificaEmai
 
 
 
-
-/*export async function pegaNome()
-{
-    if (emailVerificado)
-    {
-        var xhr = new XMLHttpRequest();
-
-        xhr.open("POST", "pega-nome.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-        return new Promise((resolve, reject) => 
-        {
-            xhr.onreadystatechange = function() 
-            {
-                if (xhr.readyState === XMLHttpRequest.DONE)  
-                {
-                    if(xhr.status === 200)
-                    {
-                        var resposta = JSON.parse(xhr.responseText);
-                      
-                        if (resposta === "nome") 
-                        {
-                            resolve(nome);
-                        } 
-                        else 
-                        {
-                            resolve(false);
-                        }                
-                    }
-                    else
-                    {
-                        reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                    }     
-                }
-            };
-            xhr.send("email=" + email.value);
-        });
-    }
-}
-*/
-
 //export const nomeEmail = pegaNome();
 export const modalSessoa1 = document.querySelector(".modal-sessao-1");
+
+export const modalForm = document.querySelector(".modal-form");
 
 // ENVIA O EMAIL OU PRINTA UM ERRO
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
+    console.log(emailVerificado);
     //var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado)
     {
         // const emailInput = document.querySelector("#email").value;
+        const nome = emailVerificado.nome;
         emailjs.init('no7wF9bX2UIYjHvBT');
     
         var parametros = 
         {
             from_name: 'Conecta',
-            to_name: 'nome',
+            to_name: nome,
             to_email: email.value,
             email_id: email.value,
             message: codigoCompleto2
@@ -163,9 +126,11 @@ export async function enviaEmail(event)
         });
 
         const modalSessao0 = document.querySelector(".modal-sessao-0");
+        
 
         modalSessao0.style.display = "none";
         modalSessoa1.style.display = "flex";
+        modalForm.style.height = "388px";
     }
     else
     {
@@ -223,6 +188,7 @@ export function modalOuErro2(event)
     {      
         modalSessoa1.style.display = "none";
         modalSessao2.style.display = "flex";
+        modalForm.style.height = "255px";
         //form.style.height = "259px";
 
         btnFechar.addEventListener("click", function()
