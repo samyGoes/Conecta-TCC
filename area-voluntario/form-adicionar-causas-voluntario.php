@@ -135,7 +135,7 @@
                                     {
                                 ?>      
                                         <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas" id="causas" value=<?php echo $causas['codCategoriaServico']; ?>> 
+                                            <input type="checkbox" name="causas[]" id="causas[]" value=<?php echo $causas['codCategoriaServico']; ?>> 
                                             <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                                         </div>
                                     

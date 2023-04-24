@@ -157,14 +157,14 @@
                         </div>     
                         <div class="lista-item-2">
                             <?php 
-                                require_once 'global.php';
                                 try {
-                                    $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
+                                    $codVoluntario = $_SESSION['codUsuario'];
+                                    $listar = CausasVoluntarioDao::listar($codVoluntario);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
                             ?>
-                                    <?php foreach ($listaCausas as $causas) { ?>
+                                    <?php foreach ($listar as $causas) { ?>
                                     <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                             <?php
                                 }

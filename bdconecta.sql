@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Abr-2023 às 21:40
+-- Generation Time: 24-Abr-2023 às 04:26
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -53,7 +53,8 @@ CREATE TABLE `tbcategoriaservico` (
 INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`) VALUES
 (1, 'inglÃªs'),
 (2, 'inglÃªs'),
-(3, 'tocar violÃ£o');
+(3, 'tocar violÃ£o'),
+(4, 'moradores de rua');
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,34 @@ INSERT INTO `tbcausavaga` (`codCausaVaga`, `codServico`, `codCategoriaServico`) 
 (11, 20, 3),
 (12, 21, 1),
 (13, 21, 2),
-(14, 21, 3);
+(14, 21, 3),
+(15, 22, 1),
+(16, 23, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbcausavoluntario`
+--
+
+CREATE TABLE `tbcausavoluntario` (
+  `codCausaVoluntario` int(11) NOT NULL,
+  `codCategoriaServico` int(11) DEFAULT NULL,
+  `codVoluntario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbcausavoluntario`
+--
+
+INSERT INTO `tbcausavoluntario` (`codCausaVoluntario`, `codCategoriaServico`, `codVoluntario`) VALUES
+(1, 1, 2),
+(2, 2, 2),
+(3, 1, 2),
+(4, 2, 2),
+(5, 3, 2),
+(6, 4, 2),
+(7, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -200,7 +228,9 @@ INSERT INTO `tbhabivaga` (`codHabiVaga`, `codServico`, `codHabilidadeServico`) V
 (3, 20, 1),
 (4, 20, 2),
 (5, 21, 1),
-(6, 21, 2);
+(6, 21, 2),
+(7, 22, 1),
+(8, 23, 2);
 
 -- --------------------------------------------------------
 
@@ -287,7 +317,9 @@ INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codI
 (18, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
 (19, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
 (20, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
-(21, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1);
+(21, '16:00:00', 'tarde', 1, 'preciso de um motora!!', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '282', 'SÃ£o Paulo', 'motorista', 'presencial', '0000-00-00', 1),
+(22, '12:00:00', 'tarde', 1, 'preciso de professor de inglÃªs', '08473-050', 'Conjunto Habitacional Sitio ConceiÃ§Ã£o', 'SP', 'Estrada Manuel de Oliveira Ramos', 'casa', 'Brasil', '234', 'SÃ£o Paulo', 'professor', 'hÃ­brido', '0000-00-00', 5),
+(23, '00:00:08', 'diurno', 8, 'preciso urgente', '08460-600', 'Jardim do Divino', 'SP', 'Rua Moreira Neto', 'casa', 'Brasil', '03', 'SÃ£o Paulo', 'Limpeza', 'presencial', '2023-04-21', 1);
 
 -- --------------------------------------------------------
 
@@ -319,7 +351,7 @@ CREATE TABLE `tbvoluntario` (
 --
 
 INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`) VALUES
-(1, 'fernanda de souza bezerra ', '2005-07-27', '54859938852', 'Rua Moreira Neto', '505', '08460-60', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'brasil', 'bezerrafernanda223@gmail.com', '123', '', ''),
+(1, '', '2005-07-27', '54859938852', '', '', '', '', '', '', '', '', '', '123', '', ''),
 (2, 'Gabriella', '2003-03-03', '777.317.829-13', 'Avenida dos IpÃªs', '123', '08161-00', 'casa', 'Jardim dos IpÃªs', 'SÃ£o Paulo', 'SP', 'brasil', 'gabriella10@gmail.com', '123', '', ''),
 (3, 'fernanda de souza bezerra ', '2005-07-27', '739.975.300-84', 'Rua Moreira Neto', '56', '08460-60', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda225@gmail.com', 'Fernanda@2', '', '');
 
@@ -346,6 +378,14 @@ ALTER TABLE `tbcausavaga`
   ADD PRIMARY KEY (`codCausaVaga`),
   ADD KEY `fk_CausaVaga` (`codCategoriaServico`),
   ADD KEY `fk_ServicoVaga` (`codServico`);
+
+--
+-- Indexes for table `tbcausavoluntario`
+--
+ALTER TABLE `tbcausavoluntario`
+  ADD PRIMARY KEY (`codCausaVoluntario`),
+  ADD KEY `fk_codVoluntario` (`codVoluntario`),
+  ADD KEY `fk_codCategoria` (`codCategoriaServico`);
 
 --
 -- Indexes for table `tbfoneinstituicao`
@@ -415,13 +455,19 @@ ALTER TABLE `tbadm`
 -- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
-  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tbcausavoluntario`
+--
+ALTER TABLE `tbcausavoluntario`
+  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbfoneinstituicao`
@@ -451,7 +497,7 @@ ALTER TABLE `tbhabilidadeservico`
 -- AUTO_INCREMENT for table `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
-  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbinstituicao`
@@ -463,7 +509,7 @@ ALTER TABLE `tbinstituicao`
 -- AUTO_INCREMENT for table `tbservico`
 --
 ALTER TABLE `tbservico`
-  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbvoluntario`
@@ -481,6 +527,13 @@ ALTER TABLE `tbvoluntario`
 ALTER TABLE `tbcausavaga`
   ADD CONSTRAINT `fk_CausaVaga` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
   ADD CONSTRAINT `fk_ServicoVaga` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
+
+--
+-- Limitadores para a tabela `tbcausavoluntario`
+--
+ALTER TABLE `tbcausavoluntario`
+  ADD CONSTRAINT `fk_codCategoria` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`),
+  ADD CONSTRAINT `fk_codVoluntario` FOREIGN KEY (`codVoluntario`) REFERENCES `tbvoluntario` (`codVoluntario`);
 
 --
 -- Limitadores para a tabela `tbfoneinstituicao`

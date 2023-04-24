@@ -7,12 +7,12 @@
     try
     {
         $causaVoluntario = new CausaVoluntario ;
+
         $causaVoluntario -> setCodCategoria($_POST['causas']);
         $causaVoluntario -> setCodVoluntario($_SESSION['codUsuario']);
 
 
         $cadastrar = CausasVoluntarioDao:: cadastrar($causaVoluntario);
-        print_r($causaVoluntario);
      
     }
     catch(Exception $e)

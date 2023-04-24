@@ -144,10 +144,19 @@ require_once 'global.php';
                     </div>
                     <div class="ocultar-sessao-causa">
                         <div class="tipo-causas">
-                            <a href=""><button id="tipo-causas-1">mulheres</button></a>
-                            <a href=""><button id="tipo-causas-2">crianças</button></a>
-                            <a href=""><button id="tipo-causas-3">idosos</button></a>
-                            <a href=""><button id="tipo-causas-1">animais</button></a>
+                            <?php
+                                try {
+                                    $codVoluntario = $_SESSION['codUsuario'];
+                                    $listar = CausasVoluntarioDao::listar($codVoluntario);
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                            ?>
+                             <?php foreach ($listar as $causas) { ?>
+                            <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
+                            <?php
+                             }
+                            ?>
                         </div>
                     </div>
                 </div>

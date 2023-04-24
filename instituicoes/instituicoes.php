@@ -1,3 +1,4 @@
+<?php include "../auth/verifica-logado.php"; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -158,7 +159,7 @@
                             <?php 
                                 require_once 'global.php';
                                 try {
-                                    $listaCausas = CategoriaServicoDao::listar();
+                                    $listaCausas = CategoriaServicoDao::listarCausa();
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
