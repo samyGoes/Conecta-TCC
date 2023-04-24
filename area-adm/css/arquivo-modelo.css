@@ -34,9 +34,25 @@
 
 .user {
     width: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     margin-left: 25%;
     margin-bottom: 10%;
+}
+
+.box-img-user
+{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin-bottom: 0.6rem;
+}
+
+.box-img-user img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 .user p {
@@ -108,6 +124,7 @@
     background-color: #fff;
     /* height: 100vh; */
     margin-left: 17rem;
+    padding-bottom: 3rem;
 }
 
 
@@ -142,6 +159,8 @@
 }
 
 
+
+/* BOTÃO */
 .gerarPdf {
     display: flex;
     justify-content: flex-end;

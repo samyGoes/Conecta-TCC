@@ -267,7 +267,10 @@
                                     ?>
                                     <?php foreach ($listaVaga as $vaga) {?>
                                         <div class="card-carrossel">
-                                            <p class="titulo-card-carrossel"> <?php echo $vaga['nomeservico']; ?> </p>
+                                            <div class="box-titulo-card">
+                                                <p class="titulo-card-carrossel"> <?php echo $vaga['nomeservico']; ?> </p>
+                                            </div>
+                                            
                                             <div class="texto-card">
                                                 <p> Duração: <span> 1 mês </span> </p>
                                                 <p> Período: <span><?php echo $vaga['periodoServico']; ?></span> </p>

@@ -139,7 +139,7 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga"/>
+                            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vaga" />
                         </div>
                         <div>
                             <label for=" ">Tipo de Vaga</label>
@@ -179,7 +179,7 @@ require_once 'global.php';
                                         }
                                         ?>
                                     </div>
-                                </div>                      
+                                </div>
                             </div>
                         </div>
                         <div>
@@ -199,7 +199,7 @@ require_once 'global.php';
                                         <?php foreach ($listaCausas as $causas) { ?>
                                             <div class="box-causas-checkbox">
                                                 <input type="checkbox" name="causas[]" id="causas" value=<?php echo
-                                                                                                        $causas['codCategoriaServico']; ?>>
+                                                                                                            $causas['codCategoriaServico']; ?>>
                                                 <label for="causas">
                                                     <?php echo $causas['nomeCategoria']; ?>
                                                 </label>
@@ -210,7 +210,7 @@ require_once 'global.php';
                                         ?>
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                         </div>
@@ -221,16 +221,16 @@ require_once 'global.php';
                     <div class="input-box">
                         <div>
                             <label for="">Período</label>
-                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período"/>
+                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" />
                         </div>
                         <div>
                             <label for="">Data de início</label>
-                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de início"/>
+                            <input type="text" name="dataInicio" id="dataInicio" placeholder="Digite a data de início" />
                         </div>
 
                         <div>
                             <label for="">Horário</label>
-                            <input type="text" name="horario" id="horario" placeholder="Digite o horário"/>
+                            <input type="text" name="horario" id="horario" placeholder="Digite o horário" />
                         </div>
                     </div>
 
@@ -241,22 +241,22 @@ require_once 'global.php';
                         </div>
                         <div>
                             <label for="">CEP</label>
-                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP"/>
+                            <input type="text" name="cep" id="cep" placeholder="Digite o CEP" />
                         </div>
                         <div>
                             <label for="">Número</label>
-                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"/>
+                            <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°" />
                         </div>
                     </div>
 
                     <div class="input-box">
                         <div>
                             <label for="">Logradoura</label>
-                            <input type="text" name="logradouro" id="logradouro" readonly/>
+                            <input type="text" name="logradouro" id="logradouro" readonly />
                         </div>
                         <div>
                             <label for=" ">Bairro</label>
-                            <input type="text" name="bairro" id="bairro" readonly/>
+                            <input type="text" name="bairro" id="bairro" readonly />
                         </div>
 
                         <div>
@@ -272,7 +272,7 @@ require_once 'global.php';
                         </div>
                         <div>
                             <label for=" ">Complemento</label>
-                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento"/>
+                            <input type="text" name="complemento" id="comp" placeholder="Digite o complemento" />
                         </div>
                         <div>
                             <label for="">País</label>
@@ -288,8 +288,19 @@ require_once 'global.php';
                 </div>
                 <a href="">
                     <div class="continue-button">
-                        <button type="submit">CADASTRAR</button>
+                        <button id="requisitar" type="">CADASTRAR</button>
                 </a>
+                <!-- Modal -->
+                <div id="meuModal" class="modal">
+                    <div class="modal-conteudo">
+                        <span class="fechar">&times;</span>
+                        <h1 class="modal-titulo">Vaga cadastrada com sucesso</h1>
+                        <p class="modal-texto">Selecione as vagas para as quais deseja atribuir a este voluntário.</p>
+                        <div class="footer-modal">
+                            <a href="form-cadastrar-vagas-instituicao.php"><button type="" id="meuBotao">Confirmar</button></a>
+                        </div>
+                    </div>
+                </div>
         </div>
         </form>
     </main>
@@ -304,48 +315,51 @@ require_once 'global.php';
         const dropHab = document.querySelector(".clique-fora-h");
 
 
-        botaoCausas.addEventListener("click", function() 
-        {
-            if (boxCausas.style.display == "none") 
-            {
+        // Função para abrir o modal
+        function abrirModal() {
+            document.getElementById("meuModal").style.display = "block";
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById("meuModal").style.display = "none";
+        }
+
+        // Associar o evento de clique ao botão e ao botão de fechar
+        document.getElementById("requisitar").addEventListener("click", abrirModal);
+        document.querySelector(".fechar").addEventListener("click", fecharModal);
+
+
+        //Botoes select
+        botaoCausas.addEventListener("click", function() {
+            if (boxCausas.style.display == "none") {
                 boxCausas.style.display = "flex";
-            } 
-            else 
-            {
+            } else {
                 boxCausas.style.display = "none";
             }
         });
 
-        document.addEventListener('click', function(event) 
-        {
+        document.addEventListener('click', function(event) {
             const target = event.target;
-            if (!dropCausas.contains(target)) 
-            {
+            if (!dropCausas.contains(target)) {
                 boxCausas.style.display = "none";
             }
         });
 
-        botaoHabilidade.addEventListener("click", function() 
-        {
-            if (boxHabilidade.style.display == "none") 
-            {
+        botaoHabilidade.addEventListener("click", function() {
+            if (boxHabilidade.style.display == "none") {
                 boxHabilidade.style.display = "flex";
-            } 
-            else 
-            {
+            } else {
                 boxHabilidade.style.display = "none";
             }
         });
 
-        document.addEventListener('click', function(eventh) 
-        {
+        document.addEventListener('click', function(eventh) {
             const targetH = eventh.target;
-            if (!dropHab.contains(targetH)) 
-            {
+            if (!dropHab.contains(targetH)) {
                 boxHabilidade.style.display = "none";
             }
         });
-
     </script>
 
     <script src="../js/endereco-auto.js"></script>

@@ -118,7 +118,7 @@
 
             <!-- CAUSAS -->
             <div class="container-conteudo-completo">
-                <form class="form-causas" action="" method="post">
+                <form class="form-causas" action="cadastrar-causa-perfil.php" method="post">
                     <div class="box-filtro-causas">
                     <div class="filtro-causas"> Selecione as causas... </div>
                         <div class="box-causas">
@@ -135,7 +135,7 @@
                                     {
                                 ?>      
                                         <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas" id="causas"> 
+                                            <input type="checkbox" name="causas" id="causas" value=<?php echo $causas['codCategoriaServico']; ?>> 
                                             <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                                         </div>
                                     

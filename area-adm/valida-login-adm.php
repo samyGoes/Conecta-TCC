@@ -5,7 +5,7 @@
 
     if(($login == 'adm') && ($password == '123'))
     {
-        header("Location: index-adm.php");
+        header("Location: dashboard.php");
         session_start();
          $_SESSION['login'] = $login;
          $_SESSION['password'] = $password;

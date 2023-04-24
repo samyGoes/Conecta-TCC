@@ -46,6 +46,44 @@ body
 
 
 
+.pesquisa-instituicao
+{
+    display: flex;
+    justify-content: flex-end;
+    margin: 7rem 2rem 0rem 0rem;
+    width: 100%;
+}
+
+.pesquisa-instituicao input
+{
+    border: 1px solid #000;
+    outline: none;
+    border-radius: 1.3rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+    width: 20rem;
+    transition: all 0.5s ease;
+
+    background-image: url("../../img/lupa.svg");
+    background-position: 290px;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #525252;
+}
+
+.pesquisa-instituicao input:focus
+{
+    border-color: #4567a5;
+}
+
+
+
+
+
+
 
 /* FILTROS */
 .form-filtro
@@ -60,7 +98,9 @@ body
 {
     position: relative;
 }
- .filtro-causas /*, #estados, #cidades */
+
+/* INSTITUIÇÃO */
+ .filtro-causas-i /*, #estados, #cidades */
 {
     display: flex;
     align-items: center;
@@ -83,7 +123,7 @@ body
     cursor: pointer;
 }
 
-.filtro-causas:hover
+.filtro-causas-i:hover
 {
     border: 1px solid #4567a5;
     background-color: #4567a5;
@@ -91,18 +131,39 @@ body
 }
 
 /* VOLUNTÁRIO */
-#filtro-causas
+.filtro-causas /*, #estados, #cidades */
 {
-    background-color: #fbf7c7;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fbf7c7;
+    border: 1px solid #000000;
+    width: 12rem;
+    height: 2.5rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+
+    text-align: center;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #000000;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    cursor: pointer;
 }
 
-#filtro-causas:hover
+.filtro-causas:hover
 {
-    background-color: #cf8a3f;
-    border: 1px solid #cf8a3f;
+    border: 1px solid #cf8a3f; 
+    background-color: #cf8a3f; 
     color: #fff;
 }
 
+
+
+/* VOLUNTÁRIO */
 .box-causas
 {
     display: flex;
@@ -111,7 +172,25 @@ body
     border-radius: 0.5rem;
     min-width: 12rem;
     max-height: 15.3rem;
-    border: 1px solid #4567a5;
+    border: 1px solid #cf8a3f;  
+    padding: 1rem;
+    gap: 0.8rem;
+    position: absolute;
+    top: 3rem;
+    display: none;
+    overflow-y: scroll;
+}
+
+/* INSTITUIÇÃO */
+.box-causas-i
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    min-width: 12rem;
+    max-height: 15.3rem;
+    border: 1px solid #4567a5;  
     padding: 1rem;
     gap: 0.8rem;
     position: absolute;
@@ -121,18 +200,18 @@ body
 }
 
 /* SCROLL INSTITUIÇÃO*/
-.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
+.box-causas-i::-webkit-scrollbar, .select-estados-i::-webkit-scrollbar, .select-cidade-i::-webkit-scrollbar 
 {
     width: 11px;    
 }
 
-.box-causas::-webkit-scrollbar-track
+.box-causas-i::-webkit-scrollbar-track
 {
     background: #dce5f7;       
     border-radius: 0.8rem;  
 }
 
-.box-causas::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
+.box-causas-i::-webkit-scrollbar-thumb, .select-estados-i::-webkit-scrollbar-thumb, .select-cidade-i::-webkit-scrollbar-thumb 
 {
     background-color: #4567a5;  
     border-radius: 20px;     
@@ -140,7 +219,7 @@ body
     transition: all 0.5s ease;
 }
 
-#estados::-webkit-scrollbar-track, #cidades::-webkit-scrollbar-track 
+.select-estados-i::-webkit-scrollbar-track, .select-cidade-i::-webkit-scrollbar-track 
 {
     background: #dce5f7;        
 }
@@ -171,8 +250,10 @@ body
     background: #f7ebdc;       
 }
 
-/* ESTILIZANDO CHECKBOX */
-#causas[type = "checkbox"]
+
+
+/* ESTILIZANDO CHECKBOX INSTITUIÇÃO*/
+.checkbox-causas-i[type = "checkbox"]
 {
     /* ZERAR CONFIGURAÇÃO PADRÃO */
     -webkit-appearance: none;
@@ -186,7 +267,7 @@ body
     outline: none;
     cursor: pointer;
 }
-#causas[type = "checkbox"]:checked::before
+.checkbox-causas-i[type = "checkbox"]:checked::before
 {
     content: '\2713';
     display: block;
@@ -197,6 +278,36 @@ body
     line-height: 13px;
     font-size: 13px;
 }
+
+
+/* VOLUNTÁRIO */
+.checkbox-causas[type = "checkbox"]
+{
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #525252;
+    outline: none;
+    cursor: pointer;
+}
+.checkbox-causas[type = "checkbox"]:checked::before
+{
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #cf8a3f;    
+    text-align: center;
+   
+    line-height: 13px;
+    font-size: 13px;
+}
+
+
 
 .box-causas-checkbox
 {
@@ -255,38 +366,7 @@ body
 
 
 
-.pesquisa-instituicao
-{
-    display: flex;
-    justify-content: flex-end;
-    margin: 7rem 2rem 0rem 0rem;
-    width: 100%;
-}
 
-.pesquisa-instituicao input
-{
-    border: 1px solid #000;
-    outline: none;
-    border-radius: 1.3rem;
-    padding: 0.4rem 0.7rem 0.4rem 0.7rem;
-    width: 20rem;
-    transition: all 0.5s ease;
-
-    background-image: url("../../img/lupa.svg");
-    background-position: 290px;
-    background-repeat: no-repeat;
-    background-size: 16px;
-
-    font-family: poppins, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #525252;
-}
-
-.pesquisa-instituicao input:focus
-{
-    border-color: #4567a5;
-}
 
 
 
@@ -435,13 +515,13 @@ body
     gap: 2%;
     justify-content: flex-end;
     padding-top: 1rem;
-    /* border-top: 1px solid #000;
-    margin-top: 1rem; */
-    /* background-color: #4567a5; */
 }
 
 .lista-item-2 button 
 { 
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
     width: 8rem;
     border: 1px solid #000000;
     border-radius: 1.5rem;
@@ -449,6 +529,10 @@ body
     transition: all 0.5s ease;
     cursor: pointer;
     margin-bottom: 0.5rem;
+    background-color: #ecd1f7;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    padding: 0rem 0.6rem 0rem 0.6rem;
 
     /* TEXTO */
     font-size: 14px;
@@ -456,6 +540,7 @@ body
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     color: #000000;
+    white-space: nowrap;
 }
 
 .lista-item-2 button:hover

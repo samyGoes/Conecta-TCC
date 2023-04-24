@@ -21,7 +21,7 @@ include "../../auth/verifica-logado.php";
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
-            <p> Conecta </p>
+            <img src="../../img/logo-conecta.png">
         </div>
 
         <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -129,52 +129,58 @@ include "../../auth/verifica-logado.php";
             </p>
         </div>
 
-        <div class="cards">
-            <?php
+        <div class="container-cards">
+            <div class="cards">
+                <?php
 
-            try {
-                $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-            ?>
-            <?php
-            foreach ($listaVaga as $vaga) {
-            ?>
-                <div class="card-carrossel-dois">
-                    <div class="content-it">
-                        <div class="header-card-carrossel-it">
-                            <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
-                            <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                            <p><?php echo $vaga['cidadeLocalServico']; ?></p>
-                        </div>
-                        <div class="fundo">
-                            <div class="fundo-img">
-                                <img src="../<?php echo $vaga['fotoInstituicao']; ?>">
+                try {
+                    $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+                ?>
+                <?php
+                foreach ($listaVaga as $vaga) {
+                ?>
+                    <div class="card-carrossel-dois">
+                        <div class="content-it">
+                            <div class="header-card-carrossel-it">
+                                <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
+                                <i id="icon-maps" class="fa-solid fa-location-dot"></i>
+                                <p><?php echo $vaga['cidadeLocalServico']; ?></p>
                             </div>
-                            <div class="title-1">
-                                <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                            <div class="fundo">
+                                <div class="fundo-img">
+                                    <img src="../<?php echo $vaga['fotoInstituicao']; ?>">
+                                </div>
+                                <div class="title-1">
+                                    <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                                </div>
                             </div>
+                            <div class="box-conteudo-card">
+                                <div class="title-2">
+                                    <p><?php echo $vaga['nomeservico']; ?></p>
+                                </div>
+                                <div class="title-3">
+                                    <p><?php echo $vaga['descServico']; ?></p>
+                                </div>
+                                <form action="redirecionar-vaga-completa.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                                    <button class="card-carrossel-botao" id="botao-it" type="submit">
+                                        VER VAGA
+                                    </button>
+                                </form>
+                            </div>
+                            
                         </div>
-                        <div class="title-2">
-                            <p><?php echo $vaga['nomeservico']; ?></p>
-                        </div>
-                        <div class="title-3">
-                            <p><?php echo $vaga['descServico']; ?></p>
-                        </div>
-                        <form action="redirecionar-vaga-completa.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                            <button class="card-carrossel-botao" id="botao-it" type="submit">
-                                    VER VAGA
-                                </button>
-                        </form>
                     </div>
-                </div>
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
 
+            </div>
         </div>
+      
     </main>
 
 

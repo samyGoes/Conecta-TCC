@@ -30,16 +30,18 @@
 .logo
 {
     justify-self: start;
+    width: 170px;
+    height: 50px;
+    margin-left: 1.6rem;
+    margin-top: 2.3rem;
 }
-.logo p
+.logo img
 {
-    font-family: poppins, sans-serif;
-    font-size: 30px;
-    color: #fff;
-    font-weight: 400;
-    margin-left: 3rem;
-    margin-top: 2.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
+
 .topicos-sessao-completa
 {
     display: flex;

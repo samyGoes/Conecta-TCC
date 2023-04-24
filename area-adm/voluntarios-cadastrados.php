@@ -14,12 +14,16 @@
 <body>
 
 
+    
     <!-- NAV LATERAL -->
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
             <div class="user">
-                <img src="./img/user-branco.png" width="100px" height="100px" alt="">
+                <div class="box-img-user">
+                    <img src="./img/user-branco.png" width="100px" height="100px" alt="">
+                </div>
+                
                 <p>Olá, ADM!</p>
             </div>
 
@@ -30,7 +34,12 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                        Causas </span></a>
+                 </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico">
+                        habilidades </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -50,10 +59,11 @@
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+                <a href="logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>
+
 
 
 

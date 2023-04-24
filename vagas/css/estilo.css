@@ -60,7 +60,8 @@ body
 {
     position: relative;
 }
- .filtro-causas /*, #estados, #cidades */
+ .filtro-causas,
+ .filtro-habilidade /*, #estados, #cidades */
 {
     display: flex;
     align-items: center;
@@ -83,27 +84,31 @@ body
     cursor: pointer;
 }
 
-.filtro-causas:hover
+.filtro-causas:hover,
+.filtro-habilidade:hover
 {
     border: 1px solid #4567a5;
     background-color: #4567a5;
     color: #fff;
 }
 
-/* VOLUNTÁRIO */
-#filtro-causas
+/* VAGAS */
+#filtro-causas,
+#filtro-habilidade
 {
     background-color: #fbf7c7;   
 }
 
-#filtro-causas:hover
+#filtro-causas:hover,
+#filtro-habilidade:hover
 {
     background-color: #cf8a3f;
     border: 1px solid #cf8a3f;
     color: #fff;
 }
 
-.box-causas
+.box-causas,
+.box-habilidade
 {
     display: flex;
     flex-direction: column;
@@ -121,18 +126,21 @@ body
 }
 
 /* SCROLL INSTITUIÇÃO*/
-.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
+.box-causas::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar,
+.box-habilidade::-webkit-scrollbar, #estados::-webkit-scrollbar, #cidades::-webkit-scrollbar 
 {
     width: 11px;    
 }
 
 .box-causas::-webkit-scrollbar-track
+.box-habilidade::-webkit-scrollbar-track
 {
     background: #dce5f7;       
     border-radius: 0.8rem;  
 }
 
 .box-causas::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
+.box-habilidade::-webkit-scrollbar-thumb, #estados::-webkit-scrollbar-thumb, #cidades::-webkit-scrollbar-thumb 
 {
     background-color: #4567a5;  
     border-radius: 20px;     
@@ -148,17 +156,20 @@ body
 
 /* SCROLL VOLUNTÁRIO */
 .box-causas::-webkit-scrollbar, .select-estados::-webkit-scrollbar, .select-cidades::-webkit-scrollbar 
+.box-habilidade::-webkit-scrollbar, .select-estados::-webkit-scrollbar, .select-cidades::-webkit-scrollbar 
 {
     width: 11px;    
 }
 
 .box-causas::-webkit-scrollbar-track
+.box-habilidade::-webkit-scrollbar-track
 {
     background: #f7ebdc;       
     border-radius: 0.8rem;  
 }
 
-.box-causas::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb 
+.box-causas::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb
+.box-habilidade::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb 
 {
     background-color: #cf8a3f;    
     border-radius: 20px;     
@@ -172,7 +183,8 @@ body
 }
 
 /* ESTILIZANDO CHECKBOX */
-#causas[type = "checkbox"]
+#causas[type = "checkbox"],
+#habilidade[type = "checkbox"]
 {
     /* ZERAR CONFIGURAÇÃO PADRÃO */
     -webkit-appearance: none;
@@ -186,7 +198,8 @@ body
     outline: none;
     cursor: pointer;
 }
-#causas[type = "checkbox"]:checked::before
+#causas[type = "checkbox"]:checked::before,
+#habilidade[type = "checkbox"]:checked::before
 {
     content: '\2713';
     display: block;
@@ -198,14 +211,16 @@ body
     font-size: 13px;
 }
 
-.box-causas-checkbox
+.box-causas-checkbox,
+.box-habilidade-checkbox
 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.box-causas-checkbox label
+.box-causas-checkbox label,
+.box-habilidade-checkbox label
 {
     font-family: poppins, sans-serif;
     font-weight: 400;
@@ -470,7 +485,7 @@ body
     flex-flow: wrap;
     justify-content: center;
     gap: 2rem;
-    margin: 0rem 15rem 0rem 15rem;
+    margin: 0rem 10rem 0rem 10rem;
     /* background-color: #99a8eb; */
     padding-top: 5rem;
 }

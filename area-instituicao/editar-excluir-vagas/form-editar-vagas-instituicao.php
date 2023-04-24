@@ -22,7 +22,7 @@ require_once 'global.php';
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
-            <img src="../img/logo-conecta.png">
+            <img src="../../img/logo-conecta.png">
         </div>
 
         <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -71,48 +71,48 @@ require_once 'global.php';
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
+                <a href="../form-editar-perfil-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
+                <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Cadastrar
                         Causas </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
+                <a href="../form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Cadastrar Habilidades
                     </span></a>
             </div>
             <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
+                <a href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i>
+                <a href="editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i>
                     <span class="nav-lateral-topico"> Editar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="../gerenciar-vagas/dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
                     </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+                <a href="../form-trocar-senha-instituicao.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="form-excluir-conta-instituicao.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i>
+                <a href="../form-excluir-conta-instituicao.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i>
                     <span class="nav-lateral-topico">Excluir Conta </span></a>
             </div>
         </div>
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+                <a href="../../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>
@@ -152,71 +152,77 @@ require_once 'global.php';
                         </div>
                     </div>
 
-                    <!-- <div class="input-box">
-                        <div> -->
+                    <div class="input-box">
+                        <div>
                             <div class="box-filtro-causas">
                                 <label for="">Habilidades</label>
-                                <div class="filtro-habilidade"> Selecione as habilidades... </div>
-                                <div class="box-habilidade">
-                                    <?php
-                                    try {
-                                        $habilidadeSelecionada =explode(',', $_SESSION['habilidade']['habilidade_id']);
-                                        $listaHabilidade = HabilidadeServicoDao::listar();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                    ?>
-                                    <?php foreach ($listaHabilidade as $habilidade) { 
-                                        // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
-                                        $marcado = in_array($habilidade['codHabilidadeServico'], $habilidadeSelecionada)
+
+                                <div class="clique-fora-h">
+                                    <div class="filtro-habilidade"> Selecione as habilidades... </div>
+                                    <div class="box-habilidade">
+                                        <?php
+                                        try {
+                                            $habilidadeSelecionada =explode(',', $_SESSION['habilidade']['habilidade_id']);
+                                            $listaHabilidade = HabilidadeServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
                                         ?>
-                                        <div class="box-habilidade-checkbox">
-                                            <input type="checkbox" name="habilidade[]" id="habilidade" 
-                                            value="<?php echo $habilidade['codHabilidadeServico'] ?>" 
-                                            <?php echo $marcado ? 'checked' : ''; ?>>
-                                            <label for="habilidade">
-                                                <?php echo $habilidade['nomeHabilidadeServico'] ?>
-                                            </label>
-                                        </div>
-                                    <?php } ?>
+                                        <?php foreach ($listaHabilidade as $habilidade) { 
+                                            // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
+                                            $marcado = in_array($habilidade['codHabilidadeServico'], $habilidadeSelecionada)
+                                            ?>
+                                            <div class="box-habilidade-checkbox">
+                                                <input type="checkbox" name="habilidade[]" id="habilidade" 
+                                                value="<?php echo $habilidade['codHabilidadeServico'] ?>" 
+                                                <?php echo $marcado ? 'checked' : ''; ?>>
+                                                <label for="habilidade">
+                                                    <?php echo $habilidade['nomeHabilidadeServico'] ?>
+                                                </label>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- </div> -->
+                        </div>
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">Causas</label>
-                                <div class="filtro-causas"> Selecione as causas... </div>
-                                <div class="box-causas">
-                                    <?php
-                                    try {
-                                        $causaSelecionada =explode(',', $_SESSION['causa']['categoria_id']);
-                                        $listaCausa = CategoriaServicoDao::listar();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                    ?>
-                                    <?php foreach ($listaCausa as $causa) { 
-                                        // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
-                                        $marcado = in_array($causa['codCategoriaServico'], $causaSelecionada)
+
+                                <div class="clique-fora">
+                                    <div class="filtro-causas"> Selecione as causas... </div>
+                                    <div class="box-causas">
+                                        <?php
+                                        try {
+                                            $causaSelecionada =explode(',', $_SESSION['causa']['categoria_id']);
+                                            $listaCausa = CategoriaServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
                                         ?>
-                                        <div class="box-causas-checkbox">
-                                        <input type="checkbox" name="causas[]" id="causas" 
-                                            value="<?php echo $causa['codCategoriaServico'] ?>" 
-                                            <?php echo $marcado ? 'checked' : ''; ?>>
-                                            <label for="causas">
-                                                <?php echo $causa['nomeCategoria'] ?>
-                                            </label>
-                                        </div>
-                                    <?php
-                                    }
-                                    ?>
+                                        <?php foreach ($listaCausa as $causa) { 
+                                            // Verifica se a habilidade está na lista de habilidades selecionadas pelo usuário
+                                            $marcado = in_array($causa['codCategoriaServico'], $causaSelecionada)
+                                            ?>
+                                            <div class="box-causas-checkbox">
+                                            <input type="checkbox" name="causas[]" id="causas" 
+                                                value="<?php echo $causa['codCategoriaServico'] ?>" 
+                                                <?php echo $marcado ? 'checked' : ''; ?>>
+                                                <label for="causas">
+                                                    <?php echo $causa['nomeCategoria'] ?>
+                                                </label>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
 
-                        <!-- </div> -->
+                        </div>
 
 
-                    <!-- </div> -->
+                    </div>
 
                     <div class="input-box">
                         <div>
@@ -300,19 +306,48 @@ require_once 'global.php';
         const botaoHabilidade = document.querySelector(".filtro-habilidade");
         const boxCausas = document.querySelector(".box-causas");
         const boxHabilidade = document.querySelector(".box-habilidade")
+        const dropCausas = document.querySelector('.clique-fora');
+        const dropHab = document.querySelector(".clique-fora-h");
 
-        botaoCausas.addEventListener("click", function() {
-            if (boxCausas.style.display == "none") {
+
+        botaoCausas.addEventListener("click", function() 
+        {
+            if (boxCausas.style.display == "none") 
+            {
                 boxCausas.style.display = "flex";
-            } else {
+            } 
+            else 
+            {
                 boxCausas.style.display = "none";
             }
         });
 
-        botaoHabilidade.addEventListener("click", function() {
-            if (boxHabilidade.style.display == "none") {
+        document.addEventListener('click', function(event) 
+        {
+            const target = event.target;
+            if (!dropCausas.contains(target)) 
+            {
+                boxCausas.style.display = "none";
+            }
+        });
+
+        botaoHabilidade.addEventListener("click", function() 
+        {
+            if (boxHabilidade.style.display == "none") 
+            {
                 boxHabilidade.style.display = "flex";
-            } else {
+            } 
+            else 
+            {
+                boxHabilidade.style.display = "none";
+            }
+        });
+
+        document.addEventListener('click', function(eventh) 
+        {
+            const targetH = eventh.target;
+            if (!dropHab.contains(targetH)) 
+            {
                 boxHabilidade.style.display = "none";
             }
         });

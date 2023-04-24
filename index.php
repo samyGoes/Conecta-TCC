@@ -22,7 +22,7 @@
     <header class="cabecalho-completo">
         <nav class="cabecalho">
             <div class="logo">
-                <p> Conecta </p>
+                <img src="img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -146,14 +146,7 @@
                             dolores quisquam sequi exercitationem, minus voluptas inventore ut alias quis doloribus
                             laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
                             elit.
-                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nemo
-                            explicabo.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, nostrum ad impedit
-                            officia id sed, reprehenderit expedita at exercitationem dolor quis eum, aut laborum minima
-                            maxime cupiditate totam maiores cum.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, quis, debitis esse facere
-                            iste, similique sed optio amet voluptatibus dolorum voluptates aspernatur officia quo
-                            quaerat consequatur mollitia velit. Quod, deleniti!
+                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nem.
                         </p>
                     </div>
 
@@ -176,7 +169,7 @@
                         <img src="img/habilidade.png" alt="">
                     </div>
                     <div class="conteudo-escrito-habiliidade">
-                        <p>Você ira aperfeiçoar suas     habilidades</p>
+                        <p>Você ira aperfeiçoar suas habilidades</p>
                     </div>
                 </div>
 

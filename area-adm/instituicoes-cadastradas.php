@@ -8,17 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilo-instituicoes-cadastradas.css">
     <link rel="stylesheet" href="css/arquivo-modelo.css">
-    <title>ADM</title>
+    <title>ADM - Instituições</title>
 </head>
 
 <body>
 
+    
     <!-- NAV LATERAL -->
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
             <div class="user">
-                <img src="./img/user-branco.png" width="100px" height="100px" alt="">
+                <div class="box-img-user">
+                    <img src="./img/user-branco.png" width="100px" height="100px" alt="">
+                </div>
+                
                 <p>Olá, ADM!</p>
             </div>
 
@@ -29,7 +33,12 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                        Causas </span></a>
+                 </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> 
+                        habilidades </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -49,7 +58,7 @@
 
         <div class="nav-lateral-sessao-dois">
             <div class="nav-lateral-box-icon">
-                <a href=""> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+                <a href="logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
             </div>
         </div>
     </nav>
@@ -66,8 +75,11 @@
 
 
         <div class="main-conteudo-container-titulo">
-            <h1>EDITAR PERFIL</h1>
-            <p>Digite as novas informações que deseja inserir</p>
+            <h1>INSTITUIÇÕES</h1>
+            <p>Aqui você verá todas as instituições cadastradas no site. Você também pode filtrar ou pesquisar
+                pela instituição que deseja. Também tem como opção bloquear alguma instituição caso ela esteja
+                violando alguma das diretrizes.
+            </p>
         </div>
         <div class="gerarPdf">
             <button><i class="fa-solid fa-file-pdf"></i>Gerar pdf</button>

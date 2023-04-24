@@ -102,17 +102,15 @@ input::placeholder
 }
 
 .botao-enviar {
-    display: block;
-    width: 11rem;
+    width: 10rem;
     background-color: #4567a5;
     color: #ffffff;
-    padding: 0.3rem;
+    height: 2.5rem;
     margin-top: 1rem;
     margin-bottom: 15px;
-    border: none;
     border: 1px solid #4567a5;
-    border-radius: 5px;
-    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
     transition: all 0.5s ease;
@@ -131,7 +129,7 @@ input::placeholder
     background-color: #fff;
     border: 1px solid #4567a5;
     padding: 0.2rem;
-    width: 9rem;
+    width: 8.4rem;
     margin-bottom: 1.4rem;
 
     color:  #4567a5;
@@ -140,27 +138,48 @@ input::placeholder
     font-weight: 400;
     transition: all 0.5s ease;
     cursor: pointer;
-    text-transform: uppercase;
 }
 .botao-cadastrar:hover
 {
-    background-color: #c8f5f5;
+    background-color: #bef5f5;
+}
+
+.link-esqueceu-senha
+{
+    margin-top: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #4567a5;
+    text-decoration-line: none;
+    transition: all 0.5s ease;
+}
+
+.link-esqueceu-senha:hover
+{
+    color: #c48139;
 }
 
 .voltar {
     display: flex;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 500;
-    font-family: Bitter;
+    font-family: Bitter, serif;
     color: #4567a5;
     transition: all 0.5s ease;
     justify-content: center;
+    transition: all 0.5s ease;
 }
 
-.continue-button a:hover {
-    color: #a4c2db;
+.voltar:hover
+{
+    color: #c48139;
 }
+
+
+
+
 
 
 

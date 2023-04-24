@@ -26,7 +26,7 @@
          <!-- BARRA DE NAVEGAÇÂO -->
          <nav class="cabecalho">
             <div class="logo">
-                <img src="../img/logo-conecta.png">
+                <img src="../../img/logo-conecta.png">
             </div>
 
             <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -149,7 +149,9 @@
                 <div class="modal-responsive" id="modal-responsive">
                     <div class="fade" id="fade">
                         <div class="modal" id="modal">
-                            <label for="" class="modal-titulo" id="modal-titulo"> Deseja realmente excluir a vaga? </label>
+                            <label for="" class="modal-titulo" id="modal-titulo"> 
+                                Deseja realmente excluir a vaga? Uma vez excluída você não poderá mais restaurá-la.
+                            </label>
                             <div class="btn-exit" id="btn-exit">
                             <form action="delete-vaga-instituicao.php" method="post">
                                  <button type="submit" id="excluir">excluir</button>
