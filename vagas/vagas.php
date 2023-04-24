@@ -103,22 +103,24 @@ include "../auth/verifica-logado.php";
             </div>
         </div>
 
-        <!-- CAUSAS -->
+        <!-- HABILIDADES -->
         <div class="box-filtro-causas">
-            <div class="filtro-causas"> HABILIDADES </div>
-            <div class="box-causas">
+            <div class="filtro-habilidade"> HABILIDADES </div>
+            <div class="box-habilidade">
                 <?php
-                require_once 'global.php';
                 try {
-                    $listaCausas = CategoriaServicoDao::listar();
+                    $listaHabilidade = HabilidadeServicoDao::listar();
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
                 ?>
-                <?php foreach ($listaCausas as $causas) { ?>
-                    <div class="box-causas-checkbox">
-                        <input type="checkbox" name="causas" id="causas">
-                        <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
+                <?php foreach ($listaHabilidade as $habilidade) { ?>
+                    <div class="box-habilidade-checkbox">
+                        <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
+                                                                                            $habilidade['codHabilidadeServico']; ?>>
+                        <label for="habilidade">
+                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                        </label>
                     </div>
 
                 <?php

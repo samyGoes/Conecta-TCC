@@ -37,7 +37,7 @@
                     <button class="botao-enviar" type="submit">Entrar</button>   
                 </div>
             </form>
-            <a class="voltar" href="#">Voltar para o início</a>
+            <a class="voltar" href="index.php">Voltar para o início</a>
         </div>
     </div>
 </body>

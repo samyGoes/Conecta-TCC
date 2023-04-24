@@ -153,10 +153,13 @@ main {
 .img-user {
     width: 60px;
     height: 60px;
+    border-radius: 50%;
 }
 
 .img-user img {
     width: 100%;
+    height: 100%;
+    border-radius: 50%;
     object-fit: cover;
 }
 

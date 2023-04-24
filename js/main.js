@@ -1,3 +1,6 @@
-//import { codAleatorio, codigoCompleto } from "../area-voluntario/js/envia-email.js";
-//import { modalInteiro, abreModal, fechaModal, email, verificaEmail, enviaEmail } from "./envia-email-login.js";
+import 
+{ 
+   codAleatorio2, codigoCompleto2 ,modalInteiro, abreModal, fechaModal, email, verificaEmail, modalSessoa1,
+   enviaEmail, inputCod2, verificarCod2, modalOuErro2
+} from "./envia-email-login.js";
 

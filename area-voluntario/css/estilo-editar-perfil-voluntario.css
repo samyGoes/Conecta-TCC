@@ -54,6 +54,9 @@
     outline: none;
     border: #cf8a3f solid 1px;
     resize: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
 }
 
 .input-box input,textarea::placeholder{
@@ -69,12 +72,13 @@
     height: 15.5vh;
     background-color: #fbf7c7;
     border: solid 1px #cf8a3f;
-    margin-top: 42px;
+    margin-top: 28px;
 }
 .input-box .div-image .image{
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
+    border: 2px solid #cf8a3f;
 }
 .input-box .div-image .image img{
     width: 100%;
