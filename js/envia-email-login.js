@@ -61,6 +61,7 @@ export async function verificaEmail()
             {
                 if(xhr.status === 200)
                 {
+                    //var resposta = xhr.responseText;
                     var resposta = JSON.parse(xhr.responseText);
                     // try 
                     // {
@@ -85,10 +86,12 @@ export async function verificaEmail()
                     if (resposta === "true") 
                     {
                         resolve(true);
+                        console.log(resposta);
                     } 
                     else 
                     {
                         resolve(false);
+                        console.log(resposta);
                     }                
                 }
                 else
@@ -102,7 +105,7 @@ export async function verificaEmail()
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
 
-console.log(resposta);
+
 
 
 

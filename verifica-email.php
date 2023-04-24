@@ -2,12 +2,19 @@
 require 'busca-email.php';
 
     $email = $_POST['email'];
-    
-    if (isset($_POST['email']))
+   
+    if (isset($email))
     {   
         $resultado = buscaEmail($email);
-        echo json_encode($resultado);
-        $resultado2 = nomeEmail($email);
+        if ($resultado) 
+        {
+            $nome = nomeEmail($email);
+            echo json_encode(['status' => true, 'nome' => $nome]);
+        }
+        else 
+        {
+            echo json_encode(['status' => false, 'nome' => '']);
+        }
     }
 
 ?>
