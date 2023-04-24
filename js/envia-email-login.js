@@ -21,6 +21,7 @@ export function codAleatorio2()
     return codigo = letraUm + num + letraDois;
 }
 
+
 // CÓDIGO COMPLETO DA FUNÇÃO ACIMA
 export let codigoCompleto2 = codAleatorio2();
 
@@ -101,15 +102,59 @@ export async function verificaEmail()
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
 
+console.log(resposta);
 
+
+
+/*export async function pegaNome()
+{
+    if (emailVerificado)
+    {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", "pega-nome.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+        return new Promise((resolve, reject) => 
+        {
+            xhr.onreadystatechange = function() 
+            {
+                if (xhr.readyState === XMLHttpRequest.DONE)  
+                {
+                    if(xhr.status === 200)
+                    {
+                        var resposta = JSON.parse(xhr.responseText);
+                      
+                        if (resposta === "nome") 
+                        {
+                            resolve(nome);
+                        } 
+                        else 
+                        {
+                            resolve(false);
+                        }                
+                    }
+                    else
+                    {
+                        reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
+                    }     
+                }
+            };
+            xhr.send("email=" + email.value);
+        });
+    }
+}
+*/
+
+//export const nomeEmail = pegaNome();
 export const modalSessoa1 = document.querySelector(".modal-sessao-1");
 
 // ENVIA O EMAIL OU PRINTA UM ERRO
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
-    const emailVerificado = await verificaEmail();
-    var nome = "<?php echo $nome; ?>";
+    const emailVerificado = await verificaEmail(); 
+    //var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado)
     {
@@ -119,7 +164,7 @@ export async function enviaEmail(event)
         var parametros = 
         {
             from_name: 'Conecta',
-            to_name: nome,
+            to_name: 'nome',
             to_email: email.value,
             email_id: email.value,
             message: codigoCompleto2

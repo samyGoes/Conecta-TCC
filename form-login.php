@@ -41,7 +41,7 @@
                             <label for="" class="modal-senha"> Email </label>
                             <input placeholder="Digite seu email" type="text" name="email" id="email" class="modal-input-senha">
                         </div>
-                        <div class="btn-confirmed"><button id="verifica-email" type="submit"> ENVIAR </button></div>
+                        <div class="btn-confirmed"><button id="verifica-email" type="button"> ENVIAR </button></div>
                     </form>
                     <a class="voltar-login" href="#"> Voltar para o login </a>
                 </div>
