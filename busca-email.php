@@ -1,8 +1,8 @@
 <?php
-    
+    require 'global.php';
     function buscaEmail($email)
     {
-        require 'global.php';
+        //require 'global.php';
         $conectar = Conexao::conectar();
     
         $stmt = $conectar->prepare("SELECT emailVoluntario FROM tbvoluntario WHERE emailVoluntario = :email
@@ -18,20 +18,21 @@
             if ($resultado['emailVoluntario'] == $email || $resultado['emailInstituicao'] == $email)  
             {
                 //$nome = nomeEmail($email);
-                //return array('email' => true, 'nome' => $nome);
-                return true;
+                $nome = $nomes[0]['nomeVoluntario'] ?? $nomes[0]['nomeInstituicao'] ?? '';
+                return array('email' => true, 'nome' => $nome);
+                //return true;
             }
         }
         
-        //return array('email' => false, 'nome' => '');
-        return false;        
+        return array('email' => false, 'nome' => '');
+        //return false;        
     }
 
 
 
     function nomeEmail($email)
     {
-        require 'global.php';
+        //require 'global.php';
         $conectar = Conexao::conectar();
 
         $stmt = $conectar->prepare("SELECT nomeVoluntario FROM tbvoluntario WHERE emailVoluntario = :email
@@ -41,9 +42,18 @@
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $nomes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $nome = $nomes[0]['nomeVoluntario'] ?? $nomes[0]['nomeInstituicao'] ?? '';
 
-        return $nome;  
+        if (!empty($nomes)) 
+        {
+            $nome = $nomes[0]['nomeVoluntario'] ?? $nomes[0]['nomeInstituicao'] ?? '';
+            return array('nome' => $nome);
+        } 
+        else 
+        {
+            return array('nome' => '');
+        }
+
+        //return $nome;  
     }
     
 ?>

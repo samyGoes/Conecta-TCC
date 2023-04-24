@@ -57,114 +57,65 @@ export async function verificaEmail()
     {
         xhr.onreadystatechange = function() 
         {
-            if (xhr.readyState === XMLHttpRequest.DONE)  
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
             {
-                if(xhr.status === 200)
-                {
-                    var resposta = JSON.parse(xhr.responseText);
-                    // try 
-                    // {
-                        //var jsonResposta = JSON.parse(resposta);
-                    //     var jsonResposta = JSON.parse(xhr.responseText);
+            
+                //var resposta = xhr.responseText;
+                var resposta = JSON.parse(xhr.responseText);
 
-                    //     if (jsonResposta.email === true) 
-                    //     {
-                    //         resolve(jsonResposta.nome || true);
-                    //         console.log(jsonResposta);
-                    //     } 
-                    //     else 
-                    //     {
-                    //         resolve(false);
-                    //         console.log(jsonResposta);
-                    //     }                
-                    // } 
-                    // catch (e) 
-                    // {
-                    //     reject(new Error(`Erro ao analisar a resposta: ${e.message}`));
-                    // }
-                    if (resposta === "true") 
-                    {
-                        resolve(true);
-                    } 
-                    else 
-                    {
-                        resolve(false);
-                    }                
-                }
-                else
+                if (resposta.status === "ok") 
                 {
-                    reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                }     
-            }
+                    //resolve(true);
+                    resolve({existe: true, nome: resposta.nome});
+                    console.log(resposta);
+                } 
+                else 
+                {
+                    //resolve(false); 
+                    resolve({existe: false, nome: ''});
+                    console.log(resposta);
+                }                
+            }   
+            else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  
+            {
+                reject(Error(xhr.statusText));
+            }       
         };
-        xhr.send("email=" + email.value);
+        xhr.onerror = function()
+        {
+            reject(Error("Erro ao realizar a requisição"));
+        }
+        xhr.send('email=' + email.vaule);
     });
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
 
-console.log(resposta);
 
 
-
-/*export async function pegaNome()
-{
-    if (emailVerificado)
-    {
-        var xhr = new XMLHttpRequest();
-
-        xhr.open("POST", "pega-nome.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-        return new Promise((resolve, reject) => 
-        {
-            xhr.onreadystatechange = function() 
-            {
-                if (xhr.readyState === XMLHttpRequest.DONE)  
-                {
-                    if(xhr.status === 200)
-                    {
-                        var resposta = JSON.parse(xhr.responseText);
-                      
-                        if (resposta === "nome") 
-                        {
-                            resolve(nome);
-                        } 
-                        else 
-                        {
-                            resolve(false);
-                        }                
-                    }
-                    else
-                    {
-                        reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                    }     
-                }
-            };
-            xhr.send("email=" + email.value);
-        });
-    }
-}
-*/
 
 //export const nomeEmail = pegaNome();
 export const modalSessoa1 = document.querySelector(".modal-sessao-1");
+
+export const modalForm = document.querySelector(".modal-form");
 
 // ENVIA O EMAIL OU PRINTA UM ERRO
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
+    console.log(emailVerificado);
     //var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado)
     {
         // const emailInput = document.querySelector("#email").value;
+        const nome = emailVerificado.nome;
         emailjs.init('no7wF9bX2UIYjHvBT');
     
         var parametros = 
         {
             from_name: 'Conecta',
-            to_name: 'nome',
+            to_name: nome,
             to_email: email.value,
             email_id: email.value,
             message: codigoCompleto2
@@ -175,9 +126,11 @@ export async function enviaEmail(event)
         });
 
         const modalSessao0 = document.querySelector(".modal-sessao-0");
+        
 
         modalSessao0.style.display = "none";
         modalSessoa1.style.display = "flex";
+        modalForm.style.height = "388px";
     }
     else
     {
@@ -235,6 +188,7 @@ export function modalOuErro2(event)
     {      
         modalSessoa1.style.display = "none";
         modalSessao2.style.display = "flex";
+        modalForm.style.height = "255px";
         //form.style.height = "259px";
 
         btnFechar.addEventListener("click", function()
