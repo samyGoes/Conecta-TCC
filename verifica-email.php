@@ -1,5 +1,6 @@
 <?php
 require 'busca-email.php';
+//require 'global.php';
 
     $email = $_POST['email'];
    

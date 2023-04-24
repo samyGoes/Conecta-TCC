@@ -57,50 +57,35 @@ export async function verificaEmail()
     {
         xhr.onreadystatechange = function() 
         {
-            if (xhr.readyState === XMLHttpRequest.DONE)  
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
             {
-                if(xhr.status === 200)
-                {
-                    //var resposta = xhr.responseText;
-                    var resposta = JSON.parse(xhr.responseText);
-                    // try 
-                    // {
-                        //var jsonResposta = JSON.parse(resposta);
-                    //     var jsonResposta = JSON.parse(xhr.responseText);
+            
+                //var resposta = xhr.responseText;
+                var resposta = JSON.parse(xhr.responseText);
 
-                    //     if (jsonResposta.email === true) 
-                    //     {
-                    //         resolve(jsonResposta.nome || true);
-                    //         console.log(jsonResposta);
-                    //     } 
-                    //     else 
-                    //     {
-                    //         resolve(false);
-                    //         console.log(jsonResposta);
-                    //     }                
-                    // } 
-                    // catch (e) 
-                    // {
-                    //     reject(new Error(`Erro ao analisar a resposta: ${e.message}`));
-                    // }
-                    if (resposta === "true") 
-                    {
-                        resolve(true);
-                        console.log(resposta);
-                    } 
-                    else 
-                    {
-                        resolve(false);
-                        console.log(resposta);
-                    }                
-                }
-                else
+                if (resposta.status === "ok") 
                 {
-                    reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                }     
-            }
+                    //resolve(true);
+                    resolve({existe: true, nome: resposta.nome});
+                    console.log(resposta);
+                } 
+                else 
+                {
+                    //resolve(false); 
+                    resolve({existe: false, nome: ''});
+                    console.log(resposta);
+                }                
+            }   
+            else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  
+            {
+                reject(Error(xhr.statusText));
+            }       
         };
-        xhr.send("email=" + email.value);
+        xhr.onerror = function()
+        {
+            reject(Error("Erro ao realizar a requisição"));
+        }
+        xhr.send('email=' + email.vaule);
     });
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
