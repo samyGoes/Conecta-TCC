@@ -128,7 +128,7 @@
         </div>
 
 
-     
+
         <div class="card">
             <div class="card-1">
                 <p>Escreva o nome da causa que deseja cadastrar</p>
@@ -139,12 +139,23 @@
                             <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                         </div>
                         <div class="continue-button">
-                            <button type="submit">CADASTRAR</button>
+                            <button id="requisitar" type="submit">CADASTRAR</button>
                         </div>
                     </form>
+                    <!-- Modal -->
+                    <div id="meuModal" class="modal">
+                        <div class="modal-conteudo">
+                            <span class="fechar">&times;</span>
+                            <h1 class="modal-titulo">Vaga cadastrada com sucesso</h1>
+                            <p class="modal-texto">Selecione as vagas para as quais deseja atribuir a este voluntário.</p>
+                            <div class="footer-modal">
+                                <a href="form-cadastrar-vagas-instituicao.php"><button type="" id="meuBotao">Confirmar</button></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-           
+
             <div class="card-2">
                 <p>Aqui está a lista de todas as causas cadastradas</p>
                 <div class="table">
@@ -195,7 +206,7 @@
                 </div>
             </div>
 
-           
+
 
         </div>
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
@@ -205,12 +216,26 @@
 
 
 
+    <script>
+        // Função para abrir o modal
+        function abrirModal() {
+            document.getElementById("meuModal").style.display = "block";
+        }
 
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById("meuModal").style.display = "none";
+        }
+
+        // Associar o evento de clique ao botão e ao botão de fechar
+        document.getElementById("requisitar").addEventListener("click", abrirModal);
+        document.querySelector(".fechar").addEventListener("click", fecharModal);
+    </script>
 
     <!-- NAVS  -->
     <script src="js/script.js"></script>
     <!-- CHECKBOX -->
-                                    
+
 </body>
 
 </html>

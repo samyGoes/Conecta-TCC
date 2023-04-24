@@ -105,8 +105,7 @@ select option {
 }
 
 #nome,
-#tipoVaga
-{
+#tipoVaga {
     width: 30vw;
 }
 
@@ -149,7 +148,7 @@ select option {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    
+
     background-image: url("../../img/seta.png");
     background-repeat: no-repeat;
     background-position: right;
@@ -219,13 +218,12 @@ select option {
 
 
 /* CAUSAS E HABILIDADES */
-.box-filtro-causas 
-{
+.box-filtro-causas {
     position: relative;
 }
 
-.filtro-causas, .filtro-habilidade
-{
+.filtro-causas,
+.filtro-habilidade {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -239,7 +237,7 @@ select option {
     font-weight: 300;
     font-size: 14px;
     color: #525252;
-    overflow: hidden; 
+    overflow: hidden;
     white-space: nowrap;
 
     background-image: url("../../img/seta.png");
@@ -248,8 +246,8 @@ select option {
     background-size: 15px;
 }
 
-.box-causas, .box-habilidade
-{
+.box-causas,
+.box-habilidade {
     display: none;
     flex-direction: column;
     background-color: #fff;
@@ -266,23 +264,25 @@ select option {
     z-index: 1;
 }
 
-.box-habilidade
-{
+.box-habilidade {
     z-index: 2;
 }
 
 
 /* SCROLL */
-.box-causas::-webkit-scrollbar, .box-habilidade::-webkit-scrollbar {
+.box-causas::-webkit-scrollbar,
+.box-habilidade::-webkit-scrollbar {
     width: 11px;
 }
 
-.box-causas::-webkit-scrollbar-track, .box-habilidade::-webkit-scrollbar-track {
+.box-causas::-webkit-scrollbar-track,
+.box-habilidade::-webkit-scrollbar-track {
     background: #dce5f7;
     border-radius: 0.8rem;
 }
 
-.box-causas::-webkit-scrollbar-thumb, .box-habilidade::-webkit-scrollbar-thumb {
+.box-causas::-webkit-scrollbar-thumb,
+.box-habilidade::-webkit-scrollbar-thumb {
     background-color: #4567a5;
     border-radius: 20px;
     border: 2px solid #dce5f7;
@@ -290,13 +290,15 @@ select option {
 }
 
 
-.box-causas-checkbox, .box-habilidade-checkbox {
+.box-causas-checkbox,
+.box-habilidade-checkbox {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.box-causas-checkbox label, .box-habilidade-checkbox label {
+.box-causas-checkbox label,
+.box-habilidade-checkbox label {
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -305,14 +307,13 @@ select option {
 
 
 /* ESTILIZANDO CHECKBOX */
-#causas[type = "checkbox"],
-#habilidade[type = "checkbox"]
-{
+#causas[type="checkbox"],
+#habilidade[type="checkbox"] {
     /* ZERAR CONFIGURAÇÃO PADRÃO */
     /* -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; */
-    
+
     width: 15px;
     height: 15px;
     border-radius: 3px;
@@ -320,27 +321,19 @@ select option {
     outline: none;
     cursor: pointer;
 }
-#causas[type = "checkbox"]:checked::before,
-#habilidade[type = "checkbox"]:checked::before
-{
+
+#causas[type="checkbox"]:checked::before,
+#habilidade[type="checkbox"]:checked::before {
     content: '\2713';
     display: block;
     border-radius: 3px;
     color: #fff;
-    background-color: #4567a5; 
+    background-color: #4567a5;
     text-align: center;
-   
+
     line-height: 15px;
-    font-size: 13px;
+    font-size: 13px;    
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -349,13 +342,13 @@ select option {
 /*FORMULARIO*/
 @media (max-width: 1048px) {
 
-    #nome, 
-    #tipoVaga, 
-    .filtro-causas, 
-    .filtro-habilidade, 
+    #nome,
+    #tipoVaga,
+    .filtro-causas,
+    .filtro-habilidade,
     #quantidadeVagas,
-    #log, 
-    .box-habilidade, 
+    #log,
+    .box-habilidade,
     .box-causas {
         width: 33vw;
     }
@@ -369,8 +362,7 @@ select option {
     #periodo,
     #dataInicio,
     #horario,
-    #cep
-    {
+    #cep {
         width: 20.9vw;
     }
 
@@ -393,27 +385,27 @@ select option {
         flex-direction: column;
     }
 
-        #num,
-        #bairro,
-        #cep,
-        #cidade,
-        #pais,
-        #comp,
-        #uf,
-        #desc,
-        #nome,
-        #logradouro,
-        #tipoVaga,
-        .filtro-habilidade,
-        .filtro-causas,
-        #periodo,
-        #dataInicio,
-        #horario,
-        #quantidadeVagas,
-        .box-causas,
-        .box-habilidade {
-            width: 60vw;
-        }
+    #num,
+    #bairro,
+    #cep,
+    #cidade,
+    #pais,
+    #comp,
+    #uf,
+    #desc,
+    #nome,
+    #logradouro,
+    #tipoVaga,
+    .filtro-habilidade,
+    .filtro-causas,
+    #periodo,
+    #dataInicio,
+    #horario,
+    #quantidadeVagas,
+    .box-causas,
+    .box-habilidade {
+        width: 60vw;
+    }
 
     .input-box .div-image {
         border: none;

@@ -139,9 +139,20 @@
                             <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
                         </div>
                         <div class="continue-button">
-                            <button type="submit">CADASTRAR</button>
+                            <button id="requisitar" type="submit">CADASTRAR</button>
                         </div>
                     </form>
+                    <!-- Modal -->
+                    <div id="meuModal" class="modal">
+                        <div class="modal-conteudo">
+                            <span class="fechar">&times;</span>
+                            <h1 class="modal-titulo">Habilidade cadastrada com sucesso</h1>
+                            <p class="modal-texto">Selecione as vagas para as quais deseja atribuir a este voluntário.</p>
+                            <div class="footer-modal">
+                                <a href="form-cadastrar-vagas-instituicao.php"><button type="" id="meuBotao">Confirmar</button></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -204,7 +215,21 @@
 
 
 
+    <script>
+        // Função para abrir o modal
+        function abrirModal() {
+            document.getElementById("meuModal").style.display = "block";
+        }
 
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById("meuModal").style.display = "none";
+        }
+
+        // Associar o evento de clique ao botão e ao botão de fechar
+        document.getElementById("requisitar").addEventListener("click", abrirModal);
+        document.querySelector(".fechar").addEventListener("click", fecharModal);
+    </script>
 
 
     <!-- NAVS  -->
