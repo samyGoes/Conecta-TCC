@@ -7,6 +7,7 @@ require 'busca-email.php';
     {   
         $resultado = buscaEmail($email);
         echo json_encode($resultado);
+        $resultado2 = nomeEmail($email);
     }
 
 ?>

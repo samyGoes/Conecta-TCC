@@ -16,6 +16,18 @@
     <body class="body">
 
 
+
+
+        <?php 
+            include 'busca-email.php';
+            $nome = nomeEmail($email);
+        ?>
+
+            
+
+
+
+
         <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
         <div id="modal" class="modal">
             <div class="modal-form" id="modal-form">
@@ -41,7 +53,7 @@
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
                             <label for="" class="modal-senha"> Código </label>
-                            <input placeholder="Digite o código" type="text" name="senha" id="senha" class="modal-input-senha">
+                            <input placeholder="Digite o código" type="text" name="codigo" id="codigo" class="modal-input-senha">
                         </div>
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                     </form>

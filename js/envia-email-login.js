@@ -61,23 +61,34 @@ export async function verificaEmail()
                 if(xhr.status === 200)
                 {
                     var resposta = JSON.parse(xhr.responseText);
+                    // try 
+                    // {
+                        //var jsonResposta = JSON.parse(resposta);
+                    //     var jsonResposta = JSON.parse(xhr.responseText);
 
-                    if (resposta.email === true) 
+                    //     if (jsonResposta.email === true) 
+                    //     {
+                    //         resolve(jsonResposta.nome || true);
+                    //         console.log(jsonResposta);
+                    //     } 
+                    //     else 
+                    //     {
+                    //         resolve(false);
+                    //         console.log(jsonResposta);
+                    //     }                
+                    // } 
+                    // catch (e) 
+                    // {
+                    //     reject(new Error(`Erro ao analisar a resposta: ${e.message}`));
+                    // }
+                    if (resposta === "true") 
                     {
-                        resolve(resposta.nome);
+                        resolve(true);
                     } 
                     else 
                     {
-                        reject(new Error("Email não encontrado"));
-                    } 
-                    // if (resposta === "true") 
-                    // {
-                    //     resolve(true);
-                    // } 
-                    // else 
-                    // {
-                    //     resolve(false);
-                    // }                
+                        resolve(false);
+                    }                
                 }
                 else
                 {
@@ -97,7 +108,8 @@ export const modalSessoa1 = document.querySelector(".modal-sessao-1");
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
-    const emailVerificado = await verificaEmail(email);
+    const emailVerificado = await verificaEmail();
+    var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado)
     {
@@ -107,7 +119,7 @@ export async function enviaEmail(event)
         var parametros = 
         {
             from_name: 'Conecta',
-            to_name: 'aaaa',
+            to_name: nome,
             to_email: email.value,
             email_id: email.value,
             message: codigoCompleto2
@@ -146,7 +158,7 @@ document.getElementById("verifica-email").addEventListener("click", enviaEmail);
 
 
 // INPUT COM CÓDIGO DIGITADO
-export const inputCod2 = document.querySelector("#senha");
+export const inputCod2 = document.querySelector("#codigo");
 
 // VERIFICA SE O CÓDIGO QUE A PESSOA DIGITOU É O MESMO QUE O ENVIADO
 export function verificarCod2()

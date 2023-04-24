@@ -17,14 +17,14 @@
         {
             if ($resultado['emailVoluntario'] == $email || $resultado['emailInstituicao'] == $email)  
             {
-                $nome = nomeEmail($email);
-                return array('email' => true, 'nome' => $nome);
-                // return true;
+                //$nome = nomeEmail($email);
+                //return array('email' => true, 'nome' => $nome);
+                return true;
             }
         }
         
-        return array('email' => false, 'nome' => '');
-        //return false;        
+        //return array('email' => false, 'nome' => '');
+        return false;        
     }
 
 
