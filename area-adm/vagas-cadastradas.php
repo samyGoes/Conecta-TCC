@@ -13,7 +13,7 @@
 
 <body>
 
-    
+
     <!-- NAV LATERAL -->
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
@@ -22,7 +22,7 @@
                 <div class="box-img-user">
                     <img src="./img/user-branco.png" width="100px" height="100px" alt="">
                 </div>
-                
+
                 <p>Olá, ADM!</p>
             </div>
 
@@ -33,11 +33,11 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                 </span></a>
+                    </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> 
+                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico">
                         habilidades </span></a>
             </div>
 
@@ -92,52 +92,50 @@
                         <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
                     </div>
                 </div>
-                <div style="overflow: hidden;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> </th>
-                                <th> ID </th>
-                                <th> Nome </th>
-                                <th>Período</th>
-                                <th>Horário</th>
-                                <th>Causa</th>
-                                <th>Habilidades</th>
-                                <th>Instituição</th>
-                                <th>Cidade</th>
-                                <th>UF</th>
-                                <th>País</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
-                            try {
-                                $listaVagas = ServicoDao::listarVagaAdm();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            <tr>
-                                <?php foreach ($listaVagas as $vaga) { ?>
-                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td> <?php echo $vaga['codServico']; ?> </td>
-                                    <td><?php echo $vaga['nomeservico']; ?></td>
-                                    <td> <?php echo $vaga['periodoServico']; ?></td>
-                                    <td><?php echo $vaga['horarioServico']; ?></td>
-                                    <td> <?php echo $vaga['nomeCategoria']; ?></td>
-                                    <td> <?php echo $vaga['nomeHabilidadeServico']; ?>  </td>
-                                    <td> <?php echo $vaga['nomeInstituicao']; ?> </td>
-                                    <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
-                                    <td> <?php echo $vaga['estadoLocalServico']; ?></td>
-                                    <td> <?php echo $vaga['paisLocalServico']; ?></td>
-                            </tr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> ID </th>
+                            <th> Nome </th>
+                            <th>Período</th>
+                            <th>Horário</th>
+                            <th>Causa</th>
+                            <th>Habilidades</th>
+                            <th>Instituição</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th>País</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                                }
+                        require_once 'global.php';
+                        try {
+                            $listaVagas = ServicoDao::listarVagaAdm();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
                         ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <tr>
+                            <?php foreach ($listaVagas as $vaga) { ?>
+                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                <td> <?php echo $vaga['codServico']; ?> </td>
+                                <td><?php echo $vaga['nomeservico']; ?></td>
+                                <td> <?php echo $vaga['periodoServico']; ?></td>
+                                <td><?php echo $vaga['horarioServico']; ?></td>
+                                <td> <?php echo $vaga['nomeCategoria']; ?></td>
+                                <td> <?php echo $vaga['nomeHabilidadeServico']; ?> </td>
+                                <td> <?php echo $vaga['nomeInstituicao']; ?> </td>
+                                <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
+                                <td> <?php echo $vaga['estadoLocalServico']; ?></td>
+                                <td> <?php echo $vaga['paisLocalServico']; ?></td>
+                        </tr>
+                    <?php
+                            }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
 

@@ -336,7 +336,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -346,7 +346,7 @@
 
 .modal-conteudo {
     background-color: #fff;
-    margin: 10% auto;
+    margin: 20% auto;
     padding: 35px;
     border: 1px solid #888;
     border-radius: 10px;
