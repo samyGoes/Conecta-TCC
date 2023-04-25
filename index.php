@@ -1,10 +1,10 @@
 <?php
-    require_once 'global.php';
-    require_once 'auth/verifica-logado.php';
+require_once 'global.php';
+require_once 'auth/verifica-logado.php';
 
 
-    $t = $_SESSION['tipoPerfil'];
-    $c=$_SESSION['codUsuario']; 
+$t = $_SESSION['tipoPerfil'];
+$c = $_SESSION['codUsuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,8 @@
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
                             id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="<?php echo 'auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
+                            <li> <a href="<?php echo 'auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu
+                                    Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href=""> Configurações </a></li>
                             <li> <a href="auth/logout.php"> Sair </a></li>
@@ -121,7 +122,10 @@
                             laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
                             elit.
                             Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nemo
-                            explicabo.
+                            explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ad quisquam, eos
+                            ducimus magni odio aliquam ratione sit numquam inventore iure nisi recusandae molestiae ab
+                            omnis suscipit error sunt accusantium?
+
                         </p>
                     </div>
 
@@ -205,7 +209,8 @@
         <div class="container-4">
             <div class="titulo-container-4">
                 <h1>Seja um Voluntário</h1>
-                <p>Agora que você já sabe como funciona e da importância de ajudar, considere se candidatar a uma vaga.</p>
+                <p>Agora que você já sabe como funciona e da importância de ajudar, considere se candidatar a uma vaga.
+                </p>
             </div>
 
 
@@ -220,7 +225,7 @@
 
                         <div class="slider">
                             <div class="cards">
-                            <?php
+                                <?php
 
                                 try {
                                     $listaVaga = ServicoDao::listarVagaAdm();
@@ -230,40 +235,50 @@
                                 ?>
                                 <?php
                                 foreach ($listaVaga as $vaga) {
-                                ?>
+                                    ?>
                                     <div class="card-carrossel-dois">
                                         <div class="content-it">
                                             <div class="header-card-carrossel-it">
-                                                <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
+                                                <i id="icon-maps-flip" style="display:none"
+                                                    class="fa-solid fa-location-dot fa-flip"></i>
                                                 <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                                                <p><?php echo $vaga['cidadeLocalServico']; ?></p>
+                                                <p>
+                                                    <?php echo $vaga['cidadeLocalServico']; ?>
+                                                </p>
                                             </div>
                                             <div class="fundo">
                                                 <div class="fundo-img">
                                                     <img src="<?php echo $vaga['fotoInstituicao']; ?>">
                                                 </div>
                                                 <div class="title-1">
-                                                    <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                                                    <p>
+                                                        <?php echo $vaga['nomeInstituicao']; ?>
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="box-conteudo-card">
                                                 <div class="title-2">
-                                                    <p><?php echo $vaga['nomeservico']; ?></p>
+                                                    <p>
+                                                        <?php echo $vaga['nomeservico']; ?>
+                                                    </p>
                                                 </div>
                                                 <div class="title-3">
-                                                    <p><?php echo $vaga['descServico']; ?></p>
+                                                    <p>
+                                                        <?php echo $vaga['descServico']; ?>
+                                                    </p>
                                                 </div>
                                                 <form action="redirecionar-vaga-completa.php" method="post">
-                                                    <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                                                    <input type="hidden" name="id"
+                                                        value="<?php echo $vaga['codServico']; ?>">
                                                     <button class="card-carrossel-botao" id="botao-it" type="submit">
                                                         VER VAGA
                                                     </button>
                                                 </form>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </div>
@@ -271,7 +286,7 @@
                     </div>
                 </div>
             </div>
-           
+
 
 
             <div class="botao-vagas">
