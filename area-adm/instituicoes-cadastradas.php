@@ -82,7 +82,7 @@
             </p>
         </div>
         <div class="gerarPdf">
-            <button><i class="fa-solid fa-file-pdf"></i>Gerar pdf</button>
+            <button><i class="fa-solid fa-file-pdf"><a href="geracaoPdf/gerar_pdf_Instituições.php"></i>Gerar pdf</a></button>
         </div>
 
         <div class="table">
