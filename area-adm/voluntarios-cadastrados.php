@@ -75,7 +75,7 @@
             <p>Digite as novas informações que deseja inserir</p>
         </div>
         <div class="gerarPdf">
-            <button><i class="fa-solid fa-file-pdf"></i>Gerar pdf</button>
+            <button><i class="fa-solid fa-file-pdf"><a href="geracaoPdf/gerar_pdf_Voluntarios.php"></i>Gerar pdf</a></button>
         </div>
 
 
@@ -89,8 +89,11 @@
                         <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
                     </div>
                     <div class="funcoes-sessao-2">
-                        <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        <form action="" method="post">
+                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"><input type="submit" name="pesqUsuario" value="" ></i>
+                        </form>
+                        
                     </div>
                 </div>
                 <table>
