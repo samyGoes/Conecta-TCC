@@ -259,7 +259,7 @@
 
 
 
-    <script src="../area-instituicao/js/script.js"></script>
+    <script type="module" src="../area-instituicao/js/main.js"></script>
     <script src="js/box-info.js"></script>
 </body>
 

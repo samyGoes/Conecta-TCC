@@ -151,8 +151,8 @@
 
 
 
-        <!-- <script src="js/script.js"></script> -->
-       <script src="../area-instituicao/js/script.js"></script>
+
+       <script type="module" src="../area-instituicao/js/main.js"></script>
     </body>
 
 </html>

@@ -314,7 +314,7 @@ require_once 'global.php';
 
 
 
-    <script src="../js/script.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>

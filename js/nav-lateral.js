@@ -1,40 +1,39 @@
 // DROP DOWN NAV BAR 
-const navSetaDrop = document.querySelector("#nav-seta-sub-topicos");
-const navSubTopicos = document.querySelector(".sub-topicos");
+// const navSetaDrop = document.querySelector("#nav-seta-sub-topicos");
+// const navSubTopicos = document.querySelector(".sub-topicos");
 
-navSetaDrop.addEventListener("click", function dropDown()
-{
-    if (navSubTopicos.style.display == "none")
-    {
-        navSubTopicos.style.display = "block";
-    }
-    else
-    {
-        navSubTopicos.style.display = "none";
-    }
-});
+// navSetaDrop.addEventListener("click", function dropDown()
+// {
+//     if (navSubTopicos.style.display == "none")
+//     {
+//         navSubTopicos.style.display = "block";
+//     }
+//     else
+//     {
+//         navSubTopicos.style.display = "none";
+//     }
+// });
 
 
 
 // NAV LATERAL
-const botaoNavLateral = document.querySelector("#nav-lateral-icon-lista");
-const navLateral = document.querySelector(".nav-lateral");
-const topicosNavLateral = document.querySelectorAll(".nav-lateral-topico");
-const mainConteudo = document.querySelector(".main-conteudo");
-const tabela = document.querySelector(".table-responsive");
-
-
-/* RESPONSIVIDADE NAV LATERAL E CONTEUDO */
-let telaUm = window.matchMedia("(min-width: 1049px)");
-let telaDois = window.matchMedia("(max-width: 675px)");
-let telaTres = window.matchMedia("(max-width: 1203px)");
-let telaQuatro = window.matchMedia("(max-width: 1150px)");
-
-
-botaoNavLateral.addEventListener("click", function()
+export function sideBar()
 {
+    const navLateral = document.querySelector(".nav-lateral");
+    const topicosNavLateral = document.querySelectorAll(".nav-lateral-topico");
+    const mainConteudo = document.querySelector(".main-conteudo");
+    const tabela = document.querySelector(".table-responsive");
+
+
+    /* RESPONSIVIDADE NAV LATERAL E CONTEUDO */
+    let telaUm = window.matchMedia("(min-width: 1049px)");
+    let telaDois = window.matchMedia("(max-width: 675px)");
+    let telaTres = window.matchMedia("(max-width: 1203px)");
+    let telaQuatro = window.matchMedia("(max-width: 1150px)");
+
     if(navLateral.style.width == "17rem")
     {       
+        // NAV SENDO FECHADA
         if(!telaDois.matches)
         {
             navLateral.style.width = "5rem";
@@ -68,6 +67,7 @@ botaoNavLateral.addEventListener("click", function()
     }
     else
     {
+        // NAV SENDO ABERTA
         navLateral.style.width = "17rem";
         if(!telaDois.matches)
         {
@@ -100,4 +100,5 @@ botaoNavLateral.addEventListener("click", function()
             topicoNavLateral.style.opacity = "1";
         });
     }
-});
+} 
+document.querySelector("#nav-lateral-icon-lista").addEventListener("click", sideBar);

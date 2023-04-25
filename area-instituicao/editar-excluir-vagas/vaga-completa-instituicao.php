@@ -258,7 +258,7 @@
 
 
         <!-- SCRIPTS -->
-        <script src="../js/script.js"></script>
+        <script type="module" src="../js/main.js"></script>
         <script src="js/modal-exclusao.js"></script>
 
     </body>

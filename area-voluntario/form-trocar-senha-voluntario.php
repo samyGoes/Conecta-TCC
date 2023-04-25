@@ -191,7 +191,7 @@
 
 
 
-
+        <script type="module" src="../area-instituicao/js/main.js"></script>
     </body>
 
 </html>

@@ -195,7 +195,7 @@
 
         
         <!-- SCRIPITS -->
-        <script src="../area-instituicao/js/script.js"></script>
+        <script type="module" src="../area-instituicao/js/main.js"></script>
         <script src="js/drop-down-botao-causas.js"></script>
     </body>
 </html>

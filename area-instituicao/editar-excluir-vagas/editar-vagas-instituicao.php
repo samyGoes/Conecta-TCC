@@ -190,7 +190,7 @@ include "../../auth/verifica-logado.php";
 
 
     <script src="../area-voluntario/js/carrossel-vagas.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>

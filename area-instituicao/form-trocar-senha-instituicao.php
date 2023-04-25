@@ -208,7 +208,7 @@
 
 
     <!-- SCRIPTS -->
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script src="js/modal-confirmacao.js"></script>
     <script type="module" src="../area-voluntario/js/main.js"></script>
 </body>

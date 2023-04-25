@@ -260,7 +260,7 @@
 
 
 
-    <script src="js/script.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
 </body>
 
