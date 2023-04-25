@@ -1,59 +1,31 @@
 <?php
     require 'global.php';
+
     function buscaEmail($email)
     {
         //require 'global.php';
+        
         $conectar = Conexao::conectar();
     
-        $stmt = $conectar->prepare("SELECT emailVoluntario FROM tbvoluntario WHERE emailVoluntario = :email
+        $stmt = $conectar->prepare("SELECT nomeVoluntario AS nome, emailVoluntario AS email FROM tbvoluntario WHERE emailVoluntario = :email
                                   UNION 
-                                  SELECT emailInstituicao FROM tbinstituicao WHERE emailInstituicao = :email");
+                                  SELECT nomeInstituicao AS nome, emailInstituicao AS email FROM tbinstituicao WHERE emailInstituicao = :email");
         
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        //echo "Valor do email: " . $email;
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        //print_r($resultados);
+
         foreach($resultados as $resultado)
         {
-            if ($resultado['emailVoluntario'] == $email || $resultado['emailInstituicao'] == $email)  
+            if ($resultado['email'] == $email)  
             {
-                //$nome = nomeEmail($email);
-                $nome = $nomes[0]['nomeVoluntario'] ?? $nomes[0]['nomeInstituicao'] ?? '';
-                return array('email' => true, 'nome' => $nome);
-                //return true;
-            }
+                return array('email' => true, 'nome' => $resultado['nome']);
+            } 
         }
-        
-        return array('email' => false, 'nome' => '');
-        //return false;        
+        return array('email' => false, 'nome' => '');       
     }
 
-
-
-    function nomeEmail($email)
-    {
-        //require 'global.php';
-        $conectar = Conexao::conectar();
-
-        $stmt = $conectar->prepare("SELECT nomeVoluntario FROM tbvoluntario WHERE emailVoluntario = :email
-                                    UNION 
-                                    SELECT nomeInstituicao FROM tbinstituicao WHERE emailInstituicao = :email");
-
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-        $nomes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        if (!empty($nomes)) 
-        {
-            $nome = $nomes[0]['nomeVoluntario'] ?? $nomes[0]['nomeInstituicao'] ?? '';
-            return array('nome' => $nome);
-        } 
-        else 
-        {
-            return array('nome' => '');
-        }
-
-        //return $nome;  
-    }
-    
 ?>

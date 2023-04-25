@@ -18,16 +18,6 @@
 
 
 
-        <?php 
-            //include 'busca-email.php';
-            //$nome = nomeEmail($email);
-        ?>
-
-            
-
-
-
-
         <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
         <div id="modal" class="modal">
             <div class="modal-form" id="modal-form">
@@ -39,7 +29,7 @@
                     <form class="form-modal-email" action="" method="POST" id="form-modal-email">
                         <div class="modal-input-box-email">
                             <label for="" class="modal-senha"> Email </label>
-                            <input placeholder="Digite seu email" type="text" name="email" id="email" class="modal-input-senha">
+                            <input placeholder="Digite seu email" type="email" name="email" id="email" class="modal-input-senha">
                         </div>
                         <div class="btn-confirmed"><button id="verifica-email" type="button"> ENVIAR </button></div>
                     </form>

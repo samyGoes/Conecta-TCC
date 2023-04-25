@@ -61,20 +61,23 @@ export async function verificaEmail()
             {
             
                 //var resposta = xhr.responseText;
-                var resposta = JSON.parse(xhr.responseText);
+                var valores = JSON.parse(xhr.responseText);
 
-                if (resposta.status === "ok") 
+                console.log(valores);
+                //console.log(resposta.status);  
+                //console.log(resposta.nome);
+                
+                if (valores.status === true) 
                 {
-                    //resolve(true);
-                    resolve({existe: true, nome: resposta.nome});
-                    console.log(resposta);
+                    resolve({existe: true, nome: valores.nome});
+                    //console.log(resposta);
                 } 
                 else 
                 {
-                    //resolve(false); 
                     resolve({existe: false, nome: ''});
-                    console.log(resposta);
-                }                
+                    //console.log(resposta);
+                }        
+                      
             }   
             else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  
             {
@@ -85,7 +88,7 @@ export async function verificaEmail()
         {
             reject(Error("Erro ao realizar a requisição"));
         }
-        xhr.send('email=' + email.vaule);
+        xhr.send('email=' + email.value);
     });
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
@@ -98,15 +101,15 @@ export const modalSessoa1 = document.querySelector(".modal-sessao-1");
 
 export const modalForm = document.querySelector(".modal-form");
 
-// ENVIA O EMAIL OU PRINTA UM ERRO
+//ENVIA O EMAIL OU PRINTA UM ERRO
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
-    console.log(emailVerificado);
+    //console.log(emailVerificado);
     //var nome = "<?php echo $nome; ?>";
     
-    if(emailVerificado)
+    if(emailVerificado.existe)
     {
         // const emailInput = document.querySelector("#email").value;
         const nome = emailVerificado.nome;
@@ -150,12 +153,13 @@ export async function enviaEmail(event)
 
         email.style.borderColor = "red";
     }
-    console.log(emailVerificado);
+    //console.log(emailVerificado);
 }
 document.getElementById("verifica-email").addEventListener("click", enviaEmail);
 
 
-// INPUT COM CÓDIGO DIGITADO
+//INPUT COM CÓDIGO DIGITADO
+
 export const inputCod2 = document.querySelector("#codigo");
 
 // VERIFICA SE O CÓDIGO QUE A PESSOA DIGITOU É O MESMO QUE O ENVIADO
