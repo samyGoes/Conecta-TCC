@@ -1,4 +1,4 @@
-        // OCULTANDO SESSÕES
+// OCULTANDO SESSÕES
 
 // DADOS PESSOAIS 
 const ocultarSessao = document.querySelector(".ocultar-sessao");
@@ -6,15 +6,7 @@ const setaOcultar = document.querySelector(".seta-ocultar");
 
 setaOcultar.addEventListener("click", function setaOcultar()
 {
-    if (ocultarSessao.style.display == "flex")
-    {
-        // ocultarSessao.style.height = "0";
-        ocultarSessao.style.display = "none";
-    }
-    else
-    {
-        ocultarSessao.style.display = "flex";
-    }
+    ocultarSessao.classList.toggle("fechado");
 });
 
 
@@ -24,15 +16,7 @@ const setaOcultarDesc = document.querySelector(".seta-ocultar-desc");
 
 setaOcultarDesc.addEventListener("click", function setaOcultarDesc()
 {
-    if (ocultarSessaoDesc.style.display == "flex")
-    {
-        // ocultarSessao.style.height = "0";
-        ocultarSessaoDesc.style.display = "none";
-    }
-    else
-    {
-        ocultarSessaoDesc.style.display = "flex";
-    }
+    ocultarSessaoDesc.classList.toggle("fechado");
 });
 
 
@@ -42,15 +26,7 @@ const setaOcultarCausa = document.querySelector(".seta-ocultar-causa");
 
 setaOcultarCausa.addEventListener("click", function setaOcultarCausa()
 {
-    if (ocultarSessaoCausa.style.display == "flex")
-    {
-        // ocultarSessao.style.height = "0";
-        ocultarSessaoCausa.style.display = "none";
-    }
-    else
-    {
-        ocultarSessaoCausa.style.display = "flex";
-    }
+    ocultarSessaoCausa.classList.toggle("fechado");
 });
 
 
@@ -58,47 +34,32 @@ setaOcultarCausa.addEventListener("click", function setaOcultarCausa()
 // SERVIÇOS PRESTADOS
 const ocultarSessaoVaga = document.querySelector(".ocultar-sessao-vaga");
 const setaOcultarVaga = document.querySelector(".seta-ocultar-vaga");
-const sessaoVagas = document.querySelector(".servicos-prestados");
 
 setaOcultarVaga.addEventListener("click", function setaOcultarVaga()
 {
-    if (ocultarSessaoVaga.style.display == "flex")
-    {
-        // ocultarSessao.style.height = "0";
-        ocultarSessaoVaga.style.display = "none";
-        sessaoVagas.style.paddingBottom = "0";
-    }
-    else
-    {
-        ocultarSessaoVaga.style.display = "flex";
-        sessaoVagas.style.paddingBottom = "2rem";
-    }
+    ocultarSessaoVaga.classList.toggle("fechado");
 });
 
 
 // INSTITUIÇÕES TRABALHADAS
 const ocultarSessaoFoto = document.querySelector(".ocultar-sessao-foto");
 const setaOcultarFoto = document.querySelector(".seta-ocultar-foto");
-const sessaoIT = document.querySelector(".instituicoes-trabalhadas");
-const rodape = document.querySelector(".container-footer");
 
 setaOcultarFoto.addEventListener("click", function setaOcultarFoto()
 {
-    if (ocultarSessaoFoto.style.display == "flex")
-    {
-        ocultarSessaoFoto.style.display = "none";
-        sessaoIT.style.paddingBottom = "0";
-    }
-    else
-    {
-        ocultarSessaoFoto.style.display = "flex";
-        sessaoIT.style.paddingBottom = "2rem";
-    }
+    ocultarSessaoFoto.classList.toggle("fechado");
 });
 
 
 
-            // FAZER OS ICONES DE MAPS GIRAREM QUANDO PASSA O MOUSE POR CIMA DO CARD
+
+
+
+
+
+
+
+// FAZER OS ICONES DE MAPS GIRAREM QUANDO PASSA O MOUSE POR CIMA DO CARD
             
 const iconMapsFlip = document.querySelectorAll("#icon-maps-flip");
 const iconMaps = document.querySelectorAll("#icon-maps");
@@ -125,18 +86,3 @@ for (let i = 0; i < cardIT.length; i++)
 
 
 
-            // DROP DOWN NAV BAR 
-const navSetaDrop = document.querySelector("#nav-seta-sub-topicos");
-const navSubTopicos = document.querySelector(".sub-topicos");
-
-navSetaDrop.addEventListener("click", function dropDown()
-{
-    if (navSubTopicos.style.display == "none")
-    {
-        navSubTopicos.style.display = "block";
-    }
-    else
-    {
-        navSubTopicos.style.display = "none";
-    }
-});

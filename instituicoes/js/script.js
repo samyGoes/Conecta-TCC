@@ -5,7 +5,7 @@ const dropCausas = document.querySelector('.clique-fora');
 
 botaoCausas.addEventListener("click", function() 
 {
-    if (boxCausas.style.display == "none") 
+    if (boxCausas.style.display == "none" || boxCausas.style.display === "") 
     {
        boxCausas.style.display = "flex";
        botaoCausas.style.backgroundColor = "#4567a5";

@@ -120,21 +120,46 @@ main
     /* margin-right: 1%; */
     font-size: 20px;
 }
-.seta-ocultar, .seta-ocultar-desc, .seta-ocultar-foto, .seta-ocultar-causa, .seta-ocultar-vaga
+
+.seta-ocultar,
+.seta-ocultar-desc,
+.seta-ocultar-foto,
+.seta-ocultar-causa,
+.seta-ocultar-vaga 
 {
     font-size: 25px;
     height: 1rem;
     /* background-color: #4567a5; */
     cursor: pointer;
 }
-.ocultar-sessao, .ocultar-sessao-desc, .ocultar-sessao-foto, .ocultar-sessao-causa, .ocultar-sessao-vaga
+.ocultar-sessao,
+.ocultar-sessao-desc,
+.ocultar-sessao-foto,
+.ocultar-sessao-causa,
+.ocultar-sessao-vaga 
 {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    transition: all 0.7s ease;
+
+    height: auto;
+    max-height: 30rem;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
 }
+
+.ocultar-sessao.fechado,
+.ocultar-sessao-foto.fechado,
+.ocultar-sessao-vaga.fechado,
+.ocultar-sessao-desc.fechado,
+.ocultar-sessao-causa.fechado 
+{
+    max-height: 0rem;
+}
+
+
+
+
+
 
 
 .dados-pessoais-1 
@@ -418,6 +443,7 @@ main
     justify-content: center;
     width: 100%;
     position: relative;
+    padding-bottom: 2rem;
     /* background-color: #232e61; */
 }
 
@@ -519,7 +545,7 @@ main
 {
     border-top: 1px solid #4567a5;
     width: 100%;
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     /* display: none; */
 }
 
@@ -529,8 +555,8 @@ main
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* min-width: 32.3%; */
-    width: 14rem;
+    min-width: 32.3%;
+    /* width: 14rem; */
 
     border-radius: 0.6rem;
     border: 1px solid #4567a5;

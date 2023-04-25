@@ -1,11 +1,11 @@
-
+const navLateral = document.querySelector(".nav-lateral");
+const topicosNavLateral = document.querySelectorAll(".nav-lateral-topico");
+const mainConteudo = document.querySelector(".main-conteudo");
 
 // NAV LATERAL
 export function sideBar()
 {
-    const navLateral = document.querySelector(".nav-lateral");
-    const topicosNavLateral = document.querySelectorAll(".nav-lateral-topico");
-    const mainConteudo = document.querySelector(".main-conteudo");
+ 
     const tabela = document.querySelector(".table-responsive");
 
 
@@ -15,7 +15,9 @@ export function sideBar()
     let telaTres = window.matchMedia("(max-width: 1203px)");
     let telaQuatro = window.matchMedia("(max-width: 1150px)");
 
-    if(navLateral.style.width == "17rem")
+    //navLateral.style.width = "17rem";
+
+    if(navLateral.offsetWidth == 17 * parseFloat(getComputedStyle(navLateral).fontSize))
     {       
         // NAV SENDO FECHADA
         if(!telaDois.matches)
@@ -86,3 +88,5 @@ export function sideBar()
     }
 } 
 document.querySelector("#nav-lateral-icon-lista").addEventListener("click", sideBar);
+
+

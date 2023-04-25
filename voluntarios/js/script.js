@@ -7,7 +7,7 @@
 
  botaoCausas.addEventListener("click", function() 
  {
-     if (boxCausas.style.display == "none") 
+     if (boxCausas.style.display == "none" || boxCausas.style.display === "") 
      {
         boxCausas.style.display = "flex";
         botaoCausas.style.backgroundColor = "#cf8a3f";
@@ -41,19 +41,19 @@
 
 botaoHabilidade.addEventListener("click", function() 
  {
-     if (boxHabilidade.style.display == "none") 
+     if (boxHabilidade.style.display == "none" || boxCausas.style.display === "") 
      {
         boxHabilidade.style.display = "flex";
-       botaoHabilidade.style.backgroundColor = "#cf8a3f";
-       botaoHabilidade.style.color = "#fff";
-       botaoHabilidade.style.borderColor = "#cf8a3f";
+        botaoHabilidade.style.backgroundColor = "#cf8a3f";
+        botaoHabilidade.style.color = "#fff";
+        botaoHabilidade.style.borderColor = "#cf8a3f";
      } 
      else 
      {
         boxHabilidade.style.display = "none";
-       botaoHabilidade.style.backgroundColor = "#fbf7c7";
-       botaoHabilidade.style.color = "#000";
-       botaoHabilidade.style.borderColor = "#000";
+        botaoHabilidade.style.backgroundColor = "#fbf7c7";
+        botaoHabilidade.style.color = "#000";
+        botaoHabilidade.style.borderColor = "#000";
      }
  });
 
@@ -62,7 +62,7 @@ botaoHabilidade.addEventListener("click", function()
      const target = event.target;
      if (!dropCausas.contains(target)) 
      {
-         boxHabilidade.style.display = "none";
+        boxHabilidade.style.display = "none";
         botaoHabilidade.style.backgroundColor = "#fbf7c7";
         botaoHabilidade.style.color = "#000";
         botaoHabilidade.style.borderColor = "#000";
