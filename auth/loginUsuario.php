@@ -34,6 +34,7 @@
                 $_SESSION['codUsuario'] = $codUsuario;
                 $_SESSION['nomeUsuario'] = $result['nomeVoluntario'];
                 $_SESSION['emailUsuario'] = $result['emailVoluntario'];
+                $_SESSION['tipoPerfil']= 'Voluntario';
                
 
                 // Redireciona para a página inicial do site
@@ -67,7 +68,7 @@
                 $_SESSION['codUsuario'] = $codUsuario;
                 $_SESSION['nomeUsuario'] = $result['nomeInstituicao'];
                 $_SESSION['emailUsuario'] = $result['emailInstituicao'];
-                
+                $_SESSION['tipoPerfil']= 'Instituicao';
         
                 // Redireciona para a página inicial do site
                 header('Location: ../index.php');

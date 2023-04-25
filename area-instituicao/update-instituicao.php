@@ -31,6 +31,11 @@
 
         $idInstituicao = InstituicaoDao::consultarId($instituicao);
 
+        //Atualizando os dados na sessão
+        $consulta = InstituicaoDao::consultarInstituicao($_SESSION['codUsuario']);
+        $_SESSION['dadoPerfil'] = $consulta;
+
+
         if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) 
         {
             //nome original do arquivo no computador do usuário
@@ -58,24 +63,10 @@
             $atualizar=InstituicaoDao::atualizarFotoPerfil($instituicao);
 
             //Guardando a foto na sessão
-            $_SESSION['ftPerfil'] = $nomecompleto;
+            $_SESSION['dadoPerfil']['fotoInstituicao'] = $nomecompleto;
         }
 
-        $_SESSION['nomeUsuario'] = $instituicao -> getNomeInstituicao();
-        $_SESSION['emailUsuario'] = $instituicao -> getEmailInstituicao();
-        $_SESSION['numFoneUsuario1'] = $instituicao -> getTel1Instituicao();
-        $_SESSION['numFoneUsuario2'] = $instituicao -> getTel2Instituicao();
-        $_SESSION['logUsuario'] = $instituicao -> getLogradouroInstituicao();
-        $_SESSION['numLogUsuario'] = $instituicao -> getNumeroInstituicao();
-        $_SESSION['cepUsuario'] = $instituicao -> getCepInstituicao();
-        $_SESSION['bairroUsuario'] = $instituicao -> getBairroInstituicao();
-        $_SESSION['cidadeUsuario'] = $instituicao -> getCidadeInstituicao();
-        $_SESSION['estadoUsuario'] = $instituicao -> getEstadoInstituicao();
-        $_SESSION['compUsuario'] = $instituicao -> getCompInstituicao();
-        $_SESSION['paisUsuario'] = $instituicao -> getPaisInstituicao();
-        $_SESSION['descUsuario'] = $instituicao -> getDescInstituicao();
         
-
         
     }
     catch(Exception $e)

@@ -1,7 +1,9 @@
-<?php include "../auth/verifica-logado.php";?>
 <?php
-    require_once 'global.php'; 
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
 
+    $t=$_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,7 +47,7 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="perfil-instituicao.php"> Meu Perfil </a></li>
+                            <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                             <li> <a href="form-trocar-senha-instituicao.php"> Vagas </a> </li>
                             <li> <a href="form-editar-perfil-instituicao.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -79,7 +81,7 @@
                 <div class="ocultar-sessao">
                     <div class="dados-pessoais-1">
                         <div class="img-user">
-                            <img src="<?php echo ($_SESSION['ftPerfil']) ?>">
+                            <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>">
                         </div>
                         <div class="dados-pessoais-1-stars">
                             <i class="fa-solid fa-star"></i>
@@ -90,7 +92,7 @@
                         </div>
                         <p> 
                             <?php 
-                                echo($_SESSION['nomeUsuario']);
+                                echo($_SESSION['dadoPerfil']['nomeInstituicao']);
                              ?> 
                         </p>
                     </div>
@@ -103,7 +105,7 @@
                             </div>
                             <p class="endereco">
                                 <?php
-                                echo ($_SESSION['logUsuario'] . ", " . $_SESSION['numLogUsuario'] . " - " . $_SESSION['cidadeUsuario'] . " " . $_SESSION['estadoUsuario'] . " - " . $_SESSION['cepUsuario'] . ", " . $_SESSION['bairroUsuario'] . ", " . $_SESSION['paisUsuario']);
+                                echo ($_SESSION['dadoPerfil']['logInstituicao'] . ", " . $_SESSION['dadoPerfil']['numLogInstituicao'] . " - " . $_SESSION['dadoPerfil']['cidadeInstituicao'] . " " . $_SESSION['dadoPerfil']['estadoInstituicao'] . " - " . $_SESSION['dadoPerfil']['cepInstituicao'] . ", " . $_SESSION['dadoPerfil']['bairroInstituicao'] . ", " . $_SESSION['dadoPerfil']['paisInstituicao']);
                                 ?>
                             </p>
                         </div>
@@ -118,7 +120,7 @@
                                     <p id="topico-email-fone">Email</p>
                                     <p>
                                         <?php
-                                        echo ($_SESSION['emailUsuario']);
+                                        echo ($_SESSION['dadoPerfil']['emailInstituicao']);
                                         ?>
                                     </p>
                                 </div>
@@ -128,7 +130,7 @@
                                     <div class="telefones">
                                         <p>
                                             <?php
-                                                echo($_SESSION['numFoneUsuario1'])
+                                                echo($_SESSION['dadoPerfil']['telefone1'])
                                             ?>
                                         </p>
                                         <p>
@@ -159,7 +161,7 @@
                     </div>
                     <div class="ocultar-sessao-desc">
                         <div class="texto">
-                            <p><?php echo($_SESSION['descUsuario']) ?></p>
+                            <p><?php echo($_SESSION['dadoPerfil']['descInstituicao']) ?></p>
                         </div>
                     </div>
                 </div>

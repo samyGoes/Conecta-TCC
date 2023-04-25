@@ -1,4 +1,11 @@
-<?php include "../auth/verifica-logado.php"; ?>
+<?php
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
+
+
+    $t = $_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -38,7 +45,7 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href=""> Meu Perfil </a></li>
+                            <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href=""> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -134,43 +141,47 @@
             <?php 
                 foreach ($listaVoluntario as $voluntario) 
                 {
+                    $t = 'Voluntario';
+                    $c=$voluntario['codVoluntario'];
             ?>
                     <div class="lista-voluntario-linha">
-                        <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $voluntario['cidadeVoluntario'].","; ?> <span class="estado-pais"> <?php echo $voluntario['estadoVoluntario']."-".$voluntario['paisVoluntario']; ?> </span></p></div>   
+                        <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
+                            <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $voluntario['cidadeVoluntario'].","; ?> <span class="estado-pais"> <?php echo $voluntario['estadoVoluntario']."-".$voluntario['paisVoluntario']; ?> </span></p></div>   
 
-                        <div class="lista-item" id="lista-item-nome"> 
+                                <div class="lista-item" id="lista-item-nome"> 
+                                
+                                    <div class="box-img"> <img src="../area-voluntario/<?php //echo $voluntario['fotoVoluntario']; ?>"> </div> 
+                        
+                                    <div class="lista-item-sessao-1">
+                                        <a href=""> <p class="nome">  <?php echo $voluntario['nomeVoluntario']; ?> </p> </a>
+                                        <p class="email"> <?php echo $voluntario['emailVoluntario']; ?> </p>
+                                    </div>  
 
-                            <a href="../area-voluntario/perfil-voluntario.php">
-                            <div class="box-img"> <img src="../area-voluntario/<?php //echo $voluntario['fotoVoluntario']; ?>"> </div> 
-                            </a>  
-                            <div class="lista-item-sessao-1">
-                                <a href=""> <p class="nome">  <?php echo $voluntario['nomeVoluntario']; ?> </p> </a>
-                                <a href=""> <p class="email"> <?php echo $voluntario['emailVoluntario']; ?> </p> </a>
-                            </div>  
+                                    <div class="lista-item-sessao-2">
+                                        <p class="descricao"> 
+                                            <?php echo $voluntario['descVoluntario']; ?>
+                                        </p> 
+                                    </div>
 
-                            <div class="lista-item-sessao-2">
-                                <a href=""> <p class="descricao"> 
-                                    <?php echo $voluntario['descVoluntario']; ?>
-                                </p> </a>
-                            </div>
-
-                        </div>     
-                        <div class="lista-item-2">
-                            <?php 
-                                try {
-                                    $codVoluntario = $_SESSION['codUsuario'];
-                                    $listar = CausasVoluntarioDao::listar($codVoluntario);
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
-                            ?>
-                                    <?php foreach ($listar as $causas) { ?>
-                                    <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
-                            <?php
-                                }
-                            ?>
-                        </div>             
-                    </div>                 
+                                </div>     
+                                <div class="lista-item-2">
+                                    <?php 
+                                        try {
+                                            $codVoluntario = $_SESSION['codUsuario'];
+                                            $listar = CausasVoluntarioDao::listar($codVoluntario);
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                    ?>
+                                            <?php foreach ($listar as $causas) { ?>
+                                            <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                        </a>             
+                    </div>   
+                        
             <?php
                 }
             ?>

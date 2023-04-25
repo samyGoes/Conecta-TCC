@@ -1,3 +1,11 @@
+<?php
+    require_once 'global.php';
+    require_once 'auth/verifica-logado.php';
+
+
+    $t = $_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +60,7 @@
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
                             id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href=""> Meu Perfil </a></li>
+                            <li> <a href="<?php echo 'auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href=""> Configurações </a></li>
                             <li> <a href="auth/logout.php"> Sair </a></li>

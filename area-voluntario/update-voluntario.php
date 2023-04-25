@@ -59,23 +59,12 @@
             $atualizar=VoluntarioDao::atualizarFotoPerfil($voluntario);
 
              //Guardando a foto na sessão
-             $_SESSION['ftPerfil'] = $nomecompleto;
+             $_SESSION['dadoPerfil']['fotoVoluntario'] = $nomecompleto;
         }
 
-        $_SESSION['nomeUsuario'] = $voluntario -> getNomeVoluntario();
-        $_SESSION['emailUsuario'] = $voluntario -> getEmailVoluntario();
-        $_SESSION['numFoneUsuario1'] = $voluntario -> getTelefone1Voluntario();
-        $_SESSION['numFoneUsuario2'] = $voluntario -> getTelefone2Voluntario();
-        $_SESSION['logUsuario'] = $voluntario -> getLogVoluntario();
-        $_SESSION['numLogUsuario'] = $voluntario -> getNumLogVoluntario();
-        $_SESSION['cepUsuario'] = $voluntario -> getCepVoluntario();
-        $_SESSION['bairroUsuario'] = $voluntario -> getBairroVoluntario();
-        $_SESSION['cidadeUsuario'] = $voluntario -> getCidadeVoluntario();
-        $_SESSION['estadoUsuario'] = $voluntario -> getEstadoVoluntario();
-        $_SESSION['compUsuario'] = $voluntario -> getCompVoluntario();
-        $_SESSION['paisUsuario'] = $voluntario -> getPaisVoluntario();
-        $_SESSION['descUsuario'] = $voluntario -> getDescVoluntario();
-
+        //Atualizando as sessões
+        $consulta = VoluntarioDao::consultarVoluntario($_SESSION['codUsuario']);
+        $_SESSION['dadoPerfil'] = $consulta;
 
         
     }

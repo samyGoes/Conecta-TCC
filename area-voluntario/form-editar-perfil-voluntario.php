@@ -1,6 +1,10 @@
-<?php include "../auth/verifica-logado.php"; ?>
-<?php 
-     require_once 'global.php'; 
+<?php
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
+
+
+    $t=$_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,7 +53,7 @@
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
                             id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
+                            <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                             <li> <a href="vagas.php"> Vagas </a> </li>
                             <li> <a href="form-editar-perfil-voluntario.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -129,12 +133,12 @@
                             <div>
                                 <label for="">Nome</label>
                                 <input type="text" name="nome" id="nome" placeholder="Digite seu nome"
-                                    value="<?php echo $_SESSION['nomeUsuario']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['nomeVoluntario'] ?>" />
                             </div>
                             <div>
                                 <label for="">Email</label>
                                 <input type="email" name="email" id="email" placeholder="Digite seu email"
-                                    value="<?php echo $_SESSION['emailUsuario']; ?>" />
+                                    value="<?php echo$_SESSION['dadoPerfil']['emailVoluntario'] ?>" />
                             </div>
                         </div>
 
@@ -142,12 +146,12 @@
                             <div>
                                 <label for="">Telefone (Fixo)</label>
                                 <input type="tel" name="telefone1" id="telefone" placeholder="(xx)xxxx-xxxx"
-                                    value="<?php echo $_SESSION['numFoneUsuario1']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['telefone1'] ?>" />
                             </div>
                             <div>
                                 <label for="">Telefone (Cel)</label>
                                 <input type="tel" name="telefone2" id="telefone-2" placeholder="(xx)xxxxx-xxxx"
-                                    value="<?php echo $_SESSION['numFoneUsuario2']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['telefone2']; ?>" />
                             </div>
                         </div>
 
@@ -155,17 +159,17 @@
                             <div>
                                 <label for="">Logradouro</label>
                                 <input type="text" name="log" id="log"
-                                    value="<?php echo $_SESSION['logUsuario']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['logVoluntario'] ?>" />
                             </div>
                             <div>
                                 <label for="">Número</label>
                                 <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"
-                                    value="<?php echo $_SESSION['numLogUsuario']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['numLogVoluntario'] ?>" />
                             </div>
                             <div>
                                 <label for=" ">CEP</label>
                                 <input type="text " name="cep" id="cep" placeholder="Digite seu CEP"
-                                    value="<?php echo $_SESSION['cepUsuario']; ?>" />
+                                    value="<?php echo $_SESSION['dadoPerfil']['cepVoluntario'] ?>" />
                             </div>
                         </div>
 
@@ -173,15 +177,15 @@
                             <div>
                                 <label for=" ">Bairro</label>
                                 <input type="text" name="bairro" id="bairro"
-                                    value="<?php echo $_SESSION['bairroUsuario']; ?>" />
+                                    value="<?php echo  $_SESSION['dadoPerfil']['bairroVoluntario'] ?>" />
                             </div>
                             <div>
                                 <label for="cidade">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" value="<?php echo $_SESSION['cidadeUsuario']; ?>">
+                                <input type="text" name="cidade" id="cidade" value="<?php $_SESSION['dadoPerfil']['cidadeVoluntario'] ?>">
                             </div>
                             <div>
                                 <label for="uf">Estado</label>
-                                <input type="text" name="uf" id="uf"  value="<?php echo $_SESSION['estadoUsuario']; ?>">
+                                <input type="text" name="uf" id="uf"  value="<?php echo $_SESSION['dadoPerfil']['estadoVoluntario'] ?>">
                             </div>
                         </div>
 
@@ -189,11 +193,11 @@
                             <div>
                                 <label for=" ">Complemento</label>
                                 <input type="text" name="complemento" id="comp" placeholder="Digite o complemento"
-                                    value="<?php echo $_SESSION['compUsuario']; ?>" />
+                                    value="<?php echo  $_SESSION['dadoPerfil']['compVoluntario'] ?>" />
                             </div>
                             <div>
                                 <label for="">País</label>
-                                <input type="text" name="pais" id="pais" placeholder="Digite seu pais"  value="<?php echo $_SESSION['paisUsuario']; ?>">
+                                <input type="text" name="pais" id="pais" placeholder="Digite seu pais"  value="<?php echo $_SESSION['dadoPerfil']['paisVoluntario'] ?>">
                             </div>
                             <div>
                                 <span>Foto</span>
@@ -205,11 +209,11 @@
                         <div class="input-box">
                             <div>
                                 <label for="">Descrição</label>
-                                <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"><?php echo $_SESSION['descUsuario']; ?></textarea>
+                                <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"><?php echo  $_SESSION['dadoPerfil']['descVoluntario'] ?></textarea>
                             </div>
                             <div class="div-image">
                                 <div class="image">
-                                    <img src="<?php echo ($_SESSION['ftPerfil']) ?>" id="img" alt="user-instituição">
+                                    <img src="<?php echo ($_SESSION['dadoPerfil']['fotoVoluntario']) ?>" id="img" alt="user-instituição">
                                 </div>
                             </div>
                         </div>

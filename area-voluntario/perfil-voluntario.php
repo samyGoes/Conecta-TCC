@@ -1,8 +1,10 @@
-<?php include "../auth/verifica-logado.php"; ?>
 <?php
-require_once 'global.php';
-?>
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
 
+    $t=$_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,7 +47,7 @@ require_once 'global.php';
                 <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                     <ul class="sub-topicos">
-                        <li> <a href="perfil-voluntario.php"> Meu Perfil </a></li>
+                        <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                         <li> <a href=""> Vagas </a> </li>
                         <li> <a href="form-editar-perfil-voluntario.php"> Configurações </a></li>
                         <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -82,7 +84,7 @@ require_once 'global.php';
                 <div class="ocultar-sessao">
                     <div class="dados-pessoais-1">
                         <div class="img-user">
-                            <img src="<?php echo ($_SESSION['ftPerfil']) ?>">
+                            <img src="<?php echo $_SESSION['dadoPerfil']['fotoVoluntario'] ?>">
                         </div>
                         <div class="dados-pessoais-1-stars">
                             <i class="fa-solid fa-star"></i>
@@ -93,16 +95,16 @@ require_once 'global.php';
                         </div>
                         <p>
                             <?php
-                            echo ($_SESSION['nomeUsuario']);
+                            echo ($_SESSION['dadoPerfil']['nomeVoluntario']);
                             ?>
                         </p>
                     </div>
 
                     <div class="dados-pessoais-2">
-                        <p class="dados">idade: <span><?php echo ($_SESSION['idadeUsuario'] . " anos") ?></span></p>
-                        <p class="dados">email: <span><?php echo ($_SESSION['emailUsuario']) ?></span></p>
-                        <p class="dados">telefone: <span><?php echo ($_SESSION['numFoneUsuario1']) ?></span></p>
-                        <p class="dados">Localidade: <span><?php echo ($_SESSION['cidadeUsuario'] . " - " . $_SESSION['estadoUsuario'] . ", " . $_SESSION['paisUsuario']); ?></span></p>
+                        <p class="dados">idade: <span><?php echo ($_SESSION['dadoPerfil']['dataNascVoluntario'] . " anos") ?></span></p>
+                        <p class="dados">email: <span><?php echo ($_SESSION['dadoPerfil']['emailVoluntario']) ?></span></p>
+                        <p class="dados">telefone: <span><?php echo ($_SESSION['dadoPerfil']['telefone1']) ?></span></p>
+                        <p class="dados">Localidade: <span><?php echo ($_SESSION['dadoPerfil']['cidadeVoluntario'] . " - " . $_SESSION['dadoPerfil']['estadoVoluntario'] . ", " . $_SESSION['dadoPerfil']['paisVoluntario']); ?></span></p>
                     </div>
                 </div>
             </div>
@@ -123,7 +125,7 @@ require_once 'global.php';
                         <div class="texto">
                             <p>
                                 <?php
-                                echo ($_SESSION['descUsuario'])
+                                echo ($_SESSION['dadoPerfil']['descVoluntario'])
                                 ?>
                             </p>
                         </div>

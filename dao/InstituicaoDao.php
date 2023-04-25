@@ -204,11 +204,17 @@
                     INNER JOIN tbFoneInstituicao tbFoneInstituicao2 
                         ON tbInstituicao.codInstituicao = tbFoneInstituicao2.codInstituicao 
                         AND tbFoneInstituicao1.codFoneInstituicao <> tbFoneInstituicao2.codFoneInstituicao 
-                        WHERE codInstituicao = ?");
+                        WHERE tbInstituicao.codInstituicao = ?");
 
             $querySelect->bindValue(1, $cod);
-            $resultado=$querySelect->fetch(PDO::FETCH_ASSOC);
-            return $resultado;
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
+
+            if ($querySelect->rowCount() > 0) {
+                return $resultado;
+            } else {
+                return false;
+            }
         }
 
     }

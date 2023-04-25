@@ -171,11 +171,18 @@
                 INNER JOIN tbFoneVoluntario tbFoneVoluntario2 
                     ON tbFoneVoluntario1.codVoluntario = tbFoneVoluntario2.codVoluntario 
                         AND tbFoneVoluntario1.codFoneVoluntario <> tbFoneVoluntario2.codFoneVoluntario 
-                        WHERE codVoluntario = ?");
+                        WHERE tbVoluntario.codVoluntario = ?");
 
             $querySelect->bindValue(1, $cod);
-            $resultado=$querySelect->fetch(PDO::FETCH_ASSOC);
-            return $resultado;
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC);
+
+            if ($querySelect->rowCount() > 0) 
+            {
+                return $resultado;
+            } else {
+                return false;
+            }
         }
 
     }

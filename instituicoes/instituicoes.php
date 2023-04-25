@@ -1,4 +1,10 @@
-<?php include "../auth/verifica-logado.php"; ?>
+<?php
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
+
+    $t = $_SESSION['tipoPerfil'];
+    $c=$_SESSION['codUsuario']; 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -38,7 +44,7 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href=""> Meu Perfil </a></li>
+                            <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href=""> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -124,9 +130,11 @@
         <div class="lista-voluntario">
             <?php
                 require_once 'global.php';
-                try {
+                try 
+                {
                     $listaInstituicao = InstituicaoDao::listar();
-                } catch (Exception $e) {
+                } catch (Exception $e) 
+                {
                     echo $e->getMessage();
                 }
             ?>
@@ -134,42 +142,46 @@
             <?php 
                 foreach ($listaInstituicao as $instituicao) 
                 {
+                    $t = 'Instituicao';
+                    $c=$instituicao['codInstituicao'];
+        
             ?>
                     <div class="lista-voluntario-linha">
-                        <a href="../auth/">
+                        <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
                             <div id="localizacao"><i class="fa-solid fa-location-dot"></i><p> <?php echo $instituicao['cidadeInstituicao']." -"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao'].", ".$instituicao['paisInstituicao']; ?>  </span></p></div>   
 
-                            <div class="lista-item" id="lista-item-nome"> 
+                                <div class="lista-item" id="lista-item-nome"> 
 
-                                <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"> </div> 
-    
-                                <div class="lista-item-sessao-1">
-                                    <a href=""> <p class="nome"> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a>
-                                    <p class="email"> <?php echo $instituicao['emailInstituicao']; ?> </p>
-                                </div>  
+                                    <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"> </div> 
+        
+                                    <div class="lista-item-sessao-1">
+                                        <a href=""> <p class="nome"> <?php echo $instituicao['nomeInstituicao']; ?> </p> </a>
+                                        <p class="email"> <?php echo $instituicao['emailInstituicao']; ?> </p>
+                                    </div>  
 
-                                <div class="lista-item-sessao-2">
-                                        <p class="descricao"> 
-                                            <?php echo $instituicao['descInstituicao']; ?>
-                                        </p> 
-                                </div>
+                                    <div class="lista-item-sessao-2">
+                                            <p class="descricao"> 
+                                                <?php echo $instituicao['descInstituicao']; ?>
+                                            </p> 
+                                    </div>
 
-                        </div>     
-                        <div class="lista-item-2">
-                            <?php 
-                                require_once 'global.php';
-                                try {
-                                    $listaCausas = CategoriaServicoDao::listar();
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
-                            ?>     
-                                    <?php foreach ($listaCausas as $causas) { ?>
-                                    <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
-                            <?php
-                                }
-                            ?>
-                        </div>             
+                            </div>     
+                            <div class="lista-item-2">
+                                <?php 
+                                    require_once 'global.php';
+                                    try {
+                                        $listaCausas = CategoriaServicoDao::listar();
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                ?>     
+                                        <?php foreach ($listaCausas as $causas) { ?>
+                                        <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
+                                <?php
+                                    }
+                                ?>
+                            </div> 
+                        </a>            
                     </div>                 
             <?php
                 }
