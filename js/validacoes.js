@@ -18,10 +18,10 @@ function validateRequiredFields() {
   return allFieldsFilled;
 }
 
-function setError(index) {
+function setError(index, message) {
   campos[index].style.borderBottom = '1px solid #e63636';
-  spans[index].style.display= 'block';
-
+  spans[index].textContent = message;
+  spans[index].style.display = 'block';
 }
 
 function removeError(index) {
