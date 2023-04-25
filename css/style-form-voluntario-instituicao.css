@@ -40,6 +40,7 @@ body
     object-fit: cover;
 }
 
+
 .form 
 {
     width: 50vw;
@@ -72,19 +73,6 @@ body
     color: #e63636;
 
 }
-.error-message {
-    display: none;
-    color: #e63636;
-    background-color: #fce8e6;
-    border: 1px solid #e63636;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-
-
-
-
 
 
 /* BOTÕES PARA MUDAR O FORMULÁRIO */
