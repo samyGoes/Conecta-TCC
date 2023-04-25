@@ -1,6 +1,6 @@
 const controls = document.querySelectorAll(".control");
 let currentItem = 0;
-const items = document.querySelectorAll(".card-carrossel-dois");
+const items = document.querySelectorAll(".card-carrossel");
 const maxItems = items.length;
 
 controls.forEach((control) => 

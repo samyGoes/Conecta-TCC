@@ -1,19 +1,3 @@
-// DROP DOWN NAV BAR 
-// const navSetaDrop = document.querySelector("#nav-seta-sub-topicos");
-// const navSubTopicos = document.querySelector(".sub-topicos");
-
-// navSetaDrop.addEventListener("click", function dropDown()
-// {
-//     if (navSubTopicos.style.display == "none")
-//     {
-//         navSubTopicos.style.display = "block";
-//     }
-//     else
-//     {
-//         navSubTopicos.style.display = "none";
-//     }
-// });
-
 
 
 // NAV LATERAL
@@ -40,11 +24,11 @@ export function sideBar()
             navLateral.style.paddingLeft = "1.5rem";
             mainConteudo.style.marginLeft = "5rem";
 
-            if(telaTres.matches)
-            {
-                tabela.style.width = "861px"; 
-                tabela.style.minWidth = "0";
-            }
+            // if(telaTres.matches)
+            // {
+            //     tabela.style.width = "861px"; 
+            //     tabela.style.minWidth = "0";
+            // }
 
             // if(telaQuatro)
             // {
@@ -72,11 +56,11 @@ export function sideBar()
         if(!telaDois.matches)
         {
             navLateral.style.paddingLeft = "2rem";
-            if(telaTres.matches)
-            {
-                tabela.style.minWidth = "80%";
-                tabela.style.width = "none"; 
-            }
+            // if(telaTres.matches)
+            // {
+            //     tabela.style.minWidth = "80%";
+            //     tabela.style.width = "none"; 
+            // }
             // if(telaQuatro)
             // {
             //     tabela.style.borderLeft = "none";

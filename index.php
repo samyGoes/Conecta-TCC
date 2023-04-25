@@ -275,7 +275,7 @@
 
 
             <div class="botao-vagas">
-                <button type="submit" id="">mais vagas</button>
+                <a href="vagas/vagas.php"> <button id="">mais vagas</button></a>
             </div>
         </div>
 
@@ -351,6 +351,7 @@
 
 
     <script type="module" src="js/main-2.js"></script>
+    <script src="js/carrossel-vagas.js"></script>
 </body>
 
 </html>
