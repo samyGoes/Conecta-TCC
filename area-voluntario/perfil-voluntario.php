@@ -147,17 +147,17 @@
                     <div class="ocultar-sessao-causa">
                         <div class="tipo-causas">
                             <?php
-                                try {
-                                    $codVoluntario = $_SESSION['codUsuario'];
-                                    $listar = CausasVoluntarioDao::listar($codVoluntario);
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
+                            try {
+                                $codVoluntario = $_SESSION['codUsuario'];
+                                $listar = CausasVoluntarioDao::listar($codVoluntario);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
                             ?>
-                             <?php foreach ($listar as $causas) { ?>
-                            <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
+                            <?php foreach ($listar as $causas) { ?>
+                                <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                             <?php
-                             }
+                            }
                             ?>
                         </div>
                     </div>
@@ -274,11 +274,85 @@
                         <h1 class="modal-titulo">Requisição de Voluntário</h1>
                         <p class="modal-texto">Selecione as vagas para as quais deseja atribuir a este voluntário.</p>
                         <div class="selecione-button ">
-                            <a href="#"><button class="card-carrossel-botao" id="botao-it">Causas</button></a>
-                            <a href="#"><button class="card-carrossel-botao" id="botao-it">Habilidades</button></a>
+                            <form class="form-filtro" method="POST" action="">
+                                <!-- CAUSAS -->
+                                <div class="box-filtro-causas">
+                                    <div class="filtro-causas"> CAUSAS </div>
+                                    <div class="box-causas">
+                                        <?php
+                                        require_once 'global.php';
+                                        try {
+                                            $listaCausas = CategoriaServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        ?>
+                                        <?php foreach ($listaCausas as $causas) { ?>
+                                            <div class="box-causas-checkbox">
+                                                <input type="checkbox" name="causas" id="causas">
+                                                <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
+                                            </div>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+
+                                <!-- HABILIDADES -->
+                                <div class="box-filtro-causas">
+                                    <div class="filtro-habilidade"> HABILIDADES </div>
+                                    <div class="box-habilidade">
+                                        <?php
+                                        try {
+                                            $listaHabilidade = HabilidadeServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        ?>
+                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                            <div class="box-habilidade-checkbox">
+                                                <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
+                                                                                                                    $habilidade['codHabilidadeServico']; ?>>
+                                                <label for="habilidade">
+                                                    <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                                </label>
+                                            </div>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
                         </div>
                         <div class="footer-modal">
-                            <input type="text" name="selectVagas" id="selectVagas" placeholder="Selecione as Vagas">
+                            <div class="box-filtro-causas-select">
+                                <label for="">Habilidades</label>
+                                <div class="clique-fora-h">
+                                    <div class="filtro-habilidade-select"> Selecione as habilidades... </div>
+                                    <div class="box-habilidade-select">
+                                        <?php
+                                        try {
+                                            $listaHabilidade = HabilidadeServicoDao::listar();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        ?>
+                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                            <div class="box-habilidade-checkbox-select">
+                                                <input type="checkbox" name="habilidade[]" id="habilidade-select" value=<?php echo
+                                                                                                                    $habilidade['codHabilidadeServico']; ?>>
+                                                <label for="habilidade">
+                                                    <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                                </label>
+                                            </div>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" id="meuBotao">Confirmar</button>
                         </div>
                     </div>
@@ -353,7 +427,7 @@
 
 
 
-
+    <script src="../voluntarios/js/script.js"></script>
     <script src="js/carrossel-vagas.js"></script>
     <script src="js/carrossel-fotos.js"></script>
     <script src="js/ocultar-sessao.js"></script>

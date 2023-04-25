@@ -338,6 +338,114 @@ select option {
 
 
 
+
+
+
+
+/* Estilo do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-conteudo {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 35px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    max-width: 603px;
+}
+
+.modal-titulo {
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+}
+
+.modal-texto {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-align: justify;
+    margin-top: 2rem;
+    line-height: 175%;
+}
+
+
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.footer-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-modal input {
+    width: 30rem;
+    padding: 8px;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    color: #000000;
+    outline: none;
+    border: #4567a5 1px solid;
+    border-radius: 5px;
+}
+
+.footer-modal input::placeholder {
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+
+/* Estilo do botão */
+#meuBotao {
+    background-color: #4567a5;
+    padding: 1.5%;
+    width: 12.2rem;
+    border-radius: 0.4rem;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    cursor: pointer;
+    border: 1px solid #4567a5;
+    font-family: poppins, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+}
+
+#meuBotao:hover {
+    color: #4567a5;
+    background-color: #fff;
+    border: 1px solid #4567a5;
+}
+
+
+
+
+
+
+
+
 /* RESPONSIVIDADE */
 /*FORMULARIO*/
 @media (max-width: 1048px) {

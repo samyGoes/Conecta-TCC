@@ -18,18 +18,6 @@ function validateRequiredFields() {
   return allFieldsFilled;
 }
 
-formulario1.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const allFieldsFilled = validateRequiredFields();
-  if (allFieldsFilled) {
-    nameValidate();
-    emailValidate();
-    cpfValidate();
-    passwordValidate();
-    // Se todos os campos obrigatórios estiverem preenchidos, faça o envio do formulário
-    formulario1.submit();
-  }
-});
 function setError(index) {
   campos[index].style.borderBottom = '1px solid #e63636';
   spans[index].style.display= 'block';
@@ -42,14 +30,6 @@ function removeError(index) {
 
 }
 
-/*formulario1.addEventListener('submit', (event) => {
-  event.preventDefault();
-  nameValidate();
-  emailValidate();
-  cpfValidate();
-  passwordValidate();
-
-})*/
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
@@ -171,62 +151,41 @@ function cnpjValidate() {
 }
 
 
-/*function passwordValidate() {
-  if (senhaRegex.test(campos[5].value)) {
-  setError(5);
-  } else {
-  removeError(5);
-  }
-  }*/
-  function passwordValidate() {
-    const senha = campos[5].value;
-    let temDigito = false;
-    let temEspecial = false;
-    let temMaiuscula = false;
-  
-    // Verifica se a senha tem pelo menos 8 caracteres
-    if (senha.length < 8) {
-      removeError(5);
-      return;
-    }
-  
-    // Percorre todos os caracteres da senha
-    for (let i = 0; i < senha.length; i++) {
-      const caractere = senha[i];
-  
-      // Verifica se o caractere é um dígito numérico
-      if (/\d/.test(caractere)) {
-        temDigito = true;
-      }
-  
-      // Verifica se o caractere é um caractere especial
-      if (/[!@#$%&*]/.test(caractere)) {
-        temEspecial = true;
-      }
-  
-      // Verifica se o caractere é uma letra maiúscula
-      if (/[A-Z]/.test(caractere)) {
-        temMaiuscula = true;
-      }
-    }
-  
-    // Verifica se a senha tem pelo menos um dígito numérico, um caractere especial e uma letra maiúscula
-    if (temDigito && temEspecial && temMaiuscula) {
-      removeError(5);
-    } else {
-      setError(5);
-    }
-  }
-  
 
   function passwordValidate() {
-    var senha = campos[5].value;
-    var confSenha = campos[6].value;
+    const senha = campos[5].value;
+    const digitoRegex = /\d/;
+    const especialRegex = /[!@#$%&*]/;
+    const maiusculaRegex = /[A-Z]/;
+    let isValid = true;
     
-    if (senha !== confSenha) {
-    setError(6);
+    // Verifica se a senha tem pelo menos 8 caracteres
+    if (senha.length < 8) {
+      isValid = false;
+    }
+  
+    // Verifica se a senha contém pelo menos um dígito numérico, um caractere especial e uma letra maiúscula
+    if (!digitoRegex.test(senha) || !especialRegex.test(senha) || !maiusculaRegex.test(senha)) {
+      isValid = false;
+    }
+  
+    // Se a senha não for válida, exibe mensagem de erro
+    if (!isValid) {
+      setError(5);
     } else {
-    removeError(5);
-    removeError(6);
+      removeError(5);
     }
+  }
+  
+  function confirmPassword() {
+    const senha = campos[5].value;
+    const confSenha = campos[6].value;
+  
+    // Verifica se as senhas são iguais
+    if (senha !== confSenha) {
+      setError(6);
+    } else {
+      removeError(6);
     }
+  }
+  
