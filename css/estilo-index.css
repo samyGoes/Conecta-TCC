@@ -98,7 +98,7 @@ body {
 
 .conteudo-completo {
     width: 100vw;
-    height: 600vh;
+    /* height: 600vh; */
 }
 
 /*CONTAINER 1*/
@@ -340,10 +340,11 @@ body {
 
 .container-4 {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;   
     align-items: center;
+    padding: 3rem 0rem 3rem 0rem;
 }
 .titulo-container-4{
     line-height: 3rem;
@@ -360,11 +361,256 @@ body {
     font-weight: 400;
     color: #000;
 }
+
+
+
+
+
+/* CARROSSEL */
+.container-carrossel-completo
+{
+    width: 63rem;
+    /* background-color: #bdd695; */
+}
+
+.container-carrossel
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    /* background-color: #232e61; */
+}
+
+.carrossel
+{ 
+    max-width: 90%;
+    padding: 0.7rem;
+    min-width: 16rem;
+    /* background-color: #42529c; */
+}
+.slider
+{
+    overflow-x: auto;
+    /* background-color: #687ac9; */
+}
+
+.slider::-webkit-scrollbar
+{
+    display: none;
+}
+
+.cards
+{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.9rem;
+    /* background-color: #99a8eb; */
+    padding-top: 0.7rem;
+}
+
+
+
+
+
+/* SETAS CARROSSEL */
+.arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right 
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0rem;
+    right: auto;
+    bottom: 0;
+    width: 2.5rem;
+    color: #5f71c2;
+    font-size: 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;  
+    /* background-color: #45a56d; */
+}
+
+.arrow-left-dois:hover, .arrow-right-dois:hover, .arrow-left:hover, .arrow-right:hover 
+{
+    color: #a9abee;
+}
+
+.arrow-right-dois, .arrow-right 
+{
+    justify-content: flex-start;
+    right: 0rem;
+    left: auto;
+}
+
+
+
+
+/* CARD */
+
+.card-carrossel-dois {
+    min-width: 31.8%;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.card-carrossel-dois:hover {
+    transform: translateY(-10px);
+}
+
+.content-it {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 24rem;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 5px #b4d8e6;
+}
+
+.header-card-carrossel-it {
+    display: flex;
+    align-items: flex-end;
+    margin: 3%;
+    width: 100%;
+    gap: 3%;
+    padding-left: 4%;
+}
+
+.header-card-carrossel-it i {
+    font-size: 18px;
+}
+
+.header-card-carrossel-it p {
+    font-family: bitter, serif;
+    font-weight: 800;
+    font-size: 12px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.fundo {
+    display: flex;
+    /* border-radius: 0.6rem 0.6rem 0rem 0rem; */
+    background-color: #bbefd8;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.fundo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 4% 0px 3% 0px;
+}
+
+.fundo-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.box-conteudo-card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.title-1 p {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+.title-2
+{
+    overflow: hidden;
+    width: 80%;
+}
+
+.title-2 p {
+    margin-top: 20px;
+    font-family: bitter, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.title-3
+{
+    height: 6rem;
+    overflow: hidden;
+    padding: 0rem 1.6rem 1.6rem 1.6rem;
+}
+
+.title-3 p {
+    font-family: bitter, serif;
+    font-size: 14px;
+    text-overflow: ellipsis;  
+    /* margin-bottom: 0.7rem; */
+
+    color: #525252;
+    font-weight: 500;
+    text-align: justify;
+    line-height: 1.5rem;
+}
+
+.card-carrossel-botao {
+    background-color: #4567a5;
+    height: 2.5rem;
+    width: 11rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    border: 1px solid #4567a5;
+    transition: all 0.4s ease;
+    font-family: poppins, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card-carrossel-botao:hover {
+    color: #4567a5;
+    background-color: #fff;
+    border: 1px solid #4567a5;
+}
+
+#botao-it {
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .botao-vagas{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .botao-vagas button{
@@ -385,3 +631,269 @@ body {
     background-color: #fff;
     color: #4567a5;
 }
+
+
+
+
+
+
+
+
+
+
+/* CARD E CARROSSEL*/
+@media (max-width: 1000px)
+{
+    .card-completo
+    {
+        width: 100vw;
+        border-radius: 0%;
+    }
+    .tipo-causas button
+    {
+        margin-bottom: 0.9rem;
+    }
+    .carrossel
+    { 
+        max-width: 80%;
+    }
+    .arrow-left-dois
+    {
+        min-width: 3rem;
+    }
+    .arrow-right-dois 
+    {
+        min-width: 3rem;
+    }
+}
+
+
+/* TESTAR O Q TA BUGANDO A TELA */
+@media (max-width: 780px)
+{
+    .fotos
+    {
+        /* display: none; */
+    }
+    .vagas
+    {
+        /* display: none; */
+    }
+    footer
+    {
+        /* display: none; */
+    }
+    .arrow-left, .arrow-right
+    {
+        /* display: none; */
+    }
+    .arrow-left-dois, .arrow-right-dois
+    {
+        /* display: none; */
+    }
+
+}
+
+@media (max-width: 620px)
+{
+    .info
+    {
+        flex-direction: column;
+    }
+    .topico-endereco
+    {
+        border-right: none;
+        border-bottom: 1px solid #4567a5;
+        width: 100%;
+    }
+    .topico-contato
+    {
+        width: 100%;
+    }
+    .dados-ende-conta
+    {
+        flex-direction: row;
+    }
+    .endereco
+    {
+        margin-top: 1rem;
+    }
+
+    #email
+    {
+        margin-top: 1rem;
+    }
+    #telefone
+    {
+        flex-direction: row;
+        margin-top: 1rem;
+    }
+    .telefones
+    {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 585px)
+{
+    .telefones
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    #telefone
+    {   
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        margin-right: 3rem;
+    }
+    .topico-telefone
+    {
+        margin-right: 5.4rem;
+    }
+
+}
+
+@media (max-width: 563px)
+{
+    .tipo-causas
+    {
+        justify-content: center;
+    }
+    .titulo-card
+    {
+        gap: 2%;
+    }
+    .container p
+    {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media (max-width: 450px)
+{
+    .dados-ende-conta
+    {
+        flex-direction: column;
+    }
+    .titulo-card
+    {
+        margin-bottom: 2rem;
+    }
+    #telefone
+    {
+        align-items: flex-start;
+        margin-right: 0rem;
+    }
+    .topico-telefone
+    {
+        margin-right: 0rem;
+    }  
+}
+
+
+
+
+
+
+
+/* CARROSSEL */
+@media(max-width: 773px) 
+{
+     /* FOTOS E VAGAS*/
+    .carrossel
+    { 
+        max-width: 70%;
+    }
+    .card-carrossel-dois, .card-carrossel
+    {
+        min-width: 49%;
+    }
+    .arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right 
+    {
+        min-width: 4rem;
+    }
+}
+
+@media(max-width: 590px) 
+{
+    /* FOTOS E VAGAS */
+    .carrossel
+    { 
+        width: 48%;
+        /* background-color: #454e9c; */
+    }
+    .card-carrossel-dois, .card-carrossel
+    {
+        min-width: 100%;
+    }
+    .arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right 
+    {
+        min-width: 6rem;
+        /* background-color: #adb2e0; */
+    }
+}
+@media (max-width: 488px)
+{
+    .arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right  
+    {
+        min-width: 4rem;
+    }
+}
+@media (max-width: 411px)
+{
+    .arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right  
+    {
+        min-width: 2.5rem;
+    }
+}
+
+@media (max-width: 352px)
+{
+    .carrossel
+    {
+        min-width: 14.5rem;
+    }
+}
+
+@media (max-width: 333px)
+{
+    .arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right 
+    {
+        justify-content: center;
+    }
+}
+@media (max-width: 300px)
+{
+    .carrossel
+    {
+        min-width: 13rem;
+    }
+    .card-carrossel-dois, .card-carrossel
+    {
+        height: 13.6rem;
+    }
+    .titulo-card-carrossel
+    {
+        margin-top: 1.3rem;
+        font-size: 18px;
+    }
+    .texto-card p, .texto-card span
+    {
+        font-size: 12px;
+    }
+    .card-carrossel-botao
+    {
+        font-size: 14px;
+        width: 5rem;
+    }
+}
+
+
+
+
+

@@ -33,7 +33,7 @@ include "../auth/verifica-logado.php";
             <ul class="topicos">
                 <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
                 <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
-                <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                 <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                 <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
                 <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
@@ -169,18 +169,20 @@ include "../auth/verifica-logado.php";
                             <p><?php echo $vaga['nomeInstituicao']; ?></p>
                         </div>
                     </div>
-                    <div class="title-2">
-                        <p><?php echo $vaga['nomeservico']; ?></p>
+                    <div class="box-conteudo-card">
+                        <div class="title-2">
+                            <p><?php echo $vaga['nomeservico']; ?></p>
+                        </div>
+                        <div class="title-3">
+                            <p><?php echo $vaga['descServico']; ?></p>
+                        </div>
+                        <form action="redirecionar-vaga-completa.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                            <a href="#"><button class="card-carrossel-botao" id="botao-it">
+                                    VER VAGA
+                                </button></a>
+                        </form>
                     </div>
-                    <div class="title-3">
-                        <p><?php echo $vaga['descServico']; ?></p>
-                    </div>
-                    <form action="redirecionar-vaga-completa.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                        <a href="#"><button class="card-carrossel-botao" id="botao-it">
-                                VER VAGA
-                            </button></a>
-                    </form>
                 </div>
             </div>
         <?php

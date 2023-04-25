@@ -205,11 +205,74 @@
         <div class="container-4">
             <div class="titulo-container-4">
                 <h1>Seja um Voluntário</h1>
-                <p>Agora você já sabe como funciona e da importânciade ajudar, considere se candidatar a uma vaga.</p>
+                <p>Agora que você já sabe como funciona e da importância de ajudar, considere se candidatar a uma vaga.</p>
             </div>
 
 
             <!--CAROUSEL COM OS CARDS DE VAGAS-->
+            <div class="container-carrossel-completo">
+                <div class="container-carrossel">
+                    <div class="carrossel">
+
+                        <!-- SETAS -->
+                        <div class="arrow-left control"> ◀ </div>
+                        <div class="arrow-right control"> ▶ </div>
+
+                        <div class="slider">
+                            <div class="cards">
+                            <?php
+
+                                try {
+                                    $listaVaga = ServicoDao::listarVagaAdm();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
+                                <?php
+                                foreach ($listaVaga as $vaga) {
+                                ?>
+                                    <div class="card-carrossel-dois">
+                                        <div class="content-it">
+                                            <div class="header-card-carrossel-it">
+                                                <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
+                                                <i id="icon-maps" class="fa-solid fa-location-dot"></i>
+                                                <p><?php echo $vaga['cidadeLocalServico']; ?></p>
+                                            </div>
+                                            <div class="fundo">
+                                                <div class="fundo-img">
+                                                    <img src="<?php echo $vaga['fotoInstituicao']; ?>">
+                                                </div>
+                                                <div class="title-1">
+                                                    <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="box-conteudo-card">
+                                                <div class="title-2">
+                                                    <p><?php echo $vaga['nomeservico']; ?></p>
+                                                </div>
+                                                <div class="title-3">
+                                                    <p><?php echo $vaga['descServico']; ?></p>
+                                                </div>
+                                                <form action="redirecionar-vaga-completa.php" method="post">
+                                                    <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                                                    <button class="card-carrossel-botao" id="botao-it" type="submit">
+                                                        VER VAGA
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
 
             <div class="botao-vagas">
                 <button type="submit" id="">mais vagas</button>
@@ -229,7 +292,7 @@
                 <div class="footer-col" id="footer-col-adm">
                     <h5>Adm</h5>
                     <ul>
-                        <a href="login-adm.php">
+                        <a href="form-login-adm.php">
                             <li>Login</li>
                         </a>
                     </ul>

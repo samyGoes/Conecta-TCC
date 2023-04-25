@@ -181,7 +181,7 @@
                             </div>
                             <div>
                                 <label for="cidade">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" value="<?php $_SESSION['dadoPerfil']['cidadeVoluntario'] ?>">
+                                <input type="text" name="cidade" id="cidade" value="<?php echo $_SESSION['dadoPerfil']['cidadeVoluntario'] ?>">
                             </div>
                             <div>
                                 <label for="uf">Estado</label>

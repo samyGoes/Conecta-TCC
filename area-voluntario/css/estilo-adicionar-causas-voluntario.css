@@ -42,7 +42,7 @@
     
     font-family: poppins, sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 14px;
     color: #525252;
     transition: all 0.5s ease;
     cursor: pointer;
@@ -92,12 +92,12 @@
 }
 
 /* ESTILIZANDO CHECKBOX */
-#causas[type = "checkbox"]
+.box-causas-checkbox input[type = "checkbox"]
 {
     /* ZERAR CONFIGURAÇÃO PADRÃO */
-    -webkit-appearance: none;
+    /* -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; */
     
     width: 15px;
     height: 15px;
@@ -106,7 +106,7 @@
     outline: none;
     cursor: pointer;
 }
-#causas[type = "checkbox"]:checked::before
+.box-causas-checkbox input[type = "checkbox"]:checked::before
 {
     content: '\2713';
     display: block;
@@ -216,7 +216,7 @@
     font-size: 20px;
 }
 
-.tipo-causas
+.tipo-causas 
 {
     display: flex;
     flex-wrap: wrap;
@@ -227,12 +227,16 @@
 
 .tipo-causas button 
 {
+    padding: 0.8%;
     width: 10rem;
-    height: 2.5rem;
     border: 1px solid #000000;
     border-radius: 1.5rem;
+    height: 2.5rem;
     transition: all 0.5s ease;
     cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0rem 0.6rem 0rem 0.6rem;
     margin-bottom: 1rem;
 
     /* TEXTO */
@@ -241,6 +245,7 @@
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     color: #000000;
+    white-space: nowrap;
 }
 .tipo-causas button:hover
 {

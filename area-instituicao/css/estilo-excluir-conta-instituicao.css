@@ -41,10 +41,11 @@
 
 .input-box input {
     border: 1px solid #4567a5;
-    /* padding-bottom: 0.5rem;
-    padding-top: 1rem; */
-    padding: 0.7rem 0rem 0.7rem 0rem;
+    padding: 8px;
     outline: none;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
 }
 
 .input-box small {
