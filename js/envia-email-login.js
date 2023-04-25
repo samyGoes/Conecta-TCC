@@ -57,114 +57,68 @@ export async function verificaEmail()
     {
         xhr.onreadystatechange = function() 
         {
-            if (xhr.readyState === XMLHttpRequest.DONE)  
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
             {
-                if(xhr.status === 200)
-                {
-                    var resposta = JSON.parse(xhr.responseText);
-                    // try 
-                    // {
-                        //var jsonResposta = JSON.parse(resposta);
-                    //     var jsonResposta = JSON.parse(xhr.responseText);
+            
+                //var resposta = xhr.responseText;
+                var valores = JSON.parse(xhr.responseText);
 
-                    //     if (jsonResposta.email === true) 
-                    //     {
-                    //         resolve(jsonResposta.nome || true);
-                    //         console.log(jsonResposta);
-                    //     } 
-                    //     else 
-                    //     {
-                    //         resolve(false);
-                    //         console.log(jsonResposta);
-                    //     }                
-                    // } 
-                    // catch (e) 
-                    // {
-                    //     reject(new Error(`Erro ao analisar a resposta: ${e.message}`));
-                    // }
-                    if (resposta === "true") 
-                    {
-                        resolve(true);
-                    } 
-                    else 
-                    {
-                        resolve(false);
-                    }                
-                }
-                else
+                console.log(valores);
+                //console.log(resposta.status);  
+                //console.log(resposta.nome);
+                
+                if (valores.status === true) 
                 {
-                    reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                }     
-            }
+                    resolve({existe: true, nome: valores.nome});
+                    //console.log(resposta);
+                } 
+                else 
+                {
+                    resolve({existe: false, nome: ''});
+                    //console.log(resposta);
+                }        
+                      
+            }   
+            else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  
+            {
+                reject(Error(xhr.statusText));
+            }       
         };
-        xhr.send("email=" + email.value);
+        xhr.onerror = function()
+        {
+            reject(Error("Erro ao realizar a requisição"));
+        }
+        xhr.send('email=' + email.value);
     });
 }
 document.getElementById("verifica-email").addEventListener("click", verificaEmail);
 
-console.log(resposta);
 
 
-
-/*export async function pegaNome()
-{
-    if (emailVerificado)
-    {
-        var xhr = new XMLHttpRequest();
-
-        xhr.open("POST", "pega-nome.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-        return new Promise((resolve, reject) => 
-        {
-            xhr.onreadystatechange = function() 
-            {
-                if (xhr.readyState === XMLHttpRequest.DONE)  
-                {
-                    if(xhr.status === 200)
-                    {
-                        var resposta = JSON.parse(xhr.responseText);
-                      
-                        if (resposta === "nome") 
-                        {
-                            resolve(nome);
-                        } 
-                        else 
-                        {
-                            resolve(false);
-                        }                
-                    }
-                    else
-                    {
-                        reject(new Error(`Erro ao enviar requisição: ${xhr.status}`));
-                    }     
-                }
-            };
-            xhr.send("email=" + email.value);
-        });
-    }
-}
-*/
 
 //export const nomeEmail = pegaNome();
 export const modalSessoa1 = document.querySelector(".modal-sessao-1");
 
-// ENVIA O EMAIL OU PRINTA UM ERRO
+export const modalForm = document.querySelector(".modal-form");
+
+//ENVIA O EMAIL OU PRINTA UM ERRO
 export async function enviaEmail(event)
 {
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
+    //console.log(emailVerificado);
     //var nome = "<?php echo $nome; ?>";
     
-    if(emailVerificado)
+    if(emailVerificado.existe)
     {
         // const emailInput = document.querySelector("#email").value;
+        const nome = emailVerificado.nome;
         emailjs.init('no7wF9bX2UIYjHvBT');
     
         var parametros = 
         {
             from_name: 'Conecta',
-            to_name: 'nome',
+            to_name: nome,
             to_email: email.value,
             email_id: email.value,
             message: codigoCompleto2
@@ -175,9 +129,11 @@ export async function enviaEmail(event)
         });
 
         const modalSessao0 = document.querySelector(".modal-sessao-0");
+        
 
         modalSessao0.style.display = "none";
         modalSessoa1.style.display = "flex";
+        modalForm.style.height = "388px";
     }
     else
     {
@@ -197,12 +153,13 @@ export async function enviaEmail(event)
 
         email.style.borderColor = "red";
     }
-    console.log(emailVerificado);
+    //console.log(emailVerificado);
 }
 document.getElementById("verifica-email").addEventListener("click", enviaEmail);
 
 
-// INPUT COM CÓDIGO DIGITADO
+//INPUT COM CÓDIGO DIGITADO
+
 export const inputCod2 = document.querySelector("#codigo");
 
 // VERIFICA SE O CÓDIGO QUE A PESSOA DIGITOU É O MESMO QUE O ENVIADO
@@ -235,6 +192,7 @@ export function modalOuErro2(event)
     {      
         modalSessoa1.style.display = "none";
         modalSessao2.style.display = "flex";
+        modalForm.style.height = "255px";
         //form.style.height = "259px";
 
         btnFechar.addEventListener("click", function()

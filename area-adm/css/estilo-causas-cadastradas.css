@@ -215,3 +215,13 @@ tbody::-webkit-scrollbar-thumb {
 }
 
 
+@media(max-width: 577px) {
+    .body {
+        overflow-x: hidden;
+    }
+
+    .table-responsive {
+        min-width: 90%;
+        overflow-x: scroll;
+    }
+}
