@@ -211,5 +211,30 @@
             return $resultado;
         }
 
+
+        public static function trocarSenha($instituicao)
+        {
+            $conexao = Conexao::conectar();
+
+            $validaSenha = new Senha();
+            $senhaSegura = new SenhaSegura();
+
+            if($validaSenha->validar($instituicao->getSenhaInstituicao(),$instituicao->getConfSenhaInstituicao()) == false)
+            {
+                echo "<script>alert('Confirmação de senha não confere!');</script>";
+            }
+            else if ($senhaSegura->segura($instituicao->getSenhaInstituicao()) == false)
+            {
+                echo "<script>alert('Senha esta faltando algum requisito!');</script>";
+            }
+            else
+            {
+                $stmt = $conexao->prepare("UPDATE tbinstituicao SET senhaInstituicao WHERE emailInstituicao = ?");
+
+                $stmt->bindValue(1, $instituicao->getSenhaInstituicao());
+                $stmt->execute();
+            }             
+        }
+
     }
 ?>

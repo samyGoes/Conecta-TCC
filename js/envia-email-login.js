@@ -182,7 +182,6 @@ export function modalOuErro2(event)
     event.preventDefault();
 
     const modalSessao2 = document.querySelector(".modal-sessao-2");
-    // const form = document.querySelector(".modal-form");
 
     const btnFechar = document.querySelector("#btn-fechar");
     let aviso = null;
@@ -193,6 +192,7 @@ export function modalOuErro2(event)
         modalSessoa1.style.display = "none";
         modalSessao2.style.display = "flex";
         modalForm.style.height = "255px";
+        window.location = "form-trocar-senha.php";
         //form.style.height = "259px";
 
         btnFechar.addEventListener("click", function()

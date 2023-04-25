@@ -178,5 +178,29 @@
             return $resultado;
         }
 
+
+        public static function trocarSenha($voluntario)
+        {
+            $conexao = Conexao::conectar();
+
+            $validaSenha = new Senha();
+            $senhaSegura = new SenhaSegura();
+
+            if($validaSenha->validar($voluntario->getSenhaVoluntario(),$voluntario->getConfSenhaVoluntario()) == false)
+            {
+                echo "<script>alert('Confirmação de senha não confere!');</script>";
+            }
+            else if ($senhaSegura->segura($voluntario->getSenhaVoluntario()) == false)
+            {
+                echo "<script>alert('Senha esta faltando algum requisito!');</script>";
+            }
+            else
+            {
+                $stmt = $conexao->prepare("UPDATE tbvoluntario SET senhaVoluntario WHERE emailVoluntario = ?");
+
+                $stmt->bindValue(1, $voluntario->getSenhaVoluntario());
+                $stmt->execute();
+            }             
+        }
     }
 ?>

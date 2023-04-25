@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.form-image {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+}
+
+.form form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-header
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+}
+
+.form-header h1 {
+    text-align: center;
+    font-family: Acme, Verdana, Geneva, Tahoma, sans-serif;
+    color: #232e61;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-header p
+{
+    text-align: justify;
+    font-family: poppins, sans-serif;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.input-group {
+    padding-top: 7%;
+}
+
+.input-box {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.input-box input {
+    font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 0.3rem;
+    padding-top: 1rem;
+
+    border-bottom: 1px #4567a5 solid;
+    font-size: 1rem;
+    outline: none;
+    width: 14.5rem;
+}
+
+.input-box input {
+    outline: none;
+}
+
+.input-box label {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #525252;
+}
+
+input::placeholder
+{
+    font-weight: 300;
+    color: #9c9c9c;
+}
+
+.input-box small {
+    padding-top: 3%;
+    font-family: poppins, sans-serif;
+    color: #525252;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    max-width: 14.5rem;
+}
+.continue-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-enviar {
+    width: 10rem;
+    background-color: #4567a5;
+    color: #ffffff;
+    height: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.botao-enviar:hover {
+    background-color: #fff;
+    color: #4567a5;
+    border: 1px solid #4567a5;
+}
+
+.botao-cadastrar
+{
+    background-color: #fff;
+    border: 1px solid #4567a5;
+    padding: 0.2rem;
+    width: 8.4rem;
+    margin-bottom: 1.4rem;
+
+    color:  #4567a5;
+    font-size: 1rem;
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.botao-cadastrar:hover
+{
+    background-color: #bef5f5;
+}
+
+.link-esqueceu-senha
+{
+    margin-top: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #4567a5;
+    text-decoration-line: none;
+    transition: all 0.5s ease;
+}
+
+.link-esqueceu-senha:hover
+{
+    color: #c48139;
+}
+
+.voltar {
+    display: flex;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Bitter, serif;
+    color: #4567a5;
+    transition: all 0.5s ease;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.voltar:hover
+{
+    color: #c48139;
+}
+
+
+
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+@media (min-width: 640px) and (max-width: 984px) 
+{
+    .body {
+        background-image: url(../img/laco-2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+    .container {
+        width: 30rem;
+        height: 40rem;
+    }
+
+    .form-image {
+        display: none;
+    }
+
+    .form 
+    {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+}
+
+
+@media (max-width: 639px) {
+    /* .continue-button button {
+        display: inline;
+        
+    } */
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .form-image {
+        display: none;
+    }
+    .form 
+    {
+        width: 100%;
+        height: 100%;
+    }
+}
