@@ -1,13 +1,14 @@
 <?php
 
-    require 'global.php';
+    //require 'global.php';
     require 'verifica-email.php';
-    require 'busca-email.php';
+    //require 'busca-email.php';
 
     try
     {
+        $id = pegaId($email);
         // SE FOR O EMAIL DO VOLUNTÁRIO FAZ UM UPDATE NA SENHA DO VOLUNTÁRIO
-        if ()
+        if ($id['codVoluntario'])
         {
             $voluntario = new Voluntario();
 

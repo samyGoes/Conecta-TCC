@@ -19,7 +19,7 @@
                 <img src="img/laco-2.jpg" alt="">
             </div>
             <div class="form">
-                <form action="" method="post" id="formularioLogin">
+                <form action="update-senha-.php" method="post" id="formularioLogin">
                     <div class="form-header">
                         <div class="title">
                             <h1>Trocar Senha</h1>

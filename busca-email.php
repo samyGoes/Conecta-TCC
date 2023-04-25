@@ -28,6 +28,9 @@
         return array('email' => false, 'nome' => '');       
     }
 
+
+
+
     function pegaId($email)
     {
   
@@ -41,6 +44,7 @@
         $stmt->execute();
         $codsVoluntario = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        print_r($codsVoluntario);
         foreach($codsVoluntario as $codVoluntario)
         {
             if ($codVoluntario['codVoluntario'])  
@@ -63,7 +67,6 @@
                 }
             }
         }
-        return false;
     }
 
 ?>
