@@ -334,7 +334,7 @@
 
 /* Estilo do modal */
 .modal {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 10;
     left: 0;
@@ -408,8 +408,8 @@
 /* Estilo do botão */
 #meuBotao {
     background-color: #4567a5;
-    padding: 1.5%;
     width: 12.2rem;
+    height: 2.5rem;
     border-radius: 0.4rem;
     margin-bottom: 1.5rem;
     margin-top: 3rem;
@@ -428,13 +428,6 @@
     background-color: #fff;
     border: 1px solid #4567a5;
 }
-
-
-
-
-
-
-
 
 
 
