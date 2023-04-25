@@ -260,6 +260,7 @@ include "../auth/verifica-logado.php";
 
     <!-- SCRIPTS -->
     <script src="../voluntarios/js/script.js"></script>
+    <script type="module" src="../js/main-2.js"></script>
 </body>
 
 </html>

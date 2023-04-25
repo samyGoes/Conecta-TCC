@@ -1,9 +1,9 @@
 // DROP DOWN NAV BAR 
-const navSetaDrop = document.querySelector("#nav-seta-sub-topicos");
-const navSubTopicos = document.querySelector(".sub-topicos");
 
-navSetaDrop.addEventListener("click", function dropDown()
+export function navDropDown()
 {
+    const navSubTopicos = document.querySelector(".sub-topicos");
+
     if (navSubTopicos.style.display == "none")
     {
         navSubTopicos.style.display = "flex";
@@ -13,8 +13,9 @@ navSetaDrop.addEventListener("click", function dropDown()
     {
         navSubTopicos.style.display = "none";
     }
-});
-
+    
+}
+document.querySelector("#nav-seta-sub-topicos").addEventListener("click", navDropDown);
 
 
 

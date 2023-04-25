@@ -287,7 +287,7 @@
 
 
 
-    <script src="js/drop-down-nav.js"></script>
+    <script type="module" src="js/main-2.js"></script>
 </body>
 
 </html>
