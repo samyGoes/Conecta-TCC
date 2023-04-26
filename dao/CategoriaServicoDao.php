@@ -25,7 +25,7 @@
         }
 
         
-        public static function listarCausa()
+        public static function listarCausaPerfil()
         {
 
             $codInstituicao = $_SESSION['codUsuario'];
@@ -35,6 +35,21 @@
             FROM tbCategoriaServico
             INNER JOIN tbCausaVaga ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico
             INNER JOIN tbServico ON tbCausaVaga.codServico = tbServico.codServico
+            WHERE tbServico.codInstituicao = $codInstituicao");
+
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
+        public static function listarCausaInstituicoes($codInstituicao)
+        {
+            $conexao = Conexao::conectar();
+            
+            $querySelect = ( "SELECT DISTINCT tbCategoriaServico.codCategoriaServico, tbinstituicao.codInstituicao, tbCategoriaServico.nomeCategoria FROM tbCategoriaServico 
+            INNER JOIN tbCausaVaga ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico 
+            INNER JOIN tbServico ON tbCausaVaga.codServico = tbServico.codServico 
+            INNER JOIN tbinstituicao ON tbinstituicao.codInstituicao = tbServico.codInstituicao 
             WHERE tbServico.codInstituicao = $codInstituicao");
 
             $resultado = $conexao->query($querySelect);

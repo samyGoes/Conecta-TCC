@@ -223,7 +223,7 @@
                             <?php
                                 try {
 
-                                    $listaCausas = CategoriaServicoDao::listarCausa();
+                                    $listaCausas = CategoriaServicoDao::listarCausaPerfil();
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }

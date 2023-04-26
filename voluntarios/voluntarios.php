@@ -143,6 +143,14 @@
                 {
                     $t = 'Voluntario';
                     $c=$voluntario['codVoluntario'];
+                try
+                {
+                    $listarCausas = CausasVoluntarioDao::listarVoluntariosCausas($c);
+                }
+                catch (Exception $e) {
+                    echo $e->getMessage();
+
+                }
             ?>
                     <div class="lista-voluntario-linha">
                         <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
@@ -165,15 +173,7 @@
 
                                 </div>     
                                 <div class="lista-item-2">
-                                    <?php 
-                                        try {
-                                            $codVoluntario = $_SESSION['codUsuario'];
-                                            $listar = CausasVoluntarioDao::listar($codVoluntario);
-                                        } catch (Exception $e) {
-                                            echo $e->getMessage();
-                                        }
-                                    ?>
-                                            <?php foreach ($listar as $causas) { ?>
+                                            <?php foreach ($listarCausas as $causas) { ?>
                                             <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                                     <?php
                                         }

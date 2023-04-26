@@ -168,7 +168,8 @@
                     <?php 
                         require_once 'global.php';
                         try {
-                            $listaCausas = CategoriaServicoDao::listar();
+                            $codVoluntario = $_SESSION['codUsuario'];
+                            $listaCausas = CausasVoluntarioDao::listarVoluntariosCausas($codVoluntario);
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
