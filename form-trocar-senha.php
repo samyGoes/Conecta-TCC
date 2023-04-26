@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style-trocar-senha.css">
+        <!-- <link rel="stylesheet" href="css/estilo-modal-confirmacao.css"> -->
+        <link rel="stylesheet" href="css/estilo-modal-fechar.css">
         <title> Trocar Senha</title>
     </head>
 
@@ -13,11 +15,22 @@
 
 
 
-    <?php
 
-        //$email = $_GET['email'];
 
-    ?>
+        <!-- MODAL -->
+        <div id="modal" class="modal">
+            <div class="modal-form" id="modal-form">
+                <div class="modal-sessao-2">
+                    <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                    <p id="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
+                    <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
+                </div>       
+            </div>
+        </div>
+
+
+
+
 
         <!-- FORM TROCAR SENHA -->
         <div class="container">

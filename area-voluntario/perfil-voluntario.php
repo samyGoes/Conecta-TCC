@@ -1,9 +1,9 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 
-    $t=$_SESSION['tipoPerfil'];
-    $c=$_SESSION['codUsuario']; 
+$t = $_SESSION['tipoPerfil'];
+$c = $_SESSION['codUsuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -326,11 +326,10 @@
                                 </div>
                         </div>
                         <div class="footer-modal">
-                            <div class="box-filtro-causas-select">
-                                <label for="">Habilidades</label>
+                            <div class="box-filtro-vaga">
                                 <div class="clique-fora-h">
-                                    <div class="filtro-habilidade-select"> Selecione as habilidades... </div>
-                                    <div class="box-habilidade-select">
+                                    <div class="filtro-vaga"> Selecione a vagas... </div>
+                                    <div class="box-vaga">
                                         <?php
                                         try {
                                             $listaHabilidade = HabilidadeServicoDao::listar();
@@ -339,9 +338,9 @@
                                         }
                                         ?>
                                         <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                            <div class="box-habilidade-checkbox-select">
-                                                <input type="checkbox" name="habilidade[]" id="habilidade-select" value=<?php echo
-                                                                                                                    $habilidade['codHabilidadeServico']; ?>>
+                                            <div class="box-vaga-checkbox">
+                                                <input type="checkbox" name="vaga[]" id="vaga" value=<?php echo
+                                                                                                        $habilidade['codHabilidadeServico']; ?>>
                                                 <label for="habilidade">
                                                     <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                                 </label>
@@ -434,6 +433,10 @@
     <script type="module" src="../js/main-2.js"></script>
 
     <script>
+        // Associar o evento de clique ao botão e ao botão de fechar
+        document.getElementById("requisitar").addEventListener("click", abrirModal);
+        document.querySelector(".fechar").addEventListener("click", fecharModal);
+
         // Função para abrir o modal
         function abrirModal() {
             document.getElementById("meuModal").style.display = "block";
@@ -444,9 +447,78 @@
             document.getElementById("meuModal").style.display = "none";
         }
 
-        // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
+
+
+        // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
+        const botaoCausas = document.querySelector(".filtro-causas");
+        const boxCausas = document.querySelector(".box-causas");
+        const botaoHabilidade = document.querySelector(".filtro-habilidade");
+        const boxHabilidade = document.querySelector(".box-habilidade");
+        const botaoVaga = document.querySelector(".filtro-vaga");
+        const boxVaga = document.querySelector(".box-vaga");
+        const dropCausas = document.querySelector('.clique-fora');
+
+        botaoCausas.addEventListener("click", function() {
+            if (boxCausas.style.display == "none" || boxCausas.style.display === "") {
+                boxCausas.style.display = "flex";
+            } else {
+                boxCausas.style.display = "none";
+                botaoCausas.style.color = "#000";
+                botaoCausas.style.borderColor = "#000";
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            if (!dropCausas.contains(target)) {
+                boxHabilidade.style.display = "none";
+                botaoHabilidade.style.color = "#000";
+                botaoHabilidade.style.borderColor = "#000";
+            }
+        });
+
+        botaoHabilidade.addEventListener("click", function() {
+            if (boxHabilidade.style.display == "none" || boxHabilidade.style.display === "") {
+                boxHabilidade.style.display = "flex";
+            } else {
+                boxHabilidade.style.display = "none";
+                botaoHabilidade.style.color = "#000";
+                botaoHabilidade.style.borderColor = "#000";
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            if (!dropCausas.contains(target)) {
+                boxCausas.style.display = "none";
+                botaoCausas.style.color = "#000";
+                botaoCausas.style.borderColor = "#000";
+            }
+        });
+
+        botaoVaga.addEventListener("click", function() {
+            if (boxVaga.style.display == "none" || boxVaga.style.display === "") {
+                boxVaga.style.display = "flex";
+                botaoVaga.style.color = "#000";
+                botaoVaga.style.borderColor = "#4567a5";
+            } else {
+                boxVaga.style.display = "none";
+                botaoVaga.style.color = "#000";
+                botaoVaga.style.borderColor = "#000";
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+            if (!dropCausas.contains(target)) {
+                boxVaga.style.display = "none";
+                botaoVaga.style.backgroundColor = "#d6ebfd";
+                botaoVaga.style.color = "#000";
+                botaoVaga.style.borderColor = "#000";
+            }
+        });
+
+        
     </script>
 
 </body>
