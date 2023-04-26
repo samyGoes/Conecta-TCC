@@ -1,8 +1,12 @@
 <?php
     require 'busca-email.php';
 
+    session_start();
+    global $_SESSION;
+    
     //var_dump($_POST);
     $email = $_POST['email'];
+    $_SESSION['email'] = $email;
 
     if (isset($email))
     {   
@@ -16,6 +20,8 @@
             echo json_encode(['status' => false, 'nome' => '']);
         }
     }
+
+    //print_r($_SESSION);
 
 
 ?>

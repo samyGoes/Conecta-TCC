@@ -186,7 +186,7 @@
         }
 
 
-        public static function trocarSenha($voluntario, $email)
+        public static function trocarSenha($voluntario)
         {
             $conexao = Conexao::conectar();
 
@@ -203,7 +203,7 @@
             }
             else
             {
-                $stmt = $conexao->prepare("UPDATE tbvoluntario SET senhaVoluntario = ? WHERE emailVoluntario = ?");
+                $stmt = $conexao->prepare("UPDATE tbvoluntario SET senhaVoluntario = ? WHERE codVoluntario = ?");
 
                 $stmt->bindValue(1, $voluntario->getSenhaVoluntario());
                 $stmt->bindValue(2, $voluntario->getIdVoluntario());

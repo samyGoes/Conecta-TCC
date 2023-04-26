@@ -50,7 +50,7 @@ export async function verificaEmail()
 {  
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "verifica-email.php", true); //application/x-www-form-urlencoded application/json
+    xhr.open("POST", "verifica-email.php", true); // application/json
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     return new Promise((resolve, reject) => 
@@ -58,28 +58,19 @@ export async function verificaEmail()
         xhr.onreadystatechange = function() 
         {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
-            {
-            
-                //var resposta = xhr.responseText;
+            {        
                 try 
                 {
                     var valores = JSON.parse(xhr.responseText);
                     console.log(valores);
-                    //console.log(xhr.responseText)
-
-                    //console.log(valores);
-                    //console.log(valores.status);  
-                    //console.log(resposta.nome);
                     
                     if (valores.status === true) 
                     {
                         resolve({existe: true, nome: valores.nome});
-                        //console.log(resposta);
                     } 
                     else 
                     {
                         resolve({existe: false, nome: ''});
-                        //console.log(resposta);
                     }     
                 }   
                 catch(e) 
@@ -202,8 +193,9 @@ export function modalOuErro2(event)
         modalSessoa1.style.display = "none";
         modalSessao2.style.display = "flex";
         modalForm.style.height = "255px";
+
         window.location = "form-trocar-senha.php";
-        //form.style.height = "259px";
+       // window.location = "form-trocar-senha.php?email=" + encodeURIComponent(email);
 
         btnFechar.addEventListener("click", function()
         {

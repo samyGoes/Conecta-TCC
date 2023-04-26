@@ -38,10 +38,22 @@
                                     SELECT codInstituicao FROM tbinstituicao WHERE emailInstituicao = :email");
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
-        $cod = $stmt->fetch(PDO::FETCH_ASSOC);
-        //print_r($cod);
+        $cod = $stmt->fetch(PDO::FETCH_ASSOC);  
 
-        return $cod;
+        if ($cod) 
+        {
+            if (isset($cod['codVoluntario'])) 
+            {
+                return intval($cod['codVoluntario']);
+            } 
+            else if (isset($cod['codInstituicao'])) 
+            {
+                return intval($cod['codInstituicao']);
+            }
+        }
+        return null;
+        //return $cod;
+        //print_r($cod);
     }
     
 ?>

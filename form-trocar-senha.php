@@ -13,6 +13,12 @@
 
 
 
+    <?php
+
+        //$email = $_GET['email'];
+
+    ?>
+
         <!-- FORM TROCAR SENHA -->
         <div class="container">
             <div class="form-image">

@@ -218,7 +218,7 @@
         }
 
 
-        public static function trocarSenha($instituicao, $email)
+        public static function trocarSenha($instituicao)
         {
             $conexao = Conexao::conectar();
 
