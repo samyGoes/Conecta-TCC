@@ -31,6 +31,7 @@ function removeError(index) {
 }
 
 
+
 function nameValidate() {
   if (campos[0].value.length < 3) {
     setError(0);
@@ -189,3 +190,13 @@ function cnpjValidate() {
     }
   }
   
+    formulario1.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (validateRequiredFields()) {
+      nameValidate();
+      cpfValidate();
+      cnpjValidate();
+      emailValidate();
+      alert('Formulário enviado com sucesso!');
+      }
+      });
