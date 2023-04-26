@@ -28,10 +28,10 @@
 
                     <form class="form-modal-email" action="" method="POST" id="form-modal-email">
                         <div class="modal-input-box-email">
-                            <label for="" class="modal-senha"> Email </label>
+                            <label for="email" class="modal-senha"> Email </label>
                             <input placeholder="Digite seu email" type="email" name="email" id="email" class="modal-input-senha">
                         </div>
-                        <div class="btn-confirmed"><button id="verifica-email" type="button"> ENVIAR </button></div>
+                        <div class="btn-confirmed"><button id="verifica-email" type="submit"> ENVIAR </button></div>
                     </form>
                     <a class="voltar-login" href="#"> Voltar para o login </a>
                 </div>
@@ -42,7 +42,7 @@
                     
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
-                            <label for="" class="modal-senha"> Código </label>
+                            <label for="codigo" class="modal-senha"> Código </label>
                             <input placeholder="Digite o código" type="text" name="codigo" id="codigo" class="modal-input-senha">
                         </div>
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>

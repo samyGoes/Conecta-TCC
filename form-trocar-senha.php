@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style-trocar-senha.css">
-        <title>Login</title>
+        <title> Trocar Senha</title>
     </head>
 
     <body class="body">
@@ -19,7 +19,7 @@
                 <img src="img/laco-2.jpg" alt="">
             </div>
             <div class="form">
-                <form action="update-senha-.php" method="post" id="formularioLogin">
+                <form action="update-senha.php" method="post" id="formularioLogin">
                     <div class="form-header">
                         <div class="title">
                             <h1>Trocar Senha</h1>
@@ -36,7 +36,7 @@
                             <small>Mínino de até 8 caracteres</small>
                         </div>
                         <div class="input-box">
-                            <label for="senhaC">Confirmar nova senha</label>
+                            <label for="confSenha">Confirmar nova senha</label>
                             <input type="password" name="confSenha" id="confSenha" placeholder="Confirme a nova senha">
                             <small>Mínino de até 8 caracteres</small>
                         </div>

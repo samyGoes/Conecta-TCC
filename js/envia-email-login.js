@@ -50,7 +50,7 @@ export async function verificaEmail()
 {  
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "verifica-email.php", true);
+    xhr.open("POST", "verifica-email.php", true); //application/x-www-form-urlencoded application/json
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     return new Promise((resolve, reject) => 
@@ -61,22 +61,32 @@ export async function verificaEmail()
             {
             
                 //var resposta = xhr.responseText;
-                var valores = JSON.parse(xhr.responseText);
+                try 
+                {
+                    var valores = JSON.parse(xhr.responseText);
+                    console.log(valores);
+                    //console.log(xhr.responseText)
 
-                console.log(valores);
-                //console.log(resposta.status);  
-                //console.log(resposta.nome);
-                
-                if (valores.status === true) 
+                    //console.log(valores);
+                    //console.log(valores.status);  
+                    //console.log(resposta.nome);
+                    
+                    if (valores.status === true) 
+                    {
+                        resolve({existe: true, nome: valores.nome});
+                        //console.log(resposta);
+                    } 
+                    else 
+                    {
+                        resolve({existe: false, nome: ''});
+                        //console.log(resposta);
+                    }     
+                }   
+                catch(e) 
                 {
-                    resolve({existe: true, nome: valores.nome});
-                    //console.log(resposta);
-                } 
-                else 
-                {
-                    resolve({existe: false, nome: ''});
-                    //console.log(resposta);
-                }        
+                    console.error("Erro ao analisar resposta JSON: ", e);
+                    reject(Error("Erro ao analisar resposta JSON"));
+                }
                       
             }   
             else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  

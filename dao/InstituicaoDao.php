@@ -218,7 +218,7 @@
         }
 
 
-        public static function trocarSenha($instituicao)
+        public static function trocarSenha($instituicao, $email)
         {
             $conexao = Conexao::conectar();
 
@@ -235,9 +235,10 @@
             }
             else
             {
-                $stmt = $conexao->prepare("UPDATE tbinstituicao SET senhaInstituicao WHERE emailInstituicao = ?");
+                $stmt = $conexao->prepare("UPDATE tbinstituicao SET senhaInstituicao = ? WHERE codInstituicao = ?");
 
                 $stmt->bindValue(1, $instituicao->getSenhaInstituicao());
+                $stmt->bindValue(2, $instituicao->getIdInstituicao());
                 $stmt->execute();
             }             
         }
