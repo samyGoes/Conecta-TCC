@@ -205,8 +205,12 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    height: 145vh;
+    height: 140vh;
     gap: 5%;
+}
+
+.titulo-container-conteudo-2{
+    margin-top: 7rem;
 }
 
 .titulo-container-conteudo-2 h1{
@@ -216,39 +220,47 @@ body {
     color: #232e61;
     text-align: center;
 }
+
 .card-conteudo-2{
     display: flex;
-    flex-direction: row; 
-    width: 90%;
-    height: 80%;
+    flex-direction: row;
+    justify-content: center; 
+    width: 100%;
+    height: 74%;
 }
+
 .conteudo-vazio{
-    width: 50%;
+    width: 47%;
 }
 
 .conteudo-escrito-2{
     background-color: #fff;
-    width: 50%;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 5px #b4d8e6;
+    width: 45%;
     text-align: justify;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.titulo-conteudo-escrito-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .titulo-conteudo-escrito-2 h1{
     text-align: center;
     font-family: acme, sans-serif;
     font-weight: 400;
     color: #2e2e2e;
-    margin-top: 5%;
+    margin-top: 5rem;
 }
 
 
 .texto-conteudo-escrito-2{
-    margin: 5%;
+    margin: 10%;
     line-height: 2rem;
 }
 
@@ -260,6 +272,7 @@ body {
 
 .botao-conteudo-escrito-2{
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;    
