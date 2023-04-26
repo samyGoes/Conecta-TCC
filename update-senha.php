@@ -7,34 +7,44 @@
 
     try
     {
-        //var_dump($_POST);
-        //echo("<br>");
         $email = $_SESSION['email'];
-        //print_r($_SESSION);
         
+        //echo ("Email: " . $email . "<br>");
+        $cod = pegaId($email);
 
-        echo ("Email: " . $email . "<br>");
-        $id = pegaId($email);
+        echo("Cod:");
+        print_r($cod);
 
-        // SE FOR O EMAIL DO VOLUNTÁRIO FAZ UM UPDATE NA SENHA DO VOLUNTÁRIO
-        if (isset($id['codVoluntario']))
+        //$codVerificado = verificaIdPorEntidade($cod);
+        $codConvertido = converteCod($cod);
+
+       // echo("Código:" . $codVerificado) . "<br>";
+        //echo "<pre>";
+        //var_dump($cod);
+        //echo "</pre>";
+   
+        if (isset($cod['codVoluntario']))  // SE FOR O CÓDIGO DO VOLUNTÁRIO FAZ UM UPDATE NA SENHA DO VOLUNTÁRIO
         {
             $voluntario = new Voluntario();
-            $voluntario -> setIdVoluntario($id);
+            $voluntario -> setIdVoluntario($codConvertido);
             $voluntario -> setSenhaVoluntario($_POST['senha']);
             $voluntario -> setConfSenhaVoluntario($_POST['confSenha']);
             
             $update = VoluntarioDao::trocarSenha($voluntario);
+
+            echo("Senha do voluntário trocada com sucesso");
         }
-        else if (isset($id['codInstituicao']))  // SENÃO FAZ UM UPDATE NA SENHA DA INSTITUIÇÃO
+        else if (isset($cod['codInstituicao']))   // SENÃO FAZ UM UPDATE NA SENHA DA INSTITUIÇÃO
         {
             $instituicao = new Instituicao();
 
-            $instituicao -> setIdInstituicao($id);
+            $instituicao -> setIdInstituicao($codConvertido);
             $instituicao -> setSenhaInstituicao($_POST['senha']);
             $instituicao -> setConfSenhaInstituicao($_POST['confSenha']);
             
             $update2 = InstituicaoDao::trocarSenha($instituicao);
+
+            echo("Senha da instituição trocada com sucesso");
         }
         else
         {
@@ -50,5 +60,6 @@
         echo '</pre>';
     }
 
+    session_destroy();
 
 ?>

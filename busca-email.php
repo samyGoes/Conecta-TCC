@@ -33,13 +33,44 @@
     {
         $conectar = Conexao::conectar();
 
-        $stmt = $conectar->prepare("SELECT codVoluntario FROM tbvoluntario WHERE emailVoluntario = :email 
-                                    UNION 
-                                    SELECT codInstituicao FROM tbinstituicao WHERE emailInstituicao = :email");
+        $stmt = $conectar->prepare("SELECT codVoluntario FROM tbvoluntario WHERE emailVoluntario = :email");
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         $cod = $stmt->fetch(PDO::FETCH_ASSOC);  
 
+        if (isset($cod['codVoluntario'])) 
+        {
+            return $cod;
+        } 
+        else 
+        {
+            $stmt2 = $conectar->prepare("SELECT codInstituicao FROM tbinstituicao WHERE emailInstituicao = :email");
+            $stmt2->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt2->execute();
+            $cod = $stmt2->fetch(PDO::FETCH_ASSOC);  
+
+            if (isset($cod['codInstituicao'])) 
+            {
+                return $cod;
+            } 
+        }
+        return null;
+    }
+
+    // function verificaIdPorEntidade($cod)
+    // {
+    //     if (isset($cod['codVoluntario'])) 
+    //     {
+    //         return "codVoluntario";
+    //     } 
+    //     else if (isset($cod['codInstituicao'])) 
+    //     {
+    //         return "codInstituicao";
+    //     }
+    // }
+
+    function converteCod($cod)
+    {
         if ($cod) 
         {
             if (isset($cod['codVoluntario'])) 
@@ -51,9 +82,6 @@
                 return intval($cod['codInstituicao']);
             }
         }
-        return null;
-        //return $cod;
-        //print_r($cod);
     }
     
 ?>

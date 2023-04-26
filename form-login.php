@@ -48,7 +48,7 @@
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                     </form>
 
-                    <a class="voltar-login" href="#"> Voltar para o login </a>
+                    <a class="voltar-login2" href="#"> Voltar para o login </a>
                 </div>
 
                 <div class="modal-sessao-2">

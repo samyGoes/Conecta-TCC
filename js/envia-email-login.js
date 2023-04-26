@@ -41,6 +41,14 @@ export function fechaModal()
 }
 document.querySelector(".voltar-login").addEventListener("click", fechaModal);
 
+export function fechaModal2()
+{
+    modalInteiro.style.display = "none";
+}
+document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
+
+
+
 
 
 // VERIFICAR EMAIL
@@ -142,6 +150,7 @@ export async function enviaEmail(event)
         const boxInput = document.querySelector(".modal-input-box-email");
         const avisoErro = document.createElement("span");
 
+        /* ESTILIZANDO AVISO */
         avisoErro.textContent = "Email inválido";
         avisoErro.style.position = "absolute";
         avisoErro.style.top = "5rem";
