@@ -203,7 +203,7 @@ body {
     flex-direction: column;    
     background-image: url(../img/planeta.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     width: 100vw;
     height: 140vh;
     gap: 5%;
@@ -299,10 +299,10 @@ body {
 }
 
 
-/*CONATINER 3*/
+/*CONTAINER 3*/
 .container-3{
     background-color: #d97925;
-    width: 100%;
+    width: 100vw;
     height: 30rem;
     display: flex;
     flex-direction: column;
@@ -319,17 +319,18 @@ body {
 .topicos-container-3{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 .habilidade, .experiencia, .curriculo{
-    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    /* width: 100%; */
 }
 
 .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img{
@@ -352,8 +353,8 @@ body {
 /*CONTAINER 4*/
 
 .container-4 {
-    width: 100%;
-    /* height: 100vh; */
+    width: 100vw;
+    height: 70vh;
     display: flex;
     flex-direction: column;   
     align-items: center;
@@ -373,6 +374,7 @@ body {
     font-family: poppins, sans-serif;
     font-weight: 400;
     color: #000;
+    text-align: center;
 }
 
 
@@ -401,6 +403,7 @@ body {
     padding: 0.7rem;
     min-width: 16rem;
     /* background-color: #42529c; */
+    display: none;
 }
 .slider
 {
@@ -643,6 +646,25 @@ body {
 .botao-vagas button:hover{
     background-color: #fff;
     color: #4567a5;
+}
+
+
+
+
+/*REPONSIVIDADE*/
+@media (max-width:1200){
+    /*CONTAINER 1*/
+}
+
+@media (max-width:900px) {
+    .container-3{
+        height: 50rem;
+    }
+
+    .topicos-container-3{
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
