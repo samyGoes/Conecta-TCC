@@ -144,6 +144,15 @@
                 {
                     $t = 'Instituicao';
                     $c=$instituicao['codInstituicao'];
+                try
+                {
+                    $listarCausas = CategoriaServicoDao::listarCausaInstituicoes($c);
+                }
+                catch (Exception $e)
+                {
+                    echo $e->getMessage();
+    
+                }
         
             ?>
                     <div class="lista-voluntario-linha">
@@ -167,15 +176,7 @@
 
                             </div>     
                             <div class="lista-item-2">
-                                <?php 
-                                    require_once 'global.php';
-                                    try {
-                                        $listaCausas = CategoriaServicoDao::listar();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                ?>     
-                                        <?php foreach ($listaCausas as $causas) { ?>
+                                        <?php foreach ($listarCausas as $causas) { ?>
                                         <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
                                 <?php
                                     }

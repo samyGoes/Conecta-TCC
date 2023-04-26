@@ -38,15 +38,15 @@
             return $lista;  
         }
 
-        public static function listarVoluntarios()
+        public static function listarVoluntariosCausas($codVoluntario)
         {
 
             $conexao = Conexao::conectar();
-            $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria,  
-            tbVoluntario.codVoluntario FROM tbCausaVoluntario
+            $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria  
+            FROM tbCausaVoluntario
             INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
-            INNER JOIN tbVoluntario ON tbVoluntario.codVoluntario = tbCausaVoluntario.codVoluntario
-            WHERE tbVoluntario.codVoluntario = ? ");
+            WHERE tbCausaVoluntario.codVoluntario = $codVoluntario");
+
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  
