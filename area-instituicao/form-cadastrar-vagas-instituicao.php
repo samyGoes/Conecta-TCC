@@ -318,6 +318,10 @@
         const dropCausas = document.querySelector('.clique-fora');
         const dropHab = document.querySelector(".clique-fora-h");
 
+        // Associar o evento de clique ao botão e ao botão de fechar
+        document.getElementById("requisitar").addEventListener("click", abrirModal);
+        document.querySelector(".fechar").addEventListener("click", fecharModal);
+
 
         // Função para abrir o modal
         function abrirModal() {
@@ -328,10 +332,6 @@
         function fecharModal() {
             document.getElementById("meuModal").style.display = "none";
         }
-
-        // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
 
 
         //Botoes select

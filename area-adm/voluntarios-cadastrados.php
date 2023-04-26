@@ -14,7 +14,7 @@
 <body>
 
 
-    
+
     <!-- NAV LATERAL -->
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
@@ -23,7 +23,7 @@
                 <div class="box-img-user">
                     <img src="./img/user-branco.png" width="100px" height="100px" alt="">
                 </div>
-                
+
                 <p>Olá, ADM!</p>
             </div>
 
@@ -34,7 +34,7 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                 </span></a>
+                    </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -89,11 +89,9 @@
                         <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
                     </div>
                     <div class="funcoes-sessao-2">
-                        <form action="" method="post">
-                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"><input type="submit" name="pesqUsuario" value="" ></i>
-                        </form>
-                        
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+
                     </div>
                 </div>
                 <table>

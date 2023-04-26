@@ -48,14 +48,14 @@
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                     </form>
 
-                    <a class="voltar-login2" href="#"> Voltar para o login </a>
+                    <a class="voltar-login" href="#"> Voltar para o login </a>
                 </div>
 
-                <div class="modal-sessao-2">
+                <!-- <div class="modal-sessao-2">
                     <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
                     <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
                     <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
-                </div>                
+                </div>  -->
             </div>
         </div>
 

@@ -41,11 +41,11 @@ export function fechaModal()
 }
 document.querySelector(".voltar-login").addEventListener("click", fechaModal);
 
-export function fechaModal2()
-{
-    modalInteiro.style.display = "none";
-}
-document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
+// export function fechaModal2()
+// {
+//     modalInteiro.style.display = "none";
+// }
+// document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
 
 
 
@@ -191,25 +191,15 @@ export function modalOuErro2(event)
 {
     event.preventDefault();
 
-    const modalSessao2 = document.querySelector(".modal-sessao-2");
+    //const modalSessao2 = document.querySelector(".modal-sessao-2");
 
-    const btnFechar = document.querySelector("#btn-fechar");
+    //const btnFechar = document.querySelector("#btn-fechar");
     let aviso = null;
     let verificacao2 = verificarCod2();
 
     if(verificacao2 === true)
     {      
-        modalSessoa1.style.display = "none";
-        modalSessao2.style.display = "flex";
-        modalForm.style.height = "255px";
-
         window.location = "form-trocar-senha.php";
-       // window.location = "form-trocar-senha.php?email=" + encodeURIComponent(email);
-
-        btnFechar.addEventListener("click", function()
-        {
-            modal.style.display = "none";
-        });
     }
     else
     {
@@ -237,3 +227,10 @@ export function modalOuErro2(event)
 }
     
 document.querySelector(".modal-btn-confirmar").addEventListener("click", modalOuErro2);
+
+export function fechaModalT()
+{
+    modalInteiro.style.display = "none";
+}
+document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
+

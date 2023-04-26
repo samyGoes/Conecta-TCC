@@ -1,0 +1,83 @@
+
+
+.modal 
+{
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-form 
+{
+    width: 400px;
+    height: 253px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 30px 30px 25px 30px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+}
+
+#modal-titulo 
+{
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+}
+
+#modal-frase
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    margin: 1.6rem 0rem 0.5rem 0rem;
+}
+
+.modal-sessao-2
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-confirmed
+{
+    display: flex;
+    align-self: center;
+}
+
+#btn-fechar
+{
+    margin: 2.5rem 0rem 1rem 0rem;
+    width: 11rem;
+    height: 2.5rem;
+    background-color: #cf8a3f;
+    border: 1px solid #cf8a3f;
+    border-radius: 0.5rem;
+    outline: none;
+ 
+    color: #fff;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    font-family: poppins, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 300;
+    font-size: 20px;
+}
+#btn-fechar:hover
+{
+    background-color: #fff;
+    color: #cf8a3f;
+}
