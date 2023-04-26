@@ -1,11 +1,4 @@
-<?php
-require_once 'global.php';
-require_once 'auth/verifica-logado.php';
 
-
-$t = $_SESSION['tipoPerfil'];
-$c = $_SESSION['codUsuario'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
