@@ -13,7 +13,7 @@
 
 <body>
 
-    
+
     <!-- NAV LATERAL -->
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
@@ -22,7 +22,7 @@
                 <div class="box-img-user">
                     <img src="./img/user-branco.png" width="100px" height="100px" alt="">
                 </div>
-                
+
                 <p>Olá, ADM!</p>
             </div>
 
@@ -33,11 +33,11 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                 </span></a>
+                    </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> 
+                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico">
                         habilidades </span></a>
             </div>
 
@@ -82,7 +82,7 @@
             </p>
         </div>
         <div class="gerarPdf">
-            <button><i class="fa-solid fa-file-pdf"><a href="geracaoPdf/gerar_pdf_Instituições.php"></i>Gerar pdf</a></button>
+            <a href="geracaoPdf/gerar_pdf_Voluntarios.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
         <div class="table">

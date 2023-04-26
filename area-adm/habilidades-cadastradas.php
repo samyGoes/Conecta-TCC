@@ -21,7 +21,7 @@
                 <div class="box-img-user">
                     <img src="./img/user-branco.png" width="100px" height="100px" alt="">
                 </div>
-                
+
                 <p>Olá, ADM!</p>
             </div>
 
@@ -32,7 +32,7 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                 </span></a>
+                    </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -72,11 +72,11 @@
     <main class="main-conteudo">
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="main-conteudo-container-titulo">
-            <h1>EDITAR PERFIL</h1>
-            <p>Digite as novas informações que deseja inserir</p>
+            <h1>HABILIDADES</h1>
+            <p>Aqui você verá todas as habilidades cadastradas...</p>
         </div>
         <div class="gerarPdf">
-            <button><i class="fa-solid fa-file-pdf"><a href="geracaoPdf/gerar_pdf_Habilidades.php"></i>Gerar pdf</a></button>
+            <a href="geracaoPdf/gerar_pdf_Voluntarios.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
         <div class="table">
@@ -125,7 +125,7 @@
 
 
     </main>
-    
+
     <script src="../area-voluntario/js/script.js"></script>
     <script src="js/script.js"></script>
 </body>

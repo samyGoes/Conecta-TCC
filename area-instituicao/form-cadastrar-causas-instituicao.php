@@ -1,9 +1,9 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 
-    $t=$_SESSION['tipoPerfil'];
-    $c=$_SESSION['codUsuario']; 
+$t = $_SESSION['tipoPerfil'];
+$c = $_SESSION['codUsuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -148,20 +148,19 @@
                             <button id="requisitar" type="submit">CADASTRAR</button>
                         </div>
                     </form>
-                    <!-- Modal -->
-                    <div id="meuModal" class="modal">
-                        <div class="modal-conteudo">
-                            <span class="fechar">&times;</span>
-                            <h1 class="modal-titulo">Causa cadastrada com sucesso!</h1>
-                            <p class="modal-texto">Sua causa foi cadastrada com sucesso</p>
-                            <div class="footer-modal">
-                                <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div id="meuModal" class="modal">
+                <div class="modal-conteudo">
+                    <span class="fechar">&times;</span>
+                    <h1 class="modal-titulo">Causa cadastrada com sucesso!</h1>
+                    <p class="modal-texto">Sua causa foi cadastrada com sucesso</p>
+                    <div class="footer-modal">
+                        <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
                     </div>
                 </div>
             </div>
-
             <div class="card-2">
                 <p>Aqui está a lista de todas as causas cadastradas</p>
                 <div class="table">
