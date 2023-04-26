@@ -16,7 +16,7 @@
 .modal-form 
 {
     width: 400px;
-    height: 367px;
+    height: 253px;
     background-color: #fff;
     border-radius: 0.5rem;
     padding: 30px 30px 25px 30px;
@@ -46,8 +46,15 @@
 
 .modal-sessao-2
 {
-    display: none;
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-confirmed
+{
+    display: flex;
+    align-self: center;
 }
 
 #btn-fechar
@@ -59,12 +66,13 @@
     border: 1px solid #cf8a3f;
     border-radius: 0.5rem;
     outline: none;
-
+ 
     color: #fff;
     transition: all 0.5s ease;
     cursor: pointer;
     font-family: poppins, sans-serif;
     text-transform: uppercase;
+    text-align: center;
     font-weight: 300;
     font-size: 20px;
 }
