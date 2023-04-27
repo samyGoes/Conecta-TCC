@@ -13,6 +13,7 @@ $c = $_SESSION['codUsuario'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="css/estilo-modal-cadastro.css">
     <link rel="stylesheet" href="css/estilo-causasCadastradas-instituicao.css">
     <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->

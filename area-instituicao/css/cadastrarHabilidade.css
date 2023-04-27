@@ -298,7 +298,7 @@
 
 
 /*CARDS*/
-.card{
+.card {
     font-family: poppins, sans-serif;
     width: 100%;
     display: flex;
@@ -308,7 +308,8 @@
     margin-left: 5%;
     gap: 5%;
 }
-.card-1{
+
+.card-1 {
     display: flex;
     flex-direction: row;
     font-family: poppins, sans-serif;
@@ -318,7 +319,7 @@
     gap: 10%;
 }
 
-.card-2{
+.card-2 {
     display: flex;
     flex-direction: row;
     font-family: poppins, sans-serif;
@@ -328,34 +329,36 @@
     gap: 10%;
 }
 
-.card-cadastrar{
+.card-cadastrar {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: #4567a5 solid 1px;
     border-radius: 0.5rem;
-    box-shadow: #b4d8e6 3px 3px 4px 1px ;
+    box-shadow: #b4d8e6 3px 3px 4px 1px;
     width: 430px;
     height: 310px;
-} 
+}
+
 .card-cadastrar .card-form {
     display: flex;
     flex-direction: column;
     gap: 20%;
 }
-.card-cadastrar .card-form .input-box{
+
+.card-cadastrar .card-form .input-box {
     display: flex;
     flex-direction: column;
     line-height: 40px;
 }
 
-.card-cadastrar .card-form .input-box label{
+.card-cadastrar .card-form .input-box label {
     font-size: 17px;
     color: #000000;
 }
 
-.card-cadastrar .card-form .input-box input{
+.card-cadastrar .card-form .input-box input {
     width: 17vw;
     padding: 3%;
     font-size: 16px;
@@ -365,13 +368,13 @@
     border: #4567a5 1px solid;
 }
 
-.card-cadastrar .card-form .input-boxs input::placeholder{
+.card-cadastrar .card-form .input-boxs input::placeholder {
     font-size: 16px;
     font-family: poppins, sans-serif;
     color: #525252;
 }
 
-.card-form .continue-button{
+.card-form .continue-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -396,7 +399,7 @@
     border-radius: 0.5rem;
     width: 10rem;
     height: 2.5rem;
-    padding: 0.8%;  
+    padding: 0.8%;
     cursor: pointer;
     color: #fff;
     font-size: 16pt;

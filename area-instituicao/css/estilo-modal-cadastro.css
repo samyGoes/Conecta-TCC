@@ -1,10 +1,8 @@
-
-
 /* Estilo do modal */
 .modal {
-    display: none;
+    display: block;
     position: fixed;
-    z-index: 10;
+    z-index: 11;
     left: 0;
     top: 0;
     width: 100%;
@@ -14,7 +12,7 @@
 
 .modal-conteudo {
     background-color: #fff;
-    margin: 20% auto;
+    margin: 10% auto;
     padding: 35px;
     border: 1px solid #888;
     border-radius: 10px;
@@ -47,6 +45,14 @@
     cursor: pointer;
 }
 
+.selecione-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 
 .footer-modal {
     display: flex;
@@ -66,7 +72,7 @@
     border-radius: 5px;
 }
 
-.footer-modal input::placeholder {
+.footer-moda input::placeholder {
     font-size: 14px;
     font-family: poppins, sans-serif;
     font-weight: 400;
