@@ -170,6 +170,7 @@ body
     display: flex;
     margin-right: 1.5rem;
     flex-direction: column;
+    position: relative;
     
 }
 

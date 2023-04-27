@@ -38,7 +38,7 @@
                                     <div class="input-box">
                                         <label for="name">Nome Completo</label>
                                         <input type="text" name="nome" class="inputs required" id="name" oninput="nameValidate()" placeholder="Digite seu nome">
-                                        <span class="span-required">O nome deve conter mais de 3 caracteres</span>
+                                       
                                     </div>
                                     <div class="input-box">
                                         <label for="date">Data de Nascimento</label>
@@ -47,7 +47,7 @@
                                     <div class="input-box">
                                         <label for="cpf">CPF</label>
                                         <input type="text" name="cpf" class="inputs required" id="cpf"  placeholder="Digite seu CPF" oninput="cpfValidate()">
-                                        <span class="span-required">CPF invalido</span>
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone</label>
@@ -60,12 +60,12 @@
                                     <div class="input-box">
                                         <label for="email">Email</label>
                                         <input type="email" name="email" class="inputs required" oninput="emailValidate()" id="email" placeholder="Digite seu email">
-                                        <span class="span-required">Email invalido</span>
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="senha">Senha</label>
                                         <input type="password" name="senha"class="inputs required" id="senha" placeholder="Digite sua senha" oninput="passwordValidate()">
-                                        <span class="span-required">Senha não contem ops requisitos minimos</span>
+                                        <span class="span-required"></span>
 
                                     </div>
                                     <div class="input-box">
