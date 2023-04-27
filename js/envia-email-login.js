@@ -48,6 +48,13 @@ document.querySelector(".voltar-login").addEventListener("click", fechaModal);
 // document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
 
 
+export function fechaModalT()
+{
+    modalInteiro.style.display = "none";
+}
+document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
+
+
 
 
 
@@ -227,10 +234,4 @@ export function modalOuErro2(event)
 }
     
 document.querySelector(".modal-btn-confirmar").addEventListener("click", modalOuErro2);
-
-export function fechaModalT()
-{
-    modalInteiro.style.display = "none";
-}
-document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
 

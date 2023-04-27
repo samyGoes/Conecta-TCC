@@ -57,18 +57,6 @@
         return null;
     }
 
-    // function verificaIdPorEntidade($cod)
-    // {
-    //     if (isset($cod['codVoluntario'])) 
-    //     {
-    //         return "codVoluntario";
-    //     } 
-    //     else if (isset($cod['codInstituicao'])) 
-    //     {
-    //         return "codInstituicao";
-    //     }
-    // }
-
     function converteCod($cod)
     {
         if ($cod) 

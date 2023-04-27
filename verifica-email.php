@@ -8,17 +8,21 @@
     $email = $_POST['email'];
     $_SESSION['email'] = $email;
 
-    if (isset($email))
-    {   
-        $resultado = buscaEmail($email);
-        if ($resultado['email']) 
-        {
-            echo json_encode(['status' => true, 'nome' => $resultado['nome']]);
-        }
-        else 
-        {
-            echo json_encode(['status' => false, 'nome' => '']);
-        }
+    // Verifica se o campo de email foi preenchido
+    if (empty($email)) 
+    {
+        echo json_encode(['status' => false, 'nome' => '']);
+        exit; // interrompe a execução do script
+    }
+   
+    $resultado = buscaEmail($email);
+    if ($resultado['email']) 
+    {
+        echo json_encode(['status' => true, 'nome' => $resultado['nome']]);
+    }
+    else 
+    {
+        echo json_encode(['status' => false, 'nome' => '']);
     }
 
 ?>
