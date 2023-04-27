@@ -274,7 +274,7 @@ $c = $_SESSION['codUsuario'];
                         <h1 class="modal-titulo">Requisição de Voluntário</h1>
                         <p class="modal-texto">Selecione as vagas para as quais deseja atribuir a este voluntário.</p>
                         <div class="selecione-button ">
-                            <form class="form-filtro" method="POST" action="">
+                            <form class="form-filtro" method="POST" action="../area-instituicao/enviar_solicitacao.php">
                                 <!-- CAUSAS -->
                                 <div class="box-filtro-causas">
                                     <div class="filtro-causas"> CAUSAS </div>
@@ -352,7 +352,7 @@ $c = $_SESSION['codUsuario'];
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" id="meuBotao">Confirmar</button>
+                            <button type="submit" nome='requisitar' id="meuBotao">Confirmar</button>
                         </div>
                     </div>
                 </div>

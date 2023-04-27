@@ -89,15 +89,9 @@
                         <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
                     </div>
                     <div class="funcoes-sessao-2">
-<<<<<<< HEAD
-                        <form action="" method="post">
-                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"><input type="submit" name="pesqUsuario" value=""></i>
-                        </form>
-=======
                         <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
                         <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
->>>>>>> 35c85b91f61d043725e24061fcd731d13e876f1c
+
 
                     </div>
                 </div>

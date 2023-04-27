@@ -148,6 +148,6 @@ $dompdf-> setPaper('A4', 'portrait');
 
 $dompdf-> render();
 
-$dompdf-> stream('Relatorio');
+$dompdf-> stream('Relatorio de Vagas');
 
 ?>

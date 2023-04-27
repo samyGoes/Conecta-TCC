@@ -99,14 +99,14 @@ $html .= <<<'ENDHTML'
     </div>
 
     <div class="titulos">
-        <h4>RELATÓRIO DE HABILIDADES CADASTRADAS </h4>
+        <h4>RELATÓRIO DE CAUSAS CADASTRADAS </h4>
         <hr>
-        <font>Relatório de Habilidades Cadastradas</font>
+        <font>Relatório de Causas Cadastradas</font>
         <hr>
     </div>
 
     <div class="conteudo">
-        <font class="text-titulos">Dados das habilidades</font><br>
+        <font class="text-titulos">Dados das causas</font><br>
         <hr>
 ENDHTML;
  
@@ -114,7 +114,7 @@ ENDHTML;
     while ($row_causa = $resultado_causas->fetch(PDO::FETCH_ASSOC)) {
         extract($row_causa);
         $html.= "<b>Numero do cadastro: </b> $codCategoriaServico <br>";
-        $html.= "<b>Habilidade: </b> $nomeCategoria <br>";
+        $html.= "<b>Causa: </b> $nomeCategoria <br>";
         $html.= "<hr>";
     }
 
@@ -140,6 +140,6 @@ $dompdf-> setPaper('A4', 'portrait');
 
 $dompdf-> render();
 
-$dompdf-> stream('Relatorio De Habilidades');
+$dompdf-> stream('Relatorio De Causas');
 
 ?>
