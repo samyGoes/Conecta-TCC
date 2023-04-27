@@ -18,23 +18,23 @@ function validateRequiredFields() {
   return allFieldsFilled;
 }
 
-function setError(index, message) {
-  campos[index].style.borderBottom = '1px solid #e63636';
-  spans[index].textContent = message;
-  spans[index].style.display = 'block';
-}
+  function setError(index, message) {
+    campos[index].style.borderBottom = '1px solid #e63636';
+    spans[index].textContent = message;
+    spans[index].style.display = 'block';
+  }
 
-function removeError(index) {
-  campos[index].style.borderBottom = '';
-  spans[index].style.display= '';
+  function removeError(index) {
+    campos[index].style.borderBottom = '';
+    spans[index].style.display= '';
 
-}
+  }
 
 
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
-    setError(0);
+    setError(0, 'Nome invalidoooo');
   } else {
     removeError(0);
   }
@@ -42,7 +42,7 @@ function nameValidate() {
 
 function emailValidate() {
   if (!emailRegex.test(campos[4].value)) {
-    setError(4);
+    setError(4, 'Email invalido');
   } else {
     removeError(4);
   }
@@ -87,20 +87,15 @@ function validateCPF(cpf) {
 
 function cpfValidate() {
   const cpf = campos[1].value;
-  let message = '';
 
   if (!validateCPF(cpf)) {
-    message = 'CPF inválido';
-  }
-
-  if (message !== '') {
-    setError(1);
+    setError(1, 'Cpf Invalido');
   } else {
     removeError(1);
   }
 }
 
-function validateCNPJ(cnpj) {
+/*function validateCNPJ(cnpj) {
  
   if (!/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(cnpj)) {
     return false;
@@ -150,33 +145,38 @@ function cnpjValidate() {
     removeError(1);
   }
 }
+*/
 
 
+function passwordValidate() {
+  const senha = campos[5].value;
+  const digitRegex = /\d/;
+  const specialRegex = /[!@#$%&*]/;
+  const upperRegex = /[A-Z]/;
 
-  function passwordValidate() {
-    const senha = campos[5].value;
-    const digitoRegex = /\d/;
-    const especialRegex = /[!@#$%&*]/;
-    const maiusculaRegex = /[A-Z]/;
-    let isValid = true;
-    
-    // Verifica se a senha tem pelo menos 8 caracteres
-    if (senha.length < 8) {
-      isValid = false;
-    }
-  
-    // Verifica se a senha contém pelo menos um dígito numérico, um caractere especial e uma letra maiúscula
-    if (!digitoRegex.test(senha) || !especialRegex.test(senha) || !maiusculaRegex.test(senha)) {
-      isValid = false;
-    }
-  
-    // Se a senha não for válida, exibe mensagem de erro
-    if (!isValid) {
-      setError(5);
-    } else {
-      removeError(5);
-    }
+  if (senha.length < 8) {
+    setError(5, 'A senha deve ter pelo menos 8 caracteres');
+    return;
   }
+
+  if (!digitRegex.test(senha)) {
+    setError(5, 'A senha deve conter pelo menos um número');
+    return;
+  }
+
+  if (!specialRegex.test(senha)) {
+    setError(5, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
+    return;
+  }
+
+  if (!upperRegex.test(senha)) {
+    setError(5, 'A senha deve conter pelo menos uma letra maiúscula');
+    return;
+  }
+
+  removeError(5);
+}
+
   
   function confirmPassword() {
     const senha = campos[5].value;
@@ -184,7 +184,7 @@ function cnpjValidate() {
   
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-      setError(6);
+      setError(6, 'oi');
     } else {
       removeError(6);
     }
