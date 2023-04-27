@@ -1,9 +1,9 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 
-    $t=$_SESSION['tipoPerfil'];
-    $c=$_SESSION['codUsuario']; 
+$t = $_SESSION['tipoPerfil'];
+$c = $_SESSION['codUsuario'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-causasCadastradas-instituicao.css">
+    <link rel="stylesheet" href="css/estilo-modal-cadastro.css">
     <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -149,16 +150,18 @@
                             <button id="requisitar" type="submit">CADASTRAR</button>
                         </div>
                     </form>
-                    <!-- Modal -->
-                    <div id="meuModal" class="modal">
-                        <div class="modal-conteudo">
-                            <span class="fechar">&times;</span>
-                            <h1 class="modal-titulo">Habilidade cadastrada com sucesso!</h1>
-                            <p class="modal-texto">Sua habilidade foi cadastrada com sucesso</p>
-                            <div class="footer-modal">
-                                <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
-                            </div>
-                        </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div id="meuModal" class="modal">
+                <div class="modal-conteudo">
+                    <span class="fechar">&times;</span>
+                    <h1 class="modal-titulo">Habilidade cadastrada com sucesso!</h1>
+                    <p class="modal-texto">Sua habilidade foi cadastrada com sucesso</p>
+                    <div class="footer-modal">
+                        <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
                     </div>
                 </div>
             </div>
