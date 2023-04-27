@@ -128,7 +128,7 @@
 
 
         <!-- <script src="js/script.js"></script> -->
-        <script src="js/validacoes.js"></script>
+        <!-- <script src="js/validacoes.js"></script> -->
         <script src="js/endereco-auto.js"></script>
         <script src="js/mascara.js"></script>
         <script>

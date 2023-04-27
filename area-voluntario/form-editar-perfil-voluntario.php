@@ -234,6 +234,7 @@
         <!-- SCRIPTS  -->
         <script src="../area-voluntario/js/button-image.js"></script>
         <script type="module" src="../area-instituicao/js/main.js"></script>
+        <script src="../js/endereco-auto.js"></script>
     </body>
 
 </html>
