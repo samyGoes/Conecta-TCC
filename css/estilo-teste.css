@@ -1,0 +1,32 @@
+.fundo 
+{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(185, 238, 178);
+} 
+.circulo
+{
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(rgba(255, 255, 0, 0)0 80px, black 80px 100%);
+    /*animation: fechar 2s ease-out forwards;*/
+    transition: all 1s ease;
+    
+}
+
+.botao:hover ~ .circulo
+{
+    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
+}
+
+/* @keyframes fechar 
+{
+    0% 
+    {
+        background: radial-gradient(rgba(255, 255, 0, 0)0 75px, black 75px 100%);
+    }
+    100% 
+    {
+        background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
+    }
+} */
