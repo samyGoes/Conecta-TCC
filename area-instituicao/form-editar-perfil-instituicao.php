@@ -262,6 +262,7 @@
 
     <script type="module" src="js/main.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
+    <script src="../js/endereco-auto.js"></script>
 </body>
 
 </html>
