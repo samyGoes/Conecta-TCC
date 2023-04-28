@@ -188,28 +188,29 @@ $c = $_SESSION['codUsuario'];
                                 <?php
                                 require_once 'global.php';
                                 try {
-
-                                    $conexao = Conexao :: conectar();
-                                    $stmt = $conexao->prepare("SELECT codCategoriaServico, nomeCategoria, codInstituicao FROM tbCategoriaServico");
-                                    $stmt->execute();
-
                                     $listaCausas = CategoriaServicoDao::listar();
+                                    $listaCor = CategoriaServicoDao::listarTabela($_SESSION['codUsuario']);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
                                 ?>
-                                <tr>
+
                                 <?php foreach ($listaCausas as $causas) { ?>
-                                <tr class="<?php echo $causas['codInstituicao'] == $_SESSION['codUsuario'] ? 'destaque' : ''; ?>">
-                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td>
-                                        <?php echo $causas['codCategoriaServico']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $causas['nomeCategoria']; ?>
-                                    </td>
-                                </tr>
-                            <?php } ?>
+                                    <?php $destaque = false; ?>
+                                    <?php foreach ($listaCor as $cor) { ?>
+                                        <?php if ($cor['codCategoriaServico'] == $causas['codCategoriaServico'] && $cor['codInstituicao'] == $_SESSION['codUsuario']) {
+                                            $destaque = true;
+                                            break;
+                                        } ?>
+                                    <?php } ?>
+                                    <tr class="<?php echo $destaque ? 'destaque' : ''; ?>">
+                                        <td><input type="checkbox" name="checkbox" id="checkbox"></td>
+                                        <td><?php echo $causas['codCategoriaServico']; ?></td>
+                                        <td><?php echo $causas['nomeCategoria']; ?></td>
+                                    </tr>
+                                <?php } ?>
+
+
 
                             </tbody>
                         </table>

@@ -4,7 +4,7 @@
         //Atributos
         private $idCategoria;
         private $nomeCategoria;
-        private $codInstituicao;
+        private $codInstituicao = array();
 
         //Getters
         public function getIdCategoria(){
@@ -16,6 +16,7 @@
         public function getCodInstituicao(){
             return $this->codInstituicao;
         }
+
         
         //Setters
         public function setIdCategoria($idCategoria){
