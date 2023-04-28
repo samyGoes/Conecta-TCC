@@ -482,7 +482,7 @@ $c = $_SESSION['codUsuario'];
                 boxHabilidade.style.display = "flex";
             } else {
                 boxHabilidade.style.display = "none";
-                botaoHabilidade.style.color = "#000";
+                botaoHabilidade.style.color = "#fff";
                 botaoHabilidade.style.borderColor = "#000";
             }
         });
@@ -491,7 +491,7 @@ $c = $_SESSION['codUsuario'];
             const target = event.target;
             if (!dropCausas.contains(target)) {
                 boxCausas.style.display = "none";
-                botaoCausas.style.color = "#000";
+                botaoCausas.style.color = "#fff";
                 botaoCausas.style.borderColor = "#000";
             }
         });
