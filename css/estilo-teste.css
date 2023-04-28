@@ -4,20 +4,43 @@
     min-height: 100vh;
     background-color: rgb(185, 238, 178);
 } 
+
 .circulo
 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(rgba(255, 255, 0, 0)0 80px, black 80px 100%);
+    background-image: radial-gradient(rgba(255, 255, 0, 0)0 80px, black 80px 100%);
     /*animation: fechar 2s ease-out forwards;*/
-    transition: all 1s ease;
-    
+    transition:  1s ease;
 }
 
-.botao:hover ~ .circulo
+.circulo:hover
+{
+    background-image: radial-gradient(rgba(255, 255, 0, 0)0 10px, black 10px 100%);
+}
+
+/* .circulo::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
+    z-index: 1;
+    transition: all 0.5s linear;
+    /* opacity: 0; 
+  }
+  
+  .circulo:hover::before {
+    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
+    /* opacity: 1; 
+  } */
+
+/* .botao:hover ~ .circulo
 {
     background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
-}
+} */
 
 /* @keyframes fechar 
 {
