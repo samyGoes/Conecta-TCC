@@ -1,5 +1,6 @@
 <?php
-    require_once 'global.php';  
+    require_once 'global.php'; 
+    require_once '../auth/verifica-logado.php'; 
 
     try
     {
@@ -10,6 +11,7 @@
     
         //Inserindo os dados vindos do formulário nos atributos da classe
         $categoriaServico -> setNomeCategoria($_POST ['nome']);
+        $categoriaServico-> setCodInstituicao($_SESSION['codUsuario']);
        
 
         $cadastrar = CategoriaServicoDao::cadastrar($categoriaServico);

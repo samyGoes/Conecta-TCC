@@ -208,3 +208,8 @@ tbody::-webkit-scrollbar-thumb {
     object-fit: cover;
 }
 
+/* DESTAQUE DA TABELA */
+
+.destaque {
+    background-color: #c8e6c9; /* cor de fundo verde */
+}

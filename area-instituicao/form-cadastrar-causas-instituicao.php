@@ -188,30 +188,34 @@ $c = $_SESSION['codUsuario'];
                                 <?php
                                 require_once 'global.php';
                                 try {
-                                    $listaCausas = CategoriaServicoDao::listar($_SESSION['codUsuario']);
+
+                                    $conexao = Conexao :: conectar();
+                                    $stmt = $conexao->prepare("SELECT codCategoriaServico, nomeCategoria, codInstituicao FROM tbCategoriaServico");
+                                    $stmt->execute();
+
+                                    $listaCausas = CategoriaServicoDao::listar();
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
                                 ?>
                                 <tr>
-                                    <?php foreach ($listaCausas as $causas) { ?>
-                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                        <td>
-                                            <?php echo $causas['codCategoriaServico']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $causas['nomeCategoria']; ?>
-                                        </td>
+                                <?php foreach ($listaCausas as $causas) { ?>
+                                <tr class="<?php echo $causas['codInstituicao'] == $_SESSION['codUsuario'] ? 'destaque' : ''; ?>">
+                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                    <td>
+                                        <?php echo $causas['codCategoriaServico']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $causas['nomeCategoria']; ?>
+                                    </td>
                                 </tr>
-                            <?php
-                                    }
-                            ?>
+                            <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
 
 
         </div>

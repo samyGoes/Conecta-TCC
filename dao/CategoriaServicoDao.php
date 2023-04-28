@@ -8,10 +8,11 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbcategoriaServico(nomeCategoria) 
-            VALUES(?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbcategoriaServico(nomeCategoria, codinstituicao) 
+            VALUES(?,?)");
 
             $prepareStatement -> bindValue (1, $categoriaServico -> getNomeCategoria());
+            $prepareStatement -> bindValue (2, $categoriaServico -> getCodInstituicao());
             $prepareStatement -> execute();
         }
 
