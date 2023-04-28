@@ -2,8 +2,10 @@ const formulario1 = document.getElementById('formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
+const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;
 //const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
-
+const avisoErro = document.createElement("span");
 
 function validateRequiredFields() {
   let allFieldsFilled = true;
@@ -22,11 +24,18 @@ function validateRequiredFields() {
     campos[index].style.borderBottom = '1px solid #e63636';
     spans[index].textContent = message;
     spans[index].style.display = 'block';
+    spans[index].style.position = "absolute";
+    spans[index].style.top = "4.6rem";
+    spans[index].style.fontFamily = "poppins, sans-serif";
+    spans[index].style.fontSize = "12px";
+    spans[index].style.fontWeight = "400";
+    spans[index].style.color = "red";
+    
   }
 
   function removeError(index) {
     campos[index].style.borderBottom = '';
-    spans[index].style.display= '';
+    spans[index].style.display= 'none';
 
   }
 
@@ -34,19 +43,43 @@ function validateRequiredFields() {
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
-    setError(0, 'Nome invalidoooo');
+    setError(0, 'Nome deve ter pelo menos 3 caracteres');
   } else {
     removeError(0);
   }
 }
 
+function dateValidate() {
+  if (!dateRegex.test(campos[1].value)) {
+    setError(1, 'Data de nascimento inválida');
+  } else {
+    removeError(1);
+  }
+}
+
 function emailValidate() {
-  if (!emailRegex.test(campos[4].value)) {
-    setError(4, 'Email invalido');
+  if (!emailRegex.test(campos[5].value)) {
+    setError(5, 'Email invalido');
+  } else {
+    removeError(5);
+  }
+}
+
+function foneValidate() {
+  if (!foneRegex.test(campos[3].value)) {
+    setError(3, 'Telefone invalido');
+  } else {
+    removeError(3);
+  }
+}
+function foneOpcValidate() {
+  if (!foneRegex.test(campos[4].value)) {
+    setError(4, 'Telefone invalido');
   } else {
     removeError(4);
   }
 }
+
 
 function validateCPF(cpf) {
  
@@ -86,14 +119,16 @@ function validateCPF(cpf) {
 }
 
 function cpfValidate() {
-  const cpf = campos[1].value;
+  const cpf = campos[2].value;
 
   if (!validateCPF(cpf)) {
-    setError(1, 'Cpf Invalido');
+    setError(2, 'Cpf Invalido');
   } else {
-    removeError(1);
+    removeError(2);
   }
 }
+
+
 
 /*function validateCNPJ(cnpj) {
  
@@ -149,44 +184,44 @@ function cnpjValidate() {
 
 
 function passwordValidate() {
-  const senha = campos[5].value;
+  const senha = campos[6].value;
   const digitRegex = /\d/;
   const specialRegex = /[!@#$%&*]/;
   const upperRegex = /[A-Z]/;
 
-  if (senha.length < 8) {
+  if (senha.length < 6) {
     setError(5, 'A senha deve ter pelo menos 8 caracteres');
     return;
   }
 
   if (!digitRegex.test(senha)) {
-    setError(5, 'A senha deve conter pelo menos um número');
+    setError(6, 'A senha deve conter pelo menos um número');
     return;
   }
 
   if (!specialRegex.test(senha)) {
-    setError(5, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
+    setError(6, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
     return;
   }
 
   if (!upperRegex.test(senha)) {
-    setError(5, 'A senha deve conter pelo menos uma letra maiúscula');
+    setError(6, 'A senha deve conter pelo menos uma letra maiúscula');
     return;
   }
 
-  removeError(5);
+  removeError(6);
 }
 
   
   function confirmPassword() {
-    const senha = campos[5].value;
-    const confSenha = campos[6].value;
+    const senha = campos[6].value;
+    const confSenha = campos[7].value;
   
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-      setError(6, 'oi');
+      setError(7, 'As senhas não coincidem');
     } else {
-      removeError(6);
+      removeError(7);
     }
   }
   
@@ -194,9 +229,13 @@ function passwordValidate() {
       event.preventDefault();
       if (validateRequiredFields()) {
       nameValidate();
+      dateValidate();
       cpfValidate();
-      cnpjValidate();
+      foneValidate();
       emailValidate();
+      passwordValidate();
+      confirmPassword();
+      //cnpjValidate();
       alert('Formulário enviado com sucesso!');
       }
       });
