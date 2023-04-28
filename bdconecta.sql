@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Abr-2023 às 20:13
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Generation Time: 28-Abr-2023 às 06:57
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bdconecta`
+-- Database: `bdconecta`
 --
 
 -- --------------------------------------------------------
@@ -56,18 +57,21 @@ CREATE TABLE `tbcandidatura` (
 
 CREATE TABLE `tbcategoriaservico` (
   `codCategoriaServico` int(11) NOT NULL,
-  `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `codInstituicao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `tbcategoriaservico`
 --
 
-INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`) VALUES
-(1, 'inglÃªs'),
-(2, 'inglÃªs'),
-(3, 'tocar violÃ£o'),
-(4, 'moradores de rua');
+INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`, `codInstituicao`) VALUES
+(1, 'inglÃªs', 0),
+(2, 'inglÃªs', 0),
+(3, 'tocar violÃ£o', 0),
+(4, 'moradores de rua', 0),
+(5, 'crianÃ§as', 1),
+(6, 'mulheres', 8);
 
 -- --------------------------------------------------------
 
@@ -369,17 +373,17 @@ INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntar
 (3, 'fernanda de souza bezerra ', '2005-07-27', '739.975.300-84', 'Rua Moreira Neto', '56', '08460-60', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda225@gmail.com', 'Fernanda@2', '', '');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `tbadm`
+-- Indexes for table `tbadm`
 --
 ALTER TABLE `tbadm`
   ADD PRIMARY KEY (`codAdm`);
 
 --
--- Índices para tabela `tbcandidatura`
+-- Indexes for table `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   ADD PRIMARY KEY (`codCandidatura`),
@@ -388,13 +392,14 @@ ALTER TABLE `tbcandidatura`
   ADD KEY `fk_ajudante` (`codVoluntario`);
 
 --
--- Índices para tabela `tbcategoriaservico`
+-- Indexes for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  ADD PRIMARY KEY (`codCategoriaServico`);
+  ADD PRIMARY KEY (`codCategoriaServico`),
+  ADD KEY `fk_causinha` (`codInstituicao`);
 
 --
--- Índices para tabela `tbcausavaga`
+-- Indexes for table `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
   ADD PRIMARY KEY (`codCausaVaga`),
@@ -402,7 +407,7 @@ ALTER TABLE `tbcausavaga`
   ADD KEY `fk_ServicoVaga` (`codServico`);
 
 --
--- Índices para tabela `tbcausavoluntario`
+-- Indexes for table `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
   ADD PRIMARY KEY (`codCausaVoluntario`),
@@ -410,34 +415,34 @@ ALTER TABLE `tbcausavoluntario`
   ADD KEY `fk_codCategoria` (`codCategoriaServico`);
 
 --
--- Índices para tabela `tbfoneinstituicao`
+-- Indexes for table `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
   ADD PRIMARY KEY (`codFoneInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Índices para tabela `tbfonevoluntario`
+-- Indexes for table `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   ADD PRIMARY KEY (`codFoneVoluntario`),
   ADD KEY `codVoluntario` (`codVoluntario`);
 
 --
--- Índices para tabela `tbfotosinstituicao`
+-- Indexes for table `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   ADD PRIMARY KEY (`codfotoInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Índices para tabela `tbhabilidadeservico`
+-- Indexes for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
   ADD PRIMARY KEY (`codHabilidadeServico`);
 
 --
--- Índices para tabela `tbhabivaga`
+-- Indexes for table `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
   ADD PRIMARY KEY (`codHabiVaga`),
@@ -445,108 +450,108 @@ ALTER TABLE `tbhabivaga`
   ADD KEY `fk_serv` (`codServico`);
 
 --
--- Índices para tabela `tbinstituicao`
+-- Indexes for table `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
   ADD PRIMARY KEY (`codInstituicao`);
 
 --
--- Índices para tabela `tbservico`
+-- Indexes for table `tbservico`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
   ADD KEY `fk_Instituicao` (`codInstituicao`);
 
 --
--- Índices para tabela `tbvoluntario`
+-- Indexes for table `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   ADD PRIMARY KEY (`codVoluntario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `tbadm`
+-- AUTO_INCREMENT for table `tbadm`
 --
 ALTER TABLE `tbadm`
   MODIFY `codAdm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbcandidatura`
+-- AUTO_INCREMENT for table `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbcategoriaservico`
+-- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `tbcausavaga`
+-- AUTO_INCREMENT for table `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
   MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de tabela `tbcausavoluntario`
+-- AUTO_INCREMENT for table `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
   MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `tbfoneinstituicao`
+-- AUTO_INCREMENT for table `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
   MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de tabela `tbfonevoluntario`
+-- AUTO_INCREMENT for table `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `tbfotosinstituicao`
+-- AUTO_INCREMENT for table `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbhabilidadeservico`
+-- AUTO_INCREMENT for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
   MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `tbhabivaga`
+-- AUTO_INCREMENT for table `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
   MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de tabela `tbinstituicao`
+-- AUTO_INCREMENT for table `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
   MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de tabela `tbservico`
+-- AUTO_INCREMENT for table `tbservico`
 --
 ALTER TABLE `tbservico`
   MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de tabela `tbvoluntario`
+-- AUTO_INCREMENT for table `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
@@ -556,6 +561,12 @@ ALTER TABLE `tbcandidatura`
   ADD CONSTRAINT `fk_Ong` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`),
   ADD CONSTRAINT `fk_ajudante` FOREIGN KEY (`codVoluntario`) REFERENCES `tbvoluntario` (`codVoluntario`),
   ADD CONSTRAINT `fk_vaga` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
+
+--
+-- Limitadores para a tabela `tbcategoriaservico`
+--
+ALTER TABLE `tbcategoriaservico`
+  ADD CONSTRAINT `fk_causinha` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 
 --
 -- Limitadores para a tabela `tbcausavaga`
