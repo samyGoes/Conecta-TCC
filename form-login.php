@@ -31,9 +31,12 @@
                             <label for="email" class="modal-senha"> Email </label>
                             <input placeholder="Digite seu email" type="email" name="email" id="email" class="modal-input-senha">
                         </div>
-                        <div class="btn-confirmed"><button id="verifica-email" type="submit"> ENVIAR </button></div>
+                        <div class="btn-confirmed"><button id="verifica-email" type="button"> ENVIAR </button></div>
                     </form>
-                    <a class="voltar-login" href="#"> Voltar para o login </a>
+                    <div class="box-btn-fechar">
+                        <a class="btn-fechar" href="#"> Voltar para o login </a>
+                    </div>
+                    
                 </div>
 
                 <div class="modal-sessao-1">
@@ -48,16 +51,49 @@
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Confirmar</button></div>
                     </form>
 
-                    <a class="voltar-login" href="#"> Voltar para o login </a>
+                    <div class="box-btn-fechar">
+                        <a class="btn-fechar" href="#"> Voltar para o login </a>
+                    </div>
                 </div>
-
-                <!-- <div class="modal-sessao-2">
-                    <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
-                    <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
-                    <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
-                </div>  -->
             </div>
         </div>
+
+
+
+
+
+
+
+        
+      
+
+
+
+
+        <?php
+
+        //     require 'global.php';
+
+        //     $trocaVoluntario = VoluntarioDao::trocarSenha($voluntario);
+        //     $trocaInstituicao = InstituicaoDao::trocarSenha($instituicao);
+
+        //     if($trocaVoluntario || $trocaInstituicao)
+        //     {
+        // ?>
+                <!-- MODAL TROCA DE SENHA FEITA COM SUCESSO -->
+                <div id="modal" class="modal">
+                    <div class="modal-form" id="modal-form">
+                        <div class="modal-sessao-2">
+                            <h2 class="modal-titulo" id="modal-titulo"> Troca de senha feita com sucesso </h2>
+                            <p id="modal-frase"> A troca de senha foi feita com sucesso! Agora você já pode acessar sua conta com a nova senha </p>
+                            <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
+                        </div>       
+                    </div>
+                </div>
+
+        <?php
+            //}
+        ?>
 
 
 

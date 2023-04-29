@@ -1,21 +1,22 @@
 <?php
 
     //require 'global.php';
-    require 'busca-email.php';
+    require_once '../auth/verifica-logado.php';
+    require '../busca-email.php';
 
-    session_start();
+    //session_start();
 
     try
     {
-        header('Location: form-login.php');
+        header('Location: ../form-login.php');
 
-        $email = $_SESSION['email'];
+        $email = $_SESSION["emailUsuario"];
         
-        //echo ("Email: " . $email . "<br>");
+        echo ("Email: " . $email . "<br>");
         $cod = pegaId($email);
 
-        echo("Cod:");
-        print_r($cod);
+        //echo("Cod:");
+        //print_r($cod);
 
         //$codVerificado = verificaIdPorEntidade($cod);
         $codConvertido = converteCod($cod);
@@ -62,6 +63,6 @@
         echo '</pre>';
     }
 
-    session_destroy();
+    //session_destroy();
 
 ?>

@@ -139,10 +139,16 @@
     color: #cf8a3f;
 }
 
-.voltar-anterior, .voltar-login
+.box-btn-fechar
 {
     display: flex;
     justify-content: center;
+}
+
+.btn-fechar
+{
+    /* display: flex;
+    justify-content: center; */
     font-family: poppins, sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -151,7 +157,7 @@
     text-decoration-line: none;
 }
 
-.voltar-anterior:hover, .voltar-login:hover
+.btn-fechar:hover
 {
     color: #3fa1cf;
 }

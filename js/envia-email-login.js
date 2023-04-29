@@ -39,7 +39,7 @@ export function fechaModal()
 {
     modalInteiro.style.display = "none";
 }
-document.querySelector(".voltar-login").addEventListener("click", fechaModal);
+document.querySelector(".btn-fechar").addEventListener("click", fechaModal);
 
 // export function fechaModal2()
 // {
@@ -48,11 +48,6 @@ document.querySelector(".voltar-login").addEventListener("click", fechaModal);
 // document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
 
 
-export function fechaModalT()
-{
-    modalInteiro.style.display = "none";
-}
-document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
 
 
 
@@ -123,7 +118,6 @@ export async function enviaEmail(event)
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
     //console.log(emailVerificado);
-    //var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado.existe)
     {
@@ -153,6 +147,11 @@ export async function enviaEmail(event)
     }
     else
     {
+        if(aviso) // verifica se o elemento já foi criado
+        {   
+            aviso.remove(); // remove o elemento existente
+        }
+        
         /* BROTANDO AVISO DE ERRO */
         const boxInput = document.querySelector(".modal-input-box-email");
         const avisoErro = document.createElement("span");
@@ -235,3 +234,10 @@ export function modalOuErro2(event)
     
 document.querySelector(".modal-btn-confirmar").addEventListener("click", modalOuErro2);
 
+
+
+// export function fechaModalT()
+// {
+//     modalInteiro.style.display = "none";
+// }
+// document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
