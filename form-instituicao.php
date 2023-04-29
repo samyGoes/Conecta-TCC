@@ -32,36 +32,43 @@
                         </div>
 
                         <!-- FORMULÁRIO COMPLETO -->
-                        <form class="formulario-completo" action="cadastra-instituicao.php" method="POST">
+                        <form class="formulario-completo" id="formulario" action="cadastra-instituicao.php" method="POST">
                             <div id="formulario1">
                                 <div class="input-group">
                                     <div class="input-box">
                                         <label for="name">Nome</label>
-                                        <input type="name" name="name" id="name" placeholder="Digite seu nome">
+                                        <input type="name" name="name" class="inputs required" id="name" placeholder="Digite seu nome" oninput="nameValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone</label>
-                                        <input type="text" name="telefone1" id="telefone" placeholder="Digite seu telefone">
+                                        <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone" oninput="foneValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="telefone">Telefone(Opcional)</label>
-                                        <input type="text" name="telefone2" id="telefone2" placeholder="Digite seu telefone">
+                                        <input type="text" name="telefone2" class="inputs required" id="telefone2" placeholder="Digite seu telefone" oninput="foneOpcValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="cnpj">CNPJ</label>
-                                        <input type="text" name="cnpj" id="cnpj" placeholder="Digite seu CNPJ">
+                                        <input type="text" name="cnpj" class="inputs required"id="cnpj" placeholder="Digite seu CNPJ" oninput="cnpjValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" placeholder="Digite seu email">
+                                        <input type="email" name="email" class="inputs required" id="email" placeholder="Digite seu email" oninput="emailValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box" id="input-box-senha">
                                         <label for="senha">Senha</label>
-                                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                                        <input type="password" name="senha" class="inputs required" id="senha" placeholder="Digite sua senha" oninput="passwordValidate()">
+                                        <span class="span-required"></span>
                                     </div>
                                     <div class="input-box" id="input-box-confirmar-senha">
                                         <label for="senha">Confirmar senha</label>
-                                        <input type="password" name="confSenha" id="senha" placeholder="Digite sua senha">
+                                        <input type="password" name="confSenha" class="inputs required" id="senha" placeholder="Digite sua senha" oninput="confirmPassword()">
+                                        <span class="span-required"></span>
                                     </div>
                                 </div>
                             </div>
@@ -118,10 +125,10 @@
 
 
         <!-- <script src="js/script.js"></script> -->
+        <script src="js/valida-instituicao.js"></script>
         <script src="js/endereco-auto.js"></script>
         <script src="js/mascarasForm.js"></script>
         <script src="js/mascara.js"></script>
-        <script src="js/validacoes.js"></script>
         <script>
             const form1 = document.querySelector("#formulario1");
             const form2 = document.querySelector("#formulario2");

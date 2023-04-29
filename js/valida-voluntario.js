@@ -128,61 +128,6 @@ function cpfValidate() {
   }
 }
 
-
-
-/*function validateCNPJ(cnpj) {
- 
-  if (!/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/.test(cnpj)) {
-    return false;
-  }
-
-  // Remove punctuation marks from the input
-  cnpj = cnpj.replace(/[^\d]+/g, '');
-
-  if (/^(\d)\1{13}$/.test(cnpj)) {
-    return false;
-  }
-
-  let sum = 0;
-  let factor = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-  for (let i = 0; i < 12; i++) {
-    sum += parseInt(cnpj.charAt(i)) * factor[i+1];
-  }
-  let remainder = sum % 11;
-  let digit1 = remainder < 2 ? 0 : 11 - remainder;
-
-  sum = 0;
-  factor = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-  for (let i = 0; i < 13; i++) {
-    sum += parseInt(cnpj.charAt(i)) * factor[i];
-  }
-  remainder = sum % 11;
-  let digit2 = remainder < 2 ? 0 : 11 - remainder;
-
-  if (parseInt(cnpj.charAt(12)) !== digit1 || parseInt(cnpj.charAt(13)) !== digit2) {
-    return false;
-  }
-
-  return true;
-}
-
-function cnpjValidate() {
-  const cnpj = campos[1].value;
-  let message = '';
-
-  if (!validateCNPJ(cnpj)) {
-    message = 'CNPJ inválido';
-  }
-
-  if (message !== '') {
-    setError(1);
-  } else {
-    removeError(1);
-  }
-}
-*/
-
-
 function passwordValidate() {
   const senha = campos[6].value;
   const digitRegex = /\d/;
@@ -225,17 +170,39 @@ function passwordValidate() {
     }
   }
   
-    formulario1.addEventListener('submit', function(event) {
-      event.preventDefault();
-      if (validateRequiredFields()) {
-      nameValidate();
-      dateValidate();
-      cpfValidate();
-      foneValidate();
-      emailValidate();
-      passwordValidate();
-      confirmPassword();
-      //cnpjValidate();
-      alert('Formulário enviado com sucesso!');
-      }
-      });
+
+// Adiciona um evento de clique ao botão "CADASTRAR"
+formulario1.addEventListener('submit', function(event) {
+  // Previne o envio do formulário por padrão
+  event.preventDefault();
+  
+  // Verifica se os campos obrigatórios foram preenchidos corretamente
+  if (validateRequiredFields() &&
+      nameValidate() &&
+      dateValidate() &&
+      cpfValidate() &&
+      foneValidate() &&
+      emailValidate() &&
+      passwordValidate() &&
+      confirmPassword()) {
+        
+    // Se todos os campos estiverem válidos, envia o formulário
+    formulario1.submit();
+    
+  } else {
+    alert('Preencha os dados corretamente');
+
+    /*
+    // Se houver campos inválidos, exibe o modal de verificação
+    var modalForm = document.getElementById("modal-form");
+    modalForm.style.display = "block";
+    
+    // Quando o usuário clicar no botão "FECHAR", o modal será fechado
+    var modalFecharBtn = document.getElementById("btn-fechar");
+    modalFecharBtn.onclick = function() {
+      modalForm.style.display = "none";
+    }
+    */
+  }
+});
+  
