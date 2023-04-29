@@ -121,7 +121,7 @@
                         <br>
                     </div>
                     <div class="continue-button">
-        <button id="btn-cadastrar" type="submit">CADASTRAR</button>
+        <button type="submit">CADASTRAR</button>
         <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
     </div>
 </form>
@@ -143,7 +143,7 @@
 
 
         <script src="js/script.js"></script>
-        <!-- <script src="js/validacoes.js"></script>  -->
+        <script src="js/valida-voluntario.js"></script>
         <script src="js/endereco-auto.js"></script>
         <script src="js/mascara.js"></script>
         <script>

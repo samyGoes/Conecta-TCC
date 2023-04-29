@@ -191,7 +191,14 @@ formulario1.addEventListener('submit', function(event) {
     
   } else {
     alert('Preencha os dados corretamente');
-
+    validateRequiredFields()
+    nameValidate()
+    dateValidate()
+    cpfValidate()
+    foneValidate()
+    emailValidate()
+    passwordValidate()
+    confirmPassword()
     /*
     // Se houver campos inválidos, exibe o modal de verificação
     var modalForm = document.getElementById("modal-form");
