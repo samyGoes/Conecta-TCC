@@ -31,22 +31,23 @@ export const modalInteiro = document.querySelector(".modal");
 
 export function abreModal()
 {
-    modalInteiro.style.display = "block";
+    if(modalInteiro)
+    {
+        modalInteiro.style.display = "block";
+    } 
 }
-document.querySelector(".link-esqueceu-senha").addEventListener("click", abreModal);
-
+document.addEventListener('DOMContentLoaded', function() 
+{
+    document.querySelector(".link-esqueceu-senha").addEventListener("click", abreModal);
+});
 
 export function fechaModal()
 {
-    Array.from(modalInteiro).forEach(function (modalInteiro) 
-    {
-        modalInteiro.style.display = "none";
-    });
+    modalInteiro.style.display = "none";
 }
-
-document.querySelectorAll(".btn-fechar").forEach(function(botao)
+document.querySelectorAll(".btn-fechar").forEach(function(link)
 {
-    botao.addEventListener("click", fechaModal);
+    link.addEventListener("click", fechaModal);
 });
 
 
