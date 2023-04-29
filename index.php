@@ -75,7 +75,7 @@
                         assunto de extrema <br> importancia</p>
                 </div>
                 <div class="continuar-botao">
-                    <button type="submit" id="">junte-se a nós</button>
+                    <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
                 </div>
                 <div class="conteudo-imagem">
                     <img src="img/mao-azul.png" alt="">
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="botao-conteudo-escrito">
-                        <button type="submit" id="">voluntários</button>
+                        <a href="voluntarios/voluntarios.php"><button id="">voluntários</button></a>
                     </div>
 
                 </div>
@@ -156,7 +156,7 @@
                     </div>
 
                     <div class="botao-conteudo-escrito-2">
-                        <button type="submit" id="">instituições</button>
+                        <a href="instituicoes/instituicoes.php"><button id="">instituições</button></a>
                     </div>
 
                 </div>
