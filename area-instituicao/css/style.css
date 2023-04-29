@@ -170,13 +170,14 @@ main
     justify-content: center;
 
     background-color: #c7e4fb;
-    padding: 0.5rem;
+    padding: 0.8rem;
 }
 .img-user
 {
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #000;
 }
 .img-user img
 {

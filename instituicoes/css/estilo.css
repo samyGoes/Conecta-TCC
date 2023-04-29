@@ -498,6 +498,7 @@ body
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
+    border: 1px solid #000;
 }
 
 .box-img img

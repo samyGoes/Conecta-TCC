@@ -35,7 +35,7 @@
         <!-- FORM TROCAR SENHA -->
         <div class="container">
             <div class="form-image">
-                <img src="img/laco-2.jpg" alt="">
+                <img src="img/foto-trocar-senha.jpg" alt="">
             </div>
             <div class="form">
                 <form action="update-senha.php" method="post" id="formularioLogin">
@@ -73,9 +73,7 @@
 
 
 
-        <script src="js/mascaraLoginUsuario.js"></script>
-        <script type="module" src="js/main.js"></script>
-        <!-- <script type="module" src="js/envia-email-login.js"></script> -->
+        <script type="module" src="js/main-3.js"></script>
     </body>
 
 </html>

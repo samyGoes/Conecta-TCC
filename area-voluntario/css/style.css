@@ -157,13 +157,14 @@ main {
     justify-content: center;
 
     background-color: #fbf7c7;
-    padding: 0.5rem;
+    padding: 0.8rem;
 }
 
 .img-user {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    border: 1px solid #000;
 }
 
 .img-user img {
@@ -220,7 +221,7 @@ main {
     flex-direction: column;
 }
 
-.dados-pessoais-2 p {
+.dados-pessoais-2 .dados {
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     text-transform: capitalize;
     text-align: center;
@@ -233,6 +234,11 @@ main {
     font-family: poppins, sans-serif;
     font-weight: 500;
     color: #000000;
+}
+
+.dados-pessoais-2 #dados-email
+{
+    text-transform: lowercase;
 }
 
 

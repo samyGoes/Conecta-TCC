@@ -141,16 +141,16 @@
     </div>
 
 
-    <script src="js/valida-voluntario.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/endereco-auto.js"></script>
-    <script src="js/mascara.js"></script>
-   <-- <script>
-        const form1 = document.querySelector("#formulario1");
-        const form2 = document.querySelector("#formulario2");
-        const botaoDados = document.querySelector("#botao-dados-pessoais");
-        const botaoEndereco = document.querySelector("#botao-endereco");
+
+        <script src="js/script.js"></script>
+        <!-- <script src="js/validacoes.js"></script>  -->
+        <script src="js/endereco-auto.js"></script>
+        <script src="js/mascara.js"></script>
+        <script>
+            const form1 = document.querySelector("#formulario1");
+            const form2 = document.querySelector("#formulario2");
+            const botaoDados = document.querySelector("#botao-dados-pessoais");
+            const botaoEndereco = document.querySelector("#botao-endereco");
 
         botaoEndereco.addEventListener('click', function() {
             // oculta o Formulário 1
