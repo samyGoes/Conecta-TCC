@@ -190,7 +190,7 @@ function passwordValidate() {
   const upperRegex = /[A-Z]/;
 
   if (senha.length < 6) {
-    setError(5, 'A senha deve ter pelo menos 8 caracteres');
+    setError(6, 'A senha deve ter pelo menos 6 caracteres');
     return;
   }
 
