@@ -17,13 +17,13 @@
 
 
 
-        <!-- MODAL -->
+        <!-- MODAL VERIFICAÇÃO FEITA COM SUCESSO -->
         <div id="modal" class="modal">
             <div class="modal-form" id="modal-form">
                 <div class="modal-sessao-2">
                     <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
                     <p id="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
-                    <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
+                    <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
                 </div>       
             </div>
         </div>

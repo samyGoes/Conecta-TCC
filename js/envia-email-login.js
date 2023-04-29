@@ -35,24 +35,21 @@ export function abreModal()
 }
 document.querySelector(".link-esqueceu-senha").addEventListener("click", abreModal);
 
+
 export function fechaModal()
 {
-    modalInteiro.style.display = "none";
+    Array.from(modalInteiro).forEach(function (modalInteiro) 
+    {
+        modalInteiro.style.display = "none";
+    });
 }
-document.querySelector(".voltar-login").addEventListener("click", fechaModal);
 
-// export function fechaModal2()
-// {
-//     modalInteiro.style.display = "none";
-// }
-// document.querySelector(".voltar-login2").addEventListener("click", fechaModal);
-
-
-export function fechaModalT()
+document.querySelectorAll(".btn-fechar").forEach(function(botao)
 {
-    modalInteiro.style.display = "none";
-}
-document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);
+    botao.addEventListener("click", fechaModal);
+});
+
+
 
 
 
@@ -123,7 +120,6 @@ export async function enviaEmail(event)
     event.preventDefault(); 
     const emailVerificado = await verificaEmail(); 
     //console.log(emailVerificado);
-    //var nome = "<?php echo $nome; ?>";
     
     if(emailVerificado.existe)
     {
@@ -153,22 +149,30 @@ export async function enviaEmail(event)
     }
     else
     {
-        /* BROTANDO AVISO DE ERRO */
-        const boxInput = document.querySelector(".modal-input-box-email");
-        const avisoErro = document.createElement("span");
+        const avisoErro = document.querySelector(".aviso-erro");
+    
+        if(!avisoErro)
+        {
+            /* BROTANDO AVISO DE ERRO */
+            const boxInput = document.querySelector(".modal-input-box-email");
+            const avisoErro = document.createElement("span");
 
-        /* ESTILIZANDO AVISO */
-        avisoErro.textContent = "Email inválido";
-        avisoErro.style.position = "absolute";
-        avisoErro.style.top = "5rem";
-        avisoErro.style.fontFamily = "poppins, sans-serif";
-        avisoErro.style.fontSize = "12px";
-        avisoErro.style.fontWeight = "400";
-        avisoErro.style.color = "red";
+            /* ESTILIZANDO AVISO */
+            avisoErro.classList.add("aviso-erro");
+            avisoErro.textContent = "Email inválido";
+            avisoErro.style.position = "absolute";
+            avisoErro.style.top = "5rem";
+            avisoErro.style.fontFamily = "poppins, sans-serif";
+            avisoErro.style.fontSize = "12px";
+            avisoErro.style.fontWeight = "400";
+            avisoErro.style.color = "red";
 
-        boxInput.append(avisoErro);
+            boxInput.append(avisoErro);
 
-        email.style.borderColor = "red";
+            email.style.borderColor = "red";
+        }
+   
+        
     }
     //console.log(emailVerificado);
 }
@@ -210,28 +214,37 @@ export function modalOuErro2(event)
     }
     else
     {
-        if(aviso) // verifica se o elemento já foi criado
-        {   
-            aviso.remove(); // remove o elemento existente
+        const aviso = document.querySelector(".aviso");
+
+        if(!aviso)
+        {
+            const boxInput = document.querySelector(".modal-input-box");
+            const aviso = document.createElement("span");
+    
+            // ESTILIZANDO SPAN
+            aviso.classList.add("aviso");
+            aviso.textContent = "Código de verificação inválido";
+            aviso.style.position = "absolute";
+            aviso.style.top = "5rem";
+            aviso.style.fontFamily = "poppins, sans-serif";
+            aviso.style.fontSize = "12px";
+            aviso.style.fontWeight = "400";
+            aviso.style.color = "red";
+    
+            inputCod2.style.borderColor = "red";
+    
+            boxInput.appendChild(aviso);
         }
-
-        aviso = document.createElement("span");
-        const boxInput = document.querySelector(".modal-input-box");
-
-        // ESTILIZANDO SPAN
-        aviso.textContent = "Código de verificação inválido";
-        aviso.style.position = "absolute";
-        aviso.style.top = "5rem";
-        aviso.style.fontFamily = "poppins, sans-serif";
-        aviso.style.fontSize = "12px";
-        aviso.style.fontWeight = "400";
-        aviso.style.color = "red";
-
-        inputCod2.style.borderColor = "red";
-
-        boxInput.appendChild(aviso);
+     
     }
 }
     
 document.querySelector(".modal-btn-confirmar").addEventListener("click", modalOuErro2);
 
+
+
+// export function fechaModalT()
+// {
+//     modalInteiro.style.display = "none";
+// }
+// document.querySelector("#btn-fechar").addEventListener("click", fechaModalT);

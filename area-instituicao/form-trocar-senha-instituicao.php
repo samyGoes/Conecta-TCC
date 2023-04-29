@@ -182,21 +182,23 @@
 
         <!-- CARD TROCAR SENHA -->
         <div class="card">
-            <div class="input-group">
-                <div class="input-box">
-                    <label for="email">Nova senha</label>
-                    <input type="email" name="email" id="email" placeholder="Digite a nova senha">
-                    <small>Mínino de até 8 caracteres</small>
+            <form action="update-senha-instituicao.php" method="post">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="senha">Nova senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Digite a nova senha">
+                        <small>Mínino de até 8 caracteres</small>
+                    </div>
+                    <div class="input-box">
+                        <label for="confSenha">Confirmar nova senha</label>
+                        <input type="password" name="confSenha" id="confSenha" placeholder="Confirme a nova senha">
+                        <small>Mínino de até 8 caracteres</small>
+                    </div>
                 </div>
-                <div class="input-box">
-                    <label for="senha">Confirmar nova senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="Confirme a nova senha">
-                    <small>Mínino de até 8 caracteres</small>
+                <div class="continue-button">
+                    <button class="button" type="submit"> Salvar</button>
                 </div>
-            </div>
-            <div class="continue-button">
-                <button class="button">Salvar</button>
-            </div>
+            </form>
         </div>
 
     </main>
