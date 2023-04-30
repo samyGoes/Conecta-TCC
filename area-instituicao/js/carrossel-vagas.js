@@ -75,38 +75,41 @@
 //   }); 
 // });
 
+export const cards = document.querySelectorAll(".card-carrossel");
+export const maxCards = cards.length;
+export const containerCarrossel = document.querySelector(".container-carrossel-servicos");
 
-
-export function carrossel(e)
+export function carrosselServicos(e)
 {
-  let currentItem = 0;
-  const items = document.querySelectorAll(".card-carrossel");
-  const maxItems = items.length;
+  let esquerda = 0;
+  let direita = 0;
 
-  const isLeft = e.target.classList.contains("arrow-left");
+  const setaEsquerda = e.target.classList.contains("arrow-left");
+  const setaDireita = e.target.classList.contains("arrow-right");
 
-  if (isLeft) 
+  if (setaEsquerda) 
   {
-    currentItem -= 1;
+    esquerda -= 1;
   } 
-  else 
+  else if (setaDireita) 
   {
-    currentItem += 1;
-  }
-
-  let p = maxItems - 3;
-  if (currentItem >= p) 
-  {
-    currentItem = 0;
-  }
-
-  if (currentItem < 0) 
-  {
-    currentItem = p - 1;
+    direita += 1;
   }
 
 
-  items[currentItem].scrollIntoView
+  // let p = maxCards - 3;
+  // if (currentItem >= p) 
+  // {
+  //   currentItem = 0;
+  // }
+
+  // if (currentItem < 0) 
+  // {
+  //   currentItem = p - 1;
+  // }
+
+
+  cards[esquerda, direita].scrollIntoView
   ({
     behavior: "smooth",
     inline: "start",
@@ -118,8 +121,34 @@ document.querySelectorAll(".control").forEach(function(control)
 {
     control.addEventListener("click", function (e)
     {
-      carrossel(e);
+      carrosselServicos(e);
     });
 });
 
 
+export function ajusteCarrossel()
+{
+  /* PARA ESTILIZAR */
+  const setaEsquerdaS = document.querySelector(".arrow-left");
+  const setaDireitaS = document.querySelector(".arrow-right");
+
+  let tela1 = window.matchMedia("(min-width: 772px)");
+  let tela2 = window.matchMedia("(max-width: 773px)");
+
+  if (maxCards < 3 && tela1.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
+
+    containerCarrossel.style.justifyContent = "flex-start";
+    containerCarrossel.style.marginLeft = "2rem";
+  }
+  else if(maxCards == 3 && tela1.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
+}

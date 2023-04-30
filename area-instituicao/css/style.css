@@ -447,6 +447,15 @@ main
     padding-bottom: 2rem;
     /* background-color: #232e61; */
 }
+.container-carrossel-servicos
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+    /* background-color: #232e61; */
+}
 
 .carrossel
 { 

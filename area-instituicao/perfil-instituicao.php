@@ -250,7 +250,7 @@
                     <div class="seta-ocultar-vaga"> 🢓 </div>
                 </div>
                 <div class="ocultar-sessao-vaga">
-                    <div class="container-carrossel">
+                    <div class="container-carrossel-servicos">
                         <div class="carrossel">
 
                             <!-- SETAS -->
