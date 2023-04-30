@@ -123,6 +123,7 @@ body
     top: 3rem;
     display: none;
     overflow-y: scroll;
+    z-index: 1;
 }
 
 /* SCROLL INSTITUIÇÃO*/
@@ -226,6 +227,7 @@ body
     font-weight: 400;
     font-size: 14px;
     color: #525252;
+    white-space: nowrap;
 }
 
 

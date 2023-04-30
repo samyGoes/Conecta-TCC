@@ -295,16 +295,6 @@ $c = $_SESSION['codUsuario'];
                         <button id="requisitar" type="">CADASTRAR</button>
                 </a>
                 <!-- Modal -->
-                <div id="meuModal" class="modal">
-                    <div class="modal-conteudo">
-                        <span class="fechar">&times;</span>
-                        <h1 class="modal-titulo">Vaga cadastrada com sucesso!</h1>
-                        <p class="modal-texto">Sua vaga foi cadastrada com sucesso</p>
-                        <div class="footer-modal">
-                            <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
-                        </div>
-                    </div>
-                </div>
         </div>
         </form>
     </main>

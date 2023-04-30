@@ -152,16 +152,6 @@ $c = $_SESSION['codUsuario'];
                 </div>
             </div>
             <!-- Modal -->
-            <div id="meuModal" class="modal">
-                <div class="modal-conteudo">
-                    <span class="fechar">&times;</span>
-                    <h1 class="modal-titulo">Causa cadastrada com sucesso!</h1>
-                    <p class="modal-texto">Sua causa foi cadastrada com sucesso</p>
-                    <div class="footer-modal">
-                        <button type="" id="meuBotao"><a href="form-cadastrar-vagas-instituicao.php"></a>Confirmar</button>
-                    </div>
-                </div>
-            </div>
             <div class="card-2">
                 <p>Aqui está a lista de todas as causas cadastradas</p>
                 <div class="table">
@@ -204,7 +194,7 @@ $c = $_SESSION['codUsuario'];
                                         } ?>
                                     <?php } ?>
                                     <tr class="<?php echo $destaque ? 'destaque' : ''; ?>">
-                                        <td><input type="checkbox" name="checkbox" id="checkbox"></td>
+                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                         <td><?php echo $causas['codCategoriaServico']; ?></td>
                                         <td><?php echo $causas['nomeCategoria']; ?></td>
                                     </tr>
@@ -220,32 +210,10 @@ $c = $_SESSION['codUsuario'];
 
 
         </div>
-        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
     </main>
 
-
-
-
-
-    <script>
-        // Função para abrir o modal
-        function abrirModal() {
-            document.getElementById("meuModal").style.display = "block";
-        }
-
-        // Função para fechar o modal
-        function fecharModal() {
-            document.getElementById("meuModal").style.display = "none";
-        }
-
-        // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
-    </script>
-
-    <!-- NAVS  -->
+    <script src="./js/checkbox.js"></script>
     <script type="module" src="js/main.js"></script>
-    <!-- CHECKBOX -->
 
 </body>
 

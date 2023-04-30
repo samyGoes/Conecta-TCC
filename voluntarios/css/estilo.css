@@ -173,10 +173,8 @@ body
 
 .box-causas-checkbox label
 {
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #525252;
+
+    white-space: nowrap;
 }
 
 

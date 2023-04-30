@@ -261,7 +261,8 @@ include "../auth/verifica-logado.php";
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
-    <script src="../instituicoes/js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../js/main-2.js"></script>
 </body>
 
