@@ -9,6 +9,18 @@
 
         $conexao = Conexao::conectar();
 
+        $verificaCausa=$conectar->prepare("SELECT codVoluntario FROM tbcausaVoluntario WHERE codCategoriaServico = ?");
+        $verificaCausa->bindValue(1, $causaVoluntario->getCodCategoria());
+        $verificaCausa->execute();
+
+        if($verificaCausa->rowCount() > 0 )
+        {
+            echo "<script>alert('Essa causa ja foi adicionada ao seu perfil');</script>";
+            return false;
+        }
+        else
+        {
+
         // Insere as categorias
         foreach ($causaVoluntario->getCodCategoria() as $causa) {
             $prepareStatement = $conexao->prepare("INSERT INTO  tbcausavoluntario (codVoluntario, codCategoriaServico) 
@@ -18,7 +30,7 @@
             $prepareStatement->bindValue(2, $causa);
             $prepareStatement->execute();
           }
-        
+        }
        
     }
 
@@ -42,7 +54,7 @@
         {
 
             $conexao = Conexao::conectar();
-            $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria  
+            $querySelect = ("SELECT DISTINCT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria  
             FROM tbCausaVoluntario
             INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
             WHERE tbCausaVoluntario.codVoluntario = $codVoluntario");

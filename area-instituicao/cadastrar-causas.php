@@ -1,6 +1,7 @@
 <?php
-    require_once 'global.php'; 
     require_once '../auth/verifica-logado.php'; 
+    require_once 'global.php'; 
+    
 
     try
     {
