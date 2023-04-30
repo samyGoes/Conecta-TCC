@@ -123,29 +123,29 @@
             <div class="container-conteudo-completo">
                 <form class="form-causas" action="cadastrar-causa-perfil.php" method="post">
                     <div class="box-filtro-causas">
-                    <div class="filtro-causas"> Selecione as causas... </div>
-                        <div class="box-causas">
-                        <?php 
-                            require_once 'global.php';
-                            try {
-                                $listaCausas = CategoriaServicoDao::listar();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                        ?> 
-                                <?php 
-                                    foreach ($listaCausas as $causas)
-                                    {
-                                ?>      
-                                        <div class="box-causas-checkbox">
-                                            <input type="checkbox" name="causas[]" id="causas[]" value=<?php echo $causas['codCategoriaServico']; ?>> 
-                                            <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
-                                        </div>
-                                    
-                                <?php
-                                    }
-                                ?>  
-                        </div>
+                        <div class="filtro-causas"> Selecione as causas... </div>
+                            <div class="box-causas">
+                            <?php 
+                                require_once 'global.php';
+                                try {
+                                    $listaCausas = CategoriaServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                            ?> 
+                                    <?php 
+                                        foreach ($listaCausas as $causas)
+                                        {
+                                    ?>      
+                                            <div class="box-causas-checkbox">
+                                                <input type="checkbox" name="causas[]" id="causas[]" value=<?php echo $causas['codCategoriaServico']; ?>> 
+                                                <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
+                                            </div>
+                                        
+                                    <?php
+                                        }
+                                    ?>  
+                            </div>
                     </div>
 
                     <button type="submit" class="form-botao-adicionar"> Adicionar </button>

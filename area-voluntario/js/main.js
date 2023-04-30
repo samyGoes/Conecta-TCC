@@ -6,5 +6,6 @@ from "./envia-email.js";
 
 import { codigoCompleto, inputCod, modal } from "./envia-email.js";
 
-import { navDropDown } from "../../js/drop-down-nav.js";
+import { navSubTopicos } from "../../js/drop-down-nav.js";
 
+import { boxInfo, botaoCard, info, boxInfoOut, boxInfoOver } from "./box-info.js";

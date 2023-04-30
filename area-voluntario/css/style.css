@@ -307,6 +307,7 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0rem 0.6rem 0rem 0.6rem;
+    margin-bottom: 0.9rem;
 
     /* TEXTO */
     font-size: 16px;
@@ -1064,10 +1065,6 @@ main {
     .card-completo {
         width: 100vw;
         border-radius: 0%;
-    }
-
-    .tipo-causas button {
-        margin-bottom: 0.9rem;
     }
 
     .carrossel {

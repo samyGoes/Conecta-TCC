@@ -435,11 +435,6 @@ td button
 
 
 /* RESPONSIVIDADE */
-@media(max-width: 1203px)
-{
- 
-}
-
 @media(max-width: 813px)
 {
     .container-botoes
@@ -591,10 +586,6 @@ td button
     }
 }
 
-@media(max-width: 343px) 
-{
-  
-}
 
 
 

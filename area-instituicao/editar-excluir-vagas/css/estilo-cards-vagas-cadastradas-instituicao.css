@@ -7,6 +7,81 @@
     width: 100%;
 }
 
+
+
+
+.container-botoes
+{
+    display: flex;
+    gap: 1rem;
+    align-self: flex-start;
+    margin-left: 5rem;
+}
+
+.fundo-icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #ffdbac;
+    border: 1px solid #000;
+    transition: all 0.5s ease;
+}
+
+.fundo-icon:hover
+{
+    background-color: #ffbf6c;
+}
+
+.box-img-icon
+{
+    width: 25px;
+    height: 25px;
+}
+
+.box-img-icon img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* MSG NO HOVER */
+.box-icon, .box-icon-tabela
+{
+    position: relative;
+}    
+
+.box-info, .box-info-t
+{
+    display: none;
+    background-color: #fff;
+    border: 1px solid #c2893e;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    position: absolute;
+    top: -2.7rem;
+    left: -0.6rem;
+}
+
+.box-info-t
+{
+    left: -1rem;
+}
+
+
+
+
+
+
+
+
 .cards {
     display: flex;
     flex-flow: wrap;
@@ -74,6 +149,7 @@
     height: 60px;
     border-radius: 50%;
     margin: 4% 0px 3% 0px;
+    border: 1px solid #000;
 }
 
 .fundo-img img {
@@ -163,6 +239,76 @@
     margin-top: 0.5rem;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+/* BOTÕES DE TIPO DE VISUALIZAÇÃO */
+@media(max-width: 813px)
+{
+    .container-botoes
+    {
+        margin-top: -2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width: 897px)
+{
+    .container-botoes
+    {
+        margin-left: 2.5rem;
+    }
+}
+
+@media(max-width: 639px)
+{
+    .container-botoes
+    {
+        margin-left: 2rem;
+    }
+    .fundo-icon
+    {
+        width: 45px;
+        height: 45px;
+    }
+    .box-img-icon
+    {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media(max-width: 535px)
+{
+    .container-botoes
+    {
+        align-self: center;
+        margin-left: 0;
+        gap: 0.7rem;
+    }
+}
+
+@media(max-width: 418px)
+{
+    .fundo-icon
+    {
+        width: 40px;
+        height: 40px;
+    }
+    .box-img-icon
+    {
+        width: 19px;
+        height: 19px;
+    }
+}
 
 
 
