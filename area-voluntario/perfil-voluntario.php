@@ -183,24 +183,63 @@ $c = $_SESSION['codUsuario'];
                             <div class="arrow-left control"> ◀ </div>
                             <div class="arrow-right control"> ▶ </div>
 
+                            <?php
+
+                                $nomeServico = array
+                                (
+                                    'Professor de Dança do Ventre',
+                                    'Cozinheiro',
+                                    'Atendente Geral',
+                                    'Recepcionista'
+                                );
+
+                                $duracaoServico = array
+                                (
+                                    '1 mês',
+                                    '3 meses',
+                                    '1 semana',
+                                    '2 semanas'
+                                );
+
+                                $periodoServico = array
+                                (
+                                    'A combinar',
+                                    'Manhã',
+                                    'Manhã ou tarde',
+                                    'Noite'
+                                );
+
+                                $cidadeServico = array
+                                (
+                                    'São Paulo',
+                                    'Rio de Janeiro',
+                                    'São Paulo',
+                                    'São Paulo'
+                                )
+
+                            ?>
+
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($j = 1; $j <= 9; $j++) {
+                                        foreach($nomeServico as $dados => $servico) 
+                                        {
                                     ?>
-                                        <div class="card-carrossel">
-                                            <p class="titulo-card-carrossel"> Atendende </p>
-                                            <div class="texto-card">
-                                                <p> Duração: <span> 1 mês </span> </p>
-                                                <p> Período: <span> A combinar </span> </p>
-                                                <p> Cidade: <span> São Paulo </span> </p>
+                                            <div class="card-carrossel">
+                                                <div class="box-titulo-card">
+                                                    <p class="titulo-card-carrossel"> <?php echo $servico; ?> </p>
+                                                </div>
+                                                <div class="texto-card">
+                                                    <p> Duração: <span> <?php echo $duracaoServico[$dados]; ?> </span> </p>
+                                                    <p> Período: <span> <?php echo $periodoServico[$dados]; ?> </span> </p>
+                                                    <p> Cidade: <span> <?php echo $cidadeServico[$dados]; ?> </span> </p>
+                                                </div>
+                                                <a href="#"><button class="card-carrossel-botao">
+                                                        VER
+                                                    </button></a>
                                             </div>
-                                            <a href="#"><button class="card-carrossel-botao">
-                                                    VER
-                                                </button></a>
-                                        </div>
                                     <?php
-                                    }
+                                        }
                                     ?>
                                 </div>
                             </div>
@@ -261,6 +300,13 @@ $c = $_SESSION['codUsuario'];
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
 
             <!-- REQUISITAR VOLUNTÁRIO  -->
             <div class="requisitar">

@@ -1,71 +1,71 @@
-const controls = document.querySelectorAll(".control");
-let currentItem = 0;
-const items = document.querySelectorAll(".card-carrossel-dois");
-const maxItems = items.length;
+const controlsV = document.querySelectorAll(".control");
+let currentItemV = 0;
+const itemsV = document.querySelectorAll(".card-carrossel");
+const maxItemsV = itemsV.length;
 
-controls.forEach((control) => 
+controlsV.forEach((controlV) => 
 {
-  control.addEventListener("click", (e) => 
+  controlV.addEventListener("click", (e) => 
   {
-    isLeft = e.target.classList.contains("arrow-left");
+    isLeftV = e.target.classList.contains("arrow-left");
 
-    if (isLeft) 
+    if (isLeftV) 
     {
-      currentItem -= 1;
+      currentItemV -= 1;
     } 
     else 
     {
-      currentItem += 1;
+      currentItemV += 1;
     }
     
     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 
-    p = maxItems - 3;
-    if (currentItem >= p) 
+    pV = maxItemsV - 3;
+    if (currentItemV >= pV) 
     {
-      currentItem = 0;
+      currentItemV = 0;
     }
 
-    if (currentItem < 0) 
+    if (currentItemV < 0) 
     {
-      currentItem = p - 1;
+      currentItemV = pV - 1;
     }
 
     
     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 681px
-    let tela2 = window.matchMedia("(max-width: 681px)");
-    if (tela2)
+    let tela2V = window.matchMedia("(max-width: 681px)");
+    if (tela2V)
     {
-      l = maxItems - 2;
-      if (currentItem >= l) 
+      lV = maxItemsV - 2;
+      if (currentItemV >= lV) 
       {
-        currentItem = 0;
+        currentItemV = 0;
       }
   
-      if (currentItem< 0) 
+      if (currentItemV < 0) 
       {
-        currentItem = l - 1;
+        currentItemV = lV - 1;
       }
     }
 
     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 681px
-    let tela3 = window.matchMedia("(max-width: 375px)");
-    if (tela3)
+    let tela3V = window.matchMedia("(max-width: 375px)");
+    if (tela3V)
     {
-      if (currentItem >= maxItems) 
+      if (currentItemV >= maxItemsV) 
       {
-        currentItem = 0;
+        currentItemV = 0;
       }
   
-      if (currentItem< 0) 
+      if (currentItemV < 0) 
       {
-        currentItem = maxItems - 1;
+        currentItemV = maxItemsV - 1;
       }
     }
 
 
     // items.forEach((item) => item.classList.remove("current-item"));
 
-    items[currentItem].scrollIntoView({
+    itemsV[currentItemV].scrollIntoView({
       behavior: "smooth",
       inline: "start",
       block: "nearest"
@@ -74,6 +74,7 @@ controls.forEach((control) =>
     // items[currentItem].classList.add("current-item");
   }); 
 });
+
 
 
 

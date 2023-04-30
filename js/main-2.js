@@ -1,2 +1,2 @@
-import { navSubTopicos, navDropDown, cliqueForaNav } from "./drop-down-nav.js";
+import { navSubTopicos } from "./drop-down-nav.js";
 

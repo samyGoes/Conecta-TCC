@@ -455,9 +455,10 @@ main {
 .card-carrossel {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     min-width: 32.3%;
+    width: 14rem;
 
     border-radius: 0.6rem;
     border: 1px solid #4567a5;
@@ -470,13 +471,22 @@ main {
 }
 
 /* CONTEUDO DO CARD */
+.box-titulo-card
+{
+    width: 80%;
+    height: 5.8rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
 .titulo-card-carrossel {
     font-family: bitter, sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: #000000;
     margin-top: 2.3rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    text-overflow: ellipsis;
 }
 
 .texto-card p {
