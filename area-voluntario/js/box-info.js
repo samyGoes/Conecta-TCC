@@ -1,15 +1,14 @@
 // INFO CARD
-const boxInfo = document.querySelector(".box-info");
-const botaoCard = document.querySelector("#icon-card");
+export const boxInfo = document.querySelector(".box-info");
+export const botaoCard = document.querySelector("#icon-card");
+export const info = document.createElement("span");
 
-const info = document.createElement("span");
-
-info.textContent = "Card";
-boxInfo.appendChild(info);
-info.style.display = "none";
-
-botaoCard.addEventListener("mouseover", function()
+export function boxInfoOver()
 {
+    info.textContent = "Card";
+    boxInfo.appendChild(info);
+    info.style.display = "none";
+
     boxInfo.style.display = "flex";
     info.style.display = "block";
     /* ESTILIZANDO FONT */
@@ -17,13 +16,16 @@ botaoCard.addEventListener("mouseover", function()
     info.style.fontWeight = "400";
     info.style.fontSize = "14px";
     info.style.color = "#000";
-});
+}
+botaoCard.addEventListener("mouseover", boxInfoOver);
 
-botaoCard.addEventListener("mouseout", function()
+
+export function boxInfoOut()
 {
     boxInfo.style.display = "none";
     info.style.display = "none";
-});
+}
+botaoCard.addEventListener("mouseout", boxInfoOut);
 
 
 

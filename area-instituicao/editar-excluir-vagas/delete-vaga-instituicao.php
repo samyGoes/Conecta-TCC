@@ -4,7 +4,7 @@
    
     try
     {
-        header('Location: editar-vagas-instituicao.php');
+        header('Location: tabela-editar-vagas-instituicao.php');
     
         $excluir = ServicoDao::excluir($_SESSION['codVaga']);
       

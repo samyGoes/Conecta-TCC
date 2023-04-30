@@ -174,7 +174,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 36rem;
+    width: 36rem;
     margin: 0rem 3rem 0rem 3rem;
 
     box-shadow: 5px 5px 5px #b4d8e6;
@@ -288,6 +288,15 @@
 
 
 /* RESPONSIVIDADE */
+@media(max-width: 754px)
+{
+    .causas
+    {
+        width: 90%;
+     
+    }
+}
+
 @media(max-width: 739px)
 {
     .tipo-causas
@@ -327,11 +336,6 @@
 
 @media (max-width: 507px)
 {
-    .causas
-    {
-        width: 80%;
-     
-    }
     .tipo-causas
     {
         flex-direction: column;

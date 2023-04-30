@@ -10,7 +10,8 @@ include "../../auth/verifica-logado.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-vagas-cadastradas-instituicao.css">
+    <link rel="stylesheet" href="css/estilo-tabela-vagas-cadastradas-instituicao.css">
+    <link rel="stylesheet" href="css/estilo-modal-exclusao.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
@@ -122,6 +123,28 @@ include "../../auth/verifica-logado.php";
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
 
+    
+        <!-- MODAL EXCLUIR VAGA -->
+        <div id="container-modal" class="container-modal">
+            <div class="modal-responsive" id="modal-responsive">
+                <div class="fade" id="fade">
+                    <div class="modal" id="modal">
+                        <label for="" class="modal-titulo" id="modal-titulo"> 
+                            Deseja realmente excluir a vaga? Uma vez excluída você não poderá mais restaurá-la.
+                        </label>
+                        <div class="btn-exit" id="btn-exit">
+                        <form action="delete-vaga-instituicao.php" method="post">
+                                <button type="submit" id="excluir">excluir</button>
+                        </form>
+                            <button type="submit" id="cancelar">cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="main-conteudo-container-titulo">
             <h1>Editar Vagas</h1>
             <p>
@@ -129,55 +152,102 @@ include "../../auth/verifica-logado.php";
             </p>
         </div>
 
-        <div class="container-cards">
-            <div class="cards">
-                <?php
 
-                try {
-                    $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-                ?>
-                <?php
-                foreach ($listaVaga as $vaga) {
-                ?>
-                    <div class="card-carrossel-dois">
-                        <div class="content-it">
-                            <div class="header-card-carrossel-it">
-                                <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
-                                <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                                <p><?php echo $vaga['cidadeLocalServico']; ?></p>
-                            </div>
-                            <div class="fundo">
-                                <div class="fundo-img">
-                                    <img src="../<?php echo $vaga['fotoInstituicao']; ?>">
-                                </div>
-                                <div class="title-1">
-                                    <p><?php echo $vaga['nomeInstituicao']; ?></p>
-                                </div>
-                            </div>
-                            <div class="box-conteudo-card">
-                                <div class="title-2">
-                                    <p><?php echo $vaga['nomeservico']; ?></p>
-                                </div>
-                                <div class="title-3">
-                                    <p><?php echo $vaga['descServico']; ?></p>
-                                </div>
-                                <form action="redirecionar-vaga-completa.php" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                                    <button class="card-carrossel-botao" id="botao-it" type="submit">
-                                        VER VAGA
-                                    </button>
-                                </form>
-                            </div>
-                            
-                        </div>
+        <!-- BOTÕES PARA TIPO DE VISUALIZAÇÃO -->
+        <div class="container-botoes">     
+            <div class="box-icon-tabela">
+                <div class="box-info-t"></div>
+                <a href="tabela-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="../../area-voluntario/img/tabela.png" alt=""></div> </div> </a>
+            </div>  
+                        
+            <div class="box-icon">
+                <div class="box-info"></div>
+                <a href="cards-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="../../area-voluntario/img/card.png" alt=""></div> </div> </a>           
+            </div>                 
+        </div>
+
+
+
+
+
+        <!-- TABELA --> 
+        <div class="table">
+            <div class="table-responsive">
+                <div class="funcoes">
+                    <div class="funcoes-sessao-1">
+                        <span>Selecionar todos</span>
+                        <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                        <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
                     </div>
-                <?php
-                }
-                ?>
-
+                    <div class="funcoes-sessao-2">
+                        <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> ID </th>
+                            <th> Nome </th>
+                            <th>Período</th>
+                            <th>Horário</th>
+                            <th>Causas</th>
+                            <th>Habilidades</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th>País</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        try {
+                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+                        ?>
+                        <tr>
+                            <?php foreach ($listaVaga as $vaga) { ?>
+                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                <td> <?php echo $vaga['codServico']; ?> </td>
+                                <td> <?php echo $vaga['nomeservico']; ?></td>
+                                <td> <?php echo $vaga['periodoServico']; ?></td>
+                                <td> <?php echo $vaga['horarioServico']; ?></td>
+                                <td> 
+                                    <?php
+                                        if (!is_null($_SESSION['causa']['nomeCausa'])) 
+                                        {
+                                            $causas = $_SESSION['causa']['nomeCausa'];
+                                            $causas = array_unique(explode(", ", $causas));
+                                        
+                                            foreach($causas as $causa)
+                                            { 
+                                                echo $causa;                    
+                                            }
+                                        }
+                                    ?>
+                                </td>
+                                <td> 
+                                    <?php
+                                        $habilidades = $_SESSION['habilidade']['nomeHabilidade'];
+                                        $habilidades = array_unique(explode(",", $habilidades));
+                                        echo implode(", ", $habilidades);
+                                    ?> 
+                                </td>
+                                <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
+                                <td> <?php echo $vaga['estadoLocalServico']; ?></td>
+                                <td> <?php echo $vaga['paisLocalServico']; ?></td>
+                                <td> <a href="form-editar-vagas-instituicao.php"><button class="conteiner-botao-editar">EDITAR</button></a> </td>
+                                <td> <button class="conteiner-botao-excluir">EXCLUIR</button> </td>
+                        </tr>
+                    <?php
+                            }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
       
@@ -191,6 +261,7 @@ include "../../auth/verifica-logado.php";
 
     <script src="../area-voluntario/js/carrossel-vagas.js"></script>
     <script type="module" src="../js/main.js"></script>
+    <script src="js/modal-exclusao.js"></script>
 </body>
 
 </html>
