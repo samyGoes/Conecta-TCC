@@ -1,6 +1,5 @@
 // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
 const botaoCausas = document.querySelector(".filtro-causas");
-const botaoHabilidade = document.querySelector(".filtro-habilidade");
 const boxCausas = document.querySelector(".box-causas");
 const cliqueFora = document.querySelector('.clique-fora');
 
