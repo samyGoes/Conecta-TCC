@@ -48,7 +48,7 @@
                 </ul>
 
                 <ul class="topicos-sessao-login">
-                    <li class="topicos-sessao-login-linha"><a href="form-login.php" class="cabecalho-menu-item"
+                    <li class="topicos-sessao-login-linha"><a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item"
                             id="cabecalho-menu-item-login">
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
                             id="nav-seta-sub-topicos"> 🢓 </span></i>

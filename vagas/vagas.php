@@ -1,6 +1,6 @@
 <?php
-require_once 'global.php';
-include "../auth/verifica-logado.php";
+    require_once 'global.php';
+    include "../auth/loginUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
