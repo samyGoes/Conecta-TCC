@@ -7,6 +7,7 @@
     
     if($id && $tipo) 
     {
+        
         if($tipo == "Instituicao")
         {
             $consulta = InstituicaoDao::consultarInstituicao($id);

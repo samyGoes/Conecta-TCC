@@ -1,8 +1,9 @@
 <?php
     require_once 'global.php';
 
-    session_start();
-
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $conectar=Conexao::conectar();
 
     // Verifica se o formulário foi submetido

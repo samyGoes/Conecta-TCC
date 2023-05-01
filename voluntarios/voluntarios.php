@@ -1,10 +1,6 @@
 <?php
     require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
-
-
-    $t = $_SESSION['tipoPerfil'];
-    $c=$_SESSION['codUsuario']; 
+    include "../auth/loginUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -158,7 +154,7 @@
 
                                 <div class="lista-item" id="lista-item-nome"> 
                                 
-                                    <div class="box-img"> <img src="../area-voluntario/<?php //echo $voluntario['fotoVoluntario']; ?>"> </div> 
+                                    <div class="box-img"> <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"> </div> 
                         
                                     <div class="lista-item-sessao-1">
                                         <a href=""> <p class="nome">  <?php echo $voluntario['nomeVoluntario']; ?> </p> </a>
