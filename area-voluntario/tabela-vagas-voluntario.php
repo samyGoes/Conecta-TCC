@@ -263,9 +263,9 @@
 
 
 
-    <script type="module" src="../area-instituicao/js/main.js"></script>
-    <script type="module" src="js/main.js"></script>
-    <!-- <script src="js/box-info.js"></script> -->
+    <script type="module" src="imports/side-bar.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>
+    <script type="module" src="imports/box-info.js"></script>
 </body>
 
 </html>

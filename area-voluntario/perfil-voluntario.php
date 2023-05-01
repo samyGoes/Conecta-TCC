@@ -472,12 +472,9 @@ $c = $_SESSION['codUsuario'];
 
 
 
-    <!-- <script src="../voluntarios/js/script.js"></script> -->
-    <!-- <script src="js/carrossel-vagas.js"></script>
-    <script src="js/carrossel-fotos.js"></script> -->
-    <script type="module" src="js/main-2.js"></script>
     <script src="js/ocultar-sessao.js"></script>
-    <script type="module" src="../js/main-2.js"></script>
+    <script type="module" src="imports/carrossel.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>
 
     <script>
         // Associar o evento de clique ao botão e ao botão de fechar
