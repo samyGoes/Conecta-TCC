@@ -1,115 +1,231 @@
-// const controls = document.querySelectorAll(".control");
-// let currentItem = 0;
-// const items = document.querySelectorAll(".card-carrossel");
-// const maxItems = items.length;
-
-// controls.forEach((control) => 
-// {
-//   control.addEventListener("click", (e) => 
-//   {
-//     isLeft = e.target.classList.contains("arrow-left");
-
-//     if (isLeft) 
-//     {
-//       currentItem -= 1;
-//     } 
-//     else 
-//     {
-//       currentItem += 1;
-//     }
-    
-//     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 
-//     // p = maxItems - 3;
-//     // if (currentItem >= p) 
-//     // {
-//     //   currentItem = 0;
-//     // }
-
-//     // if (currentItem < 0) 
-//     // {
-//     //   currentItem = p - 1;
-//     // }
-
-    
-//     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 681px
-//     // let tela2 = window.matchMedia("(max-width: 681px)");
-//     // if (tela2)
-//     // {
-//     //   l = maxItems - 2;
-//     //   if (currentItem >= l) 
-//     //   {
-//     //     currentItem = 0;
-//     //   }
-  
-//     //   if (currentItem< 0) 
-//     //   {
-//     //     currentItem = l - 1;
-//     //   }
-//     // }
-
-//     // AJUSTANDO A MOVIMENTAÇÃO PRA TELA 681px
-//     // let tela3 = window.matchMedia("(max-width: 375px)");
-//     // if (tela3)
-//     // {
-//     //   if (currentItem >= maxItems) 
-//     //   {
-//     //     currentItem = 0;
-//     //   }
-  
-//     //   if (currentItem< 0) 
-//     //   {
-//     //     currentItem = maxItems - 1;
-//     //   }
-//     // }
-
-
-//     // items.forEach((item) => item.classList.remove("current-item"));
-
-//     items[currentItem].scrollIntoView({
-//       behavior: "smooth",
-//       inline: "start",
-//       block: "nearest"
-//     });
-
-//     // items[currentItem].classList.add("current-item");
-//   }); 
-// });
 
 export const cards = document.querySelectorAll(".card-carrossel");
-export const maxCards = cards.length;
+export const qtdCards = cards.length;
 export const containerCarrossel = document.querySelector(".container-carrossel-servicos");
+export let esquerdaDireita = 0;
+export let qtdCliquesD = 0;
 
-export function carrosselServicos(e)
+// RESPONSIVIDADE 
+export let tela1 = window.matchMedia("(min-width: 774px)");
+export let tela2 = window.matchMedia("(min-width: 591px)");
+export let tela3 = window.matchMedia("(min-width: 10px)");
+
+// SUMINDO COM SETAS E AJUSTANDO POSIÇÃO DOS CARDS
+export function ajusteCarrossel()
 {
-  let esquerda = 0;
-  let direita = 0;
+  /* PARA ESTILIZAR */
+  const setaEsquerdaS = document.querySelector(".arrow-left");
+  const setaDireitaS = document.querySelector(".arrow-right");
 
-  const setaEsquerda = e.target.classList.contains("arrow-left");
-  const setaDireita = e.target.classList.contains("arrow-right");
+  // PRIMEIRA TELA
+  if (qtdCards < 3 && tela1.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
 
-  if (setaEsquerda) 
+    containerCarrossel.style.justifyContent = "flex-start";
+    containerCarrossel.style.marginLeft = "2rem";
+  }
+  else if(qtdCards == 3 && tela1.matches)
   {
-    esquerda -= 1;
-  } 
-  else if (setaDireita) 
-  {
-    direita += 1;
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
   }
 
 
-  // let p = maxCards - 3;
-  // if (currentItem >= p) 
-  // {
-  //   currentItem = 0;
-  // }
+  
+  // SEGUNDA TELA
+  else if (qtdCards < 2 && tela2.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
 
-  // if (currentItem < 0) 
-  // {
-  //   currentItem = p - 1;
-  // }
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
+
+  else if (qtdCards > 2 && tela2.matches)
+  {
+    setaDireitaS.style.display = "flex";
+    setaEsquerdaS.style.display = "flex";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
+
+  else if(qtdCards == 2 && tela2.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
 
 
-  cards[esquerda, direita].scrollIntoView
+
+  // TERCEIRA TELA
+  else if (qtdCards <= 1 && tela3.matches)
+  {
+    setaDireitaS.style.display = "none";
+    setaEsquerdaS.style.display = "none";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
+
+  else if (qtdCards > 1 && tela3.matches)
+  {
+    setaDireitaS.style.display = "flex";
+    setaEsquerdaS.style.display = "flex";
+
+    containerCarrossel.style.justifyContent = "center";
+    containerCarrossel.style.marginLeft = "0rem";
+  }
+
+
+}
+tela1.addEventListener("change", ajusteCarrossel);
+tela2.addEventListener("change", ajusteCarrossel);
+tela3.addEventListener("change", ajusteCarrossel);
+
+
+
+export function carrosselServicos(e)
+{
+  const setaEsquerda = e.target.classList.contains("arrow-left");
+  const setaDireita = e.target.classList.contains("arrow-right");
+
+  // PRIMEIRA TELA
+  if(tela1.matches)
+  {
+    // DEFININDO A QUANTIDADE DE CLIQUES
+    if (qtdCards == 4)
+    {
+      qtdCliquesD = 2;
+    }
+    else if (qtdCards == 5)
+    {
+      qtdCliquesD = 3;
+    }
+    else
+    {
+      qtdCliquesD = qtdCards - 2;
+    }
+
+    if (setaEsquerda) 
+    {
+      // FAZENDO A MOVIMENTAÇÃO PRA ESQUERDA
+      esquerdaDireita -= 1;
+
+      // LOOP
+      if(esquerdaDireita <= -1)
+      {
+        esquerdaDireita = qtdCliquesD - 1;
+      }
+    } 
+    else if (setaDireita) 
+    {   
+      // FAZENDO A MOVIMENTAÇÃO PRA DIREITA
+      if (esquerdaDireita <= qtdCliquesD)
+      {
+        esquerdaDireita += 1;
+
+        // LOOP 
+        if (esquerdaDireita == qtdCliquesD)
+        {
+          esquerdaDireita = 0;
+        }
+      }
+    }
+  }
+
+  // SEGUNDA TELA
+  else if (tela2.matches)
+  {
+     // DEFININDO A QUANTIDADE DE CLIQUES
+     if (qtdCards == 3)
+     {
+       qtdCliquesD = 2;
+     }
+     else
+     {
+       qtdCliquesD = qtdCards - 1;
+     }
+ 
+     if (setaEsquerda) 
+     {
+       // FAZENDO A MOVIMENTAÇÃO PRA ESQUERDA
+       esquerdaDireita -= 1;
+ 
+       // LOOP
+       if(esquerdaDireita <= -1)
+       {
+         esquerdaDireita = qtdCliquesD - 1;
+       }
+     } 
+     else if (setaDireita) 
+     {   
+       // FAZENDO A MOVIMENTAÇÃO PRA DIREITA
+       if (esquerdaDireita <= qtdCliquesD)
+       {
+         esquerdaDireita += 1;
+ 
+         // LOOP 
+         if (esquerdaDireita == qtdCliquesD)
+         {
+           esquerdaDireita = 0;
+         }
+       }
+     }
+  }
+
+  // TERCEIRA TELA
+  else //if (tela3.matches)
+  {
+    // DEFININDO A QUANTIDADE DE CLIQUES
+    if (qtdCards == 2)
+    {
+      qtdCliquesD = 2;
+    }
+    else
+    {
+      qtdCliquesD = qtdCards;
+    }
+   
+    if (setaEsquerda) 
+    {
+      // FAZENDO A MOVIMENTAÇÃO PRA ESQUERDA
+      esquerdaDireita -= 1;
+
+      // LOOP
+      if(esquerdaDireita <= -1)
+      {
+        esquerdaDireita = qtdCliquesD - 1;
+      }
+    } 
+    else if (setaDireita) 
+    {   
+      // FAZENDO A MOVIMENTAÇÃO PRA DIREITA
+      if (esquerdaDireita <= qtdCliquesD)
+      {
+        esquerdaDireita += 1;
+
+        //LOOP 
+        if (esquerdaDireita == qtdCliquesD)
+        {
+          esquerdaDireita = 0;
+        }
+      }
+    }
+  }
+  
+  console.log(esquerdaDireita);
+
+  cards[esquerdaDireita].scrollIntoView
   ({
     behavior: "smooth",
     inline: "start",
@@ -119,36 +235,10 @@ export function carrosselServicos(e)
 }
 document.querySelectorAll(".control").forEach(function(control)
 {
-    control.addEventListener("click", function (e)
-    {
-      carrosselServicos(e);
-    });
+    control.addEventListener("click", function (e) { carrosselServicos(e); });
+    tela1.addEventListener("change", carrosselServicos);
+    tela2.addEventListener("change", carrosselServicos);
 });
 
 
-export function ajusteCarrossel()
-{
-  /* PARA ESTILIZAR */
-  const setaEsquerdaS = document.querySelector(".arrow-left");
-  const setaDireitaS = document.querySelector(".arrow-right");
 
-  let tela1 = window.matchMedia("(min-width: 772px)");
-  let tela2 = window.matchMedia("(max-width: 773px)");
-
-  if (maxCards < 3 && tela1.matches)
-  {
-    setaDireitaS.style.display = "none";
-    setaEsquerdaS.style.display = "none";
-
-    containerCarrossel.style.justifyContent = "flex-start";
-    containerCarrossel.style.marginLeft = "2rem";
-  }
-  else if(maxCards == 3 && tela1.matches)
-  {
-    setaDireitaS.style.display = "none";
-    setaEsquerdaS.style.display = "none";
-
-    containerCarrossel.style.justifyContent = "center";
-    containerCarrossel.style.marginLeft = "0rem";
-  }
-}
