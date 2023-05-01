@@ -193,7 +193,7 @@
 
 
 
-        <script type="module" src="../area-instituicao/js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
     </body>
 
 </html>

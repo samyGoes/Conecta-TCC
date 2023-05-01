@@ -1,4 +1,6 @@
-
+<?php
+    require_once 'global.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -69,16 +71,18 @@
             </div>
             <div class="conteudo-direita">
                 <div class="titulo-conteudo-direita">
-                    <h1>O Trabalho Voluntário Aliado <br>as ONGs</h1>
-                    <p>Conheça as Conecta, um portal para voluntários <br> e instituições, tendo como objetivo
-                        incentivar o <br> trabalho voluntário, facilitar o acesso e informar <br> a população sobre um
-                        assunto de extrema <br> importancia</p>
+                    <h1> O Trabalho Voluntário Aliado as ONGs </h1>
+                    <p>
+                        Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
+                        incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
+                        assunto de extrema importância
+                    </p>
                 </div>
                 <div class="continuar-botao">
                     <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
                 </div>
                 <div class="conteudo-imagem">
-                    <img src="img/mao-azul.png" alt="">
+                    <img src="img/mao-azul.png">
                 </div>
             </div>
         </div>
@@ -213,8 +217,8 @@
                     <div class="carrossel">
 
                         <!-- SETAS -->
-                        <div class="arrow-left control"> ◀ </div>
-                        <div class="arrow-right control"> ▶ </div>
+                        <div class="arrow-left-dois control-dois"> ◀ </div>
+                        <div class="arrow-right-dois control-dois"> ▶ </div>
 
                         <div class="slider">
                             <div class="cards">
@@ -357,9 +361,11 @@
 
 
 
-
-    <script type="module" src="js/main-2.js"></script>
-    <script src="js/carrossel-vagas.js"></script>
+    <!-- CARROSSEL -->
+    <script type="module" src="imports/carrossel.js"></script>
+    <!-- DROP DOWN NAV BAR -->
+    <script type="module" src="imports/nav-drop-down.js"></script>
+                                
 </body>
 
 </html>
