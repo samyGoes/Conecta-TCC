@@ -1,9 +1,7 @@
 <?php
 
-require_once 'global.php';  
+require_once 'global.php';
 
-
-header("Location: form-login.php");
 try{
 
 $validaSenha= new Senha();
@@ -47,21 +45,29 @@ if(isset($_POST['cpf']) && ($_POST['email'])){
     $resultEmail = $conexao->query($sqlEmail);
 
 if ($resultCpf-> rowCount()> 0 && $resultEmail->rowCount()>0) {
-    echo  "<script>alert('Esse endereço de email e CPF já estão em uso por outro usuário!');</script>";
+    echo  "<script>
+    alert('Esse endereço de email e CPF já estão em uso por outro usuário!');
+    setTimeout(function() {
+      window.location.href = 'form-voluntario.php';
+    }, 300);
+  </script>";
         
 }
 else if ($resultEmail-> rowCount()> 0) {
-    echo  "<script>alert('Esse endereço de email já está em uso por outro usuário!');</script>";
+    echo  "<script>
+    alert('Esse endereço de email já está em uso por outro usuário!');
+    setTimeout(function() {
+      window.location.href = 'form-voluntario.php';
+    }, 300);
+  </script>";
 } 
-else if ($validaCpf->validar($voluntario->getCpfVoluntario()) != true) {
-    echo  "<script>alert('CPF inválido!');</script>";
-}
 else if ($resultCpf-> rowCount()> 0) {
-    echo  "<script>alert('Esse CPF já está em uso por outro usuário!');</script>";
-}
-else if($validaSenha->validar($voluntario->getSenhaVoluntario(),$voluntario->getConfSenhaVoluntario()) == false)
-{
-    echo "<script>alert('Confirmação de senha não confere!');</script>";
+    echo "<script>
+    alert('Esse CPF já está em uso por outro usuário!');
+    setTimeout(function() {
+      window.location.href = 'form-voluntario.php';
+    }, 300);
+  </script>";
 }
 else{
     $cadastrar =VoluntarioDao::Cadastrar($voluntario);
@@ -71,6 +77,7 @@ else{
 }
 }
 }
+
 catch(Exception $e)
     {
         echo "Erro cadastra-voluntario";

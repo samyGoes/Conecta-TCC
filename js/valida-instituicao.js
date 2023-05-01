@@ -1,4 +1,4 @@
-const formulario1 = document.getElementById('formulario');
+const formulario1 = document.getElementById('formulario-instituicao');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -181,6 +181,31 @@ function passwordValidate() {
     }
   }
  
-// Adiciona um evento de clique ao botão "CADASTRAR"
+  formulario1.addEventListener('submit', function(event) {
+    // Previne o envio do formulário por padrão
+    event.preventDefault();
+    
+    // Verifica se os campos obrigatórios foram preenchidos corretamente
+    const nameValid = nameValidate();
+    const cnpjValid = cnpjValidate();
+    const foneValid = foneValidate();
+    const emailValid = emailValidate();
+    const passwordValid = passwordValidate();
+    const confirmPasswordValid = confirmPassword();
+  
+    if (nameValid &&cnpjValid && foneValid && emailValid && passwordValid && confirmPasswordValid) {
+      // Se todos os campos estiverem válidos, envia o formulário
+      formulario1.submit();
+    } else {
+      // Caso contrário, exibe uma mensagem de erro e destaca os campos com erro
+      nameValidate();
+      cnpjValidate();
+      foneValidate();
+      emailValidate();
+      passwordValidate();
+      confirmPassword();
+    }
+  });
+  
 
   
