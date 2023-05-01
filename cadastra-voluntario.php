@@ -2,8 +2,6 @@
 
 require_once 'global.php';  
 
-
-header("Location: form-login.php");
 try{
 
 $validaSenha= new Senha();
