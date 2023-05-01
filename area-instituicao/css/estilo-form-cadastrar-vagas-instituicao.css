@@ -201,7 +201,6 @@ select option {
     border-radius: 0.5rem;
     width: 10rem;
     height: 2.5rem;
-    padding: 0.8%;
     cursor: pointer;
 
     color: #fff;
@@ -295,6 +294,7 @@ select option {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    height: 2rem;
 }
 
 .box-causas-checkbox label,

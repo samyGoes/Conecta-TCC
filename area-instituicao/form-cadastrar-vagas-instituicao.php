@@ -293,11 +293,16 @@ $c = $_SESSION['codUsuario'];
                 <a href="">
                     <div class="continue-button">
                         <button id="requisitar" type="">CADASTRAR</button>
+                    </div>
                 </a>
-                <!-- Modal -->
+            </form>
         </div>
-        </form>
+        
     </main>
+
+
+    <script src="../js/endereco-auto.js"></script>
+    <script type="module" src="js/main.js"></script>
 
     <script>
         // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
@@ -309,24 +314,24 @@ $c = $_SESSION['codUsuario'];
         const dropHab = document.querySelector(".clique-fora-h");
 
         // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
+        // document.getElementById("requisitar").addEventListener("click", abrirModal);
+        // document.querySelector(".fechar").addEventListener("click", fecharModal);
 
 
         // Função para abrir o modal
-        function abrirModal() {
-            document.getElementById("meuModal").style.display = "block";
-        }
+        // function abrirModal() {
+        //     document.getElementById("meuModal").style.display = "block";
+        // }
 
-        // Função para fechar o modal
-        function fecharModal() {
-            document.getElementById("meuModal").style.display = "none";
-        }
+        // // Função para fechar o modal
+        // function fecharModal() {
+        //     document.getElementById("meuModal").style.display = "none";
+        // }
 
 
         //Botoes select
         botaoCausas.addEventListener("click", function() {
-            if (boxCausas.style.display == "none") {
+            if (boxCausas.style.display == "none" || boxCausas.style.display == "") {
                 boxCausas.style.display = "flex";
             } else {
                 boxCausas.style.display = "none";
@@ -341,7 +346,7 @@ $c = $_SESSION['codUsuario'];
         });
 
         botaoHabilidade.addEventListener("click", function() {
-            if (boxHabilidade.style.display == "none") {
+            if (boxHabilidade.style.display == "none" || boxHabilidade.style.display == "") {
                 boxHabilidade.style.display = "flex";
             } else {
                 boxHabilidade.style.display = "none";
@@ -355,10 +360,6 @@ $c = $_SESSION['codUsuario'];
             }
         });
     </script>
-
-    <script src="../js/endereco-auto.js"></script>
-    <script type="module" src="js/main.js"></script>
-    <script src="../area-voluntario/js/button-image.js"></script>
 </body>
 
 </html>

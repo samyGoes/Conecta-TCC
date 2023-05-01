@@ -52,8 +52,8 @@ export function ajusteCarrossel()
     setaDireitaS.style.display = "flex";
     setaEsquerdaS.style.display = "flex";
 
-    containerCarrossel.style.justifyContent = "center";
-    containerCarrossel.style.marginLeft = "0rem";
+    // containerCarrossel.style.justifyContent = "center";
+    // containerCarrossel.style.marginLeft = "0rem";
   }
 
   else if(qtdCards == 2 && tela2.matches)
@@ -99,7 +99,7 @@ export function carrosselServicos(e)
   const setaEsquerda = e.target.classList.contains("arrow-left");
   const setaDireita = e.target.classList.contains("arrow-right");
 
-  // PRIMEIRA TELA
+  // TRÊS CARDS POR VIEW
   if(tela1.matches)
   {
     // DEFININDO A QUANTIDADE DE CLIQUES
@@ -143,7 +143,7 @@ export function carrosselServicos(e)
     }
   }
 
-  // SEGUNDA TELA
+  // DOIS CARDS POR VIEW
   else if (tela2.matches)
   {
      // DEFININDO A QUANTIDADE DE CLIQUES
@@ -183,8 +183,8 @@ export function carrosselServicos(e)
      }
   }
 
-  // TERCEIRA TELA
-  else //if (tela3.matches)
+  // UM CARD POR VIEW
+  else 
   {
     // DEFININDO A QUANTIDADE DE CLIQUES
     if (qtdCards == 2)

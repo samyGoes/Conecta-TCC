@@ -181,17 +181,13 @@
                         <div class="carrossel">
 
                             <!-- SETAS -->
-                            <div class="arrow-left-dois control-dois">◀
-                                <!--<i class="fa-solid fa-arrow-left"></i> -->
-                            </div>
-                            <div class="arrow-right-dois control-dois">
-                                <!--<i class="fa-solid fa-arrow-right"></i> --> ▶
-                            </div>
+                            <div class="arrow-left-dois control-dois"> ◀ </div>
+                            <div class="arrow-right-dois control-dois"> ▶ </div>
 
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($i = 1; $i <= 9; $i++) {
+                                    for ($i = 1; $i <= 3; $i++) {
                                     ?>
                                         <div class="card-carrossel-dois">
                                             <div class="content-fotos">

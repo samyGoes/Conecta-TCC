@@ -136,7 +136,7 @@ $c = $_SESSION['codUsuario'];
         </div>
 
 
-
+        <!-- CARD -->
         <div class="card">
             <div class="card-1">
                 <p>Escreva o nome da Habilidade que deseja cadastrar</p>
@@ -154,7 +154,7 @@ $c = $_SESSION['codUsuario'];
             </div>
 
 
-            <!-- Modal -->
+            <!-- TABELA -->
             <div class="card-2">
                 <p>Aqui está a lista de todas as habilidades cadastradas</p>
                 <div class="table">
@@ -208,7 +208,6 @@ $c = $_SESSION['codUsuario'];
 
 
         </div>
-        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
     </main>
 
 
@@ -216,25 +215,22 @@ $c = $_SESSION['codUsuario'];
 
     <script>
         // Função para abrir o modal
-        function abrirModal() {
-            document.getElementById("meuModal").style.display = "block";
-        }
+        // function abrirModal() {
+        //     document.getElementById("meuModal").style.display = "block";
+        // }
 
-        // Função para fechar o modal
-        function fecharModal() {
-            document.getElementById("meuModal").style.display = "none";
-        }
+        // // Função para fechar o modal
+        // function fecharModal() {
+        //     document.getElementById("meuModal").style.display = "none";
+        // }
 
-        // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
+        // // Associar o evento de clique ao botão e ao botão de fechar
+        // document.getElementById("requisitar").addEventListener("click", abrirModal);
+        // document.querySelector(".fechar").addEventListener("click", fecharModal);
     </script>
 
 
-    <!-- NAVS  -->
     <script type="module" src="js/main.js"></script>
-    <!-- CHECKBOX -->
-    <script src="js/checkbox.js"></script>
 </body>
 
 </html>

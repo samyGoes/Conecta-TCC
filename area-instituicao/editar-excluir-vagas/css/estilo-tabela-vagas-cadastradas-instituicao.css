@@ -133,11 +133,13 @@ input[type="checkbox"]:checked::before {
 }
 
 
-#icone-x {
-    margin-left: 0.5rem;
+#selecionar-todos
+{
+    margin-right: 2rem;
 }
 
-.funcoes-sessao-2 {
+.funcoes-sessao-2
+{
     display: flex;
     margin-right: 1.7rem;
     align-items: center;
@@ -152,6 +154,12 @@ input[type="checkbox"]:checked::before {
 
 .funcoes i:hover {
     color: #88a2d4;
+}
+
+.funcoes-sessao-1-UD
+{
+    display: flex;
+    gap: 1rem;
 }
 
 #icon-lupa {
@@ -383,18 +391,6 @@ td button
 {
     background-color: #fff;
     color: #4567a5;
-}
-
-.conteiner-botao-excluir
-{
-    background-color: #af4141;
-    border: 1px solid #af4141;
-}
-
-.conteiner-botao-excluir:hover
-{
-    background-color: #fff;
-    color: #af4141;
 }
 
 

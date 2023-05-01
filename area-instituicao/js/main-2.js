@@ -8,9 +8,11 @@ from "./carrossel-vagas.js";
 ajusteCarrossel();
 
 
-// const carrosselServicosV = carrosselServicos;
+import 
+{ 
+    cardsD, qtdCliquesDD, qtdCardsD, esquerdaDireitaD, tela1D, tela2D, tela3D, ajusteCarrosselDois, 
+    carrosselDois, containerCarrosselD
+}  
+from "./carrossel-fotos.js";
 
-// carrosselServicosV.setaEsquerda = function(e) 
-// {
-//     return e.target.classList.contains("arrow-left-dois");
-// };
+ajusteCarrosselDois();
