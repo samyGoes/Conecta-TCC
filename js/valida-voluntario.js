@@ -1,26 +1,14 @@
 const formulario1 = document.getElementById('formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
+const nameRegex = /^[a-zA-ZÀ-ÿ\s'´`~]{3,}$/;
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
 const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;
-//const senhaRegex = /^(?=.*\d)(?=.*[!@#$%&*])(?=.*[A-Z]).{8,}$/;
-const avisoErro = document.createElement("span");
 
-function validateRequiredFields() {
-  let allFieldsFilled = true;
-  for (let i = 0; i < campos.length; i++) {
-    if (campos[i].value.trim() === '') {
-      setError(i);
-      allFieldsFilled = false;
-    } else {
-      removeError(i);
-    }
-  }
-  return allFieldsFilled;
-}
 
-  function setError(index, message) {
+function setError(index, message) {
+    console.log('setError');
     campos[index].style.borderBottom = '1px solid #e63636';
     spans[index].textContent = message;
     spans[index].style.display = 'block';
@@ -31,185 +19,188 @@ function validateRequiredFields() {
     spans[index].style.fontWeight = "400";
     spans[index].style.color = "red";
     
-  }
+}
 
-  function removeError(index) {
+
+function removeError(index) {
+    console.log('removeError');
     campos[index].style.borderBottom = '';
     spans[index].style.display= 'none';
 
-  }
-
+}
 
 
 function nameValidate() {
-  if (campos[0].value.length < 3) {
+    console.log('nameValidate');
+    if (campos[0].value.length < 3) {
     setError(0, 'Nome deve ter pelo menos 3 caracteres');
-  } else {
+    return false;
+    } else if (!nameRegex.test(campos[0].value)) {
+    setError(0, 'Nome inválido. Insira apenas letras');
+    return false;
+    } else {
     removeError(0);
-  }
+    return true;
+    }
 }
+
 
 function dateValidate() {
-  if (!dateRegex.test(campos[1].value)) {
+    console.log('dateValidate');
+    if (!dateRegex.test(campos[1].value)) {
     setError(1, 'Data de nascimento inválida');
-  } else {
+    return false;
+    } else {
     removeError(1);
-  }
-}
-
-function emailValidate() {
-  if (!emailRegex.test(campos[5].value)) {
-    setError(5, 'Email invalido');
-  } else {
-    removeError(5);
-  }
-}
-
-function foneValidate() {
-  if (!foneRegex.test(campos[3].value)) {
-    setError(3, 'Telefone invalido');
-  } else {
-    removeError(3);
-  }
-}
-function foneOpcValidate() {
-  if (!foneRegex.test(campos[4].value)) {
-    setError(4, 'Telefone invalido');
-  } else {
-    removeError(4);
-  }
+    return true;
+    }
 }
 
 
 function validateCPF(cpf) {
- 
-  if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
-    return false;
-  }
+    cpf = cpf.replace(/\D/g, ''); // remove todos os caracteres não numéricos
+    if (cpf.length !== 11) return false;
 
-  // Remove punctuation marks from the input
-  cpf = cpf.replace(/[^\d]+/g, '');
-
-
-  if (/^(\d)\1{10}$/.test(cpf)) {
-    return false;
-  }
-
-
-  let sum = 0;
-  for (let i = 0; i < 9; i++) {
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
     sum += parseInt(cpf.charAt(i)) * (10 - i);
-  }
-  let remainder = sum % 11;
-  let digit1 = remainder < 2 ? 0 : 11 - remainder;
+    }
+    let remainder = (sum * 10) % 11;
+    let digit1 = remainder === 10 ? 0 : remainder;
 
-  sum = 0;
-  for (let i = 0; i < 10; i++) {
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
     sum += parseInt(cpf.charAt(i)) * (11 - i);
-  }
-  remainder = sum % 11;
-  let digit2 = remainder < 2 ? 0 : 11 - remainder;
+    }
+    remainder = (sum * 10) % 11;
+    let digit2 = remainder === 10 ? 0 : remainder;
 
-
-  if (parseInt(cpf.charAt(9)) !== digit1 || parseInt(cpf.charAt(10)) !== digit2) {
-    return false;
-  }
-
-  return true;
+    return (parseInt(cpf.charAt(9)) === digit1 && parseInt(cpf.charAt(10)) === digit2);
 }
+
 
 function cpfValidate() {
-  const cpf = campos[2].value;
+    console.log('cpfValidate');
+    const cpf = campos[2].value;
 
-  if (!validateCPF(cpf)) {
+    if (!validateCPF(cpf)) {
     setError(2, 'Cpf Invalido');
-  } else {
+    return false;
+    } else {
     removeError(2);
-  }
+    return true;
+    }
 }
+
+function foneValidate() {
+    console.log('foneValidate');
+    
+    if (!foneRegex.test(campos[3].value)) {
+    setError(3, 'Telefone invalido');
+    return false;
+    } else {
+    removeError(3);
+    return true;
+    }
+}
+
+function foneOpcValidate() {
+    console.log('foneOpcValidate');
+    if (!foneRegex.test(campos[4].value)) {
+    setError(4, 'Telefone invalido');
+    return false;
+    } else {
+    removeError(4);
+    return true;
+    }
+}
+
+function emailValidate() {
+    console.log('emailValidate');
+    if (!emailRegex.test(campos[5].value)) {
+    setError(5, 'Email invalido');
+    return false;
+    } else {
+    removeError(5);
+    return true;
+    }
+}
+
 
 function passwordValidate() {
-  const senha = campos[6].value;
-  const digitRegex = /\d/;
-  const specialRegex = /[!@#$%&*]/;
-  const upperRegex = /[A-Z]/;
+    console.log('passwordValidate');
+    const senha = campos[6].value;
+    const digitRegex = /\d/;
+    const specialRegex = /[!@#$%&*]/;
+    const upperRegex = /[A-Z]/;
 
-  if (senha.length < 6) {
+    if (senha.length < 6) {
     setError(6, 'A senha deve ter pelo menos 6 caracteres');
-    return;
-  }
+    return false;
+    }
 
-  if (!digitRegex.test(senha)) {
+    if (!digitRegex.test(senha)) {
     setError(6, 'A senha deve conter pelo menos um número');
-    return;
-  }
+    return false;
+    }
 
-  if (!specialRegex.test(senha)) {
+    if (!specialRegex.test(senha)) {
     setError(6, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
-    return;
-  }
+    return false;
+    }
 
-  if (!upperRegex.test(senha)) {
+    if (!upperRegex.test(senha)) {
     setError(6, 'A senha deve conter pelo menos uma letra maiúscula');
-    return;
-  }
+    return false;
+    }
 
-  removeError(6);
+    removeError(6);
+    return true;
 }
 
-  
-  function confirmPassword() {
+    
+    function confirmPassword() {
+    console.log('confirmPassword');
     const senha = campos[6].value;
     const confSenha = campos[7].value;
-  
+    
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-      setError(7, 'As senhas não coincidem');
+        setError(7, 'As senhas não coincidem');
+        return false;
     } else {
-      removeError(7);
+        removeError(7);
+        return true;
     }
-  }
-  
+    }
 
-// Adiciona um evento de clique ao botão "CADASTRAR"
-formulario1.addEventListener('submit', function(event) {
-  // Previne o envio do formulário por padrão
-  event.preventDefault();
-  
-  // Verifica se os campos obrigatórios foram preenchidos corretamente
-  if (validateRequiredFields() &&
-      nameValidate() &&
-      dateValidate() &&
-      cpfValidate() &&
-      foneValidate() &&
-      emailValidate() &&
-      passwordValidate() &&
-      confirmPassword()) {
+
+    formulario1.addEventListener('submit', function(event) {
+        // Previne o envio do formulário por padrão
+        event.preventDefault();
         
-    // Se todos os campos estiverem válidos, envia o formulário
-    formulario1.submit();
-    
-  } else {
-    alert('Preencha os dados corretamente');
-    validateRequiredFields()
-    nameValidate()
-    dateValidate()
-    cpfValidate()
-    foneValidate()
-    emailValidate()
-    passwordValidate()
-    confirmPassword()
-    /*
-    // Se houver campos inválidos, exibe o modal de verificação
-    var modalForm = document.getElementById("modal-form");
-    modalForm.style.display = "block";
-    
-    // Quando o usuário clicar no botão "FECHAR", o modal será fechado
-    var modalFecharBtn = document.getElementById("btn-fechar");
-    modalFecharBtn.onclick = function() {
-      modalForm.style.display = "none";
-    }
-    */
-  }
-});
-  
+        // Verifica se os campos obrigatórios foram preenchidos corretamente
+        const nameValid = nameValidate();
+        const dateValid = dateValidate();
+        const cpfValid = cpfValidate();
+        const foneValid = foneValidate();
+        const emailValid = emailValidate();
+        const passwordValid = passwordValidate();
+        const confirmPasswordValid = confirmPassword();
+      
+        if (nameValid && dateValid && cpfValid && foneValid && emailValid && passwordValid && confirmPasswordValid) {
+          // Se todos os campos estiverem válidos, envia o formulário
+          formulario1.submit();
+        } else {
+          // Caso contrário, exibe uma mensagem de erro e destaca os campos com erro
+          alert('Por favor, preencha todos os campos corretamente.');
+          nameValidate();
+          dateValidate();
+          cpfValidate();
+          foneValidate();
+          emailValidate();
+          passwordValidate();
+          confirmPassword();
+        }
+      });
+      
