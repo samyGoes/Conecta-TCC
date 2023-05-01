@@ -260,10 +260,11 @@ include "../../auth/verifica-logado.php";
 
 
 
-    <!-- <script src="../area-voluntario/js/carrossel-vagas.js"></script> -->
-    <script type="module" src="../js/main.js"></script>
     <script src="js/modal-exclusao.js"></script>
-    <script type="module" src="../js/box-info.js"></script>
+    <script type="module" src="../imports/side-bar.js"></script>
+    <script type="module" src="../../imports/nav-drop-down.js"></script>
+    <script type="module" src="../imports/box-info.js"></script>
+    
 </body>
 
 </html>

@@ -258,9 +258,9 @@
 
 
         <!-- SCRIPTS -->
-        <script type="module" src="../js/main.js"></script>
         <script src="js/modal-exclusao.js"></script>
-
+        <script type="module" src="../imports/side-bar.js"></script>
+        <script type="module" src="../../imports/nav-drop-down.js"></script>
     </body>
 
 </html>

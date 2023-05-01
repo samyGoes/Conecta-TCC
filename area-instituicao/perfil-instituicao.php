@@ -356,9 +356,8 @@
 
 
     <script src="js/ocultar-sessao.js"></script>
-    <script type="module" src="../js/main-2.js"></script>
-    <!-- CARROSSEL -->
-    <script type="module" src="js/main-2.js"></script>
+    <script type="module" src="imports/carrossel.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>                              
 
 </body>
 

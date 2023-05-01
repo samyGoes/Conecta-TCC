@@ -298,7 +298,8 @@ $c = $_SESSION['codUsuario'];
 
 
     <script src="../js/endereco-auto.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="imports/side-bar.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>
 
     <script>
         const botaoCausas = document.querySelector(".filtro-causas");
