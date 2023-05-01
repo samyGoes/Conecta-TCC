@@ -1,4 +1,4 @@
-const formulario1 = document.getElementById('formulario');
+const formulario1 = document.getElementById('formulario-voluntario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const nameRegex = /^[a-zA-ZÀ-ÿ\s'´`~]{3,}$/;
@@ -193,7 +193,6 @@ function passwordValidate() {
           formulario1.submit();
         } else {
           // Caso contrário, exibe uma mensagem de erro e destaca os campos com erro
-          alert('Por favor, preencha todos os campos corretamente.');
           nameValidate();
           dateValidate();
           cpfValidate();

@@ -244,32 +244,4 @@ function passwordValidate() {
     */
 
 
-/*// Seleciona o formulário e o botão de enviar
-const form = document.querySelector('#formulario1');
-const submitBtn = form.querySelector('button[type="submit"]');
-
-// Adiciona um evento de clique ao botão de enviar
-submitBtn.addEventListener('click', function(event) {
-  event.preventDefault(); // Previne o envio do formulário por padrão
-
-  // Verifica se os campos obrigatórios foram preenchidos corretamente
-  const isValid = [
-    validateRequiredFields(),
-    nameValidate(),
-    dateValidate(),
-    cpfValidate(),
-    foneValidate(),
-    emailValidate(),
-    passwordValidate(),
-    confirmPassword()
-  ].every(Boolean);
-
-  if (isValid) {
-    // Se todos os campos estiverem válidos, envia o formulário
-    form.submit();
-  } else {
-    alert('Preencha os dados corretamente');
-  }
-});
-*/
   

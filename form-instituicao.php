@@ -32,7 +32,7 @@
                         </div>
 
                         <!-- FORMULÁRIO COMPLETO -->
-                        <form class="formulario-completo" id="formulario" action="cadastra-instituicao.php" method="POST">
+                        <form class="formulario-completo" id="formulario-instituicao" action="cadastra-instituicao.php" method="POST">
                             <div id="formulario1">
                                 <div class="input-group">
                                     <div class="input-box">
