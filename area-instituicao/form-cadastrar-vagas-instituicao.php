@@ -158,24 +158,23 @@ $c = $_SESSION['codUsuario'];
                     <div class="input-box">
                         <div>
                             <div class="box-filtro-causas">
-                                <label for="">Habilidades</label>
-
-                                <div class="clique-fora-h">
-                                    <div class="filtro-habilidade"> Selecione as habilidades... </div>
+                                <label for="">habilidade</label>
+                                <div class="clique-fora">
+                                    <div class="filtro-habilidade"> Selecione as habilidade... </div>
                                     <div class="box-habilidade">
                                         <?php
                                         try {
-                                            $listaHabilidade = HabilidadeServicoDao::listar();
+                                            $listahabilidade = CategoriaServicoDao::listar($_SESSION['codUsuario']);
                                         } catch (Exception $e) {
                                             echo $e->getMessage();
                                         }
                                         ?>
-                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                        <?php foreach ($listahabilidade as $habilidade) { ?>
                                             <div class="box-habilidade-checkbox">
                                                 <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
-                                                                                                                    $habilidade['codHabilidadeServico']; ?>>
+                                                                                                            $habilidade['codCategoriaServico']; ?>>
                                                 <label for="habilidade">
-                                                    <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                                    <?php echo $habilidade['nomeCategoria']; ?>
                                                 </label>
                                             </div>
 
@@ -189,7 +188,6 @@ $c = $_SESSION['codUsuario'];
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">Causas</label>
-
                                 <div class="clique-fora">
                                     <div class="filtro-causas"> Selecione as causas... </div>
                                     <div class="box-causas">
@@ -214,9 +212,7 @@ $c = $_SESSION['codUsuario'];
                                         ?>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
 
 
@@ -305,11 +301,8 @@ $c = $_SESSION['codUsuario'];
     <script type="module" src="js/main.js"></script>
 
     <script>
-        // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
         const botaoCausas = document.querySelector(".filtro-causas");
-        const botaoHabilidade = document.querySelector(".filtro-habilidade");
         const boxCausas = document.querySelector(".box-causas");
-        const boxHabilidade = document.querySelector(".box-habilidade")
         const dropCausas = document.querySelector('.clique-fora');
         const dropHab = document.querySelector(".clique-fora-h");
 
@@ -329,12 +322,40 @@ $c = $_SESSION['codUsuario'];
         // }
 
 
-        //Botoes select
         botaoCausas.addEventListener("click", function() {
             if (boxCausas.style.display == "none" || boxCausas.style.display == "") {
                 boxCausas.style.display = "flex";
+                botaoCausas.style.backgroundColor = "#4567a5";
+                botaoCausas.style.color = "#fff";
+                botaoCausas.style.borderColor = "#4567a5";
             } else {
                 boxCausas.style.display = "none";
+                botaoCausas.style.backgroundColor = "#d6ebfd";
+                botaoCausas.style.color = "#000";
+                botaoCausas.style.borderColor = "#000";
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+        botaoHabilidade.addEventListener("click", function() {
+            if (boxhabilidade.style.display == "none" || boxhabilidade.style.display === "") {
+                boxhabilidade.style.display = "flex";
+                botaoHabilidade.style.backgroundColor = "#4567a5";
+                botaoHabilidade.style.color = "#fff";
+                botaoHabilidade.style.borderColor = "#4567a5";
+            } else {
+                boxhabilidade.style.display = "none";
+                botaoHabilidade.style.backgroundColor = "#d6ebfd";
+                botaoHabilidade.style.color = "#000";
+                botaoHabilidade.style.borderColor = "#000";
             }
         });
 
