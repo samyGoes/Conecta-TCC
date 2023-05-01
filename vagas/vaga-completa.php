@@ -60,8 +60,8 @@ include "../auth/verifica-logado.php";
         <div class="container-titulo">
             <h1 class="titulo"> Vaga Completa </h1>
             <p class="frase">
-                Aqui você verá as vagas disponiveis no momento, selecione uma das vagas para visualizar todas as informações.
-                Você também pode filtrar para que encontre a vaga ideal para você. Confira os filtros abaixo.
+                Aqui você verá todas as informações da vaga selecionada. Caso tenha interesse considere se candidatar
+                clicando no botão "candidatar-se" logo abaixo.
             </p>
         </div>
 
@@ -226,9 +226,8 @@ include "../auth/verifica-logado.php";
         <!-- CRÉDITOS -->
         <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
-        <!-- SCRIPTS -->
-        <script src="../voluntarios/js/script.js"></script>
-        <script type="module" src="../js/main-2.js"></script>
+        <!-- DROP DOWN NAV BAR-->
+        <script type="module" src="../imports/nav-drop-down.js"></script>
     </body>
 
 </html>

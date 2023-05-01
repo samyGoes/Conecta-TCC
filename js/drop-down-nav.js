@@ -1,5 +1,6 @@
 // DROP DOWN NAV BAR 
 export const navSubTopicos = document.querySelector(".sub-topicos");
+export const boxDropDown = document.querySelector(".topicos-sessao-login-linha");
 
 export function navDropDown()
 {
@@ -11,18 +12,24 @@ export function navDropDown()
     else
     {
         navSubTopicos.style.display = "none";
-    } 
+    }
 }
 document.querySelector("#nav-seta-sub-topicos").addEventListener("click", navDropDown);
 
 
-// export function cliqueForaNav(event)
-// {
-//     //const target = event.target;
 
-//     if (!navSubTopicos.contains(event.target)) 
-//     {
-//         navSubTopicos.style.display = "none";
-//     }
-// }
-// .addEventListener('click', cliqueForaNav);
+export function cliqueForaNav(event)
+{
+    const target = event.target;
+
+    if (!navSubTopicos.contains(target) && !boxDropDown.contains(target)) 
+    {
+        navSubTopicos.style.display = "none";
+    }
+}
+document.addEventListener('click', function(event)
+{
+    cliqueForaNav(event);
+}) 
+
+

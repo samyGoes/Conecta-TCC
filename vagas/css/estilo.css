@@ -155,33 +155,7 @@ body
 }
 
 
-/* SCROLL VOLUNTÁRIO */
-.box-causas::-webkit-scrollbar, .select-estados::-webkit-scrollbar, .select-cidades::-webkit-scrollbar 
-.box-habilidade::-webkit-scrollbar, .select-estados::-webkit-scrollbar, .select-cidades::-webkit-scrollbar 
-{
-    width: 11px;    
-}
 
-.box-causas::-webkit-scrollbar-track
-.box-habilidade::-webkit-scrollbar-track
-{
-    background: #f7ebdc;       
-    border-radius: 0.8rem;  
-}
-
-.box-causas::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb
-.box-habilidade::-webkit-scrollbar-thumb, .select-estados::-webkit-scrollbar-thumb, .select-cidades::-webkit-scrollbar-thumb 
-{
-    background-color: #cf8a3f;    
-    border-radius: 20px;     
-    border: 2px solid #f7ebdc;  
-    transition: all 0.5s ease;
-}
-
-.select-estados::-webkit-scrollbar-track, .select-cidades::-webkit-scrollbar-track 
-{
-    background: #f7ebdc;       
-}
 
 /* ESTILIZANDO CHECKBOX */
 #causas[type = "checkbox"],
@@ -331,13 +305,14 @@ body
     margin: 4rem 3rem 4rem 3rem;
     /* background-color: #99a8eb; */
     padding-top: 0.7rem;
-    max-width: 90%;
+    max-width: 70rem;
 }
 
 .card-carrossel-dois {
     width: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .card-carrossel-dois:hover {

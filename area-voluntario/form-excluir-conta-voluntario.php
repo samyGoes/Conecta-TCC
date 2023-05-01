@@ -152,7 +152,9 @@
 
 
 
-       <script type="module" src="../area-instituicao/js/main.js"></script>
+        <script type="module" src="imports/side-bar.js"></script>
+        <script type="module" src="../imports/nav-drop-down.js"></script>
+
     </body>
 
 </html>

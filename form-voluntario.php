@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- FORMULÁRIO COMPLETO -->
-                <form class="formulario-completo" id="formulario" action="cadastra-voluntario.php" method="POST">
+                <form class="formulario-completo" id="formulario-voluntario" action="cadastra-voluntario.php" method="POST">
                     <div id="formulario1">
                         <div class="input-group">
                             <div class="input-box">
@@ -125,6 +125,7 @@
         <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
     </div>
 </form>
+
 <!--<div id="modal" class="modal">
     <div class="modal-form" id="modal-form">
         <div class="modal-sessao-2">

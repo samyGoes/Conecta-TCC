@@ -81,52 +81,56 @@
     <form class="form-filtro" method="POST" action="">
         <!-- CAUSAS -->
         <div class="box-filtro-causas">
-            <div class="filtro-causas"> CAUSAS </div>
-            <div class="box-causas">
-                <?php
-                require_once 'global.php';
-                try {
-                    $listaCausas = CategoriaServicoDao::listar();
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-                ?>
-                <?php foreach ($listaCausas as $causas) { ?>
-                    <div class="box-causas-checkbox">
-                        <input type="checkbox" name="causas" id="causas">
-                        <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
-                    </div>
+            <div class="clique-fora">
+                <div class="filtro-causas"> CAUSAS </div>
+                <div class="box-causas">
+                    <?php
+                    require_once 'global.php';
+                    try {
+                        $listaCausas = CategoriaServicoDao::listar();
+                    } catch (Exception $e) {
+                        echo $e->getMessage();
+                    }
+                    ?>
+                    <?php foreach ($listaCausas as $causas) { ?>
+                        <div class="box-causas-checkbox">
+                            <input type="checkbox" name="causas" id="causas">
+                            <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
+                        </div>
 
-                <?php
-                }
-                ?>
-            </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>          
         </div>
 
         <!-- HABILIDADES -->
         <div class="box-filtro-causas">
-            <div class="filtro-habilidade"> HABILIDADES </div>
-            <div class="box-habilidade">
-                <?php
-                try {
-                    $listaHabilidade = HabilidadeServicoDao::listar();
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-                ?>
-                <?php foreach ($listaHabilidade as $habilidade) { ?>
-                    <div class="box-habilidade-checkbox">
-                        <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
-                                                                                            $habilidade['codHabilidadeServico']; ?>>
-                        <label for="habilidade">
-                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
-                        </label>
-                    </div>
+            <div class="clique-fora-h">
+                <div class="filtro-habilidade"> HABILIDADES </div>
+                <div class="box-habilidade">
+                    <?php
+                    try {
+                        $listaHabilidade = HabilidadeServicoDao::listar();
+                    } catch (Exception $e) {
+                        echo $e->getMessage();
+                    }
+                    ?>
+                    <?php foreach ($listaHabilidade as $habilidade) { ?>
+                        <div class="box-habilidade-checkbox">
+                            <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
+                                                                                                $habilidade['codHabilidadeServico']; ?>>
+                            <label for="habilidade">
+                                <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                            </label>
+                        </div>
 
-                <?php
-                }
-                ?>
-            </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>          
         </div>
 
         <!-- SELECT ESTADOS E CIDADES -->
@@ -261,9 +265,9 @@
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
-    <script src="./js/script.js"></script>
+    <script src="js/script.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
-    <script type="module" src="../js/main-2.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>
 </body>
 
 </html>

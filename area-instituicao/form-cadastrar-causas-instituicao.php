@@ -212,7 +212,7 @@ $c = $_SESSION['codUsuario'];
         </div>
     </main>
 
-    <script src="./js/checkbox.js"></script>
+    <!-- <script src="./js/checkbox.js"></script> -->
     <script type="module" src="js/main.js"></script>
 
 </body>

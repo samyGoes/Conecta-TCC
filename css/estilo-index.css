@@ -37,6 +37,7 @@ body {
 
 .titulo-conteudo-direita {
     text-align: center;
+    max-width: 25rem;
 }
 
 .titulo-conteudo-direita h1 {
@@ -354,11 +355,10 @@ body {
 
 .container-4 {
     width: 100vw;
-    height: 70vh;
     display: flex;
     flex-direction: column;   
     align-items: center;
-    padding: 3rem 0rem 3rem 0rem;
+    padding: 3rem 0rem 5rem 0rem;
 }
 .titulo-container-4{
     line-height: 3rem;
@@ -403,7 +403,7 @@ body {
     padding: 0.7rem;
     min-width: 16rem;
     /* background-color: #42529c; */
-    display: none;
+    /* display: none; */
 }
 .slider
 {
@@ -430,7 +430,7 @@ body {
 
 
 /* SETAS CARROSSEL */
-.arrow-left-dois, .arrow-right-dois, .arrow-left, .arrow-right 
+.arrow-left-dois, .arrow-right-dois
 {
     display: flex;
     justify-content: flex-end;
@@ -448,12 +448,12 @@ body {
     /* background-color: #45a56d; */
 }
 
-.arrow-left-dois:hover, .arrow-right-dois:hover, .arrow-left:hover, .arrow-right:hover 
+.arrow-left-dois:hover, .arrow-right-dois:hover
 {
     color: #a9abee;
 }
 
-.arrow-right-dois, .arrow-right 
+.arrow-right-dois
 {
     justify-content: flex-start;
     right: 0rem;
@@ -482,7 +482,8 @@ body {
     height: 24rem;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
-    box-shadow: 5px 5px 5px #b4d8e6;
+    /* box-shadow: 5px 5px 5px #b4d8e6; */
+    background-color: #fff;
 }
 
 .header-card-carrossel-it {

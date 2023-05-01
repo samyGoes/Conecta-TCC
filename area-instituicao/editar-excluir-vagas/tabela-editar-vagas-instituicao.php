@@ -148,7 +148,8 @@ include "../../auth/verifica-logado.php";
         <div class="main-conteudo-container-titulo">
             <h1>Editar Vagas</h1>
             <p>
-                Aqui você verá todas as vagas que cadastrou. Selecione uma das vagas para visualizá-la, edita-la ou excluí-la.
+                Aqui você verá todas as vagas que cadastrou. Para alterar alguma de suas vagas selecione 
+                a vaga que deseja e clica no ícone de editar ou de excluir.
             </p>
         </div>
 
@@ -177,8 +178,12 @@ include "../../auth/verifica-logado.php";
                     <div class="funcoes-sessao-1">
                         <span>Selecionar todos</span>
                         <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                        <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
+                        <div class="funcoes-sessao-1-UD">
+                            <a href="form-editar-vagas-instituicao.php"> <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i></a>
+                            <div class="conteiner-botao-excluir"><i class="fa-solid fa-trash-can" id="icone-lixo"></i></div>
+                        </div>                   
                     </div>
+
                     <div class="funcoes-sessao-2">
                         <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
                         <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
@@ -197,8 +202,6 @@ include "../../auth/verifica-logado.php";
                             <th>Cidade</th>
                             <th>UF</th>
                             <th>País</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -218,30 +221,28 @@ include "../../auth/verifica-logado.php";
                                 <td> <?php echo $vaga['horarioServico']; ?></td>
                                 <td> 
                                     <?php
-                                        if (!is_null($_SESSION['causa']['nomeCausa'])) 
-                                        {
-                                            $causas = $_SESSION['causa']['nomeCausa'];
-                                            $causas = array_unique(explode(", ", $causas));
+                                        // if (!is_null($_SESSION['causa']['nomeCausa'])) 
+                                        // {
+                                        //     $causas = $_SESSION['causa']['nomeCausa'];
+                                        //     $causas = array_unique(explode(", ", $causas));
                                         
-                                            foreach($causas as $causa)
-                                            { 
-                                                echo $causa;                    
-                                            }
-                                        }
+                                        //     foreach($causas as $causa)
+                                        //     { 
+                                        //         echo $causa;                    
+                                        //     }
+                                        // }
                                     ?>
                                 </td>
                                 <td> 
                                     <?php
-                                        $habilidades = $_SESSION['habilidade']['nomeHabilidade'];
-                                        $habilidades = array_unique(explode(",", $habilidades));
-                                        echo implode(", ", $habilidades);
+                                        // $habilidades = $_SESSION['habilidade']['nomeHabilidade'];
+                                        // $habilidades = array_unique(explode(",", $habilidades));
+                                        // echo implode(", ", $habilidades);
                                     ?> 
                                 </td>
                                 <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
                                 <td> <?php echo $vaga['estadoLocalServico']; ?></td>
                                 <td> <?php echo $vaga['paisLocalServico']; ?></td>
-                                <td> <a href="form-editar-vagas-instituicao.php"><button class="conteiner-botao-editar">EDITAR</button></a> </td>
-                                <td> <button class="conteiner-botao-excluir">EXCLUIR</button> </td>
                         </tr>
                     <?php
                             }
@@ -259,9 +260,10 @@ include "../../auth/verifica-logado.php";
 
 
 
-    <script src="../area-voluntario/js/carrossel-vagas.js"></script>
+    <!-- <script src="../area-voluntario/js/carrossel-vagas.js"></script> -->
     <script type="module" src="../js/main.js"></script>
     <script src="js/modal-exclusao.js"></script>
+    <script type="module" src="../js/box-info.js"></script>
 </body>
 
 </html>

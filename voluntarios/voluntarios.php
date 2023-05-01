@@ -257,6 +257,6 @@
         <!-- SCRIPTS -->
         <script src="js/script.js"></script>
         <script src="js/cidade-estados.js"></script>
-        <script type="module" src="../js/main-2.js"></script>
+        <script type="module" src="../imports/nav-drop-down.js"></script>
     </body>
 </html>

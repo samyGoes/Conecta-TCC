@@ -184,35 +184,53 @@ function passwordValidate() {
   }
   
 
-// Adiciona um evento de clique ao botão "CADASTRAR"
-formulario1.addEventListener('submit', function(event) {
-  // Previne o envio do formulário por padrão
-  event.preventDefault();
-  
-  // Verifica se os campos obrigatórios foram preenchidos corretamente
-  if (validateRequiredFields() &&
-      nameValidate() &&
-      dateValidate() &&
-      cpfValidate() &&
-      foneValidate() &&
-      emailValidate() &&
-      passwordValidate() &&
-      confirmPassword()) {
-        
-    // Se todos os campos estiverem válidos, envia o formulário
-    formulario1.submit();
+  formulario1.addEventListener('submit', function(event) {
+    // Previne o envio do formulário por padrão
+    event.preventDefault();
     
-  } else {
-    alert('Preencha os dados corretamente');
-    validateRequiredFields()
-    dateValidate()
-    cpfValidate()
-    foneValidate()
-    emailValidate()
-    passwordValidate()
-    confirmPassword()
-      }
-});
+    // Cria uma lista vazia de erros
+    var errors = [];
+  
+    // Verifica se os campos obrigatórios foram preenchidos corretamente
+    if (!validateRequiredFields()) {
+      errors.push("Preencha todos os campos obrigatórios.");
+    }
+    if (!nameValidate()) {
+      errors.push("Nome inválido. Digite apenas letras.");
+    }
+    if (!dateValidate()) {
+      errors.push("Data inválida. Digite uma data no formato dd/mm/aaaa.");
+    }
+    if (!cpfValidate()) {
+      errors.push("CPF inválido. Digite apenas números.");
+    }
+    if (!foneValidate()) {
+      errors.push("Telefone inválido. Digite um telefone no formato (xx) xxxxx-xxxx.");
+    }
+    if (!emailValidate()) {
+      errors.push("E-mail inválido. Digite um e-mail válido.");
+    }
+    if (!passwordValidate()) {
+      errors.push("Senha inválida. A senha deve ter pelo menos 8 caracteres, com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
+    }
+    if (!confirmPassword()) {
+      errors.push("As senhas não coincidem. Digite as senhas novamente.");
+    }
+  
+    // Se houver erros, exibe um alerta com todos os erros encontrados
+    if (errors.length > 0) {
+      var message = "Os seguintes erros foram encontrados:\n\n" + errors.join("\n");
+      alert(message);
+    } else {
+      // Se todos os campos estiverem válidos, envia o formulário
+      formulario1.submit();
+    }
+  });
+  var btnCadastrar = document.getElementById("btnCadastrar");
+  btnCadastrar.addEventListener("click", function() {
+    formulario1.submit();
+  });
+    
     /*
     // Se houver campos inválidos, exibe o modal de verificação
     var modalForm = document.getElementById("modal-form");
@@ -226,32 +244,4 @@ formulario1.addEventListener('submit', function(event) {
     */
 
 
-/*// Seleciona o formulário e o botão de enviar
-const form = document.querySelector('#formulario1');
-const submitBtn = form.querySelector('button[type="submit"]');
-
-// Adiciona um evento de clique ao botão de enviar
-submitBtn.addEventListener('click', function(event) {
-  event.preventDefault(); // Previne o envio do formulário por padrão
-
-  // Verifica se os campos obrigatórios foram preenchidos corretamente
-  const isValid = [
-    validateRequiredFields(),
-    nameValidate(),
-    dateValidate(),
-    cpfValidate(),
-    foneValidate(),
-    emailValidate(),
-    passwordValidate(),
-    confirmPassword()
-  ].every(Boolean);
-
-  if (isValid) {
-    // Se todos os campos estiverem válidos, envia o formulário
-    form.submit();
-  } else {
-    alert('Preencha os dados corretamente');
-  }
-});
-*/
   

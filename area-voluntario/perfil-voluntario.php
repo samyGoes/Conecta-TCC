@@ -269,7 +269,7 @@ $c = $_SESSION['codUsuario'];
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($i = 1; $i <= 9; $i++) {
+                                    for ($i = 1; $i <= 3; $i++) {
                                     ?>
                                         <div class="card-carrossel-dois">
                                             <div class="content-it">
@@ -472,98 +472,95 @@ $c = $_SESSION['codUsuario'];
 
 
 
-    <!-- <script src="../voluntarios/js/script.js"></script> -->
-    <!-- <script src="js/carrossel-vagas.js"></script>
-    <script src="js/carrossel-fotos.js"></script> -->
-    <script type="module" src="js/main-2.js"></script>
     <script src="js/ocultar-sessao.js"></script>
-    <script type="module" src="../js/main-2.js"></script>
+    <script type="module" src="imports/carrossel.js"></script>
+    <script type="module" src="../imports/nav-drop-down.js"></script>
 
     <script>
         // Associar o evento de clique ao botão e ao botão de fechar
-        document.getElementById("requisitar").addEventListener("click", abrirModal);
-        document.querySelector(".fechar").addEventListener("click", fecharModal);
+        // document.getElementById("requisitar").addEventListener("click", abrirModal);
+        // document.querySelector(".fechar").addEventListener("click", fecharModal);
 
-        // Função para abrir o modal
-        function abrirModal() {
-            document.getElementById("meuModal").style.display = "block";
-        }
+        // // Função para abrir o modal
+        // function abrirModal() {
+        //     document.getElementById("meuModal").style.display = "block";
+        // }
 
-        // Função para fechar o modal
-        function fecharModal() {
-            document.getElementById("meuModal").style.display = "none";
-        }
+        // // Função para fechar o modal
+        // function fecharModal() {
+        //     document.getElementById("meuModal").style.display = "none";
+        // }
 
 
 
-        // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
-        const botaoCausas = document.querySelector(".filtro-causas");
-        const boxCausas = document.querySelector(".box-causas");
-        const botaoHabilidade = document.querySelector(".filtro-habilidade");
-        const boxHabilidade = document.querySelector(".box-habilidade");
-        const botaoVaga = document.querySelector(".filtro-vaga");
-        const boxVaga = document.querySelector(".box-vaga");
-        const dropCausas = document.querySelector('.clique-fora');
+        // // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
+        // const botaoCausas = document.querySelector(".filtro-causas");
+        // const boxCausas = document.querySelector(".box-causas");
+        // const botaoHabilidade = document.querySelector(".filtro-habilidade");
+        // const boxHabilidade = document.querySelector(".box-habilidade");
+        // const botaoVaga = document.querySelector(".filtro-vaga");
+        // const boxVaga = document.querySelector(".box-vaga");
+        // const dropCausas = document.querySelector('.clique-fora');
 
-        botaoCausas.addEventListener("click", function() {
-            if (boxCausas.style.display == "none" || boxCausas.style.display === "") {
-                boxCausas.style.display = "flex";
-            } else {
-                boxCausas.style.display = "none";
-                botaoCausas.style.color = "#000";
-                botaoCausas.style.borderColor = "#000";
-            }
-        });
+        // botaoCausas.addEventListener("click", function() {
+        //     if (boxCausas.style.display == "none" || boxCausas.style.display === "") {
+        //         boxCausas.style.display = "flex";
+        //     } else {
+        //         boxCausas.style.display = "none";
+        //         botaoCausas.style.color = "#000";
+        //         botaoCausas.style.borderColor = "#000";
+        //     }
+        // });
 
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            if (!dropCausas.contains(target)) {
-                boxHabilidade.style.display = "none";
-                botaoHabilidade.style.color = "#000";
-                botaoHabilidade.style.borderColor = "#000";
-            }
-        });
+        // document.addEventListener('click', function(event) {
+        //     const target = event.target;
+        //     if (!dropCausas.contains(target)) {
+        //         boxHabilidade.style.display = "none";
+        //         botaoHabilidade.style.color = "#000";
+        //         botaoHabilidade.style.borderColor = "#000";
+        //     }
+        // });
 
-        botaoHabilidade.addEventListener("click", function() {
-            if (boxHabilidade.style.display == "none" || boxHabilidade.style.display === "") {
-                boxHabilidade.style.display = "flex";
-            } else {
-                boxHabilidade.style.display = "none";
-                botaoHabilidade.style.color = "#fff";
-                botaoHabilidade.style.borderColor = "#000";
-            }
-        });
+        // botaoHabilidade.addEventListener("click", function() {
+        //     if (boxHabilidade.style.display == "none" || boxHabilidade.style.display === "") {
+        //         boxHabilidade.style.display = "flex";
+        //     } else {
+        //         boxHabilidade.style.display = "none";
+        //         botaoHabilidade.style.color = "#fff";
+        //         botaoHabilidade.style.borderColor = "#000";
+        //     }
+        // });
 
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            if (!dropCausas.contains(target)) {
-                boxCausas.style.display = "none";
-                botaoCausas.style.color = "#fff";
-                botaoCausas.style.borderColor = "#000";
-            }
-        });
+        // document.addEventListener('click', function(event) {
+        //     const target = event.target;
+        //     if (!dropCausas.contains(target)) {
+        //         boxCausas.style.display = "none";
+        //         botaoCausas.style.color = "#fff";
+        //         botaoCausas.style.borderColor = "#000";
+        //     }
+        // });
 
-        botaoVaga.addEventListener("click", function() {
-            if (boxVaga.style.display == "none" || boxVaga.style.display === "") {
-                boxVaga.style.display = "flex";
-                botaoVaga.style.color = "#000";
-                botaoVaga.style.borderColor = "#4567a5";
-            } else {
-                boxVaga.style.display = "none";
-                botaoVaga.style.color = "#000";
-                botaoVaga.style.borderColor = "#000";
-            }
-        });
+        // botaoVaga.addEventListener("click", function() {
+        //     if (boxVaga.style.display == "none" || boxVaga.style.display === "") {
+        //         boxVaga.style.display = "flex";
+        //         botaoVaga.style.color = "#000";
+        //         botaoVaga.style.borderColor = "#4567a5";
+        //     } else {
+        //         boxVaga.style.display = "none";
+        //         botaoVaga.style.color = "#000";
+        //         botaoVaga.style.borderColor = "#000";
+        //     }
+        // });
 
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            if (!dropCausas.contains(target)) {
-                boxVaga.style.display = "none";
-                botaoVaga.style.backgroundColor = "#d6ebfd";
-                botaoVaga.style.color = "#000";
-                botaoVaga.style.borderColor = "#000";
-            }
-        });
+        // document.addEventListener('click', function(event) {
+        //     const target = event.target;
+        //     if (!dropCausas.contains(target)) {
+        //         boxVaga.style.display = "none";
+        //         botaoVaga.style.backgroundColor = "#d6ebfd";
+        //         botaoVaga.style.color = "#000";
+        //         botaoVaga.style.borderColor = "#000";
+        //     }
+        // });
 
         
     </script>

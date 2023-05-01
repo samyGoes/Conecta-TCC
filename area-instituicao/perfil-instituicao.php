@@ -178,17 +178,13 @@
                         <div class="carrossel">
 
                             <!-- SETAS -->
-                            <div class="arrow-left-dois control-dois">◀
-                                <!--<i class="fa-solid fa-arrow-left"></i> -->
-                            </div>
-                            <div class="arrow-right-dois control-dois">
-                                <!--<i class="fa-solid fa-arrow-right"></i> --> ▶
-                            </div>
+                            <div class="arrow-left-dois control-dois"> ◀ </div>
+                            <div class="arrow-right-dois control-dois"> ▶ </div>
 
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($i = 1; $i <= 9; $i++) {
+                                    for ($i = 1; $i <= 3; $i++) {
                                     ?>
                                         <div class="card-carrossel-dois">
                                             <div class="content-fotos">
@@ -356,10 +352,9 @@
 
 
 
-    <!-- <script src="js/carrossel-vagas.js"></script>
-    <script src="js/carrossel-fotos.js"></script> -->
     <script src="js/ocultar-sessao.js"></script>
     <script type="module" src="../js/main-2.js"></script>
+    <!-- CARROSSEL -->
     <script type="module" src="js/main-2.js"></script>
 
 </body>

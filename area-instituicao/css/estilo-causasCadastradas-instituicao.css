@@ -82,7 +82,7 @@ input[type="checkbox"]:checked::before {
     content: '\2713';
     display: block;
     color: #fff;
-    background-color: #113173;
+    background-color: #4567a5;
     text-align: center;
     line-height: 13px;
     font-size: 13px;

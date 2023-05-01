@@ -1,6 +1,9 @@
 <?php
     require_once 'global.php';
 
+
+    header('../form-login.php');
+
     class VoluntarioDao{
 
         public static function cadastrar($voluntario){
