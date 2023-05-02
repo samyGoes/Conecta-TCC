@@ -207,7 +207,7 @@ include "../../auth/verifica-logado.php";
                     <tbody>
                     <?php
                         try {
-                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                            $listaVaga = ServicoDao::listarVagaAdm();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
@@ -219,27 +219,8 @@ include "../../auth/verifica-logado.php";
                                 <td> <?php echo $vaga['nomeservico']; ?></td>
                                 <td> <?php echo $vaga['periodoServico']; ?></td>
                                 <td> <?php echo $vaga['horarioServico']; ?></td>
-                                <td> 
-                                    <?php
-                                        // if (!is_null($_SESSION['causa']['nomeCausa'])) 
-                                        // {
-                                        //     $causas = $_SESSION['causa']['nomeCausa'];
-                                        //     $causas = array_unique(explode(", ", $causas));
-                                        
-                                        //     foreach($causas as $causa)
-                                        //     { 
-                                        //         echo $causa;                    
-                                        //     }
-                                        // }
-                                    ?>
-                                </td>
-                                <td> 
-                                    <?php
-                                        // $habilidades = $_SESSION['habilidade']['nomeHabilidade'];
-                                        // $habilidades = array_unique(explode(",", $habilidades));
-                                        // echo implode(", ", $habilidades);
-                                    ?> 
-                                </td>
+                                <td> <?php echo $vaga['nomeCategoria']; ?></td>
+                                <td> <?php echo $vaga['nomeHabilidadeServico']; ?> </td>
                                 <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
                                 <td> <?php echo $vaga['estadoLocalServico']; ?></td>
                                 <td> <?php echo $vaga['paisLocalServico']; ?></td>
