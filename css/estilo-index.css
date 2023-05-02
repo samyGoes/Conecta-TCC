@@ -47,7 +47,12 @@ body {
     margin-bottom: 15px;
 }
 
-.titulo-conteudo-direita p {
+.conteudo-escrito-direita{
+    text-align: center;
+    max-width: 25rem;
+}
+
+.conteudo-escrito-direita p {
     font-family: poppins, sans-serif;
     font-weight: 400;
     color: #000;
@@ -124,7 +129,7 @@ body {
 }
 
 .card-conteudo-1 {
-    max-width: 70rem;
+    max-width: 90vw;
     display: flex;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
@@ -206,7 +211,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     width: 100vw;
-    height: 140vh;
+    height: 147vh;
     gap: 5%;
 }
 
@@ -653,9 +658,39 @@ body {
 
 
 /*REPONSIVIDADE*/
-@media (max-width:1200){
-    /*CONTAINER 1*/
+
+@media (max-width: 1320px){
+    .cabecalho-completo{
+        background-image: none;
+    }
+    .conteudo-cabecalho{
+        display: flex;
+    }
+    .conteudo-esquerda{
+        display: none;
+    }
+    .conteudo-direita{
+        width: 100%;
+        /* background-color: #b4d8e6; */
+    }
 }
+
+@media (max-width:1200px){
+    .conteudo-imagem-1{
+        display: none;
+    }
+    .conteudo-escrito-1{
+        width: 100%;
+        height: 60vh;
+    }
+    .titulo-conteudo-escrito{
+        text-align: center;
+    }
+    .texto-conteudo-escrito{
+        text-align: justify;
+    }
+}
+
 
 @media (max-width:900px) {
     .container-3{
@@ -669,6 +704,34 @@ body {
 }
 
 
+@media (max-width:768px){
+ 
+    /*CONTAINER-2*/
+    .container-2{
+        background-image: none;
+        /* background-color: #5f71c2; */
+    }
+    .card-conteudo-2{
+        height: 50%;
+    }
+    .conteudo-vazio{
+        display: none;
+    }
+    .conteudo-escrito-2{
+        width: 80%;
+    }
+}
+
+@media (max-width:624px){
+
+    .container-1{
+        gap: 5%;
+    }
+    .card-conteudo-1{
+        border: none;
+        box-shadow: none;
+    }
+}
 
 
 

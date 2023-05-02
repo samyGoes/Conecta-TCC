@@ -50,8 +50,8 @@
                 </ul>
 
                 <ul class="topicos-sessao-login">
-                    <li class="topicos-sessao-login-linha"><a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item"
-                            id="cabecalho-menu-item-login">
+                    <li class="topicos-sessao-login-linha"><a href="<?php echo 'form-login.php' ?>"
+                            class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
                             id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
@@ -72,6 +72,8 @@
             <div class="conteudo-direita">
                 <div class="titulo-conteudo-direita">
                     <h1> O Trabalho Voluntário Aliado as ONGs </h1>
+                </div>
+                <div class="conteudo-escrito-direita">
                     <p>
                         Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
                         incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
@@ -93,25 +95,22 @@
 
 
     <main class="conteudo-completo">
-        <!-- TITULO DO PRIMEIRO CONTEUDO-->
+       
         <div class="container-1">
 
             <div class="titulo-container-conteudo-1">
                 <h1>Um pouco sobre o trabalho voluntário</h1>
             </div>
-            <!-- CONTEUDO 1 -->
+
             <div class="card-conteudo-1">
-                <!-- CARD -->
                 <div class="conteudo-imagem-1">
                     <img src="img/mao-coracao.jpg" alt="">
                 </div>
 
                 <div class="conteudo-escrito-1">
-
                     <div class="titulo-conteudo-escrito">
                         <h1>O que é o trabalho voluntário?</h1>
                     </div>
-
                     <div class="texto-conteudo-escrito">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis aperiam ab earum
                             molestiae
@@ -125,13 +124,13 @@
 
                         </p>
                     </div>
-
                     <div class="botao-conteudo-escrito">
                         <a href="voluntarios/voluntarios.php"><button id="">voluntários</button></a>
                     </div>
 
                 </div>
             </div>
+
         </div>
 
         <div class="container-2">
@@ -209,9 +208,9 @@
                 <p>Agora que você já sabe como funciona e da importância de ajudar, considere se candidatar a uma vaga.
                 </p>
             </div>
+            
 
-
-            <!--CAROUSEL COM OS CARDS DE VAGAS-->
+            <!-- CARROUSEL -->
             <div class="container-carrossel-completo">
                 <div class="container-carrossel">
                     <div class="carrossel">
@@ -365,7 +364,7 @@
     <script type="module" src="imports/carrossel.js"></script>
     <!-- DROP DOWN NAV BAR -->
     <script type="module" src="imports/nav-drop-down.js"></script>
-                                
+
 </body>
 
 </html>
