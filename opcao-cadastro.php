@@ -24,8 +24,8 @@
       </div>
 
       <div class="buttons-rows">
-        <a href="form-voluntario.php"><button class="button-confirm">VOLUNTÁRIO</button></a>
-        <a href="form-instituicao.php"><button class="button-confirm">INSTITUIÇÃO</button></a>
+        <a href="form-voluntario.php"><button id="btn-voluntario" class="button-confirm">VOLUNTÁRIO</button></a>
+        <a href="form-instituicao.php"><button id="btn-instituicao" class="button-confirm">INSTITUIÇÃO</button></a>
       </div>
     
       <div class="link">

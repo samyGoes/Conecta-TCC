@@ -22,11 +22,11 @@ main{
   height: 100vh;
 }
 main .container a:hover{
-  color: #e2be89;
+  color: #c48139;
 }
 
 main .container a :active{
-  color: #e2be89;
+  color: #c48139;
 }
 .container{
   display: flex;
@@ -62,25 +62,26 @@ main .container a :active{
 
 .titles h3{
   color: #e29857;
-  font-family: bitter, sans-serif;
-  font-weight: 500;
+  font-family: poppins, sans-serif;
+  font-weight: 400;
   text-align: center;
-  font-size: 14pt;
+  font-size: 18px;
 }
 
 .buttons-rows
 {
   display: flex;
   gap: 0.8rem;
+  margin-top: 2rem;
 }
 .button-confirm {
-  width: 11rem;
+  width: 10rem;
+  height: 2.5rem;
   border: 1px solid #232e61;
   background-color: #232e61;
-  padding: 1.2vh;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   text-align: center;
-  font-size: 14pt;
+  font-size: 20px;
   font-weight: 300;
   font-family: poppins, sans-serif;
   color: #ffffff;
@@ -88,10 +89,26 @@ main .container a :active{
   cursor: pointer;
 }
 
-.buttons-rows button:hover {
+/* .buttons-rows button:hover {
   background-color: #fff;
   color: #232e61;
+} */
+
+#btn-instituicao:hover
+{
+  background-color: #4567a5;
+  border: 1px solid #4567a5;
 }
+
+#btn-voluntario:hover
+{
+  background-color: #cf8a3f;
+  border: 1px solid #cf8a3f;
+}
+
+
+
+
 
 
 /*Responsividade*/
