@@ -55,7 +55,7 @@ require_once 'global.php';
     </nav>
 
 
-
+    
 
     <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
     <div class="container-titulo-configuracoes">
@@ -193,7 +193,7 @@ require_once 'global.php';
                             ?>
                             <tr>
                                 <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td> <?php echo $voluntario['codVoluntario']; ?> </td>
+                                    <td> <?php echo $voluntario['codCandidatura']; ?> </td>
                                     <td>
                                         <a href="">
                                             <div class="box-img-lista">
@@ -205,9 +205,24 @@ require_once 'global.php';
                                     <td> 18 anos</td>
                                     <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
                                     <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
-                                    <td> Professor </td>
-                                    <td> <button class="table-btn-chamar"> chamar </button> </td>
-                                    <td> <button class="table-btn-rejeitar"> rejeitar </button> </td>
+                                    <td> <?php echo $voluntario['nomeservico']; ?> </td>
+                                    <td> <button id="btnChamar" class="table-btn-chamar"> chamar </button> </td>
+                                    <td> <button id="btnRejeitar"class="table-btn-rejeitar"> rejeitar </button> </td>
+
+                                    <?php
+
+                                        if (isset($_POST['btnChamar'])){ 
+                                            $codCandidatura = $_POST['codCandidatura'];
+                                            
+                                            try{
+                                                $statusCandidatura = CandidaturaDao::atualizarStatus();
+                                            }catch (Exception $e){
+                                                echo $e->getMessage();
+                                            }
+                                        } 
+                                    
+                                    
+                                    ?>
                             </tr>
                         <?php
                                 }
