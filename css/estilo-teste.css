@@ -1,23 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+body
+{
+    overflow-x: hidden;
+}
+
 .fundo 
 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
     min-height: 100vh;
-    background-color: rgb(185, 238, 178);
 } 
+
+/* .fundo-circulo
+{
+    width: 100vw;
+    background-color: #378f9e;
+} */
 
 .circulo
 {
-    width: 400px;
-    height: 400px;
-    background-image: radial-gradient(rgba(255, 255, 0, 0)0 80px, black 80px 100%);
-    /*animation: fechar 2s ease-out forwards;*/
-    transition:  1s ease;
+    width: 600px;
+    height: 600px;
+    background-image: radial-gradient(rgba(255, 255, 0, 0)0 200px, #378f9e 200px 100%);
+    
+    /* background-size: 200px 200px;  definindo o tamanho original do gradiente */
+    /* transition: background-size 5s ease;  animando a propriedade background-size */
 }
 
-.circulo:hover
+
+.card
+{
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    opacity: 0;
+    transition: all 0.5s ease;
+    
+}
+
+.card h1
+{
+    font-family: poppins, sans-serif;
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+}
+
+.card p
+{
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.botao, .botao-i
+{
+    margin-top: 3rem;
+    background-color: #2a599e;
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #2a599e;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.botao:hover, .botao-i:hover
+{
+    background-color: #fff;
+    color: #2a599e;
+}
+
+/* .circulo:hover 
+{
+    background-size: 0px 0px; /* definindo o tamanho reduzido do gradiente no hover 
+} */
+
+/* .circulo:hover
 {
     background-image: radial-gradient(rgba(255, 255, 0, 0)0 10px, black 10px 100%);
-}
+} */
 
 /* .circulo::before {
     position: absolute;

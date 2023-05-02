@@ -11,13 +11,75 @@
     
 
         <div class="fundo">
-            <div class="circulo"></div>
-            <button class="botao"> passe o mouse </button>
+            <div class="card">
+                <h1> Título </h1>
+                <p> 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
+                    venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
+                    elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
+                    eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
+                    et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
+                    mollis. Quisque nec semper nisi, sit amet feugiat odio.
+                </p>
+                <button class="botao-i"> INSTITUIÇÕES </button>
+            </div>
+            <div class="fundo-circulo">
+                <div class="circulo"></div>
+            </div>
+           
+            <button class="botao"> CLIQUE </button>
         </div>
        
 
 
         
 
+
+        <script>
+
+            const circulo = document.querySelector('.circulo');
+            const botao = document.querySelector('.botao');
+            const card = document.querySelector(".card");
+
+            // botao.addEventListener("click", function()
+            // {
+            //     if(circulo.style.backgroundSize == "200px 200px" || circulo.style.backgroundSize == "")
+            //     {
+            //         circulo.style.backgroundSize = "0px 0px";
+            //     }
+            //     else
+            //     {
+            //         circulo.style.backgroundSize = "200px 200px";
+            //     }
+                
+            // });
+
+            let tamanho = 200; // tamanho inicial do círculo
+
+            botao.addEventListener('click', function()
+            {
+                let intervalo = setInterval(function() 
+                {
+                    tamanho -= 5; // diminui o tamanho do círculo em 5 pixels
+                    circulo.style.backgroundImage = `radial-gradient(rgba(255, 255, 0, 0)0 ${tamanho}px, #378f9e ${tamanho}px 100%)`;
+
+                    if (tamanho <= 0) 
+                    {
+                        clearInterval(intervalo); // para a animação quando o círculo tiver tamanho zero
+                        card.style.opacity = "1";
+                        card.style.marginTop = "4rem";
+                    }
+                   
+                }, 10);
+            });
+
+            // circulo.addEventListener('mouseout', function() 
+            // {
+            //     tamanho = 400; // restaura o tamanho do círculo para o valor inicial
+            //     circulo.style.width = `${tamanho}px`;
+            //     circulo.style.height = `${tamanho}px`;
+            // });
+
+        </script>
     </body>
 </html>
