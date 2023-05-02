@@ -87,16 +87,17 @@
     flex-flow: wrap;
     justify-content: center;
     gap: 2rem;
-    margin: 0rem 3rem 0rem 3rem;
+    margin: 2rem 3rem 0rem 3rem;
     /* background-color: #99a8eb; */
     padding-top: 0.7rem;
-    max-width: 90%;
+    max-width: 70rem;
 }
 
 .card-carrossel-dois {
     width: 300px;
     transition: all 0.4s ease;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .card-carrossel-dois:hover {
