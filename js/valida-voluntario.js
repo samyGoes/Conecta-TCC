@@ -33,10 +33,10 @@ function removeError(index) {
 function nameValidate() {
     console.log('nameValidate');
     if (campos[0].value.length < 3) {
-    setError(0, 'Nome deve ter pelo menos 3 caracteres');
+    setError(0, 'Mínimo de três caracteres');
     return false;
     } else if (!nameRegex.test(campos[0].value)) {
-    setError(0, 'Nome inválido. Insira apenas letras');
+    setError(0, 'Insira apenas letras');
     return false;
     } else {
     removeError(0);
@@ -84,7 +84,7 @@ function cpfValidate() {
     const cpf = campos[2].value;
 
     if (!validateCPF(cpf)) {
-    setError(2, 'Cpf Invalido');
+    setError(2, 'Cpf Inválido');
     return false;
     } else {
     removeError(2);
@@ -96,7 +96,7 @@ function foneValidate() {
     console.log('foneValidate');
     
     if (!foneRegex.test(campos[3].value)) {
-    setError(3, 'Telefone invalido');
+    setError(3, 'Telefone inválido');
     return false;
     } else {
     removeError(3);
@@ -107,7 +107,7 @@ function foneValidate() {
 function foneOpcValidate() {
     console.log('foneOpcValidate');
     if (!foneRegex.test(campos[4].value)) {
-    setError(4, 'Telefone invalido');
+    setError(4, 'Telefone inválido');
     return false;
     } else {
     removeError(4);
@@ -118,7 +118,7 @@ function foneOpcValidate() {
 function emailValidate() {
     console.log('emailValidate');
     if (!emailRegex.test(campos[5].value)) {
-    setError(5, 'Email invalido');
+    setError(5, 'Email inválido');
     return false;
     } else {
     removeError(5);

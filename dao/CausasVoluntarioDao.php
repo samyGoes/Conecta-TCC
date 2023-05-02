@@ -9,9 +9,11 @@
 
         $conexao = Conexao::conectar();
 
-        $verificaCausa=$conectar->prepare("SELECT codVoluntario FROM tbcausaVoluntario WHERE codCategoriaServico = ?");
-        $verificaCausa->bindValue(1, $causaVoluntario->getCodCategoria());
+        $verificaCausa=$conexao->prepare("SELECT codVoluntario FROM tbcausaVoluntario WHERE codCategoriaServico IN (?) ");
+        $codCategoria = implode(",", $causaVoluntario->getCodCategoria());
+        $verificaCausa->bindValue(1, $codCategoria);
         $verificaCausa->execute();
+        
 
         if($verificaCausa->rowCount() > 0 )
         {
