@@ -263,7 +263,7 @@
                                                         <?php echo $vaga['descServico']; ?>
                                                     </p>
                                                 </div>
-                                                <form action="redirecionar-vaga-completa.php" method="post">
+                                                <form action="vagas/redirecionar-vaga-completa.php" method="post">
                                                     <input type="hidden" name="id"
                                                         value="<?php echo $vaga['codServico']; ?>">
                                                     <button class="card-carrossel-botao" id="botao-it" type="submit">

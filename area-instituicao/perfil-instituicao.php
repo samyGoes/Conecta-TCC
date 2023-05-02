@@ -271,9 +271,12 @@
                                                 <p> Período: <span><?php echo $vaga['periodoServico']; ?></span> </p>
                                                 <p> Cidade: <span> <?php echo $vaga['cidadeLocalServico']; ?> </span> </p>
                                             </div>
-                                            <a href="#"><button class="card-carrossel-botao">
-                                                VER
-                                            </button></a>
+                                            <form action="../vagas/redirecionar-vaga-completa.php" method="post">
+                                                <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                                                <a href="#"><button class="card-carrossel-botao">
+                                                    VER
+                                                </button></a>
+                                            </form>
                                         </div>
                                     <?php } ?>
                                 </div>
