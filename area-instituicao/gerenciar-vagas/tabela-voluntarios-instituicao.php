@@ -186,7 +186,7 @@ require_once 'global.php';
                             <?php
                             require_once 'global.php';
                             try {
-                                $listaVoluntario = VoluntarioDao::listar();
+                                $listaVoluntario = CandidaturaDao::listar();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
