@@ -158,7 +158,7 @@
                             </div>
                     </div>
                     <div class="continue-button">
-                        <button class="button" type="submit">excluir</button>
+                        <button class="button" type="submit" id="cadastro-btn">excluir</button>
                     </div>
                 </form>
             </div>
@@ -166,14 +166,7 @@
 
 
         </main>
-
-
-
-
-
-
-
-
+        <script src="/js/modal-cadastro-vaga.js"></script>
         <script type="module" src="imports/side-bar.js"></script>
         <script type="module" src="../imports/nav-drop-down.js"></script>
     </body>

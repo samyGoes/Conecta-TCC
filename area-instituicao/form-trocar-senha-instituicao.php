@@ -196,7 +196,7 @@
                     </div>
                 </div>
                 <div class="continue-button">
-                    <button class="button" type="submit"> Salvar</button>
+                    <button class="button" type="submit" id="cadastro-btn"> Salvar</button>
                 </div>
             </form>
         </div>
@@ -210,6 +210,7 @@
 
 
     <!-- SCRIPTS -->
+    <script src="/js/modal-cadastro-vaga.js"></script>
     <script type="module" src="../area-voluntario/imports/envia-email.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
