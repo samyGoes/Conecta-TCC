@@ -26,75 +26,76 @@ body
 .fundo-circulo
 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100vw;
-    height: 50rem;
-    background-color: #378f9e;
-    z-index: 1;
+    height: 100vh;
+    background-color: #beeaf1; 
+    /* z-index: 1; */
     /* position: fixed; */
+    position: relative;
+    overflow: hidden;
+}
+
+.fundo-titulo
+{
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #08113b;
+    position: absolute;
+    margin-top: 2rem;
+}
+
+.circulo
+{
+    width: 510px;
+    height: 510px;
+    margin-top: 5rem;
+    background-image: radial-gradient(rgba(255, 255, 0, 0)0 250px, #beeaf1 250px 100%);
+    background-position: center;
+    z-index: 3;
+}
+
+.sombra-circulo
+{
+    position: absolute;
+    z-index: 2;
+    width: 460px;
+    height: 460px;
+    margin: 7rem 1rem 0rem 0rem;
+    border-radius: 50%;
+    background-color: #ffecd9;
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
+    mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
+    box-shadow: inset 0px 0px 10px 5px #b1855b;
+    /* box-shadow:  0px 0px 10px 5px #42639680; */
 }
 
 .box-img
 {
     width: 485px;
     height: 485px;
-    background-image: url("../img/mundo.png");
+    background-image: url("../img/mundo-2.png");
     background-size: cover;
     background-position: center;
-    margin: 0rem 3rem 6.5rem 0rem;
- 
-    position: fixed;
+    margin: 6.3rem 0.5rem 0rem 0rem;
+    position: absolute;
     z-index: 2;
 }
 
 
-.circulo
+.img-maos
 {
-    width: 600px;
-    height: 600px;
-    background-image: radial-gradient(rgba(255, 255, 0, 0)0 250px, #378f9e 250px 100%);
-    background-position: center;
-    
-    /* background-size: 200px 200px;  definindo o tamanho original do gradiente */
-    /* transition: background-size 5s ease;  animando a propriedade background-size */
-    z-index: 3;
-}
-
-
-.card
-{
-    position: fixed;
+    position: absolute;
+    background-image: url("../img/maos.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 690px;
+    height: 460px;
+    bottom: -12rem;
     z-index: 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background-color: #fff;
-    width: 30rem;
-    height: 30rem;
-    border-radius: 1rem;
-    padding: 1.5rem 2rem 1.5rem 2rem;
-    opacity: 0;
-    transition: all 0.5s ease;
-    
-}
-
-.card h1
-{
-    font-family: poppins, sans-serif;
-    font-size: 30px;
-    color: #000;
-    font-weight: 400;
-}
-
-.card p
-{
-    font-family: poppins, sans-serif;
-    font-size: 16px;
-    color: #000;
-    font-weight: 400;
-    text-align: justify;
+    transition: all 1s ease;
 }
 
 .botao, .botao-i
@@ -107,6 +108,7 @@ body
     outline: none;
     cursor: pointer;
     transition: all 0.5s ease;
+    margin-top: 1rem;
 
     font-family: poppins, sans-serif;
     font-weight: 300;
@@ -122,55 +124,80 @@ body
     color: #2a599e;
 }
 
-.teste
+
+
+.box-cards
 {
-    z-index: 6;
-    width: 100vw;
-    height: 50vh;
-    background-color: #da7a2c;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
-/* .circulo:hover 
-{
-    background-size: 0px 0px; /* definindo o tamanho reduzido do gradiente no hover 
-} */
 
-/* .circulo:hover
+.card
 {
-    background-image: radial-gradient(rgba(255, 255, 0, 0)0 10px, black 10px 100%);
-} */
-
-/* .circulo::before {
     position: absolute;
-    content: '';
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
-    z-index: 1;
-    transition: all 0.5s linear;
-    /* opacity: 0; 
-  }
-  
-  .circulo:hover::before {
-    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
-    /* opacity: 1; 
-  } */
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: #fff;
+    width: 30rem;
+    /* height: 27rem; */
+    border-radius: 1rem;
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: all 0.5s ease;
+    border: 1px solid #2a599e;
+    /* margin-top: 2rem; */
+}
 
-/* .botao:hover ~ .circulo
+.box-icon
 {
-    background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
-} */
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 1rem 1.3rem 0rem 0rem;
+}
 
-/* @keyframes fechar 
+.card i
 {
-    0% 
-    {
-        background: radial-gradient(rgba(255, 255, 0, 0)0 75px, black 75px 100%);
-    }
-    100% 
-    {
-        background: radial-gradient(rgba(255, 255, 0, 0)0 0px, black 0px 100%);
-    }
-} */
+    font-size: 18px;
+    color: #525252;
+    cursor: pointer;
+}
+
+.card h1
+{
+    font-family: acme, sans-serif;
+    font-size: 30px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.card p
+{
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    text-align: justify;
+    padding: 0rem 3rem 1.5rem 3rem;
+}
+
+.card-link
+{
+    font-family: bitter, serif;
+    font-size: 15px;
+    color: #303ca8;
+    font-weight: 500;
+    text-decoration-line: none;
+    transition: all 0.5s ease;
+}
+
+.card-link:hover
+{
+    color: #cc8746;
+}

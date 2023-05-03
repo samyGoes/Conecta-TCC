@@ -5,39 +5,61 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-teste.css">
+           <!-- LINK ICONES -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Document</title>
     </head>
     <body>
     
 
         <div class="fundo">
-            <div class="card">
-                <h1> Título </h1>
-                <p> 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
-                    venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
-                    elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
-                    eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
-                    et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
-                    mollis. Quisque nec semper nisi, sit amet feugiat odio.
-                </p>
-                <button class="botao-i"> INSTITUIÇÕES </button>
+            <div class="box-cards">
+                <div class="card">
+
+                    <div class="box-icon">
+                        <i id="icon-fechar" class="fa-solid fa-xmark"></i>
+                    </div>
+                    
+                    <h1> O que é? </h1>
+                    <p> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
+                        venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
+                        elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
+                        eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
+                        et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
+                        mollis. Quisque nec semper nisi, sit amet feugiat odio.
+                    </p>
+                    <a class="card-link" href="instituicoes/instituicoes.php"> Conheça as Instituições disponíveis </a>
+                </div>
+    
+                <!-- <div class="card-dois">
+                    <h1> Título </h1>
+                    <p> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
+                        venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
+                        elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
+                        eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
+                        et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
+                        mollis. Quisque nec semper nisi, sit amet feugiat odio.
+                    </p>
+                    <button class="botao-i"> INSTITUIÇÕES </button>
+                </div> -->
             </div>
+            
                          
                     
-            <div class="fundo-circulo">
+            <div class="fundo-circulo">       
+                <h1 class="fundo-titulo"> Saiba um pouco mais sobre o Terceiro Setor</h1>
                 <div class="circulo"></div> 
+                <div class="sombra-circulo"></div>
                 <div class="box-img"></div> 
+                <button class="botao"> SAIBA MAIS </button>
+                <div class="img-maos"></div>
             </div>     
         </div>
-        
-            <button class="botao"> CLIQUE </button>
-
-            <!-- <div class="teste"></div> -->
-       
-
-
-        
+              
 
 
         <script>
@@ -45,45 +67,48 @@
             const circulo = document.querySelector('.circulo');
             const botao = document.querySelector('.botao');
             const card = document.querySelector(".card");
-
-            // botao.addEventListener("click", function()
-            // {
-            //     if(circulo.style.backgroundSize == "200px 200px" || circulo.style.backgroundSize == "")
-            //     {
-            //         circulo.style.backgroundSize = "0px 0px";
-            //     }
-            //     else
-            //     {
-            //         circulo.style.backgroundSize = "200px 200px";
-            //     }
-                
-            // });
-
-            let tamanho = 200; // tamanho inicial do círculo
+            const maos = document.querySelector(".img-maos");
+            const sombraCirculo = document.querySelector(".sombra-circulo");
+            const iconFechar = document.querySelector("#icon-fechar");
+            
+            let tamanho = 250; // tamanho inicial do círculo
 
             botao.addEventListener('click', function()
             {
+                maos.style.bottom = "-35rem";
                 let intervalo = setInterval(function() 
                 {
                     tamanho -= 5; // diminui o tamanho do círculo em 5 pixels
-                    circulo.style.backgroundImage = `radial-gradient(rgba(255, 255, 0, 0)0 ${tamanho}px, #378f9e ${tamanho}px 100%)`;
+                    circulo.style.backgroundImage = `radial-gradient(rgba(255, 255, 0, 0)0 ${tamanho}px, #beeaf1 ${tamanho}px 100%)`;
 
                     if (tamanho <= 0) 
                     {
                         clearInterval(intervalo); // para a animação quando o círculo tiver tamanho zero
                         card.style.opacity = "1";
-                        card.style.marginTop = "4rem";
+                        card.style.marginTop = "8rem";
                     }
                    
                 }, 10);
             });
 
-            // circulo.addEventListener('mouseout', function() 
-            // {
-            //     tamanho = 400; // restaura o tamanho do círculo para o valor inicial
-            //     circulo.style.width = `${tamanho}px`;
-            //     circulo.style.height = `${tamanho}px`;
-            // });
+            iconFechar.addEventListener("click", function()
+            {
+                card.style.opacity = "0";
+                maos.style.bottom = "-12rem";
+                let intervalo = setInterval(function() 
+                {
+                    tamanho += 5; // diminui o tamanho do círculo em 5 pixels
+                    circulo.style.backgroundImage = `radial-gradient(rgba(255, 255, 0, 0)0 ${tamanho}px, #beeaf1 ${tamanho}px 100%)`;
+
+                    if (tamanho >= 250) 
+                    {
+                        clearInterval(intervalo); // para a animação quando o círculo tiver tamanho zero
+                        card.style.marginTop = "0rem";
+                        card.style.opacity = "0";                     
+                    }
+                   
+                }, 10);
+            });
 
         </script>
     </body>
