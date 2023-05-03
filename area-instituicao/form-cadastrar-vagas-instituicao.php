@@ -288,7 +288,7 @@ $c = $_SESSION['codUsuario'];
                 </div>
                 <a href="">
                     <div class="continue-button">
-                        <button id="requisitar" type="">CADASTRAR</button>
+                        <button id="cadastro-btn" type="">CADASTRAR</button>
                     </div>
                 </a>
             </form>
@@ -296,7 +296,7 @@ $c = $_SESSION['codUsuario'];
         
     </main>
 
-
+    <script src="/js/modal-cadastro-vaga.js"></script>
     <script src="../js/endereco-auto.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
@@ -306,22 +306,6 @@ $c = $_SESSION['codUsuario'];
         const boxCausas = document.querySelector(".box-causas");
         const dropCausas = document.querySelector('.clique-fora');
         const dropHab = document.querySelector(".clique-fora-h");
-
-        // Associar o evento de clique ao botão e ao botão de fechar
-        // document.getElementById("requisitar").addEventListener("click", abrirModal);
-        // document.querySelector(".fechar").addEventListener("click", fecharModal);
-
-
-        // Função para abrir o modal
-        // function abrirModal() {
-        //     document.getElementById("meuModal").style.display = "block";
-        // }
-
-        // // Função para fechar o modal
-        // function fecharModal() {
-        //     document.getElementById("meuModal").style.display = "none";
-        // }
-
 
         botaoCausas.addEventListener("click", function() {
             if (boxCausas.style.display == "none" || boxCausas.style.display == "") {
