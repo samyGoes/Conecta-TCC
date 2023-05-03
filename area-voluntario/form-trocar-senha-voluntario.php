@@ -26,7 +26,7 @@
 
         <!-- SCRIPT -->
         <script type="module" src="js/main.js"></script>
-        <title> Configurações do Perfil - trocar senha</title>
+        <title> Configurações do Perfil - Trocar Senha</title>
     </head>
 
     <body>

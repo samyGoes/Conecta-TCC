@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title> INÍCIO </title>
+    <title> Início </title>
 </head>
 
 <body>
@@ -113,16 +113,11 @@
                         <h1>O que é o trabalho voluntário?</h1>
                     </div>
                     <div class="texto-conteudo-escrito">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis aperiam ab earum
-                            molestiae
-                            dolores quisquam sequi exercitationem, minus voluptas inventore ut alias quis doloribus
-                            laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.
-                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nemo
-                            explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ad quisquam, eos
-                            ducimus magni odio aliquam ratione sit numquam inventore iure nisi recusandae molestiae ab
-                            omnis suscipit error sunt accusantium?
-
+                        <p>Voluntário é a pessoa que se interessa e dispõe parte do seu tempo para executar algum trabalho de bem estar para a sociedade ou 
+                            mesmo em outro campo, utilizando suas habilidades e competências para fazer alguma diferença na situação atual.Felizmente o número de pessoas se voluntariando vem crescendo, um aumento de 23% de 
+                             2011 a 2021 (Pesquisa Voluntariado no Brasil, 2021), porém a quantidade de pessoas ainda é pouca se comparada à população total do Brasil com cerca
+                              de 214 milhões de pessoas. A falta de informação, de conhecimento sobre as instituições ou até mesmo meios de engajamento
+                             e divulgação dos serviços por parte das instituições é um obstáculo para o crescimento dos índices.
                         </p>
                     </div>
                     <div class="botao-conteudo-escrito">
@@ -175,12 +170,13 @@
                     
                     <h1> O que é? </h1>
                     <p> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
-                        venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
-                        elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
-                        eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
-                        et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
-                        mollis. Quisque nec semper nisi, sit amet feugiat odio.
+                        
+                        Em meio a atual circustância da sociedade, a necessidade de amparo da população mais afetada é, 
+                        por parte, suprida por meio da contribuição do terceiro setor, sendo estes ONGs (Organizações não Governamentais),
+                        OSCs (Organizações da Sociedade Civil) e OSCIPs (Organizações da Sociedade Civil de Interesse Público), instituições que 
+                        não tem como objetivo fins lucrativos, mas sim o foco em desenvolver ações que garantam os direitos da população, que, no geral, 
+                        são desamparadas pelo poder público, seja em assistência social, alimentar,
+                        educacional, políticas públicas, meio ambiente, entre muitas outras. 
                     </p>
                     <a class="card-link" href="instituicoes/instituicoes.php"> Conheça as Instituições disponíveis </a>
                 </div>
