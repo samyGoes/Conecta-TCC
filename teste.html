@@ -52,10 +52,15 @@
                     
             <div class="fundo-circulo">       
                 <h1 class="fundo-titulo"> Saiba um pouco mais sobre o Terceiro Setor</h1>
+                <div class="corta-coracao">
+                    <div class="coracoes">
+                        <!-- <div class="box-img-coracao"></div> -->
+                    </div>
+                </div>
                 <div class="circulo"></div> 
-                <div class="sombra-circulo"></div>
+                <div class="sombra-circulo"></div>                  
                 <div class="box-img"></div> 
-                <button class="botao"> SAIBA MAIS </button>
+                <button class="botao"> SAIBA SOBRE </button>
                 <div class="img-maos"></div>
             </div>     
         </div>
@@ -70,12 +75,21 @@
             const maos = document.querySelector(".img-maos");
             const sombraCirculo = document.querySelector(".sombra-circulo");
             const iconFechar = document.querySelector("#icon-fechar");
-            
+            const boxCoracoes = document.querySelector(".box-img-coracao");   
+            const style = document.createElement("style");
+            const mundo = document.querySelector(".box-img");
+            const coracoes = document.querySelector(".coracoes");
+
+            //boxCoracoes.innerHTML = ` <img src="img/coracao.png"> `  
+            //coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
+        
+          
             let tamanho = 250; // tamanho inicial do círculo
 
             botao.addEventListener('click', function()
             {
                 maos.style.bottom = "-35rem";
+            
                 let intervalo = setInterval(function() 
                 {
                     tamanho -= 5; // diminui o tamanho do círculo em 5 pixels
@@ -109,6 +123,26 @@
                    
                 }, 10);
             });
+            
+            
+            if(tamanho >= 250)
+            {
+                let posicao = 3;
+                // CRIANDO CORAÇÃO
+                for(let i = 1; i <= 5; i++)
+                {
+                    coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
+                    boxCoracoes.style.marginLeft = `${posicao}rem`;
+                    posicao = posicao + 3;
+                }
+
+                let intervalo = setInterval(function() 
+                {
+                    boxCoracoes.style.marginBottom = "40rem";
+                }, 10);
+                
+            }
+              
 
         </script>
     </body>

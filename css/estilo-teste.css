@@ -35,6 +35,7 @@ body
     /* position: fixed; */
     position: relative;
     overflow: hidden;
+    z-index: 20;
 }
 
 .fundo-titulo
@@ -47,6 +48,18 @@ body
     margin-top: 2rem;
 }
 
+.corta-coracao
+{
+    position: absolute;
+    z-index: 9;
+    width: 460px;
+    height: 460px;
+    margin: 7rem 1rem 0rem 0rem;
+    border-radius: 50%;
+    overflow: hidden;
+    /* background-color: #2a599e; */
+}
+
 .circulo
 {
     width: 510px;
@@ -54,13 +67,13 @@ body
     margin-top: 5rem;
     background-image: radial-gradient(rgba(255, 255, 0, 0)0 250px, #beeaf1 250px 100%);
     background-position: center;
-    z-index: 3;
+    z-index: 8;
 }
 
 .sombra-circulo
 {
     position: absolute;
-    z-index: 2;
+    z-index: 7;
     width: 460px;
     height: 460px;
     margin: 7rem 1rem 0rem 0rem;
@@ -69,7 +82,40 @@ body
     -webkit-mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
     mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
     box-shadow: inset 0px 0px 10px 5px #b1855b;
-    /* box-shadow:  0px 0px 10px 5px #42639680; */
+}
+
+/* .box-circulo
+{
+    position: absolute;
+    z-index: 9;
+    width: 460px;
+    height: 460px;
+    margin: 7rem 1rem 0rem 0rem;
+    border-radius: 50%;
+    overflow: hidden;
+    /* background-color: #2a599e; 
+} */
+
+
+.coracoes
+{
+    position: absolute;
+    z-index: 8;
+    bottom: 0;
+}
+
+.box-img-coracao
+{
+    width: 65px;
+    height: 65px;
+    transition: all 5s ease;
+}
+
+.box-img-coracao img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .box-img
@@ -81,7 +127,20 @@ body
     background-position: center;
     margin: 6.3rem 0.5rem 0rem 0rem;
     position: absolute;
-    z-index: 2;
+    z-index: 7;
+    animation: girando 10s linear infinite;
+}
+
+@keyframes girando
+{
+    0%
+    {
+        transform: rotate(0);
+    }
+    100% 
+    {
+		transform: rotate(360deg);
+	}
 }
 
 
@@ -94,7 +153,7 @@ body
     width: 690px;
     height: 460px;
     bottom: -12rem;
-    z-index: 4;
+    z-index: 10;
     transition: all 1s ease;
 }
 
@@ -115,7 +174,7 @@ body
     color: #fff;
     text-transform: uppercase;
     font-size: 20px;
-    z-index: 5;
+    z-index: 12;
 }
 
 .botao:hover, .botao-i:hover
@@ -137,7 +196,7 @@ body
 .card
 {
     position: absolute;
-    z-index: 4;
+    z-index: 30;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,6 +210,7 @@ body
     transition: all 0.5s ease;
     border: 1px solid #2a599e;
     /* margin-top: 2rem; */
+    box-shadow: 5px 5px 5px #72b5cf;
 }
 
 .box-icon
