@@ -1,23 +1,32 @@
 <?php 
   
     require_once 'global.php';
-
+    
     class CandidaturaDao
     {
 
         public static function listar(){
             $conexao = Conexao :: conectar();
-            $querySelect = "SELECT codCandidatura, nomeVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, nomeservico ,fotoVoluntario FROM tbCandidatura
-            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
-            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico";
+
+                
+                $querySelect = "SELECT codCandidatura, codInstituicao, nomeVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, nomeservico ,fotoVoluntario 
+                FROM tbCandidatura
+                WHERE codInstituicao LIKE '?'
+                INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+                INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+                INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+                ";
+                $resultado = $conexao -> query($querySelect);
+                $lista = $resultado -> fetchAll();
+            
             //"SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
-            $resultado = $conexao -> query($querySelect);
-            $lista = $resultado -> fetchAll();
             return $lista;
         }
 
+
         public static function atualizarStatus(){
             $conexao = Conexao :: conectar();
+
             $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'aceito' WHERE codCandidatura = ?";
             $resultado = $conexao -> query($queryAceito);
             $status = $resultado ->fetchAll();
