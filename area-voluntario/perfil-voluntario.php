@@ -1,6 +1,6 @@
 <?php
 require_once 'global.php';
-require_once '../auth/verifica-logado.php';
+include "../auth/loginUsuario.php";
 
 $t = $_SESSION['tipoPerfil'];
 $c = $_SESSION['codUsuario'];

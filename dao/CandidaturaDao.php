@@ -34,6 +34,19 @@
             return $status;
         }
 
+        public static function cadastrar($candidato,$vaga,$status)
+        {
+            $conexao = Conexao :: conectar();
+
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbcandidatura(codVoluntario,codServico,statusCandidatura) 
+            VALUES(?,?,?)");
+
+            $prepareStatement -> bindValue (1, $candidato);
+            $prepareStatement -> bindValue (2, $vaga);
+            $prepareStatement -> bindValue (3, $status);
+            $prepareStatement -> execute();
+        }
+
         //$queryRejeitado = "UPDATE tbCandidatura SET statusCandidatura = 'rejeitado'";
     }
 ?>

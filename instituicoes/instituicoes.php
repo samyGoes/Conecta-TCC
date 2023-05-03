@@ -1,10 +1,6 @@
 <?php
     require_once 'global.php';
     include "../auth/loginUsuario.php";
-
-
-    $t = $_SESSION['tipoPerfil'];
-    $c = $_SESSION['codUsuario'];   
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

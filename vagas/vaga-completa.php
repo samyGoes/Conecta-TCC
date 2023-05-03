@@ -1,6 +1,6 @@
 <?php
-require_once 'global.php';
-include "../auth/verifica-logado.php";
+    require_once 'global.php';
+    include "../auth/loginUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -140,11 +140,12 @@ include "../auth/verifica-logado.php";
                         ?>
                     </div>
                 </div>
-
-                <div class="area-candidatar">
-                    <p>Candidate-se a esta vaga para ajudar em nossa causa!</p>
-                    <button>candidatar-se</button>
-                </div>
+                <form action="../area-voluntario/candidatura.php" method="POST">
+                    <div class="area-candidatar">
+                            <p>Candidate-se a esta vaga para ajudar em nossa causa!</p>
+                            <button type="submit">candidatar-se</button>
+                    </div>
+                </form>
             </div>
         </div>
 

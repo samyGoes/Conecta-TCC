@@ -41,7 +41,7 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Meu Perfil </a></li>
+                            <li> <a href=""> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href=""> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
@@ -86,10 +86,12 @@
                     <div class="filtro-causas"> CAUSAS </div>
                     <div class="box-causas">
                         <?php 
-                            require_once 'global.php';
-                            try {
+                            try 
+                            {
                                 $listaCausas = CategoriaServicoDao::listar();
-                            } catch (Exception $e) {
+                            } 
+                            catch (Exception $e) 
+                            {
                                 echo $e->getMessage();
                             }
                         ?>      
@@ -126,7 +128,6 @@
         <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
         <div class="lista-voluntario">
             <?php
-                require_once 'global.php';
                 try {
                     $listaVoluntario = VoluntarioDao::listar();
                 } catch (Exception $e) {
@@ -143,7 +144,8 @@
                 {
                     $listarCausas = CausasVoluntarioDao::listarVoluntariosCausas($c);
                 }
-                catch (Exception $e) {
+                catch (Exception $e) 
+                {
                     echo $e->getMessage();
 
                 }

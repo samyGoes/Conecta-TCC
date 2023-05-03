@@ -1,8 +1,7 @@
 <?php
     //Inserindo a função global e a função verifica-logado para acessar as sessões já iniciadas
      require_once 'global.php';  
-     require_once '../auth/verifica-logado.php';
-   
+     include "../auth/loginUsuario.php";
     try
     {
         //Redirecionando para a vaga completa
