@@ -11,6 +11,7 @@
     <!-- LINKS CSS -->
     <link rel="stylesheet" href="css/estilo-index.css">
     <link rel="stylesheet" href="css/estilo-navbar-rodape.css">
+    <link rel="stylesheet" href="css/estilo-teste.css">
 
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -135,7 +136,7 @@
 
         <div class="container-2">
 
-            <div class="titulo-container-conteudo-2">
+            <!-- <div class="titulo-container-conteudo-2">
                 <h1>Um pouco sobre o Terceiro Setor</h1>
             </div>
 
@@ -163,9 +164,46 @@
                     </div>
 
                 </div>
+            </div> -->
+
+            <div class="box-cards">
+                <div class="card">
+
+                    <div class="card-box-icon">
+                        <i id="icon-fechar" class="fa-solid fa-xmark"></i>
+                    </div>
+                    
+                    <h1> O que é? </h1>
+                    <p> 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
+                        venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
+                        elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
+                        eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
+                        et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
+                        mollis. Quisque nec semper nisi, sit amet feugiat odio.
+                    </p>
+                    <a class="card-link" href="instituicoes/instituicoes.php"> Conheça as Instituições disponíveis </a>
+                </div>
             </div>
+            
+                         
+                    
+            <div class="fundo-circulo">       
+                <h1 class="fundo-titulo"> Saiba um pouco mais sobre o Terceiro Setor</h1>
+                <div class="corta-coracao">
+                    <div class="coracoes">
+                        <!-- <div class="box-img-coracao"></div> -->
+                    </div>
+                </div>
+                <div class="circulo"></div> 
+                <div class="sombra-circulo"></div>                  
+                <div class="box-img"></div> 
+                <button class="container-2-botao"> SAIBA SOBRE </button>
+                <div class="img-maos"></div>
+            </div>   
 
         </div>
+
         <div class="container-3">
 
             <div class="titulo-container-conteudo-3">
@@ -242,7 +280,7 @@
                                                     <?php echo $vaga['cidadeLocalServico']; ?>
                                                 </p>
                                             </div>
-                                            <div class="fundo">
+                                            <div class="card-fundo">
                                                 <div class="fundo-img">
                                                     <img src="<?php echo $vaga['fotoInstituicao']; ?>">
                                                 </div>
@@ -364,6 +402,8 @@
     <script type="module" src="imports/carrossel.js"></script>
     <!-- DROP DOWN NAV BAR -->
     <script type="module" src="imports/nav-drop-down.js"></script>
+
+    <script src="js/mundo.js"></script>
 
 </body>
 

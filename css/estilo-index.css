@@ -43,6 +43,7 @@ body {
 .titulo-conteudo-direita h1 {
     font-family: acme, sans-serif;
     font-weight: 400;
+    font-size: 40px;
     color: #232e61;
     margin-bottom: 15px;
 }
@@ -58,6 +59,7 @@ body {
     color: #000;
     line-height: 35px;
     text-align: justify;
+    font-size: 16px;
 }
 
 .continuar-botao {
@@ -116,20 +118,21 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
+    margin-bottom: 6rem;
 }
 
 .titulo-container-conteudo-1 h1 {
     font-family: acme, sans-serif;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 40px;
     color: #232e61;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 4rem;
 }
 
 .card-conteudo-1 {
-    max-width: 90vw;
+    max-width: 70rem;
     display: flex;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
@@ -203,7 +206,7 @@ body {
 
 /*CONTAINER 2*/
 .container-2{
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;    
@@ -212,7 +215,11 @@ body {
     background-size: contain;
     width: 100vw;
     height: 147vh;
-    gap: 5%;
+    gap: 5%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
 }
 
 .titulo-container-conteudo-2{
@@ -316,7 +323,7 @@ body {
     gap: 5%;
 }
 .titulo-container-conteudo-3 h1{
-    margin-top: 5%;
+    margin-top: 3rem;
     font-family: acme, sans-serif;
     font-weight: 400;
     color: #fff;
@@ -325,7 +332,9 @@ body {
 .topicos-container-3{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: center;
+    gap: 6rem;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -512,7 +521,7 @@ body {
     text-transform: uppercase;
 }
 
-.fundo {
+.card-fundo {
     display: flex;
     /* border-radius: 0.6rem 0.6rem 0rem 0rem; */
     background-color: #bbefd8;

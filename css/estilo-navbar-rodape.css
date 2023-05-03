@@ -25,7 +25,7 @@
     /* padding: 1.5rem; */
     background-color: #232f61;
     position: fixed;
-    z-index: 1;
+    z-index: 30;
 }
 .logo
 {

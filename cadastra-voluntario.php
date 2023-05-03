@@ -3,6 +3,7 @@
 require_once 'global.php';
 
 try{
+  header('Location: form-login.php');
 
 $validaSenha= new Senha();
 $validaCpf=new Cpf();

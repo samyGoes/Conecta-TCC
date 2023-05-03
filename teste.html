@@ -33,19 +33,6 @@
                     </p>
                     <a class="card-link" href="instituicoes/instituicoes.php"> Conheça as Instituições disponíveis </a>
                 </div>
-    
-                <!-- <div class="card-dois">
-                    <h1> Título </h1>
-                    <p> 
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada nisi et 
-                        venenatis ultricies. Pellentesque commodo ligula sed ex tristique rutrum. Nullam sapien
-                        elit, imperdiet vel congue pharetra, dignissim ac nisi. Phasellus nisl leo, placerat 
-                        eget vulputate id, tristique at risus. Pellentesque habitant morbi tristique senectus 
-                        et netus et malesuada fames ac turpis egestas. Fusce iaculis justo sit amet venenatis 
-                        mollis. Quisque nec semper nisi, sit amet feugiat odio.
-                    </p>
-                    <button class="botao-i"> INSTITUIÇÕES </button>
-                </div> -->
             </div>
             
                          
@@ -82,8 +69,7 @@
 
             //boxCoracoes.innerHTML = ` <img src="img/coracao.png"> `  
             //coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
-        
-          
+         
             let tamanho = 250; // tamanho inicial do círculo
 
             botao.addEventListener('click', function()
@@ -125,23 +111,23 @@
             });
             
             
-            if(tamanho >= 250)
-            {
-                let posicao = 3;
-                // CRIANDO CORAÇÃO
-                for(let i = 1; i <= 5; i++)
-                {
-                    coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
-                    boxCoracoes.style.marginLeft = `${posicao}rem`;
-                    posicao = posicao + 3;
-                }
+            // if(tamanho >= 250)
+            // {
+            //     let posicao = 3;
+            //     // CRIANDO CORAÇÃO
+            //     for(let i = 1; i <= 5; i++)
+            //     {
+            //         coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
+            //         boxCoracoes.style.marginLeft = `${posicao}rem`;
+            //         posicao = posicao + 3;
+            //     }
 
-                let intervalo = setInterval(function() 
-                {
-                    boxCoracoes.style.marginBottom = "40rem";
-                }, 10);
+            //     let intervalo = setInterval(function() 
+            //     {
+            //         boxCoracoes.style.marginBottom = "40rem";
+            //     }, 10);
                 
-            }
+            // }
               
 
         </script>
