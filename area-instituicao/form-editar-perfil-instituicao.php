@@ -244,13 +244,11 @@
                     </div>
                 </div>
                 <a href=""><div class="continue-button">
-                    <button type="submit">SALVAR</button>
+                    <button type="submit" id="cadastro-btn">SALVAR</button>
                 </a>
                 </div>
             </form>
         </div>
-
-
     </main>
 
 
@@ -259,7 +257,7 @@
 
 
 
-
+    <script src="/js/modal-cadastro-vaga.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>

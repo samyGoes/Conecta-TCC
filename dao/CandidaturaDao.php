@@ -19,7 +19,6 @@
         public static function atualizarStatus(){
             $conexao = Conexao :: conectar();
             $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'aceito' WHERE codCandidatura = ?";
-            
             $resultado = $conexao -> query($queryAceito);
             $status = $resultado ->fetchAll();
             return $status;

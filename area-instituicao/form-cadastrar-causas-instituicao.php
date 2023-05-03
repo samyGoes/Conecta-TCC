@@ -146,7 +146,7 @@ $c = $_SESSION['codUsuario'];
                             <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                         </div>
                         <div class="continue-button">
-                            <button id="requisitar" type="submit">CADASTRAR</button>
+                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
                         </div>
                     </form>
                 </div>
@@ -211,7 +211,7 @@ $c = $_SESSION['codUsuario'];
 
         </div>
     </main>
-
+    <script src="/js/modal-cadastro-vaga.js"></script>                                   
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/check-box.js"></script>

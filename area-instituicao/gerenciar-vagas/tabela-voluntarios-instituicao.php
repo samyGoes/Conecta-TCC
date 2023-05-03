@@ -55,7 +55,7 @@ require_once 'global.php';
     </nav>
 
 
-    
+
 
     <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
     <div class="container-titulo-configuracoes">
@@ -191,41 +191,49 @@ require_once 'global.php';
                                 echo $e->getMessage();
                             }
                             ?>
-                            <tr>
-                                <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td> <?php echo $voluntario['codCandidatura']; ?> </td>
-                                    <td>
-                                        <a href="">
-                                            <div class="box-img-lista">
-                                                <img src="img/user-cinza.png" alt="">
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td><?php echo $voluntario['nomeVoluntario']; ?></td>
-                                    <td> 18 anos</td>
-                                    <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
-                                    <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
-                                    <td> <?php echo $voluntario['nomeservico']; ?> </td>
-                                    <td> <button id="btnChamar" class="table-btn-chamar"> chamar </button> </td>
-                                    <td> <button id="btnRejeitar"class="table-btn-rejeitar"> rejeitar </button> </td>
+                            <form action="" method="post">
+                                <tr>
+                                    <?php foreach ($listaVoluntario as $voluntario) { ?>
+                                        <td> <?php echo $voluntario['codCandidatura']; ?> </td>
+                                        <td>
+                                            <a href="">
+                                                <div class="box-img-lista">
+                                                    <img src="img/user-cinza.png" alt="">
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                                        <td> 18 anos</td>
+                                        <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
+                                        <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
+                                        <td> <?php echo $voluntario['nomeservico']; ?> </td>
+                                        <td> <button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> chamar </button> </td>
+                                        <td> <button name="btnRejeitar" type="submit" class="table-btn-rejeitar" value="<?php echo $voluntario['codCandidatura']; ?>"> rejeitar </button> </td>
 
-                                    <?php
+                                        <?php
 
-                                        if (isset($_POST['btnChamar'])){ 
-                                            $codCandidatura = $_POST['codCandidatura'];
-                                            
-                                            try{
-                                                $statusCandidatura = CandidaturaDao::atualizarStatus();
-                                            }catch (Exception $e){
+                                        if (isset($_POST['btnChamar'])) {
+                                            $codCandidatura = $_POST['btnChamar'];
+                                            try {
+                                                $statusCandidatura = CandidaturaDao::atualizarStatus($codCandidatura);
+                                            } catch (Exception $e) {
                                                 echo $e->getMessage();
                                             }
-                                        } 
-                                    
-                                    
-                                    ?>
-                            </tr>
+                                        } elseif (isset($_POST['btnRejeitar'])) {
+                                            $codCandidatura = $_POST['btnRejeitar'];
+                                            try {
+                                                $statusCandidatura = CandidaturaDao::deletarCandidatura($codCandidatura);
+                                            } catch (Exception $e) {
+                                                echo $e->getMessage();
+                                            }
+                                        }
+
+
+                                        ?>
+                                </tr>
+                            </form>
                         <?php
-                                }
+                                    }
                         ?>
                         </tbody>
                     </table>
