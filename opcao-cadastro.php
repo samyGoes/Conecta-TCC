@@ -12,11 +12,13 @@
 
 <body>
 
-  <header>
-    <div class="image-header"></div>
-  </header>
+ 
 
   <main>
+     <!-- <header> -->
+     <div class="image-header"></div>
+    <!-- </header> -->
+
     <div class="container">
       <div class="titles">
         <h1>PARA <label>CRIAR UMA CONTA</label> SELECIONE UMA OPÇÃO</h1>
@@ -33,11 +35,13 @@
       </div>
 
     </div>
+
+    <div class="image-footer"></div>
   </main>
 </body>
 
-<footer>
-  <div class="image-footer"></div>
-</footer>
+<!-- <footer> -->
+  
+<!-- </footer> -->
 
 </html>
