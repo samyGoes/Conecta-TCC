@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@300;400;500;600&family=Poppins:wght@300;400;500&display=swap');
 
 
-*
+/* *
 {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body
 {
     overflow-x: hidden;
     min-height: 150vh;
-}
+} */
 
 .fundo 
 {
@@ -29,7 +29,7 @@ body
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 47rem;
     background-color: #beeaf1; 
     /* z-index: 1; */
     /* position: fixed; */
@@ -157,7 +157,7 @@ body
     transition: all 1s ease;
 }
 
-.botao, .botao-i
+.container-2-botao
 {
     background-color: #2a599e;
     width: 10rem;
@@ -177,7 +177,7 @@ body
     z-index: 12;
 }
 
-.botao:hover, .botao-i:hover
+.container-2-botao:hover
 {
     background-color: #fff;
     color: #2a599e;
@@ -213,7 +213,7 @@ body
     box-shadow: 5px 5px 5px #72b5cf;
 }
 
-.box-icon
+.card-box-icon
 {
     display: flex;
     justify-content: flex-end;

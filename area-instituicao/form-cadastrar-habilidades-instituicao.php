@@ -18,7 +18,7 @@ $c = $_SESSION['codUsuario'];
     <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title> Configurações do Perfil - Cadastrar Habilidades </title>
 </head>
 
 <body>
@@ -94,7 +94,7 @@ $c = $_SESSION['codUsuario'];
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                <a href="editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
                     </span></a>
             </div>
 

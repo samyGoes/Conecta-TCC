@@ -7,16 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style-opcao-cadastro.css" />
-  <title>Document</title>
+  <title> Opções de Cadastro </title>
 </head>
 
 <body>
 
-  <header>
-    <div class="image-header"></div>
-  </header>
+ 
 
   <main>
+     <!-- <header> -->
+     <div class="image-header"></div>
+    <!-- </header> -->
+
     <div class="container">
       <div class="titles">
         <h1>PARA <label>CRIAR UMA CONTA</label> SELECIONE UMA OPÇÃO</h1>
@@ -33,11 +35,13 @@
       </div>
 
     </div>
+
+    <div class="image-footer"></div>
   </main>
 </body>
 
-<footer>
-  <div class="image-footer"></div>
-</footer>
+<!-- <footer> -->
+  
+<!-- </footer> -->
 
 </html>
