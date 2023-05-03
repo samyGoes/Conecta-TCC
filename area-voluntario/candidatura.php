@@ -20,7 +20,6 @@
             header("Location: ../vagas/vaga-completa.php");
         }
     
-    
     }
     catch(Exception $e)
     {
