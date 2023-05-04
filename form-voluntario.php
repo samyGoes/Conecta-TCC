@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style-form-voluntario-instituicao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastro do Voluntário </title>
 
 </head>
@@ -18,11 +19,13 @@
                 <img src="img/mao4.jpg" alt="">
             </div>
             <div class="form">
-
+                <!-- SETAS -->
+                <i id="seta-direita" class="fa-solid fa-arrow-right"></i>
+                <i id="seta-esquerda" class="fa-solid fa-arrow-left"></i>
                 <!-- TÍTULO -->
                 <div class="form-header">
                     <div class="title">
-                        <h1 class="titulo-cadastro">Cadastro do Voluntário </h1>
+                        <h1 class="titulo-cadastro">Cadastro do Voluntário</h1>
                     </div>
                 </div>
 
@@ -121,12 +124,12 @@
                         <br>
                     </div>
                     <div class="continue-button">
-        <button type="submit">CADASTRAR</button>
-        <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
-    </div>
-</form>
+                        <button type="submit">CADASTRAR</button>
+                        <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
+                    </div>
+                </form>
 
-<!--<div id="modal" class="modal">
+                <!--<div id="modal" class="modal">
     <div class="modal-form" id="modal-form">
         <div class="modal-sessao-2">
             <h2 class="modal-titulo" id="modal-titulo"> Preencha as informações corretamente</h2>
@@ -135,7 +138,7 @@
         </div>
     </div>
 </div>-->
- 
+
             </div>
         </div>
         <!-- </div> -->
@@ -143,15 +146,17 @@
 
 
 
-        <script src="js/script.js"></script>
-        <script src="js/valida-voluntario.js"></script>
-        <script src="js/endereco-auto.js"></script>
-        <script src="js/mascara.js"></script>
-        <script>
-            const form1 = document.querySelector("#formulario1");
-            const form2 = document.querySelector("#formulario2");
-            const botaoDados = document.querySelector("#botao-dados-pessoais");
-            const botaoEndereco = document.querySelector("#botao-endereco");
+    <script src="js/script.js"></script>
+    <script src="js/valida-voluntario.js"></script>
+    <script src="js/endereco-auto.js"></script>
+    <script src="js/mascara.js"></script>
+    <script>
+        const form1 = document.querySelector("#formulario1");
+        const form2 = document.querySelector("#formulario2");
+        const botaoDados = document.querySelector("#botao-dados-pessoais");
+        const botaoEndereco = document.querySelector("#botao-endereco");
+        const setaDireita = document.querySelector("#seta-direita")
+        const setaEsquerda = document.querySelector("#seta-esquerda")
 
         botaoEndereco.addEventListener('click', function() {
             // oculta o Formulário 1
@@ -167,6 +172,9 @@
             botaoDados.style.backgroundColor = "#fff";
             botaoDados.style.color = "#cf8a3f";
 
+            //SETAS
+            setaDireita.style.display = "none"
+            setaEsquerda.style.display = "block"
         });
 
         botaoDados.addEventListener('click', function() {
@@ -184,7 +192,47 @@
             botaoEndereco.style.backgroundColor = "#fff";
             botaoEndereco.style.color = "#cf8a3f";
 
+            // SETAS
+            setaEsquerda.style.display = "none"
+            setaDireita.style.display = "block"
         });
+
+        setaDireita.addEventListener('click', function() {
+            // oculta o Formulário 1
+            form1.style.display = 'none';
+
+            // exibe o Formulário 2
+            form2.style.display = 'flex';
+
+            // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA  
+            botaoEndereco.style.backgroundColor = "#cf8a3f";
+            botaoEndereco.style.color = "#fff";
+
+            botaoDados.style.backgroundColor = "#fff";
+            botaoDados.style.color = "#cf8a3f";
+
+            //SETAS
+            setaDireita.style.display = "none"
+            setaEsquerda.style.display = "block"
+        })
+
+        setaEsquerda.addEventListener('click', function() {
+
+            // exibe o Formulário 1
+            form1.style.display = 'flex';
+
+            //oculta o Formulário 2
+            form2.style.display = 'none';
+
+            // MUDAR COR DO BOTÃO QUANDO TIVER NA SESSÃO RESPECTIVA
+            botaoDados.style.backgroundColor = "#cf8a3f";
+            botaoDados.style.color = "#fff";
+
+            botaoEndereco.style.backgroundColor = "#fff";
+            botaoEndereco.style.color = "#cf8a3f";
+            setaEsquerda.style.display = "none"
+            setaDireita.style.display = "block"
+        })
     </script>
 </body>
 

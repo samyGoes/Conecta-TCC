@@ -3,16 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
 
 
-* 
-{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     border: 0;
 }
 
-body 
-{
+body {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -21,28 +19,24 @@ body
     overflow: hidden;
 }
 
-.container 
-{
+.container {
     width: 100%;
     height: 100vh;
     display: flex;
 }
 
-.form-image 
-{
+.form-image {
     width: 50vw;
 }
 
-.form-image img 
-{
+.form-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 
-.form 
-{
+.form {
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -54,8 +48,7 @@ body
 
 
 /* TÍTULO */
-.titulo-cadastro
-{
+.titulo-cadastro {
     text-align: center;
     font-family: Acme, Verdana, Geneva, Tahoma, sans-serif;
     color: #232e61;
@@ -70,13 +63,13 @@ body
 
 
 /* BOTÕES PARA MUDAR O FORMULÁRIO */
-.select-button, #select-button 
-{
+.select-button,
+#select-button {
     margin-top: 1.5rem;
     display: flex;
 }
-.select-button button 
-{
+
+.select-button button {
     text-align: center;
     background-color: #ffffff;
     border: 1px solid #232e61;
@@ -89,15 +82,15 @@ body
     width: 9.5rem;
     cursor: pointer;
 }
-#botao-dados-pessoais
-{
+
+#botao-dados-pessoais {
     background-color: #cf8a3f;
     color: #fff;
     transition: all 0.5s ease-out;
     border-right: none;
 }
-#botao-endereco
-{
+
+#botao-endereco {
     transition: all 0.5s ease-out;
 }
 
@@ -105,8 +98,7 @@ body
 
 
 /* BOTÃO INSTITUIÇÃO */
-#select-button button 
-{
+#select-button button {
     text-align: center;
     background-color: #ffffff;
     border: 1px solid #232e61;
@@ -120,15 +112,14 @@ body
     cursor: pointer;
 }
 
-#select-button #botao-dados-pessoais-i
-{
+#select-button #botao-dados-pessoais-i {
     background-color: #4567a5;
     color: #fff;
     transition: all 0.5s ease-out;
     border-right: none;
 }
-#botao-endereco-i
-{
+
+#botao-endereco-i {
     transition: all 0.5s ease-out;
 }
 
@@ -140,36 +131,33 @@ body
 
 
 /* FORMULÁRIO */
-.formulario-completo 
-{
+.formulario-completo {
     max-width: 30rem;
     flex-wrap: wrap;
 }
 
 /* INPUTS */
-.input-group 
-{
+.input-group {
     display: flex;
     max-width: 800px;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-top: 5%; 
-    margin-right: -1.5rem; 
+    padding-top: 5%;
+    margin-right: -1.5rem;
     /* background-color: #9c9c9c; */
     padding-left: 7.5%;
 }
 
-.input-box 
-{
+.input-box {
     display: flex;
     margin-right: 1.5rem;
     flex-direction: column;
     position: relative;
-    
+
 }
 
-.input-box input, .input-box select
-{
+.input-box input,
+.input-box select {
     font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
     padding-bottom: 0.3rem;
     padding-top: 1rem;
@@ -179,23 +167,22 @@ body
     outline: none;
 }
 
-.input-box label 
-{
+.input-box label {
     font-family: poppins, sans-serif;
     font-size: 16px;
     font-weight: 500;
     color: #525252;
 }
 
-input::placeholder
-{
+input::placeholder {
     font-weight: 300;
     color: #9c9c9c;
 }
-.input-box select 
-{
+
+.input-box select {
     width: 12.8rem;
 }
+
 /* #formulario1
 {
     display: flex;
@@ -292,8 +279,8 @@ input::placeholder
 
 
 /* BOTÕES */
-.continue-button, #continue-button 
-{
+.continue-button,
+#continue-button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -301,8 +288,7 @@ input::placeholder
     margin-top: 1rem;
 }
 
-.continue-button button 
-{
+.continue-button button {
     display: block;
     width: 11rem;
     background-color: #cf8a3f;
@@ -319,15 +305,13 @@ input::placeholder
     cursor: pointer;
 }
 
-.continue-button button:hover 
-{
+.continue-button button:hover {
     background-color: #fff;
     color: #cf8a3f;
     border: 1px solid #cf8a3f;
 }
 
-.continue-button a 
-{
+.continue-button a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -336,16 +320,14 @@ input::placeholder
     transition: all 0.5s ease;
 }
 
-.continue-button a:hover 
-{
+.continue-button a:hover {
     color: #e2be89;
 }
 
 
 
 /* BOTÃO INSTITUIÇÃO */
-#continue-button button 
-{
+#continue-button button {
     display: block;
     width: 11rem;
     background-color: #4567a5;
@@ -362,15 +344,13 @@ input::placeholder
     cursor: pointer;
 }
 
-#continue-button button:hover 
-{
+#continue-button button:hover {
     background-color: #fff;
     color: #4567a5;
     border: 1px solid #4567a5;
 }
 
-#continue-button a 
-{
+#continue-button a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -379,183 +359,288 @@ input::placeholder
     transition: all 0.5s ease;
 }
 
-#continue-button a:hover 
-{
+#continue-button a:hover {
     color: #4567a5;
 }
 
 
 
+/* SETINHA PRA MUDAR O FORM */
 
+#seta-direita {
+    position: absolute;
+    right: 4%;
+    font-size: 2rem;
+    color: #cf8a3f;
+    cursor: pointer;
+}
 
+#seta-esquerda {
+    position: absolute;
+    left: 55%;
+    font-size: 2rem;
+    color: #cf8a3f;
+    cursor: pointer;
+    display: none;
+}
 
+#seta-direita-instituicao {
+    position: absolute;
+    right: 4%;
+    font-size: 2rem;
+    color: #4567a5;
+    cursor: pointer;
+}
 
-
-
-
-
-
+#seta-esquerda-instituicao {
+    position: absolute;
+    left: 55%;
+    font-size: 2rem;
+    color: #4567a5;
+    cursor: pointer;
+    display: none;
+}
 
 
 /* RESPONSIVIDADE */
-@media (min-width: 800px) and (max-width: 1288px) 
-{
-    .body 
-    {
+@media (min-width: 800px) and (max-width: 1288px) {
+    .body {
         background-image: url(../img/mao4.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    #body 
-    {
+
+    #body {
         background-image: url(../img/megafone-tela-menor.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .form-image 
-    {
+
+    .form-image {
         display: none;
     }
-    .container
-    {
+
+    .container {
         width: 45rem;
         height: 45rem;
     }
-    .form 
-    {
+
+    .form {
         width: 100%;
         height: 100%;
         border-radius: 20px;
     }
+
+
+    /* SETINHA PRA MUDAR O FORM */
+
+    #seta-direita {
+        position: relative;
+        right: -37%;
+        top: 47%;
+    }
+
+    #seta-esquerda {
+        position: relative;
+        color: #cf8a3f;
+        left: -37%;
+        top: 47%;
+    }
+
+    #seta-direita-instituicao {
+        position: relative;
+        right: -37%;
+        top: 47%;
+    }
+
+    #seta-esquerda-instituicao {
+        position: relative;
+        color: #cf8a3f;
+        left: -37%;
+        top: 47%;
+    }
 }
 
-@media (min-width: 641px) and (max-width: 799px) 
-{
-    .body 
-    {
+@media (min-width: 641px) and (max-width: 799px) {
+    .body {
         background-image: url(../img/mao4.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
-    #body 
-    {
+
+    #body {
         background-image: url(../img/megafone-tela-menor.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .container
-    {
+
+    .container {
         width: 100vw;
         height: 45rem;
     }
-    .form-image 
-    {
+
+    .form-image {
         display: none;
     }
-    .form
-    {
+
+    .form {
         /* background-color: #a4c2db; */
         width: 100%;
     }
-    .formulario-completo
-    {
+
+    .formulario-completo {
         width: 40rem;
         padding-bottom: 1.4rem;
     }
 
-}  
 
-@media (max-width: 640px) 
-{
-    .body
-    {
+    #seta-direita {
+        position: relative;
+        right: -37%;
+        top: 47%;
+    }
+
+    #seta-esquerda {
+        color: #cf8a3f;
+        position: relative;
+        left: -37%;
+        top: 47%;
+    }
+
+    #seta-direita-instituicao {
+        position: relative;
+        right: -37%;
+        top: 47%;
+    }
+
+    #seta-esquerda-instituicao {
+        color: #cf8a3f;
+        position: relative;
+        left: -37%;
+        top: 47%;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .body {
         overflow: auto;
         height: auto;
     }
-    .form-image 
-    {
+
+    .form-image {
         display: none;
     }
-    .container
-    {
+
+    .container {
         background-color: #eb71da;
         height: auto;
     }
-    .form
-    {
+
+    .form {
         /* background-color: #80dba6; */
         width: 100%;
     }
-    .select-button
-    {
+
+    .select-button {
         margin-bottom: 1rem;
     }
-    .formulario-completo
-    {
-        max-width: 100%;  
+
+    .formulario-completo {
+        max-width: 100%;
         /*height: 80vh; */
         /* background-color: #dbc95f; */
     }
-    .input-group 
-    {
+
+    .input-group {
         justify-content: center;
         padding-left: 0;
     }
-    .input-box input
-    {
+
+    .input-box input {
         width: 80vw;
     }
-    .input-box select
-    {
+
+    .input-box select {
         width: 80vw;
     }
-    .continue-button
-    {
+
+    .continue-button {
         margin-bottom: 2rem;
+    }
+
+
+    #seta-direita {
+        display: none;
+    }
+
+    #seta-esquerda {
+        display: none;
+    }
+
+    #seta-direita-instituicao {
+        display: none;
+    }
+
+    #seta-esquerda-instituicao {
+        display: none;
     }
 }
 
-@media (max-width: 346px) 
-{
-    .select-button
-    {
+@media (max-width: 346px) {
+    .select-button {
         flex-direction: column;
-    }    
-    #botao-dados-pessoais
-    {
+    }
+
+    #botao-dados-pessoais {
         border-right: 1px solid #232e61;
         border-bottom: none;
+    }
+
+    #seta-direita {
+        display: none;
+    }
+
+    #seta-esquerda {
+        display: none;
+    }
+
+    #seta-direita-instituicao {
+        display: none;
+    }
+
+    #seta-esquerda-instituicao {
+        display: none;
     }
 }
 
 
 /* DIMINUINDO FONTE COM BASE NA ALTURA */
-@media (max-height: 700px)
-{
-    .titulo-cadastro
-    {
+@media (max-height: 700px) {
+    .titulo-cadastro {
         font-size: 2rem;
     }
-    .select-button, .input-box label
-    {
+
+    .select-button,
+    .input-box label {
         font-size: 13px;
     }
-    .input-box input, .input-box select
-    {
+
+    .input-box input,
+    .input-box select {
         padding-top: 0.5rem;
     }
-    .continue-button button
-    {
+
+    .continue-button button {
         font-size: 1.2rem;
     }
-    .continue-button a
-    {
+
+    .continue-button a {
         font-size: 0.9rem;
     }
+    
 }
-
