@@ -11,15 +11,19 @@
 body{
   width: 100%;
   height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 /*Main*/
 
 main{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 main .container a:hover{
   color: #c48139;
@@ -28,12 +32,28 @@ main .container a:hover{
 main .container a :active{
   color: #c48139;
 }
+
+.image-header
+{
+  background-image: url("../img/cima.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20rem;
+  width: 100vw;
+  position: absolute;
+  top: -20rem;
+  transition: all 1s ease;
+  /* margin-bottom: 5rem; */
+}
+
 .container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2%;
+  /* margin-top: 7rem; */
   /* margin-bottom: -1.5rem; */
 }
 
@@ -106,12 +126,35 @@ main .container a :active{
   border: 1px solid #cf8a3f;
 }
 
+.link
+{
+  margin-top: 1rem;
+}
 
-
+.image-footer
+{
+  background-image: url("../img/baixo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20rem;
+  width: 100vw;
+  position: absolute;
+  bottom: -20rem;
+  transition: all 1s ease;
+}
 
 
 
 /*Responsividade*/
+@media(max-height: 900px)
+{
+  .image-header, .image-footer
+  {
+    height: 15rem;
+  }
+}
+
 @media (max-width: 425px){
   .button-confirm button{
     font-size: 10px;
