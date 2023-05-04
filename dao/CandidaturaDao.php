@@ -5,23 +5,29 @@
     class CandidaturaDao
     {
 
-        public static function listar(){
-            $conexao = Conexao :: conectar();
-
-                
-                $querySelect = "SELECT codCandidatura, codInstituicao, nomeVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, nomeservico ,fotoVoluntario 
+        public static function listar() {
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            FROM tbCandidatura
+            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+            INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+            WHERE tbInstituicao.codInstituicao = ?
+            ";
+            
+            /*"SELECT codCandidatura, codInstituicao, nomeVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, nomeservico, fotoVoluntario
                 FROM tbCandidatura
-                WHERE codInstituicao LIKE '?'
                 INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
                 INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
                 INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-                ";
-                $resultado = $conexao -> query($querySelect);
-                $lista = $resultado -> fetchAll();
-            
-            //"SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
+                WHERE tbInstituicao.codInstituicao = ?";*/
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute();
+            $lista = $resultado->fetchAll();
             return $lista;
         }
+        
+        
 
 
         public static function atualizarStatus(){
