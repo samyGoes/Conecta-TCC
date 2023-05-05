@@ -5,7 +5,7 @@
     class CandidaturaDao
     {
 
-        public static function listar() {
+        public static function listar($idInstituicao) {
             $conexao = Conexao::conectar();
             $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
@@ -22,7 +22,7 @@
                 INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
                 WHERE tbInstituicao.codInstituicao = ?";*/
             $resultado = $conexao->prepare($querySelect);
-            $resultado->execute();
+            $resultado->execute(array($idInstituicao));
             $lista = $resultado->fetchAll();
             return $lista;
         }
