@@ -3,15 +3,13 @@ const botao = document.querySelector('.container-2-botao');
 const cardTerceiroSetor = document.querySelector(".card");
 const maos = document.querySelector(".img-maos");
 const sombraCirculo = document.querySelector(".sombra-circulo");
-const iconFechar = document.querySelector("#icon-fechar");
-const boxCoracoes = document.querySelector(".box-img-coracao");   
+const iconFechar = document.querySelector("#icon-fechar");   
 const style = document.createElement("style");
 const mundo = document.querySelector(".box-img");
 const coracoes = document.querySelector(".coracoes");
 
 //boxCoracoes.innerHTML = ` <img src="img/coracao.png"> `  
-//coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
-
+//coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> ` 
 
 let tamanho = 250; // tamanho inicial do círculo
 
@@ -54,20 +52,42 @@ iconFechar.addEventListener("click", function()
 });
 
 
-if(tamanho >= 250)
+// CRIANDO CORAÇÃO
+window.onload = function()
 {
-    let posicao = 3;
-    // CRIANDO CORAÇÃO
-    for(let i = 1; i <= 5; i++)
-    {
-        coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
-        boxCoracoes.style.marginLeft = `${posicao}rem`;
-        posicao = posicao + 3;
-    }
+    // if(tamanho >= 250)
+    // {
+        let posicao = 4;
+        
+        //for(let i = 1; i <= 5; i++)
+        //while(tamanho >= 250)
+        //{
+            setTimeout(function() 
+            {
+                //coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> `  
+                //const boxCoracoes = document.querySelector(".box-img-coracao");
 
-    let intervalo = setInterval(function() 
-    {
-        boxCoracoes.style.marginBottom = "40rem";
-    }, 10);
-    
+                // Criar um novo elemento div para cada coração
+                const novoCoracao = document.createElement("div");
+                novoCoracao.className = "box-img-coracao";
+                novoCoracao.innerHTML = `<img src="img/coracao.png">`;
+
+                // Adicionar o novo coração à div "coracoes"
+                coracoes.appendChild(novoCoracao);
+
+                // Selecionar a classe ".box-img-coracao" dentro do novo coração
+                //const boxCoracoes = novoCoracao.querySelector(".box-img-coracao");
+
+
+                novoCoracao.style.marginLeft = `${posicao}rem`;
+                posicao = posicao + 3;
+
+                let intervalo = setInterval(function() 
+                {
+                    novoCoracao.style.marginTop = "-30rem";
+                }, 30);
+
+            }, 3000);
+        //} 
+    //}
 }

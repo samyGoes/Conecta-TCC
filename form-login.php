@@ -64,36 +64,21 @@
 
 
 
-        
-      
 
 
+   
+        <!-- MODAL TROCA DE SENHA FEITA COM SUCESSO -->
+        <div id="modal" class="modal">
+            <div class="modal-form" id="modal-form">
+                <div class="modal-sessao-2">
+                    <h2 class="modal-titulo" id="modal-titulo"> Troca de senha feita com sucesso </h2>
+                    <p id="modal-frase"> A troca de senha foi feita com sucesso! Agora você já pode acessar sua conta com a nova senha </p>
+                    <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
+                </div>       
+            </div>
+        </div>
 
 
-        <?php
-
-        //     require 'global.php';
-
-        //     $trocaVoluntario = VoluntarioDao::trocarSenha($voluntario);
-        //     $trocaInstituicao = InstituicaoDao::trocarSenha($instituicao);
-
-        //     if($trocaVoluntario || $trocaInstituicao)
-        //     {
-        // ?>
-                <!-- MODAL TROCA DE SENHA FEITA COM SUCESSO -->
-                <div id="modal" class="modal">
-                    <div class="modal-form" id="modal-form">
-                        <div class="modal-sessao-2">
-                            <h2 class="modal-titulo" id="modal-titulo"> Troca de senha feita com sucesso </h2>
-                            <p id="modal-frase"> A troca de senha foi feita com sucesso! Agora você já pode acessar sua conta com a nova senha </p>
-                            <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
-                        </div>       
-                    </div>
-                </div>
-
-        <?php
-            //}
-        ?>
 
 
 
@@ -138,7 +123,7 @@
 
         <script src="js/mascaraLoginUsuario.js"></script>
         <script type="module" src="js/main.js"></script>
-        <!-- <script type="module" src="js/envia-email-login.js"></script> -->
+        <script type="module" src="imports/envia-email-login.js"></script>
     </body>
 
 </html>

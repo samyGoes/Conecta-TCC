@@ -187,9 +187,7 @@
             <div class="fundo-circulo">       
                 <h1 class="fundo-titulo"> Saiba um pouco mais sobre o Terceiro Setor</h1>
                 <div class="corta-coracao">
-                    <div class="coracoes">
-                        <!-- <div class="box-img-coracao"></div> -->
-                    </div>
+                    <div class="coracoes"></div>
                 </div>
                 <div class="circulo"></div> 
                 <div class="sombra-circulo"></div>                  

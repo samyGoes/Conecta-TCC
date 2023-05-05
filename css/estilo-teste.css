@@ -101,14 +101,15 @@ body
 {
     position: absolute;
     z-index: 8;
-    bottom: 0;
+    /* bottom: 0; */
 }
 
 .box-img-coracao
 {
     width: 65px;
     height: 65px;
-    transition: all 5s ease;
+    transition: all 10s ease;
+    margin-top: 30rem;
 }
 
 .box-img-coracao img
