@@ -14,7 +14,7 @@
 <body class="body">
     <div class="container">
         <div class="form-image">
-            <img src="img/login-adm.jpg" alt="">
+            <img src="img/login-adm-2.jpg" alt="">
         </div>
         <div class="form">
             <form action="area-adm/valida-login-adm.php" method="post" id="formulario">

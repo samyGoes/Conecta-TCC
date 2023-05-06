@@ -36,7 +36,7 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico">
+                <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico">
                         habilidades </span></a>
             </div>
 
@@ -50,7 +50,7 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="voluntarios-cadastrados.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> voluntários
+                <a href="voluntarios-cadastrados.php"> <i class="fa-solid fa-person"></i> <span class="nav-lateral-topico"> voluntários
                     </span></a>
             </div>
         </div>
