@@ -16,7 +16,7 @@
 
 .container-botoes button
 {
-    width: 11rem;
+    width: 12rem;
     height: 1.7rem;
     border: 1px solid #4567a5;
     background-color: #fff;
@@ -29,7 +29,7 @@
     color: #4567a5;
 }
 
-.btn-dashboard button, .btn-voluntarios button
+.btn-dashboard button, .btn-voluntarios button, .btn-v-r button 
 {
     border-right: none;
 }

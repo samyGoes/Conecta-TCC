@@ -200,19 +200,6 @@ tbody::-webkit-scrollbar-thumb {
     height: 45px;
 }
 
-/* IMAGEM */
-.box-img-lista {
-    width: 50px;
-    height: 50px;
-    margin: 0.5rem 0rem 0.5rem 0rem;
-    border-radius: 50%;
-}
-
-.box-img-lista img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 @media(max-width: 577px) {

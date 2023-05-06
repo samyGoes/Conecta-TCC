@@ -156,7 +156,7 @@
                         <div>
                             <div class="box-filtro-causas">
                                 <label for="">habilidade</label>
-                                <div class="clique-fora">
+                                <div class="clique-fora-h">
                                     <div class="filtro-habilidade"> Selecione as habilidade... </div>
                                     <div class="box-habilidade">
                                         <?php
@@ -293,7 +293,7 @@
         
     </main>
 
-    <script src="/js/modal-cadastro-vaga.js"></script>
+    <!-- <script src="/js/modal-cadastro-vaga.js"></script> -->
     <script src="../js/endereco-auto.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
@@ -302,63 +302,52 @@
         const botaoCausas = document.querySelector(".filtro-causas");
         const boxCausas = document.querySelector(".box-causas");
         const dropCausas = document.querySelector('.clique-fora');
+
+        const botaoHabilidade = document.querySelector(".filtro-habilidade");
+        const boxHabilidade = document.querySelector(".box-habilidade");
         const dropHab = document.querySelector(".clique-fora-h");
 
         botaoCausas.addEventListener("click", function() {
-            if (boxCausas.style.display == "none" || boxCausas.style.display == "") {
+            if (boxCausas.style.display == "none" || boxCausas.style.display == "") 
+            {
                 boxCausas.style.display = "flex";
-                botaoCausas.style.backgroundColor = "#4567a5";
-                botaoCausas.style.color = "#fff";
-                botaoCausas.style.borderColor = "#4567a5";
-            } else {
+            } 
+            else 
+            {
                 boxCausas.style.display = "none";
-                botaoCausas.style.backgroundColor = "#d6ebfd";
-                botaoCausas.style.color = "#000";
-                botaoCausas.style.borderColor = "#000";
             }
         });
 
-
-
-
-
-
-
-
-
-
-        botaoHabilidade.addEventListener("click", function() {
-            if (boxhabilidade.style.display == "none" || boxhabilidade.style.display === "") {
-                boxhabilidade.style.display = "flex";
-                botaoHabilidade.style.backgroundColor = "#4567a5";
-                botaoHabilidade.style.color = "#fff";
-                botaoHabilidade.style.borderColor = "#4567a5";
-            } else {
-                boxhabilidade.style.display = "none";
-                botaoHabilidade.style.backgroundColor = "#d6ebfd";
-                botaoHabilidade.style.color = "#000";
-                botaoHabilidade.style.borderColor = "#000";
-            }
-        });
-
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function(event) 
+        {
             const target = event.target;
-            if (!dropCausas.contains(target)) {
+            if (!dropCausas.contains(target)) 
+            {
                 boxCausas.style.display = "none";
             }
         });
 
+
+
+
+
+
         botaoHabilidade.addEventListener("click", function() {
-            if (boxHabilidade.style.display == "none" || boxHabilidade.style.display == "") {
+            if (boxHabilidade.style.display == "none" || boxHabilidade.style.display == "") 
+            {
                 boxHabilidade.style.display = "flex";
-            } else {
+            } 
+            else 
+            {
                 boxHabilidade.style.display = "none";
             }
         });
 
-        document.addEventListener('click', function(eventh) {
+        document.addEventListener('click', function(eventh) 
+        {
             const targetH = eventh.target;
-            if (!dropHab.contains(targetH)) {
+            if (!dropHab.contains(targetH)) 
+            {
                 boxHabilidade.style.display = "none";
             }
         });

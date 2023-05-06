@@ -252,6 +252,7 @@ tbody::-webkit-scrollbar-thumb,
     height: 50px;
     margin: 0.5rem 0rem 0.5rem 0rem;
     border-radius: 50%;
+    border: 1px solid #000;
 }
 
 .box-img-lista img {

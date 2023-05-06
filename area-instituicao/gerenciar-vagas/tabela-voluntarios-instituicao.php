@@ -14,7 +14,7 @@ require_once 'global.php';
     <link rel="stylesheet" href="css/estilo-tabela-voluntarios.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title> Configurações do Perfil - Voluntários</title>
+    <title> Configurações do Perfil - Voluntários Disponíveis</title>
 </head>
 
 <body class="body">
@@ -137,7 +137,8 @@ require_once 'global.php';
 
             <div class="container-botoes">
                 <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
-                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários </button></a>
+                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
+                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Rejeitados </button></a>
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
             </div>
 
