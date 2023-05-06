@@ -34,7 +34,7 @@
     border-right: none;
 }
 
-.btn-voluntarios button
+.btn-v-r button
 {
     background-color: #4567a5;
     color: #fff;
@@ -259,23 +259,21 @@ td:nth-child(4)
 
 th:nth-child(7),
 td:nth-child(7) {
-    min-width: 100px;
-    max-width: 110px;
+    min-width: 120px;
+    max-width: 120px;
 }
 
-th:nth-child(8),
-td:nth-child(8),
-td:nth-child(9)
+th:nth-child(8)
 {
-    min-width: 110px;
-    max-width: 110px;
-}
-
-th:nth-child(9)
-{
-    min-width: 122px;
-    max-width: 122px;
+    min-width: 212px;
+    max-width: 212px;
     border-right: none !important;
+}
+
+td:nth-child(8)
+{
+    min-width: 199px;
+    max-width: 199px;
 }
 
 
@@ -363,7 +361,7 @@ tbody::-webkit-scrollbar-thumb, .table-responsive::-webkit-scrollbar-thumb
 
 td button
 {
-    width: 5rem;
+    width: 10rem;
     height: 2.1rem;
     border-radius: 0.5rem;
     cursor: pointer;
