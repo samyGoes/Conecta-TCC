@@ -1,7 +1,9 @@
 <?php
+
 require_once 'global.php';
+include "../../auth/verifica-logado.php"; 
+
 ?>
-<?php include "../../auth/verifica-logado.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -186,8 +188,10 @@ require_once 'global.php';
                         <tbody>
                             <?php
                             require_once 'global.php';
+
                             try {
-                                $listaVoluntario = CandidaturaDao::listar($idInstituicao);
+                                $idInstituicaoLogada= $_SESSION['codUsuario'];
+                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }

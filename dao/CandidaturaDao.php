@@ -1,12 +1,12 @@
 <?php 
   
     require_once 'global.php';
-    
     class CandidaturaDao
-    {
-
-        public static function listar($idInstituicao) {
+    {   
+        public static function listar($idInstituicaoLogada) {
             $conexao = Conexao::conectar();
+            $idInstituicaoLogada= $_SESSION['codUsuario'];
+
             $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
@@ -14,15 +14,9 @@
             INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
             WHERE tbInstituicao.codInstituicao = ?
             ";
-            
-            /*"SELECT codCandidatura, codInstituicao, nomeVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, nomeservico, fotoVoluntario
-                FROM tbCandidatura
-                INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
-                INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
-                INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-                WHERE tbInstituicao.codInstituicao = ?";*/
+
             $resultado = $conexao->prepare($querySelect);
-            $resultado->execute(array($idInstituicao));
+            $resultado->execute(array($idInstituicaoLogada));
             $lista = $resultado->fetchAll();
             return $lista;
         }
