@@ -18,7 +18,7 @@
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../area-instituicao/perfil-instituicao.php');
+                header('Location: ../area-instituicao/form-editar-perfil-instituicao.php');
             }
         }
         else if($tipo == "Voluntario")
@@ -31,7 +31,7 @@
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../area-voluntario/perfil-voluntario.php');
+                header('Location: ../area-voluntario/form-editar-perfil-voluntario.php');
             }
         }
     }

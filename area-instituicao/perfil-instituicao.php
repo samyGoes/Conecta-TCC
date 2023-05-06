@@ -44,9 +44,9 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href="<?php echo '../redirecionamento-perfil-usuario.php' ?>"> Meu Perfil </a></li>
+                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                             <li> <a href="form-trocar-senha-instituicao.php"> Vagas </a> </li>
-                            <li> <a href="form-editar-perfil-instituicao.php"> Configurações </a></li>
+                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>
@@ -216,7 +216,7 @@
                             <?php
                                 try {
 
-                                    $listaCausas = CategoriaServicoDao::listarCausaPerfil();
+                                    $listaCausas = CategoriaServicoDao::listarCausaPerfil($_SESSION['dadoPerfil']['codInstituicao']);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }
@@ -255,7 +255,7 @@
                                 <?php
                                     require_once 'global.php';
                                     try {
-                                        $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
+                                        $listaVaga = ServicoDao::listarVaga($_SESSION['dadoPerfil']['codInstituicao']);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }

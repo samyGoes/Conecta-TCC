@@ -35,10 +35,8 @@
         }
 
         
-        public static function listarCausaPerfil()
+        public static function listarCausaPerfil($codInstituicao)
         {
-
-            $codInstituicao = $_SESSION['codUsuario'];
             $conexao = Conexao::conectar();
             
             $querySelect = ( "SELECT DISTINCT tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria

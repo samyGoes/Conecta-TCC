@@ -41,9 +41,9 @@
                     <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                         <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
                         <ul class="sub-topicos">
-                            <li> <a href=""> Meu Perfil </a></li>
+                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
-                            <li> <a href=""> Configurações </a></li>
+                            <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
                             <li> <a href="../auth/logout.php"> Sair </a></li>
                         </ul>
                     </li>

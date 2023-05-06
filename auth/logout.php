@@ -1,7 +1,7 @@
 <?php include "loginUsuario.php";?>
 <?php
 
-    header("location: ../form-login.php");
+    header("location: ../index.php");
     
     session_destroy();
 
