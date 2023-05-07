@@ -181,9 +181,13 @@
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
             nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
-            nomeInstituicao, fotoInstituicao 
+            nomeInstituicao, fotoInstituicao, nomeCategoria, nomeHabilidadeServico 
             FROM tbServico
-            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao
+            INNER JOIN tbCausaVaga ON tbCausaVaga.codServico = tbServico.codServico
+            INNER JOIN tbHabiVaga ON tbHabiVaga.codServico = tbServico.codServico
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico
+            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico
             WHERE tbInstituicao.codInstituicao = ?");
 
             $querySelect->bindValue(1,$cod);

@@ -161,7 +161,7 @@
                                     <div class="box-habilidade">
                                         <?php
                                         try {
-                                            $listahabilidade = CategoriaServicoDao::listar($_SESSION['codUsuario']);
+                                            $listahabilidade = HabilidadeServicoDao::listar($_SESSION['codUsuario']);
                                         } catch (Exception $e) {
                                             echo $e->getMessage();
                                         }
@@ -169,9 +169,9 @@
                                         <?php foreach ($listahabilidade as $habilidade) { ?>
                                             <div class="box-habilidade-checkbox">
                                                 <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
-                                                                                                            $habilidade['codCategoriaServico']; ?>>
+                                                                                                            $habilidade['codHabilidadeServico']; ?>>
                                                 <label for="habilidade">
-                                                    <?php echo $habilidade['nomeCategoria']; ?>
+                                                    <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                                 </label>
                                             </div>
 

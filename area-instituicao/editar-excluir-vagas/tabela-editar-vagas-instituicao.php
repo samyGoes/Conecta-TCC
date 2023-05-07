@@ -207,7 +207,7 @@ include "../../auth/verifica-logado.php";
                     <tbody>
                     <?php
                         try {
-                            $listaVaga = ServicoDao::listarVagaAdm();
+                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
