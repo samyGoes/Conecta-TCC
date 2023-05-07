@@ -24,10 +24,10 @@
         
 
 
-        public static function atualizarStatus(){
+        public static function atualizarStatus($idCandidatura){
             $conexao = Conexao :: conectar();
-
-            $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'aceito' WHERE codCandidatura = ?";
+            $idCandidatura= $_SESSION['codCandidatura'];
+            $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'aceito' WHERE codCandidatura = $idCandidatura";
             $resultado = $conexao -> query($queryAceito);
             $status = $resultado ->fetchAll();
             return $status;
