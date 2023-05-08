@@ -24,25 +24,23 @@
         
 
 
-        public static function atualizarStatus($idCandidatura){
-            $conexao = Conexao :: conectar();
-            $idCandidatura= $_SESSION['codCandidatura'];
+        public static function aceitarCandidato($idCandidatura) {
+            $conexao = Conexao::conectar();
             $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'aceito' WHERE codCandidatura = $idCandidatura";
-            $resultado = $conexao -> query($queryAceito);
-            $status = $resultado ->fetchAll();
+            $resultado = $conexao->query($queryAceito);
+            $status = $resultado->fetchAll();
             return $status;
         }
+        
 
-        public static function deletarCandidatura(){
-            $conexao = Conexao :: conectar();
-            
-            $queryRejeitado = "DELETE FROM tbCandidatura WHERE codCandidatura = ?";
-
-            $resultado = $conexao ->query($queryRejeitado);
-            $status = $resultado ->fetchAll();
+        public static function rejeitarCandidato($idCandidatura) {
+            $conexao = Conexao::conectar();
+            $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'rejeitado' WHERE codCandidatura = $idCandidatura";
+            $resultado = $conexao->query($queryAceito);
+            $status = $resultado->fetchAll();
             return $status;
         }
-
+        
         public static function cadastrar($candidato,$vaga,$status)
         {
             $conexao = Conexao :: conectar();
