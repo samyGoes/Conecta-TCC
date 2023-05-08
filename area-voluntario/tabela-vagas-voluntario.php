@@ -171,6 +171,7 @@ require_once '../auth/verifica-logado.php';
                             </tr>
                         </thead>
                         <tbody>
+                        <tr>
                             <?php
                             require_once 'global.php';
                             $codVoluntario = $_SESSION['codUsuario'];
@@ -181,49 +182,68 @@ require_once '../auth/verifica-logado.php';
                                 echo $e->getMessage();
                             }
                             ?>
-                            <tr>
-                                <?php foreach ($listaVagasCandidatadas as $vagaCandidatada) { ?>
-                                    <?php
-                                    $codServico = $vagaCandidatada['codServico'];
-                                    $status = $vagaCandidatada['statusCandidatura'];
+                            
+                            <?php
+                            foreach ($listaVagasCandidatadas as $vagaCandidatada) {
+                                $codCandidatura = $vagaCandidatada['codCandidatura'];
+                                
+                            ?>
+                            
+                                
+                                    <form action="" method="post">
+                                        <?php
+                                        $codServico = $vagaCandidatada['codServico'];
+                                        $status = $vagaCandidatada['statusCandidatura'];
 
-                                    $servico = ServicoDao::obterServicoPorCodigo($codServico);
-                                    $nomeVaga = $servico['nomeservico'];
-                                    ?>
+                                        $servico = ServicoDao::obterServicoPorCodigo($codServico);
+                                        $nomeVaga = $servico['nomeservico'];
+                                        ?>
 
-                                    <td> <?php echo $nomeVaga ?> </td>
-                                    <td>
-                                        <div class="box-status">
-                                            <?php
-                                            $bolinhaClass = '';
-                                            if ($status == 'pendente') {
-                                                $bolinhaClass = 'status-bolinha-pendente';
-                                            } elseif ($status == 'aceito') {
-                                                $bolinhaClass = 'status-bolinha-aceito';
-                                            } elseif ($status == 'recusado') {
-                                                $bolinhaClass = 'status-bolinha-recusado';
-                                            }
-                                            ?>
-                                            <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
-                                            <?php
-                                            if ($status == 'pendente') {
-                                                echo '<p class="status"> Pendente </p>';
-                                            } elseif ($status == 'aceito') {
-                                                echo '<p class="status"> Aceito </p>';
-                                            } elseif ($status == 'recusado') {
-                                                echo '<p class="status"> Recusado </p>';
-                                            }
-                                            ?>
-                                        </div>
-                                    </td>
+                                        <td> <?php echo $nomeVaga ?> </td>
+                                        <td>
+                                            <div class="box-status">
+                                                <?php
+                                                $bolinhaClass = '';
+                                                if ($status == 'pendente') {
+                                                    $bolinhaClass = 'status-bolinha-pendente';
+                                                } elseif ($status == 'aceito') {
+                                                    $bolinhaClass = 'status-bolinha-aceito';
+                                                } elseif ($status == 'recusado') {
+                                                    $bolinhaClass = 'status-bolinha-recusado';
+                                                }
+                                                ?>
+                                                <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
+                                                <?php
+                                                if ($status == 'pendente') {
+                                                    echo '<p class="status"> Pendente </p>';
+                                                } elseif ($status == 'aceito') {
+                                                    echo '<p class="status"> Aceito </p>';
+                                                } elseif ($status == 'recusado') {
+                                                    echo '<p class="status"> Recusado </p>';
+                                                }
+                                                ?>
+                                            </div>
+                                        </td>
 
-                                    <td> <button class="table-btn-rejeitar"> retirar </button> </td>
-                            </tr>
-                        <?php
+                                        <td>
+                                            <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
+                                        </td>
+                                    </form>
+                                </tr>
+                            <?php
+                                if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
+                                    $codCandidatura = $_POST['btnRetirar'];
+                                    try {
+                                        $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
                                 }
-                        ?>
+                            }
+                            ?>
                         </tbody>
                     </table>
+
                 </div>
             </div>
 
