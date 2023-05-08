@@ -140,7 +140,7 @@ include "../../auth/verifica-logado.php";
             <div class="container-botoes">
                 <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
                 <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
-                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Rejeitados </button></a>
+                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Recusados </button></a>
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
             </div>
 

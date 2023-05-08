@@ -1,7 +1,9 @@
 <?php
+
 require_once 'global.php';
+include "../../auth/verifica-logado.php";
+
 ?>
-<?php include "../../auth/verifica-logado.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,10 +13,10 @@ require_once 'global.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-tabela-vagas-preechidas-instituicao.css">
+    <link rel="stylesheet" href="css/estilo-tabela-voluntarios-confirmados.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title> Configurações do Perfil - Vagas Preenchidas </title>
+    <title> Configurações do Perfil - Voluntários Disponíveis</title>
 </head>
 
 <body class="body">
@@ -144,57 +146,103 @@ require_once 'global.php';
 
 
 
-        <div class="conteudo-completo">
+
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Vagas Preenchidas </h2>
+                <h2 class="titulo-voluntarios"> Voluntários Confirmados </h2>
                 <p class="frase-voluntarios">
-                Esta lista mostra as vagas disponíveis junto da quantidade de ocupações disponíveis para cada 
-                vaga e o tanto de ocupações que já foram preenchidas. Para vizualizar os voluntários que 
-                preencheram as vagas clique na quantidade de vagas preenchidas.
+                    Esta lista mostra todos os voluntários que já estão confirmados a alguma de suas vagas.
                 </p>
             </div>
 
 
+
+            <!-- TABELA 1 -->
             <div class="table">
                 <div class="table-responsive">
-
+                    <div class="funcoes">
+                        <div class="funcoes-sessao-1">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <div class="funcoes-sessao-2">
+                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        </div>
+                    </div>
                     <table>
                         <thead>
                             <tr>
-                                <th> Vagas </th>
-                                <th> Ocupações </th>
-                                <th> Preenchidas </th>
+                                <th> ID </th>
+                                <th> Foto </th>
+                                <th> Nome </th>
+                                <th> Idade </th>
+                                <th> Cidade </th>
+                                <th> UF </th>
+                                <th> Vaga </th>
+                                <th> Chat </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             require_once 'global.php';
+
                             try {
-                                $listaCausas = CategoriaServicoDao::listar();
+                                $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
-                            <tr>
-                                <?php foreach ($listaCausas as $causas) { ?>
-                                    <td>  </td>
-                                    <td>
-                                        <?php echo $causas['codCategoriaServico']; ?>
-                                    </td>
-                                    <td>
-                                       <a href="tabela-voluntarios-confirmados.php"> <?php echo $causas['nomeCategoria']; ?> </a>
-                                    </td>
-                            </tr>
-                            <?php
+
+                            <?php foreach ($listaVoluntario as $voluntario) { ?>
+                                <form action="" method="post">
+                                    <tr>
+                                        <td><?php echo $voluntario['codCandidatura']; ?></td>
+                                        <td>
+                                            <a href="">
+                                                <div class="box-img-lista">
+                                                    <img src="img/user-cinza.png" alt="">
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                                        <td>18 anos</td>
+                                        <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
+                                        <td><?php echo $voluntario['estadoVoluntario']; ?></td>
+                                        <td><?php echo $voluntario['nomeservico']; ?></td>
+                                        <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
+                                        <td><button name="btnRejeitar" type="submit" class="table-btn-rejeitar" value="<?php echo $voluntario['codCandidatura']; ?>">rejeitar</button></td>
+                                    </tr>
+                                </form>
+
+                                <?php
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
+                                    $codCandidatura = $_POST['btnChamar'];
+                                    try {
+                                        $statusCandidatura = CandidaturaDao::aceitarCandidato($codCandidatura);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                } elseif (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
+                                    $codCandidatura = $_POST['btnRejeitar'];
+                                    try {
+                                        $statusCandidatura = CandidaturaDao::rejeitarCandidato($codCandidatura);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
                                 }
-                            ?>
+                                ?>
+                            <?php } ?>
+
                         </tbody>
                     </table>
+
                 </div>
             </div>
+
+
+
         </div>
-           
 
     </main>
 

@@ -15,7 +15,7 @@ require_once 'global.php';
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilo-tabela-voluntarios-rejeitados.css">
-    <title> Configurações do Perfil - Voluntários Rejeitados</title>
+    <title> Configurações do Perfil - Voluntários Recusados</title>
 </head>
 
 <body class="body">
@@ -139,7 +139,7 @@ require_once 'global.php';
             <div class="container-botoes">
                 <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
                 <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
-                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Rejeitados </button></a>
+                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Recusados </button></a>
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
             </div>
 
@@ -148,10 +148,10 @@ require_once 'global.php';
 
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Voluntários Rejeitados </h2>
+                <h2 class="titulo-voluntarios"> Voluntários Recusados </h2>
                 <p class="frase-voluntarios">
-                    Esta é a lista de todos os voluntários que você rejeitou, caso queira reconsiderar clique
-                    no botão "retirar rejeição", isto fará com que o voluntário saia desta lista e apareça novamente
+                    Esta é a lista de todos os voluntários que você recusou, caso queira reconsiderar clique
+                    no botão "retirar recusa", isto fará com que o voluntário saia desta lista e apareça novamente
                     na lista de voluntários candidatos.
                 </p>
             </div>
@@ -210,7 +210,7 @@ require_once 'global.php';
                     <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
                     <td> <?php echo $voluntario['nomeservico']; ?> </td>
                     <td>
-                        <button name="btnRetirarRejeicao" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR REJEIÇÃO </button>
+                        <button name="btnRetirarRejeicao" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR RECUSA </button>
                     </td>
                 </tr>
             <?php } ?>

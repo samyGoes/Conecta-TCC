@@ -193,6 +193,17 @@ tbody::-webkit-scrollbar-thumb {
     height: 55px;
 }
 
+.table-responsive td a
+{
+    color: #2e2e2e;
+    transition: all 0.5s ease;
+}
+
+.table-responsive td a:hover
+{
+    color: #d19d59;
+}
+
 /* IMAGEM */
 .box-img-lista {
     width: 50px;
