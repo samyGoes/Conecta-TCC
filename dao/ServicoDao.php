@@ -255,6 +255,19 @@
                     
             return $resultado;
         }
+
+        public static function obterServicoPorCodigo($codServico) {
+            $conexao = Conexao::conectar();
+        
+            $querySelect = "SELECT * FROM tbServico WHERE codServico = ?";
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute(array($codServico));
+        
+            $servico = $resultado->fetch();
+        
+            return $servico;
+        }
+        
       
        
     }

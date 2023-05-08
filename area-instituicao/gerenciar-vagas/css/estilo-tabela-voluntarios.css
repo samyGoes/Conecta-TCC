@@ -388,13 +388,13 @@ td button
     color: #4567a5;
 }
 
-.table-btn-rejeitar
+.table-btn-recusar
 {
     background-color: #af4141;
     border: 1px solid #af4141;
 }
 
-.table-btn-rejeitar:hover
+.table-btn-recusar:hover
 {
     background-color: #fff;
     color: #af4141;

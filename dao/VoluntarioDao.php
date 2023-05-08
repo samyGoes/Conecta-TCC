@@ -129,6 +129,19 @@
             $lista = $resultado -> fetchAll();
             return $lista;
         }
+        
+        public static function listarPorId($codVoluntario) {
+            $conexao = Conexao::conectar();
+        
+            $querySelect = "SELECT * FROM tbVoluntario WHERE codVoluntario = ?";
+        
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute(array($codVoluntario));
+            $voluntario = $resultado->fetchAll();
+        
+            return $voluntario;
+        }
+        
 
         public static function consultar(){
             $conexao = Conexao :: conectar();

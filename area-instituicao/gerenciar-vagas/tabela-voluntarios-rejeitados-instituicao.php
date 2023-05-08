@@ -188,7 +188,7 @@ require_once 'global.php';
         require_once 'global.php';
         $idInstituicaoLogada= $_SESSION['codUsuario'];
         try {
-            $listaVoluntarioRejeitado = CandidaturaDao::listarVoluntariosRejeitados($idInstituicaoLogada);
+            $listaVoluntarioRejeitado = CandidaturaDao::listarCandidaturasRecusadas($idInstituicaoLogada);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -210,16 +210,16 @@ require_once 'global.php';
                     <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
                     <td> <?php echo $voluntario['nomeservico']; ?> </td>
                     <td>
-                        <button name="btnRetirarRejeicao" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR RECUSA </button>
+                        <button name="btnRetirarRecusa" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR RECUSA </button>
                     </td>
                 </tr>
             <?php } ?>
 
             <?php
-            if (isset($_POST['btnRetirarRejeicao'])) {
-                $codCandidatura = $_POST['btnRetirarRejeicao'];
+            if (isset($_POST['btnRetirarRecusa'])) {
+                $codCandidatura = $_POST['btnRetirarRecusa'];
                 try {
-                    CandidaturaDao::retirarRejeicao($codCandidatura);
+                    CandidaturaDao::retirarRecusa($codCandidatura);
                     // Realize a ação necessária ao retirar a rejeição do voluntário
                 } catch (Exception $e) {
                     echo $e->getMessage();

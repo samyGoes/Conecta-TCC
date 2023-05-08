@@ -214,7 +214,7 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
                                         <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
-                                        <td><button name="btnRejeitar" type="submit" class="table-btn-rejeitar" value="<?php echo $voluntario['codCandidatura']; ?>">rejeitar</button></td>
+                                        <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
                                     </tr>
                                 </form>
 
@@ -222,14 +222,14 @@ include "../../auth/verifica-logado.php";
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnChamar'];
                                     try {
-                                        $statusCandidatura = CandidaturaDao::aceitarCandidato($codCandidatura);
+                                        $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
-                                } elseif (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
-                                    $codCandidatura = $_POST['btnRejeitar'];
+                                } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $voluntario['codCandidatura']) {
+                                    $codCandidatura = $_POST['btnRecusar'];
                                     try {
-                                        $statusCandidatura = CandidaturaDao::rejeitarCandidato($codCandidatura);
+                                        $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
@@ -319,7 +319,7 @@ include "../../auth/verifica-logado.php";
                                             <p class="status"> Pendente </p>
                                         </div>
                                     </td>
-                                    <td> <button class="table-btn-rejeitar"> retirar </button> </td>
+                                    <td> <button class="table-btn-recusar"> retirar </button> </td>
                             </tr>
                         <?php
                                 }

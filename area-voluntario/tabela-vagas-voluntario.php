@@ -1,6 +1,6 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,87 +18,85 @@
 
 <body class="body">
 
-   <!-- BARRA DE NAVEGAÇÂO -->
-   <nav class="cabecalho">
-            <div class="logo">
-                <img src="../img/logo-conecta.png">
-            </div>
-
-            <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
-
-            <!-- TÓPICOS -->
-            <ul class="topicos-sessao-completa">
-                <ul class="topicos">
-                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
-                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
-                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
-                </ul>
-
-                <ul class="topicos-sessao-login">
-                    <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item"
-                            id="cabecalho-menu-item-login">
-                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span
-                            id="nav-seta-sub-topicos"> 🢓 </span></i>
-                        <ul class="sub-topicos">
-                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                            <li> <a href="vagas.php"> Vagas </a> </li>
-                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                            <li> <a href="../auth/logout.php"> Sair </a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </ul>
-        </nav>
-
-
-
-
-        <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
-        <div class="container-titulo-configuracoes">
-            <h1> Configurações do Perfil </h1>
+    <!-- BARRA DE NAVEGAÇÂO -->
+    <nav class="cabecalho">
+        <div class="logo">
+            <img src="../img/logo-conecta.png">
         </div>
 
+        <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
+
+        <!-- TÓPICOS -->
+        <ul class="topicos-sessao-completa">
+            <ul class="topicos">
+                <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="../index.php" class="cabecalho-menu-item">Início</a></li>
+                <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="../voluntarios/voluntarios.php" class="cabecalho-menu-item">voluntários</a></li>
+                <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
+                <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
+                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
+            </ul>
+
+            <ul class="topicos-sessao-login">
+                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
+                    <ul class="sub-topicos">
+                        <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                        <li> <a href="vagas.php"> Vagas </a> </li>
+                        <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                        <li> <a href="../auth/logout.php"> Sair </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </ul>
+    </nav>
 
 
 
-      
-        <!-- NAV LATERAL -->
-        <nav class="nav-lateral">
-            <div class="nav-lateral-sessao-um">
-                <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
 
-                <div class="nav-lateral-box-icon">
-                    <a href="form-editar-perfil-voluntario.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil </span></a>
-                </div>
+    <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
+    <div class="container-titulo-configuracoes">
+        <h1> Configurações do Perfil </h1>
+    </div>
 
-                <div class="nav-lateral-box-icon">
-                    <a href="form-adicionar-causas-voluntario.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Adicionar Causas </span></a>
-                </div>
 
-                <div class="nav-lateral-box-icon">
-                    <a href="tabela-vagas-voluntario.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas </span></a>
-                </div>
 
-                <div class="nav-lateral-box-icon">
-                    <a href="form-trocar-senha-voluntario.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
-                </div>
 
-                <div class="nav-lateral-box-icon">
-                    <a href="form-excluir-conta-voluntario.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
-                </div>
+
+    <!-- NAV LATERAL -->
+    <nav class="nav-lateral">
+        <div class="nav-lateral-sessao-um">
+            <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-editar-perfil-voluntario.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil </span></a>
             </div>
 
-            <div class="nav-lateral-sessao-dois">
-                <div class="nav-lateral-box-icon">
-                    <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
-                </div>
-            </div>    
-        </nav>
+            <div class="nav-lateral-box-icon">
+                <a href="form-adicionar-causas-voluntario.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Adicionar Causas </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="tabela-vagas-voluntario.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-trocar-senha-voluntario.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-excluir-conta-voluntario.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
+            </div>
+        </div>
+
+        <div class="nav-lateral-sessao-dois">
+            <div class="nav-lateral-box-icon">
+                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -121,16 +119,24 @@
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
 
-            <div class="container-botoes">     
+            <div class="container-botoes">
                 <div class="box-icon-tabela">
                     <div class="box-info-t"></div>
-                    <a href="tabela-vagas-voluntario.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div> </div> </a>
-                </div>  
-                            
+                    <a href="tabela-vagas-voluntario.php">
+                        <div class="fundo-icon" id="icon-table">
+                            <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div>
+                        </div>
+                    </a>
+                </div>
+
                 <div class="box-icon">
                     <div class="box-info"></div>
-                    <a href="card-vagas-voluntario.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="img/card.png" alt=""></div> </div> </a>           
-                </div>                 
+                    <a href="card-vagas-voluntario.php">
+                        <div class="fundo-icon" id="icon-card">
+                            <div class="box-img-icon"> <img src="img/card.png" alt=""></div>
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <!-- TÍTULO 1 -->
@@ -167,21 +173,50 @@
                         <tbody>
                             <?php
                             require_once 'global.php';
+                            $codVoluntario = $_SESSION['codUsuario'];
+
                             try {
-                                $listaVoluntario = VoluntarioDao::listar();
+                                $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
                             <tr>
-                                <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td> <a href=""> <?php echo $voluntario['codVoluntario']; ?> </a></td>
+                                <?php foreach ($listaVagasCandidatadas as $vagaCandidatada) { ?>
+                                    <?php
+                                    $codServico = $vagaCandidatada['codServico'];
+                                    $status = $vagaCandidatada['statusCandidatura'];
+
+                                    $servico = ServicoDao::obterServicoPorCodigo($codServico);
+                                    $nomeVaga = $servico['nomeservico'];
+                                    ?>
+
+                                    <td> <?php echo $nomeVaga ?> </td>
                                     <td>
                                         <div class="box-status">
-                                            <div class="status-bolinha"></div>
-                                            <p class="status"> Pendente </p>
+                                            <?php
+                                            $bolinhaClass = '';
+                                            if ($status == 'pendente') {
+                                                $bolinhaClass = 'status-bolinha-pendente';
+                                            } elseif ($status == 'aceito') {
+                                                $bolinhaClass = 'status-bolinha-aceito';
+                                            } elseif ($status == 'recusado') {
+                                                $bolinhaClass = 'status-bolinha-recusado';
+                                            }
+                                            ?>
+                                            <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
+                                            <?php
+                                            if ($status == 'pendente') {
+                                                echo '<p class="status"> Pendente </p>';
+                                            } elseif ($status == 'aceito') {
+                                                echo '<p class="status"> Aceito </p>';
+                                            } elseif ($status == 'recusado') {
+                                                echo '<p class="status"> Recusado </p>';
+                                            }
+                                            ?>
                                         </div>
                                     </td>
+
                                     <td> <button class="table-btn-rejeitar"> retirar </button> </td>
                             </tr>
                         <?php
