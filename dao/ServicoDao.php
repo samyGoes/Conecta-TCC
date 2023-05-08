@@ -153,6 +153,16 @@
             $deleteServico->execute();
 
         }
+        public static function obterQuantidadeVagasPorCategoria($codCategoriaServico) {
+            $conexao = Conexao::conectar();
+            // Consulta SQL para obter a quantidade de vagas por categoria
+            $sql = "SELECT COUNT(*) AS qntdVagaServico FROM tbServico WHERE codCategoriaServico = :codCategoriaServico";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':codCategoriaServico', $codCategoriaServico);
+            $stmt->execute();
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $resultado['quantidade'];
+        }
 
         public static function listarVagaAdm()
         {

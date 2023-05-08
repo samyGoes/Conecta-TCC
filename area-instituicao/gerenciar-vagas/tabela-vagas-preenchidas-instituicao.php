@@ -182,7 +182,7 @@ foreach ($listaCausas as $causas) {
 
     // Obter a quantidade de vagas para essa categoria
     try {
-        $quantidadeVagas = VagaDao::obterQuantidadeVagasPorCategoria($codCategoriaServico);
+        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorCategoria($codCategoriaServico);
     } catch (Exception $e) {
         echo $e->getMessage();
     }
