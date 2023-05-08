@@ -1,4 +1,5 @@
-body {
+body 
+{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -668,9 +669,14 @@ body {
 
 
 
+
+
+
+
+
 /*REPONSIVIDADE*/
 
-@media (max-width: 1320px){
+/* @media (max-width: 1320px){
     .cabecalho-completo{
         background-image: none;
     }
@@ -682,11 +688,11 @@ body {
     }
     .conteudo-direita{
         width: 100%;
-        /* background-color: #b4d8e6; */
+        /* background-color: #b4d8e6; 
     }
-}
+} */
 
-@media (max-width:1200px){
+/* @media (max-width:1200px){
     .conteudo-imagem-1{
         display: none;
     }
@@ -700,10 +706,11 @@ body {
     .texto-conteudo-escrito{
         text-align: justify;
     }
-}
+} */
 
 
-@media (max-width:900px) {
+@media (max-width:900px) 
+{
     .container-3{
         height: 50rem;
     }

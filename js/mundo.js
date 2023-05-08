@@ -6,12 +6,9 @@ const sombraCirculo = document.querySelector(".sombra-circulo");
 const iconFechar = document.querySelector("#icon-fechar");   
 const style = document.createElement("style");
 const mundo = document.querySelector(".box-img");
-const coracoes = document.querySelector(".coracoes");
 
-//boxCoracoes.innerHTML = ` <img src="img/coracao.png"> `  
-//coracoes.innerHTML = ` <div class="box-img-coracao"><img src="img/coracao.png"></div> ` 
 
-let tamanho = 250; // tamanho inicial do círculo
+let tamanho = 250; 
 
 botao.addEventListener('click', function()
 {
@@ -19,7 +16,7 @@ botao.addEventListener('click', function()
 
     let intervalo = setInterval(function() 
     {
-        tamanho -= 5; // diminui o tamanho do círculo em 5 pixels
+        tamanho -= 5; 
         circulo.style.backgroundImage = `radial-gradient(rgba(255, 255, 0, 0)0 ${tamanho}px, #beeaf1 ${tamanho}px 100%)`;
 
         if (tamanho <= 0) 
@@ -53,47 +50,70 @@ iconFechar.addEventListener("click", function()
 
 
 
-let posicaoX = 4;
-let posicaoY = 30;
+//let posicaoX = 4;
+let velocidade = 0.5;
+const coracoes = document.querySelector(".coracoes");
+const max = 24;
+const min = 4;
+
 
 // CRIANDO CORAÇÃO
-window.onload = function adicionarCoracoes()
+window.onload =  function adicionarCoracoes()
 {
-    if(tamanho >= 250)
+    setInterval(function() 
     {
-        if(posicaoX >= 28)
+        let posicaoY = 32;
+
+        if(tamanho >= 250)
         {
-            posicaoX = 4;
+            // CRIANDO OS CORAÇÕES
+            const novoCoracao = document.createElement("div");
+            novoCoracao.className = "box-img-coracao";
+            novoCoracao.innerHTML = `<img src="img/coracao.png">`;
+
+            coracoes.appendChild(novoCoracao);
+
+            // GERANDO NÚMERO ALEATÓRIO PARA A POSIÇÃO DOS CORAÇÕES
+            let posicaoX = Math.floor(Math.random() * (max - min + 1) + min)
+
+            novoCoracao.style.marginLeft = `${posicaoX}rem`;
+
+            // SUBINDO OS CORAÇÕES
+            let intervalo = setInterval(function() 
+            {           
+                if(posicaoY <= -15)
+                {
+                    novoCoracao.remove();
+                    clearInterval(intervalo);
+                }
+                else
+                {      
+                    novoCoracao.style.marginTop = `${posicaoY}rem`;     
+                    posicaoY -= velocidade;              
+                }              
+            }, 35);   
         }
 
-        // Criar um novo elemento div para cada coração
-        const novoCoracao = document.createElement("div");
-        novoCoracao.className = "box-img-coracao";
-        novoCoracao.innerHTML = `<img src="img/coracao.png">`;
-
-        // Adicionar o novo coração à div "coracoes"
-        coracoes.appendChild(novoCoracao);
-
-        novoCoracao.style.marginLeft = `${posicaoX}rem`;
-        posicaoX = posicaoX + 3;
-
-        let intervalo = setInterval(function() 
-        {
-            if(novoCoracao.style.marginTop == "-30rem")
-            {
-                novoCoracao.style.display = "none";
-            }
-            else
-            {
-                //novoCoracao.style.marginTop = `${posicaoY}rem`;
-                //posicaoY = posicaoY + 1;
-            }              
-        }, 30);
-
-        // RODA A FUNÇÃO DENOVO DEPOIS DE UM SEGUNDO
-        setTimeout(function() 
-        {
-            adicionarCoracoes();
-        }, 1000); 
-    }
+    }, 2000);
 }
+
+
+
+
+//const elementoAlvo = document.querySelector('.container-2');
+// let intervalId;
+
+
+// document.addEventListener("visibilitychange", function() 
+// {
+//     if (document.visibilityState === "hidden") 
+//     {
+//       // Guia não está ativa, então para a função
+//       clearInterval(intervalId);
+//     } 
+//     else 
+//     {
+//       // Guia está ativa, então continua a função
+//       intervalId = setInterval(adicionarCoracoes, 1000);
+//     }
+// });
