@@ -150,7 +150,7 @@
 
             $deleteServico = $conectar->prepare("DELETE FROM tbServico WHERE codServico = ?");
             $deleteServico->bindValue(1,$cod);
-            $deleteServico->execute();
+     /**/   $deleteServico->execute();
 
         }
         public static function obterQuantidadeVagasPorCategoria($codCategoriaServico) {
