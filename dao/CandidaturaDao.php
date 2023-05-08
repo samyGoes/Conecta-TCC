@@ -32,7 +32,7 @@ class CandidaturaDao
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
             INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'rejeitado'";
+            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'recusado'";
 
         $resultado = $conexao->prepare($querySelect);
         $resultado->execute(array($idInstituicaoLogada));
@@ -55,11 +55,22 @@ class CandidaturaDao
     public static function recusarCandidatura($idCandidatura)
     {
         $conexao = Conexao::conectar();
-        $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'rejeitado' WHERE codCandidatura = $idCandidatura";
+        $queryAceito = "UPDATE tbCandidatura SET statusCandidatura = 'recusado' WHERE codCandidatura = $idCandidatura";
         $resultado = $conexao->query($queryAceito);
         $status = $resultado->fetchAll();
         return $status;
     }
+
+
+    public static function retirarCandidatura($idCandidatura)
+    {
+        $conexao = Conexao::conectar();
+        $queryAceito = "DELETE FROM tbCandidatura  WHERE codCandidatura = $idCandidatura";
+        $resultado = $conexao->query($queryAceito);
+        $status = $resultado->fetchAll();
+        return $status;
+    }
+
 
     public static function retirarRecusa($codCandidatura)
     {
