@@ -1,5 +1,6 @@
-<?php include "loginUsuario.php";?>
-<?php
+<?php 
+
+include "loginUsuario.php";
 
     if(empty($_SESSION['codUsuario']))
     {
