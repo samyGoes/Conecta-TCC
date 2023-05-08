@@ -1,6 +1,6 @@
 <?php
     require_once 'global.php';
-    include "../auth/loginUsuario.php";
+    include "loginUsuario.php";
 
     $id = $_GET['c']; 
     $tipo = $_GET['t']; 
