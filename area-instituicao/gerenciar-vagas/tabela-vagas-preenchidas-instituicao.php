@@ -161,35 +161,46 @@ require_once 'global.php';
 
                     <table>
                         <thead>
+                           
                             <tr>
                                 <th> Vagas </th>
                                 <th> Ocupações </th>
                                 <th> Preenchidas </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
-                            try {
-                                $listaCausas = CategoriaServicoDao::listar();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            <tr>
-                                <?php foreach ($listaCausas as $causas) { ?>
-                                    <td>  </td>
-                                    <td>
-                                        <?php echo $causas['codCategoriaServico']; ?>
-                                    </td>
-                                    <td>
-                                       <a href="tabela-voluntarios-confirmados.php"> <?php echo $causas['nomeCategoria']; ?> </a>
-                                    </td>
-                            </tr>
-                            <?php
-                                }
-                            ?>
-                        </tbody>
+                        <?php
+require_once 'global.php';
+
+try {
+    $listaCausas = CategoriaServicoDao::listar();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+foreach ($listaCausas as $causas) {
+    $codCategoriaServico = $causas['codCategoriaServico'];
+
+    // Obter a quantidade de vagas para essa categoria
+    try {
+        $quantidadeVagas = VagaDao::obterQuantidadeVagasPorCategoria($codCategoriaServico);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+
+    // Obter a quantidade de voluntários inscritos para essa categoria
+    try {
+        $quantidadeInscritos = CandidaturaDao::obterQuantidadeInscritosPorCategoria($codCategoriaServico);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    ?>
+    <tr>
+        <td><?php echo $causas['nomeCategoria']; ?></td>
+        <td><?php echo $quantidadeVagas; ?></td>
+        <td><?php echo $quantidadeInscritos; ?></td>
+    </tr>
+<?php } ?>
+
                     </table>
                 </div>
             </div>
