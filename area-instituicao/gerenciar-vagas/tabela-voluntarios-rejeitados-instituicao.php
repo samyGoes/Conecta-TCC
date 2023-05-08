@@ -171,72 +171,65 @@ require_once 'global.php';
                         </div>
                     </div>
                     <table>
-                        <thead>
-                            <tr>
-                                <th> ID </th>
-                                <th> Foto </th>
-                                <th> Nome </th>
-                                <th> Idade </th>
-                                <th> Cidade </th>
-                                <th> UF </th>
-                                <th> Vaga </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            // require_once 'global.php';
-                            // try {
-                            //     $listaVoluntario = CandidaturaDao::listar($idInstituicao);
-                            // } catch (Exception $e) {
-                            //     echo $e->getMessage();
-                            // }
-                            ?>
-                            <form action="" method="post">
-                                <tr>
-                                    <?php //foreach ($listaVoluntario as $voluntario) { ?>
-                                        <td> <?php //echo $voluntario['codCandidatura']; ?> </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td><?php //echo $voluntario['nomeVoluntario']; ?></td>
-                                        <td> </td>
-                                        <td> <?php //echo $voluntario['cidadeVoluntario']; ?> </td>
-                                        <td> <?php //echo $voluntario['estadoVoluntario']; ?> </td>
-                                        <td> <?php //echo $voluntario['nomeservico']; ?> </td>
-                                        <td> <button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR REJEIÇÃO </button> </td>
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> Foto </th>
+            <th> Nome </th>
+            <th> Idade </th>
+            <th> Cidade </th>
+            <th> UF </th>
+            <th> Vaga </th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        require_once 'global.php';
+        $idInstituicaoLogada= $_SESSION['codUsuario'];
+        try {
+            $listaVoluntarioRejeitado = CandidaturaDao::listarVoluntariosRejeitados($idInstituicaoLogada);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        ?>
+        <form action="" method="post">
+            <?php foreach ($listaVoluntarioRejeitado as $voluntario) { ?>
+                <tr>
+                    <td> <?php echo $voluntario['codCandidatura']; ?> </td>
+                    <td>
+                        <a href="">
+                            <div class="box-img-lista">
+                                <img src="img/user-cinza.png" alt="">
+                            </div>
+                        </a>
+                    </td>
+                    <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                    <td> </td>
+                    <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
+                    <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
+                    <td> <?php echo $voluntario['nomeservico']; ?> </td>
+                    <td>
+                        <button name="btnRetirarRejeicao" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR REJEIÇÃO </button>
+                    </td>
+                </tr>
+            <?php } ?>
 
-                                        <?php
+            <?php
+            if (isset($_POST['btnRetirarRejeicao'])) {
+                $codCandidatura = $_POST['btnRetirarRejeicao'];
+                try {
+                    CandidaturaDao::retirarRejeicao($codCandidatura);
+                    // Realize a ação necessária ao retirar a rejeição do voluntário
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            }
+            ?>
+        </form>
+    </tbody>
+</table>
 
-                                        // if (isset($_POST['btnChamar'])) {
-                                        //     $codCandidatura = $_POST['btnChamar'];
-                                        //     try {
-                                        //         $statusCandidatura = CandidaturaDao::atualizarStatus($codCandidatura);
-                                        //     } catch (Exception $e) {
-                                        //         echo $e->getMessage();
-                                        //     }
-                                        // } elseif (isset($_POST['btnRejeitar'])) {
-                                        //     $codCandidatura = $_POST['btnRejeitar'];
-                                        //     try {
-                                        //         $statusCandidatura = CandidaturaDao::deletarCandidatura($codCandidatura);
-                                        //     } catch (Exception $e) {
-                                        //         echo $e->getMessage();
-                                        //     }
-                                        // }
-
-
-                                        ?>
-                                </tr>
-                            </form>
-                        <?php
-                                    //}
-                        ?>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
