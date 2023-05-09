@@ -147,7 +147,7 @@
             }
 
         ?>
-            <div class="lista-voluntario-linha">
+            <div class="lista-voluntario-linha-i">
                 <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
                     <div id="localizacao"><i class="fa-solid fa-location-dot"></i>
                         <p> <?php echo $instituicao['cidadeInstituicao'] . " -"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoInstituicao'] . ", " . $instituicao['paisInstituicao']; ?> </span></p>
