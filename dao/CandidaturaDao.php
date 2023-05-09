@@ -127,6 +127,26 @@ class CandidaturaDao
         return $resultado;
     }
 
+    public static function buscaCandidaturaBotao($voluntario, $vaga)
+    {
+        $conexao = Conexao::conectar();
+
+        $query = "SELECT * FROM tbCandidatura WHERE codVoluntario = ? AND codServico = ?";
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(1, $voluntario);
+        $stmt->bindValue(2, $vaga);
+        $stmt->execute();
+
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($resultado) <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
 
 
     //$queryRejeitado = "UPDATE tbCandidatura SET statusCandidatura = 'rejeitado'";

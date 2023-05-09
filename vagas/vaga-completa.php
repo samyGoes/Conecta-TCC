@@ -65,7 +65,9 @@
             </p>
         </div>
 
-
+        <?php
+            $consulta = CandidaturaDao::buscaCandidaturaBotao($_SESSION['codUsuario'],$_SESSION['vaga']['codServico']);
+        ?>
 
 
         <div class="conteudo-completo">      
@@ -143,7 +145,33 @@
                 <form action="../area-voluntario/candidatura.php" method="POST">
                     <div class="area-candidatar">
                             <p>Candidate-se a esta vaga para ajudar em nossa causa!</p>
-                            <button type="submit">candidatar-se</button>
+                            <?php
+                                if (!empty($_SESSION['nomeUsuario']))
+                                {
+                                    if($consulta)
+                                    {
+                                        $disabled = "disabled";
+                                        $id = "habilitado";  //colocar o nome da classe ou id do botão habilitado  
+                            
+                                    }
+                                    else
+                                    {
+                                        $disabled = "";
+                                        $id = "desabilitado";//colocar o nome da classe ou id do botão desabilitado  
+                                    }
+                                    //chamar a variavel no botão e estilizar cada um de forma personalizada
+                            ?>
+                                    <button id="<?php echo $id ?>" type="submit" <?php echo $disabled ?> >candidatar-se</button>
+                            <?php
+                                }
+                                else
+                                {
+                            ?>
+                                    <button type="submit">candidatar-se</button>
+                            <?php
+                                }
+                                
+                            ?>
                     </div>
                 </form>
             </div>

@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="dados-pessoais-2">
-                        <p class="dados">idade: <span><?php echo ($_SESSION['dadoPerfil']['dataNascVoluntario'] . " anos") ?></span></p>
+                        <p class="dados">idade: <span><?php echo ($_SESSION['dadoPerfil']['idade'] . " anos") ?></span></p>
                         <p class="dados" id="dados-email">email: <span><?php echo ($_SESSION['dadoPerfil']['emailVoluntario']) ?></span></p>
                         <p class="dados">telefone: <span><?php echo ($_SESSION['dadoPerfil']['telefone1']) ?></span></p>
                         <p class="dados">Localidade: <span><?php echo ($_SESSION['dadoPerfil']['cidadeVoluntario'] . " - " . $_SESSION['dadoPerfil']['estadoVoluntario'] . ", " . $_SESSION['dadoPerfil']['paisVoluntario']); ?></span></p>

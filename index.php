@@ -1,5 +1,6 @@
 <?php
     require_once 'global.php';
+    include "auth/loginUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,40 +52,29 @@
                 </ul>
 
                 <ul class="topicos-sessao-login">
-                    <?php 
-                        if (!empty($_SESSION['nomeUsuario'])) 
-                        {  
+                    <?php if (empty($_SESSION['nomeUsuario'])) { ?>
+                        <li class="topicos-sessao-login-linha">
+                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                                <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                            </a>
+                        </li>
+                    <?php } else { 
+                        $nomeCompleto = $_SESSION['nomeUsuario'];
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];                        
                     ?>
-                            <li class="topicos-sessao-login-linha">
-                                <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                                    Olá, <?php echo $_SESSION['nomeUsuario']; ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                                </a>
-                                <ul class="sub-topicos">
-                                    <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                    <li> <a href=""> Vagas </a> </li>
-                                    <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                    <li> <a href="auth/logout.php"> Sair </a></li>
-                                </ul>
-                            </li>
-                    <?php 
-                        }
-                        else 
-                        {
-                    ?>      <li class="topicos-sessao-login-linha">
-                                <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                                    <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
-                                </a>
-                                <ul class="sub-topicos">
-                                    <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                    <li> <a href=""> Vagas </a> </li>
-                                    <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                    <li> <a href="auth/logout.php"> Sair </a></li>
-                                </ul>
-                            </li>
-                    <?php
-                        }
-                    ?>
-                    
+                        <li class="topicos-sessao-login-linha">
+                            <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                                Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                            </a>
+                            <ul class="sub-topicos">
+                                <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                                <li> <a href=""> Vagas </a> </li>
+                                <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                                <li> <a href="auth/logout.php"> Sair </a></li>
+                            </ul>
+                        </li>
+                    <?php } ?>
                 </ul>
             </ul>
         </nav>

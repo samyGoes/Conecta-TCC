@@ -141,7 +141,7 @@
             $t = 'Voluntario';
             $c = $instituicao['codVoluntario'];
             try {
-                $listarCausas = CategoriaServicoDao::listarCausaPerfil($c);
+                $listarCausas = CausasVoluntarioDao::listarVoluntariosCausas($c);
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
