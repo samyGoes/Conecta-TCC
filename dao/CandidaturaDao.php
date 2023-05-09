@@ -40,6 +40,24 @@ class CandidaturaDao
         return $lista;
     }
 
+    public static function obterQuantidadeInscritosPorCategoria($codCategoriaServico)
+{
+    $conexao = Conexao::conectar();
+
+    $query = "SELECT COUNT(*) AS qntdVagaServico FROM tbCandidatura 
+    INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico 
+    INNER JOIN tbCategoriaServico ON tbServico.codCategoriaServico = tbCategoriaServico.codCategoriaServico
+    WHERE tbCategoriaServico.codCategoriaServico = :codCategoriaServico";
+
+
+    $stmt = $conexao->prepare($query);
+    $stmt->bindValue(':codCategoriaServico', $codCategoriaServico, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $resultado['qntdVagaServico'];
+}
 
 
     public static function aceitarCandidatura($idCandidatura)
