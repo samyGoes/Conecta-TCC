@@ -85,8 +85,8 @@
         <div class="box-filtro-causas">
 
             <div class="clique-fora">
-                <div class="filtro-causas-i"> CAUSAS </div>
-                <div class="box-causas-i">
+                <div class="filtro-causas"> CAUSAS </div>
+                <div class="box-causas">
                     <?php
                     require_once 'global.php';
                     try {
@@ -97,7 +97,7 @@
                     ?>
                     <?php foreach ($listaCausas as $causas) { ?>
                         <div class="box-causas-checkbox">
-                            <input class="checkbox-causas-i" type="checkbox" name="causas" id="causas">
+                            <input class="checkbox-causas" type="checkbox" name="causas" id="causas">
                             <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                         </div>
 

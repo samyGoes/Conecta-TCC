@@ -199,8 +199,8 @@ require_once '../auth/verifica-logado.php';
                                         $nomeVaga = $servico['nomeservico'];
                                         ?>
 
-                                        <td> <?php echo $nomeVaga ?> </td>
-                                        <td>
+                                        <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
+                                        <td class="td-table-c">
                                             <div class="box-status">
                                                 <?php
                                                 $bolinhaClass = '';
@@ -225,7 +225,7 @@ require_once '../auth/verifica-logado.php';
                                             </div>
                                         </td>
 
-                                        <td>
+                                        <td class="td-table-c">
                                             <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
                                         </td>
                                     </form>
@@ -293,9 +293,9 @@ require_once '../auth/verifica-logado.php';
                             ?>
                             <tr>
                                 <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td> <?php echo $voluntario['codVoluntario']; ?> </td>
-                                    <td> <button class="table-btn-chamar"> aceitar </button> </td>
-                                    <td> <button class="table-btn-rejeitar"> rejeitar </button> </td>
+                                    <td class="td-table-r"> <?php echo $voluntario['codVoluntario']; ?> </td>
+                                    <td class="td-table-r"> <button class="table-btn-chamar"> aceitar </button> </td>
+                                    <td class="td-table-r"> <button class="table-btn-rejeitar"> rejeitar </button> </td>
                             </tr>
                         <?php
                                 }

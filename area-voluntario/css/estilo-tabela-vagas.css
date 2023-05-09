@@ -252,20 +252,35 @@ thead tr {
 
 /* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
 th:nth-child(1),
-td:nth-child(1)
+.td-table-c:nth-child(2)
 {
-    min-width: 160px;
-    max-width: 160px;
+    /* min-width: 160px;
+    max-width: 160px; */
+    width: 160px;
     border-left: none !important;
 }
 
-th:nth-child(2),
-td:nth-child(2)
+.td-table-c a
 {
-    min-width: 120px;
-    max-width: 120px;
+   color: #2e2e2e;
+   transition: all 0.5s ease;
 }
-td:nth-child(2)
+
+.td-table-c a:hover
+{
+   color: #cf9c3c;
+}
+
+
+th:nth-child(2),
+.td-table-c:nth-child(3)
+{
+    /* min-width: 120px;
+    max-width: 120px; */
+    width: 120px;
+}
+
+.td-table-c:nth-child(2)
 {
     padding-left: 9px;
     padding-right: 9px;
@@ -279,11 +294,42 @@ th:nth-child(3)
     border-right: none !important;
 }
 
-td:nth-child(3)
+.td-table-c:nth-child(4)
 {
-    min-width: 120px;
-    max-width: 120px;
+    /* min-width: 120px;
+    max-width: 120px; */
+    width: 120px;
     padding: 0rem 1rem 0rem 1rem;
+    border-top: none !important;
+}
+
+
+
+
+/* TABLE REQUISIÇÃO */
+.td-table-r:nth-child(1)
+{
+    /* min-width: 160px;
+    max-width: 160px; */
+    width: 160px;
+    border-left: none !important;
+}
+
+.td-table-r:nth-child(2)
+{
+    /* min-width: 120px;
+    max-width: 120px; */
+    width: 120px;
+
+}
+
+.td-table-r:nth-child(3)
+{
+    /* min-width: 120px;
+    max-width: 120px; */
+    width: 120px;
+    padding: 0rem 1rem 0rem 1rem;
+    border-top: none !important;
 }
 
 

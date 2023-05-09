@@ -391,7 +391,7 @@ body
 }
 
 
-.lista-voluntario-linha
+.lista-voluntario-linha, .lista-voluntario-linha-i
 {
     display: flex;
     flex-direction: column;
@@ -402,17 +402,22 @@ body
     width: 100%;
 }
 
-.lista-voluntario-linha:hover
+.lista-voluntario-linha-i:hover
 {
     background-color: #dff1ff;
 }
 
-.lista-voluntario-linha:last-child
+.lista-voluntario-linha:hover
+{
+    background-color: #fbf7c7;
+}
+
+.lista-voluntario-linha:last-child, .lista-voluntario-linha-i:last-child
 {
     border-bottom: none;
 }
 
-.lista-voluntario-linha div
+.lista-voluntario-linha div, .lista-voluntario-linha-i div
 {
     display: flex;
     align-items: center;
@@ -436,7 +441,8 @@ body
     /* width: 15rem; */
 }
 
-.lista-voluntario-linha .nome
+.lista-voluntario-linha .nome, 
+.lista-voluntario-linha-i .nome
 {
     font-family: poppins, sans-serif;
     font-weight: 500;
