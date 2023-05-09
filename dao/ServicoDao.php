@@ -156,7 +156,11 @@
         public static function obterQuantidadeVagasPorCategoria($codCategoriaServico) {
             $conexao = Conexao::conectar();
             // Consulta SQL para obter a quantidade de vagas por categoria
-            $sql = "SELECT COUNT(*) AS qntdVagaServico FROM tbServico WHERE codCategoriaServico = :codCategoriaServico";
+            $sql = "SELECT COUNT(*) AS qntdVagaServico FROM tbServico 
+        INNER JOIN tbCategoriaServico ON tbServico.codCategoriaServico = tbCategoriaServico.codCategoriaServico
+        WHERE tbCategoriaServico.codCategoriaServico = :codCategoriaServico";
+
+    
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':codCategoriaServico', $codCategoriaServico);
             $stmt->execute();
