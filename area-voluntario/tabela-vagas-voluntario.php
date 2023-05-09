@@ -226,7 +226,7 @@ require_once '../auth/verifica-logado.php';
                                         </td>
 
                                         <td class="td-table-c">
-                                            <button name="btnRetirar" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
+                                            <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
                                         </td>
                                     </form>
                                 </tr>

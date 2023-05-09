@@ -260,6 +260,17 @@ th:nth-child(1),
     border-left: none !important;
 }
 
+.td-table-c a
+{
+   color: #2e2e2e;
+   transition: all 0.5s ease;
+}
+
+.td-table-c a:hover
+{
+   color: #cf9c3c;
+}
+
 
 th:nth-child(2),
 .td-table-c:nth-child(3)
