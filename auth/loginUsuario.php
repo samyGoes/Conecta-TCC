@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     require_once 'global.php';
 
     if (session_status() == PHP_SESSION_NONE) {
@@ -13,9 +18,9 @@
         $login = $_POST['login'];
         $senha = $_POST['senha'];
 
-       
+        $verificaUsuario=Utils::cpfOuCnpj($login);
 
-        if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cpf" )
+        if($verificaUsuario == "Cpf" )
         {
             $stmt=$conectar->prepare("SELECT codVoluntario,nomeVoluntario,
             emailVoluntario	FROM tbvoluntario WHERE cpfVoluntario = ? AND senhaVoluntario = ?");
@@ -45,11 +50,11 @@
             } 
             else 
             {
-                echo"erro";
+                header('Location: ../form-login.php?status=erro1');
             }
         
         }
-        else if($verificaUsuario=Utils::cpfOuCnpj($login) == "Cnpj")
+        else if($verificaUsuario == "Cnpj")
         {
             $stmt=$conectar->prepare("SELECT codInstituicao,nomeInstituicao,
             emailInstituicao FROM tbinstituicao WHERE cnpjInstituicao = ? AND senhaInstituicao = ?");
@@ -78,8 +83,10 @@
             }
             else
             {
-                echo("Login e/ou senha inválidos.");
+                header('Location: ../form-login.php?status=erro2');
             }
+        }else{
+            header('Location: ../form-login.php?status=erro3');
         }
     }     
 ?>
