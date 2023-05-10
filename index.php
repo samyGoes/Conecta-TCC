@@ -60,8 +60,16 @@
                         </li>
                     <?php } else { 
                         $nomeCompleto = $_SESSION['nomeUsuario'];
-                        $nomeArray = explode(" ", $nomeCompleto);
-                        $primeiroNome = $nomeArray[0];                        
+                        if($_SESSION['tipoPerfil']=='Voluntario')
+                        {
+                            $nomeArray = explode(" ", $nomeCompleto);
+                            $primeiroNome = $nomeArray[0];
+                        }
+                        else
+                        {
+                            $nomeArray = explode(" ", $nomeCompleto);
+                            $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
+                        }                        
                     ?>
                         <li class="topicos-sessao-login-linha">
                             <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
