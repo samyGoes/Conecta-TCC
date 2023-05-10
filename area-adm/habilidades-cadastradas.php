@@ -37,7 +37,7 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="habilidades-cadastradas.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico">
-                        habilidades </span></a>
+                        Habilidades </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -50,7 +50,7 @@
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="voluntarios-cadastrados.php"> <i class="fa-solid fa-person"></i> <span class="nav-lateral-topico"> voluntários
+                <a href="voluntarios-cadastrados.php"> <i class="fa-solid fa-person"></i> <span class="nav-lateral-topico"> Voluntários
                     </span></a>
             </div>
         </div>
@@ -73,7 +73,9 @@
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="main-conteudo-container-titulo">
             <h1>HABILIDADES</h1>
-            <p>Aqui você verá todas as habilidades cadastradas...</p>
+            <p>Aqui você verá todas as habilidades cadastradas pelas instituições no site. Você também pode filtrar ou pesquisar
+                pela habilidade que deseja. Também tem como opção bloquear alguma habilidade caso ela esteja
+                violando alguma das diretrizes.</p>
         </div>
         <div class="gerarPdf">
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
