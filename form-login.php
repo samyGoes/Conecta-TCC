@@ -104,6 +104,22 @@
                         <div class="input-box">
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" oninput="validate()" placeholder="Digite sua senha">
+                            <?php
+
+                            if( isset($_GET['status'])){
+
+                                if( isset($_GET['status']) && $_GET['status'] == 'erro1'){
+                                    echo '<div class="alerta-erro">Cpf ou senha incorreta!</div>';
+                                }
+                                if( isset($_GET['status']) && $_GET['status'] == 'erro2'){
+                                    echo '<div class="alerta-erro">Cnpj ou senha incorreta!</div>';
+                                }
+                                if (isset($_GET['status']) && $_GET['status'] == 'erro3'){
+                                    echo '<div class="alerta-erro">Cpf ou Cnpj incorretos!</div>';
+                                }
+                            }
+                                   
+                            ?>
                             <a class="link-esqueceu-senha" href="#"> Esqueceu a senha? </a>
                         </div>
                        
