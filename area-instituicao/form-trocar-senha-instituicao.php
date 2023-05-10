@@ -44,15 +44,37 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <li class="topicos-sessao-login-linha"><a href="../form-login.php" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                        <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login </a> <span id="nav-seta-sub-topicos"> 🢓 </span></i>
-                    <ul class="sub-topicos">
-                        <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                        <li> <a href="editar-excluir-vagas/"> Vagas </a> </li>
-                        <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                        <li> <a href="../auth/logout.php"> Sair </a></li>
-                    </ul>
-                </li>
+                <?php if (empty($_SESSION['nomeUsuario'])) { ?>
+                    <li class="topicos-sessao-login-linha">
+                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                        </a>
+                    </li>
+                <?php } else { 
+                    $nomeCompleto = $_SESSION['nomeUsuario'];
+                    if($_SESSION['tipoPerfil']=='Voluntario')
+                    {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];
+                    }
+                    else
+                    {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
+                    }                        
+                ?>
+                    <li class="topicos-sessao-login-linha">
+                        <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                            Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                        </a>
+                        <ul class="sub-topicos">
+                            <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                <?php } ?>
             </ul>
         </ul>
     </nav>
