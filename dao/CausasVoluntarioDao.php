@@ -1,6 +1,6 @@
 <?php
     require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+    
 
     class CausasVoluntarioDao
 {
@@ -40,7 +40,6 @@
         public static function listar($codVoluntario)
         {
 
-            $codVoluntario = $_SESSION['codUsuario'];
             $conexao = Conexao::conectar();
             $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria,  
             tbVoluntario.codVoluntario FROM tbCausaVoluntario

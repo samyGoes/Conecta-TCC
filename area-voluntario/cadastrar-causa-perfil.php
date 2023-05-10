@@ -6,6 +6,8 @@
     //Cadastrando as causas que o voluntario apoia
     try
     {
+        header('Location: form-adicionar-causas-voluntario.php');
+
         $causaVoluntario = new CausaVoluntario ;
 
         $causaVoluntario -> setCodCategoria($_POST['causas']);
