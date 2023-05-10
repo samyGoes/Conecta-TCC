@@ -140,11 +140,13 @@ select option {
 
 #tipoVaga,
 #habilidade,
-#causas {
+#causas,
+#periodo
+ {
     border: 1px solid #4567a5;
 }
 
-#tipoVaga {
+#tipoVaga, #periodo {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
