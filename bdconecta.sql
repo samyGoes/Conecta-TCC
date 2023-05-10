@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Maio-2023 às 06:25
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.2
+-- Tempo de geração: 10-Maio-2023 às 21:27
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdconecta`
+-- Banco de dados: `bdconecta`
 --
 
 -- --------------------------------------------------------
@@ -59,6 +58,14 @@ CREATE TABLE `tbcategoriaservico` (
   `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbcategoriaservico`
+--
+
+INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`) VALUES
+(14, 'Crianças'),
+(15, 'Adolescentes');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +77,14 @@ CREATE TABLE `tbcausavaga` (
   `codServico` int(11) NOT NULL,
   `codCategoriaServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbcausavaga`
+--
+
+INSERT INTO `tbcausavaga` (`codCausaVaga`, `codServico`, `codCategoriaServico`) VALUES
+(18, 26, 14),
+(19, 26, 15);
 
 -- --------------------------------------------------------
 
@@ -83,6 +98,14 @@ CREATE TABLE `tbcausavoluntario` (
   `codVoluntario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbcausavoluntario`
+--
+
+INSERT INTO `tbcausavoluntario` (`codCausaVoluntario`, `codCategoriaServico`, `codVoluntario`) VALUES
+(8, 14, 4),
+(9, 15, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +118,14 @@ CREATE TABLE `tbfoneinstituicao` (
   `numSeqFone` int(20) NOT NULL,
   `codInstituicao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbfoneinstituicao`
+--
+
+INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `numSeqFone`, `codInstituicao`) VALUES
+(17, '(11) 97701-3618', 1, 10),
+(18, '(11) 95205-9562', 2, 10);
 
 -- --------------------------------------------------------
 
@@ -140,6 +171,14 @@ CREATE TABLE `tbhabilidadeservico` (
   `nomeHabilidadeServico` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbhabilidadeservico`
+--
+
+INSERT INTO `tbhabilidadeservico` (`codHabilidadeServico`, `nomeHabilidadeServico`) VALUES
+(3, 'Inglês'),
+(4, 'Cozinhar');
+
 -- --------------------------------------------------------
 
 --
@@ -151,6 +190,13 @@ CREATE TABLE `tbhabivaga` (
   `codServico` int(11) DEFAULT NULL,
   `codHabilidadeServico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbhabivaga`
+--
+
+INSERT INTO `tbhabivaga` (`codHabiVaga`, `codServico`, `codHabilidadeServico`) VALUES
+(10, 26, 3);
 
 -- --------------------------------------------------------
 
@@ -172,9 +218,16 @@ CREATE TABLE `tbinstituicao` (
   `emailInstituicao` varchar(30) NOT NULL,
   `cnpjInstituicao` char(18) NOT NULL,
   `senhaInstituicao` varchar(10) NOT NULL,
-  `descInstituicao` varchar(60) NOT NULL,
+  `descInstituicao` varchar(400) NOT NULL,
   `fotoInstituicao` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbinstituicao`
+--
+
+INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituicao`, `numLogInstituicao`, `cepInstituicao`, `compInstituicao`, `bairroInstituicao`, `cidadeInstituicao`, `estadoInstituicao`, `paisInstituicao`, `emailInstituicao`, `cnpjInstituicao`, `senhaInstituicao`, `descInstituicao`, `fotoInstituicao`) VALUES
+(10, 'Ong Raio de sol', 'Estrada Manuel de Oliveira Ramos ', '282', '08473-050', 'casa', 'Conjunto Habitacional Sitio Conceição', 'São Paulo', 'São Paulo', 'Brasil', 'OngRaioSol@gmail.com', '78.806.858/0001-35', 'Ongraio1@', 'somos uma ong em apoio às crianças em estado de vulnerabilidade nas periferias de São Paulo', 'img-instituicao/10.jpg');
 
 -- --------------------------------------------------------
 
@@ -187,6 +240,14 @@ CREATE TABLE `tbinstituicaocategoriaservico` (
   `codInstituicao` int(11) NOT NULL,
   `codCategoriaServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbinstituicaocategoriaservico`
+--
+
+INSERT INTO `tbinstituicaocategoriaservico` (`codInstituicaoCategoriaServico`, `codInstituicao`, `codCategoriaServico`) VALUES
+(14, 10, 14),
+(15, 10, 15);
 
 -- --------------------------------------------------------
 
@@ -214,6 +275,13 @@ CREATE TABLE `tbservico` (
   `qntdVagaServico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbservico`
+--
+
+INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codInstituicao`, `descServico`, `cepLocalServico`, `bairroLocalServico`, `estadoLocalServico`, `logradouroLocalServico`, `complementoLocalServico`, `paisLocalServico`, `numeroLocalServico`, `cidadeLocalServico`, `nomeservico`, `tipoServico`, `dataInicioServico`, `qntdVagaServico`) VALUES
+(26, '08:00:00', 'matutino', 10, 'Precisamos de professores de inglês que estão dispostos a ensinar \r\n', '08461-200', 'Cidade Popular', 'SP', 'Rua Paulo Ramos', 'casa', 'Brasil', '60', 'São Paulo', 'Professor de Inglês', 'presencial', '2023-05-10', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -235,7 +303,7 @@ CREATE TABLE `tbvoluntario` (
   `paisVoluntario` varchar(100) NOT NULL,
   `emailVoluntario` varchar(50) NOT NULL,
   `senhaVoluntario` varchar(15) NOT NULL,
-  `descVoluntario` varchar(60) NOT NULL,
+  `descVoluntario` varchar(400) NOT NULL,
   `fotoVoluntario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -244,20 +312,20 @@ CREATE TABLE `tbvoluntario` (
 --
 
 INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`) VALUES
-(4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', '', 'img/user.png');
+(4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `tbadm`
+-- Índices para tabela `tbadm`
 --
 ALTER TABLE `tbadm`
   ADD PRIMARY KEY (`codAdm`);
 
 --
--- Indexes for table `tbcandidatura`
+-- Índices para tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   ADD PRIMARY KEY (`codCandidatura`),
@@ -265,13 +333,13 @@ ALTER TABLE `tbcandidatura`
   ADD KEY `fk_ajudante` (`codVoluntario`);
 
 --
--- Indexes for table `tbcategoriaservico`
+-- Índices para tabela `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
   ADD PRIMARY KEY (`codCategoriaServico`);
 
 --
--- Indexes for table `tbcausavaga`
+-- Índices para tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
   ADD PRIMARY KEY (`codCausaVaga`),
@@ -279,7 +347,7 @@ ALTER TABLE `tbcausavaga`
   ADD KEY `fk_ServicoVaga` (`codServico`);
 
 --
--- Indexes for table `tbcausavoluntario`
+-- Índices para tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
   ADD PRIMARY KEY (`codCausaVoluntario`),
@@ -287,34 +355,34 @@ ALTER TABLE `tbcausavoluntario`
   ADD KEY `fk_codCategoria` (`codCategoriaServico`);
 
 --
--- Indexes for table `tbfoneinstituicao`
+-- Índices para tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
   ADD PRIMARY KEY (`codFoneInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbfonevoluntario`
+-- Índices para tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   ADD PRIMARY KEY (`codFoneVoluntario`),
   ADD KEY `codVoluntario` (`codVoluntario`);
 
 --
--- Indexes for table `tbfotosinstituicao`
+-- Índices para tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   ADD PRIMARY KEY (`codfotoInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbhabilidadeservico`
+-- Índices para tabela `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
   ADD PRIMARY KEY (`codHabilidadeServico`);
 
 --
--- Indexes for table `tbhabivaga`
+-- Índices para tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
   ADD PRIMARY KEY (`codHabiVaga`),
@@ -322,13 +390,13 @@ ALTER TABLE `tbhabivaga`
   ADD KEY `fk_serv` (`codServico`);
 
 --
--- Indexes for table `tbinstituicao`
+-- Índices para tabela `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
   ADD PRIMARY KEY (`codInstituicao`);
 
 --
--- Indexes for table `tbinstituicaocategoriaservico`
+-- Índices para tabela `tbinstituicaocategoriaservico`
 --
 ALTER TABLE `tbinstituicaocategoriaservico`
   ADD PRIMARY KEY (`codInstituicaoCategoriaServico`),
@@ -336,108 +404,108 @@ ALTER TABLE `tbinstituicaocategoriaservico`
   ADD KEY `codCategoriaServico` (`codCategoriaServico`);
 
 --
--- Indexes for table `tbservico`
+-- Índices para tabela `tbservico`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
   ADD KEY `fk_Instituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbvoluntario`
+-- Índices para tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   ADD PRIMARY KEY (`codVoluntario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbadm`
+-- AUTO_INCREMENT de tabela `tbadm`
 --
 ALTER TABLE `tbadm`
   MODIFY `codAdm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbcandidatura`
+-- AUTO_INCREMENT de tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbcategoriaservico`
+-- AUTO_INCREMENT de tabela `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tbcausavaga`
+-- AUTO_INCREMENT de tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
-  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `tbcausavoluntario`
+-- AUTO_INCREMENT de tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
-  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbfoneinstituicao`
+-- AUTO_INCREMENT de tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
-  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `tbfonevoluntario`
+-- AUTO_INCREMENT de tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbfotosinstituicao`
+-- AUTO_INCREMENT de tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbhabilidadeservico`
+-- AUTO_INCREMENT de tabela `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbhabivaga`
+-- AUTO_INCREMENT de tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
-  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbinstituicao`
+-- AUTO_INCREMENT de tabela `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
-  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbinstituicaocategoriaservico`
+-- AUTO_INCREMENT de tabela `tbinstituicaocategoriaservico`
 --
 ALTER TABLE `tbinstituicaocategoriaservico`
-  MODIFY `codInstituicaoCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `codInstituicaoCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tbservico`
+-- AUTO_INCREMENT de tabela `tbservico`
 --
 ALTER TABLE `tbservico`
-  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `tbvoluntario`
+-- AUTO_INCREMENT de tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --

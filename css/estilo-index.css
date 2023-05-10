@@ -13,6 +13,7 @@ body
     background-size: cover;
     width: 100vw;
     height: 120vh;
+    /* display: none; */
 }
 
 .conteudo-cabecalho {
@@ -708,6 +709,22 @@ body
     }
 } */
 
+@media (max-width: 1398px) 
+{
+    .card-conteudo-1
+    {
+        max-width: 60%;
+    }
+    .conteudo-imagem-1
+    {
+        display: none;
+    }
+    .conteudo-escrito-1
+    {
+        width: 100%;
+        padding: 3rem;
+    }
+}
 
 @media (max-width:900px) 
 {

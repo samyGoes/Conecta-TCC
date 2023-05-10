@@ -25,8 +25,7 @@
     position: fixed;
     overflow: hidden;
 
-    background-color: #468f61;
-    border-right: 1px solid #113173;
+    background-color: #5f8699;
     border-top: none;
     transition: all 0.5s ease;
     /* opacity: 0.3; */
@@ -80,7 +79,7 @@
 
 .nav-lateral i:hover,
 .nav-lateral-box-icon a:hover {
-    color: #000;
+    color: #fdd6a9;
 }
 
 #nav-lateral-icon-lista {
@@ -105,7 +104,7 @@
     font-family: poppins, sans-serif;
     font-size: 15px;
     font-weight: 400;
-    color: #ffffff;
+    color: #fff;
 }
 
 .nav-lateral-sessao-dois {
@@ -178,7 +177,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #69b283;
+    border: 1px solid #5f8699;
     gap: 5%;
     width: 140px;
     height: 40px;
@@ -186,7 +185,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     border-radius: 0.5rem;
-    background-color: #69b283;
+    background-color: #5f8699;
     color: #ffffff;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -195,7 +194,7 @@
 
 .gerarPdf button:hover {
     background-color: #ffffff;
-    color: #69b283;
+    color: #5f8699;
 }
 
 

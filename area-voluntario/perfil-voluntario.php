@@ -145,7 +145,7 @@
                         <div class="tipo-causas">
                             <?php
                             try {
-                                $codVoluntario = $_SESSION['codUsuario'];
+                                $codVoluntario = $_SESSION['dadoPerfil']['codVoluntario'];
                                 $listar = CausasVoluntarioDao::listar($codVoluntario);
                             } catch (Exception $e) {
                                 echo $e->getMessage();

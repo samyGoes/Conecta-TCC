@@ -178,7 +178,7 @@
                         <div>
                             <label for=" ">CEP</label>
                             <input type="text " name="cep" id="cep" placeholder="Digite seu CEP"
-                                value="<?php echo $_SESSION['dadoPerfil']['telefone2'] ?>" />
+                                value="<?php echo $_SESSION['dadoPerfil']['cepInstituicao'] ?>" />
                         </div>
 
                         <div>
