@@ -129,7 +129,7 @@
 
 
     <!-- <script src="js/script.js"></script> -->
-    <script src="js/valida-instituicao.js"></script>
+    <!-- <script src="js/valida-instituicao.js"></script> -->
     <script src="js/endereco-auto.js"></script>
     <script src="js/mascarasForm.js"></script>
     <script src="js/mascara.js"></script>

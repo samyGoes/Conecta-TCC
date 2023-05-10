@@ -130,16 +130,16 @@
         <?php
         require_once 'global.php';
         try {
-            $listaInstituicao = VoluntarioDao::listar();
+            $listaVoluntario = VoluntarioDao::listar();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
         ?>
 
         <?php
-        foreach ($listaInstituicao as $instituicao) {
+        foreach ($listaVoluntario as $voluntario) {
             $t = 'Voluntario';
-            $c = $instituicao['codVoluntario'];
+            $c = $voluntario['codVoluntario'];
             try {
                 $listarCausas = CausasVoluntarioDao::listarVoluntariosCausas($c);
             } catch (Exception $e) {
@@ -150,23 +150,23 @@
             <div class="lista-voluntario-linha">
                 <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
                     <div id="localizacao"><i class="fa-solid fa-location-dot"></i>
-                        <p> <?php echo $instituicao['cidadeVoluntario'] . " -"; ?> <span class="estado-pais"> <?php echo $instituicao['estadoVoluntario'] . ", " . $instituicao['paisVoluntario']; ?> </span></p>
+                        <p> <?php echo $voluntario['cidadeVoluntario'] . " -"; ?> <span class="estado-pais"> <?php echo $voluntario['estadoVoluntario'] . ", " . $voluntario['paisVoluntario']; ?> </span></p>
                     </div>
 
                     <div class="lista-item" id="lista-item-nome">
 
-                        <div class="box-img"> <img src="../area-instituicao/<?php echo $instituicao['fotoVoluntario']; ?>"> </div>
+                        <div class="box-img"> <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"> </div>
 
                         <div class="lista-item-sessao-1">
                             <a href="">
-                                <p class="nome"> <?php echo $instituicao['nomeVoluntario']; ?> </p>
+                                <p class="nome"> <?php echo $voluntario['nomeVoluntario']; ?> </p>
                             </a>
-                            <p class="email"> <?php echo $instituicao['emailVoluntario']; ?> </p>
+                            <p class="email"> <?php echo $voluntario['emailVoluntario']; ?> </p>
                         </div>
 
                         <div class="lista-item-sessao-2">
                             <p class="descricao">
-                                <?php echo $instituicao['descVoluntario']; ?>
+                                <?php echo $voluntario['descVoluntario']; ?>
                             </p>
                         </div>
 
