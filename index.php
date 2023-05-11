@@ -256,7 +256,7 @@
                                             </div>
                                             <div class="card-fundo">
                                                 <div class="fundo-img">
-                                                    <img src="<?php echo $vaga['fotoInstituicao']; ?>">
+                                                    <img src="area-instituicao/<?php echo $vaga['fotoInstituicao']; ?>">
                                                 </div>
                                                 <div class="title-1">
                                                     <p>

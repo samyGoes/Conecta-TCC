@@ -17,8 +17,7 @@ body
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    /* padding-top: 10rem; */
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-bottom: 4rem; 
     /* display: none; */
 }
@@ -29,6 +28,7 @@ body
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 4rem;
 }
 
 .conteudo-direita {
@@ -95,7 +95,7 @@ body
 
 .foto-pessoas-cabecalho
 {
-    width: 40%;
+    width: 45%;
 }
 .foto-pessoas-cabecalho img
 {
@@ -492,6 +492,7 @@ body
 
 .card-carrossel-dois {
     min-width: 31.8%;
+    width: 19rem;
     transition: all 0.4s ease;
     cursor: pointer;
 }
@@ -547,6 +548,7 @@ body
     height: 60px;
     border-radius: 50%;
     margin: 4% 0px 3% 0px;
+    border: 1px solid #000;
 }
 
 .fundo-img img {
@@ -715,6 +717,108 @@ body
         text-align: justify;
     }
 } */
+
+
+/* SESSÃO 1 */
+@media (max-width: 1440px) and (max-height: 720px)  
+{
+    
+    .box-cabecalho-conteudo
+    {
+        gap: 1rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 40%;
+    }
+}
+@media (max-width: 1436px) 
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 2rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 45%;
+    }
+}
+
+
+@media (max-width: 1366px) 
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 2rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 38%;
+    }
+    .conteudo-escrito-direita
+    {
+        max-width: 28rem;
+    }
+    .conteudo-escrito-direita
+    {
+        margin-bottom: 2rem;
+    }
+}
+
+@media /*(max-width: 1366px) and */(max-height: 713px)  
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 1rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 34%;
+    }
+    .titulo-conteudo-direita h1
+    {
+        font-size: 35px;
+    }
+    .conteudo-escrito-direita p
+    {
+        font-size: 14px;
+    }
+    .continuar-botao button
+    {
+        font-size: 19px;
+        width: 11.4rem;
+    }
+}
+
+@media (max-height: 638px) 
+{
+    .foto-pessoas-cabecalho
+    {
+        width: 29%;
+    }
+} 
+
+
+@media (max-height: 618px) 
+{
+    .foto-pessoas-cabecalho
+    {
+        width: 24%;
+    }
+} 
+
+@media (max-height: 590px) 
+{
+    .foto-pessoas-cabecalho
+    {
+        width: 22%;
+    }
+} 
+
+
+
+
+
 
 @media (max-width: 1398px) 
 {

@@ -65,7 +65,7 @@ include "../../auth/verifica-logado.php";
                             Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
                         </a>
                         <ul class="sub-topicos">
-                            <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href="../../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="../../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
                             <li> <a href="../../auth/logout.php"> Sair </a></li>
@@ -241,8 +241,8 @@ include "../../auth/verifica-logado.php";
                                 <td> <?php echo $vaga['nomeservico']; ?></td>
                                 <td> <?php echo $vaga['periodoServico']; ?></td>
                                 <td> <?php echo $vaga['horarioServico']; ?></td>
-                                <td> <?php echo $vaga['nomeCategoria']; ?></td>
-                                <td> <?php echo $vaga['nomeHabilidadeServico']; ?> </td>
+                                <td> <?php echo $vaga['causas']; ?></td>
+                                <td> <?php echo $vaga['habilidades']; ?> </td>
                                 <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
                                 <td> <?php echo $vaga['estadoLocalServico']; ?></td>
                                 <td> <?php echo $vaga['paisLocalServico']; ?></td>

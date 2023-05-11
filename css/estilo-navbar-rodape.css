@@ -115,8 +115,10 @@
 {
     /* display: flex; */
     /* justify-self: end; */
-    width: 6rem;
-    margin-right: 3rem;
+    width: 9rem;
+    overflow: hidden;
+    word-wrap: break-word;
+    margin-right: 2rem;
 }
 .topicos-sessao-login li
 {
@@ -513,6 +515,13 @@ footer
     .cabecalho
     {
         grid-template-rows: 2.5rem 2.5rem;
+    }
+    .logo
+    {  
+        width: 166px;
+        height: 44px;
+        margin-left: 1.3rem;
+        margin-top: 2rem;
     }
     .checkbtn
     {
