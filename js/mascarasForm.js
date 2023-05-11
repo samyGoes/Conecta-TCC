@@ -1,44 +1,27 @@
-const celularInput = document.querySelector('#telefone');
+//Mascáras Formulários
+//Função telefones
+function adicionarMascaraTelefone(idCampo) {
+  const campo = document.querySelector(idCampo);
 
-    celularInput.addEventListener('input', () => {
-    let celular = celularInput.value.replace(/\D/g, ''); // remove tudo que não é número
-    celular = celular.slice(0, 11); // limita o tamanho máximo para 11 dígitos (DDD + número do celular)
+  campo.addEventListener('input', () => {
+    let telefone = campo.value.replace(/\D/g, '');
+    telefone = telefone.slice(0, 11);
 
-    if (celular.length > 2 && celular.length < 7) {
-        celular = celular.replace(/(\d{2})(\d+)/, '($1) $2'); // adiciona o DDD
-    } else if (celular.length >= 7) {
-        celular = celular.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3'); // adiciona o DDD e formata o número do celular
-    }
-
-    celularInput.value = celular; // atualiza o valor do input com a máscara
-});
-
-
-
-//função que retorne o número de caracteres digitados pelo usuário
-    const comMascara2 = (valor, pattern) => {
-    let i = 0;
-    const v = valor.replace(/\D/g, "");
-    return pattern.replace(/#/g, () => v[i++] || "");
-  }
-  
-  //implementando a máscara correta de acordo com o tipo de telefone
-  const telefoneInput2 = document.querySelector('#telefone2');
-  
-  telefoneInput2.addEventListener('input', () => {
-    const telefone = telefoneInput2.value.replace(/\D/g, '');
-  
     if (telefone.length === 10) {
       // É um telefone fixo
-      telefoneInput2.value = comMascara2(telefone, "(##) ####-####");
+      telefone = telefone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
     } else if (telefone.length === 11 && telefone[2] === '9') {
       // É um telefone celular com DDD
-      telefoneInput2.value = comMascara2(telefone, "(##) #####-####");
-    } else {
-      // Valor inválido ou incompleto
-      telefoneInput2.value = telefone;
+      telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     }
+
+    campo.value = telefone;
   });
+}
+
+//Adicionando a máscara aos campos
+adicionarMascaraTelefone('#telefone');
+adicionarMascaraTelefone('#telefone2');
 
   const cnpjInput = document.querySelector('#cnpj');
 
@@ -51,6 +34,40 @@ const celularInput = document.querySelector('#telefone');
         cnpjInput.value = cnpj;
     }
 });
+
+
+//Máscara do CEP
+function adicionarMascaraCep(idCampo) {
+  const campo = document.querySelector(idCampo);
+
+  campo.addEventListener('input', () => {
+    let cep = campo.value.replace(/\D/g, '');
+    cep = cep.slice(0, 8);
+
+    cep = cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+
+    campo.value = cep;
+  });
+}
+
+// Adicionando a máscara ao campo
+adicionarMascaraCep('#cep');
+
+function adicionarMascaraDataNascimento(idCampo) {
+  const campo = document.querySelector(idCampo);
+
+  campo.addEventListener('input', () => {
+    let data = campo.value.replace(/\D/g, '');
+    data = data.slice(0, 8);
+
+    data = data.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+
+    campo.value = data;
+  });
+}
+
+adicionarMascaraDataNascimento('#date');
+
 
 
 

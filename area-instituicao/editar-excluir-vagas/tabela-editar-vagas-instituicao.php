@@ -241,8 +241,8 @@ include "../../auth/verifica-logado.php";
                                 <td> <?php echo $vaga['nomeservico']; ?></td>
                                 <td> <?php echo $vaga['periodoServico']; ?></td>
                                 <td> <?php echo $vaga['horarioServico']; ?></td>
-                                <td> <?php echo $vaga['nomeCategoria']; ?></td>
-                                <td> <?php echo $vaga['nomeHabilidadeServico']; ?> </td>
+                                <td> <?php echo $vaga['causas']; ?></td>
+                                <td> <?php echo $vaga['habilidades']; ?> </td>
                                 <td> <?php echo $vaga['cidadeLocalServico']; ?> </td>
                                 <td> <?php echo $vaga['estadoLocalServico']; ?></td>
                                 <td> <?php echo $vaga['paisLocalServico']; ?></td>
