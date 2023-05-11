@@ -24,93 +24,86 @@
 <body>
 
     <!-- BARRA DE NAVEGAÇÂO -->
-    <header class="cabecalho-completo">
-        <nav class="cabecalho">
-            <div class="logo">
-                <img src="img/logo-conecta.png">
-            </div>
-
-            <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
-
-            <!-- TÓPICOS -->
-            <ul class="topicos-sessao-completa">
-                <ul class="topicos">
-                    <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="index.php"
-                            class="cabecalho-menu-item">Início</a></li>
-                    <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios/voluntarios.php"
-                            class="cabecalho-menu-item">voluntários</a></li>
-                    <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a
-                            href="instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
-                    <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="vagas/vagas.php"
-                            class="cabecalho-menu-item">Vagas</a></li>
-                    <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a
-                            href="sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                    <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="contato/contato.php"
-                            class="cabecalho-menu-item">contato</a></li>
-                </ul>
-
-                <ul class="topicos-sessao-login">
-                    <?php if (empty($_SESSION['nomeUsuario'])) { ?>
-                        <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                                <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
-                            </a>
-                        </li>
-                    <?php } else { 
-                        $nomeCompleto = $_SESSION['nomeUsuario'];
-                        if($_SESSION['tipoPerfil']=='Voluntario')
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0];
-                        }
-                        else
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                        }                        
-                    ?>
-                        <li class="topicos-sessao-login-linha">
-                            <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                                Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                            </a>
-                            <ul class="sub-topicos">
-                                <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                <li> <a href=""> Vagas </a> </li>
-                                <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                <li> <a href="auth/logout.php"> Sair </a></li>
-                            </ul>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </ul>
-        </nav>
-        <div class="conteudo-cabecalho">
-            <div class="conteudo-esquerda">
-
-            </div>
-            <div class="conteudo-direita">
-                <div class="titulo-conteudo-direita">
-                    <h1> O Trabalho Voluntário Aliado as ONGs </h1>
-                </div>
-                <div class="conteudo-escrito-direita">
-                    <p>
-                        Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
-                        incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
-                        assunto de extrema importância
-                    </p>
-                </div>
-                <div class="continuar-botao">
-                    <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
-                </div>
-                <div class="conteudo-imagem">
-                    <img src="img/mao-azul.png">
-                </div>
-            </div>
+    
+    <nav class="cabecalho">
+        <div class="logo">
+            <img src="img/logo-conecta.png">
         </div>
 
-    </header>
+        <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"> <i class="fas fa-bars"></i> </label>
+
+        <!-- TÓPICOS -->
+        <ul class="topicos-sessao-completa">
+            <ul class="topicos">
+                <li> <i class="fa-solid fa-house" id="topicos-icon-fixo"></i> <a href="index.php"
+                        class="cabecalho-menu-item">Início</a></li>
+                <li> <i class="fa-solid fa-person" id="topicos-icon-fixo"></i> <a href="voluntarios/voluntarios.php"
+                        class="cabecalho-menu-item">voluntários</a></li>
+                <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a
+                        href="instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
+                <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="vagas/vagas.php"
+                        class="cabecalho-menu-item">Vagas</a></li>
+                <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a
+                        href="sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
+                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="contato/contato.php"
+                        class="cabecalho-menu-item">contato</a></li>
+            </ul>
+
+            <ul class="topicos-sessao-login">
+                <?php if (empty($_SESSION['nomeUsuario'])) { ?>
+                    <li class="topicos-sessao-login-linha">
+                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                        </a>
+                    </li>
+                <?php } else { 
+                    $nomeCompleto = $_SESSION['nomeUsuario'];
+                    if($_SESSION['tipoPerfil']=='Voluntario')
+                    {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];
+                    }
+                    else
+                    {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
+                    }                        
+                ?>
+                    <li class="topicos-sessao-login-linha">
+                        <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                            Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                        </a>
+                        <ul class="sub-topicos">
+                            <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                            <li> <a href="auth/logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                <?php } ?>
+            </ul>
+        </ul>
+    </nav>
+    <div class="cabecalho-completo">
+        <div class="conteudo-direita">
+            <div class="titulo-conteudo-direita">
+                <h1> Doe Seu Tempo Com a Conecta </h1>
+            </div>
+            <div class="conteudo-escrito-direita">
+                <p>
+                    Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
+                    incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
+                    assunto de extrema importância.
+                </p>
+            </div>
+            <div class="continuar-botao">
+                <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
+            </div>
+        </div>
+        <div class="foto-pessoas-cabecalho"><img src="img/pessoas-header.png" alt=""></div>
+    </div>
 
 
 
@@ -118,7 +111,6 @@
     <main class="conteudo-completo">
        
         <div class="container-1">
-
             <div class="titulo-container-conteudo-1">
                 <h1>Um pouco sobre o trabalho voluntário</h1>
             </div>
@@ -146,41 +138,9 @@
 
                 </div>
             </div>
-
         </div>
 
         <div class="container-2">
-
-            <!-- <div class="titulo-container-conteudo-2">
-                <h1>Um pouco sobre o Terceiro Setor</h1>
-            </div>
-
-            <div class="card-conteudo-2">
-                <div class="conteudo-vazio"></div>
-
-                <div class="conteudo-escrito-2">
-
-                    <div class="titulo-conteudo-escrito-2">
-                        <h1>O que é o Terceiro Setor?</h1>
-                    </div>
-
-                    <div class="texto-conteudo-escrito-2">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas omnis aperiam ab earum
-                            molestiae
-                            dolores quisquam sequi exercitationem, minus voluptas inventore ut alias quis doloribus
-                            laboriosam et repellat itaque. Fugit. Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.
-                            Delectus, autem. In, vero! Ex, quod delectus animi excepturi adipisci iusto optio nem.
-                        </p>
-                    </div>
-
-                    <div class="botao-conteudo-escrito-2">
-                        <a href="instituicoes/instituicoes.php"><button id="">instituições</button></a>
-                    </div>
-
-                </div>
-            </div> -->
-
             <div class="box-cards">
                 <div class="card">
 
@@ -189,8 +149,7 @@
                     </div>
                     
                     <h1> O que é? </h1>
-                    <p> 
-                        
+                    <p>                       
                         Em meio a atual circustância da sociedade, a necessidade de amparo da população mais afetada é, 
                         por parte, suprida por meio da contribuição do terceiro setor, sendo estes ONGs (Organizações não Governamentais),
                         OSCs (Organizações da Sociedade Civil) e OSCIPs (Organizações da Sociedade Civil de Interesse Público), instituições que 
@@ -251,7 +210,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="container-4">
