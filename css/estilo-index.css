@@ -17,8 +17,7 @@ body
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    padding-top: 6rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-bottom: 4rem; 
     /* display: none; */
 }
@@ -29,6 +28,7 @@ body
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 4rem;
 }
 
 .conteudo-direita {
@@ -95,7 +95,8 @@ body
 
 .foto-pessoas-cabecalho
 {
-    width: 40%;
+    /* width: 40%; */
+    width: 51%;
 }
 .foto-pessoas-cabecalho img
 {
@@ -715,6 +716,58 @@ body
         text-align: justify;
     }
 } */
+
+
+/* SESSÃO 1 */
+@media (max-width: 1440px) and (max-height: 720px)  
+{
+    
+    .box-cabecalho-conteudo
+    {
+        gap: 1rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 40%;
+    }
+}
+@media (max-width: 1436px) 
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 2rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 46%;
+    }
+}
+
+
+@media (max-width: 1366px) 
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 2rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 38%;
+    }
+    .conteudo-escrito-direita
+    {
+        max-width: 28rem;
+    }
+    .conteudo-escrito-direita
+    {
+        margin-bottom: 2rem;
+    }
+}
+
+
+
+
+
 
 @media (max-width: 1398px) 
 {
