@@ -65,7 +65,7 @@ require_once 'global.php';
                             Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
                         </a>
                         <ul class="sub-topicos">
-                            <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href="../../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="../../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
                             <li> <a href="../../auth/logout.php"> Sair </a></li>
@@ -112,7 +112,7 @@ require_once 'global.php';
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i>
+                <a href="tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i>
                     <span class="nav-lateral-topico"> Editar Vagas
                     </span></a>
             </div>
@@ -328,6 +328,10 @@ require_once 'global.php';
         </form>
     </main>
 
+
+
+    <script type="module" src="../imports/side-bar.js"></script>
+    <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script>
         // DROP DOWN DO BOTÃO DAS CAUSAS/HABILIDADE + MUDANDO BOTÃO DE COR
         const botaoCausas = document.querySelector(".filtro-causas");

@@ -195,7 +195,7 @@
                     <div class="seta-ocultar-vaga"> 🢓 </div>
                 </div>
                 <div class="ocultar-sessao-vaga">
-                    <div class="container-carrossel">
+                    <div class="container-carrossel" style="display: none;">
                         <div class="carrossel">
 
                             <!-- SETAS -->
@@ -278,7 +278,7 @@
                     <div class="seta-ocultar-foto"> 🢓 </div>
                 </div>
                 <div class="ocultar-sessao-foto">
-                    <div class="container-carrossel">
+                    <div class="container-carrossel" style="display: none;">
                         <div class="carrossel">
 
                             <!-- SETAS -->
