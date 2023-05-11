@@ -248,8 +248,14 @@ require_once 'global.php';
 
                     <div class="input-box">
                         <div>
+                            <!-- <label for="">Período</label>
+                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php //echo $_SESSION['vaga']['periodoServico'] ?>" /> -->
                             <label for="">Período</label>
-                            <input type="text" name="periodo" id="periodo" placeholder="Digite o período" value="<?php echo $_SESSION['vaga']['periodoServico'] ?>" />
+                            <select name="periodo" id="periodo">
+                                <option value="nortuno">Nortuno</option>
+                                <option value="matutino">Matutino</Mption>
+                                <option value="vespertino">Vespertino</option>
+                            </select>
                         </div>
                         <div>
                             <label for="">Data de início</label>
