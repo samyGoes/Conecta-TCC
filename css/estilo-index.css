@@ -764,6 +764,30 @@ body
     }
 }
 
+@media /*(max-width: 1366px) and */(max-height: 713px)  
+{
+    .box-cabecalho-conteudo
+    {
+        gap: 1rem;
+    }
+    .foto-pessoas-cabecalho
+    {
+        width: 34%;
+    }
+    .titulo-conteudo-direita h1
+    {
+        font-size: 35px;
+    }
+    .conteudo-escrito-direita p
+    {
+        font-size: 14px;
+    }
+    .continuar-botao button
+    {
+        font-size: 19px;
+        width: 11.4rem;
+    }
+}
 
 
 
