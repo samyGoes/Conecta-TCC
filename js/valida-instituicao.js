@@ -44,8 +44,11 @@ function validateRequiredFields() {
 function nameValidate() {
   if (campos[0].value.length < 3) {
     setError(0, 'Nome deve ter pelo menos 3 caracteres');
+    return false;
+
   } else {
     removeError(0);
+    return true;
   }
 }
 
@@ -53,23 +56,32 @@ function nameValidate() {
 function emailValidate() {
   if (!emailRegex.test(campos[4].value)) {
     setError(4, 'Email invalido');
+    return false;
+
   } else {
     removeError(4);
+    return true;
   }
 }
 
 function foneValidate() {
   if (!foneRegex.test(campos[1].value)) {
     setError(1, 'Telefone invalido');
+    return false;
+
   } else {
     removeError(1);
+    return true;
   }
 }
 function foneOpcValidate() {
   if (!foneRegex.test(campos[2].value)) {
     setError(2, 'Telefone invalido');
+    return false;
+
   } else {
     removeError(2);
+    return true;
   }
 }
 
@@ -132,8 +144,11 @@ function cnpjValidate() {
   
     if (!validateCNPJ(cnpj)) {
       setError(3, 'CNPJ Inválido');
+      return false;
+      
     } else {
       removeError(3);
+      return true;
     }
 }
 
@@ -145,27 +160,28 @@ function passwordValidate() {
   const specialRegex = /[!@#$%&*]/;
   const upperRegex = /[A-Z]/;
 
-  if (senha.length < 6) {
-    setError(5, 'A senha deve ter pelo menos 6 caracteres');
-    return;
+  if (senha.length < 8) {
+    setError(5, 'A senha deve ter pelo menos 8 caracteres');
+    return false;
   }
 
   if (!digitRegex.test(senha)) {
     setError(5, 'A senha deve conter pelo menos um número');
-    return;
+    return false;
   }
 
   if (!specialRegex.test(senha)) {
     setError(5, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
-    return;
+    return false;
   }
 
   if (!upperRegex.test(senha)) {
     setError(5, 'A senha deve conter pelo menos uma letra maiúscula');
-    return;
+    return false;
   }
 
   removeError(5);
+  return true;
 }
 
   
@@ -176,8 +192,11 @@ function passwordValidate() {
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
       setError(6, 'As senhas não coincidem');
+      return false;
+      
     } else {
       removeError(6);
+      return true;
     }
   }
  

@@ -4,6 +4,8 @@
     //Cadastrando os dados informados no formulário pela instituição na classe Instituicao.
     try
     {
+        header('Location: form-login.php');
+        
         $instituicao = new Instituicao();
         $instituicao -> setNomeInstituicao($_POST['name']);
         $instituicao -> setTel1Instituicao($_POST['telefone1']);
