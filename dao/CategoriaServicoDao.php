@@ -34,6 +34,15 @@
             return $lista;  
         }
 
+        public static function listarServico()
+        {
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT codServico, nomeServico FROM tbServico";
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
         
         public static function listarCausaPerfil($codInstituicao)
         {
