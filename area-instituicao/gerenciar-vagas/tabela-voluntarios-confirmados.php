@@ -241,14 +241,14 @@ include "../../auth/verifica-logado.php";
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnChamar'];
                                     try {
-                                        $statusCandidatura = CandidaturaDao::aceitarCandidato($codCandidatura);
+                                        $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
                                 } elseif (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnRejeitar'];
                                     try {
-                                        $statusCandidatura = CandidaturaDao::rejeitarCandidato($codCandidatura);
+                                        $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }

@@ -204,14 +204,14 @@ foreach ($listaCausas as $causas) {
 
     // Obter a quantidade de vagas para essa categoria
     try {
-        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorCategoria($codCategoriaServico);
+        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorServico($codCategoriaServico);
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 
     // Obter a quantidade de voluntários inscritos para essa categoria
     try {
-        $quantidadeInscritos = CandidaturaDao::obterQuantidadeInscritosPorCategoria($codCategoriaServico);
+        $quantidadeInscritos = CandidaturaDao::obterQuantidadeInscritosPorServico($codCategoriaServico);
     } catch (Exception $e) {
         echo $e->getMessage();
     }
