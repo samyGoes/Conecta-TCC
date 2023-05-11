@@ -176,14 +176,16 @@
             $querySelect = ("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
-            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, tbInstituicao.codInstituicao, 
-            nomeInstituicao, fotoInstituicao, nomeCategoria, nomeHabilidadeServico 
+            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, 
+            tbInstituicao.codInstituicao, nomeInstituicao, fotoInstituicao, 
+            (SELECT GROUP_CONCAT(nomeCategoria SEPARATOR ', ') FROM tbCausaVaga 
+             INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico 
+             WHERE tbCausaVaga.codServico = tbServico.codServico) AS causas,
+            (SELECT GROUP_CONCAT(nomeHabilidadeServico SEPARATOR ', ') FROM tbHabiVaga 
+             INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico 
+             WHERE tbHabiVaga.codServico = tbServico.codServico) AS habilidades
             FROM tbServico
-            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao
-            INNER JOIN tbCausaVaga ON tbCausaVaga.codServico = tbServico.codServico
-            INNER JOIN tbHabiVaga ON tbHabiVaga.codServico = tbServico.codServico
-            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico
-            INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico") ;
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao ") ;
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  
