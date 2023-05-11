@@ -153,20 +153,29 @@
      /**/   $deleteServico->execute();
 
         }
-        public static function obterQuantidadeVagasPorServico($codServico) {
+
+        public static function listarServico()
+        {
             $conexao = Conexao::conectar();
-            // Consulta SQL para obter a quantidade de vagas por serviço
-            $sql = "SELECT COUNT(*) AS qntdVagaServico
-            FROM tbservico
-            WHERE codServico = :codServico";
-        
-            $stmt = $conexao->prepare($sql);
-            $stmt->bindValue(':codServico', $codServico);
-            $stmt->execute();
-            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $resultado['qntdVagaServico'];
+            $querySelect = "SELECT codServico, nomeServico FROM tbServico";
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute();
+            $lista = $resultado->fetchAll();
+            return $lista;  
         }
-        
+
+
+        public static function obterQuantidadeVagasPorServico() {
+            $conexao = Conexao::conectar();
+
+            $querySelect = "SELECT tbServico.codServico, COUNT(*) AS qntdVagaServico FROM tbServico
+                    GROUP BY tbServico.codServico";
+            
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute();
+            $lista = $resultado->fetchAll();
+            return $lista;
+        }
         
         
 

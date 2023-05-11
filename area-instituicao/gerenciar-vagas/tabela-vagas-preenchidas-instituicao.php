@@ -194,7 +194,7 @@ require_once 'global.php';
 require_once 'global.php';
 
 try {
-    $listaCausas = CategoriaServicoDao::listarServico();
+    $listaCausas = ServicoDao::listarServico();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
@@ -204,7 +204,7 @@ foreach ($listaCausas as $causas) {
 
     // Obter a quantidade de vagas para essa categoria
     try {
-        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorServico($codCategoriaServico);
+        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorServico();
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -218,7 +218,7 @@ foreach ($listaCausas as $causas) {
     ?>
     <tr>
         <td><?php echo $causas['nomeServico']; ?></td>
-        <td><?php echo $quantidadeVagas; ?></td>
+        <td><?php echo $quantidadeVagas['qntdVagaServico']; ?></td>
         <td><?php echo $quantidadeInscritos; ?></td>
     </tr>
 <?php } ?>
