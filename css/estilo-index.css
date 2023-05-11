@@ -11,17 +11,25 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-image: url(../img/foto-header-2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    padding-top: 10rem;
-    margin-bottom: 4rem;
+    /* padding-top: 10rem; */
+    overflow: hidden;
+    margin-bottom: 4rem; 
     /* display: none; */
 }
 
+.box-cabecalho-conteudo
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .conteudo-direita {
     display: flex;

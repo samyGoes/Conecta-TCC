@@ -87,22 +87,24 @@
         </ul>
     </nav>
     <div class="cabecalho-completo">
-        <div class="conteudo-direita">
-            <div class="titulo-conteudo-direita">
-                <h1> Doe Seu Tempo Com a Conecta </h1>
+        <div class="box-cabecalho-conteudo">
+            <div class="conteudo-direita">
+                <div class="titulo-conteudo-direita">
+                    <h1> Doe Seu Tempo Com a Conecta </h1>
+                </div>
+                <div class="conteudo-escrito-direita">
+                    <p>
+                        Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
+                        incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
+                        assunto de extrema importância.
+                    </p>
+                </div>
+                <div class="continuar-botao">
+                    <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
+                </div>
             </div>
-            <div class="conteudo-escrito-direita">
-                <p>
-                    Conheça a Conecta, um portal para voluntários e instituições, tendo como objetivo
-                    incentivar o trabalho voluntário, facilitar o acesso e informar a população sobre um
-                    assunto de extrema importância.
-                </p>
-            </div>
-            <div class="continuar-botao">
-                <a href="opcao-cadastro.php"><button id="">junte-se a nós</button></a>
-            </div>
-        </div>
-        <div class="foto-pessoas-cabecalho"><img src="img/pessoas-header.png" alt=""></div>
+            <div class="foto-pessoas-cabecalho"><img src="img/pessoas-header.png" alt=""></div>
+        </div>     
     </div>
 
 
