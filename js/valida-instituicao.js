@@ -43,7 +43,7 @@ function validateRequiredFields() {
 
 function nameValidate() {
   if (campos[0].value.length < 3) {
-    setError(0, 'Nome deve ter pelo menos 3 caracteres');
+    setError(0, 'Mínimo de 3 caracteres');
     return false;
 
   } else {
