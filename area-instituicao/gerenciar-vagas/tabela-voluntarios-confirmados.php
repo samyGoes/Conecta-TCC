@@ -46,21 +46,18 @@ include "../../auth/verifica-logado.php";
                 <?php if (empty($_SESSION['nomeUsuario'])) { ?>
                     <li class="topicos-sessao-login-linha">
                         <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
                         </a>
                     </li>
-                <?php } else { 
+                <?php } else {
                     $nomeCompleto = $_SESSION['nomeUsuario'];
-                    if($_SESSION['tipoPerfil']=='Voluntario')
-                    {
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
                         $nomeArray = explode(" ", $nomeCompleto);
                         $primeiroNome = $nomeArray[0];
-                    }
-                    else
-                    {
+                    } else {
                         $nomeArray = explode(" ", $nomeCompleto);
-                        $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                    }                        
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
                     <li class="topicos-sessao-login-linha">
                         <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
@@ -210,13 +207,15 @@ include "../../auth/verifica-logado.php";
 
                             try {
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
+                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
 
+
                             <?php foreach ($listaVoluntario as $voluntario) { ?>
+
                                 <form action="" method="post">
                                     <tr>
                                         <td><?php echo $voluntario['codCandidatura']; ?></td>
@@ -232,20 +231,12 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
                                         <td><button name="btnRejeitar" type="submit" class="table-btn-rejeitar" value="<?php echo $voluntario['codCandidatura']; ?>">rejeitar</button></td>
                                     </tr>
                                 </form>
 
                                 <?php
-                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
-                                    $codCandidatura = $_POST['btnChamar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                } elseif (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
+                                if (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnRejeitar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
@@ -255,6 +246,7 @@ include "../../auth/verifica-logado.php";
                                 }
                                 ?>
                             <?php } ?>
+                            <?php ?>
 
                         </tbody>
                     </table>

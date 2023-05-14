@@ -39,20 +39,48 @@ class CandidaturaDao
         $lista = $resultado->fetchAll();
         return $lista;
     }
-
-    public static function obterQuantidadeInscritosPorServico($codServico)
+    public static function listarVoluntariosAceitos($idInstituicaoLogada)
     {
         $conexao = Conexao::conectar();
-    
-        $query = "SELECT COUNT(*) AS codVoluntario FROM tbCandidatura 
-        WHERE tbCandidatura.codServico = :codServico";
-    
-        $stmt = $conexao->prepare($query);
-        $stmt->bindValue(':codServico', $codServico);
-        $stmt->execute();
-        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $resultado['codVoluntario'];
+        $idInstituicaoLogada = $_SESSION['codUsuario'];
+
+        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            FROM tbCandidatura
+            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+            INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'aceito'";
+
+        $resultado = $conexao->prepare($querySelect);
+        $resultado->execute(array($idInstituicaoLogada));
+        $lista = $resultado->fetchAll();
+        return $lista;
     }
+
+
+    public static function obterQuantidadeInscritosPorServico($codServico,)
+{
+    $conexao = Conexao::conectar();
+
+    $query = "SELECT COUNT(*) AS qntdVagasPreenchida 
+              FROM tbServico
+              INNER JOIN tbCandidatura ON tbServico.codServico = tbCandidatura.codServico
+              WHERE tbServico.codServico = :codServico AND tbCandidatura.statusCandidatura = 'aceito'";
+
+    $stmt = $conexao->prepare($query);
+    $stmt->bindValue(':codServico', $codServico);
+    $stmt->execute();
+
+    $resultado = $stmt->fetchColumn();
+
+    return $resultado;
+}
+
+    
+    
+    
+    
+    
     
 
 
@@ -63,6 +91,15 @@ class CandidaturaDao
         $resultado = $conexao->query($queryAceito);
         $status = $resultado->fetchAll();
         return $status;
+
+        /*    $queryIncrementar = "UPDATE tbServico SET qntdVagasPreenchidas = qntdVagasPreenchidas + 1 WHERE codServico = (
+        SELECT codServico FROM tbCandidatura WHERE codCandidatura = :idCandidatura
+    )";
+    $stmtIncrementar = $conexao->prepare($queryIncrementar);
+    $stmtIncrementar->bindValue(':idCandidatura', $idCandidatura);
+    $stmtIncrementar->execute();
+
+    return true;*/
     }
 
 

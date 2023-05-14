@@ -154,28 +154,33 @@
 
         }
 
-        public static function listarServico()
+        public static function listarServico($idInstituicaoLogada)
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codServico, nomeServico FROM tbServico";
+            $querySelect = "SELECT codServico, nomeServico FROM tbServico WHERE codInstituicao = :codInstituicao";
             $resultado = $conexao->prepare($querySelect);
+            $resultado->bindValue(':codInstituicao', $idInstituicaoLogada, PDO::PARAM_INT);
             $resultado->execute();
             $lista = $resultado->fetchAll();
             return $lista;  
         }
-
-
-        public static function obterQuantidadeVagasPorServico() {
+        
+        public static function obterQuantidadeVagasPorServico($codServico, $codInstituicao) {
             $conexao = Conexao::conectar();
-
-            $querySelect = "SELECT tbServico.codServico, COUNT(*) AS qntdVagaServico FROM tbServico
-                    GROUP BY tbServico.codServico";
+        
+            $querySelect = "SELECT qntdVagaServico FROM tbServico
+                            WHERE codServico = :codServico AND codInstituicao = :codInstituicao";
             
             $resultado = $conexao->prepare($querySelect);
+            $resultado->bindValue(':codServico', $codServico, PDO::PARAM_INT);
+            $resultado->bindValue(':codInstituicao', $codInstituicao, PDO::PARAM_INT);
             $resultado->execute();
-            $lista = $resultado->fetchAll();
-            return $lista;
+            $quantidadeVagas = $resultado->fetchColumn();
+            return $quantidadeVagas;
         }
+        
+        
+        
         
         
 

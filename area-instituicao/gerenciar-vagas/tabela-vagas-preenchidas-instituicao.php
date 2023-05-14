@@ -44,21 +44,18 @@ require_once 'global.php';
                 <?php if (empty($_SESSION['nomeUsuario'])) { ?>
                     <li class="topicos-sessao-login-linha">
                         <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
                         </a>
                     </li>
-                <?php } else { 
+                <?php } else {
                     $nomeCompleto = $_SESSION['nomeUsuario'];
-                    if($_SESSION['tipoPerfil']=='Voluntario')
-                    {
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
                         $nomeArray = explode(" ", $nomeCompleto);
                         $primeiroNome = $nomeArray[0];
-                    }
-                    else
-                    {
+                    } else {
                         $nomeArray = explode(" ", $nomeCompleto);
-                        $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                    }                        
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
                     <li class="topicos-sessao-login-linha">
                         <a href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
@@ -166,68 +163,75 @@ require_once 'global.php';
 
 
 
-        <div class="conteudo-completo">
-            <!-- TÍTULO 1 -->
-            <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Vagas Preenchidas </h2>
-                <p class="frase-voluntarios">
-                Esta lista mostra as vagas disponíveis junto da quantidade de ocupações disponíveis para cada 
-                vaga e o tanto de ocupações que já foram preenchidas. Para vizualizar os voluntários que 
-                preencheram as vagas clique na quantidade de vagas preenchidas.
-                </p>
-            </div>
+            <div class="conteudo-completo">
+                <!-- TÍTULO 1 -->
+                <div class="container-titulo-1">
+                    <h2 class="titulo-voluntarios"> Vagas Preenchidas </h2>
+                    <p class="frase-voluntarios">
+                        Esta lista exibe o nome das vagas, juntamente com a quantidade total de vagas disponiveis e o   número de vagas preenchidas. Para visualizar os voluntários que ocuparam essas vagas, clique na quantidade de vagas preenchidas.
+                    </p>
+                </div>
 
 
-            <div class="table">
-                <div class="table-responsive">
+                <div class="table">
+                    <div class="table-responsive">
 
-                    <table>
-                        <thead>
-                           
-                            <tr>
-                                <th> Vagas </th>
-                                <th> Ocupações </th>
-                                <th> Preenchidas </th>
-                            </tr>
-                        </thead>
-                        <?php
-require_once 'global.php';
+                        <table>
+                            <thead>
 
-try {
-    $listaCausas = ServicoDao::listarServico();
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
+                                <tr>
+                                    <th> Vagas </th>
+                                    <th> Disponiveis  </th>
+                                    <th> Preenchidas </th>
+                                </tr>
+                            </thead>
+                            <?php
+                            require_once 'global.php';
 
-foreach ($listaCausas as $causas) {
-    $codCategoriaServico = $causas['nomeServico'];
+                            try {
+                                $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                $listaCausas = ServicoDao::listarServico($idInstituicaoLogada);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
 
-    // Obter a quantidade de vagas para essa categoria
-    try {
-        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorServico();
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
+                            if (!empty($listaCausas)) {
+                                foreach ($listaCausas as $causas) {
+                                    $codCategoriaServico = $causas['codServico'];
 
-    // Obter a quantidade de voluntários inscritos para essa categoria
-    try {
-        $quantidadeInscritos = CandidaturaDao::obterQuantidadeInscritosPorServico($codCategoriaServico);
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
-    ?>
-    <tr>
-        <td><?php echo $causas['nomeServico']; ?></td>
-        <td><?php echo $quantidadeVagas['qntdVagaServico']; ?></td>
-        <td><?php echo $quantidadeInscritos; ?></td>
-    </tr>
-<?php } ?>
+                                    // Obter a quantidade de vagas para essa categoria
+                                    try {
+                                        $quantidadeVagas = ServicoDao::obterQuantidadeVagasPorServico($codCategoriaServico, $idInstituicaoLogada);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
 
-                    </table>
+                                    // Obter a quantidade de voluntários inscritos para essa categoria
+                                    try {
+                                        $quantidadeInscritos = CandidaturaDao::obterQuantidadeInscritosPorServico($codCategoriaServico, $idInstituicaoLogada);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                            ?>
+                                    <tr>
+                                        <td><?php echo $causas['nomeServico']; ?></td>
+                                        <td><?php echo $quantidadeVagas; ?></td>
+                                        <td>
+                                <form action="tabela-voluntarios-confirmados.php" method="post">
+                                    <input type="hidden" name="codCategoriaServico" value="<?php echo $codCategoriaServico; ?>">
+                                    <button type="submit" class="link-vagas-preenchidas"><?php echo $quantidadeInscritos; ?></button>
+                                </form>
+                            </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-           
+
 
     </main>
 
