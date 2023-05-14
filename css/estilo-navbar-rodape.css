@@ -115,7 +115,7 @@
 {
     /* display: flex; */
     /* justify-self: end; */
-    width: 9rem;
+    width: 10rem;
     overflow: hidden;
     word-wrap: break-word;
     margin-right: 2rem;
@@ -129,6 +129,94 @@
     position: relative;
    
 }
+.box-topicos-sessao-login-linha
+{
+    display: flex;
+}
+.box-topicos-sessao-login-linha i 
+{
+    color: #fff;
+    font-size: 18px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.box-topicos-sessao-login-linha i:hover
+{
+    color: #f0a376;
+}
+.sub-topicos-sininho
+{
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #232f61;
+    right: 0rem;
+    top: 6rem;
+    max-width: 15rem;
+    max-height: 18rem;
+    overflow-y: auto;
+}
+
+/* SCROLL */
+.sub-topicos-sininho::-webkit-scrollbar 
+{
+    width: 11px;    
+}
+
+.sub-topicos-sininho::-webkit-scrollbar-track
+{
+    background: #dce5f7;       
+    border-radius: 0.8rem;  
+}
+
+.sub-topicos-sininho::-webkit-scrollbar-thumb 
+{
+    background-color: #4567a5;  
+    border-radius: 20px;     
+    border: 2px solid #dce5f7;   
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho li
+{
+    border-bottom: 1px solid #9ba8e0;
+    padding: 1rem;
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho li:hover
+{
+    background-color: #dff1ff;
+}
+.sub-topicos-sininho li:last-child
+{
+    border-bottom: none;
+}
+.sub-topicos-sininho-linha
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; 
+}
+
+.sub-topicos-sininho-linha-titulo
+{
+    font-family: poppins, sans-serif;
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho-linha-frase
+{
+    font-family: poppins, sans-serif;
+    color: #525252;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
 .sub-topicos 
 {
     position: absolute;
