@@ -249,16 +249,8 @@
                                     echo $e->getMessage();
                                 }
                                 ?>
-
-                                <?php foreach ($listaCausas as $causas) { ?>
-                                    <?php $destaque = false; ?>
-                                    <?php foreach ($listaCor as $cor) { ?>
-                                        <?php if ($cor['codCategoriaServico'] == $causas['codCategoriaServico'] && $cor['codInstituicao'] == $_SESSION['codUsuario']) {
-                                            $destaque = true;
-                                            break;
-                                        } ?>
-                                    <?php } ?>
-                                    <tr class="<?php echo $destaque ? 'destaque' : ''; ?>">
+                                    <tr>
+                                        <?php foreach ($listaCausas as $causas) { ?>
                                         <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                         <td><?php echo $causas['codCategoriaServico']; ?></td>
                                         <td><?php echo $causas['nomeCategoria']; ?></td>

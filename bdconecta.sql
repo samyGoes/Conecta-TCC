@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Maio-2023 às 21:27
+-- Tempo de geração: 15-Maio-2023 às 22:34
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -232,26 +232,6 @@ INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituica
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbinstituicaocategoriaservico`
---
-
-CREATE TABLE `tbinstituicaocategoriaservico` (
-  `codInstituicaoCategoriaServico` int(11) NOT NULL,
-  `codInstituicao` int(11) NOT NULL,
-  `codCategoriaServico` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `tbinstituicaocategoriaservico`
---
-
-INSERT INTO `tbinstituicaocategoriaservico` (`codInstituicaoCategoriaServico`, `codInstituicao`, `codCategoriaServico`) VALUES
-(14, 10, 14),
-(15, 10, 15);
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `tbservico`
 --
 
@@ -281,6 +261,26 @@ CREATE TABLE `tbservico` (
 
 INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codInstituicao`, `descServico`, `cepLocalServico`, `bairroLocalServico`, `estadoLocalServico`, `logradouroLocalServico`, `complementoLocalServico`, `paisLocalServico`, `numeroLocalServico`, `cidadeLocalServico`, `nomeservico`, `tipoServico`, `dataInicioServico`, `qntdVagaServico`) VALUES
 (26, '08:00:00', 'matutino', 10, 'Precisamos de professores de inglês que estão dispostos a ensinar \r\n', '08461-200', 'Cidade Popular', 'SP', 'Rua Paulo Ramos', 'casa', 'Brasil', '60', 'São Paulo', 'Professor de Inglês', 'presencial', '2023-05-10', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbsolicitacao`
+--
+
+CREATE TABLE `tbsolicitacao` (
+  `codSolicitacao` int(11) NOT NULL,
+  `codInstituicao` int(11) DEFAULT NULL,
+  `nomeCategoria` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `statusCategoria` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tbsolicitacao`
+--
+
+INSERT INTO `tbsolicitacao` (`codSolicitacao`, `codInstituicao`, `nomeCategoria`, `statusCategoria`) VALUES
+(1, 10, 'Moradores de Rua', 'pendente');
 
 -- --------------------------------------------------------
 
@@ -396,19 +396,18 @@ ALTER TABLE `tbinstituicao`
   ADD PRIMARY KEY (`codInstituicao`);
 
 --
--- Índices para tabela `tbinstituicaocategoriaservico`
---
-ALTER TABLE `tbinstituicaocategoriaservico`
-  ADD PRIMARY KEY (`codInstituicaoCategoriaServico`),
-  ADD KEY `codInstituicao` (`codInstituicao`),
-  ADD KEY `codCategoriaServico` (`codCategoriaServico`);
-
---
 -- Índices para tabela `tbservico`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
   ADD KEY `fk_Instituicao` (`codInstituicao`);
+
+--
+-- Índices para tabela `tbsolicitacao`
+--
+ALTER TABLE `tbsolicitacao`
+  ADD PRIMARY KEY (`codSolicitacao`),
+  ADD KEY `fk_solicitacaoOng` (`codInstituicao`);
 
 --
 -- Índices para tabela `tbvoluntario`
@@ -487,16 +486,16 @@ ALTER TABLE `tbinstituicao`
   MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de tabela `tbinstituicaocategoriaservico`
---
-ALTER TABLE `tbinstituicaocategoriaservico`
-  MODIFY `codInstituicaoCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
 -- AUTO_INCREMENT de tabela `tbservico`
 --
 ALTER TABLE `tbservico`
   MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de tabela `tbsolicitacao`
+--
+ALTER TABLE `tbsolicitacao`
+  MODIFY `codSolicitacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbvoluntario`
@@ -523,11 +522,10 @@ ALTER TABLE `tbcausavaga`
   ADD CONSTRAINT `fk_ServicoVaga` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
 
 --
--- Limitadores para a tabela `tbinstituicaocategoriaservico`
+-- Limitadores para a tabela `tbsolicitacao`
 --
-ALTER TABLE `tbinstituicaocategoriaservico`
-  ADD CONSTRAINT `tbinstituicaocategoriaservico_ibfk_1` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`),
-  ADD CONSTRAINT `tbinstituicaocategoriaservico_ibfk_2` FOREIGN KEY (`codCategoriaServico`) REFERENCES `tbcategoriaservico` (`codCategoriaServico`);
+ALTER TABLE `tbsolicitacao`
+  ADD CONSTRAINT `fk_solicitacaoOng` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
