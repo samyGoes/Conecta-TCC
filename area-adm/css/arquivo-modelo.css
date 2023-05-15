@@ -12,8 +12,171 @@
 
 
 
-/* NAV LATERAL */
 
+
+/* DROP DOWN */
+.topicos-sessao-login 
+{
+    /* display: flex; */
+    /* justify-self: end; */
+    width: 10rem;
+    overflow: hidden;
+    word-wrap: break-word;
+    margin-right: 2rem;
+}
+.topicos-sessao-login li
+{
+    list-style: none;
+}
+.topicos-sessa-login-linha
+{
+    position: relative;
+   
+}
+.box-topicos-sessao-login-linha
+{
+    display: flex;
+}
+.box-topicos-sessao-login-linha i 
+{
+    color: #5f8699;
+    font-size: 18px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.box-topicos-sessao-login-linha i:hover
+{
+    color: #f0a376;
+}
+.sub-topicos-sininho
+{
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #232f61;
+    border-top: none;
+    right: 0rem;
+    top: 4rem;
+    max-width: 15rem;
+    max-height: 18rem;
+    overflow-y: auto;
+}
+
+/* SCROLL */
+.sub-topicos-sininho::-webkit-scrollbar 
+{
+    width: 11px;    
+}
+
+.sub-topicos-sininho::-webkit-scrollbar-track
+{
+    background: #dce5f7;       
+    border-radius: 0.8rem;  
+}
+
+.sub-topicos-sininho::-webkit-scrollbar-thumb 
+{
+    background-color: #4567a5;  
+    border-radius: 20px;     
+    border: 2px solid #dce5f7;   
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho li
+{
+    border-bottom: 1px solid #9ba8e0;
+    padding: 1rem;
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho li:hover
+{
+    background-color: #dff1ff;
+}
+.sub-topicos-sininho li:last-child
+{
+    border-bottom: none;
+}
+.sub-topicos-sininho-linha
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; 
+}
+
+.sub-topicos-sininho-linha-titulo
+{
+    font-family: poppins, sans-serif;
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+.sub-topicos-sininho-linha-frase
+{
+    font-family: poppins, sans-serif;
+    color: #525252;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.sub-topicos 
+{
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #232f61;
+    border-top: none;
+    right: 0rem;
+    top: 4rem;
+    /* cima, direita, baixo, esquerda */
+    padding: 1rem 2rem 0.5rem 2rem;
+}
+.sub-topicos li
+{
+    list-style: none;
+    height: 2rem;
+    width: 8rem;
+    transition: all 0.5s ease;
+}
+
+.sub-topicos li a
+{
+    font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+    color: #252d51;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.sub-topicos li a:hover
+{
+    color: #e67635;
+}
+
+#nav-seta-sub-topicos
+{
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 0.5rem;
+    position: absolute;
+    color: #5f8699;
+    /* background-color: #4567a5; */
+}
+
+
+
+
+
+
+
+
+
+/* NAV LATERAL */
 .nav-lateral {
     display: flex;
     flex-direction: column;
@@ -29,6 +192,7 @@
     border-top: none;
     transition: all 0.5s ease;
     /* opacity: 0.3; */
+    z-index: 10;
 }
 
 .user {
@@ -115,6 +279,30 @@
 #nav-lateral-icon-sair {
     font-size: 20px;
 }
+
+
+
+
+
+
+
+/* TÍTULO */
+.container-titulo-configuracoes 
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0rem 0rem 1rem 17rem;
+    border-bottom: 1px solid #5f8699;
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    z-index: 9;
+    background-color: #fff;
+}
+
+
+
 
 
 /* CONTEÚDO DA PÁGINA */

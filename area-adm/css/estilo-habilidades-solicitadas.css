@@ -1,0 +1,375 @@
+.cards
+{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+/* CARD */
+.card-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.card-cadastrar{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center;
+    border: #4567a5 solid 1px;
+    border-radius: 0.5rem;
+    box-shadow: #b4d8e6 3px 3px 4px 1px ;
+    width: 430px;
+    height: 310px;
+
+} 
+.form-frase
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #000;
+    font-size: 14px;
+}
+.card-cadastrar .card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+.card-cadastrar .card-form .input-box{
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+
+.card-cadastrar .card-form .input-box label{
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #525252;
+}
+.card-cadastrar .card-form .input-box input{
+    width: 20rem;
+    padding: 8px;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    color: #000000;
+    outline: none;
+    border: #4567a5 1px solid;
+}
+.card-cadastrar .card-form .input-boxs input::placeholder{
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+
+.card-form .continue-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+/* BOTÃO */
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.continue-button button {
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    color: #4567a5;
+}
+
+
+
+
+
+
+
+
+/* TABELA */
+.table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.table-responsive {
+    max-width: 689px;
+    max-height: 600px;
+    border-radius: 0.5rem;
+    border: 1px solid #5f8699;
+    box-shadow: 3px 3px 4px 1px #a7c4d3;
+}
+
+.funcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 78px;
+}
+
+.funcoes-sessao-1 {
+    display: flex;
+    margin-left: 1.7rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.funcoes span {
+    color: #525252;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+/* ESTILIZANDO CHECKBOX */
+input[type="checkbox"] {
+    /* ZERAR CONFIGURAÇÃO PADRÃO */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #5f8699;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #5f8699;
+    text-align: center;
+
+    line-height: 13px;
+    font-size: 13px;
+}
+
+
+#icone-x {
+    margin-left: 0.5rem;
+}
+
+.funcoes-sessao-2 {
+    display: flex;
+    margin-right: 1.7rem;
+    align-items: center;
+}
+
+.funcoes i {
+    color: #5f8699;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.funcoes i:hover {
+    color: #a7c4d3;
+}
+
+#icon-lupa {
+    font-size: 16px;
+}
+
+.funcoes #pesquisar {
+    border: none;
+    border-bottom: 1px solid#5f8699;
+    outline: none;
+    padding: 0.2rem 0rem 0.2rem 0rem;
+    transition: all 0.2s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2e2e2e;
+}
+
+
+#pesquisar::placeholder {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #727272;
+}
+
+.table-responsive table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+thead tr {
+    display: block;
+    width: 100%;
+}
+
+.table-responsive th {
+    font-weight: 500 !important;
+}
+
+/* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
+th:nth-child(1),
+td:nth-child(1) {
+    min-width: 57px;
+    border-left: none !important;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    min-width: 57px;
+}
+
+th:nth-child(3) {
+    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+td:nth-child(3) {
+    padding-left: 9px;
+    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+th:nth-child(4)
+{
+    width: 160px;
+    max-width: 160px;
+    min-width: 160px;
+}
+
+td:nth-child(4)
+{
+    padding-left: 9px;
+    width: 160px;
+    max-width: 160px;
+    min-width: 160px;
+    border-top: none !important;
+}
+
+th:nth-child(5),
+td:nth-child(5),
+td:nth-child(6)  
+{
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+}
+
+th:nth-child(6)
+{
+    width: 150px;
+} 
+
+th {
+    height: 38px;
+}
+
+td:nth-child(1),
+td:nth-child(2),
+td:nth-child(3) {
+    border-top: none !important;
+}
+
+
+
+tbody {
+    display: block;
+    width: 100%;
+    height: 334px;
+    overflow-y: scroll;
+}
+
+/* SCROLL */
+/* width */
+tbody::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+tbody::-webkit-scrollbar-track {
+    background-color:  #cee9f7;
+    border-radius: 0px 0px 0.5rem 0px;
+}
+
+/* Handle */
+tbody::-webkit-scrollbar-thumb {
+    background-color: #5f8699;
+    border-radius: 0.5rem;
+    border: 2px solid #cee9f7;
+}
+
+.table-responsive th,
+.table-responsive td {
+    border: 1px solid #5f8699;
+    /* padding: 0px 20px 0px 20px; */
+    text-align: center;
+    color: #2e2e2e;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+}
+
+.table-responsive td {
+    height: 45px;
+}
+
+
+
+
+
+
+
+
+/* CARD */
+@media(max-width:1282px){
+    .card{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-cadastrar{
+        margin-bottom: 2rem;
+    }
+    
+}
+
+@media (max-width:574px){
+
+    .card-cadastrar{
+        min-width: 100%;
+        border-radius: 0;
+        border-right: none;
+        border-left: none;
+    }
+}
+

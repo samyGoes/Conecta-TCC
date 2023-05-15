@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/estilo-habilidades-cadastradas.css">
+    <link rel="stylesheet" href="css/estilo-habilidades-solicitadas.css">
     <link rel="stylesheet" href="css/arquivo-modelo.css">
     <title>ADM</title>
 </head>
@@ -126,7 +126,7 @@
     <main class="main-conteudo">
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="main-conteudo-container-titulo">
-            <h1>HABILIDADES</h1>
+            <h1>HABILIDADES SOLICITADAS </h1>
             <p>Aqui você verá todas as habilidades cadastradas pelas instituições no site. Você também pode filtrar ou pesquisar
                 pela habilidade que deseja. Também tem como opção bloquear alguma habilidade caso ela esteja
                 violando alguma das diretrizes.</p>
@@ -135,24 +135,8 @@
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
-        <a href="tabela-solicitacao-habilidade.php"> Habilidades Solicitadas </a>
+        
         <div class="cards">
-            <!-- FORM -->
-            <div class="card-1">       
-                <p class="form-frase">Escreva o nome da Habilidade que deseja cadastrar</p>    
-                <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-habilidades.php" method="POST">
-                        <div class="input-box">
-                            <label for="" id="label">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
-                        </div>
-                        <div class="continue-button">
-                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
 
 
             <!-- TABELA -->
@@ -174,7 +158,10 @@
                             <tr>
                                 <th> </th>
                                 <th> ID </th>
-                                <th>Habilidades</th>
+                                <th> Habilidades </th>
+                                <th> Instituição </th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,6 +178,9 @@
                                     <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                     <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
                                     <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
+                                    <td> AAA </td>
+                                    <td> <button> ACEITAR </button></td>
+                                    <td> <button> RECUSAR </button> </td>
                             </tr>
                         <?php
                                 }
