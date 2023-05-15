@@ -7,15 +7,17 @@
     {
         header('Location: form-cadastrar-causas-instituicao.php');
         
-        $categoriaServico = new CategoriaServ();
+        $solicitacao = new Solicitacao();
 
     
         //Inserindo os dados vindos do formulário nos atributos da classe
-        $categoriaServico -> setNomeCategoria($_POST ['nome']);
-        $categoriaServico-> setCodInstituicao($_SESSION['codUsuario']);
+        $solicitacao -> setCodInstituicao($_SESSION['codUsuario']);
+        $solicitacao -> setNomeCategoria($_POST ['nome']);
+        $solicitacao -> setStatusCategoria('pendente');
+
        
 
-        $cadastrar = CategoriaServicoDao::cadastrar($categoriaServico);
+        $cadastrar = SolicitacaoDao::cadastrar($solicitacao);
 
     }
     catch(Exception $e)
