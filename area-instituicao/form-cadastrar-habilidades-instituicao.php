@@ -206,7 +206,7 @@
             <div class="card-1">
                 <p>Escreva o nome da Habilidade que deseja cadastrar</p>
                 <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-habilidades.php" method="POST">
+                    <form class="card-form" action="../area-adm/tabela-solicitacao-habilidade.php" method="POST">
                         <div class="input-box">
                             <label for="" id="label">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
