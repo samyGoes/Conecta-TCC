@@ -58,7 +58,7 @@ class CandidaturaDao
     }
 
 
-    public static function obterQuantidadeInscritosPorServico($codServico,)
+    public static function obterQuantidadeInscritosPorServico($codServico)
 {
     $conexao = Conexao::conectar();
 
