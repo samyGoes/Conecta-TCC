@@ -1,7 +1,113 @@
 
 
-/* TABELA */
 
+/* CARD */
+.card-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.card-2{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.card{
+    font-family: poppins, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1.5%;
+    gap: 5%;
+}
+.card-cadastrar{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: center;
+    border: #4567a5 solid 1px;
+    border-radius: 0.5rem;
+    box-shadow: #b4d8e6 3px 3px 4px 1px ;
+    width: 430px;
+    height: 310px;
+} 
+.card-cadastrar .card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+.card-cadastrar .card-form .input-box{
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+
+.card-cadastrar .card-form .input-box label{
+    font-size: 16px;
+    font-weight: 500;
+    color: #525252;
+}
+.card-cadastrar .card-form .input-box input{
+    width: 20rem;
+    padding: 8px;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    color: #000000;
+    outline: none;
+    border: #4567a5 1px solid;
+}
+.card-cadastrar .card-form .input-boxs input::placeholder{
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+
+.card-form .continue-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+/* BOTÃO */
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.continue-button button {
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    color: #4567a5;
+}
+
+
+
+
+
+
+
+
+
+/* TABELA */
 .table {
     display: flex;
     align-items: center;
@@ -204,6 +310,40 @@ tbody::-webkit-scrollbar-thumb {
 
 
 
+
+
+
+
+
+/* CARD */
+@media(max-width:1282px){
+    .card{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-cadastrar{
+        margin-bottom: 2rem;
+    }
+    
+}
+
+@media (max-width:574px){
+
+    .card-cadastrar{
+        min-width: 100%;
+        border-radius: 0;
+        border-right: none;
+        border-left: none;
+    }
+}
+
+
+
+
+
+
+
+/* TABELA */
 @media(max-width: 577px) {
     .body {
         overflow-x: hidden;
@@ -214,3 +354,5 @@ tbody::-webkit-scrollbar-thumb {
         overflow-x: scroll;
     }
 }
+
+

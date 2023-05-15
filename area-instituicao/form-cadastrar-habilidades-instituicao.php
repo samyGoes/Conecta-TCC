@@ -174,7 +174,7 @@
 
 
             <!-- TABELA -->
-            <div class="card-2">
+            <!-- <div class="card-2">
                 <p>Aqui está a lista de todas as habilidades cadastradas</p>
                 <div class="table">
                     <div class="table-responsive">
@@ -198,31 +198,31 @@
                             </thead>
                             <tbody>
                                 <?php
-                                require_once 'global.php';
-                                try {
-                                    $listaHabilidade = HabilidadeServicoDao::listar();
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
+                                // require_once 'global.php';
+                                // try {
+                                //     $listaHabilidade = HabilidadeServicoDao::listar();
+                                // } catch (Exception $e) {
+                                //     echo $e->getMessage();
+                                // }
                                 ?>
                                 <tr>
-                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                    <?php //foreach ($listaHabilidade as $habilidade) { ?>
                                         <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                         <td>
-                                            <?php echo $habilidade['codHabilidadeServico']; ?>
+                                            <?php //echo $habilidade['codHabilidadeServico']; ?>
                                         </td>
                                         <td>
-                                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                            <?php //echo $habilidade['nomeHabilidadeServico']; ?>
                                         </td>
                                 </tr>
                             <?php
-                                    }
+                                    //}
                             ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 

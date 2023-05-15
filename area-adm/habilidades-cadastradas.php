@@ -81,49 +81,72 @@
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
-        <div class="table">
-            <div class="table-responsive">
-                <div class="funcoes">
-                    <div class="funcoes-sessao-1">
-                        <span>Selecionar todos</span>
-                        <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                        <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
-                    </div>
-                    <div class="funcoes-sessao-2">
-                        <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                    </div>
+
+        <div class="cards">
+            <!-- FORM -->
+            <div class="card-1">       
+                <p class="form-frase">Escreva o nome da Habilidade que deseja cadastrar</p>    
+                <div class="card-cadastrar">
+                    <form class="card-form" action="cadastrar-habilidades.php" method="POST">
+                        <div class="input-box">
+                            <label for="" id="label">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
+                        </div>
+                        <div class="continue-button">
+                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
+                        </div>
+                    </form>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> </th>
-                            <th> ID </th>
-                            <th>Habilidades</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        require_once 'global.php';
-                        try {
-                            $listaHabilidade = HabilidadeServicoDao::listar();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        <tr>
-                            <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
-                                <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
-                        </tr>
-                    <?php
+            </div>
+
+
+
+            <!-- TABELA -->
+            <div class="table">
+                <div class="table-responsive">
+                    <div class="funcoes">
+                        <div class="funcoes-sessao-1">
+                            <span>Selecionar todos</span>
+                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                            <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
+                        </div>
+                        <div class="funcoes-sessao-2">
+                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th> ID </th>
+                                <th>Habilidades</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            require_once 'global.php';
+                            try {
+                                $listaHabilidade = HabilidadeServicoDao::listar();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
                             }
-                    ?>
-                    </tbody>
-                </table>
+                            ?>
+                            <tr>
+                                <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                    <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
+                                    <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
+                            </tr>
+                        <?php
+                                }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+       
 
 
     </main>
