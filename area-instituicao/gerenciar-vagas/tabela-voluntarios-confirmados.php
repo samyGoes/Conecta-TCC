@@ -253,11 +253,44 @@ include "../../auth/verifica-logado.php";
 
                 </div>
             </div>
-
-
-
         </div>
 
+        <!-- MODAL AVALIAÇÂO -->
+        <div id="modal" class="modal">
+            <div class="form" id="form">
+
+                <div class="modal-sessao-1">
+                    <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
+                    <p class="modal-frase">Aqui você pode avaliar...</p>
+
+                    <form class="form-modal" action="" method="POST" id="form-modal">
+                        <div class="modal-input-box">
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1"><i class="fa-solid fa-star"></i></label>
+                            </div>
+                        </div>
+                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Avaliar</button></div>
+                    </form>
+
+                    <a class="voltar-anterior" href="#"> Voltar para a página anterior </a>
+                </div>
+
+                <div class="modal-sessao-2">
+                    <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                    <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
+                    <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
+                </div>
+            </div>
+        </div>  
     </main>
 
 
