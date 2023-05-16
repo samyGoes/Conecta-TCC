@@ -3,18 +3,18 @@
     class Solicitacao{
         //Atributos
         private $codInstituicao;
-        private $nomeCategoria;
-        private $statusCategoria;
+        private $nomeCategoriaHabilidade;
+        private $statusSolicitacao;
 
         //Getters
         public function getCodInstituicao(){
             return $this->codInstituicao;
         }
-        public function getNomeCategoria(){
-            return $this->nomeCategoria;
+        public function getNomeCategoriaHabilidade(){
+            return $this->nomeCategoriaHabilidade;
         }
-        public function getStatusCategoria(){
-            return $this->statusCategoria;
+        public function getStatusSolicitacao(){
+            return $this->statusSolicitacao;
         }
 
         
@@ -22,11 +22,11 @@
         public function setCodInstituicao($codInstituicao){
             $this->codInstituicao=$codInstituicao;
         }
-        public function setNomeCategoria($nomeCategoria){
-            $this->nomeCategoria=$nomeCategoria;
+        public function setNomeCategoriaHabilidade($nomeCategoriaHabilidade){
+            $this->nomeCategoriaHabilidade=$nomeCategoriaHabilidade;
         }
-        public function setStatusCategoria($statusCategoria){
-            $this->statusCategoria=$statusCategoria;
+        public function setStatusSolicitacao($statusSolicitacao){
+            $this->statusSolicitacao=$statusSolicitacao;
         }
     }
 ?>

@@ -168,20 +168,37 @@
                             <?php
                             require_once 'global.php';
                             try {
-                                $listaHabilidade = HabilidadeServicoDao::listar();
+                                $listaSolicitacaoHabilidade = SolicitacaoDao::listarSolicitacaoCausa();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
                             <tr>
-                                <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                <?php foreach ($listaSolicitacaoHabilidade as $habilidade) { ?>
                                     <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
-                                    <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
-                                    <td> AAA </td>
-                                    <td> <button> ACEITAR </button></td>
-                                    <td> <button> RECUSAR </button> </td>
+                                    <td> <?php echo $habilidade['codSolicitacao']; ?> </td>
+                                    <td><?php echo $habilidade['nomeCategoriaHabilidade']; ?></td>
+                                    <td> <?php echo $habilidade['nomeInstituicao']; ?> </td>
+                                    <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $habilidade['codSolicitacao']; ?>">chamar</button></td>
+                                    <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $habilidade['codSolicitacao']; ?>">recusar</button></td>
                             </tr>
+                            <?php
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $solicitacao['codSolicitacao']) {
+                                    $codSolicitacao = $_POST['btnChamar'];
+                                    try {
+                                        $statusSolicitacao = SolicitacaoDao::aceitarSolicitacao($codSolicitacao);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $solicitacao['codSolicitacao']) {
+                                    $codSolicitacao = $_POST['btnRecusar'];
+                                    try {
+                                        $statusSolicitacao = SolicitacaoDao::recusarSolicitacao($codSolicitacao);
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                }
+                                ?>
                         <?php
                                 }
                         ?>
