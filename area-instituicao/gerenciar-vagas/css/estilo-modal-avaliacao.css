@@ -1,0 +1,145 @@
+/* MODAL AVALIACAO */
+.modal {
+    /* display: none; */
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+   
+}
+
+.form {
+    width: 400px;
+    height: 367px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 30px 30px 25px 30px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+}
+
+.modal-titulo {
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+}
+
+.modal-frase {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    margin: 1.6rem 0rem 0.5rem 0rem;
+}
+
+.modal-senha {
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #525252;
+}
+
+.modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.form-modal {
+    line-height: 50px;
+}
+
+.modal-input-box {
+    position: relative;
+}
+
+.modal-input-box input {
+    display: flex;
+    justify-content: center;
+    width: 20.9rem;
+    padding: 8px;
+    border: 1px solid #4567a5;
+    outline: none;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+    font-size: 14px;
+}
+
+.btn-confirmed {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-confirmed button {
+    margin: 2.5rem 0rem 1rem 0rem;
+    width: 11rem;
+    height: 2.5rem;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    border-radius: 0.5rem;
+    outline: none;
+
+    color: #fff;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    font-family: poppins, sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.btn-confirmed button:hover {
+    background-color: #fff;
+    color: #4567a5;
+}
+
+.voltar-anterior {
+    display: flex;
+    justify-content: center;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #3fa1cf;
+    transition: all 0.5s ease;
+}
+
+.voltar-anterior:hover {
+    color: #cf8a3f;
+}
+
+.rating {
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 35px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.rating input[type="radio"]:checked~label {
+    color: #ffcc00;
+}
+
+.modal-sessao-2 {
+    display: none;
+    flex-direction: column;
+}

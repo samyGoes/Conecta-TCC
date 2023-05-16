@@ -14,6 +14,7 @@ include "../../auth/verifica-logado.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-tabela-voluntarios-confirmados.css">
+    <link rel="stylesheet" href="css/estilo-modal-avaliacao.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Voluntários Disponíveis</title>
@@ -261,7 +262,7 @@ include "../../auth/verifica-logado.php";
 
                 <div class="modal-sessao-1">
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
-                    <p class="modal-frase">Aqui você pode avaliar...</p>
+                    <p class="modal-frase">Aqui você pode avaliar o voluntário</p>
 
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
