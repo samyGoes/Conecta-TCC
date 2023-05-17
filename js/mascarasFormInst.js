@@ -23,6 +23,7 @@ function adicionarMascaraTelefone(idCampo) {
 adicionarMascaraTelefone('#telefone');
 adicionarMascaraTelefone('#telefone2');
 
+
   const cnpjInput = document.querySelector('#cnpj');
 
     cnpjInput.addEventListener('input', () => {
@@ -52,21 +53,6 @@ function adicionarMascaraCep(idCampo) {
 
 // Adicionando a máscara ao campo
 adicionarMascaraCep('#cep');
-
-function adicionarMascaraDataNascimento(idCampo) {
-  const campo = document.querySelector(idCampo);
-
-  campo.addEventListener('input', () => {
-    let data = campo.value.replace(/\D/g, '');
-    data = data.slice(0, 8);
-
-    data = data.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
-
-    campo.value = data;
-  });
-}
-
-adicionarMascaraDataNascimento('#date');
 
 
 

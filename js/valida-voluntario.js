@@ -6,6 +6,18 @@ const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
 const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;
 
+function validateRequiredFields() {
+    let allFieldsFilled = true;
+    for (let i = 0; i < campos.length; i++) {
+      if (campos[i].value.trim() === '') {
+        setError(i);
+        allFieldsFilled = false;
+      } else {
+        removeError(i);
+      }
+    }
+    return allFieldsFilled;
+  }
 
 function setError(index, message) {
     console.log('setError');
@@ -45,16 +57,16 @@ function nameValidate() {
 }
 
 
-function dateValidate() {
-    console.log('dateValidate');
-    if (!dateRegex.test(campos[1].value)) {
-    setError(1, 'Data de nascimento inválida');
-    return false;
-    } else {
-    removeError(1);
-    return true;
-    }
-}
+// function dateValidate() {
+//     console.log('dateValidate');
+//     if (!dateRegex.test(campos[1].value)) {
+//     setError(1, 'Data de nascimento inválida');
+//     return false;
+//     } else {
+//     removeError(1);
+//     return true;
+//     }
+// }
 
 
 function validateCPF(cpf) {
@@ -92,28 +104,28 @@ function cpfValidate() {
     }
 }
 
-function foneValidate() {
-    console.log('foneValidate');
+// function foneValidate() {
+//     console.log('foneValidate');
     
-    if (!foneRegex.test(campos[3].value)) {
-    setError(3, 'Telefone inválido');
-    return false;
-    } else {
-    removeError(3);
-    return true;
-    }
-}
+//     if (!foneRegex.test(campos[3].value)) {
+//     setError(3, 'Telefone inválido');
+//     return false;
+//     } else {
+//     removeError(3);
+//     return true;
+//     }
+// }
 
-function foneOpcValidate() {
-    console.log('foneOpcValidate');
-    if (!foneRegex.test(campos[4].value)) {
-    setError(4, 'Telefone inválido');
-    return false;
-    } else {
-    removeError(4);
-    return true;
-    }
-}
+// function foneOpcValidate() {
+//     console.log('foneOpcValidate');
+//     if (!foneRegex.test(campos[4].value)) {
+//     setError(4, 'Telefone inválido');
+//     return false;
+//     } else {
+//     removeError(4);
+//     return true;
+//     }
+// }
 
 function emailValidate() {
     console.log('emailValidate');

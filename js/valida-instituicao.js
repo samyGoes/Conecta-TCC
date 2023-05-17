@@ -64,26 +64,26 @@ function emailValidate() {
   }
 }
 
-function foneValidate() {
-  if (!foneRegex.test(campos[1].value)) {
-    setError(1, 'Telefone invalido');
-    return false;
+// function foneValidate() {
+//   if (!foneRegex.test(campos[1].value)) {
+//     setError(1, 'Telefone invalido');
+//     return false;
 
-  } else {
-    removeError(1);
-    return true;
-  }
-}
-function foneOpcValidate() {
-  if (!foneRegex.test(campos[2].value)) {
-    setError(2, 'Telefone invalido');
-    return false;
+//   } else {
+//     removeError(1);
+//     return true;
+//   }
+// }
+// function foneOpcValidate() {
+//   if (!foneRegex.test(campos[2].value)) {
+//     setError(2, 'Telefone invalido');
+//     return false;
 
-  } else {
-    removeError(2);
-    return true;
-  }
-}
+//   } else {
+//     removeError(2);
+//     return true;
+//   }
+// }
 
 
 function validateCNPJ(cnpj) {
