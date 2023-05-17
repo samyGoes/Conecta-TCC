@@ -1,7 +1,9 @@
 <?php
+
 require_once 'global.php';
+include "../../auth/verifica-logado.php";
+
 ?>
-<?php include "../../auth/verifica-logado.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,11 +13,10 @@ require_once 'global.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-tabela-voluntarios.css">
+    <link rel="stylesheet" href="./css/estilo-chat.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/estilo-tabela-voluntarios-rejeitados.css">
-    <title> Configurações do Perfil - Voluntários Recusados</title>
+    <title> Configurações do Perfil - Voluntários Disponíveis</title>
 </head>
 
 <body class="body">
@@ -167,93 +168,37 @@ require_once 'global.php';
 
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Voluntários Recusados </h2>
+                <h2 class="titulo-voluntarios"> Chat </h2>
                 <p class="frase-voluntarios">
-                    Esta é a lista de todos os voluntários que você recusou, caso queira reconsiderar clique
-                    no botão "retirar recusa", isto fará com que o voluntário saia desta lista e apareça novamente
-                    na lista de voluntários candidatos.
+                    Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
                 </p>
             </div>
 
-
-
-            <!-- TABELA 1 -->
-            <div class="table">
-                <div class="table-responsive">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <div class="funcoes-sessao-2">
-                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                        </div>
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header">
+                    <div class="chat-user">
+                        <img src="" alt="img">
+                        <h2 class="chat-titulo" id="chat-titulo"> Samilly Silva de Goes </h2>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> ID </th>
-                                <th> Foto </th>
-                                <th> Nome </th>
-                                <th> Idade </th>
-                                <th> Cidade </th>
-                                <th> UF </th>
-                                <th> Vaga </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
-                            $idInstituicaoLogada = $_SESSION['codUsuario'];
-                            try {
-                                $listaVoluntarioRejeitado = CandidaturaDao::listarCandidaturasRecusadas($idInstituicaoLogada);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            <form action="" method="post">
-                                <?php foreach ($listaVoluntarioRejeitado as $voluntario) { ?>
-                                    <tr>
-                                        <td> <?php echo $voluntario['codCandidatura']; ?> </td>
-                                        <td>
-                                            <a href="">
-                                                <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $voluntario['nomeVoluntario']; ?></td>
-                                        <td> </td>
-                                        <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
-                                        <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
-                                        <td> <?php echo $voluntario['nomeservico']; ?> </td>
-                                        <td>
-                                            <button name="btnRetirarRecusa" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>"> RETIRAR RECUSA </button>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-
-                                <?php
-                                if (isset($_POST['btnRetirarRecusa'])) {
-                                    $codCandidatura = $_POST['btnRetirarRecusa'];
-                                    try {
-                                        CandidaturaDao::retirarRecusa($codCandidatura);
-                                        // Realize a ação necessária ao retirar a rejeição do voluntário
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                }
-                                ?>
-                            </form>
-                        </tbody>
-                    </table>
-
+                </div>
+                <div class="chat-footer">
+                    <div class="enviar-mensagem">
+                        <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
+                    </div>
+                    <div class="button-send">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
     </main>
+
+
+
+
+
+
+
+
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
 </body>

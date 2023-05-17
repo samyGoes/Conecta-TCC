@@ -1,0 +1,136 @@
+
+.conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-botoes
+{
+    display: flex;
+    /* border: 1px solid #4567a5; */
+    padding: 0rem 0.4rem 0rem 0.4rem;
+}
+
+.container-botoes button
+{
+    width: 12rem;
+    height: 1.7rem;
+    border: 1px solid #4567a5;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #4567a5;
+}
+
+.btn-dashboard button, .btn-voluntarios button, .btn-v-r button 
+{
+    border-right: none;
+}
+
+.btn-voluntarios button
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
+.container-botoes button:hover
+{
+    background-color: #4567a5;
+    color: #fff;
+}
+
+
+
+/* TÍTULO 1 */
+.container-titulo-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0rem 2rem 0rem;
+    gap: 0.8rem;
+    width: 80%;
+}
+
+.titulo-voluntarios {
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #2e2e2e;
+}
+
+.frase-voluntarios {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: justify;
+}
+
+
+
+/* CHAT */
+.chat-container {
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #4567a5;
+}
+
+.chat-header {
+    background: rgb(87, 123, 187);
+    background: linear-gradient(90deg, rgba(87, 123, 187, 1) 52%, rgba(141, 167, 214, 1) 85%);
+}
+
+.chat-user {
+    display: flex;
+    gap: 30px;
+    padding: 3%;
+}
+
+.chat-user img {
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+
+
+
+
+
+
+
+
+
+.chat-footer {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.enviar-mensagem input {
+    border: 1px solid #587bbb;
+    border-radius: 0.5rem;
+    width: 500px;
+    height: 40px;
+    outline: none;
+}
+
+.enviar-mensagem input::placeholder {
+    font-weight: 400;
+    color: #8e8e8e;
+    font-family: Poppins, sans-serif;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+
+
+.button-send i {
+    font-size: 20px;
+}
