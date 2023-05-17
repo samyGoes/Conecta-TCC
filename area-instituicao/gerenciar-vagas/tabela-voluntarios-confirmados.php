@@ -208,7 +208,8 @@ include "../../auth/verifica-logado.php";
 
                             try {
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada);
+                                $codServico = $_POST['codCategoriaServico']; // Obter o código da vaga do botão clicado
+                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico); // Passar o código da vaga para a consulta
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
@@ -249,6 +250,7 @@ include "../../auth/verifica-logado.php";
                             <?php } ?>
                             <?php ?>
 
+
                         </tbody>
                     </table>
 
@@ -257,7 +259,7 @@ include "../../auth/verifica-logado.php";
         </div>
 
         <!-- MODAL AVALIAÇÂO -->
-        <div id="modal" class="modal">
+        <!-- <div id="modal" class="modal">
             <div class="form" id="form">
 
                 <div class="modal-sessao-1">
@@ -291,7 +293,7 @@ include "../../auth/verifica-logado.php";
                     <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
                 </div>
             </div>
-        </div>  
+        </div>  -->
     </main>
 
 

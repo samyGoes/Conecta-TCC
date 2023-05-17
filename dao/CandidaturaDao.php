@@ -39,23 +39,23 @@ class CandidaturaDao
         $lista = $resultado->fetchAll();
         return $lista;
     }
-    public static function listarVoluntariosAceitos($idInstituicaoLogada)
+    public static function listarVoluntariosAceitos($idInstituicaoLogada, $codServico)
     {
         $conexao = Conexao::conectar();
-        $idInstituicaoLogada = $_SESSION['codUsuario'];
-
+    
         $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
             INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'aceito'";
-
+            WHERE tbInstituicao.codInstituicao = ? AND tbServico.codServico = ? AND tbCandidatura.statusCandidatura = 'aceito'";
+    
         $resultado = $conexao->prepare($querySelect);
-        $resultado->execute(array($idInstituicaoLogada));
+        $resultado->execute(array($idInstituicaoLogada, $codServico));
         $lista = $resultado->fetchAll();
         return $lista;
     }
+    
 
 
     public static function obterQuantidadeInscritosPorServico($codServico)

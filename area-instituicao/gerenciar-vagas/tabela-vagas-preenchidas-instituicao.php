@@ -190,6 +190,7 @@ require_once 'global.php';
 
                             try {
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                
                                 $listaCausas = ServicoDao::listarServico($idInstituicaoLogada);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
@@ -219,7 +220,7 @@ require_once 'global.php';
                                         <td>
                                 <form action="tabela-voluntarios-confirmados.php" method="post">
                                     <input type="hidden" name="codCategoriaServico" value="<?php echo $codCategoriaServico; ?>">
-                                    <button type="submit" class="link-vagas-preenchidas"><?php echo $quantidadeInscritos; ?></button>
+                                    <button type="submit" name="btnVaga" class="link-vagas-preenchidas"><?php echo $quantidadeInscritos; ?></button>
                                 </form>
                             </td>
                                     </tr>
