@@ -11,8 +11,8 @@
             VALUES(?,?,?)");
 
             $prepareStatement -> bindValue (1, $solicitcao -> getCodInstituicao());
-            $prepareStatement -> bindValue (2, $solicitcao -> getNomeCategoria());
-            $prepareStatement -> bindValue (3, $solicitcao -> getStatusCategoria());
+            $prepareStatement -> bindValue (2, $solicitcao -> getNomeCategoriaHabilidade());
+            $prepareStatement -> bindValue (3, $solicitcao -> getStatusSolicitacao());
             $prepareStatement -> execute();
             }
 
@@ -26,34 +26,30 @@
             return $lista;
         }
 
+    
         public static function aceitarSolicitacao($idSolicitacao)
         {
             $conexao = Conexao::conectar();
-        
-            $nomeCategoria = getNomeCategoriaHabilidade(); // Supondo que seja uma função
+            $solicitacao = new Solicitacao();
 
+            $nomeCategoria = $solicitacao -> getNomeCategoriaHabilidade(); 
             $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
-            $resultadoAceito = $conexao->query($queryAceito);
+            $conexao->query($queryAceito);
 
             $queryAceito = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
-            $resultadoAceito = $conexao->query($queryAceito);
+            $conexao->query($queryAceito);
 
             echo "Sua solicitação foi aceita";
-
-            return $resultadoAceito->fetchAll();
-
         }
 
         public static function recusarSolicitacao($idSolicitacao)
         {
             $conexao = Conexao::conectar();
 
-            $queryRecusado = "DELETE FROM tbSolicitacao  WHERE codSolicitacao = $idSolicitacao";
-            $resultado = $conexao->query($queryRecusado);
+            $queryRecusado = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
+            $conexao->query($queryRecusado);
 
-            echo("sua causa foi recusada");
-
-            return $resultado;
+            echo "Sua causa foi recusada";
         }
     }
     

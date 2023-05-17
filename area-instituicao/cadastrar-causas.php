@@ -12,8 +12,8 @@
     
         //Inserindo os dados vindos do formulário nos atributos da classe
         $solicitacao -> setCodInstituicao($_SESSION['codUsuario']);
-        $solicitacao -> setNomeCategoria($_POST ['nome']);
-        $solicitacao -> setStatusCategoria('pendente');
+        $solicitacao -> setNomeCategoriaHabilidade($_POST ['nome']);
+        $solicitacao -> setStatusSolicitacao('pendente');
 
        
 
