@@ -110,7 +110,10 @@
 
 
 
-
+table
+{
+    border-collapse: collapse;
+}
 
 tbody 
 {
@@ -118,7 +121,7 @@ tbody
     width: 24.7rem;
     height: 334px;
     overflow-y: scroll;
-    border-collapse: collapse;
+  
     margin-top: 1rem;
 }
 
@@ -144,10 +147,22 @@ td:nth-child(2)
     justify-content: center;
 }
 
-td img
+.box-img
 {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.box-img img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.td-divisao
+{
+    display: flex;
+    align-content: center;
 }
 
 /* SCROLL */
@@ -188,6 +203,7 @@ tbody::-webkit-scrollbar-thumb,
     color: #2e2e2e;
     font-family: poppins, sans-serif;
     font-weight: 400;
+    border-left: none !important;
 }
 
 
