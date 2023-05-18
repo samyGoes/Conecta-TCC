@@ -47,7 +47,8 @@
                             </div>
                             <div class="input-box">
                                 <label for="date">Data de Nascimento</label>
-                                <input type="date" name="date" class="inputs required" id="date" pattern="\d{2}/\d{2}/\d{4}" placeholder="Digite sua data de nasc..." oninput="dateValidate()">
+                                <!-- <input type="date" name="date" class="inputs required" id="date" pattern="\d{2}/\d{2}/\d{4}" placeholder="Digite sua data de nasc..." oninput="dateValidate()"> -->
+                                <input type="text" name="date" class="inputs required" id="date" placeholder="Digite sua data de nasc..." oninput="dateValidate()">
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
@@ -145,7 +146,7 @@
     </div>
 
     <script src="js/script.js"></script>
-    <script src="js/valida-voluntario.js"></script>
+    <!-- <script src="js/valida-voluntario.js"></script> -->
     <script src="js/mascaraFormVolun.js"></script>
     <script src="js/endereco-auto.js"></script>
 

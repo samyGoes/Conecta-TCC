@@ -3,7 +3,7 @@
 require_once 'global.php';
 
 try{
-  header('Location: form-login.php');
+  header('Location: form-login.php?cadastro=sucesso');
 
 $validaSenha= new Senha();
 $validaCpf=new Cpf();

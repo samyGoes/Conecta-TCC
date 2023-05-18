@@ -114,9 +114,11 @@
                                         
                                         foreach($nomes as $avaliacao)
                                         {
-
-                                        }
-                                        <td></td>
+                                    ?>    
+                                            <td></td>
+                                    
+                                    <?php
+                                        }                                      
                                     ?>
                                 </tbody>
                             </table>

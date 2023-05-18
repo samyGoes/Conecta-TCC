@@ -58,3 +58,5 @@ export function boxInfoTOut()
     infoT.style.display = "none";
 }
 botaoTabela.addEventListener("mouseout", boxInfoTOut);
+
+
