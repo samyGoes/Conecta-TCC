@@ -97,29 +97,32 @@
                                 </div>
                             </div>
                             <table>
-                                <tbody>
-
+                                <tbody>                            
                                     <?php
                                         $nomes = array
                                         (
-                                            'Sâmily',
-                                            'Ana Claudia',
-                                            'Fernanda',
-                                            'Gabriella'
+                                            'Sâmily Silva De Goes',
+                                            'Ana Claudia Ferreira',
+                                            'Fernanda De Souza Bezerra',
+                                            'Gabriella Ferreira Alves'
                                         );
                                         $avaliacao = array
                                         (
-
+                                            '5',
+                                            '4',
+                                            '3',
+                                            '2'
                                         );
                                         
-                                        foreach($nomes as $avaliacao)
+                                        foreach($nomes as $v => $nomes)
                                         {
-                                    ?>    
-                                            <td></td>
-                                    
+                                    ?>    <tr>
+                                            <td><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></td>
+                                            <td> <?php echo $avaliacao[$v]; ?></td>
+                                        </tr>
                                     <?php
                                         }                                      
-                                    ?>
+                                    ?>                            
                                 </tbody>
                             </table>
                         </div>
@@ -133,16 +136,38 @@
                                     <div class="subtitulo-table"> Voluntários</div>
                                 </div>
                             </div>
-                        </div>
-                        <table>
-                                <thead>
-                                    <tr>
-                                        <th> </th>
-                                        <th> </th>
-                                    </tr>
-                                </thead>
+                            <table>
+                                <tbody>                            
+                                    <?php
+                                        $nomes = array
+                                        (
+                                            'Sâmily Silva De Goes',
+                                            'Ana Claudia Ferreira',
+                                            'Fernanda De Souza Bezerra',
+                                            'Gabriella Ferreira Alves'
+                                        );
+                                        $avaliacao = array
+                                        (
+                                            '5',
+                                            '4',
+                                            '3',
+                                            '2'
+                                        );
+                                        
+                                        foreach($nomes as $v => $nomes)
+                                        {
+                                    ?>      <tr>
+                                                <td> <div class="td-divisao"><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></div> </td>
+                                                <td> <?php echo $avaliacao[$v]; ?></td>
+                                            </tr>
+                                    <?php
+                                        }                                      
+                                    ?>                            
+                                </tbody>
                             </table>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="box-card-sessao-2">

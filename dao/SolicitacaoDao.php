@@ -1,5 +1,8 @@
 <?php
-
+    require_once '../auth/loginUsuario.php'; 
+    require_once 'global.php'; 
+    
+ 
     class SolicitacaoDao{
 
         public static function cadastrar($solicitcao)
@@ -30,17 +33,20 @@
         public static function aceitarSolicitacao($idSolicitacao)
         {
             $conexao = Conexao::conectar();
-            $solicitacao = new Solicitacao();
 
-            $nomeCategoria = $solicitacao -> getNomeCategoriaHabilidade(); 
-            $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
+            $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('" . $_SESSION['nomeCategoria'] . "')";
+
             $conexao->query($queryAceito);
 
-            $queryAceito = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
-            $conexao->query($queryAceito);
+            $queryDelete = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
+            $conexao->query($queryDelete);
 
             echo "Sua solicitação foi aceita";
-        }
+            
+        }   
+
+        
+
 
         public static function recusarSolicitacao($idSolicitacao)
         {
