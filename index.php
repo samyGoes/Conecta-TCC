@@ -386,7 +386,7 @@
                     </ul>
                 </div>
                 <div class="footer-col" id="footer-col-sobre">
-                    <h5>Sobre Nós</h5>
+                    <a href="sobre-nos/sobre-nos.php"><h5>Sobre Nós</h5></a>
                     <ul>
                         <li>Nos conheca um pouco <br> mais.</li>
                     </ul>
