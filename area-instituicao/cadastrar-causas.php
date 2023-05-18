@@ -8,14 +8,15 @@
         header('Location: form-cadastrar-causas-instituicao.php');
         
         $solicitacao = new Solicitacao();
-
     
+         
+
         //Inserindo os dados vindos do formulário nos atributos da classe
         $solicitacao -> setCodInstituicao($_SESSION['codUsuario']);
         $solicitacao -> setNomeCategoriaHabilidade($_POST ['nome']);
         $solicitacao -> setStatusSolicitacao('pendente');
 
-       
+        $_SESSION['nomeCategoria'] = $solicitacao -> setNomeCategoriaHabilidade($_POST ['nome']);
 
         $cadastrar = SolicitacaoDao::cadastrar($solicitacao);
 

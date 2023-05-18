@@ -1,0 +1,17 @@
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.divisao-conteudo{
+    width: 50%;
+    height: 100%;
+}
+.divisao-imagem{
+    width: 50%;
+}
+
+.divisao-imagem img {
+    width: 50vw;
+}
