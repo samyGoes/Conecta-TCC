@@ -176,19 +176,49 @@ include "../../auth/verifica-logado.php";
 
             <div class="chat-container" id="chat-container">
                 <div class="chat-header">
-                    <div class="chat-user">
-                        <img src="" alt="img">
+                    <div class="nome-user">
+                        <img src="../img-instituicao/5.jpg" alt="img">
                         <h2 class="chat-titulo" id="chat-titulo"> Samilly Silva de Goes </h2>
                     </div>
                 </div>
-                <div class="chat-footer">
+                <div class="main-chat">
+                    <div class="mensagens">
+                        <div class="area-instituicao">
+                            <div class="instituicao">
+                                <div class="mensagem-instituicao">
+                                    <div class="conteudo-mensagem">
+                                        <h4> ONG gato</h4>
+                                        <p>Então seria no minimo 3 dias da semana</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="foto-instituicao">
+                                <img src="../img-instituicao/9.JPG" alt="foto">
+                            </div>
+                        </div>
+                        <div class="area-voluntario">
+                            <div class="foto-voluntario">
+                                <img src="../img-instituicao/6.jpg" alt="foto">
+                            </div>
+                            <div class="voluntario">
+                                <div class="mensagem-voluntario">
+                                    <div class="conteudo-mensagem">
+                                        <h4> Sâmilly</h4>
+                                        <p>Como seria refente asos horarios</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="chat-footer">
                     <div class="enviar-mensagem">
                         <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
                     </div>
-                    <div class="button-send">
+                    <button type="" class="button-send">
                         <i class="fa-solid fa-paper-plane"></i>
-                    </div>
-                </div>
+                    </button>
+                </div> -->
             </div>
     </main>
 
