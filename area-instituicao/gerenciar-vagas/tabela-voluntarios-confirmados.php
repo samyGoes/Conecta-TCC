@@ -259,8 +259,8 @@ include "../../auth/verifica-logado.php";
         </div>
 
         <!-- MODAL AVALIAÇÂO -->
-        <!-- <div id="modal" class="modal">
-            <div class="form" id="form">
+         <div id="modal" class="hide">
+            <div class="hide" id="form">
 
                 <div class="modal-sessao-1">
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
@@ -284,7 +284,7 @@ include "../../auth/verifica-logado.php";
                         <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Avaliar</button></div>
                     </form>
 
-                    <a class="voltar-anterior" href="#"> Voltar para a página anterior </a>
+                    <a class="voltar-anterior" id="fecha-modal" href=""> Voltar para a página anterior </a>
                 </div>
 
                 <div class="modal-sessao-2">
@@ -293,7 +293,7 @@ include "../../auth/verifica-logado.php";
                     <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
                 </div>
             </div>
-        </div>  -->
+        </div> 
     </main>
 
 
@@ -305,6 +305,7 @@ include "../../auth/verifica-logado.php";
 
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
+    <script type="module" src="./js/modalAvaliar.js"></script>
 </body>
 
 </html>

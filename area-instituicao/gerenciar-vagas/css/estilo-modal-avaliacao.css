@@ -143,3 +143,9 @@
     display: none;
     flex-direction: column;
 }
+
+#modal.hide,
+#form.hide{
+    opacity: 0;
+    pointer-events: none;
+}
