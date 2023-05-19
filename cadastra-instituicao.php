@@ -4,7 +4,7 @@
     //Cadastrando os dados informados no formulário pela instituição na classe Instituicao.
     try
     {
-        //header('Location: form-login.php');
+        header('Location: form-login.php?cadastro=sucesso');
         
         $instituicao = new Instituicao();
         $instituicao -> setNomeInstituicao($_POST['name']);
@@ -30,12 +30,6 @@
         $instituicao -> setFtPerfilInstituicao($user);
 
         $cadastrar = InstituicaoDao::cadastrar($instituicao);
-
-        if($cadastrar)
-        {
-            header('Location: form-login.php?cadastro=sucesso');
-        }
-     
     }
     catch(Exception $e)
     {

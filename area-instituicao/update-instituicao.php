@@ -5,7 +5,7 @@
     
     try
     {
-        header('Location: form-editar-perfil-instituicao.php');
+        header('Location: form-editar-perfil-instituicao.php?edicao=sucesso');
       
         $instituicao = new Instituicao();
         $instituicao -> setIdInstituicao($_SESSION['codUsuario']);

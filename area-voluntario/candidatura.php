@@ -5,7 +5,7 @@
     //Cadastrando as candidaturas
     try
     {
-        header("Location: ../vagas/vagas.php");
+        header("Location: ../vagas/vagas.php?candidatura=sucesso");
 
         if( $_SESSION['tipoPerfil'] == 'Voluntario')
         {

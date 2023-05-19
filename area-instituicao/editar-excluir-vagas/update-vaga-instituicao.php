@@ -4,7 +4,7 @@
 
      try
     {
-        header('Location: vaga-completa-instituicao.php');
+        header('Location: vaga-completa-instituicao.php?edicao=sucesso');
         //criando um objeto da classe Serviço
         $servico= new Servico();
     

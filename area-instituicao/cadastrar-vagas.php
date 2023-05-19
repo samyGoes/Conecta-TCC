@@ -4,7 +4,7 @@
 
     try
     {
-        header('Location: form-cadastrar-vagas-instituicao.php');
+        header('Location: editar-excluir-vagas/tabela-editar-vagas-instituicao.php?cadastro=sucesso');
         //criando um objeto da classe Serviço
         $servico= new Servico();
     
