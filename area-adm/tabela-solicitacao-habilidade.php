@@ -165,7 +165,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
+                        <?php
                             require_once 'global.php';
 
                             try {
@@ -187,31 +187,29 @@
                                     </tr>
                                 </form>
                                 <?php
-                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacao']) {
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacao']) 
+                                {
                                     $codSolicitacao = $_POST['btnChamar'];
-                                    try 
-                                    {
-                                        SolicitacaoDao::aceitarSolicitacao
-                                        ($codSolicitacao);
-                                    } catch (Exception $e) 
-                                    {
-                                    echo $e->getMessage();
-                                    }
+                                
+                                    SolicitacaoDao::aceitarSolicitacao($habilidade['nomeCategoriaHabilidade'], $habilidade['codSolicitacao']);
+                                
+                                    // Redirecionar para a página desejada após chamar a solicitação
+                                    header('Location: tabela-solicitacao-habilidade.php');
+                                    exit; 
                                 } 
                                 elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacao']) 
                                 {
                                     $codSolicitacao = $_POST['btnRecusar'];
-                                    try 
-                                    {
+                                
                                     SolicitacaoDao::recusarSolicitacao($codSolicitacao);
-                                    } 
-                                    catch (Exception $e) 
-                                    {
-                                    echo $e->getMessage();
-                                    }
+                                
+                                    // Redirecionar para a página desejada após recusar a solicitação
+                                    header('Location: tabela-solicitacao-habilidade.php');
+                                    exit;
                                 }
-                                    }
-                                    ?>
+                            }
+                            ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -226,6 +224,8 @@
     <script src="js/script.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
+
+
 </body>
 
 </html>

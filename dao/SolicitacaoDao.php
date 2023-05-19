@@ -1,8 +1,5 @@
 <?php
-    require_once '../auth/loginUsuario.php'; 
-    require_once 'global.php'; 
-    
- 
+
     class SolicitacaoDao{
 
         public static function cadastrar($solicitcao)
@@ -30,11 +27,11 @@
         }
 
     
-        public static function aceitarSolicitacao($idSolicitacao)
+        public static function aceitarSolicitacao($nomeCategoria, $idSolicitacao)
         {
             $conexao = Conexao::conectar();
 
-            $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('" . $_SESSION['nomeCategoria'] . "')";
+            $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
 
             $conexao->query($queryAceito);
 
