@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@300;400;500&display=swap");
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TÍTULO E FILTROS */
+.container-titulo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 2rem;
+  max-width: 70%;
+}
+
+.titulo {
+  font-family: Acme, Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #252d51;
+  margin-bottom: 1.6rem;
+}
+
+.sub-titulo {
+  font-size: 20px;
+  color: #252d51;
+}
+
+.frase {
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+}
+
+.pesquisa-instituicao {
+  display: flex;
+  justify-content: flex-end;
+  margin: 7rem 2rem 0rem 0rem;
+  width: 100%;
+}
+
+.pesquisa-instituicao input {
+  border: 1px solid #000;
+  outline: none;
+  border-radius: 1.3rem;
+  padding: 0.4rem 0.7rem 0.4rem 0.7rem;
+  width: 20rem;
+  transition: all 0.5s ease;
+
+  background-image: url("../../img/lupa.svg");
+  background-position: 290px;
+  background-repeat: no-repeat;
+  background-size: 16px;
+
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #525252;
+}
+
+.pesquisa-instituicao input:focus {
+  border-color: #4567a5;
+}
+
+.galeria {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 50px;
+  margin-top: 8%;
+}
+
+.voltar-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8% 8%;
+}
+
+.voltar-perfil a {
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  color: #4567a5;
+}
+
+@me {
+    
+}

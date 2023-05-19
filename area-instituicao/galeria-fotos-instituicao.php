@@ -9,7 +9,7 @@ include "../auth/loginUsuario.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../instituicoes/css/estilo.css" text-type="text/css">
+    <link rel="stylesheet" href="./css/estilo-galeria-fotos.css">
     <link rel="stylesheet" href="../css/estilo-navbar-rodape.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -122,129 +122,42 @@ include "../auth/loginUsuario.php";
 
     <!-- CONTEUDO  -->
     <div class="container-titulo">
-        <h1 class="titulo"> Voluntários </h1>
+        <h1 class="titulo"> Galeria de fotos <br> <p class="sub-titulo">ONG Raios de Sol</p> </h1>
+        
         <p class="frase">
-            Aqui você verá os perfis de todas as instituições disponíveis. Você também pode
-            filtrar para que encontre a instituição que deseja ou pesquisar pelo nome da instituição.
-            Confira os filtros abaixo:
+            Conheça mais sobre a instituição vendo todas as fotos que ela publicou em seu perfil
         </p>
     </div>
 
-
-
-
-
-    <!-- FILTROS -->
-    <form class="form-filtro" method="POST" action="">
-        <!-- CAUSAS -->
-        <div class="box-filtro-causas">
-
-            <div class="clique-fora">
-                <div class="filtro-causas"> CAUSAS </div>
-                <div class="box-causas">
-                    <?php
-                    require_once 'global.php';
-                    try {
-                        $listaCausas = CategoriaServicoDao::listar();
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
-                    }
-                    ?>
-                    <?php foreach ($listaCausas as $causas) { ?>
-                        <div class="box-causas-checkbox">
-                            <input class="checkbox-causas" type="checkbox" name="causas" id="causas">
-                            <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-                </div>
+    <main>
+        <div class="galeria">
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
+            </div>
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
+            </div>
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
+            </div>
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
+            </div>
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
+            </div>
+            <div class="box-img">
+                <img src="../area-instituicao/img/1.jpg" alt="">
             </div>
         </div>
 
-        <!-- SELECT ESTADOS E CIDADES -->
-        <select class="select-estados-i" name="estados" id="estados">
-            <option selected disabled> Selecione o estado... </option>
-        </select>
-
-        <select class="select-cidade-i" name="cidades" id="cidades">
-            <option selected disabled> Selecione a cidade... </option>
-        </select>
-    </form>
+        <div class="voltar-perfil">
+            <a href="">Voltar para o perfil</a>
+        </div>
+    </main>
 
 
-
-
-
-
-
-
-    <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
-    <div class="lista-voluntario">
-        <?php
-        require_once 'global.php';
-        try {
-            $listaVoluntario = VoluntarioDao::listar();
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-        ?>
-
-        <?php
-        foreach ($listaVoluntario as $voluntario) {
-            $t = 'Voluntario';
-            $c = $voluntario['codVoluntario'];
-            try {
-                $listarCausas = CausasVoluntarioDao::listarVoluntariosCausas($c);
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-
-        ?>
-            <div class="lista-voluntario-linha">
-                <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>">
-                    <div id="localizacao"><i class="fa-solid fa-location-dot"></i>
-                        <p> <?php echo $voluntario['cidadeVoluntario'] . " -"; ?> <span class="estado-pais"> <?php echo $voluntario['estadoVoluntario'] . ", " . $voluntario['paisVoluntario']; ?> </span></p>
-                    </div>
-
-                    <div class="lista-item" id="lista-item-nome">
-
-                        <div class="box-img"> <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"> </div>
-
-                        <div class="lista-item-sessao-1">
-                            <a href="">
-                                <p class="nome"> <?php echo $voluntario['nomeVoluntario']; ?> </p>
-                            </a>
-                            <p class="email"> <?php echo $voluntario['emailVoluntario']; ?> </p>
-                        </div>
-
-                        <div class="lista-item-sessao-2">
-                            <p class="descricao">
-                                <?php echo $voluntario['descVoluntario']; ?>
-                            </p>
-                        </div>
-
-                    </div>
-                    <div class="lista-item-2">
-                        <?php foreach ($listarCausas as $causas) { ?>
-                            <a href=""><button id="tipo-causas-1"><?php echo $causas['nomeCategoria']; ?></button></a>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </a>
-            </div>
-        <?php
-        }
-        ?>
-    </div>
-
-
-
-
-
-    <!-- RODAPÉ -->
+   <!-- RODAPÉ -->
     <footer>
         <div class="container-footer">
             <div class="footer-sessao" id="footer-sessao-1">
@@ -315,7 +228,6 @@ include "../auth/loginUsuario.php";
 
     <!-- SCRIPTS -->
     <script src="js/script.js"></script>
-    <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
 </body>
