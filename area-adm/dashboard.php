@@ -104,20 +104,22 @@
                                             'Sâmily Silva De Goes',
                                             'Ana Claudia Ferreira',
                                             'Fernanda De Souza Bezerra',
-                                            'Gabriella Ferreira Alves'
+                                            'Gabriella Ferreira Alves',
+                                            'Nevasca te amamos'
                                         );
                                         $avaliacao = array
                                         (
                                             '5',
                                             '4',
                                             '3',
-                                            '2'
+                                            '2',
+                                            '5'
                                         );
                                         
                                         foreach($nomes as $v => $nomes)
                                         {
                                     ?>    <tr>
-                                            <td><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></td>
+                                            <td> <div class="td-divisao"><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></div></td>
                                             <td> <?php echo $avaliacao[$v]; ?></td>
                                         </tr>
                                     <?php
@@ -144,14 +146,16 @@
                                             'Sâmily Silva De Goes',
                                             'Ana Claudia Ferreira',
                                             'Fernanda De Souza Bezerra',
-                                            'Gabriella Ferreira Alves'
+                                            'Gabriella Ferreira Alves',
+                                            'Nevasca te amamos'
                                         );
                                         $avaliacao = array
                                         (
                                             '5',
                                             '4',
                                             '3',
-                                            '2'
+                                            '2',
+                                            '5'
                                         );
                                         
                                         foreach($nomes as $v => $nomes)
