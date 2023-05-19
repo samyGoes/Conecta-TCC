@@ -299,21 +299,22 @@
       right: 20px;
       box-shadow: #b4d8e6 3px 3px 4px 1px;
       z-index: 9999;
-      transition: visibility 0s, opacity 0.5s ease;
+      //transition: visibility 0s, opacity 0.5s ease;
       border: #4567a5 solid 1px;
-      visibility: hidden;
-      opacity: 0;
+      //visibility: hidden;
+      //opacity: 0;
       border-radius: 0.5rem;
+      background-color: #fff;
     }
 
     #modal-content {
       padding: 10px;
     }
 
-    #modal.show {
-      visibility: visible;
-      opacity: 1;
-    }
+    // #modal.show {
+    //   visibility: visible;
+    //   opacity: 1;
+    // }
 
     p {
       font-family: Poppins, sans-serif;
@@ -333,19 +334,19 @@
         document.head.appendChild(style);
 
         // adiciona o listener de evento ao botão de cadastro
-        const btn = document.getElementById("cadastro-btn");
+        // const btn = document.getElementById("cadastro-btn");
 
-        btn.addEventListener("click", function() {
-            // assume que você tem algum código que realiza o cadastro aqui
+        // btn.addEventListener("click", function() {
+        //     // assume que você tem algum código que realiza o cadastro aqui
 
-            // depois que o cadastro é realizado com sucesso:
-            modal.classList.add("show");
+        //     // depois que o cadastro é realizado com sucesso:
+        //     modal.classList.add("show");
 
-            // remove a classe 'show' após 1 segundo
-            setTimeout(() => {
-                modal.classList.remove("show");
-            }, 1000);
-        });
+        //     // remove a classe 'show' após 1 segundo
+        //     setTimeout(() => {
+        //         modal.classList.remove("show");
+        //     }, 1000);
+        // });
     </script>
     <script src="/js/modal-cadastro-vaga.js"></script>
     <script type="module" src="imports/side-bar.js"></script>

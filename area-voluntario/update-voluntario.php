@@ -5,7 +5,7 @@
     
     try
     {
-        header('Location: form-editar-perfil-voluntario.php');
+        header('Location: form-editar-perfil-voluntario.php?edicao=sucesso');
       
         $voluntario= new Voluntario();
         $voluntario -> setIdVoluntario($_SESSION['codUsuario']);
