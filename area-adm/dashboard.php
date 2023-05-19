@@ -161,7 +161,16 @@
                                         foreach($nomes as $v => $nomes)
                                         {
                                     ?>      <tr>
-                                                <td> <div class="td-divisao"><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></div> </td>
+                                                <td> 
+                                                    <div class="td-divisao">
+                                                        <div class="box-img">
+                                                            <img src="../area-voluntario/img/user.png">
+                                                        </div>
+                                                        <div class=".td-text">
+                                                            <?php echo $nomes; ?>
+                                                        </div>
+                                                    </div> 
+                                                </td>
                                                 <td> <?php echo $avaliacao[$v]; ?></td>
                                             </tr>
                                     <?php
