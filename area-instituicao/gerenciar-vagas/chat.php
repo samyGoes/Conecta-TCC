@@ -180,6 +180,11 @@ include "../../auth/verifica-logado.php";
                         <img src="../img-instituicao/5.jpg" alt="img">
                         <h2 class="chat-titulo" id="chat-titulo"> Samilly Silva de Goes </h2>
                     </div>
+                    <div class="pesquisar-chat">
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                    </div>
+
                 </div>
                 <div class="main-chat">
                     <div class="mensagens">
@@ -211,14 +216,14 @@ include "../../auth/verifica-logado.php";
                         </div>
                     </div>
                 </div>
-                <!-- <div class="chat-footer">
+                <div class="chat-footer">
                     <div class="enviar-mensagem">
                         <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
                     </div>
                     <button type="" class="button-send">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
-                </div> -->
+                </div>
             </div>
     </main>
 
