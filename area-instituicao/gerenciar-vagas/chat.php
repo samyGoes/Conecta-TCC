@@ -186,44 +186,100 @@ include "../../auth/verifica-logado.php";
                     </div>
 
                 </div>
-                <div class="main-chat">
-                    <div class="mensagens">
-                        <div class="area-instituicao">
-                            <div class="instituicao">
-                                <div class="mensagem-instituicao">
-                                    <div class="conteudo-mensagem">
-                                        <h4> ONG gato</h4>
-                                        <p>Então seria no minimo 3 dias da semana</p>
+                <div class="scroll-chat">
+                    <div class="main-chat">
+                        <div class="mensagens">
+                            <div class="area-instituicao">
+                                <div class="instituicao">
+                                    <div class="mensagem-instituicao">
+                                        <div class="conteudo-mensagem">
+                                            <h4> ONG gato</h4>
+                                            <p>Então seria no minimo 3 dias da semana</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="foto-instituicao">
+                                    <img src="../img-instituicao/9.JPG" alt="foto">
+                                </div>
+                            </div>
+                            <div class="area-instituicao">
+                                <div class="instituicao">
+                                    <div class="mensagem-instituicao">
+                                        <div class="conteudo-mensagem">
+                                            <h4> ONG gato</h4>
+                                            <p>Então seria no minimo 3 dias da semana</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="foto-instituicao">
+                                    <img src="../img-instituicao/9.JPG" alt="foto">
+                                </div>
+                            </div> <div class="area-instituicao">
+                                <div class="instituicao">
+                                    <div class="mensagem-instituicao">
+                                        <div class="conteudo-mensagem">
+                                            <h4> ONG gato</h4>
+                                            <p>Então seria no minimo 3 dias da semana</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="foto-instituicao">
+                                    <img src="../img-instituicao/9.JPG" alt="foto">
+                                </div>
+                            </div>
+                            <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="foto-instituicao">
-                                <img src="../img-instituicao/9.JPG" alt="foto">
+                            <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios aaaaaaaaa</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="area-voluntario">
-                            <div class="foto-voluntario">
-                                <img src="../img-instituicao/6.jpg" alt="foto">
-                            </div>
-                            <div class="voluntario">
-                                <div class="mensagem-voluntario">
-                                    <div class="conteudo-mensagem">
-                                        <h4> Sâmilly</h4>
-                                        <p>Como seria refente asos horarios</p>
+                            <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios aaaaaaa</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                        <div class="chat-footer">
+                            <div class="fundo-footer">
+                                <div class="enviar-mensagem">
+                                    <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
+                                </div>
+                                <button type="" class="button-send">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
                 </div>
-                <div class="chat-footer">
-                    <div class="enviar-mensagem">
-                        <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
-                    </div>
-                    <button type="" class="button-send">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </div>
+
             </div>
     </main>
 
