@@ -72,42 +72,34 @@
                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
                                 <?php        
-                                    if(isset($_GET['candidatura']))
+
+                                    require_once 'global.php';
+                                    try 
                                     {
-                                        if($_GET['candidatura'] === 'sucesso')
-                                        {
-                                            require_once 'global.php';
-                                            try 
-                                            {
-                                                $statusCandidatura = $_SESSION['statusCandidatura'];
-                                                $notificacoes = InstituicaoDao::notificacoes($statusCandidatura);
-                                            } 
-                                            catch (Exception $e) 
-                                            {
-                                                echo $e->getMessage();
-                                            }
-        
-                                ?>
-                                        <ul class="sub-topicos-sininho">
-                                            <?php
-                                                //foreach($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo)
-                                                foreach($notificacoes as $not)
-                                                {
-                                            ?>
-                                                    <li> 
-                                                        <div class="sub-topicos-sininho-linha">
-                                                            <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo($not);//echo($notInstituicaoTitulo); ?> </a>
-                                                            <!-- <a class="sub-topicos-sininho-linha-frase" href="#"> <?php //echo($notInstituicaoFrase[$notificacoes]); ?> </a> -->
-                                                        </div>                                          
-                                                    </li>
-                                            <?php
-                                                }
-                                            ?>
-                                        </ul>
-                                <?php
-                                        }
+                                        $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                        $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
+                                    } 
+                                    catch (Exception $e) 
+                                    {
+                                        echo $e->getMessage();
                                     }
+
                                 ?>
+                                    <ul class="sub-topicos-sininho">
+                                        <?php
+                                            foreach($notificacoes as $titulo => $frase)
+                                            {
+                                        ?>
+                                                <li> 
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
+                                                    </div>                                          
+                                                </li>
+                                        <?php
+                                            }
+                                        ?>
+                                    </ul>
                                 
                                 <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                     Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>

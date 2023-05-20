@@ -245,25 +245,33 @@
 
        
 
-        public static function notificacoes($statusCandidatura)
+        public static function notificacoes($idInstituicaoLogada)
         {
-            $titulo = array
+            //$idInstituicaoLogada = $_SESSION['codUsuario'];
+
+            $mensagemCandidatura = array
             (
-                'Nova Candidatura',
-                'Nova Mensagem',
-                'Nova Avaliação'
+                'Nova Candidatura' => 'Um voluntário se candidatou a uma de suas vagas.',
             );
 
-            // $frase = array
-            // (
-            //     'Um voluntário se candidatou a vaga de professor de inglês.',
-            //     'Você tem uma nova mensagem do voluntário João.',
-            //     'Um voluntário fez uma avaliação sua.'
-            // );
+            // 'Nova Mensagem' => 'Você tem uma nova mensagem do(a) voluntário(a) Sâmily.',
+            // 'Nova Avaliação' => 'Um voluntário fez uma avaliação sua.'
 
-            if($statusCandidatura == true)
+            $conexao = Conexao::conectar();
+            $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura FROM tbCandidatura WHERE tbCandidatura.statusCandidatura = 'pendente'");
+
+            $querySelect->execute();
+            $status = $querySelect->fetch(PDO::FETCH_ASSOC);  
+
+            //print_r($status);
+
+            if(isset($status))
             {
-                return $titulo;   
+                return $mensagemCandidatura;   
+            }
+            else
+            {
+                return false;
             }
         }
 
