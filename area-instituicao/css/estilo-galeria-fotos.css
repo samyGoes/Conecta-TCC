@@ -98,14 +98,24 @@ body {
   color: #4567a5;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1000px) {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .box-img img {
+    width: 250px ;
+    height: 250px ;
   }
 } 
 
 @media (max-width: 620px) {
   .galeria {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .box-img img {
+    width: 230px;
+    height: 230px;
   }
 } 
