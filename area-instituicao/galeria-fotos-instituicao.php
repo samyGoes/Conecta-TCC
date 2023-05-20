@@ -144,7 +144,7 @@ include "../auth/loginUsuario.php";
                 <img src="../area-instituicao/img/1.jpg" alt="">
             </div>
             <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
+                <img src="../area-instituicao/img/3.png" alt="">
             </div>
             <div class="box-img">
                 <img src="../area-instituicao/img/1.jpg" alt="">
