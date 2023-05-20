@@ -33,5 +33,5 @@
         
     }
 
-    $_SESSION['candidatura'] = $statusCandidatura;
+    $_SESSION['statusCandidatura'] = $statusCandidatura;
 ?>

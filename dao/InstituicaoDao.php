@@ -245,6 +245,27 @@
 
        
 
+        public static function notificacoes($statusCandidatura)
+        {
+            $titulo = array
+            (
+                'Nova Candidatura',
+                'Nova Mensagem',
+                'Nova Avaliação'
+            );
+
+            // $frase = array
+            // (
+            //     'Um voluntário se candidatou a vaga de professor de inglês.',
+            //     'Você tem uma nova mensagem do voluntário João.',
+            //     'Um voluntário fez uma avaliação sua.'
+            // );
+
+            if($statusCandidatura == true)
+            {
+                return $titulo;   
+            }
+        }
 
     }
 ?>
