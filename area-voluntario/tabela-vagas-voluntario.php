@@ -70,38 +70,47 @@ require_once '../auth/verifica-logado.php';
                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
                                 <?php
-                                    $notInstituicaoTitulo = array
-                                    (
-                                        'Nova Candidatura',
-                                        'Nova Mensagem',
-                                        'Nova Avaliação',
-                                        'Nova Avaliação'
-                                    );
+                                    require_once 'global.php';
+                                    try 
+                                    {
+                                        $idVoluntarioLogado = $_SESSION['codUsuario'];
+                                        $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
+                                    } 
+                                    catch (Exception $e) 
+                                    {
+                                        echo $e->getMessage();
+                                    }
 
-                                    $notInstituicaoFrase = array
-                                    (
-                                        'Um voluntário se candidatou a vaga de professor de inglês.',
-                                        'Você tem uma nova mensagem do voluntário João.',
-                                        'Um voluntário fez uma avaliação sua.',
-                                        'Um voluntário fez uma avaliação sua.'
-                                    );
-
+                                    if (empty($notificacoes)) 
+                                    {
                                 ?>
-                                <ul class="sub-topicos-sininho">
-                                    <?php
-                                        foreach($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo)
-                                        {
-                                    ?>
+                                        <ul class="sub-topicos-sininho sem-resultado">
                                             <li> 
-                                                <div class="sub-topicos-sininho-linha">
-                                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo($notInstituicaoTitulo); ?> </a>
-                                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo($notInstituicaoFrase[$notificacoes]); ?> </a>
+                                                <div class="sub-topicos-sininho-linha sem-resultado">
+                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
                                                 </div>                                          
                                             </li>
-                                    <?php
+                                        </ul>
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        foreach($notificacoes as $titulo => $frase)
+                                        {
+                                ?>
+                                            <ul class="sub-topicos-sininho">
+                                                <li> 
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
+                                                    </div>                                          
+                                                </li>
+                                            </ul>
+                                <?php   
                                         }
-                                    ?>
-                                </ul>
+                                    }
+                                ?>
+                        
                                 <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                     Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
                                 </p>

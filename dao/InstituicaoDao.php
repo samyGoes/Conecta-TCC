@@ -247,7 +247,7 @@
 
         public static function notificacoes($idInstituicaoLogada)
         {
-            //$idInstituicaoLogada = $_SESSION['codUsuario'];
+            $conexao = Conexao::conectar();
 
             $mensagemCandidatura = array
             (
@@ -256,16 +256,18 @@
 
             // 'Nova Mensagem' => 'Você tem uma nova mensagem do(a) voluntário(a) Sâmily.',
             // 'Nova Avaliação' => 'Um voluntário fez uma avaliação sua.'
+    
+            $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura, tbInstituicao.codInstituicao FROM tbCandidatura 
+                                              INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+                                              INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao   
+                                              WHERE tbCandidatura.statusCandidatura = 'pendente' 
+                                              AND tbInstituicao.codInstituicao = ?");
 
-            $conexao = Conexao::conectar();
-            $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura FROM tbCandidatura WHERE tbCandidatura.statusCandidatura = 'pendente'");
+            $querySelect->execute(array($idInstituicaoLogada));
+            $status = $querySelect->fetchAll();  
 
-            $querySelect->execute();
-            $status = $querySelect->fetch(PDO::FETCH_ASSOC);  
 
-            //print_r($status);
-
-            if(isset($status))
+            if(!empty($status))
             {
                 return $mensagemCandidatura;   
             }

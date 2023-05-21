@@ -84,22 +84,36 @@
                                         echo $e->getMessage();
                                     }
 
+                                    if ($notificacoes == false) 
+                                    {
                                 ?>
-                                    <ul class="sub-topicos-sininho">
-                                        <?php
-                                            foreach($notificacoes as $titulo => $frase)
-                                            {
-                                        ?>
+                                        <ul class="sub-topicos-sininho sem-resultado">
+                                            <li> 
+                                                <div class="sub-topicos-sininho-linha sem-resultado">
+                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                                </div>                                          
+                                            </li>
+                                        </ul>
+                                <?php
+                                    }
+                                    else
+                                    {
+                                        foreach($notificacoes as $titulo => $frase)
+                                        {
+                                ?>
+                                            <ul class="sub-topicos-sininho">
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha">
                                                         <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
                                                         <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
                                                     </div>                                          
                                                 </li>
-                                        <?php
-                                            }
-                                        ?>
-                                    </ul>
+                                            </ul>
+                                <?php
+                                        }
+                                    }
+                                ?>
+                                    
                                 
                                 <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                     Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>

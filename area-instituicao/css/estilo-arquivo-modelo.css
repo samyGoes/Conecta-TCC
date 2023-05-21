@@ -153,9 +153,31 @@
     border: 1px solid #232f61;
     right: 0rem;
     top: 6rem;
-    max-width: 15rem;
-    max-height: 18rem;
+    width: 15rem;
+    height: 18rem;
     overflow-y: auto;
+}
+.sub-topicos-sininho.sem-resultado
+{
+    justify-content: center;
+    align-items: center;
+}
+/* .sub-topicos-sininho-linha.sem-resultado
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+} */
+
+.sub-topicos-sininho-linha-sem-resultado
+{
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+    margin: 1rem;
 }
 
 /* SCROLL */

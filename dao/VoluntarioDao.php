@@ -225,5 +225,47 @@
         }
   
 
+        public static function notificacoes($idVoluntarioLogado)
+        {
+            $conexao = Conexao::conectar();
+
+            // ARRAYS
+            $mensagemStatusCandidatura = array
+            (
+                'Candidatura aceita' => 'A instituição aceitou a sua candidatura.',
+                'Candidatura recusada' => 'A instituição recusou a sua candidatura.',
+            );
+
+            $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura, tbCandidatura.codVoluntario FROM tbCandidatura  
+                                              WHERE tbCandidatura.codVoluntario = ?");
+
+            // tbCandidatura.statusCandidatura = 'aceito' AND 
+            
+            $querySelect->execute(array($idVoluntarioLogado));
+            $status = $querySelect->fetch(PDO::FETCH_ASSOC);
+
+
+            if($status && $status['statusCandidatura'] === 'aceito')
+            {
+                return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']); 
+            }
+            
+            if($status && $status['statusCandidatura'] === 'recusado')
+            {
+                // $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura, tbCandidatura.codVoluntario FROM tbCandidatura  
+                //                                   WHERE tbCandidatura.statusCandidatura = 'recusado' 
+                //                                   AND tbCandidatura.codVoluntario = ?");
+
+                // $querySelect->execute(array($idVoluntarioLogado));
+                // $status = $querySelect->fetchAll(); 
+
+                return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);  
+            }
+            else
+            {
+                return array();
+            }
+        }
+
     }
 ?>
