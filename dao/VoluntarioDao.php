@@ -227,8 +227,6 @@
 
         public static function notificacoes($idVoluntarioLogado)
         {
-            $conexao = Conexao::conectar();
-
             // ARRAYS
             $mensagemStatusCandidatura = array
             (
@@ -236,30 +234,39 @@
                 'Candidatura recusada' => 'A instituição recusou a sua candidatura.',
             );
 
-            $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura, tbCandidatura.codVoluntario FROM tbCandidatura  
-                                              WHERE tbCandidatura.codVoluntario = ?");
+            $statusAceito = 0;
+            $statusRecusado = 0;
 
-            // tbCandidatura.statusCandidatura = 'aceito' AND 
+            $conexao = Conexao::conectar();
+            $querySelect = $conexao->prepare("SELECT statusCandidatura, codVoluntario FROM tbCandidatura  
+                                              WHERE codVoluntario = ?");
             
             $querySelect->execute(array($idVoluntarioLogado));
-            $status = $querySelect->fetch(PDO::FETCH_ASSOC);
+            $status = $querySelect->fetchAll(PDO::FETCH_ASSOC);
 
+            var_dump($status['statusCandidatura']);
 
             if($status && $status['statusCandidatura'] === 'aceito')
             {
-                return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']); 
-            }
-            
+                $statusAceito = 1;
+            }       
             if($status && $status['statusCandidatura'] === 'recusado')
             {
-                // $querySelect = $conexao->prepare("SELECT tbCandidatura.statusCandidatura, tbCandidatura.codVoluntario FROM tbCandidatura  
-                //                                   WHERE tbCandidatura.statusCandidatura = 'recusado' 
-                //                                   AND tbCandidatura.codVoluntario = ?");
+                $statusRecusado = 1;
+                //echo $statusRecusado;
+            } 
 
-                // $querySelect->execute(array($idVoluntarioLogado));
-                // $status = $querySelect->fetchAll(); 
-
-                return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);  
+            if($statusAceito === 1 && $statusRecusado === 1)
+            {
+                return $mensagemStatusCandidatura;
+            }
+            else if($statusAceito === 1)
+            {
+                return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
+            }
+            else if($statusRecusado === 1)
+            {
+                return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);
             }
             else
             {

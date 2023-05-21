@@ -95,19 +95,23 @@ require_once '../auth/verifica-logado.php';
                                     }
                                     else
                                     {
-                                        foreach($notificacoes as $titulo => $frase)
-                                        {
                                 ?>
-                                            <ul class="sub-topicos-sininho">
+                                        <ul class="sub-topicos-sininho">
+                                <?php
+                                            foreach($notificacoes as $titulo => $frase)
+                                            {
+                                ?>                                
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha">
                                                         <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
                                                         <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
                                                     </div>                                          
-                                                </li>
-                                            </ul>
+                                                </li>                                           
                                 <?php   
-                                        }
+                                            }
+                                ?>
+                                        </ul>
+                                <?php 
                                     }
                                 ?>
                         
