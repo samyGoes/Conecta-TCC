@@ -126,7 +126,7 @@
     <main class="main-conteudo">
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="main-conteudo-container-titulo">
-            <h1>HABILIDADES SOLICITADAS </h1>
+            <h1>CAUSAS SOLICITADAS </h1>
             <p>Aqui você verá todas as habilidades cadastradas pelas instituições no site. Você também pode filtrar ou pesquisar
                 pela habilidade que deseja. Também tem como opção bloquear alguma habilidade caso ela esteja
                 violando alguma das diretrizes.</p>
@@ -169,36 +169,36 @@
                             require_once 'global.php';
 
                             try {
-                                $listaSolicitacaoHabilidade = SolicitacaoHabilidadeDao::listarSolicitacaoHabilidade();
+                                $listaSolicitacaoCategoria = SolicitacaoCategoriaDao::listarSolicitacaoCausa();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
 
-                            foreach ($listaSolicitacaoHabilidade as $habilidade) {
+                            foreach ($listaSolicitacaoCategoria as $categoria) {
                             ?>
                                 <form method="POST">
                                     <tr>
                                         <td><input type="checkbox" name="checkbox" id="checkbox"></td>
-                                        <td><?php echo $habilidade['codSolicitacaoHabilidade']; ?></td>
-                                        <td><?php echo $habilidade['nomeHabilidade']; ?></td>
-                                        <td><?php echo $habilidade['nomeInstituicao']; ?></td>
-                                        <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $habilidade['codSolicitacaoHabilidade']; ?>">ACEITAR</button></td>
-                                        <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $habilidade['codSolicitacaoHabilidade']; ?>">RECUSAR</button></td>
+                                        <td><?php echo $categoria['codSolicitacaoCategoria']; ?></td>
+                                        <td><?php echo $categoria['nomeCategoria']; ?></td>
+                                        <td><?php echo $categoria['nomeInstituicao']; ?></td>
+                                        <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $categoria['codSolicitacaoCategoria']; ?>">ACEITAR</button></td>
+                                        <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $categoria['codSolicitacaoCategoria']; ?>">RECUSAR</button></td>
                                     </tr>
                                 </form>
                                 <?php
-                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacaoHabilidade']) 
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $categoria['codSolicitacaoCategoria']) 
                                 {
-                                    $codSolicitacaoHabilidade = $_POST['btnChamar'];
+                                    $codSolicitacaoCategoria = $_POST['btnChamar'];
                                 
-                                    SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
+                                    SolicitacaoCategoriaDao::aceitarSolicitacao($categoria['nomeCategoria'], $categoria['codSolicitacaoCategoria']);
                                 
                                 } 
-                                elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) 
+                                elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $categoria['codSolicitacaoCategoria']) 
                                 {
-                                    $codSolicitacaoHabilidade = $_POST['btnRecusar'];
+                                    $codSolicitacaoCategoria = $_POST['btnRecusar'];
                                 
-                                    SolicitacaoHabilidadeDao::recusarSolicitacao($codSolicitacaoHabilidade);
+                                    SolicitacaoCategoriaDao::recusarSolicitacao($codSolicitacaoCategoria);
 
                                 }
                             }

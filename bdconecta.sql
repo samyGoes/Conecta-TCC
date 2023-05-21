@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Maio-2023 às 06:18
+-- Generation Time: 21-Maio-2023 às 05:03
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -38,6 +38,19 @@ CREATE TABLE `tbadm` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbavaliacao`
+--
+
+CREATE TABLE `tbavaliacao` (
+  `codAvaliacao` int(11) NOT NULL,
+  `codVoluntario` int(11) NOT NULL,
+  `codInstituicao` int(11) NOT NULL,
+  `numAvaliacao` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbcandidatura`
 --
 
@@ -65,7 +78,10 @@ CREATE TABLE `tbcategoriaservico` (
 
 INSERT INTO `tbcategoriaservico` (`codCategoriaServico`, `nomeCategoria`) VALUES
 (14, 'Crianças'),
-(15, 'Adolescentes');
+(15, 'Adolescentes'),
+(18, 'moradores de rua'),
+(20, 'deficientes'),
+(21, 'meio ambiente');
 
 -- --------------------------------------------------------
 
@@ -178,7 +194,8 @@ CREATE TABLE `tbhabilidadeservico` (
 
 INSERT INTO `tbhabilidadeservico` (`codHabilidadeServico`, `nomeHabilidadeServico`) VALUES
 (3, 'Inglês'),
-(4, 'Cozinhar');
+(4, 'Cozinhar'),
+(5, 'FrancÃªs');
 
 -- --------------------------------------------------------
 
@@ -266,22 +283,28 @@ INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codI
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbsolicitacao`
+-- Estrutura da tabela `tbsolicitacaocategoria`
 --
 
-CREATE TABLE `tbsolicitacao` (
-  `codSolicitacao` int(11) NOT NULL,
-  `codInstituicao` int(11) DEFAULT NULL,
-  `nomeCategoriaHabilidade` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `statusSolicitacao` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+CREATE TABLE `tbsolicitacaocategoria` (
+  `codSolicitacaoCategoria` int(11) NOT NULL,
+  `codInstituicao` int(11) NOT NULL,
+  `nomeCategoria` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statusSolicitacao` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `tbsolicitacao`
+-- Estrutura da tabela `tbsolicitacaohabilidade`
 --
 
-INSERT INTO `tbsolicitacao` (`codSolicitacao`, `codInstituicao`, `nomeCategoriaHabilidade`, `statusSolicitacao`) VALUES
-(1, 10, 'Moradores de Rua', 'pendente');
+CREATE TABLE `tbsolicitacaohabilidade` (
+  `codSolicitacaoHabilidade` int(11) NOT NULL,
+  `codInstituicao` int(11) NOT NULL,
+  `nomeHabilidade` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statusSolicitacao` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -324,6 +347,14 @@ INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntar
 --
 ALTER TABLE `tbadm`
   ADD PRIMARY KEY (`codAdm`);
+
+--
+-- Indexes for table `tbavaliacao`
+--
+ALTER TABLE `tbavaliacao`
+  ADD PRIMARY KEY (`codAvaliacao`),
+  ADD KEY `fk_AvaliacaoVoluntario` (`codVoluntario`),
+  ADD KEY `fk_AvaliacaoInstituicao` (`codInstituicao`);
 
 --
 -- Indexes for table `tbcandidatura`
@@ -404,11 +435,18 @@ ALTER TABLE `tbservico`
   ADD KEY `fk_Instituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbsolicitacao`
+-- Indexes for table `tbsolicitacaocategoria`
 --
-ALTER TABLE `tbsolicitacao`
-  ADD PRIMARY KEY (`codSolicitacao`),
-  ADD KEY `fk_solicitacaoOng` (`codInstituicao`);
+ALTER TABLE `tbsolicitacaocategoria`
+  ADD PRIMARY KEY (`codSolicitacaoCategoria`),
+  ADD KEY `fk_SolicitacaoCategoria` (`codInstituicao`);
+
+--
+-- Indexes for table `tbsolicitacaohabilidade`
+--
+ALTER TABLE `tbsolicitacaohabilidade`
+  ADD PRIMARY KEY (`codSolicitacaoHabilidade`),
+  ADD KEY `fk_SolicitacaoHabilidade` (`codInstituicao`);
 
 --
 -- Indexes for table `tbvoluntario`
@@ -427,6 +465,12 @@ ALTER TABLE `tbadm`
   MODIFY `codAdm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbavaliacao`
+--
+ALTER TABLE `tbavaliacao`
+  MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
@@ -436,7 +480,7 @@ ALTER TABLE `tbcandidatura`
 -- AUTO_INCREMENT for table `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbcausavaga`
@@ -472,7 +516,7 @@ ALTER TABLE `tbfotosinstituicao`
 -- AUTO_INCREMENT for table `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbhabivaga`
@@ -493,10 +537,16 @@ ALTER TABLE `tbservico`
   MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `tbsolicitacao`
+-- AUTO_INCREMENT for table `tbsolicitacaocategoria`
 --
-ALTER TABLE `tbsolicitacao`
-  MODIFY `codSolicitacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tbsolicitacaocategoria`
+  MODIFY `codSolicitacaoCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbsolicitacaohabilidade`
+--
+ALTER TABLE `tbsolicitacaohabilidade`
+  MODIFY `codSolicitacaoHabilidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbvoluntario`
@@ -507,6 +557,13 @@ ALTER TABLE `tbvoluntario`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `tbavaliacao`
+--
+ALTER TABLE `tbavaliacao`
+  ADD CONSTRAINT `fk_AvaliacaoInstituicao` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`),
+  ADD CONSTRAINT `fk_AvaliacaoVoluntario` FOREIGN KEY (`codVoluntario`) REFERENCES `tbvoluntario` (`codVoluntario`);
 
 --
 -- Limitadores para a tabela `tbcandidatura`
@@ -523,10 +580,16 @@ ALTER TABLE `tbcausavaga`
   ADD CONSTRAINT `fk_ServicoVaga` FOREIGN KEY (`codServico`) REFERENCES `tbservico` (`codServico`);
 
 --
--- Limitadores para a tabela `tbsolicitacao`
+-- Limitadores para a tabela `tbsolicitacaocategoria`
 --
-ALTER TABLE `tbsolicitacao`
-  ADD CONSTRAINT `fk_solicitacaoOng` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
+ALTER TABLE `tbsolicitacaocategoria`
+  ADD CONSTRAINT `fk_SolicitacaoCategoria` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
+
+--
+-- Limitadores para a tabela `tbsolicitacaohabilidade`
+--
+ALTER TABLE `tbsolicitacaohabilidade`
+  ADD CONSTRAINT `fk_SolicitacaoHabilidade` FOREIGN KEY (`codInstituicao`) REFERENCES `tbinstituicao` (`codInstituicao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

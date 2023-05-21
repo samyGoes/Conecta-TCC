@@ -1,17 +1,17 @@
 <?php 
 
-    class Solicitacao{
+    class SolicitacaoCategoria{
         //Atributos
         private $codInstituicao;
-        private $nomeCategoriaHabilidade;
+        private $nomeCategoria;
         private $statusSolicitacao;
 
         //Getters
         public function getCodInstituicao(){
             return $this->codInstituicao;
         }
-        public function getNomeCategoriaHabilidade(){
-            return $this->nomeCategoriaHabilidade;
+        public function getNomeCategoria(){
+            return $this->nomeCategoria;
         }
         public function getStatusSolicitacao(){
             return $this->statusSolicitacao;
@@ -22,8 +22,8 @@
         public function setCodInstituicao($codInstituicao){
             $this->codInstituicao=$codInstituicao;
         }
-        public function setNomeCategoriaHabilidade($nomeCategoriaHabilidade){
-            $this->nomeCategoriaHabilidade=$nomeCategoriaHabilidade;
+        public function setNomeCategoria($nomeCategoria){
+            $this->nomeCategoria=$nomeCategoria;
         }
         public function setStatusSolicitacao($statusSolicitacao){
             $this->statusSolicitacao=$statusSolicitacao;

@@ -1,17 +1,17 @@
 <?php
 
-    class SolicitacaoDao{
+    class SolicitacaoCategoriaDao{
 
         public static function cadastrar($solicitcao)
         {
 
             $conexao = Conexao::conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbSolicitacao(codInstituicao, nomeCategoriaHabilidade, statusSolicitacao) 
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbSolicitacaoCategoria(codInstituicao, nomeCategoria, statusSolicitacao) 
             VALUES(?,?,?)");
 
             $prepareStatement -> bindValue (1, $solicitcao -> getCodInstituicao());
-            $prepareStatement -> bindValue (2, $solicitcao -> getNomeCategoriaHabilidade());
+            $prepareStatement -> bindValue (2, $solicitcao -> getNomeCategoria());
             $prepareStatement -> bindValue (3, $solicitcao -> getStatusSolicitacao());
             $prepareStatement -> execute();
             }
@@ -19,8 +19,8 @@
         public static function listarSolicitacaoCausa()
         {
             $conexao = Conexao :: conectar();
-            $querySelect = "SELECT codSolicitacao, nomeCategoriaHabilidade, statusSolicitacao, tbInstituicao.nomeInstituicao FROM tbSolicitacao
-                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbSolicitacao.codInstituicao";
+            $querySelect = "SELECT codSolicitacaoCategoria, nomeCategoria, statusSolicitacao, tbInstituicao.nomeInstituicao FROM tbSolicitacaoCategoria
+                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbSolicitacaoCategoria.codInstituicao";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;
@@ -35,7 +35,7 @@
 
             $conexao->query($queryAceito);
 
-            $queryDelete = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
+            $queryDelete = "DELETE FROM tbSolicitacaoCategoria WHERE codSolicitacaoCategoria = $idSolicitacao";
             $conexao->query($queryDelete);
 
             echo "Sua solicitação foi aceita";
@@ -49,7 +49,7 @@
         {
             $conexao = Conexao::conectar();
 
-            $queryRecusado = "DELETE FROM tbSolicitacao WHERE codSolicitacao = $idSolicitacao";
+            $queryRecusado = "DELETE FROM tbSolicitacaoCategoria WHERE codSolicitacaoCategoria = $idSolicitacao";
             $conexao->query($queryRecusado);
 
             echo "Sua causa foi recusada";
