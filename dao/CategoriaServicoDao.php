@@ -65,22 +65,6 @@
             return $lista;  
         }
 
-        public static function listarTabela($codInstituicao)
-        {
-            $codInstituicao = $_SESSION['codUsuario'];
-
-            $conexao = Conexao :: conectar();
-
-            $querySelect = ("SELECT tbCategoriaServico.codCategoriaServico,  tbinstituicaocategoriaservico. codInstituicaocategoriaservico, tbinstituicao.codInstituicao FROM tbCategoriaServico  
-            INNER JOIN tbinstituicaocategoriaservico ON tbinstituicaocategoriaservico.codCategoriaServico = tbCategoriaServico.codCategoriaServico
-            INNER JOIN tbinstituicao ON tbinstituicao.codInstituicao = tbinstituicaocategoriaservico.codInstituicao  
-            WHERE  tbinstituicaocategoriaservico.codInstituicao = $codInstituicao");
-            
-            $resultado = $conexao->query($querySelect);
-            $lista = $resultado->fetchAll();
-            return $lista; 
-
-        }
         
     }
 

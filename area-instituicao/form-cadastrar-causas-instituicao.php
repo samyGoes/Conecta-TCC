@@ -244,7 +244,6 @@
                                 require_once 'global.php';
                                 try {
                                     $listaCausas = CategoriaServicoDao::listar();
-                                    $listaCor = CategoriaServicoDao::listarTabela($_SESSION['codUsuario']);
                                 } catch (Exception $e) {
                                     echo $e->getMessage();
                                 }

@@ -74,6 +74,7 @@
                 violando alguma das diretrizes.</p>
         </div>
         <div class="gerarPdf">
+            <a href="tabela-solicitacao-causas.php"> <button class="hab-solicitadas"> Solicitações </button></a>
             <a href="geracaoPdf/gerar_pdf_Causas.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
