@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@300;400;500&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    gap: 5%;
+    margin: 12% 6%;
+}
+
+.titulo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+
+.titulo h1 {
+    font-size: auto;
+    font-family: acme, sans-serif;
+    font-weight: 500;
+    color: #4567a5;
+}
+
+.titulo h3 {
+    font-size: 16px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+}
+
+
+/* Formulario */
+.formulario {
+    border: 1px solid #4567a5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    font-family: poppins;
+    padding: 10%;
+}
+
+.formulario form .input-box-1,
+.input-box-2 {
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.input-box-1 input,
+.input-box-2 input {
+    border-bottom: solid 1px #4567a5;
+    outline: none;
+}
+
+.input-box-1 label,
+.input-box-2 label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.formulario form textarea {
+    border: solid 1px #4567a5;
+    outline: none;
+    resize: none;
+}
+.formulario label{
+}
+
+.btn-enviar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-enviar button {
+    text-transform: uppercase;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    height: 2.5rem;
+    width: 12rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-radius: 0.5rem;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    color: #fff;
+    font-size: 20px;
+}
+
+.btn-enviar button:hover {
+    background-color: #fff;
+    color: #4567a5;
+}
+
+
+/* Email e tel para contato */
+
+
+.info {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    text-align: center;
+}
+
+.text h3 {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.email-numero {
+    gap: 5%;
+    display: flex;
+    width: 40rem;
+    padding: 3%;
+    flex-direction: row;
+    border-radius: 8px;
+    border: #4567a5 solid 1px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grupo-1 h6,
+.grupo-2 h6 {
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+
+.grupo-1 p,
+.grupo-2 p {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+}
