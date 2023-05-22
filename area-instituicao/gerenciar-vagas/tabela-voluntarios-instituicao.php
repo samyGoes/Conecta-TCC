@@ -247,7 +247,7 @@ include "../../auth/verifica-logado.php";
                 $codCandidatura = $_POST['btnChamar'];
                 try {
                     $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
-                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=sucesso';</script>";
+                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }

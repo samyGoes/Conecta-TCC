@@ -233,20 +233,11 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td><button name="btnRejeitar" type="submit" class="table-btn-rejeitar" value="<?php echo $voluntario['codCandidatura']; ?>">rejeitar</button></td>
+                                        <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>">Avaliar</button></td>
                                     </tr>
                                 </form>
 
-                                <?php
-                                if (isset($_POST['btnRejeitar']) && $_POST['btnRejeitar'] == $voluntario['codCandidatura']) {
-                                    $codCandidatura = $_POST['btnRejeitar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                }
-                                ?>
+
                             <?php } ?>
                             <?php ?>
 
@@ -259,8 +250,8 @@ include "../../auth/verifica-logado.php";
         </div>
 
         <!-- MODAL AVALIAÇÂO -->
-         <div id="modal" class="hide">
-            <div class="hide" id="form">
+        <div id="modalAvaliar" class="modal">
+            <div class="form" id="form">
 
                 <div class="modal-sessao-1">
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
@@ -269,31 +260,45 @@ include "../../auth/verifica-logado.php";
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
                             <div class="rating">
-                                <input type="radio" id="star5" name="rating" value="5">
+                                <input type="radio" id="star5" name="estrela" value="5">
                                 <label for="star5"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star4" name="rating" value="4">
+                                <input type="radio" id="star4" name="estrela" value="4">
                                 <label for="star4"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star3" name="rating" value="3">
+                                <input type="radio" id="star3" name="estrela" value="3">
                                 <label for="star3"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star2" name="rating" value="2">
+                                <input type="radio" id="star2" name="estrela" value="2">
                                 <label for="star2"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star1" name="rating" value="1">
+                                <input type="radio" id="star1" name="estrela" value="1">
                                 <label for="star1"><i class="fa-solid fa-star"></i></label>
                             </div>
                         </div>
-                        <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" type="submit">Avaliar</button></div>
+                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit">Avaliar</button></div>
+
                     </form>
 
-                    <a class="voltar-anterior" id="fecha-modal" href=""> Voltar para a página anterior </a>
+                    <?php
+                    // if(isset($_POST['estrela'])){
+                    //     $codAvaliar = $_POST['estrela'];
+                    //     try {
+                    //      $voluntario = 
+                    //         $numavaliacao = AvaliarDao::avaliar($codInstituicao, $codVoluntario, $numavaliacao);
+                    //         echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
+                    //     } catch (Exception $e) {
+                    //         echo $e->getMessage();
+                    //     }
+                    // }
+                    ?>
+
+                    <a onclick="fecharModalLancamento()" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a>
                 </div>
 
                 <div class="modal-sessao-2">
                     <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
                     <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
-                    <div class="btn-confirmed" id="btn-confirmed"><button class="modal-btn-confirmar" id="btn-fechar"> FECHAR </button></div>
+                    <div class="btn-confirmed" id="btn-confirmed"><button onclick="fecharModalLancamento()" class="modal-btn-confirmar" id="fecharModal"> FECHAR </button></div>
                 </div>
             </div>
-        </div> 
+        </div>
     </main>
 
 
@@ -305,7 +310,18 @@ include "../../auth/verifica-logado.php";
 
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
-    <script type="module" src="./js/modalAvaliar.js"></script>
+    <script>
+        //abrir modal
+        function abrirModalLancamento() {
+            document.getElementById("modalAvaliar").style.visibility = 'block';
+        }
+
+        // função fechar modal lançamento
+        function fecharModalLancamento() {
+            document.getElementById("modalAvaliar").style.visibility = 'hidden';
+            console.log('fechou');
+        }
+    </script>
 </body>
 
 </html>

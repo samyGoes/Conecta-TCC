@@ -78,8 +78,23 @@
                 <div class="box-card-sessao-1">
 
                     <div class="card-topo">
+                        <?php 
+                            require_once 'global.php';
+
+                            try{
+                                $row = DashboardDao::qtdInstituicao($codInstituicao);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        ?>
+
                         <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
-                        <h1>103</h1>
+                        <h1><?php echo $qtdInstituicao[0] ?></h1>
+
+                         <!-- <//?php
+                        while ($row = $querySelect->fetch(PDO::FETCH_BOTH)) { ?>
+
+                        <//?php } ?>  -->
                     </div>
 
                     <div class="card-topo">
