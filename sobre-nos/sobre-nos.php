@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../css/estilo-navbar-rodape.css">
     <link rel="stylesheet" href="../css/estilo-teste.css">
     <link rel="stylesheet" href="../sobre-nos/css/estilo-sobre-nos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title> Sobre Nós </title>
 </head>
@@ -112,7 +115,7 @@
     </nav>
     <main>
         <div class="divisao-conteudo">
-            <h1 class="conecta"> O que é Conecta? </h1>
+            <h1 class="conecta"> O que é a Conecta? </h1>
             <p class="sobre">A conecta é uma plataforma que tem como intuito ajudar a garantir os direitos da população, visando facilitar a conexão entre as Instituições não Governamentais e os Voluntários.
                 Aumentando o acesso a informação sobre o voluntariado e seus benefícios de contribuir com as causas existentes. Por fim, incentivando a população a se voluntariar.</p>
         </div>
@@ -164,7 +167,7 @@
                     <ul>
                         <li>Nos conheca um pouco <br> mais.</li>
                     </ul>
-                </div>
+                </div>  
             </div>
 
         </div>

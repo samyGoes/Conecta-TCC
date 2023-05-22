@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@300;400;500&display=swap');
+
 main{
     width: 100%;
     height: 100%;
@@ -5,13 +7,98 @@ main{
     flex-direction: row;
 }
 .divisao-conteudo{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    top: 20%;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     height: 100%;
+    margin-top: 10rem;
+    font-size: 16px;
+    line-height: 30px;
 }
+
+.conecta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    color: #113173;
+    font-size: 40px;
+}
+
+.sobre {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    text-align: justify;
+    margin: 7% 10% 7% 10%;
+}
+
 .divisao-imagem{
     width: 50%;
+    height: 50rem;
 }
 
 .divisao-imagem img {
-    width: 50vw;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0;
+}
+
+.sobre {
+    display: flex;
+    top: 100%;
+}
+
+footer {
+    position: relative;
+    padding: 20px;
+    margin-top: -250px; 
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 982px) {
+    .conecta {
+        font-size: 33px;
+    }
+    .sobre {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 556px) {
+    .sobre {
+        font-size: 13px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 762px) {
+    .divisao-imagem {
+        display: none;
+    }
+    .divisao-conteudo {
+        width: 100vw;
+        height: 35rem;
+    }
+}
+
+@media (max-width: 444px) {
+    .divisao-conteudo {
+        margin-top: 8rem;
+    }
+}
+
+@media(max-width: 412px) {
+    .divisao-conteudo {
+        height: 38rem;
+    }
 }
