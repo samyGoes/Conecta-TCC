@@ -189,6 +189,121 @@
 
 
 
+      <!-- MODAL CADASTRO -->
+      <?php
+        
+        if(isset($_GET['cadastro']))
+        {
+            if($_GET['cadastro'] === 'sucesso')
+            {
+                echo ' <script>
+                        // cria o elemento HTML do modal
+                        const modal = document.createElement("div");
+                        modal.id = "modal";
+                        modal.innerHTML = `
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                            crossorigin="anonymous" referrerpolicy="no-referrer" />
+                            <div id="modal-content">
+                                <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                <p class="modal-titulo-cadastro">Solicitação realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                <p class="modal-frase-cadastro"> O Adm irá avaliar sua solicitação de habilidade. </p>
+                            </div>
+                            `;
+
+                        // adiciona o modal como filho do body (ou de outro elemento HTML)
+                        document.body.appendChild(modal);
+
+                        //adiciona a tag style do modal
+                        const style = document.createElement("style");
+                        const iconFechaModal = document.querySelector("#icone-fechar-modal");
+
+                        style.innerHTML = `
+                            #modal 
+                            {
+                                position: fixed;
+                                bottom: 20px;
+                                right: -600px;
+                                z-index: 9999;
+                                transition: all 1s ease;
+                                border: #4567a5 solid 1px;
+                                border-radius: 0.5rem;
+                                background-color: #fff;
+                                padding: 1.3rem;
+                                max-width: 24rem;
+                            }
+
+                            #modal-content 
+                            {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.4rem;
+                                
+                                position: relative;
+                            }
+
+                            #icone-fechar-modal
+                            {
+                                position: absolute;
+                                right: -9px;
+                                top: -11px;
+                                color: #525252;
+                                cursor: pointer;
+                                transition: all 0.5s ease;
+                            }
+
+                            #icone-fechar-modal:hover
+                            {
+                                color: #green;
+                            }
+
+                            .modal-titulo-cadastro 
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 15px;
+                                color: #000;
+                                font-weight: 500;
+                                display: flex;
+                                gap: 0.4rem;
+                            }
+
+                            p>i 
+                            {
+                                font-size: 1.2rem;
+                                color: #1ea41e;
+                            }
+
+                            .modal-frase-cadastro
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 13px;
+                                color: #2e2e2e;
+                                font-weight: 400;
+                            }
+                            `;
+
+                        document.head.appendChild(style);
+
+                        document.addEventListener("DOMContentLoaded", function()
+                        {
+                            modal.style.right = "20px";
+                        });
+
+                        iconFechaModal.addEventListener("click", function()
+                        {
+                            modal.remove();
+                        });
+
+                        setTimeout(function()
+                        {
+                            modal.remove();
+                        }, 8000);
+
+                    </script>';
+            }
+        }
+
+    ?>
 
 
     <!-- CONTEUDO  -->
@@ -220,7 +335,7 @@
 
 
             <!-- TABELA -->
-            <!-- <div class="card-2">
+            <div class="card-2">
                 <p>Aqui está a lista de todas as habilidades cadastradas</p>
                 <div class="table">
                     <div class="table-responsive">
@@ -244,110 +359,37 @@
                             </thead>
                             <tbody>
                                 <?php
-                                // require_once 'global.php';
-                                // try {
-                                //     $listaHabilidade = HabilidadeServicoDao::listar();
-                                // } catch (Exception $e) {
-                                //     echo $e->getMessage();
-                                // }
+                                require_once 'global.php';
+                                try {
+                                    $listaHabilidade = HabilidadeServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
                                 ?>
                                 <tr>
-                                    <?php //foreach ($listaHabilidade as $habilidade) { ?>
+                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
                                         <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
                                         <td>
-                                            <?php //echo $habilidade['codHabilidadeServico']; ?>
+                                            <?php echo $habilidade['codHabilidadeServico']; ?>
                                         </td>
                                         <td>
-                                            <?php //echo $habilidade['nomeHabilidadeServico']; ?>
+                                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                         </td>
                                 </tr>
                             <?php
-                                    //}
+                                    }
                             ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
 
 
         </div>
     </main>
-    <script>
-        // cria o elemento HTML do modal
-        const modal = document.createElement("div");
-        modal.id = "modal";
-        modal.innerHTML = `
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <div id="modal-content">
-    <p>Cadastro realizado com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
-  </div>
-`;
 
-        // adiciona o modal como filho do body (ou de outro elemento HTML)
-        document.body.appendChild(modal);
-
-        //adiciona a tag style do modal
-        const style = document.createElement("style");
-        style.innerHTML = `
-      #modal {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      box-shadow: #b4d8e6 3px 3px 4px 1px;
-      z-index: 9999;
-      //transition: visibility 0s, opacity 0.5s ease;
-      border: #4567a5 solid 1px;
-      //visibility: hidden;
-      //opacity: 0;
-      border-radius: 0.5rem;
-      background-color: #fff;
-    }
-
-    #modal-content {
-      padding: 10px;
-    }
-
-    // #modal.show {
-    //   visibility: visible;
-    //   opacity: 1;
-    // }
-
-    p {
-      font-family: Poppins, sans-serif;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    p>i {
-      font-size: 1.3rem;
-      color: green;
-    }
-    `;
-
-        document.head.appendChild(style);
-
-        // adiciona o listener de evento ao botão de cadastro
-        // const btn = document.getElementById("cadastro-btn");
-
-        // btn.addEventListener("click", function() {
-        //     // assume que você tem algum código que realiza o cadastro aqui
-
-        //     // depois que o cadastro é realizado com sucesso:
-        //     modal.classList.add("show");
-
-        //     // remove a classe 'show' após 1 segundo
-        //     setTimeout(() => {
-        //         modal.classList.remove("show");
-        //     }, 1000);
-        // });
-    </script>
     <script src="/js/modal-cadastro-vaga.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
