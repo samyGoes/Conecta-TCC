@@ -239,6 +239,7 @@ require_once 'global.php';
                                     $codCandidatura = $_POST['btnRetirarRecusa'];
                                     try {
                                         CandidaturaDao::retirarRecusa($codCandidatura);
+                                        echo "<script>window.location.href = 'tabela-voluntarios-rejeitados-instituicao.php?retirar-recusa=true';</script>";
                                         // Realize a ação necessária ao retirar a rejeição do voluntário
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
