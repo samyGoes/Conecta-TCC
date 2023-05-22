@@ -227,33 +227,41 @@
 
         public static function notificacoes($idVoluntarioLogado)
         {
-            // ARRAY E VARIÁVEIS
+            $conexao = Conexao::conectar();
+
+            $querySelect = "SELECT statusCandidatura, codVoluntario FROM tbCandidatura WHERE codVoluntario = ?";
+            $resultado = $conexao->prepare($querySelect);
+            
+            $resultado->execute(array($idVoluntarioLogado));
+            $lista = $resultado -> fetchAll(PDO::FETCH_ASSOC);
+
+            // echo ("Status da candidatura: ");
+            // foreach ($lista as $linha) 
+            // {
+            //     var_dump($linha['statusCandidatura']);
+            // }
+
+             // ARRAY E VARIÁVEIS
             $mensagemStatusCandidatura = array
             (
                 'Candidatura aceita' => 'A instituição aceitou a sua candidatura.',
                 'Candidatura recusada' => 'A instituição recusou a sua candidatura.',
             );
-            $qtdMensagem = [];
-            $statusAceito = 2;
-            $statusRecusado = 0;
+             $qtdMensagem = [];
+             $statusAceito = 0;
+             $statusRecusado = 0;
 
-            $conexao = Conexao::conectar();
-            $prepareSelect = $conexao->prepare("SELECT statusCandidatura, codVoluntario FROM tbCandidatura WHERE codVoluntario = ?");
-            
-            $prepareSelect->execute(array($idVoluntarioLogado));
-            $status = $prepareSelect->fetchAll(PDO::FETCH_ASSOC);
-
-            echo ("Status da candidatura: ");
-            var_dump($status['statusCandidatura']);
-
-            // if($status && $status['statusCandidatura'] === 'aceito')
-            // {
-            //     $statusAceito = 0;
-            // }       
-            // if($status && $status['statusCandidatura'] === 'recusado')
-            // {
-            //     $statusRecusado = 0;
-            // } 
+            foreach ($lista as $linha) 
+            {
+                if ($linha['statusCandidatura'] === 'aceito') 
+                {
+                    $statusAceito++;
+                }
+                if ($linha['statusCandidatura'] === 'recusado') 
+                {
+                    $statusRecusado++;
+                }
+            }
 
             if($statusAceito >= 1 && $statusRecusado >= 1)
             {
