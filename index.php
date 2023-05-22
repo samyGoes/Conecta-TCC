@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <!-- BARRA DE NAVEGAÇÂO -->
     
     <nav class="cabecalho">

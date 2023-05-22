@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../css/estilo-index.css">
-    <link rel="stylesheet" href="../css/estilo-navbar-rodape.css">
-    <link rel="stylesheet" href="../css/estilo-teste.css">
-    <link rel="stylesheet" href="../sobre-nos/css/estilo-sobre-nos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <title> Sobre Nós </title>
+    <link rel="stylesheet" href=".//css/estilo-index.css">
+    <link rel="stylesheet" href=".//css/estilo-navbar-rodape.css">
+    <link rel="stylesheet" href=".//css/estilo-teste.css">
+    <link rel="stylesheet" href=".//css/estilo-contato.css">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <!-- BARRA DE NAVEGAÇÂO -->
-
     <nav class="cabecalho">
         <div class="logo">
-            <img src="../img/logo-conecta.png">
+            <img src="img/logo-conecta.png">
         </div>
 
         <!-- BOTÃO PRA ESCONDER E APARECER OS TÓPICOS -->
@@ -113,18 +105,65 @@
             </ul>
         </ul>
     </nav>
+
+    <!-- MAIN -->
     <main>
-        <div class="divisao-conteudo">
-            <h1 class="conecta"> O que é a Conecta? </h1>
-            <p class="sobre">A conecta é uma plataforma que tem como intuito ajudar a garantir os direitos da população, visando facilitar a conexão entre as Instituições não Governamentais e os Voluntários.
-                Aumentando o acesso a informação sobre o voluntariado e seus benefícios de contribuir com as causas existentes. Por fim, incentivando a população a se voluntariar.</p>
+        <div class="titulo">
+            <h1>Contato</h1>
+            <h3>Envie uma mensagem a nós atraves deste formulário</h3>
         </div>
-        <div class="divisao-imagem">
-                <img src="../img/foto-trocar-senha.jpg" alt="aaaaaaaa">
+        <div class="formulario">
+            <form action="" method="POST">
+                <div class="input-box-1">
+
+                    <label for="">Nome</label>
+                    <input type="text" name="nome">
+
+                    <label for="">Email</label>
+                    <input type="text" name="email">
+
+                </div>
+
+                <div class="input-box-2">
+
+                    <label for="">Idade</label>
+                    <input type="text" name="idade">
+
+                    <label for="">Estado</label>
+                    <input type="text" name="estado">
+
+                </div>
+
+                <label for="">Mensagem</label>
+                <textarea rows="10" cols="70"></textarea>
+
+                <div class="btn-enviar">
+                    <button type="submit">enviar</button>
+                </div>
+
+            </form>
         </div>
+
+        <div class="info">
+            <div class="text">
+                <h3>Outras formas de contato</h3>
+            </div>
+            <div class="email-numero">
+                <div class="grupo-1">
+                    <h6>Email</h6>
+                    <p>conectaFromAion@gmail.com</p>
+                </div>
+                <div class="grupo-2">
+                    <h6>Telefone</h6>
+                    <p>(11)00000-0000</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    
+
+
     <!-- RODAPÉ -->
     <footer>
         <div class="container-footer">
@@ -163,11 +202,13 @@
                     </ul>
                 </div>
                 <div class="footer-col" id="footer-col-sobre">
-                    <a href="sobre-nos/sobre-nos.php"><h5>Sobre Nós</h5></a>
+                    <a href="sobre-nos/sobre-nos.php">
+                        <h5>Sobre Nós</h5>
+                    </a>
                     <ul>
                         <li>Nos conheca um pouco <br> mais.</li>
                     </ul>
-                </div>  
+                </div>
             </div>
 
         </div>
