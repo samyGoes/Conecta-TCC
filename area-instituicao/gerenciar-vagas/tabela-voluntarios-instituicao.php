@@ -193,74 +193,78 @@ include "../../auth/verifica-logado.php";
                             <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
                         </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> ID </th>
-                                <th> Foto </th>
-                                <th> Nome </th>
-                                <th> Idade </th>
-                                <th> Cidade </th>
-                                <th> UF </th>
-                                <th> Vaga </th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
 
-                            try {
-                                $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
 
-                            <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                <form action="" method="post">
-                                    <tr>
-                                        <td><?php echo $voluntario['codCandidatura']; ?></td>
-                                        <td>
-                                            <a href="">
-                                                <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $voluntario['nomeVoluntario']; ?></td>
-                                        <td>18 anos</td>
-                                        <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
-                                        <td><?php echo $voluntario['estadoVoluntario']; ?></td>
-                                        <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
-                                        <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
-                                    </tr>
-                                </form>
+<table>
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> Foto </th>
+            <th> Nome </th>
+            <th> Idade </th>
+            <th> Cidade </th>
+            <th> UF </th>
+            <th> Vaga </th>
+            <th> </th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        require_once 'global.php';
 
-                                <?php
-                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
-                                    $codCandidatura = $_POST['btnChamar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $voluntario['codCandidatura']) {
-                                    $codCandidatura = $_POST['btnRecusar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                }
-                                ?>
-                            <?php } ?>
+        try {
+            $idInstituicaoLogada = $_SESSION['codUsuario'];
+            $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        ?>
 
-                        </tbody>
-                    </table>
+        <?php foreach ($listaVoluntario as $voluntario) { ?>
+            <form action="" method="post">
+                <tr>
+                    <td><?php echo $voluntario['codCandidatura']; ?></td>
+                    <td>
+                        <a href="">
+                            <div class="box-img-lista">
+                                <img src="img/user-cinza.png" alt="">
+                            </div>
+                        </a>
+                    </td>
+                    <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                    <td>18 anos</td>
+                    <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
+                    <td><?php echo $voluntario['estadoVoluntario']; ?></td>
+                    <td><?php echo $voluntario['nomeservico']; ?></td>
+                    <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
+                    <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
+                </tr>
+            </form>
+
+            <?php
+            if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
+                $codCandidatura = $_POST['btnChamar'];
+                try {
+                    $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
+                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=sucesso';</script>";
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $voluntario['codCandidatura']) {
+                $codCandidatura = $_POST['btnRecusar'];
+                try {
+                    $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
+                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            }
+            ?>
+        <?php } ?>
+    </tbody>
+</table>
+
 
                 </div>
             </div>

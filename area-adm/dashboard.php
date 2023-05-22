@@ -186,17 +186,40 @@
                 <div class="box-card-sessao-2">
 
                     <div class="card-grafico">
-
                         <div class="funcoes">
                             <i class="fa-solid fa-hand-holding-heart"></i>
                             <div class="pra-guardar-titulos-grafico">
                                 <div class="titulo-grafico"> FAIXA ETÁRIA</div>
                                 <div class="subtitulo-grafico"> Voluntários</div>
                             </div>
-                            <div class="grafico">
+                        </div>
+                        <?php
+                                // definindo porcentagem
+                                $width1 = '28%';
+                                $width2 = '49%';
+                                $width3 = '33%';
+                                $width4 = '13%';
+                                $width5 = '23%';
+                                $width6 = '44%';
+                                $width7 = '34%';
+                                $width8 = '17%';
+                                $width9 = '17%';
+                                $total  = 9; // total de barras
+                         ?>
+                        <div class="table-responsive-grafico">
+
+                            <?php
+                                for($i=1;$i <= $total;$i++){
+                                $width = ${'width' . $i};
+                            ?>
+                            <div id="barras">
+                                <div class="barra<?=$i?>" style="width:<?=$width ?>" ><?=$width ?></div>
                             </div>
+                            <?php } ?>
+
                         </div>
                     </div>
+
                 </div>
 
             </div>
