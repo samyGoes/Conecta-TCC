@@ -261,9 +261,10 @@
             }
             else if($statusAceito >= 1)
             {
-                for($i = 1; $i <= $statusAceito; $i++)
+                for($i = 0; $i < $statusAceito; $i++)
                 {
                     $qtdMensagem[] = $mensagemStatusCandidatura['Candidatura aceita'];
+                    var_dump($qtdMensagem);
                 }
                 //return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
                 return $qtdMensagem;
