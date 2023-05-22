@@ -69,6 +69,7 @@
 .card-grafico
 {
     display: flex;
+    flex-direction: column;
     padding-top: 1rem;
     border: 1px solid #5f8699;
     border-radius: 0.5rem;
@@ -76,7 +77,48 @@
     box-shadow: 3px 3px 4px 1px #a7c4d3;
     width: 22rem;
     height: 40rem;
+    background-color: pink;
 }
+.table-responsive-grafico
+{
+    display: flex;
+    margin-top: 1rem;
+    border: 1px solid #5f8699;
+    background-color: #fff;
+    padding-top: 1rem;
+    width: 22rem;
+    flex-wrap: wrap;
+    height: 40rem;
+}
+
+/*teste*/
+#barras{
+    width:428px;
+    float:left;
+    margin-top: 0.8rem;
+    
+}
+.barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8, .barra9
+{ 	
+    color:#FFF;
+    padding-left:10px;
+    height: 2.8rem;
+    line-height:30px;
+}
+
+.barra1{ background-color: #FF0000; }
+.barra2{ background-color: #0000FF; }
+.barra3{ background-color: #FF6600; }
+.barra4{ background-color: #009933; }
+.barra5{ background-color: #FF0000; }
+.barra6{ background-color: #0000FF; }
+.barra7{ background-color: #FF6600; }
+.barra8{ background-color: #009933; }
+.barra9{ background-color: #FF0000; }
+
+
+
+
 
 
 
@@ -106,10 +148,6 @@
     flex-direction: column;
 }
 
-
-
-
-
 table
 {
     border-collapse: collapse;
@@ -118,7 +156,6 @@ table
 tbody 
 {
     display: block;
-    width: 24.8rem;
     height: 334px;
     overflow-y: scroll;
     margin-top: 1rem;
@@ -170,6 +207,9 @@ td:nth-child(2)
 {
     padding-top: 5rem;
 }
+
+
+
 
 
 /* SCROLL */
@@ -237,3 +277,8 @@ tbody::-webkit-scrollbar-thumb,
     font-size: 12px;
     padding-left: 1rem;
 }
+
+
+
+
+
