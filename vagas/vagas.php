@@ -229,10 +229,10 @@
                             modal.remove();
                         });
 
-                        // setTimeout(function()
-                        // {
-                        //     modal.remove();
-                        // }, 8000);
+                        setTimeout(function()
+                        {
+                            modal.remove();
+                        }, 8000);
 
                     </script>';
             }
@@ -454,6 +454,19 @@
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>  
+    <script src="../js/url-avisos.js"></script>
+    <script>
+        // window.addEventListener('beforeunload', function(event)
+        // {
+        //     var url = window.location.href;
+
+        //     var inicioUrl = url.split('?')[0];
+
+        //     console.log(inicioUrl); // "../vagas/vagas.php"
+
+        //     window.location.href = inicioUrl;
+        // });
+    </script>
 </body>
 
 </html>

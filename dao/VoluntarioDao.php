@@ -227,44 +227,49 @@
 
         public static function notificacoes($idVoluntarioLogado)
         {
-            // ARRAYS
+            // ARRAY E VARIÁVEIS
             $mensagemStatusCandidatura = array
             (
                 'Candidatura aceita' => 'A instituição aceitou a sua candidatura.',
                 'Candidatura recusada' => 'A instituição recusou a sua candidatura.',
             );
-
-            $statusAceito = 0;
+            $qtdMensagem = [];
+            $statusAceito = 2;
             $statusRecusado = 0;
 
             $conexao = Conexao::conectar();
-            $querySelect = $conexao->prepare("SELECT statusCandidatura, codVoluntario FROM tbCandidatura  
-                                              WHERE codVoluntario = ?");
+            $prepareSelect = $conexao->prepare("SELECT statusCandidatura, codVoluntario FROM tbCandidatura WHERE codVoluntario = ?");
             
-            $querySelect->execute(array($idVoluntarioLogado));
-            $status = $querySelect->fetchAll(PDO::FETCH_ASSOC);
+            $prepareSelect->execute(array($idVoluntarioLogado));
+            $status = $prepareSelect->fetchAll(PDO::FETCH_ASSOC);
 
+            echo ("Status da candidatura: ");
             var_dump($status['statusCandidatura']);
 
-            if($status && $status['statusCandidatura'] === 'aceito')
-            {
-                $statusAceito = 1;
-            }       
-            if($status && $status['statusCandidatura'] === 'recusado')
-            {
-                $statusRecusado = 1;
-                //echo $statusRecusado;
-            } 
+            // if($status && $status['statusCandidatura'] === 'aceito')
+            // {
+            //     $statusAceito = 0;
+            // }       
+            // if($status && $status['statusCandidatura'] === 'recusado')
+            // {
+            //     $statusRecusado = 0;
+            // } 
 
-            if($statusAceito === 1 && $statusRecusado === 1)
+            if($statusAceito >= 1 && $statusRecusado >= 1)
             {
                 return $mensagemStatusCandidatura;
             }
-            else if($statusAceito === 1)
+            else if($statusAceito >= 1)
             {
-                return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusCandidatura['Candidatura aceita'];
+                    var_dump($qtdMensagem);
+                }
+                //return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
+                return $qtdMensagem;
             }
-            else if($statusRecusado === 1)
+            else if($statusRecusado >= 1)
             {
                 return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);
             }
