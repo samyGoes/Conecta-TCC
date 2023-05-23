@@ -241,7 +241,7 @@
             //     var_dump($linha['statusCandidatura']);
             // }
 
-             // ARRAY E VARIÁVEIS
+            // ARRAYS E VARIÁVEIS
             $mensagemStatusCandidaturaA = array
             (
                 'Candidatura aceita' => 'A instituição aceitou a sua candidatura.'
@@ -250,10 +250,11 @@
             (
                 'Candidatura recusada' => 'A instituição recusou a sua candidatura.'
             );
-             $qtdMensagem = [];
-             $statusAceito = 0;
-             $statusRecusado = 0;
+            $qtdMensagem = [];
+            $statusAceito = 0;
+            $statusRecusado = 0;
 
+            // VERIFICANDO STATUS DA CANDIDATURA
             foreach ($lista as $linha) 
             {
                 if ($linha['statusCandidatura'] === 'aceito') 
@@ -266,23 +267,34 @@
                 }
             }
 
+            // VERIFICANDO QUAIS E QUANTOS STATUS TEM PARA AJUSTAR O RETORNO
             if($statusAceito >= 1 && $statusRecusado >= 1)
             {
-                //return $mensagemStatusCandidatura;
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusCandidaturaA;
+                }
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusCandidaturaR;
+                }
+                return $qtdMensagem;
             }
             else if($statusAceito >= 1)
             {
                 for($i = 0; $i < $statusAceito; $i++)
                 {
                     $qtdMensagem[] = $mensagemStatusCandidaturaA;
-                    var_dump($qtdMensagem);
                 }
-                //return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
                 return $qtdMensagem;
             }
             else if($statusRecusado >= 1)
             {
-                //return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusCandidaturaR;
+                }
+                return $qtdMensagem;
             }
             else
             {

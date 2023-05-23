@@ -273,7 +273,7 @@
             }
             else
             {
-                return false;
+                return array();
             }
         }
 

@@ -84,7 +84,7 @@
                                         echo $e->getMessage();
                                     }
 
-                                    if ($notificacoes == false) 
+                                    if(empty($notificacoes)) 
                                     {
                                 ?>
                                         <ul class="sub-topicos-sininho sem-resultado">
@@ -104,8 +104,8 @@
                                             <ul class="sub-topicos-sininho">
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha">
-                                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
-                                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $titulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $frase; ?> </a>
                                                     </div>                                          
                                                 </li>
                                             </ul>
