@@ -1,22 +1,6 @@
-// Adicionando a máscara ao campo
-adicionarMascaraCep('#cep');
+//Mascáras Formulários
 
-function adicionarMascaraDataNascimento(idCampo) {
-  const campo = document.querySelector(idCampo);
-
-  campo.addEventListener('input', () => {
-    let data = campo.value.replace(/\D/g, '');
-    data = data.slice(0, 8);
-
-    data = data.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
-
-    campo.value = data;
-  });
-}
-
-adicionarMascaraDataNascimento('#date');
-
-//Máscara do CEP
+//CEP
 function adicionarMascaraCep(idCampo) {
     const campo = document.querySelector(idCampo);
   
@@ -30,11 +14,8 @@ function adicionarMascaraCep(idCampo) {
     });
   }
   
-// Adicionando a máscara ao campo
-adicionarMascaraCep('#cep');
 
-//Mascáras Formulários
-//Função telefones
+  //telefones
 function adicionarMascaraTelefone(idCampo) {
     const campo = document.querySelector(idCampo);
   
@@ -53,12 +34,8 @@ function adicionarMascaraTelefone(idCampo) {
       campo.value = telefone;
     });
   }
-  
-  //Adicionando a máscara aos campos
-  adicionarMascaraTelefone('#telefone');
-  adicionarMascaraTelefone('#telefone2');
 
-
+  //CPF
   function adicionarMascaraCpf(idCampo) {
     const campo = document.querySelector(idCampo);
   
@@ -71,9 +48,36 @@ function adicionarMascaraTelefone(idCampo) {
       campo.value = cpf;
     });
   }
+
+  //CNPJ
+  function adicionarMascaraCnpj(idCampo) {
+    const campo = document.querySelector(idCampo);
   
-  // Adicionando a máscara ao campo
-  adicionarMascaraCpf('#cpf');
+    campo.addEventListener('input', () => {
+      let cnpj = campo.value.replace(/\D/g, '');
+      cnpj = cnpj.slice(0, 14);
   
+      if (cnpj.length === 14) {
+        cnpj = cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+      }
   
-    
+      campo.value = cnpj;
+    });
+  }
+  
+  //hora
+  function adicionarMascaraHorario(idCampo) {
+    const campo = document.querySelector(idCampo);
+  
+    campo.addEventListener('input', () => {
+      let horario = campo.value.replace(/\D/g, '');
+      horario = horario.slice(0, 4);
+  
+      if (horario.length >= 2) {
+        horario = horario.replace(/^(\d{2})(\d{0,2})/, '$1:$2');
+      }
+  
+      campo.value = horario;
+    });
+  }
+  

@@ -369,7 +369,15 @@
     <script src="../js/endereco-auto.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>   
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    
+    <!--Máscaras do formulário-->
+    <script src="../js/mascarasForm.js"></script>
+    <script>
+        adicionarMascaraCep('#cep'); 
+        adicionarMascaraHorario('#horario');
+
+    </script>
 
     <script>
         const botaoCausas = document.querySelector(".filtro-causas");

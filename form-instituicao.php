@@ -131,8 +131,20 @@
     <!-- <script src="js/script.js"></script> -->
     <!-- <script src="js/valida-instituicao.js"></script>  -->
     <script src="js/endereco-auto.js"></script>
-    <script src="js/mascarasFormInst.js"></script>
-    <script src="js/mascara.js"></script>
+    <!-- <script src="js/mascara.js"></script> -->
+    
+    <!--Máscaras do formulário-->
+    <script src="js/mascarasForm.js"></script>
+    <script>
+        adicionarMascaraTelefone('#telefone');
+        adicionarMascaraTelefone('#telefone2');
+        adicionarMascaraCnpj('#cnpj');
+        adicionarMascaraCep('#cep'); 
+
+    </script>
+
+
+
     <script>
         const form1 = document.querySelector("#formulario1");
         const form2 = document.querySelector("#formulario2");

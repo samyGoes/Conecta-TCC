@@ -373,7 +373,15 @@ require_once 'global.php';
         </div>
         </form>
     </main>
+    
 
+    <!--Máscaras do formulário-->
+    <script src="../../js/mascarasForm.js"></script>
+    <script>
+        adicionarMascaraCep('#cep'); 
+        adicionarMascaraHorario('#horario');
+
+    </script>
 
 
     <script type="module" src="../imports/side-bar.js"></script>

@@ -409,6 +409,15 @@
 
 
         <!-- SCRIPTS  -->
+            <!--Máscaras do formulário-->
+            <script src="../js/mascarasForm.js"></script>
+            <script>
+                adicionarMascaraTelefone('#telefone');
+                adicionarMascaraTelefone('#telefone-2');
+                adicionarMascaraCep('#cep'); 
+
+            </script>
+
         <script src="../area-voluntario/js/button-image.js"></script>
         <script src="../js/endereco-auto.js"></script>
         <script type="module" src="imports/side-bar.js"></script>

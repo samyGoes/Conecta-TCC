@@ -328,9 +328,6 @@
 
 
 
-
-
-
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
@@ -457,8 +454,17 @@
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
     <script src="../js/endereco-auto.js"></script>
-    <script src="../js/mascaraEditarInst.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>   
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+
+    <!--Máscaras do formulário-->
+    <script src="../js/mascarasForm.js"></script>
+    <script>
+        adicionarMascaraTelefone('#telefone');
+        adicionarMascaraTelefone('#telefone-2');
+        adicionarMascaraCep('#cep'); 
+
+    </script>
+
 </body>
 
 </html>

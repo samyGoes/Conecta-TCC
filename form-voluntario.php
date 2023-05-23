@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style-form-voluntario-instituicao.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Cadastro do Voluntário </title>
-
 </head>
 
 <body class="body">
@@ -147,8 +146,21 @@
 
     <script src="js/script.js"></script>
     <!-- <script src="js/valida-voluntario.js"></script> -->
-    <script src="js/mascaraFormVolun.js"></script>
     <script src="js/endereco-auto.js"></script>
+
+    <!--Máscaras do formulário-->
+    <script src="js/mascarasForm.js"></script>
+    <script>
+        adicionarMascaraTelefone('#telefone');
+        adicionarMascaraTelefone('#telefone2');
+        adicionarMascaraCpf('#cpf');
+        adicionarMascaraCep('#cep'); 
+
+    </script>
+
+ 
+
+
 
 
     <script>
