@@ -242,10 +242,13 @@
             // }
 
              // ARRAY E VARIÁVEIS
-            $mensagemStatusCandidatura = array
+            $mensagemStatusCandidaturaA = array
             (
-                'Candidatura aceita' => 'A instituição aceitou a sua candidatura.',
-                'Candidatura recusada' => 'A instituição recusou a sua candidatura.',
+                'Candidatura aceita' => 'A instituição aceitou a sua candidatura.'
+            );
+            $mensagemStatusCandidaturaR = array
+            (
+                'Candidatura recusada' => 'A instituição recusou a sua candidatura.'
             );
              $qtdMensagem = [];
              $statusAceito = 0;
@@ -265,13 +268,13 @@
 
             if($statusAceito >= 1 && $statusRecusado >= 1)
             {
-                return $mensagemStatusCandidatura;
+                //return $mensagemStatusCandidatura;
             }
             else if($statusAceito >= 1)
             {
                 for($i = 0; $i < $statusAceito; $i++)
                 {
-                    $qtdMensagem[] = $mensagemStatusCandidatura['Candidatura aceita'];
+                    $qtdMensagem[] = $mensagemStatusCandidaturaA;
                     var_dump($qtdMensagem);
                 }
                 //return array('Candidatura aceita' => $mensagemStatusCandidatura['Candidatura aceita']);
@@ -279,7 +282,7 @@
             }
             else if($statusRecusado >= 1)
             {
-                return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);
+                //return array('Candidatura recusada' => $mensagemStatusCandidatura['Candidatura recusada']);
             }
             else
             {
