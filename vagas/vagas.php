@@ -45,7 +45,7 @@
                     {
                 ?>
                         <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <a href="<?php echo '../form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                                 <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
                             </a>
                         </li>
