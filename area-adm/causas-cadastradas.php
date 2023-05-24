@@ -78,6 +78,22 @@
             <a href="geracaoPdf/gerar_pdf_Causas.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
+        <!-- FORM -->
+        <div class="card-1">       
+                <p class="form-frase">Escreva o nome da Causa que deseja cadastrar</p>    
+                <div class="card-cadastrar">
+                    <form class="card-form" action="cadastrar-causas-adm.php" method="POST">
+                        <div class="input-box">
+                            <label for="" id="label">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
+                        </div>
+                        <div class="continue-button">
+                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         <div class="table">
             <div class="table-responsive">
                 <div class="funcoes">

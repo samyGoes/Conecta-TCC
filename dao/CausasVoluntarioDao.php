@@ -81,28 +81,35 @@
 
             $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
-            if (count($lista) > 0) {
+            if (count($lista) > 0) 
+            {
                 $instituicoesFiltradas = array();
                 $causasVoluntario = array();
 
-                foreach ($lista as $causa) {
-                    $causasVoluntario[] = $categoria['nomeCategoria'];
+                foreach ($lista as $causa)
+                {
+                    $causasVoluntario[] = $causa['nomeCategoria'];
                 }
 
-                foreach ($listaInstituicao as $instituicao) {
-                                
-                        $causasInstituicao = listarCausaInstituicoes($instituicao['codInstituicao']);
+                foreach ($lista as $instituicao) 
+                {
+                    $causasInstituicao = listarCausaInstituicoes($instituicao['codInstituicao']);
 
-                    foreach ($causasInstituicao as $causa) {
+                    foreach ($causasInstituicao as $causa) 
+                    {
                         if (in_array($causa, $causasVoluntario)) 
                         {
                             $instituicoesFiltradas[] = $instituicao;
-                        break;
+                            break;
                         }
                     }
                 }
+
+                return $instituicoesFiltradas;
             }
+
+            // Caso não haja resultados, retorne um array vazio
+            return array();
         }
     }
-
 ?>

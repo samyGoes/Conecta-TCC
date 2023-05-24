@@ -82,24 +82,29 @@
                             require_once 'global.php';
 
                             try{
-                                $row = DashboardDao::qtdInstituicao($codInstituicao);
+                                $row = DashboardDao::SelecionaInstituicao();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                         ?>
 
                         <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
-                        <h1><?php echo $qtdInstituicao[0] ?></h1>
-
-                         <!-- <//?php
-                        while ($row = $querySelect->fetch(PDO::FETCH_BOTH)) { ?>
-
-                        <//?php } ?>  -->
+                        <h1><?php echo ($row[0]); ?></h1>
                     </div>
 
                     <div class="card-topo">
+
+                    <?php 
+                            require_once 'global.php';
+
+                            try{
+                                $row = DashboardDao::SelecionaVoluntario();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        ?>
                         <div class="titulo-card"> <i class="fa-solid fa-person"></i> VOLUNTÁRIOS CADASTRADOS</div>
-                        <h1>176</h1>
+                        <h1><?php echo ($row[0]); ?></h1>
                     </div>
 
                     <div class="table">
@@ -219,6 +224,7 @@
                                 $width7 = '34%';
                                 $width8 = '17%';
                                 $total  = 8; // total de barras
+
                          ?>
                         <div class="table-responsive-grafico">
                             <div class="box-1">
