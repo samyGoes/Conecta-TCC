@@ -225,6 +225,7 @@
         }
   
 
+
         public static function notificacoes($idVoluntarioLogado)
         {
             $conexao = Conexao::conectar();
@@ -251,7 +252,9 @@
                 'Candidatura recusada' => 'A instituição recusou a sua candidatura.'
             );
             $qtdMensagem = [];
+            global $statusAceito;
             $statusAceito = 0;
+            global $statusRecusado;
             $statusRecusado = 0;
 
             // VERIFICANDO STATUS DA CANDIDATURA
@@ -300,7 +303,23 @@
             {
                 return array();
             }
+
         }
+
+        public static function novaNotificacao()
+        {
+            global $statusAceito, $statusRecusado;
+            $qtdMensagemAntiga = 0;
+
+            $qtdMensagemAntiga = $statusAceito + $statusRecusado - 1;
+            $qtdMensagemAtual = $statusAceito + $statusRecusado;
+
+            if($qtdMensagemAntiga != $qtdMensagemAtual)
+            {
+                return true;
+            }
+        }
+        
 
     }
 ?>

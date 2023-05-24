@@ -189,12 +189,12 @@
 
 
 
-      <!-- MODAL CADASTRO -->
+      <!-- MODAL SOLICITAÇÃO -->
       <?php
         
-        if(isset($_GET['cadastro']))
+        if(isset($_GET['solicitacao']))
         {
-            if($_GET['cadastro'] === 'sucesso')
+            if($_GET['solicitacao'] === 'sucesso')
             {
                 echo ' <script>
                         // cria o elemento HTML do modal
@@ -207,7 +207,7 @@
                             <div id="modal-content">
                                 <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
                                 <p class="modal-titulo-cadastro">Solicitação realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
-                                <p class="modal-frase-cadastro"> O Adm irá avaliar sua solicitação de habilidade. </p>
+                                <p class="modal-frase-cadastro"> O Adm irá avaliar sua solicitação de habilidade, quando ela for avaliada será notificado a você.</p>
                             </div>
                             `;
 
@@ -310,16 +310,17 @@
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
-            <h1>CADASTRAR HABILIDADES</h1>
-            <p>Cadastre as habilidades necessárias, você poderá atribuí-las as vagas para que encontre voluntários com
-                as habilidades necessárias para cada vaga. Você também pode editá-las ou excluí-las. </p>
+            <h1>SOLICITAR HABILIDADES</h1>
+            <p>Solicite as habilidades que ainda não estão disponíveis no site. Você também pode conferir na tabela abaixo 
+                as habilidades que já estão disponíveis no sistema.
+            </p>
         </div>
 
 
         <!-- CARD -->
         <div class="card">
             <div class="card-1">
-                <p>Escreva o nome da Habilidade que deseja cadastrar</p>
+                <p>Escreva o nome da Habilidade que deseja solicitar</p>
                 <div class="card-cadastrar">
                     <form class="card-form" action="cadastrar-habilidades.php" method="POST">
                         <div class="input-box">
@@ -327,7 +328,7 @@
                             <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
                         </div>
                         <div class="continue-button">
-                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
+                            <button id="cadastro-btn" type="submit">SOLICITAR</button>
                         </div>
                     </form>
                 </div>

@@ -189,21 +189,141 @@
 
 
 
+    
+      <!-- MODAL SOLICITAÇÃO -->
+      <?php
+        
+        if(isset($_GET['solicitacao']))
+        {
+            if($_GET['solicitacao'] === 'sucesso')
+            {
+                echo ' <script>
+                        // cria o elemento HTML do modal
+                        const modal = document.createElement("div");
+                        modal.id = "modal";
+                        modal.innerHTML = `
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                            crossorigin="anonymous" referrerpolicy="no-referrer" />
+                            <div id="modal-content">
+                                <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                <p class="modal-titulo-cadastro">Solicitação realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                <p class="modal-frase-cadastro"> O Adm irá avaliar sua solicitação de causa, quando ela for avaliada será notificado a você. </p>
+                            </div>
+                            `;
+
+                        // adiciona o modal como filho do body (ou de outro elemento HTML)
+                        document.body.appendChild(modal);
+
+                        //adiciona a tag style do modal
+                        const style = document.createElement("style");
+                        const iconFechaModal = document.querySelector("#icone-fechar-modal");
+
+                        style.innerHTML = `
+                            #modal 
+                            {
+                                position: fixed;
+                                bottom: 20px;
+                                right: -600px;
+                                z-index: 9999;
+                                transition: all 1s ease;
+                                border: #4567a5 solid 1px;
+                                border-radius: 0.5rem;
+                                background-color: #fff;
+                                padding: 1.3rem;
+                                max-width: 24rem;
+                            }
+
+                            #modal-content 
+                            {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.4rem;
+                                
+                                position: relative;
+                            }
+
+                            #icone-fechar-modal
+                            {
+                                position: absolute;
+                                right: -9px;
+                                top: -11px;
+                                color: #525252;
+                                cursor: pointer;
+                                transition: all 0.5s ease;
+                            }
+
+                            #icone-fechar-modal:hover
+                            {
+                                color: #green;
+                            }
+
+                            .modal-titulo-cadastro 
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 15px;
+                                color: #000;
+                                font-weight: 500;
+                                display: flex;
+                                gap: 0.4rem;
+                            }
+
+                            p>i 
+                            {
+                                font-size: 1.2rem;
+                                color: #1ea41e;
+                            }
+
+                            .modal-frase-cadastro
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 13px;
+                                color: #2e2e2e;
+                                font-weight: 400;
+                            }
+                            `;
+
+                        document.head.appendChild(style);
+
+                        document.addEventListener("DOMContentLoaded", function()
+                        {
+                            modal.style.right = "20px";
+                        });
+
+                        iconFechaModal.addEventListener("click", function()
+                        {
+                            modal.remove();
+                        });
+
+                        setTimeout(function()
+                        {
+                            modal.remove();
+                        }, 8000);
+
+                    </script>';
+            }
+        }
+
+    ?>
+
+
 
 
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
-            <h1>CADASTRAR CAUSAS</h1>
-            <p>Cadastre as causas para quais você esteja auxiliando. Você também pode editá-las ou exclui-las</p>
+            <h1>SOLICITAR CAUSAS</h1>
+            <p>Solicite as causas que ainda não estão disponíveis no site. Você também pode conferir na tabela abaixo 
+                as causas que já estão disponíveis no sistema.
+            </p>
         </div>
 
 
 
         <div class="card">
             <div class="card-1">
-                <p>Escreva o nome da causa que deseja cadastrar</p>
+                <p>Escreva o nome da causa que deseja solicitar.</p>
                 <div class="card-cadastrar">
                     <form class="card-form" action="cadastrar-causas.php" method="POST">
                         <div class="input-box">
@@ -211,7 +331,7 @@
                             <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                         </div>
                         <div class="continue-button">
-                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
+                            <button id="cadastro-btn" type="submit">SOLICITAR</button>
                         </div>
                     </form>
                 </div>
