@@ -4,7 +4,6 @@
         //Atributos
         private $idCategoria;
         private $nomeCategoria;
-        private $codInstituicao = array();
 
         //Getters
         public function getIdCategoria(){
@@ -13,10 +12,7 @@
         public function getNomeCategoria(){
             return $this->nomeCategoria;
         }
-        public function getCodInstituicao(){
-            return $this->codInstituicao;
-        }
-
+        
         
         //Setters
         public function setIdCategoria($idCategoria){
@@ -25,8 +21,6 @@
         public function setNomeCategoria($nomeCategoria){
             $this->nomeCategoria=$nomeCategoria;
         }
-        public function setCodInstituicao($codInstituicao){
-            $this->codInstituicao=$codInstituicao;
-        }
+       
     }
 ?>

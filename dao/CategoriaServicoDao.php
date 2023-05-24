@@ -14,14 +14,6 @@
             $prepareStatement -> bindValue (1, $categoriaServico -> getNomeCategoria());
             $prepareStatement -> execute();
 
-            $idCategoria = $conexao->lastInsertId();
-
-            // Insere a categoria vinculadas à  instituicao na tabela tbInstituicaoCategoriaServico
-                $prepareStatement = $conexao->prepare("INSERT INTO   tbinstituicaocategoriaservico ( codInstituicao, codCategoriaServico) 
-                VALUES (?,?)");
-                $prepareStatement->bindValue(1, $categoriaServico -> getCodInstituicao());
-                $prepareStatement->bindValue(2, $idCategoria);
-                $prepareStatement->execute();
                 
         }
 
