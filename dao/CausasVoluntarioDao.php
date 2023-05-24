@@ -38,34 +38,71 @@
         }
 
         
-            public static function listar($codVoluntario)
-            {
+        public static function listar($codVoluntario)
+        {
 
-                $conexao = Conexao::conectar();
-                $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria,  
-                tbVoluntario.codVoluntario FROM tbCausaVoluntario
-                INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
-                INNER JOIN tbVoluntario ON tbVoluntario.codVoluntario = tbCausaVoluntario.codVoluntario
-                WHERE tbVoluntario.codVoluntario = $codVoluntario ");
-                $resultado = $conexao->query($querySelect);
-                $lista = $resultado->fetchAll();
-                return $lista;  
+            $conexao = Conexao::conectar();
+            $querySelect = ("SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria,  
+            tbVoluntario.codVoluntario FROM tbCausaVoluntario
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
+            INNER JOIN tbVoluntario ON tbVoluntario.codVoluntario = tbCausaVoluntario.codVoluntario
+            WHERE tbVoluntario.codVoluntario = $codVoluntario ");
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
+        public static function listarVoluntariosCausas($codVoluntario)
+        {
+
+            $conexao = Conexao::conectar();
+            $querySelect = ("SELECT DISTINCT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria  
+            FROM tbCausaVoluntario
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
+            WHERE tbCausaVoluntario.codVoluntario = $codVoluntario");
+
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            return $lista;  
+        }
+
+           
+            
+        public static function filtrar($codVoluntario)
+        {
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria, tbVoluntario.codVoluntario FROM tbCausaVoluntario
+            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
+            INNER JOIN tbVoluntario ON tbVoluntario.codVoluntario = tbCausaVoluntario.codVoluntario
+            WHERE tbVoluntario.codVoluntario = $codVoluntario";
+
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute();
+
+            $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($lista) > 0) {
+                $instituicoesFiltradas = array();
+                $causasVoluntario = array();
+
+                foreach ($lista as $causa) {
+                    $causasVoluntario[] = $categoria['nomeCategoria'];
+                }
+
+                foreach ($listaInstituicao as $instituicao) {
+                                
+                        $causasInstituicao = listarCausaInstituicoes($instituicao['codInstituicao']);
+
+                    foreach ($causasInstituicao as $causa) {
+                        if (in_array($causa, $causasVoluntario)) 
+                        {
+                            $instituicoesFiltradas[] = $instituicao;
+                        break;
+                        }
+                    }
+                }
             }
-
-            public static function listarVoluntariosCausas($codVoluntario)
-            {
-
-                $conexao = Conexao::conectar();
-                $querySelect = ("SELECT DISTINCT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria  
-                FROM tbCausaVoluntario
-                INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
-                WHERE tbCausaVoluntario.codVoluntario = $codVoluntario");
-
-                $resultado = $conexao->query($querySelect);
-                $lista = $resultado->fetchAll();
-                return $lista;  
-            }
-
+        }
     }
 
 ?>
