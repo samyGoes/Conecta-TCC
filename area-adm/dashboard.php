@@ -226,7 +226,7 @@
                                 $total  = 8; // total de barras
 
                          ?>
-                        <div class="table-responsive-grafico">
+                        <!-- <div class="table-responsive-grafico"> -->
                             <div class="box-1">
                                 <div class="organizador-1">
                                     <?php
@@ -270,7 +270,7 @@
 
                             </div>
 
-                        </div>
+                        <!-- </div> -->
                     </div>
 
                 </div>
