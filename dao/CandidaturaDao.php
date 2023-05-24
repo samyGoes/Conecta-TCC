@@ -139,7 +139,9 @@ class CandidaturaDao
     {
         $conexao = Conexao::conectar();
 
-        //global $qtdMensagemAntiga, $qtdMensagemAtual;
+        global $qtdMensagemAntiga, $qtdMensagemAtual;
+        $qtdMensagemAntiga = 0;
+        $qtdMensagemAtual = 0;
         $qtdMensagemAntiga = "SELECT COUNT(codCandidatura) FROM tbCandidatura";
 
         $prepareStatement = $conexao->prepare("INSERT INTO tbcandidatura(codVoluntario,codServico,statusCandidatura) 
@@ -151,8 +153,6 @@ class CandidaturaDao
         $prepareStatement->execute();
 
         $qtdMensagemAtual = "SELECT COUNT(codCandidatura) FROM tbCandidatura";
-
-        return array($qtdMensagemAntiga, $qtdMensagemAtual);
     }
 
     public static function vagasCandidatadasVoluntario($codVoluntario)
@@ -189,21 +189,6 @@ class CandidaturaDao
     }
 
 
-    public static function novaNotificacao()
-    {        
-       // global $qtdMensagemAntiga, $qtdMensagemAtual;
-        echo("Mensagem antiga: " . $qtdMensagemAntiga);
-        echo("Mensagem atual: " . $qtdMensagemAtual) . "<br>";
-
-        if($qtdMensagemAntiga != $qtdMensagemAtual)
-        {
-            return ":D";
-        }
-        else
-        {
-            return ":(";
-        }       
-    }
 
 
     //$queryRejeitado = "UPDATE tbCandidatura SET statusCandidatura = 'rejeitado'";

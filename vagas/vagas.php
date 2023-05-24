@@ -244,7 +244,7 @@
 
         try
         {
-            $aa = CandidaturaDao::novaNotificacao();
+            $aa = VoluntarioDao::novaNotificacao();
         }
         catch(Exception $e) 
         {

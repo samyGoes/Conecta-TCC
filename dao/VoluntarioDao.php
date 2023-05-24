@@ -306,6 +306,22 @@
             }
         }
 
+        public static function novaNotificacao()
+        {       
+            include 'CandidaturaDao.php'; 
+        // global $qtdMensagemAntiga, $qtdMensagemAtual;
+            echo("Mensagem antiga: " . $qtdMensagemAntiga);
+            echo("Mensagem atual: " . $qtdMensagemAtual) . "<br>";
+
+            if($qtdMensagemAntiga != $qtdMensagemAtual)
+            {
+                return ":D";
+            }
+            else
+            {
+                return ":(";
+            }       
+        }
 
       
         
