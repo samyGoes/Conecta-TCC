@@ -240,7 +240,19 @@
 
     ?>
         
+    <?php
 
+        try
+        {
+            $aa = CandidaturaDao::novaNotificacao();
+        }
+        catch(Exception $e) 
+        {
+            echo $e->getMessage();
+        }
+
+        echo($aa);
+    ?>
 
 
     <!-- PESQUISA -->

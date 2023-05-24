@@ -236,6 +236,7 @@
             $resultado->execute(array($idVoluntarioLogado));
             $lista = $resultado -> fetchAll(PDO::FETCH_ASSOC);
 
+
             // echo ("Status da candidatura: ");
             // foreach ($lista as $linha) 
             // {
@@ -253,8 +254,8 @@
             );
             $qtdMensagem = [];
             global $statusAceito;
-            $statusAceito = 0;
             global $statusRecusado;
+            $statusAceito = 0;
             $statusRecusado = 0;
 
             // VERIFICANDO STATUS DA CANDIDATURA
@@ -303,22 +304,10 @@
             {
                 return array();
             }
-
         }
 
-        public static function novaNotificacao()
-        {
-            global $statusAceito, $statusRecusado;
-            $qtdMensagemAntiga = 0;
 
-            $qtdMensagemAntiga = $statusAceito + $statusRecusado - 1;
-            $qtdMensagemAtual = $statusAceito + $statusRecusado;
-
-            if($qtdMensagemAntiga != $qtdMensagemAtual)
-            {
-                return true;
-            }
-        }
+      
         
 
     }
