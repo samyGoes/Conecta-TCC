@@ -73,7 +73,8 @@ main {
 .input-group{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
 }
 
 .input-box{
@@ -82,12 +83,11 @@ main {
 }
 .input-box input
 {
+    font-family: poppins;
+    color: #000;
     border-bottom: solid 1px #4567a5;
     outline: none;
     width: 15rem;
-}
-.input-box input::placeholder{
-    
 }
 
 .input-box label {
@@ -97,6 +97,8 @@ main {
 }
 
 .form textarea {
+    font-family: poppins;
+    color: #000;
     border: solid 1px #4567a5;
     outline: none;
     resize: none;
