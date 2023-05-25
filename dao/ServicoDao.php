@@ -165,7 +165,8 @@
             return $lista;  
         }
         
-        public static function obterQuantidadeVagasPorServico($codServico, $codInstituicao) {
+        public static function obterQuantidadeVagasPorServico($codServico, $codInstituicao) 
+        {
             $conexao = Conexao::conectar();
         
             $querySelect = "SELECT qntdVagaServico FROM tbServico

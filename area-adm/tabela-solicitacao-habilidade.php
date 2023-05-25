@@ -17,14 +17,6 @@
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
-            <div class="user">
-                <div class="box-img-user">
-                    <img src="./img/user-branco.png" width="100px" height="100px" alt="">
-                </div>
-
-                <p>Olá, ADM!</p>
-            </div>
-
             <div class="nav-lateral-box-icon">
                 <a href="dashboard.php"> <i class="fa-solid fa-chart-line"></i> <span class="nav-lateral-topico"> Dashboard
                     </span></a>
@@ -62,8 +54,6 @@
         </div>
     </nav>
 
-
-
     <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
     <div class="container-titulo-configuracoes">
         <!-- <h1> Configurações do Perfil </h1> -->
@@ -73,43 +63,40 @@
                     <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
                     <?php
-                        $notInstituicaoTitulo = array
-                        (
-                            'Nova Candidatura',
-                            'Nova Mensagem',
-                            'Nova Avaliação',
-                            'Nova Avaliação'
-                        );
+                    $notInstituicaoTitulo = array(
+                        'Nova Candidatura',
+                        'Nova Mensagem',
+                        'Nova Avaliação',
+                        'Nova Avaliação'
+                    );
 
-                        $notInstituicaoFrase = array
-                        (
-                            'Um voluntário se candidatou a vaga de professor de inglês.',
-                            'Você tem uma nova mensagem do voluntário João.',
-                            'Um voluntário fez uma avaliação sua.',
-                            'Um voluntário fez uma avaliação sua.'
-                        );
+                    $notInstituicaoFrase = array(
+                        'Um voluntário se candidatou a vaga de professor de inglês.',
+                        'Você tem uma nova mensagem do voluntário João.',
+                        'Um voluntário fez uma avaliação sua.',
+                        'Um voluntário fez uma avaliação sua.'
+                    );
 
                     ?>
                     <ul class="sub-topicos-sininho">
                         <?php
-                            foreach($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo)
-                            {
+                        foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
                         ?>
-                                <li> 
-                                    <div class="sub-topicos-sininho-linha">
-                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo($notInstituicaoTitulo); ?> </a>
-                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo($notInstituicaoFrase[$notificacoes]); ?> </a>
-                                    </div>                                          
-                                </li>
+                            <li>
+                                <div class="sub-topicos-sininho-linha">
+                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
+                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
+                                </div>
+                            </li>
                         <?php
-                            }
+                        }
                         ?>
                     </ul>
                     <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                         Olá, adm <span id="nav-seta-sub-topicos"> 🢓 </span>
                     </p>
                 </div>
-                
+
                 <ul class="sub-topicos">
                     <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                     <li> <a href=""> Vagas </a> </li>
@@ -124,14 +111,12 @@
 
 
 
-     <!-- MODAL SOLICITAÇÃO ACEITA E RECUSADA -->
-     <?php
-        
-        if(isset($_GET['solicitacao']))
-        {
-            if($_GET['solicitacao'] === 'true')
-            {
-                echo ' <script>
+    <!-- MODAL SOLICITAÇÃO ACEITA E RECUSADA -->
+    <?php
+
+    if (isset($_GET['solicitacao'])) {
+        if ($_GET['solicitacao'] === 'true') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -247,13 +232,11 @@
                         }, 8000);
 
                     </script>';
-            }
         }
-        if(isset($_GET['solicitacao']))
-        {
-            if($_GET['solicitacao'] === 'recusada')
-            {
-                echo ' <script>
+    }
+    if (isset($_GET['solicitacao'])) {
+        if ($_GET['solicitacao'] === 'recusada') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -369,8 +352,8 @@
                         }, 10000);
 
                     </script>';
-            }
         }
+    }
     ?>
 
     <!-- CONTEUDO  -->
@@ -386,7 +369,7 @@
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
-        
+
         <div class="cards">
 
 
@@ -416,7 +399,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
+                            <?php
                             require_once 'global.php';
 
                             try {
@@ -437,12 +420,15 @@
                                         <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $habilidade['codSolicitacaoHabilidade']; ?>">RECUSAR</button></td>
                                     </tr>
                                 </form>
-                                <?php
-                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacaoHabilidade']) 
-                                {
+                            <?php
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacaoHabilidade']) {
                                     $codSolicitacaoHabilidade = $_POST['btnChamar'];
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
                                 
                                     SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
+                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
                                 
                                 } 
                                 elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) 
@@ -450,7 +436,16 @@
                                     $codSolicitacaoHabilidade = $_POST['btnRecusar'];
                                 
                                     SolicitacaoHabilidadeDao::recusarSolicitacao($codSolicitacaoHabilidade);
+                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
+=======
+>>>>>>> bb229d6f6cd81758ae2cb4b9d824a785162aea4d
+>>>>>>> Stashed changes
 
+                                    SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
+                                } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) {
+                                    $codSolicitacaoHabilidade = $_POST['btnRecusar'];
+
+                                    SolicitacaoHabilidadeDao::recusarSolicitacao($codSolicitacaoHabilidade);
                                 }
                             }
                             ?>
@@ -460,7 +455,7 @@
                 </div>
             </div>
         </div>
-       
+
 
 
     </main>

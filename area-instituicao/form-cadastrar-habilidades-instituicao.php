@@ -377,7 +377,7 @@
                                             <?php echo $habilidade['nomeHabilidadeServico']; ?>
                                         </td>
                                 </tr>
-                            <?php
+                            <?php 
                                     }
                             ?>
                             </tbody>
