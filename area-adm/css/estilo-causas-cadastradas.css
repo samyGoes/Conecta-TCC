@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bitter&family=Poppins:wght@300;400;500&display=swap');
 
 
 
-/* CARD */
-.card-1{
+
+.card-1 {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-.card-2{
+
+.card-2 {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-.card{
+
+.card {
     font-family: poppins, sans-serif;
     display: flex;
     flex-direction: row;
@@ -20,56 +23,62 @@
     margin-top: 1.5%;
     gap: 5%;
 }
-.card-cadastrar{
+
+.card-cadastrar {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #4567a5 solid 1px;
+    border: #5f8699 solid 1px;
     border-radius: 0.5rem;
-    box-shadow: #b4d8e6 3px 3px 4px 1px ;
+    box-shadow: #b4d8e6 3px 3px 4px 1px;
     width: 430px;
     height: 310px;
-} 
+}
+
 .card-cadastrar .card-form {
     display: flex;
     flex-direction: column;
     gap: 20%;
 }
-.card-cadastrar .card-form .input-box{
+
+.card-cadastrar .card-form .input-box {
     display: flex;
     flex-direction: column;
     line-height: 40px;
 }
 
-.card-cadastrar .card-form .input-box label{
+.card-cadastrar .card-form .input-box label {
     font-size: 16px;
     font-weight: 500;
     color: #525252;
 }
-.card-cadastrar .card-form .input-box input{
+
+.card-cadastrar .card-form .input-box input {
     width: 20rem;
     padding: 8px;
     font-size: 14px;
     font-family: poppins, sans-serif;
     color: #000000;
     outline: none;
-    border: #4567a5 1px solid;
+    border: #5f8699 1px solid;
 }
-.card-cadastrar .card-form .input-boxs input::placeholder{
+
+.card-cadastrar .card-form .input-boxs input::placeholder {
     font-size: 14px;
     font-family: poppins, sans-serif;
     font-weight: 400;
     color: #525252;
 }
 
-.card-form .continue-button{
+.card-form .continue-button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
 }
+
 /* BOTÃO */
 .continue-button {
     width: auto;
@@ -81,8 +90,8 @@
 }
 
 .continue-button button {
-    background-color: #4567a5;
-    border: 1px solid #4567a5;
+    background-color: #5f8699;
+    border: 1px solid #5f8699;
     border-radius: 0.5rem;
     width: 10rem;
     height: 2.5rem;
@@ -96,18 +105,122 @@
 
 .continue-button button:hover {
     background-color: #fff;
-    color: #4567a5;
+    color: #5f8699;
 }
 
 
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
 
 
+/* CARD */
+.card-1,
+.card-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
 
+.card-cadastrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #5f8699 solid 1px;
+    border-radius: 0.5rem;
+    box-shadow: #b4d8e6 3px 3px 4px 1px;
+    width: 430px;
+    height: 310px;
 
+}
 
+.form-frase {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
 
+.card-cadastrar .card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+}
+
+.card-cadastrar .card-form .input-box {
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+}
+
+.card-cadastrar .card-form .input-box label {
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #525252;
+}
+
+.card-cadastrar .card-form .input-box input {
+    width: 20rem;
+    padding: 8px;
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    color: #000000;
+    outline: none;
+    border: #5f8699 1px solid;
+}
+
+.card-cadastrar .card-form .input-boxs input::placeholder {
+    font-size: 14px;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    color: #525252;
+}
+
+.card-form .continue-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* BOTÃO */
+.continue-button {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.continue-button button {
+    background-color: #5f8699;
+    border: 1px solid #5f8699;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: poppins, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.continue-button button:hover {
+    background-color: #fff;
+    color: #5f8699;
+}
 
 /* TABELA */
+
 .table {
     display: flex;
     align-items: center;
@@ -115,11 +228,11 @@
 }
 
 .table-responsive {
-    max-width: 500px;
-    max-height: 600px;
+    max-width: 430px;
+    height: 310px;
     border-radius: 0.5rem;
     border: 1px solid #5f8699;
-    box-shadow: 3px 3px 4px 1px #a7c4d3;
+    box-shadow: 3px 3px 4px 1px #b4d8e6;
 }
 
 .funcoes {
@@ -128,7 +241,28 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-    height: 78px;
+    height: 50px;
+}
+
+.funcoes i {
+    color: #5f8699;
+    font-size: 21px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+
+/*FUNÇÕES E ICONS DA TABELA*/
+
+.funcoes i:hover {
+    color: #6890e0;
+}
+
+.funcoes span {
+    color: #525252;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
 }
 
 .funcoes-sessao-1 {
@@ -138,12 +272,15 @@
     gap: 0.5rem;
 }
 
-.funcoes span {
-    color: #525252;
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 13px;
+
+.funcoes-sessao-2 {
+    display: flex;
+    margin-right: 3rem;
+    align-items: center;
+    gap: 50%;
+    flex-direction: row;
 }
+
 
 /* ESTILIZANDO CHECKBOX */
 input[type="checkbox"] {
@@ -160,45 +297,18 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked::before {
-    content: '';
+    content: '\2713';
     display: block;
     color: #fff;
     background-color: #5f8699;
     text-align: center;
-
     line-height: 13px;
     font-size: 13px;
 }
 
-
-#icone-x {
-    margin-left: 0.5rem;
-}
-
-.funcoes-sessao-2 {
-    display: flex;
-    margin-right: 1.7rem;
-    align-items: center;
-}
-
-.funcoes i {
-    color: #5f8699;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.funcoes i:hover {
-    color: #a7c4d3;
-}
-
-#icon-lupa {
-    font-size: 16px;
-}
-
-.funcoes #pesquisar {
+/* .funcoes #pesquisar {
     border: none;
-    border-bottom: 1px solid #5f8699;
+    border-bottom: 1px solid #113173;
     outline: none;
     padding: 0.2rem 0rem 0.2rem 0rem;
     transition: all 0.2s ease;
@@ -216,13 +326,12 @@ input[type="checkbox"]:checked::before {
     font-size: 13px;
     color: #727272;
 }
+*/
 
 .table-responsive table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
-
 
 
 thead tr {
@@ -237,22 +346,21 @@ thead tr {
 /* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
 th:nth-child(1),
 td:nth-child(1) {
-    min-width: 57px;
+    min-width: 85px;
     border-left: none !important;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-    min-width: 57px;
+    min-width: 70px;
 }
 
 th:nth-child(3) {
-    width: 600px;
+    width: 400px;
 }
 
 td:nth-child(3) {
-    padding-left: 9px;
-    width: 600px;
+    width: 400px;
 }
 
 th {
@@ -270,19 +378,19 @@ td:nth-child(3) {
 tbody {
     display: block;
     width: 100%;
-    height: 334px;
+    height: 220px;
     overflow-y: scroll;
 }
 
 /* SCROLL */
 /* width */
 tbody::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
 }
 
 /* Track */
 tbody::-webkit-scrollbar-track {
-    background-color:  #cee9f7;
+    background-color: rgb(172, 210, 243);
     border-radius: 0px 0px 0.5rem 0px;
 }
 
@@ -290,9 +398,7 @@ tbody::-webkit-scrollbar-track {
 tbody::-webkit-scrollbar-thumb {
     background-color: #5f8699;
     border-radius: 0.5rem;
-    border: 2px solid #cee9f7;
 }
-
 
 .table-responsive th,
 .table-responsive td {
@@ -305,54 +411,50 @@ tbody::-webkit-scrollbar-thumb {
 }
 
 .table-responsive td {
-    height: 45px;
+    height: 55px;
+}
+
+/* IMAGEM */
+.box-img-lista {
+    width: 50px;
+    height: 50px;
+    margin: 0.5rem 0rem 0.5rem 0rem;
+    border-radius: 50%;
+}
+
+.box-img-lista img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DESTAQUE DA TABELA */
+
+.destaque {
+    background-color: #ADD8E6;
+    /* cor de fundo verde */
 }
 
 
 
-
-
-
-
-
-/* CARD */
-@media(max-width:1282px){
-    .card{
+@media(max-width:1282px) {
+    .card {
         flex-direction: column;
         align-items: center;
     }
-    .card-cadastrar{
+
+    .card-cadastrar {
         margin-bottom: 2rem;
     }
-    
+
 }
 
-@media (max-width:574px){
+@media (max-width:574px) {
 
-    .card-cadastrar{
+    .card-cadastrar {
         min-width: 100%;
         border-radius: 0;
         border-right: none;
         border-left: none;
     }
 }
-
-
-
-
-
-
-
-/* TABELA */
-@media(max-width: 577px) {
-    .body {
-        overflow-x: hidden;
-    }
-
-    .table-responsive {
-        min-width: 90%;
-        overflow-x: scroll;
-    }
-}
-
-
