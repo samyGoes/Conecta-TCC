@@ -319,6 +319,7 @@ require_once '../auth/verifica-logado.php';
                                     $codCandidatura = $_POST['btnRetirar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
+                                        echo "<script>window.location.href = 'tabela-vagas-voluntario.php??';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
