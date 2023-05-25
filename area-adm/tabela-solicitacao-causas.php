@@ -437,6 +437,7 @@
                                     $codSolicitacaoCategoria = $_POST['btnChamar'];
                                 
                                     SolicitacaoCategoriaDao::aceitarSolicitacao($categoria['nomeCategoria'], $categoria['codSolicitacaoCategoria']);
+                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php??';</script>";
                                 
                                 } 
                                 elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $categoria['codSolicitacaoCategoria']) 
@@ -444,7 +445,7 @@
                                     $codSolicitacaoCategoria = $_POST['btnRecusar'];
                                 
                                     SolicitacaoCategoriaDao::recusarSolicitacao($codSolicitacaoCategoria);
-
+                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php??';</script>";
                                 }
                             }
                             ?>
