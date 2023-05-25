@@ -24,15 +24,15 @@
             else
             {
 
-            // Insere as categorias
-            foreach ($causaVoluntario->getCodCategoria() as $causa) {
-                $prepareStatement = $conexao->prepare("INSERT INTO  tbcausavoluntario (codVoluntario, codCategoriaServico) 
-                VALUES (?,?)");
+                // Insere as categorias
+                foreach ($causaVoluntario->getCodCategoria() as $causa) {
+                    $prepareStatement = $conexao->prepare("INSERT INTO  tbcausavoluntario (codVoluntario, codCategoriaServico) 
+                    VALUES (?,?)");
 
-                $prepareStatement->bindValue(1, $causaVoluntario -> getCodVoluntario());
-                $prepareStatement->bindValue(2, $causa);
-                $prepareStatement->execute();
-            }
+                    $prepareStatement->bindValue(1, $causaVoluntario -> getCodVoluntario());
+                    $prepareStatement->bindValue(2, $causa);
+                    $prepareStatement->execute();
+                }
             }
         
         }
@@ -67,49 +67,5 @@
         }
 
            
-            
-        public static function filtrar($codVoluntario)
-        {
-            $conexao = Conexao::conectar();
-            $querySelect = "SELECT tbCausaVoluntario.codCausaVoluntario, tbCategoriaServico.codCategoriaServico, tbCategoriaServico.nomeCategoria, tbVoluntario.codVoluntario FROM tbCausaVoluntario
-            INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVoluntario.codCategoriaServico
-            INNER JOIN tbVoluntario ON tbVoluntario.codVoluntario = tbCausaVoluntario.codVoluntario
-            WHERE tbVoluntario.codVoluntario = $codVoluntario";
-
-            $resultado = $conexao->prepare($querySelect);
-            $resultado->execute();
-
-            $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
-            if (count($lista) > 0) 
-            {
-                $instituicoesFiltradas = array();
-                $causasVoluntario = array();
-
-                foreach ($lista as $causa)
-                {
-                    $causasVoluntario[] = $causa['nomeCategoria'];
-                }
-
-                foreach ($lista as $instituicao) 
-                {
-                    $causasInstituicao = listarCausaInstituicoes($instituicao['codInstituicao']);
-
-                    foreach ($causasInstituicao as $causa) 
-                    {
-                        if (in_array($causa, $causasVoluntario)) 
-                        {
-                            $instituicoesFiltradas[] = $instituicao;
-                            break;
-                        }
-                    }
-                }
-
-                return $instituicoesFiltradas;
-            }
-
-            // Caso não haja resultados, retorne um array vazio
-            return array();
-        }
     }
 ?>

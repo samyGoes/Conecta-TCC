@@ -346,7 +346,7 @@
         <?php
 
         try {
-            $listaVaga = ServicoDao::listarVagaAdm();
+            $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
