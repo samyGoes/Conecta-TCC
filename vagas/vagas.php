@@ -241,7 +241,6 @@
     ?>
         
     <?php
-
         try
         {
             $aa = VoluntarioDao::novaNotificacao();
@@ -251,7 +250,7 @@
             echo $e->getMessage();
         }
 
-        echo($aa);
+        echo($aa);    
     ?>
 
 

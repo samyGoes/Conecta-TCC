@@ -4,7 +4,7 @@
 
     try
     {
-        header('Location: causas-cadastradas.php');
+        header('Location: causas-cadastradas.php?cadastro=sucesso');
 
         $causa = new CategoriaServ();
         

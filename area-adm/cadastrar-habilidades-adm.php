@@ -4,7 +4,7 @@
     try
     {
         
-        header('Location: habilidades-cadastradas.php');
+        header('Location: habilidades-cadastradas.php?cadastro=sucesso');
         $habilidade = new HabilidadeServ();
     
           

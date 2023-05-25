@@ -266,6 +266,7 @@
             $querySelect->execute(array($idInstituicaoLogada));
             $status = $querySelect->fetchAll();  
 
+            $querySelect2 = $conexao->prepare("SELECT statusSolicitacao FROM tbsolicitacaocategoria WHERE ");
 
             if(!empty($status))
             {
@@ -276,6 +277,8 @@
                 return array();
             }
         }
+
+        
 
     }
 ?>
