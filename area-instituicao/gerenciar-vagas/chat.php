@@ -181,52 +181,17 @@ include "../../auth/verifica-logado.php";
                         <h2 class="chat-titulo" id="chat-titulo"> Samilly Silva de Goes </h2>
                     </div>
                     <div class="pesquisar-chat">
-                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
                         <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
                     </div>
-
                 </div>
-                <div class="scroll-chat">
+                <div class="scroll-chat" id="scroll-chat">
                     <div class="main-chat">
-                        <div class="mensagens">
-                            <div class="area-instituicao">
-                                <div class="instituicao">
-                                    <div class="mensagem-instituicao">
-                                        <div class="conteudo-mensagem">
-                                            <h4> ONG gato</h4>
-                                            <p>Então seria no minimo 3 dias da semana</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="foto-instituicao">
-                                    <img src="../img-instituicao/9.JPG" alt="foto">
-                                </div>
-                            </div>
-                            <div class="area-instituicao">
-                                <div class="instituicao">
-                                    <div class="mensagem-instituicao">
-                                        <div class="conteudo-mensagem">
-                                            <h4> ONG gato</h4>
-                                            <p>Então seria no minimo 3 dias da semana</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="foto-instituicao">
-                                    <img src="../img-instituicao/9.JPG" alt="foto">
-                                </div>
-                            </div> <div class="area-instituicao">
-                                <div class="instituicao">
-                                    <div class="mensagem-instituicao">
-                                        <div class="conteudo-mensagem">
-                                            <h4> ONG gato</h4>
-                                            <p>Então seria no minimo 3 dias da semana</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="foto-instituicao">
-                                    <img src="../img-instituicao/9.JPG" alt="foto">
-                                </div>
-                            </div>
+                        <div class="mensagens" id="mensagens">
+
+
+
+
                             <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
@@ -240,54 +205,42 @@ include "../../auth/verifica-logado.php";
                                     </div>
                                 </div>
                             </div>
-                            <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios aaaaaaaaa</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios aaaaaaa</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                        <div class="chat-footer">
-                            <div class="fundo-footer">
-                                <div class="enviar-mensagem">
-                                    <input type="text" name="enviar-mensagem" id="enviar-mensaem" placeholder="Mensagem...">
-                                </div>
-                                <button type="" class="button-send">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
                 </div>
-
+                <div class="chat-footer">
+                    <div class="fundo-footer">
+                        <div class="enviar-mensagem">
+                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                        </div>
+                        <button type="" class="button-send" onclick="sendMessage()">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+        </div>
     </main>
+    <script>
+        function sendMessage() {
+            var scroll = document.getElementById("scroll-chat")
+            var input = document.getElementById("enviar-mensagem");
+            var message = input.value;
 
+            if (message !== "") {
+                var chatbox = document.getElementById("mensagens");
+                var newMessage = document.createElement("div");
+                newMessage.className = "area-instituicao";
+                newMessage.innerHTML = '<div class="area-instituicao"><div class="instituicao"><div class="mensagem-instituicao"><div class="conteudo-mensagem"><h4>ONG gato</h4><p>' + message + '</p></div></div></div><div class="foto-instituicao"><img src="../img-instituicao/9.JPG" alt="foto"></div></div>';
+                chatbox.appendChild(newMessage);
 
+                input.value = "";
 
+                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+            }
 
-
-
+        }
+    </script>
 
 
     <script type="module" src="../imports/side-bar.js"></script>

@@ -22,8 +22,9 @@ main {
     justify-content: center;
     flex-direction: column;
     height: 50vh;
-    gap: 5%;
-    margin: 12% 6%;
+    width: 100%;
+    gap: 2rem;
+    margin: 15%;
 }
 
 .titulo {
@@ -49,45 +50,53 @@ main {
 
 
 /* Formulario */
-.formulario {
+.card-formulario {
     border: 1px solid #4567a5;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 2%;
+    border-radius: 1.5%;
     font-family: poppins;
-    padding: 10%;
+    padding: 3%;
+    width: 43rem;
+    box-shadow: #a7c4d3 5px 5px 7px 1px;
 }
 
-.formulario form .input-box-1,
-.input-box-2 {
+.card-formulario form{
     margin: 5%;
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group{
+    display: flex;
     flex-direction: row;
-    gap: 5%;
+    justify-content: space-between;
 }
 
-.input-box-1 input,
-.input-box-2 input {
-    border-bottom: solid 1px #4567a5;
-    outline: none;
-}
-
-.input-box-1 label,
-.input-box-2 label {
+.input-box{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+}
+.input-box input
+{
+    border-bottom: solid 1px #4567a5;
+    outline: none;
+    width: 15rem;
+}
+
+.input-box label {
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-.formulario form textarea {
+.card-formulario form textarea {
     border: solid 1px #4567a5;
     outline: none;
     resize: none;
-}
-.formulario label{
 }
 
 .btn-enviar {
@@ -120,13 +129,6 @@ main {
 
 /* Email e tel para contato */
 
-
-.info {
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-}
-
 .text {
     text-align: center;
 }
@@ -137,28 +139,38 @@ main {
     font-weight: 400;
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #a7c4d3 5px 5px 7px 1px;
+    width: 45rem;
+    border-radius: 8px;
+    border: #4567a5 solid 1px;
+}
+
 .email-numero {
     gap: 5%;
     display: flex;
-    width: 40rem;
-    padding: 3%;
     flex-direction: row;
-    border-radius: 8px;
-    border: #4567a5 solid 1px;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 2%;
 }
 
-.grupo-1 h6,
-.grupo-2 h6 {
+.info-box h6 {
     font-size: 14px;
     font-family: poppins, sans-serif;
     font-weight: 400;
     color: #525252;
 }
 
-.grupo-1 p,
-.grupo-2 p {
+.info-box p {
     font-family: poppins, sans-serif;
     font-size: 16px;
 }
+
+
+/* responsividade */

@@ -82,24 +82,29 @@
                             require_once 'global.php';
 
                             try{
-                                $row = DashboardDao::qtdInstituicao($codInstituicao);
+                                $row = DashboardDao::SelecionaInstituicao();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                         ?>
 
                         <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
-                        <h1><?php echo $qtdInstituicao[0] ?></h1>
-
-                         <!-- <//?php
-                        while ($row = $querySelect->fetch(PDO::FETCH_BOTH)) { ?>
-
-                        <//?php } ?>  -->
+                        <h1><?php echo ($row[0]); ?></h1>
                     </div>
 
                     <div class="card-topo">
+
+                    <?php 
+                            require_once 'global.php';
+
+                            try{
+                                $row = DashboardDao::SelecionaVoluntario();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        ?>
                         <div class="titulo-card"> <i class="fa-solid fa-person"></i> VOLUNTÁRIOS CADASTRADOS</div>
-                        <h1>176</h1>
+                        <h1><?php echo ($row[0]); ?></h1>
                     </div>
 
                     <div class="table">
@@ -218,21 +223,54 @@
                                 $width6 = '44%';
                                 $width7 = '34%';
                                 $width8 = '17%';
-                                $width9 = '17%';
-                                $total  = 9; // total de barras
+                                $total  = 8; // total de barras
+
                          ?>
-                        <div class="table-responsive-grafico">
+                        <!-- <div class="table-responsive-grafico"> -->
+                            <div class="box-1">
+                                <div class="organizador-1">
+                                    <?php
+                                        for($i=1;$i <= $total;$i++){
+                                        $width = ${'width' . $i};
+                                    ?>
+                                    <div id="barras">
+                                        <div class="barra<?=$i?> "style="width:<?=$width ?>" ></div>
+                                    </div>
+                                    <?php } ?>
 
-                            <?php
-                                for($i=1;$i <= $total;$i++){
-                                $width = ${'width' . $i};
-                            ?>
-                            <div id="barras">
-                                <div class="barra<?=$i?>" style="width:<?=$width ?>" ><?=$width ?></div>
+                                </div>
+                                <div class="organizador-2">
+                                    <div class="anos">
+                                        <li>
+                                            <ul>0 a 10</ul>
+                                            <ul>10 a 20</ul>
+                                            <ul>20 a 30</ul>
+                                            <ul>30 a 40</ul>
+                                            <ul>40 a 50</ul>
+                                            <ul>50 a 60</ul>
+                                            <ul>60 a 70</ul>
+                                            <ul>70+</ul>
+                                        </li>
+                                    </div>
+                                </div>
                             </div>
-                            <?php } ?>
 
-                        </div>
+                            <div class="box-2">
+                                <div class="porcentagem">
+                                    <li>
+                                        <ul>0%</ul>
+                                        <ul>10%</ul>
+                                        <ul>30%</ul>
+                                        <ul>50%</ul>
+                                        <ul>70%</ul>
+                                        <ul>90%</ul>
+                                        <ul>100%</ul>
+                                    </li>
+                                </div>
+
+                            </div>
+
+                        <!-- </div> -->
                     </div>
 
                 </div>

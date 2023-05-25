@@ -5,7 +5,7 @@
 
     try
     {
-        header('Location: form-cadastrar-causas-instituicao.php?cadastro=sucesso');
+        header('Location: form-cadastrar-causas-instituicao.php?solicitacao=sucesso');
         
         $solicitacao = new SolicitacaoCategoria();
     

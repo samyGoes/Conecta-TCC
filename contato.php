@@ -112,26 +112,30 @@
             <h1>Contato</h1>
             <h3>Envie uma mensagem a nós atraves deste formulário</h3>
         </div>
-        <div class="formulario">
+        <div class="card-formulario">
             <form action="" method="POST">
-                <div class="input-box-1">
 
-                    <label for="">Nome</label>
-                    <input type="text" name="nome">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="">Nome</label>
+                        <input type="text" name="nome">
+                    </div>
 
-                    <label for="">Email</label>
-                    <input type="text" name="email">
-
+                    <div class="input-box">
+                        <label for="">Email</label>
+                        <input type="text" name="email">
+                    </div>
                 </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="">Idade</label>
+                        <input type="text" name="idade">
+                    </div>
 
-                <div class="input-box-2">
-
-                    <label for="">Idade</label>
-                    <input type="text" name="idade">
-
-                    <label for="">Estado</label>
-                    <input type="text" name="estado">
-
+                    <div class="input-box">
+                        <label for="">Estado</label>
+                        <input type="text" name="estado">
+                    </div>
                 </div>
 
                 <label for="">Mensagem</label>
@@ -144,16 +148,16 @@
             </form>
         </div>
 
-        <div class="info">
-            <div class="text">
+        <div class="text">
                 <h3>Outras formas de contato</h3>
             </div>
+        <div class="info">
             <div class="email-numero">
-                <div class="grupo-1">
+                <div class="info-box">
                     <h6>Email</h6>
                     <p>conectaFromAion@gmail.com</p>
                 </div>
-                <div class="grupo-2">
+                <div class="info-box">
                     <h6>Telefone</h6>
                     <p>(11)00000-0000</p>
                 </div>

@@ -122,6 +122,127 @@
 
 
 
+
+
+    <!-- MODAL CADASTRO -->
+    <?php
+        
+        if(isset($_GET['cadastro']))
+        {
+            if($_GET['cadastro'] === 'sucesso')
+            {
+                echo ' <script>
+                        // cria o elemento HTML do modal
+                        const modal = document.createElement("div");
+                        modal.id = "modal";
+                        modal.innerHTML = `
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                            crossorigin="anonymous" referrerpolicy="no-referrer" />
+                            <div id="modal-content">
+                                <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                <p class="modal-titulo-cadastro"> Cadastro realizado com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                <p class="modal-frase-cadastro"> Confira na tabela todas as habilidades cadastradas. </p>
+                            </div>
+                            `;
+
+                        // adiciona o modal como filho do body (ou de outro elemento HTML)
+                        document.body.appendChild(modal);
+
+                        //adiciona a tag style do modal
+                        const style = document.createElement("style");
+                        const iconFechaModal = document.querySelector("#icone-fechar-modal");
+
+                        style.innerHTML = `
+                            #modal 
+                            {
+                                position: fixed;
+                                bottom: 20px;
+                                right: -600px;
+                                z-index: 9999;
+                                transition: all 1s ease;
+                                border: #4567a5 solid 1px;
+                                border-radius: 0.5rem;
+                                background-color: #fff;
+                                padding: 1.3rem;
+                                max-width: 24rem;
+                            }
+
+                            #modal-content 
+                            {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.4rem;
+                                
+                                position: relative;
+                            }
+
+                            #icone-fechar-modal
+                            {
+                                position: absolute;
+                                right: -9px;
+                                top: -11px;
+                                color: #525252;
+                                cursor: pointer;
+                                transition: all 0.5s ease;
+                            }
+
+                            #icone-fechar-modal:hover
+                            {
+                                color: #green;
+                            }
+
+                            .modal-titulo-cadastro 
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 15px;
+                                color: #000;
+                                font-weight: 500;
+                                display: flex;
+                                gap: 0.4rem;
+                            }
+
+                            p>i 
+                            {
+                                font-size: 1.2rem;
+                                color: #1ea41e;
+                            }
+
+                            .modal-frase-cadastro
+                            {
+                                font-family: Poppins, sans-serif;
+                                font-size: 13px;
+                                color: #2e2e2e;
+                                font-weight: 400;
+                            }
+                            `;
+
+                        document.head.appendChild(style);
+
+                        document.addEventListener("DOMContentLoaded", function()
+                        {
+                            modal.style.right = "20px";
+                        });
+
+                        iconFechaModal.addEventListener("click", function()
+                        {
+                            modal.remove();
+                        });
+
+                        setTimeout(function()
+                        {
+                            modal.remove();
+                        }, 8000);
+
+                    </script>';
+            }
+        }
+
+    ?>
+
+
+
+
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
@@ -146,7 +267,7 @@
             <div class="card-1">       
                 <p class="form-frase">Escreva o nome da Habilidade que deseja cadastrar</p>    
                 <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-habilidades.php" method="POST">
+                    <form class="card-form" action="cadastrar-habilidades-adm.php" method="POST">
                         <div class="input-box">
                             <label for="" id="label">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">

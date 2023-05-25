@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 require_once 'global.php';
 include "../../auth/verifica-logado.php";

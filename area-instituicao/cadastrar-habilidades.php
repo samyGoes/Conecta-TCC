@@ -4,7 +4,7 @@
 
     try
     {
-        header('Location: form-cadastrar-habilidades-instituicao.php?cadastro=sucesso');
+        header('Location: form-cadastrar-habilidades-instituicao.php?solicitacao=sucesso');
         
         $solicitacao = new SolicitacaoHabilidade();
     
