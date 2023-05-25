@@ -343,46 +343,46 @@
         <div class="form">
             <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-nome-email">
+                        <div id="input-nome">
                             <label for="">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite seu nome"
                                 value="<?php echo $_SESSION['dadoPerfil']['nomeInstituicao'] ?>" />
                         </div>
-                        <div>
+                        <div id="input-email">
                             <label for="">Email</label>
                             <input type="email" name="email" id="email" placeholder="Digite seu email"
                                 value="<?php echo $_SESSION['dadoPerfil']['emailInstituicao'] ?>" />
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-telefones">
+                        <div id="input-telefone">
                             <label for="">Telefone (Fixo)</label>
                             <input type="tel" name="telefone1" id="telefone" placeholder="(xx)xxxx-xxxx"
                                 value="<?php echo $_SESSION['dadoPerfil']['telefone1'] ?>" />
                         </div>
-                        <div>
+                        <div id="input-telefone-2">
                             <label for="">Telefone (Cel)</label>
                             <input type="tel" name="telefone2" id="telefone-2" placeholder="(xx)xxxxx-xxxx"
                                 value="<?php echo $_SESSION['dadoPerfil']['telefone2'] ?>" />
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-endereco">
+                        <div id="input-cep">
                             <label for=" ">CEP</label>
                             <input type="text " name="cep" id="cep" placeholder="Digite seu CEP"
                                 value="<?php echo $_SESSION['dadoPerfil']['cepInstituicao'] ?>" />
                         </div>
 
-                        <div>
+                        <div id="input-num">
                             <label for="">Número</label>
                             <input type="text" name="numeroCasa" id="num" placeholder="Digite o n°"
                                 value="<?php echo $_SESSION['dadoPerfil']['numLogInstituicao'] ?>" />
                         </div>
 
-                        <div>
+                        <div id="input-log">
                             <label for="">Logradouro</label>
                             <input type="text" name="log" id="log"
                                 value="<?php echo $_SESSION['dadoPerfil']['logInstituicao'] ?>" />
@@ -390,41 +390,41 @@
                                  
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-endereco-cont">
+                        <div id="input-bairro">
                             <label for=" ">Bairro</label>
                             <input type="text" name="bairro" id="bairro"
                                 value="<?php echo $_SESSION['dadoPerfil']['bairroInstituicao'] ?>" />
                         </div>
-                        <div>
+                        <div id="input-cidade">
                             <label for="cidade">Cidade</label>
                             <input type="text" name="cidade" id="cidade" value="<?php echo $_SESSION['dadoPerfil']['cidadeInstituicao'] ?>">
                         </div>
-                        <div>
+                        <div id="input-estado">
                             <label for="uf">Estado</label>
                             <input type="text" name="uf" id="uf" value="<?php echo  $_SESSION['dadoPerfil']['estadoInstituicao'] ?>" >
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-endereco-cont-2">
+                        <div id="input-comp">
                             <label for=" ">Complemento</label>
                             <input type="text" name="complemento" id="comp" placeholder="Digite o complemento"
                                 value="<?php echo $_SESSION['dadoPerfil']['compInstituicao'] ?>" />
                         </div>
-                        <div>
+                        <div id="input-pais">
                             <label for="">País</label>
                             <input type="text" name="pais" id="pais" placeholder="Digite seu pais" value="<?php echo $_SESSION['dadoPerfil']['paisInstituicao'] ?>">
                         </div>
-                        <div>
+                        <div id="input-btn-foto">
                             <span>Foto</span>
                             <label id="label" for="foto">Selecione uma foto</label>
                             <input type="file" accept="image/*" id="foto" name="foto">
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <div>
+                    <div class="input-box" id="input-foto-desc">
+                        <div id="input-desc">
                             <label for="">Descrição</label>
                             <textarea name="desc" id="desc" cols="83" rows="10" placeholder="Digite sua descriçao"><?php echo $_SESSION['dadoPerfil']['descInstituicao'] ?></textarea>
                         </div>
@@ -433,9 +433,15 @@
                                 <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>" id="img" alt="user-instituição">
                             </div>
                         </div>
+
+                        <div id="input-btn-foto-mob">
+                            <span>Foto</span>
+                            <label id="label" for="foto">Selecione uma foto</label>
+                            <input type="file" accept="image/*" id="foto" name="foto">
+                        </div>
                     </div>
                 </div>
-                <a href=""><div class="continue-button">
+                <a href=""><div class="continue-button" id="form-botao">
                     <button type="submit" id="cadastro-btn">SALVAR</button>
                 </a>
                 </div>
