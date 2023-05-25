@@ -34,23 +34,22 @@ class DashboardDao
     public static function porcentagem(){
         $conexao = Conexao::conectar();
 
-        $query= $conexao->prepare("SELECT dataNascVoluntario, DATEDIFF(YY, dataNascVoluntario, GETDATE() - 
-        CASE WHEN DATEADD(YY, DATEDIFF(YY, dataNascVoluntario, GETDATE()), dataNascVoluntario) > GETDATE() THEN 1 ELSE 0 AS idade FROM tbVoluntarios");
+        $query= $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario");
         $query->execute();
 
-        echo $query;
+        $dez = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '0' AND '10' AS dez FROM tbVoluntario");
+        $dez->execute();
 
-        // $dataNasc = $query;
+        $vinte = $conexao->prepare("SELECT AVG(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '11' AND '20' AS vinte) FROM tbVoluntario");
+        $vinte->execute();
 
-        // list($ano, $mes, $dia) = explode('-', $dataNasc);
+        $trinta = $conexao->prepare("SELECT AVG(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '21' AND '30' AS trinta) FROM tbVoluntario");
+        $trinta->execute();
+     $resultado = $query->fetch(PDO::FETCH_ASSOC);
 
-        // $hoje= mktime(0,0,0, date('m'), date('d'), date('Y'));
 
-        // $nascimento = mktime(0,0,0, $mes, $dia, $ano);
 
-        // $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
-
-        // return $idade;
+        return $resultado;
     }
 
     public static function melhoresInstituicoes(){

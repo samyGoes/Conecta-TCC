@@ -19,6 +19,7 @@ class CandidaturaDao
         $resultado->execute(array($idInstituicaoLogada));
         $lista = $resultado->fetchAll();
         return $lista;
+
     }
 
 
