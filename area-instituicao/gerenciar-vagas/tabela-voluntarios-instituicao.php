@@ -189,8 +189,10 @@ include "../../auth/verifica-logado.php";
                             <i class="fa-solid fa-sliders"></i>
                         </div>
                         <div class="funcoes-sessao-2">
-                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                            <form action="" method="post">
+                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
                             <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            </form>
                         </div>
                     </div>
 
@@ -247,7 +249,7 @@ include "../../auth/verifica-logado.php";
                 $codCandidatura = $_POST['btnChamar'];
                 try {
                     $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
-                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
+                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php??';</script>";
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
@@ -255,7 +257,7 @@ include "../../auth/verifica-logado.php";
                 $codCandidatura = $_POST['btnRecusar'];
                 try {
                     $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
-                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
+                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php??';</script>";
                 } catch (Exception $e) {
                     echo $e->getMessage();
                 }
@@ -368,6 +370,9 @@ include "../../auth/verifica-logado.php";
 
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/pesquisa.js"></script>>
+
 </body>
 
 </html>
