@@ -73,43 +73,40 @@
                     <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
                     <?php
-                        $notInstituicaoTitulo = array
-                        (
-                            'Nova Candidatura',
-                            'Nova Mensagem',
-                            'Nova Avaliação',
-                            'Nova Avaliação'
-                        );
+                    $notInstituicaoTitulo = array(
+                        'Nova Candidatura',
+                        'Nova Mensagem',
+                        'Nova Avaliação',
+                        'Nova Avaliação'
+                    );
 
-                        $notInstituicaoFrase = array
-                        (
-                            'Um voluntário se candidatou a vaga de professor de inglês.',
-                            'Você tem uma nova mensagem do voluntário João.',
-                            'Um voluntário fez uma avaliação sua.',
-                            'Um voluntário fez uma avaliação sua.'
-                        );
+                    $notInstituicaoFrase = array(
+                        'Um voluntário se candidatou a vaga de professor de inglês.',
+                        'Você tem uma nova mensagem do voluntário João.',
+                        'Um voluntário fez uma avaliação sua.',
+                        'Um voluntário fez uma avaliação sua.'
+                    );
 
                     ?>
                     <ul class="sub-topicos-sininho">
                         <?php
-                            foreach($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo)
-                            {
+                        foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
                         ?>
-                                <li> 
-                                    <div class="sub-topicos-sininho-linha">
-                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo($notInstituicaoTitulo); ?> </a>
-                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo($notInstituicaoFrase[$notificacoes]); ?> </a>
-                                    </div>                                          
-                                </li>
+                            <li>
+                                <div class="sub-topicos-sininho-linha">
+                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
+                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
+                                </div>
+                            </li>
                         <?php
-                            }
+                        }
                         ?>
                     </ul>
                     <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                         Olá, adm <span id="nav-seta-sub-topicos"> 🢓 </span>
                     </p>
                 </div>
-                
+
                 <ul class="sub-topicos">
                     <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                     <li> <a href=""> Vagas </a> </li>
@@ -126,12 +123,10 @@
 
     <!-- MODAL CADASTRO -->
     <?php
-        
-        if(isset($_GET['cadastro']))
-        {
-            if($_GET['cadastro'] === 'sucesso')
-            {
-                echo ' <script>
+
+    if (isset($_GET['cadastro'])) {
+        if ($_GET['cadastro'] === 'sucesso') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -235,8 +230,8 @@
                         }, 8000);
 
                     </script>';
-            }
         }
+    }
 
     ?>
 
@@ -249,8 +244,8 @@
         <div class="main-conteudo-container-titulo">
             <h1>HABILIDADES</h1>
             <p>
-                Aqui você verá um formulário para o cadastro de novas habilidades e uma tabela com todas as 
-                habilidades cadastradas. Você também pode filtrar ou pesquisar 
+                Aqui você verá um formulário para o cadastro de novas habilidades e uma tabela com todas as
+                habilidades cadastradas. Você também pode filtrar ou pesquisar
                 pela habilidade que deseja. Também tem como opção editar ou excluir alguma habilidade.
             </p>
         </div>
@@ -258,14 +253,14 @@
         <!-- BOTÕES -->
         <div class="gerarPdf">
             <a href="tabela-solicitacao-habilidade.php"> <button class="hab-solicitadas"> Solicitações </button></a>
-            <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>         
+            <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
-        
+
         <div class="cards">
             <!-- FORM -->
-            <div class="card-1">       
-                <p class="form-frase">Escreva o nome da Habilidade que deseja cadastrar</p>    
+            <div class="card-1">
+                <p class="form-frase">Escreva o nome da Habilidade que deseja cadastrar</p>
                 <div class="card-cadastrar">
                     <form class="card-form" action="cadastrar-habilidades-adm.php" method="POST">
                         <div class="input-box">
@@ -282,51 +277,57 @@
 
 
             <!-- TABELA -->
-            <div class="table">
-                <div class="table-responsive">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <span>Selecionar todos</span>
-                            <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                            <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
+            <div class="card-2">
+                <p class="form-frase" id="card-2">Aqui está a lista de todas as habilidades cadastradas</p>
+                <div class="table">
+                    <div class="table-responsive">
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <span>Selecionar todos</span>
+                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                                <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                            </div>
                         </div>
-                        <div class="funcoes-sessao-2">
-                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                        </div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> </th>
-                                <th> ID </th>
-                                <th>Habilidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            require_once 'global.php';
-                            try {
-                                $listaHabilidade = HabilidadeServicoDao::listar();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            <tr>
-                                <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                    <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                    <td> <?php echo $habilidade['codHabilidadeServico']; ?> </td>
-                                    <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
-                            </tr>
-                        <?php
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>ID</th>
+                                    <th>habilidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once 'global.php';
+                                try {
+                                    $listaHabilidade = HabilidadeServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
                                 }
-                        ?>
-                        </tbody>
-                    </table>
+                                ?>
+                                <tr>
+                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                        <td>
+                                            <?php echo $habilidade['codHabilidadeServico']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
+                                        </td>
+                                </tr>
+                            <?php
+                                    }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-       
+
 
 
     </main>

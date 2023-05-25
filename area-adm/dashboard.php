@@ -17,14 +17,6 @@
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
-            <div class="user">
-                <div class="box-img-user">
-                    <img src="./img/user-branco.png" width="100px" height="100px" alt="">
-                </div>
-    
-                <p>Olá, ADM!</p>
-            </div>
-
             <div class="nav-lateral-box-icon">
                 <a href="dashboard.php"> <i class="fa-solid fa-chart-line"></i> <span class="nav-lateral-topico"> Dashboard
                     </span></a>

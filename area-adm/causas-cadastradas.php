@@ -17,14 +17,6 @@
     <nav class="nav-lateral">
         <div class="nav-lateral-sessao-um">
             <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
-            <div class="user">
-                <div class="box-img-user">
-                    <img src="./img/user-branco.png" width="100px" height="100px" alt="">
-                </div>
-
-                <p>Olá, ADM!</p>
-            </div>
-
             <div class="nav-lateral-box-icon">
                 <a href="dashboard.php"> <i class="fa-solid fa-chart-line"></i> <span class="nav-lateral-topico"> Dashboard
                     </span></a>
@@ -62,17 +54,68 @@
         </div>
     </nav>
 
+    <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
+    <div class="container-titulo-configuracoes">
+        <!-- <h1> Configurações do Perfil </h1> -->
+        <ul class="topicos-sessao-login">
+            <li class="topicos-sessao-login-linha">
+                <div class="box-topicos-sessao-login-linha">
+                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+
+                    <?php
+                    $notInstituicaoTitulo = array(
+                        'Nova Candidatura',
+                        'Nova Mensagem',
+                        'Nova Avaliação',
+                        'Nova Avaliação'
+                    );
+
+                    $notInstituicaoFrase = array(
+                        'Um voluntário se candidatou a vaga de professor de inglês.',
+                        'Você tem uma nova mensagem do voluntário João.',
+                        'Um voluntário fez uma avaliação sua.',
+                        'Um voluntário fez uma avaliação sua.'
+                    );
+
+                    ?>
+                    <ul class="sub-topicos-sininho">
+                        <?php
+                        foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
+                        ?>
+                            <li>
+                                <div class="sub-topicos-sininho-linha">
+                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
+                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
+                                </div>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                    <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                        Olá, adm <span id="nav-seta-sub-topicos"> 🢓 </span>
+                    </p>
+                </div>
+
+                <ul class="sub-topicos">
+                    <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                    <li> <a href=""> Vagas </a> </li>
+                    <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                    <li> <a href="../auth/logout.php"> Sair </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
 
 
-      <!-- MODAL CADASTRO -->
-      <?php
-        
-        if(isset($_GET['cadastro']))
-        {
-            if($_GET['cadastro'] === 'sucesso')
-            {
-                echo ' <script>
+
+    <!-- MODAL CADASTRO -->
+    <?php
+
+    if (isset($_GET['cadastro'])) {
+        if ($_GET['cadastro'] === 'sucesso') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -176,8 +219,8 @@
                         }, 8000);
 
                     </script>';
-            }
         }
+    }
 
     ?>
 
@@ -197,65 +240,65 @@
             <a href="geracaoPdf/gerar_pdf_Causas.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
         </div>
 
-        <!-- FORM -->
-        <div class="card-1">       
-                <p class="form-frase">Escreva o nome da Causa que deseja cadastrar</p>    
+        <div class="card">
+            <div class="card-1">
+                <p>Escreva o nome da causa que deseja solicitar.</p>
                 <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-causas-adm.php" method="POST">
+                    <form class="card-form" action="cadastrar-causas.php" method="POST">
                         <div class="input-box">
                             <label for="" id="label">Nome</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite a habilidade">
+                            <input type="text" name="nome" id="nome" placeholder="Digite a causa">
                         </div>
                         <div class="continue-button">
-                            <button id="cadastro-btn" type="submit">CADASTRAR</button>
+                            <button id="cadastro-btn" type="submit">SOLICITAR</button>
                         </div>
                     </form>
                 </div>
             </div>
-
-        <div class="table">
-            <div class="table-responsive">
-                <div class="funcoes">
-                    <div class="funcoes-sessao-1">
-                        <span>Selecionar todos</span>
-                        <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
-                        <i class="fa-solid fa-circle-xmark" id="icone-x"></i>
-                    </div>
-                    <div class="funcoes-sessao-2">
-                        <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+            <!-- Modal -->
+            <div class="card-2">
+                <p>Aqui está a lista de todas as causas cadastradas</p>
+                <div class="table">
+                    <div class="table-responsive">
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <span>Selecionar todos</span>
+                                <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
+                                <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
+                            </div>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>ID</th>
+                                    <th>Causas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                require_once 'global.php';
+                                try {
+                                    $listaCausas = CategoriaServicoDao::listar();
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
+                                <tr>
+                                    <?php foreach ($listaCausas as $causas) { ?>
+                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
+                                        <td><?php echo $causas['codCategoriaServico']; ?></td>
+                                        <td><?php echo $causas['nomeCategoria']; ?></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> </th>
-                            <th> ID </th>
-                            <th>Causas</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        require_once 'global.php';
-                        try {
-                            $listaCausas = CategoriaServicoDao::listar();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        <tr>
-                            <?php foreach ($listaCausas as $causas) { ?>
-                                <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                <td> <?php echo $causas['codCategoriaServico']; ?> </td>
-                                <td><?php echo $causas['nomeCategoria']; ?></td>
-                        </tr>
-                    <?php
-                            }
-                    ?>
-                    </tbody>
-                </table>
             </div>
-        </div>
 
     </main>
 

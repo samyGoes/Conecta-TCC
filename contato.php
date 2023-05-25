@@ -113,7 +113,7 @@
             <h3>Envie uma mensagem a nós atraves deste formulário</h3>
         </div>
         <div class="card-formulario">
-            <form action="" method="POST">
+            <form class="form" action="" method="POST">
 
                 <div class="input-group">
                     <div class="input-box">
