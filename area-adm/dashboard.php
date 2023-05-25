@@ -217,17 +217,17 @@
                                 $width8 = '17%';
                                 $total  = 8; // total de barras
 
-                             require_once 'global.php';
+                           //  require_once 'global.php';
 
-                             try{
-                                 $idade = DashboardDao::porcentagem();
-                             } catch (Exception $e) {
-                                 echo $e->getMessage();
-                             }
+                           //  try{
+                            //     $idade = DashboardDao::porcentagem();
+                            // } catch (Exception $e) {
+                             //    echo $e->getMessage();
+                            // }
 
-                             foreach($idade as $numero){
-                                 echo $numero;
-                             }
+                            // foreach($idade as $numero){
+                            //    echo $numero;
+                           //  }
                          ?>
                         <!-- <div class="table-responsive-grafico"> -->
                             <div class="box-1">

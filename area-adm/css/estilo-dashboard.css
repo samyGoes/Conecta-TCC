@@ -5,6 +5,7 @@
 {
     display: flex;
     justify-content: center;
+    overflow-x:hidden
 }
 
 .conteiner-cards
@@ -18,16 +19,14 @@
 .box-card-sessao-1
 {
     display: flex;
-    justify-content: flex-end;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-right: 2rem ;
+    width: 67%;
 }
 
 .box-card-sessao-2
 {
     display: flex;
-    justify-content: center;
 }
 
 .conteiner-cards i
@@ -81,7 +80,7 @@
     background-color: #fff;
     box-shadow: 3px 3px 4px 1px #a7c4d3;
     width: 22rem;
-    height: 40rem;
+    height: 40.5rem;
 }
 
 .box-1
@@ -123,7 +122,7 @@
 
 /*teste*/
 #barras{
-    width:428px;
+    width:18rem;
     float:left;
     margin-top: 1.3rem;
 }
@@ -312,3 +311,79 @@ tbody::-webkit-scrollbar-thumb,
     font-size: 12px;
     padding-left: 1rem;
 }
+
+
+
+
+
+/*RESPONSIVIDADE*/
+@media(max-width: 1865px)
+{
+    .conteiner-cards
+    {
+        max-width: 85%;
+
+    }
+    .box-card-sessao-1
+    {
+        width: 65%;
+    }
+}
+
+@media(max-width: 1803px)
+{
+    .box-card-sessao-1
+    {
+        width: 67%;
+    }
+}
+
+@media(max-width: 1773px)
+{
+    .box-card-sessao-1
+    {
+        width: 69%;
+    }
+}
+
+@media(max-width: 1718px)
+{
+    .conteiner-cards
+    {
+        max-width: 89%;
+
+    }
+    .box-card-sessao-1
+    {
+        width: 69%;
+    }
+}
+
+
+@media(max-width: 1665px)
+{
+    .box-card-sessao-1
+    {
+        width: 73%;
+    }
+}
+
+@media(max-width: 1630px)
+{
+    .conteiner-cards
+    {
+        max-width: 92%;
+
+    }
+    .box-card-sessao-1
+    {
+        width: 70%;
+        gap: 1rem;
+    }
+}
+
+@media (max-width:1573)
+{
+    
+}
+
