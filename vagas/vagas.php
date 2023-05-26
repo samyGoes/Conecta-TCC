@@ -241,16 +241,16 @@
     ?>
         
     <?php
-        try
-        {
-            $aa = VoluntarioDao::novaNotificacao();
-        }
-        catch(Exception $e) 
-        {
-            echo $e->getMessage();
-        }
+        // try
+        // {
+        //     $aa = VoluntarioDao::novaNotificacao();
+        // }
+        // catch(Exception $e) 
+        // {
+        //     echo $e->getMessage();
+        // }
 
-        echo($aa);    
+        // echo($aa);    
     ?>
 
 
@@ -346,7 +346,8 @@
         <?php
 
         try {
-            $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
+            //$listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
+            $listaVaga = ServicoDao::listarVagaAdm();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
