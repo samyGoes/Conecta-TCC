@@ -137,10 +137,10 @@
                         <input type="text" name="estado">
                     </div>
                 </div>
-
-                <label for="">Mensagem</label>
-                <textarea rows="10" cols="70"></textarea>
-
+                <div class="input-box">
+                    <label for="">Mensagem</label>
+                    <textarea></textarea>
+                </div>
                 <div class="btn-enviar">
                     <button type="submit">enviar</button>
                 </div>
@@ -149,8 +149,8 @@
         </div>
 
         <div class="text">
-                <h3>Outras formas de contato</h3>
-            </div>
+            <h3>Outras formas de contato</h3>
+        </div>
         <div class="info">
             <div class="email-numero">
                 <div class="info-box">
