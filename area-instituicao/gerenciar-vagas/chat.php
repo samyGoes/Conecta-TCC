@@ -219,6 +219,8 @@ include "../../auth/verifica-logado.php";
                     </div>
                 </div>
             </div>
+
+            <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
     </main>
     <script>

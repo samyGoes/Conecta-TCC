@@ -365,9 +365,9 @@
                 pela habilidade que deseja. Também tem como opção bloquear alguma habilidade caso ela esteja
                 violando alguma das diretrizes.</p>
         </div>
-        <div class="gerarPdf">
+        <!-- <div class="gerarPdf">
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
-        </div>
+        </div> -->
 
 
         <div class="cards">
@@ -423,9 +423,9 @@
                             <?php
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacaoHabilidade']) {
                                     $codSolicitacaoHabilidade = $_POST['btnChamar'];
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+// <<<<<<< Updated upstream
+// =======
+// <<<<<<< HEAD
                                 
                                     SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
                                     echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
@@ -437,9 +437,9 @@
                                 
                                     SolicitacaoHabilidadeDao::recusarSolicitacao($codSolicitacaoHabilidade);
                                     echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
-=======
->>>>>>> bb229d6f6cd81758ae2cb4b9d824a785162aea4d
->>>>>>> Stashed changes
+// =======
+// >>>>>>> bb229d6f6cd81758ae2cb4b9d824a785162aea4d
+// >>>>>>> Stashed changes
 
                                     SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
                                 } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) {

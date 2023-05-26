@@ -376,9 +376,9 @@
                 pela habilidade que deseja. Também tem como opção bloquear alguma habilidade caso ela esteja
                 violando alguma das diretrizes.</p>
         </div>
-        <div class="gerarPdf">
+        <!-- <div class="gerarPdf">
             <a href="geracaoPdf/gerar_pdf_Habilidades.php"><button> <i class="fa-solid fa-file-pdf"></i>Gerar pdf </button></a>
-        </div>
+        </div> -->
 
         
         <div class="cards">
