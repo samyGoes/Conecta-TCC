@@ -7,19 +7,29 @@ class CandidaturaDao
     {
         $conexao = Conexao::conectar();
         $idInstituicaoLogada = $_SESSION['codUsuario'];
+        if (isset($_POST['pesquisar'])) {
+            $pesquisar = $_POST['pesquisar'];
 
-        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
             INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'pendente'";
+            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'pendente' AND (tbVoluntario.nomeVoluntario LIKE '%$pesquisar%' OR tbServico.nomeservico LIKE '%$pesquisar%')";
+        
+        } else {
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+        FROM tbCandidatura
+        INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+        INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+        INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+        WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'pendente'";
+        }
 
         $resultado = $conexao->prepare($querySelect);
         $resultado->execute(array($idInstituicaoLogada));
         $lista = $resultado->fetchAll();
         return $lista;
-
     }
 
 
@@ -27,62 +37,57 @@ class CandidaturaDao
     {
         $conexao = Conexao::conectar();
         $idInstituicaoLogada = $_SESSION['codUsuario'];
+        if (isset($_POST['pesquisar'])) {
+            $pesquisar = $_POST['pesquisar'];
 
-        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
             INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'recusado'";
+            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'recusado' AND (tbVoluntario.nomeVoluntario LIKE '%$pesquisar%' OR tbServico.nomeservico LIKE '%$pesquisar%')";
+        
+        } else {
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+        FROM tbCandidatura
+        INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+        INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+        INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+        WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'recusado'";
+        }
 
         $resultado = $conexao->prepare($querySelect);
         $resultado->execute(array($idInstituicaoLogada));
         $lista = $resultado->fetchAll();
         return $lista;
     }
-    public static function listarVoluntariosAceitos($idInstituicaoLogada, $codServico)
-    {
-        $conexao = Conexao::conectar();
-    
-        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
-            FROM tbCandidatura
-            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
-            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
-            INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
-            WHERE tbInstituicao.codInstituicao = ? AND tbServico.codServico = ? AND tbCandidatura.statusCandidatura = 'aceito'";
-    
-        $resultado = $conexao->prepare($querySelect);
-        $resultado->execute(array($idInstituicaoLogada, $codServico));
-        $lista = $resultado->fetchAll();
-        return $lista;
-    }
-    
+
 
 
     public static function obterQuantidadeInscritosPorServico($codServico)
-{
-    $conexao = Conexao::conectar();
+    {
+        $conexao = Conexao::conectar();
 
-    $query = "SELECT COUNT(*) AS qntdVagasPreenchida 
+        $query = "SELECT COUNT(*) AS qntdVagasPreenchida 
               FROM tbServico
               INNER JOIN tbCandidatura ON tbServico.codServico = tbCandidatura.codServico
               WHERE tbServico.codServico = :codServico AND tbCandidatura.statusCandidatura = 'aceito'";
 
-    $stmt = $conexao->prepare($query);
-    $stmt->bindValue(':codServico', $codServico);
-    $stmt->execute();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':codServico', $codServico);
+        $stmt->execute();
 
-    $resultado = $stmt->fetchColumn();
+        $resultado = $stmt->fetchColumn();
 
-    return $resultado;
-}
+        return $resultado;
+    }
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 
     public static function aceitarCandidatura($idCandidatura)
@@ -135,7 +140,7 @@ class CandidaturaDao
 
     public $qtdMensagemAntiga = 0;
     public $qtdMensagemAtual = 0;
-     
+
     public static function cadastrar($candidato, $vaga, $status)
     {
         $conexao = Conexao::conectar();

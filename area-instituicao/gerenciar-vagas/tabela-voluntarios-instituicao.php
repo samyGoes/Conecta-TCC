@@ -443,7 +443,7 @@ include "../../auth/verifica-logado.php";
                         <div class="funcoes-sessao-2">
                             <form action="" method="post">
                             <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            <button onclick="pesquisa()" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
                             </form>
                         </div>
                     </div>
