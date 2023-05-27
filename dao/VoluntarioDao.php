@@ -323,7 +323,7 @@
             }       
         }
 
-        public static function filtragem($codVoluntario,$cod)
+        public static function filtragem($codVoluntario,$id3)
         {
             $causasVoluntario = [];
 
@@ -343,6 +343,17 @@
 
             $causaVagas = [];
 
+            $id3= new Servico();
+
+            $querySelect3 = "SELECT codServico FROM tbServico WHERE nomeServico LIKE ?";
+            $resultado3 = $conexao->prepare($querySelect3);
+            $resultado3->bindValue(1, '%' . $id3->getNomeServico() . '%');
+            $resultado3->execute();
+            $lista3 = $resultado3->fetchAll();
+
+            if (!empty($lista3)) {
+                $codServico = $lista3[0]['codServico'];
+
             $querySelect1 = $conexao->prepare("SELECT tbcausavaga.codCausaVaga,
                 GROUP_CONCAT(tbCategoriaServico.codCategoriaServico) as categoria_id, 
                 GROUP_CONCAT(tbCategoriaServico.nomeCategoria) as nomeCausa
@@ -350,36 +361,49 @@
                 INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbcausavaga.codCategoriaServico
                 WHERE tbcausavaga.codServico = ?");
             
-            $querySelect1->bindParam(1, $cod);
+            $querySelect1->bindParam(1, $codServico);
             $querySelect1->execute();
             $resultado1 = $querySelect1->fetch(PDO::FETCH_ASSOC);
+            }
             
             $causaVagas = explode(', ', $resultado1['nomeCausa']);
+
+            $causasVoluntario = array_map('trim', $causasVoluntario); // Remover espaços em branco dos valores
+
+            $causaVagas = explode(',', $causaVagas[0]); // Divide o campo em um array separado por vírgulas
+            $causaVagas = array_map('trim', $causaVagas); // Remover espaços em branco dos valores
 
             $causasComuns = array_intersect($causasVoluntario, $causaVagas);
             print_r($causasComuns);
             print_r($causasVoluntario);
             print_r($causaVagas);
 
-            if (!empty($causasComuns)) 
+            if (!empty($causasComuns)) // verifica se nao esta vazia
             {
-                $querySelect = $conexao->prepare("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
-                    cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
-                    complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
-                    nomeservico, tipoServico, dataInicioServico, qntdVagaServico, 
-                    tbInstituicao.codInstituicao, nomeInstituicao, fotoInstituicao, 
-                    (SELECT GROUP_CONCAT(nomeCategoria SEPARATOR ', ') FROM tbCausaVaga 
-                    INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico 
-                    WHERE tbCausaVaga.codServico = tbServico.codServico) AS causas,
-                    (SELECT GROUP_CONCAT(nomeHabilidadeServico SEPARATOR ', ') FROM tbHabiVaga 
-                    INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico 
-                    WHERE tbHabiVaga.codServico = tbServico.codServico) AS habilidades
-                    FROM tbServico
-                    INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
-                    WHERE tbInstituicao.codInstituicao = ? 
-                    AND tbServico.codServico IN (SELECT codServico FROM tbCausaVaga WHERE nomeCategoria IN (".implode(',', $causasComuns)."))");
+                $placeholders = implode(',', array_fill(0, count($causasComuns), '?'));
 
-                $querySelect->bindValue(1, $cod);
+                $querySelect = $conexao->prepare("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+                                cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
+                                complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
+                                nomeservico, tipoServico, dataInicioServico, qntdVagaServico, 
+                                tbInstituicao.codInstituicao, nomeInstituicao, fotoInstituicao, 
+                                (SELECT GROUP_CONCAT(nomeCategoria SEPARATOR ', ') FROM tbCausaVaga 
+                                INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico 
+                                WHERE tbCausaVaga.codServico = tbServico.codServico) AS causas,
+                                (SELECT GROUP_CONCAT(nomeHabilidadeServico SEPARATOR ', ') FROM tbHabiVaga 
+                                INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico 
+                                WHERE tbHabiVaga.codServico = tbServico.codServico) AS habilidades
+                                FROM tbServico
+                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
+                                WHERE tbInstituicao.codInstituicao = ? 
+                                AND tbServico.codServico IN (SELECT codServico FROM tbCausaVaga WHERE codCategoriaServico IN ($placeholders))");
+                
+                $querySelect->bindValue(1, $codServico);
+                
+                foreach ($causasComuns as $key => $causa) {
+                    $querySelect->bindValue($key + 2, $causa);
+                }
+                
                 $querySelect->execute();
                 $lista = $querySelect->fetchAll();
 
@@ -403,7 +427,7 @@
                     INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao 
                     WHERE tbInstituicao.codInstituicao = ?");
 
-                $querySelect->bindValue(1, $cod);
+                $querySelect->bindValue(1, $codServico);
                 $querySelect->execute();
                 $lista = $querySelect->fetchAll();
 
