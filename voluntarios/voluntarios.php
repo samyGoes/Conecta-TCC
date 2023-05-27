@@ -181,7 +181,7 @@ include "../auth/loginUsuario.php";
 
 
     <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
-    <div class="lista-voluntario">
+    <div  id="resultado-lista-voluntario" class="lista-voluntario">
         <?php
         require_once 'global.php';
         try {
@@ -314,6 +314,62 @@ include "../auth/loginUsuario.php";
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
+    <!-- Filtros -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Função para atualizar os resultados dos voluntários
+        function atualizarResultados() {
+            var estado = $('#estados').val();
+            var cidade = $('#cidades').val();
+            var causas = [];
+
+            $('input[name="causas"]:checked').each(function() {
+                causas.push($(this).val());
+            });
+
+            // Fazer a requisição AJAX para obter os voluntários filtrados
+            $.ajax({
+                url: 'filtroVoluntario.php',
+                type: 'POST',
+                data: {
+                    estado: estado,
+                    cidade: cidade,
+                    causas: causas.join(',')
+                },
+                success: function(data) {
+                    // Atualizar os resultados na página
+                    var resultados = '';
+                    for (var i = 0; i < data.length; i++) {
+                        resultados += '<div>' + data[i].nome + '</div>';
+                    }
+                    $('#resultado-lista-voluntario').html(resultados);
+                    
+                },
+                error: function() {
+                    $('#resultado-lista-voluntario').html('<div>Erro ao carregar os resultados.</div>');
+                }
+            });
+        }
+
+        // Evento para atualizar os resultados quando o estado é alterado
+        $('#estados').on('change', function() {
+            atualizarResultados();
+        });
+
+        // Evento para atualizar os resultados quando a cidade é alterada
+        $('#cidades').on('change', function() {
+            atualizarResultados();
+        });
+
+            // Evento para atualizar os resultados quando as causas são alteradas
+            $('input[name="causas"]').on('change', function() {
+                atualizarResultados();
+            });
+        });
+    </script>
+
+
     <script src="js/script.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
