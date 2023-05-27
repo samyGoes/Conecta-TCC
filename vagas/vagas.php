@@ -343,52 +343,62 @@
 
 
     <div class="cards">
-        <?php
-
-        try {
-            //$listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
-            $listaVaga = ServicoDao::listarVagaAdm();
-        } catch (Exception $e) {
-            echo $e->getMessage();
+    <?php
+        if (empty($_SESSION['codUsuario'])) {
+            try {
+                //$listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
+                $listaVaga = ServicoDao::listarVagaAdm();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            try {
+                $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
+                //$listaVaga = ServicoDao::listarVagaAdm();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
         }
-        ?>
-        <?php
-        foreach ($listaVaga as $vaga) {
-        ?>
-            <div class="card-carrossel-dois">
-                <div class="content-it">
-                    <div class="header-card-carrossel-it">
-                        <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
-                        <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                        <p><?php echo $vaga['cidadeLocalServico']; ?></p>
-                    </div>
-                    <div class="fundo">
-                        <div class="fundo-img">
-                            <img src="../area-instituicao/<?php echo $vaga['fotoInstituicao']; ?>">
+
+        if (is_array($listaVaga) && !empty($listaVaga)) {
+            foreach ($listaVaga as $vaga) {
+                ?>
+                <div class="card-carrossel-dois">
+                    <div class="content-it">
+                        <div class="header-card-carrossel-it">
+                            <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
+                            <i id="icon-maps" class="fa-solid fa-location-dot"></i>
+                            <p><?php echo $vaga['cidadeLocalServico']; ?></p>
                         </div>
-                        <div class="title-1">
-                            <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                        <div class="fundo">
+                            <div class="fundo-img">
+                                <img src="../area-instituicao/<?php echo $vaga['fotoInstituicao']; ?>">
+                            </div>
+                            <div class="title-1">
+                                <p><?php echo $vaga['nomeInstituicao']; ?></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="box-conteudo-card">
-                        <div class="title-2">
-                            <p><?php echo $vaga['nomeservico']; ?></p>
-                        </div>
-                        <div class="title-3">
-                            <p><?php echo $vaga['descServico']; ?></p>
-                        </div>
-                        <form action="redirecionar-vaga-completa.php" method="post">
-                            <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                            <a href="#"><button class="card-carrossel-botao" id="botao-it">
+                        <div class="box-conteudo-card">
+                            <div class="title-2">
+                                <p><?php echo $vaga['nomeservico']; ?></p>
+                            </div>
+                            <div class="title-3">
+                                <p><?php echo $vaga['descServico']; ?></p>
+                            </div>
+                            <form action="redirecionar-vaga-completa.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
+                                <a href="#"><button class="card-carrossel-botao" id="botao-it">
                                     VER VAGA
                                 </button></a>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php
+                <?php
+            }
         }
         ?>
+
 
     </div>
 
