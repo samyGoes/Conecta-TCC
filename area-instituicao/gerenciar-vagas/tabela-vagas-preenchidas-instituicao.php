@@ -168,7 +168,7 @@ require_once 'global.php';
                 <div class="container-titulo-1">
                     <h2 class="titulo-voluntarios"> Vagas Preenchidas </h2>
                     <p class="frase-voluntarios">
-                        Esta lista exibe o nome das vagas, juntamente com a quantidade total de vagas disponiveis e o   número de vagas preenchidas. Para visualizar os voluntários que ocuparam essas vagas, clique na quantidade de vagas preenchidas.
+                        Esta lista exibe o nome das vagas, juntamente com a quantidade total de vagas disponíveis e o número de vagas preenchidas. Para visualizar os voluntários que ocuparam essas vagas, clique na quantidade de vagas preenchidas.
                     </p>
                 </div>
 

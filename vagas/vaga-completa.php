@@ -158,13 +158,13 @@
                         <div class="topico-informacoes-texto">
 
                             <div class="divisa-de-topicos-info">
-                                <p>Horário:<span><?php echo ($_SESSION['vaga']['horarioServico']); ?></span></p>
-                                <p>Período:<span><?php echo ($_SESSION['vaga']['periodoServico']); ?></span></p>
-                                <p>Tipo de vaga:<span><?php echo ($_SESSION['vaga']['tipoServico']); ?></span></p>
+                                <p>Horário:<span><?php echo (" " . $_SESSION['vaga']['horarioServico']); ?></span></p>
+                                <p>Período:<span><?php echo (" " . $_SESSION['vaga']['periodoServico']); ?></span></p>
+                                <p>Tipo de vaga:<span><?php echo (" " . $_SESSION['vaga']['tipoServico']); ?></span></p>
                             </div>
                         
                             <div class="divisao-de-topicos-info">
-                                <p>Data de início:<span><?php echo ($_SESSION['vaga']['dataInicioServico']); ?></span></p>
+                                <p>Data de início:<span><?php echo (" " . $_SESSION['vaga']['dataInicioServico']); ?></span></p>
                                 <p>Habilidade:<span>
                                     <?php
                                         $habilidades = $_SESSION['habilidade']['nomeHabilidade'];

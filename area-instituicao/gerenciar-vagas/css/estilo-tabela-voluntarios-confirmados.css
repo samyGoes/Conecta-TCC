@@ -87,7 +87,7 @@
 
 .table-responsive {
     /* width: 861px; */
-    width: 739px;
+    width: 862px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
@@ -359,28 +359,35 @@ td button {
     text-transform: uppercase;
 }
 
-.table-btn-chamar {
-    background-color: #4567a5;
-    border: 1px solid #4567a5;
+#td-icone-chat
+{
+    font-size: 27px;
+    color: #4567a5;
+    cursor: pointer;
+    transition: all 0.5s ease;
 }
 
-.table-btn-chamar:hover {
-    background-color: #fff;
+#td-icone-chat:hover
+{
+    color: #8dbfd3;
+}
+
+.link-voltar-anterior
+{
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: bitter, serif;
+    font-weight: 500;
+    font-size: 16px;
     color: #4567a5;
 }
 
-.table-btn-rejeitar {
-    background-color: #af4141;
-    border: 1px solid #af4141;
+.link-voltar-anterior:hover
+{
+    color: #cf8a3f;
 }
-
-.table-btn-rejeitar:hover {
-    background-color: #fff;
-    color: #af4141;
-}
-
-
-
 
 
 

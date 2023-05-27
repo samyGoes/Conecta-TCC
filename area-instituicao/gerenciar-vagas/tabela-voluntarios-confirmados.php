@@ -200,6 +200,7 @@ include "../../auth/verifica-logado.php";
                                 <th> UF </th>
                                 <th> Vaga </th>
                                 <th> Chat </th>
+                                <th> Avaliar </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -225,7 +226,7 @@ include "../../auth/verifica-logado.php";
                                         <td>
                                             <a href="">
                                                 <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
+                                                    <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="">
                                                 </div>
                                             </a>
                                         </td>
@@ -234,7 +235,8 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>">Avaliar</button></td>
+                                        <td> <a href="chat.php"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
+                                        <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
                                     </tr>
                                 </form>
 
@@ -248,7 +250,11 @@ include "../../auth/verifica-logado.php";
 
                 </div>
             </div>
+
+            <a class="link-voltar-anterior" href="tabela-vagas-preenchidas-instituicao.php"> Voltar para a página anterior. </a>
         </div>
+
+      
 
         <!-- MODAL AVALIAÇÂO -->
         <div id="modalAvaliar" class="modal">

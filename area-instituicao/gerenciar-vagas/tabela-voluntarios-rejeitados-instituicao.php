@@ -344,7 +344,7 @@ require_once 'global.php';
                                         <td>
                                             <a href="">
                                                 <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
+                                                    <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="">
                                                 </div>
                                             </a>
                                         </td>

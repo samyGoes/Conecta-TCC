@@ -21,10 +21,10 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
     gap: 2rem;
-    margin: 15%;
+    margin: 5%;
 }
 
 .titulo {
@@ -59,7 +59,7 @@ main {
     border-radius: 1.5%;
     font-family: poppins;
     padding: 3%;
-    width: 43rem;
+    width: auto;
     box-shadow: #a7c4d3 5px 5px 7px 1px;
 }
 
@@ -74,7 +74,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5%;
+    gap: 3%;
 }
 
 .input-box{
@@ -84,7 +84,7 @@ main {
 .input-box input
 {
     font-family: poppins;
-    color: #000;
+    color: #525252;
     border-bottom: solid 1px #4567a5;
     outline: none;
     width: 15rem;
@@ -96,12 +96,14 @@ main {
     width: 100%;
 }
 
-.form textarea {
+.input-box textarea {
     font-family: poppins;
     color: #000;
     border: solid 1px #4567a5;
     outline: none;
     resize: none;
+    width: 30rem;
+    height: 25vh;
 }
 
 .btn-enviar {
@@ -150,7 +152,7 @@ main {
     justify-content: center;
     align-items: center;
     box-shadow: #a7c4d3 5px 5px 7px 1px;
-    width: 45rem;
+    width: 32rem;
     border-radius: 8px;
     border: #4567a5 solid 1px;
 }
@@ -180,12 +182,37 @@ main {
 
 /* responsividade */
 
-@media(max-width: 765px){
+@media(max-width: 529px){
     .card-formulario{
+        display: flex;
+        flex-direction: column;
         border: none;
         box-shadow: none;
+        max-width: 40rem;
+        box-shadow: 3px 2px 2px 2px #525252;
     }
     .form{
-        display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-group{
+        display: block;
+    }
+    .input-box{
+        display: block;
+    }
+    .input-box textarea{
+        width: 20rem;
+        height: 10rem;
+    }
+}
+@media (max-width: 320px){
+    .input-box textarea{
+        width: 16rem;
+        height: 8rem;
+    }
+    .info{
+        
     }
 }

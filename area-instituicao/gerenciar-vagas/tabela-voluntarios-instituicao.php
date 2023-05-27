@@ -482,7 +482,7 @@ include "../../auth/verifica-logado.php";
                                         <td>
                                             <a href="">
                                                 <div class="box-img-lista">
-                                                    <img src="img/user-cinza.png" alt="">
+                                                    <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="">
                                                 </div>
                                             </a>
                                         </td>
@@ -496,28 +496,28 @@ include "../../auth/verifica-logado.php";
                                     </tr>
                                 </form>
 
-            <?php
-            if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
-                $codCandidatura = $_POST['btnChamar'];
-                try {
-                    $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
-                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php??';</script>";
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-            } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $voluntario['codCandidatura']) {
-                $codCandidatura = $_POST['btnRecusar'];
-                try {
-                    $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
-                    echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php??';</script>";
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-            }
-            ?>
-        <?php } ?>
-    </tbody>
-</table>
+                                <?php
+                                if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
+                                    $codCandidatura = $_POST['btnChamar'];
+                                    try {
+                                        $statusCandidatura = CandidaturaDao::aceitarCandidatura($codCandidatura);
+                                        echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $voluntario['codCandidatura']) {
+                                    $codCandidatura = $_POST['btnRecusar'];
+                                    try {
+                                        $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
+                                        echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                }
+                                ?>
+                            <?php } ?>
+                        </tbody>
+                    </table>
 
 
                 </div>
