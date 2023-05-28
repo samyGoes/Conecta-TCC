@@ -25,37 +25,14 @@
             return $lista;  
         }
 
-        //public static function editar($galeriaInstituicao)
-        //{
-            //Conexão com o banco de dados
-           // $conectar=Conexao::conectar();
+        public static function excluir($codFotoInsti)
+        {
+           $conectar=Conexao::conectar();
 
-            //Editando 
-           // $prepareStatement = $conectar->prepare("UPDATE tbFotosInstituicao SET fotosInstituicao = ?")
+           $deleteFotoInsti = $conectar->prepare("DELETE FROM tbFotosInstituicao WHERE idFotosInstituicao = ?");
+           $deleteFotoInsti->bindValue(1,$codFotoInsti);
+           $deleteFotoInsti->execute();
 
-           // $prepareStatement -> bindValue (1, $galeriaInstituicao -> getFotoGaleria());
-
-           // $prepareStatement -> execute();
-
-            //Guardando o id 
-           // $idFotoInsti = $galeriaInstituicao->getId();
-
-            //Excluindo 
-           // $deleteFotoInsti = $conectar->prepare("DELETE FROM tbFotosInstituicao WHERE codServico = ?");
-           // $deleteFotoInsti->bindValue(1,$$idFotoInsti);
-           // $deleteFotoInsti->execute();
-
-        //}
-
-
-       // public static function excluir($codFotoInsti)
-        //{
-         //   $conectar=Conexao::conectar();
-
-        //    $deleteHabiVaga = $conectar->prepare("DELETE FROM tbFotosInstituicao WHERE codServico = ?");
-        //    $deleteHabiVaga->bindValue(1,$cod);
-        //    $deleteHabiVaga->execute();
-
-//        }
+        }
 
     }
