@@ -223,29 +223,27 @@
 
                 <!-- CARDS 1 -->          
                 <div class="container-cards">
+                <?php
+                            require_once 'global.php';
+                            $codVoluntario = $_SESSION['codUsuario'];
+
+                            try {
+                                $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+
+                    ?>
                     <?php
-                        try {
-                            $listaVaga = ServicoDao::listarVaga($_SESSION['codUsuario']);
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
+                            foreach ($listaVagasCandidatadas as $vagaCandidatada) {
+                                $codCandidatura = $vagaCandidatada['codCandidatura'];
+                                $codServico = $vagaCandidatada['codServico'];
+                                $status = $vagaCandidatada['statusCandidatura'];
 
-                        $vetor = array
-                        (
-                            'professor',
-                            'motorista particular',
-                            'atendente',
-                            'cozinheira',
-                            'recepcionista',
-                            'professor de espanhol e Professor de inglês'
-                        );
-
-                    ?>
-                    <?php 
-                        //foreach ($listaVaga as $vaga) 
-                        foreach($vetor as $i)
-                        {
-                    ?>
+                                $servico = ServicoDao::obterServicoPorCodigo($codServico);
+                                $nomeVaga = $servico['nomeservico'];
+                                
+                            ?>
                             <div class="card">                       
                                 <div class="box-status">
                                     <div class="status-bolinha"></div>

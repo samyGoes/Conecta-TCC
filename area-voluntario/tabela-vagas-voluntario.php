@@ -403,6 +403,7 @@ require_once '../auth/verifica-logado.php';
                             foreach ($listaVagasCandidatadas as $vagaCandidatada) {
                                 $codCandidatura = $vagaCandidatada['codCandidatura'];
                                 
+                                
                             ?>
                             
                                 
