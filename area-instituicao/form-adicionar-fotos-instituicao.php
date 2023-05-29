@@ -337,13 +337,14 @@ require_once '../auth/verifica-logado.php';
                         require_once 'global.php';
                         try {
                             $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
+                           // echo $listaImg; 
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
                         foreach ($listaImg as $img) { ?>
                     <div class="box-img">
                         
-                        <img src="<?php $img['fotosInstituicao']; ?>" alt="">
+                        <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
                     </div>
                     <?php } ?>
                 </div>

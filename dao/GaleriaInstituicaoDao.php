@@ -23,7 +23,7 @@
             $querySelect = $conexao->prepare("SELECT  fotosInstituicao FROM tbFotosInstituicao WHERE codInstituicao = ?");
             $querySelect->bindValue(1, $cod);
             $querySelect->execute();
-            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC); 
+            $resultado = $querySelect->fetchAll(PDO::FETCH_ASSOC); 
             return $resultado; 
         }
 

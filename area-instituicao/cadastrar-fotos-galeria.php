@@ -21,7 +21,7 @@
             //nome temporário do arquivo como foi armazenado no servidor, é o ARQUIVO!!!
             $arquivo = $_FILES['foto'] ['tmp_name'];
 
-            $diretorio = "img-instituicao/";
+            $diretorio = "galeria-instituicao/";
         
             $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
 
