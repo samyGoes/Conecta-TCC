@@ -234,7 +234,7 @@ require_once '../auth/verifica-logado.php';
 
                 ?>
                 <?php
-                echo"a";
+                
                 foreach ($listaVagasCandidatadas as $vagaCandidatada) {
                     $codCandidatura = $vagaCandidatada['codCandidatura'];
                     $codServico = $vagaCandidatada['codServico'];
