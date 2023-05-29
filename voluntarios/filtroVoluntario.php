@@ -1,62 +1,59 @@
 <?php
-    // pesquisar_voluntarios.php
 
-    require_once 'global.php';
+    $causas = $_GET['causas'];
+    $estado = $_GET['estados'];
+    $cidade = $_GET['cidades'];
 
-    // Receber os parâmetros da solicitação AJAX
-    $estado = $_POST['estado'];
-    $cidade = $_POST['cidade'];
-    $causas = $_POST['causas'];
-
-    $conexao = Conexao::conectar();
-
-
-    // Construir a consulta SQL com base nos parâmetros
-    $sql = "SELECT * FROM tbvoluntario WHERE";
-
-    if ($estado) {
-        $sql .= "estado = :estado";
-    }
-
-    if ($cidade) {
-        $sql .= "cidade = :cidade";
-    }
-
-    if ($causas) {
-        $causasArray = explode(',', $causas);
-        $placeholders = implode(',', array_fill(0, count($causasArray), '?'));
-
-        $sql .= "idVoluntario IN (
-            SELECT idVoluntario FROM tbvoluntariocategoriaservico WHERE idCategoriaServico IN (
-                SELECT idCategoriaServico FROM tbcategoriaservico WHERE idCategoriaServico IN ($placeholders)
-            )
-        )";
-    }
-
-    // Executar a consulta e obter os resultados
-    try {
-        $stmt = $conexao->prepare($sql);
-
-        if ($estado) {
-            $stmt->bindValue(':estado', $estado);
+   
+        $conexao = Conexao :: conectar();
+            // Verificar se todos os filtros estão vazios
+            if (empty($causas) && empty($estado) && empty($cidade)) 
+            {
+                $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
+                $resultado = $conexao -> query($querySelect);
+                $lista = $resultado -> fetchAll();
+                return $lista;
+            } 
+            else 
+            {
+                // Consulta com os filtros informados
+                $sql = "SELECT * FROM tabela WHERE 1=1"; // Usamos "WHERE 1=1" para facilitar a adição de cláusulas na consulta
+            
+                if (!empty($filtro1)) 
+                {
+                    $sql .= " AND campo1 = :filtro1";
+                }
+            
+                if (!empty($filtro2)) 
+                {
+                    $sql .= " AND campo2 = :filtro2";
+                }
+            
+                if (!empty($filtro3)) 
+                {
+                    $sql .= " AND campo3 = :filtro3";
+                }
+            }
+        
+        // Executar a consulta no banco de dados
+        $stmt = $pdo->prepare($sql);
+        if (!empty($filtro1)) {
+            $stmt->bindParam(':filtro1', $filtro1);
         }
-
-        if ($cidade) {
-            $stmt->bindValue(':cidade', $cidade);
+        if (!empty($filtro2)) {
+            $stmt->bindParam(':filtro2', $filtro2);
         }
-
-        if ($causas) {
-            $stmt->execute($causasArray);
-        } else {
-            $stmt->execute();
+        if (!empty($filtro3)) {
+            $stmt->bindParam(':filtro3', $filtro3);
         }
-
+        $stmt->execute();
+        
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // Retornar os resultados como resposta à solicitação AJAX
-        echo json_encode($resultados);
-    } catch (PDOException $e) {
-        // Tratar erros de consulta
-        echo json_encode(['error' => $e->getMessage()]);
-}
+        
+        // Processar os resultados e exibir na página
+        foreach ($resultados as $resultado) {
+            // Exibir os resultados conforme necessário
+        }
+    }
+    
 ?>
