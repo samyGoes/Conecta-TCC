@@ -1,9 +1,10 @@
 <?php
 
-    class galeria
+    class GaleriaInstituicao
     { 
         private $idGaleriaFoto;
         private $fotoGaleria;
+        private $idInstituicao;
         
 
         public function getIdGaleriaFoto()
@@ -14,15 +15,22 @@
         {
             return $this->fotoGaleria;
         }
-
+        public function getIdInstituicao()
+        {
+            return $this->idInstituicao;
+        }
 
         public function setIdGaleriaFoto($idGaleriaFoto)
         {
-            return $this->$idGaleriaFoto = $idGaleriaFoto;
+            $this->idGaleriaFoto = $idGaleriaFoto;
         }
-        public function setFotoGaleira($fotoGaleria)
+        public function setFotoGaleria($fotoGaleria)
         {
-            return $this->$fotoGaleria = $fotoGaleria;
+            $this->fotoGaleria = $fotoGaleria;
+        }
+        public function setIdInstituicao($idInstituicao)
+        {
+            $this->idInstituicao = $idInstituicao;
         }
     }
     

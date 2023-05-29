@@ -320,24 +320,31 @@ require_once '../auth/verifica-logado.php';
         </div>
 
         <div class="form">
-            <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="cadastrar-fotos-galeria.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <div class="input-box">
                         <label id="label" for="foto">Selecione uma foto</label>
                         <input type="file" accept="image/*" id="foto" name="foto">
                     </div>
+                    <button type="submit">Adicionar</button>
                 </div>
             </form>
         </div>
 
         <div class="imagens-intituicao">
                 <div class="galeria">
-                <?php
-                    for ($i = 0; $i < 3; $i++) {
-                    ?>
+                    <?php
+                        require_once 'global.php';
+                        try {
+                            $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
+                           // echo $listaImg; 
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+                        foreach ($listaImg as $img) { ?>
                     <div class="box-img">
                         
-                        <img src="../area-instituicao/img/1.jpg" alt="">
+                        <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
                     </div>
                     <?php } ?>
                 </div>

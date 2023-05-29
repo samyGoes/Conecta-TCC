@@ -8,23 +8,23 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(idFotosIntituicao, fotosInstituicao, codintituicao) 
-            VALUES(?,?,?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(fotosInstituicao, codInstituicao) 
+            VALUES(?,?)");
 
-            $prepareStatement -> bindValue (1, $galeriaInstituicao -> getIdGaleriaFoto());
-            $prepareStatement -> bindValeu (2, $galeriaInstituicao -> getFotoGaleria());
-            $prepareStatement -> bindValeu (3, $galeriaInstituicao -> getIdInstituicao());
+            $prepareStatement -> bindValue (1, $galeriaInstituicao -> getFotoGaleria());
+            $prepareStatement -> bindValue (2, $galeriaInstituicao -> getIdInstituicao());
             $prepareStatement -> execute();
      
         }
 
-        public static function listar()
+        public static function listar($cod)
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT  fotosInstituicao FROM tbFotosInstituicao";
-            $resultado = $conexao->query($querySelect);
-            $lista = $resultado->fetchAll();
-            return $lista;  
+            $querySelect = $conexao->prepare("SELECT  fotosInstituicao FROM tbFotosInstituicao WHERE codInstituicao = ?");
+            $querySelect->bindValue(1, $cod);
+            $querySelect->execute();
+            $resultado = $querySelect->fetchAll(PDO::FETCH_ASSOC); 
+            return $resultado; 
         }
 
         public static function excluir($codFotoInsti)

@@ -13,8 +13,6 @@
 
             $prepareStatement -> bindValue (1, $categoriaServico -> getNomeCategoria());
             $prepareStatement -> execute();
-
-                
         }
 
         public static function listar()

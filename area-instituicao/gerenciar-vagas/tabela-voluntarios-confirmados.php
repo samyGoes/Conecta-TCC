@@ -208,7 +208,7 @@ include "../../auth/verifica-logado.php";
                             require_once 'global.php';
 
                             try {
-                                var_dump($_POST);
+                                
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
                                 $codServico = $_POST['codCategoriaServico']; // Obter o código da vaga do botão clicado
                                 $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico); // Passar o código da vaga para a consulta
@@ -235,7 +235,7 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> <a href="chat.php"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
+                                        <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
                                         <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
                                     </tr>
                                 </form>
