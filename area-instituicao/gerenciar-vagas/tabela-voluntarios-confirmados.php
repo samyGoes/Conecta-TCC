@@ -235,7 +235,7 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> <a href="chat.php"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
+                                        <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
                                         <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
                                     </tr>
                                 </form>
