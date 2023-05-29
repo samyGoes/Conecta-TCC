@@ -6,19 +6,18 @@
     {
         public static function cadastrar($causaVoluntario, $codVoluntario)
         {
-
             $conexao = Conexao::conectar();
-
-            $verificaCausa=$conexao->prepare("SELECT codVoluntario FROM tbcausaVoluntario WHERE codCategoriaServico IN (?) AND codVoluntario != ? ");
+        
+            $verificaCausa = $conexao->prepare("SELECT codVoluntario FROM tbcausaVoluntario WHERE codCategoriaServico IN (?) AND codVoluntario != ? AND codVoluntario = ?");
             $codCategoria = implode(",", $causaVoluntario->getCodCategoria());
             $verificaCausa->bindValue(1, $codCategoria);
             $verificaCausa->bindValue(2, $codVoluntario);
+            $verificaCausa->bindValue(3, $codVoluntario);
             $verificaCausa->execute();
-            
-
-            if($verificaCausa->rowCount() > 0 )
+        
+            if ($verificaCausa->rowCount() > 0) 
             {
-                echo "<script>alert('Essa causa ja foi adicionada ao seu perfil');</script>";
+                echo "<script>alert('Essa causa já foi adicionada ao seu perfil');</script>";
                 return false;
             }
             else
