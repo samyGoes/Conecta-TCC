@@ -62,6 +62,23 @@ class CandidaturaDao
         return $lista;
     }
 
+    public static function listarVoluntariosAceitos($idInstituicaoLogada, $codServico)
+    {
+        $conexao = Conexao::conectar();
+    
+        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            FROM tbCandidatura
+            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+            INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+            WHERE tbInstituicao.codInstituicao = ? AND tbServico.codServico = ? AND tbCandidatura.statusCandidatura = 'aceito'";
+    
+        $resultado = $conexao->prepare($querySelect);
+        $resultado->execute(array($idInstituicaoLogada, $codServico));
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
+
 
 
     public static function obterQuantidadeInscritosPorServico($codServico)
