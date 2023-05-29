@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -137,7 +136,7 @@
                         <input type="text" name="estado">
                     </div>
                 </div>
-                <div class="input-box">
+                <div class="input-box-textarea">
                     <label for="">Mensagem</label>
                     <textarea></textarea>
                 </div>

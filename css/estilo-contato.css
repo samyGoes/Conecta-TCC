@@ -14,6 +14,7 @@
 body {
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 main {
@@ -21,10 +22,12 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     width: 100%;
     gap: 2rem;
-    margin: 5%;
+    margin: 10rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 .titulo {
@@ -36,7 +39,7 @@ main {
 
 
 .titulo h1 {
-    font-size: auto;
+    font-size: 33px;
     font-family: acme, sans-serif;
     font-weight: 500;
     color: #4567a5;
@@ -58,31 +61,32 @@ main {
     align-items: center;
     border-radius: 1.5%;
     font-family: poppins;
-    padding: 3%;
-    width: auto;
-    box-shadow: #a7c4d3 5px 5px 7px 1px;
+    padding: 3rem;
+    width: 36rem;
+    box-shadow: 5px 5px 5px #b4d8e6; 
+    margin: 2rem;
 }
 
-.form{
-    margin: 5%;
+.form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.input-group{
+.input-group {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 3%;
+    justify-content: center;
+    gap: 5%;
 }
 
-.input-box{
+.input-box {
     display: flex;
     flex-direction: column;
 }
-.input-box input
-{
+
+.input-box input {
     font-family: poppins;
     color: #525252;
     border-bottom: solid 1px #4567a5;
@@ -96,7 +100,12 @@ main {
     width: 100%;
 }
 
-.input-box textarea {
+.input-box-textarea{
+    width: 100%;
+    height: 100%;
+}
+
+.input-box-textarea textarea {
     font-family: poppins;
     color: #000;
     border: solid 1px #4567a5;
@@ -104,7 +113,16 @@ main {
     resize: none;
     width: 30rem;
     height: 25vh;
+    display: flex;
+    flex-direction: column;
 }
+
+.input-box-textarea label{
+    display: flex;
+    flex-direction: column;
+    line-height: 3rem;
+}
+
 
 .btn-enviar {
     width: 100%;
@@ -151,10 +169,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: #a7c4d3 5px 5px 7px 1px;
-    width: 32rem;
+    box-shadow: 5px 5px 5px #b4d8e6;
+    padding: 0.2rem;
+    width: 36rem;
     border-radius: 8px;
     border: #4567a5 solid 1px;
+    margin: 2rem;
 }
 
 .email-numero {
@@ -177,42 +197,79 @@ main {
 .info-box p {
     font-family: poppins, sans-serif;
     font-size: 16px;
+    word-wrap: break-word;
 }
 
 
 /* responsividade */
 
-@media(max-width: 529px){
-    .card-formulario{
+@media(max-width: 575px) {
+    .card-formulario {
         display: flex;
         flex-direction: column;
         border: none;
         box-shadow: none;
-        max-width: 40rem;
-        box-shadow: 3px 2px 2px 2px #525252;
+        width: 100%;
     }
-    .form{
+
+    .form {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .input-group{
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .input-box {
         display: block;
     }
-    .input-box{
-        display: block;
+
+    .input-box input{
+        width: 70vw;
     }
-    .input-box textarea{
-        width: 20rem;
+
+    .input-box-textarea textarea {
+        width: 70vw;
         height: 10rem;
     }
+
+    .info {
+        max-width: 70vw;
+        box-shadow: none;
+    }
+
+    .email-numero {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
 }
-@media (max-width: 320px){
-    .input-box textarea{
-        width: 16rem;
-        height: 8rem;
+
+@media (max-width: 465px) {
+    .email-numero {
+        width: 100%;
+        display: block;
+        text-align: center;
     }
-    .info{
-        
+}
+
+@media (max-width: 375px) {
+    .email-numero {
+        width: 100%;
+        display: block;
+        text-align: center;
     }
+}
+
+@media (max-width: 320px) {
+    .email-numero {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
 }
