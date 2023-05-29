@@ -320,12 +320,13 @@ require_once '../auth/verifica-logado.php';
         </div>
 
         <div class="form">
-            <form class="container" action="update-instituicao.php" method="post" enctype="multipart/form-data">
+            <form class="container" action="cadastrar-fotos-galeria.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <div class="input-box">
                         <label id="label" for="foto">Selecione uma foto</label>
                         <input type="file" accept="image/*" id="foto" name="foto">
                     </div>
+                    <button type="submit">Adicionar</button>
                 </div>
             </form>
         </div>
