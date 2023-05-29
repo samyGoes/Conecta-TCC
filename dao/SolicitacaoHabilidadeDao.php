@@ -20,39 +20,35 @@
         {
             $conexao = Conexao :: conectar();
             $querySelect = "SELECT codSolicitacaoHabilidade, nomeHabilidade, statusSolicitacao, tbInstituicao.nomeInstituicao FROM tbSolicitacaoHabilidade
-                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao =  tbsolicitacaohabilidade.codInstituicao";
+                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao =  tbsolicitacaohabilidade.codInstituicao
+                                    WHERE statusSolicitacao LIKE 'pendente'";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;
         }
 
     
-        public static function aceitarSolicitacao($nomeHabilidade, $idSolicitacao)
+        public static function aceitarSolicitacao($nomeCategoria, $idSolicitacao)
         {
             $conexao = Conexao::conectar();
-
-            $queryAceito = "INSERT INTO tbHabilidadeServico (nomeHabilidadeServico) VALUES ('$nomeHabilidade')";
-
-            $conexao->query($queryAceito);
-
-            $queryDelete = "DELETE FROM tbSolicitacaoHabilidade WHERE codSolicitacaoHabilidade = $idSolicitacao";
-            $conexao->query($queryDelete);
-
-            echo "Sua solicitação foi aceita";
-            
-        }   
-
         
-
-
+            $queryAceito = "UPDATE tbSolicitacaoHabilidade SET statusSolicitacao = 'aceito' WHERE codSolicitacaoHabilidade = $idSolicitacao";
+            $conexao->query($queryAceito);
+        
+            $queryInsert = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
+            $conexao->query($queryInsert);
+        
+            //echo "Sua solicitação foi aceita";
+        }
+        
         public static function recusarSolicitacao($idSolicitacao)
         {
             $conexao = Conexao::conectar();
-
-            $queryRecusado = "DELETE FROM tbSolicitacaoHabilidade WHERE codSolicitacaoHabilidade = $idSolicitacao";
+        
+            $queryRecusado = "UPDATE tbSolicitacaoHabilidade SET statusSolicitacao = 'recusado' WHERE codSolicitacaoHabilidade = $idSolicitacao";
             $conexao->query($queryRecusado);
-
-            echo "Sua causa foi recusada";
+        
+            //echo "Sua causa foi recusada";
         }
     }
     

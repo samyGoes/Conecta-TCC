@@ -20,7 +20,8 @@
         {
             $conexao = Conexao :: conectar();
             $querySelect = "SELECT codSolicitacaoCategoria, nomeCategoria, statusSolicitacao, tbInstituicao.nomeInstituicao FROM tbSolicitacaoCategoria
-                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbSolicitacaoCategoria.codInstituicao";
+                                INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbSolicitacaoCategoria.codInstituicao
+                                    WHERE statusSolicitacao LIKE 'pendente'";
             $resultado = $conexao -> query($querySelect);
             $lista = $resultado -> fetchAll();
             return $lista;
@@ -30,29 +31,24 @@
         public static function aceitarSolicitacao($nomeCategoria, $idSolicitacao)
         {
             $conexao = Conexao::conectar();
-
-            $queryAceito = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
-
-            $conexao->query($queryAceito);
-
-            $queryDelete = "DELETE FROM tbSolicitacaoCategoria WHERE codSolicitacaoCategoria = $idSolicitacao";
-            $conexao->query($queryDelete);
-
-            echo "Sua solicitação foi aceita";
-            
-        }   
-
         
-
-
+            $queryAceito = "UPDATE tbSolicitacaoCategoria SET statusSolicitacao = 'aceito' WHERE codSolicitacaoCategoria = $idSolicitacao";
+            $conexao->query($queryAceito);
+        
+            $queryInsert = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
+            $conexao->query($queryInsert);
+        
+            //echo "Sua solicitação foi aceita";
+        }
+        
         public static function recusarSolicitacao($idSolicitacao)
         {
             $conexao = Conexao::conectar();
-
-            $queryRecusado = "DELETE FROM tbSolicitacaoCategoria WHERE codSolicitacaoCategoria = $idSolicitacao";
+        
+            $queryRecusado = "UPDATE tbSolicitacaoCategoria SET statusSolicitacao = 'recusado' WHERE codSolicitacaoCategoria = $idSolicitacao";
             $conexao->query($queryRecusado);
-
-            echo "Sua causa foi recusada";
+        
+            //echo "Sua causa foi recusada";
         }
     }
     

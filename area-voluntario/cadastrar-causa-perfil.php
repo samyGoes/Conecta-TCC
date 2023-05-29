@@ -14,7 +14,7 @@
         $causaVoluntario -> setCodVoluntario($_SESSION['codUsuario']);
 
 
-        $cadastrar = CausasVoluntarioDao:: cadastrar($causaVoluntario);
+        $cadastrar = CausasVoluntarioDao:: cadastrar($causaVoluntario,$_SESSION['codUsuario']);
      
     }
     catch(Exception $e)

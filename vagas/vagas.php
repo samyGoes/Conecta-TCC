@@ -332,22 +332,26 @@
 
     <div class="cards">
     <?php
-        if (empty($_SESSION['codUsuario'])) {
+        if (isset($_SESSION['codUsuario'])) {
             try {
-                //$listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
+                $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario']);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            if (empty($listaVaga)) {
+                try {
+                    $listaVaga = ServicoDao::listarVagaAdm();
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            }
+        } else {
+            try {
                 $listaVaga = ServicoDao::listarVagaAdm();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
-        } else {
-            try {
-                $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario'], $_SESSION['codUsuario']);
-                //$listaVaga = ServicoDao::listarVagaAdm();
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-        }
-
+        }    
         if (is_array($listaVaga) && !empty($listaVaga)) {
             foreach ($listaVaga as $vaga) {
                 ?>
