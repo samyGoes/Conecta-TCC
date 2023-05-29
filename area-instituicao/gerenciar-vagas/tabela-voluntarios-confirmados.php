@@ -208,7 +208,7 @@ include "../../auth/verifica-logado.php";
                             require_once 'global.php';
 
                             try {
-                                var_dump($_POST);
+                                
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
                                 $codServico = $_POST['codCategoriaServico']; // Obter o código da vaga do botão clicado
                                 $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico); // Passar o código da vaga para a consulta

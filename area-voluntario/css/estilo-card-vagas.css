@@ -213,9 +213,25 @@
     width: 16px;
     height: 16px;
     border: 1px solid #000;
-    background-color: #ffec41;
     border-radius: 50%;
 }
+
+
+.status-bolinha-pendente
+{
+    background-color: #ffec41;
+}
+
+.status-bolinha-aceito
+{
+    background-color: #0bfc1f;
+}
+
+.status-bolinha-recusado
+{
+    background-color: #ff0404;
+}
+
 
 .status
 {
