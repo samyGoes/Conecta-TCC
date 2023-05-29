@@ -24,7 +24,7 @@
 
             <div class="nav-lateral-box-icon">
                 <a href="instituicoes-cadastradas.php"> <i class="fa-solid fa-hand-holding-heart"></i> <span class="nav-lateral-topico"> Instituições
-                 </span></a>
+                    </span></a>
             </div>
 
             <div class="nav-lateral-box-icon">
@@ -70,14 +70,14 @@
                 <div class="box-card-sessao-1">
 
                     <div class="card-topo">
-                        <?php 
-                            require_once 'global.php';
+                        <?php
+                        require_once 'global.php';
 
-                            try{
-                                $row = DashboardDao::SelecionaInstituicao();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
+                        try {
+                            $row = DashboardDao::SelecionaInstituicao();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
                         ?>
 
                         <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
@@ -86,14 +86,14 @@
 
                     <div class="card-topo">
 
-                    <?php 
-                            require_once 'global.php';
+                        <?php
+                        require_once 'global.php';
 
-                            try{
-                                $row = DashboardDao::SelecionaVoluntario();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
+                        try {
+                            $row = DashboardDao::SelecionaVoluntario();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
                         ?>
                         <div class="titulo-card"> <i class="fa-solid fa-person"></i> VOLUNTÁRIOS CADASTRADOS</div>
                         <h1><?php echo ($row[0]); ?></h1>
@@ -109,39 +109,40 @@
                                 </div>
                             </div>
                             <table>
-                                <tbody>                            
+                                <tbody>
+                                <?php
+
+
+                                    require_once 'global.php';
+
+                                    try {
+                                        $row = DashboardDao::melhoresInstituicoes();
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                    ?>
                                     <?php
-                                        $nomes = array
-                                        (
-                                            'Sâmily Silva De Goes',
-                                            'Ana Claudia Ferreira',
-                                            'Fernanda De Souza Bezerra',
-                                            'Gabriella Ferreira Alves',
-                                            'Nevasca te amamos'
-                                        );
-                                        $avaliacao = array
-                                        (
-                                            '5',
-                                            '4',
-                                            '3',
-                                            '2',
-                                            '5'
-                                        );
-                                        
-                                        foreach($nomes as $v => $nomes)
-                                        {
-                                    ?>    <tr>
-                                            <td> <div class="td-divisao"><div class="box-img"><img src="../area-voluntario/img/user.png"></div><?php echo $nomes; ?></div></td>
-                                            <td> <?php echo $avaliacao[$v]; ?></td>
+                                        foreach ($row as $instituicao) {
+                                    ?> <tr>
+                                            <td>
+                                                <div class="td-divisao">
+                                                    <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
+                                                    <div class=".td-text">
+                                                        <?php echo $instituicao['nomeInstituicao']; ?>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <?php echo $instituicao['estrelas']; ?></td>
                                         </tr>
                                     <?php
-                                        }                                      
-                                    ?>                            
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="table">
+
                         <div class="table-responsive">
                             <div class="funcoes">
                                 <i class="fa-solid fa-star"></i>
@@ -151,43 +152,35 @@
                                 </div>
                             </div>
                             <table>
-                                <tbody>                            
+                                <tbody>
                                     <?php
-                                        $nomes = array
-                                        (
-                                            'Sâmily Silva De Goes',
-                                            'Ana Claudia Ferreira',
-                                            'Fernanda De Souza Bezerra',
-                                            'Gabriella Ferreira Alves',
-                                            'Nevasca te amamos'
-                                        );
-                                        $avaliacao = array
-                                        (
-                                            '5',
-                                            '4',
-                                            '3',
-                                            '2',
-                                            '5'
-                                        );
-                                        
-                                        foreach($nomes as $v => $nomes)
-                                        {
-                                    ?>      <tr>
-                                                <td> 
-                                                    <div class="td-divisao">
-                                                        <div class="box-img">
-                                                            <img src="../area-voluntario/img/user.png">
-                                                        </div>
-                                                        <div class=".td-text">
-                                                            <?php echo $nomes; ?>
-                                                        </div>
-                                                    </div> 
-                                                </td>
-                                                <td> <?php echo $avaliacao[$v]; ?></td>
-                                            </tr>
+
+
+                                    require_once 'global.php';
+
+                                    try {
+                                        $row = DashboardDao::melhoresVoluntarios();
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                    ?>
+                                    <?php foreach ($row as $voluntario) { ?>
+                                        <tr>
+                                            <td>
+                                                <div class="td-divisao">
+                                                    <div class="box-img">
+                                                        <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
+                                                    </div>
+                                                    <div class=".td-text">
+                                                        <?php echo $voluntario['nomeVoluntario']; ?>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <?php echo $voluntario['estrelas']; ?></td>
+                                        </tr>
                                     <?php
-                                        }                                      
-                                    ?>                            
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -206,72 +199,73 @@
                             </div>
                         </div>
                         <?php
-                                // definindo porcentagem
-                                $width1 = '28%';
-                                $width2 = '49%';
-                                $width3 = '33%';
-                                $width4 = '13%';
-                                $width5 = '23%';
-                                $width6 = '44%';
-                                $width7 = '34%';
-                                $width8 = '17%';
-                                $total  = 8; // total de barras
+                        // definindo porcentagem
+                        $width1 = '28%';
+                        $width2 = '49%';
+                        $width3 = '33%';
+                        $width4 = '13%';
+                        $width5 = '23%';
+                        $width6 = '44%';
+                        $width7 = '34%';
+                        $width8 = '17%';
+                        $total  = 8; // total de barras
 
-                           //  require_once 'global.php';
+                        //   require_once 'global.php';
 
-                           //  try{
-                            //     $idade = DashboardDao::porcentagem();
-                            // } catch (Exception $e) {
-                             //    echo $e->getMessage();
-                            // }
-
-                            // foreach($idade as $numero){
-                            //    echo $numero;
-                           //  }
-                         ?>
+                        //   try{
+                        //      $idade = DashboardDao::porcentagem();
+                        //  } catch (Exception $e) {
+                        //     echo $e->getMessage();
+                        //  }
+                        //  ?>
+                         <?php
+                         foreach($idade as $numero){
+                            echo $numero;
+                          }
+                        ?>
                         <!-- <div class="table-responsive-grafico"> -->
-                            <div class="box-1">
-                                <div class="organizador-1">
-                                    <?php
-                                        for($i=1;$i <= $total;$i++){
-                                        $width = ${'width' . $i};
-                                    ?>
+                        <div class="box-1">
+                            <div class="organizador-1">
+                                <?php
+                                for ($i = 1; $i <= $total; $i++) {
+                                    $width = ${'width' . $i};
+                                ?>
                                     <div id="barras">
-                                        <div class="barra<?=$i?> "style="width:<?=$width ?>" ></div>
+                                        <div class="barra<?= $i ?> " style="width:<?= $width ?>"></div>
                                     </div>
-                                    <?php } ?>
+                                <?php } ?>
 
-                                </div>
-                                <div class="organizador-2">
-                                    <div class="anos">
-                                        <li>
-                                            <ul>0 a 10</ul>
-                                            <ul>10 a 20</ul>
-                                            <ul>20 a 30</ul>
-                                            <ul>30 a 40</ul>
-                                            <ul>40 a 50</ul>
-                                            <ul>50 a 60</ul>
-                                            <ul>60 a 70</ul>
-                                            <ul>70+</ul>
-                                        </li>
-                                    </div>
-                                </div>
                             </div>
-
-                            <div class="box-2">
-                                <div class="porcentagem">
+                            <div class="organizador-2">
+                                <div class="anos">
                                     <li>
-                                        <ul>0%</ul>
-                                        <ul>10%</ul>
-                                        <ul>30%</ul>
-                                        <ul>50%</ul>
-                                        <ul>70%</ul>
-                                        <ul>90%</ul>
-                                        <ul>100%</ul>
+                                        <ul>0 a 10</ul>
+                                        <ul>10 a 20</ul>
+                                        <ul>20 a 30</ul>
+                                        <ul>30 a 40</ul>
+                                        <ul>40 a 50</ul>
+                                        <ul>50 a 60</ul>
+                                        <ul>60 a 70</ul>
+                                        <ul>70+</ul>
                                     </li>
                                 </div>
-
                             </div>
+                        </div>
+
+                        <div class="box-2">
+                            <div class="porcentagem">
+                                <li>
+                                    <ul>0%</ul>
+                                    <ul>10%</ul>
+                                    <ul>30%</ul>
+                                    <ul>50%</ul>
+                                    <ul>70%</ul>
+                                    <ul>90%</ul>
+                                    <ul>100%</ul>
+                                </li>
+                            </div>
+
+                        </div>
 
                         <!-- </div> -->
                     </div>
