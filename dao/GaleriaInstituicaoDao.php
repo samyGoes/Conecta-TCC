@@ -8,10 +8,12 @@
         {
             $conexao = Conexao :: conectar();
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(idFotosIntituicao, fotosInstituicao) 
-            VALUES(?,?)");
+            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(idFotosIntituicao, fotosInstituicao, codintituicao) 
+            VALUES(?,?,?)");
 
-            $prepareStatement -> bindValue (1, $galeriaInstituicao -> getFotoGaleria());
+            $prepareStatement -> bindValue (1, $galeriaInstituicao -> getIdGaleriaFoto());
+            $prepareStatement -> bindValeu (2, $galeriaInstituicao -> getFotoGaleria());
+            $prepareStatement -> bindValeu (3, $galeriaInstituicao -> getIdInstituicao());
             $prepareStatement -> execute();
      
         }
@@ -36,3 +38,5 @@
         }
 
     }
+
+?>
