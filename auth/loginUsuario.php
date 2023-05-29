@@ -41,6 +41,12 @@ error_reporting(E_ALL);
                 $_SESSION['nomeUsuario'] = $result['nomeVoluntario'];
                 $_SESSION['emailUsuario'] = $result['emailVoluntario'];
                 $_SESSION['tipoPerfil']= 'Voluntario';
+
+                // NOVA NOTIFICAÇÃO
+                $notificacao = $conectar->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura");
+                $notificacao->execute();
+                $qtdMensagemAntiga = $notificacao -> fetchAll();
+                $_SESSION['qtdMensagemAntiga'] = $qtdMensagemAntiga[0][0];
                
 
                 // Redireciona para a página inicial do site
@@ -75,6 +81,12 @@ error_reporting(E_ALL);
                 $_SESSION['nomeUsuario'] = $result['nomeInstituicao'];
                 $_SESSION['emailUsuario'] = $result['emailInstituicao'];
                 $_SESSION['tipoPerfil']= 'Instituicao';
+
+                // NOVA NOTIFICAÇÃO
+                $notificacao = $conectar->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura");
+                $notificacao->execute();
+                $qtdMensagemAntiga = $notificacao -> fetchAll();
+                $_SESSION['qtdMensagemAntiga'] = $qtdMensagemAntiga;
         
                 // Redireciona para a página inicial do site
                 header('Location: ../index.php');

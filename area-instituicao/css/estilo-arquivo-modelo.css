@@ -108,7 +108,20 @@
 	display: none;
 }
 
-
+.box-sininho
+{
+    position: relative;
+}
+.nova-notificacao-bolinha
+{
+    width: 11px;
+    height: 11px;
+    background-color: #6890e0;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: 2px;
+}
 
 /* DROP DOWN */
 .topicos-sessao-login 
@@ -116,7 +129,7 @@
     /* display: flex; */
     /* justify-self: end; */
     width: 10rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     word-wrap: break-word;
     margin-right: 2rem;
 }

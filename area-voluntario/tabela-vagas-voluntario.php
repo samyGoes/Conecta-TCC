@@ -67,7 +67,7 @@ require_once '../auth/verifica-logado.php';
                 ?>
                         <li class="topicos-sessao-login-linha">
                             <div class="box-topicos-sessao-login-linha">
-                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                <!-- <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i> -->
 
                                 <?php
                                     require_once 'global.php';
@@ -75,6 +75,10 @@ require_once '../auth/verifica-logado.php';
                                     {
                                         $idVoluntarioLogado = $_SESSION['codUsuario'];
                                         $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
+                                               
+                                        $novaNotificacao = VoluntarioDao::novaNotificacao($idVoluntarioLogado);
+
+                                        echo($novaNotificacao);                                      
                                     } 
                                     catch (Exception $e) 
                                     {
@@ -83,19 +87,32 @@ require_once '../auth/verifica-logado.php';
 
                                     if (empty($notificacoes)) 
                                     {
+                                        if($novaNotificacao === false)
+                                        {
                                 ?>
-                                        <ul class="sub-topicos-sininho sem-resultado">
-                                            <li> 
-                                                <div class="sub-topicos-sininho-linha sem-resultado">
-                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                </div>                                          
-                                            </li>
-                                        </ul>
-                                <?php
+                                            <div class="box-sininho">
+                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                            </div>
+                                    <?php
+                                        }
+                                    ?>
+                                            <ul class="sub-topicos-sininho sem-resultado">
+                                                <li> 
+                                                    <div class="sub-topicos-sininho-linha sem-resultado">
+                                                        <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                                    </div>                                          
+                                                </li>
+                                            </ul>
+                                <?php                      
                                     }
                                     else
                                     {
-                                ?>
+                                ?>                         
+                                        <div class="box-sininho">
+                                            <div class="nova-notificacao-bolinha"></div>
+                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                                        </div>
+                                            
                                         <ul class="sub-topicos-sininho">
                                 <?php
                                             foreach($notificacoes as $linha)

@@ -306,22 +306,36 @@
             }
         }
 
-        public static function novaNotificacao()
+        public static function novaNotificacao($idVoluntarioLogado)
         {       
-            include 'CandidaturaDao.php'; 
-            // global $qtdMensagemAntiga, $qtdMensagemAtual;
-            echo("Mensagem antiga: " . $qtdMensagemAntiga);
-            echo("Mensagem atual: " . $qtdMensagemAtual) . "<br>";
+            $conexao = Conexao::conectar();
 
-            if($qtdMensagemAntiga != $qtdMensagemAtual)
+            $notificacao = $conexao->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura WHERE statusCandidatura = ?");
+            $notificacao -> execute();
+            $qtdMensagemAtual = $notificacao -> fetchAll(PDO::FETCH_ASSOC);
+
+            $qtdMensagemAntiga = $_SESSION['qtdMensagemAntiga'];
+            
+            //echo("Mensagem antiga: " . $qtdMensagemAntiga . "<br>");      
+            //echo("Mensagem atual: " . $qtdMensagemAtual[0][0]) . "<br>";
+
+            if(empty($qtdMensagemAtual) || $qtdMensagemAtual[0][0] == 0) 
             {
-                return ":D";
+                return false;         
             }
             else
             {
-                return ":(";
-            }       
+                if($qtdMensagemAntiga != $qtdMensagemAtual[0][0])
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }             
         }
+
 
         public static function filtragem($codVoluntario,$id3)
         {

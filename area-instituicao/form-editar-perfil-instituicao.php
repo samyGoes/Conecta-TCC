@@ -69,7 +69,7 @@
                 ?>
                         <li class="topicos-sessao-login-linha">
                             <div class="box-topicos-sessao-login-linha">
-                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                <!-- <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i> -->
 
                                 <?php        
 
@@ -78,6 +78,7 @@
                                     {
                                         $idInstituicaoLogada = $_SESSION['codUsuario'];
                                         $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
+                                        $novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
                                     } 
                                     catch (Exception $e) 
                                     {
@@ -86,21 +87,35 @@
 
                                     if(empty($notificacoes)) 
                                     {
+                                        if($novaNotificacao === false)
+                                        {
                                 ?>
-                                        <ul class="sub-topicos-sininho sem-resultado">
-                                            <li> 
-                                                <div class="sub-topicos-sininho-linha sem-resultado">
-                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                </div>                                          
-                                            </li>
-                                        </ul>
+                                            <div class="box-sininho">
+                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                            </div>
+                                    <?php
+                                        }
+                                    ?>        
+                                            <ul class="sub-topicos-sininho sem-resultado">
+                                                <li> 
+                                                    <div class="sub-topicos-sininho-linha sem-resultado">
+                                                        <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                                    </div>                                          
+                                                </li>
+                                            </ul>
                                 <?php
+                                    
                                     }
                                     else
                                     {
                                         foreach($notificacoes as $titulo => $frase)
                                         {
                                 ?>
+                                            <div class="box-sininho">
+                                                <div class="nova-notificacao-bolinha"></div>
+                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                                            </div>
+                                            
                                             <ul class="sub-topicos-sininho">
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha">
@@ -461,6 +476,7 @@
     <script src="../area-voluntario/js/button-image.js"></script>
     <script src="../js/endereco-auto.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    <script type="module" src="../imports/nova-notificacao.js"></script>
 
     <!--Máscaras do formulário-->
     <script src="../js/mascarasForm.js"></script>

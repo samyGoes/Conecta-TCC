@@ -14,15 +14,14 @@
             $status = "pendente";
 
             $cadastrar = CandidaturaDao::cadastrar($candidato,$vaga,$status);
-
-            $statusCandidatura = true;      
+        
+            //$statusCandidatura = true;      
         }
         else
         {
             header("Location: ../vagas/vaga-completa.php");
-            $statusCandidatura = false; 
-        }
-    
+            //$statusCandidatura = false; 
+        }    
     }
     catch(Exception $e)
     {

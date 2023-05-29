@@ -124,8 +124,8 @@
 
 
 
-      <!-- MODAL CANDIDATURA -->
-      <?php
+    <!-- MODAL CANDIDATURA -->
+    <?php
         
         if(isset($_GET['candidatura']))
         {
@@ -239,20 +239,8 @@
         }
 
     ?>
-        
-    <?php
-        // try
-        // {
-        //     $aa = VoluntarioDao::novaNotificacao();
-        // }
-        // catch(Exception $e) 
-        // {
-        //     echo $e->getMessage();
-        // }
-
-        // echo($aa);    
-    ?>
-
+ 
+ 
 
     <!-- PESQUISA -->
     <div class="pesquisa-instituicao">

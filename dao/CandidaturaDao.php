@@ -138,18 +138,10 @@ class CandidaturaDao
         $stmt->execute([$codCandidatura]);
     }
 
-    public $qtdMensagemAntiga = 0;
-    public $qtdMensagemAtual = 0;
-
     public static function cadastrar($candidato, $vaga, $status)
     {
         $conexao = Conexao::conectar();
-
-        global $qtdMensagemAntiga, $qtdMensagemAtual;
-        $qtdMensagemAntiga = 0;
-        $qtdMensagemAtual = 0;
-        $qtdMensagemAntiga = "SELECT COUNT(codCandidatura) FROM tbCandidatura";
-
+        
         $prepareStatement = $conexao->prepare("INSERT INTO tbcandidatura(codVoluntario,codServico,statusCandidatura) 
             VALUES(?,?,?)");
 
@@ -157,8 +149,6 @@ class CandidaturaDao
         $prepareStatement->bindValue(2, $vaga);
         $prepareStatement->bindValue(3, $status);
         $prepareStatement->execute();
-
-        $qtdMensagemAtual = "SELECT COUNT(codCandidatura) FROM tbCandidatura";
     }
 
     public static function vagasCandidatadasVoluntario($codVoluntario)

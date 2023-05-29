@@ -266,8 +266,6 @@
             $querySelect->execute(array($idInstituicaoLogada));
             $status = $querySelect->fetchAll();  
 
-            $querySelect2 = $conexao->prepare("SELECT statusSolicitacao FROM tbsolicitacaocategoria WHERE ");
-
             if(!empty($status))
             {
                 return $mensagemCandidatura;   
@@ -276,6 +274,36 @@
             {
                 return array();
             }
+        }
+
+        public static function novaNotificacao($idInstituicaoLogada)
+        {       
+            $conexao = Conexao::conectar();
+
+            $notificacao = $conexao->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura");
+            $notificacao -> execute();
+            $qtdMensagemAtual = $notificacao -> fetchAll();
+
+            $qtdMensagemAntiga = $_SESSION['qtdMensagemAntiga'];
+            
+            //echo("Mensagem antiga: " . $qtdMensagemAntiga[0][0] . "<br>");
+            //echo("Mensagem atual: " . $qtdMensagemAtual[0][0]) . "<br>";
+
+            if(empty($qtdMensagemAtual) || $qtdMensagemAtual[0][0] == 0) 
+            {
+                return false;         
+            }
+            else
+            {
+                if($qtdMensagemAntiga != $qtdMensagemAtual[0][0])
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }    
         }
 
         

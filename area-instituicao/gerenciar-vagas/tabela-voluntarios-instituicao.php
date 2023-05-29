@@ -623,7 +623,7 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-		<script type="text/javascript" src="../../js/pesquisa.js"></script>>
+	<script type="text/javascript" src="../../js/pesquisa.js"></script>
 
 </body>
 
