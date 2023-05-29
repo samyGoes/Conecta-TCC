@@ -17,13 +17,14 @@
      
         }
 
-        public static function listar()
+        public static function listar($cod)
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT  fotosInstituicao FROM tbFotosInstituicao";
-            $resultado = $conexao->query($querySelect);
-            $lista = $resultado->fetchAll();
-            return $lista;  
+            $querySelect = $conexao->prepare("SELECT  fotosInstituicao FROM tbFotosInstituicao WHERE codInstituicao = ?");
+            $querySelect->bindValue(1, $cod);
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC); 
+            return $resultado; 
         }
 
         public static function excluir($codFotoInsti)
