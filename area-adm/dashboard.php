@@ -210,14 +210,14 @@
                         $width8 = '17%';
                         $total  = 8; // total de barras
 
-                        //   require_once 'global.php';
+                           require_once 'global.php';
 
-                        //   try{
-                        //      $idade = DashboardDao::porcentagem();
-                        //  } catch (Exception $e) {
-                        //     echo $e->getMessage();
-                        //  }
-                        //  ?>
+                           try{
+                              $idade = DashboardDao::porcentagem();
+                          } catch (Exception $e) {
+                             echo $e->getMessage();
+                          }
+                          ?>
                          <?php
                          foreach($idade as $numero){
                             echo $numero;
