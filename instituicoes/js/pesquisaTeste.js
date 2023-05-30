@@ -6,7 +6,7 @@ $(document).ready(function() {
         
         // Envia a solicitação AJAX ao servidor
         $.ajax({
-            url: '../instituicoes/instituicoes.php', // Substitua pelo nome do arquivo PHP que contém a função 'listar'
+            url: '../instituicoes.php', // Substitua pelo nome do arquivo PHP que contém a função 'listar'
             type: 'POST',
             data: { pesquisar: pesquisa }, // Envia o valor da pesquisa como parâmetro
             success: function(data) {
@@ -16,4 +16,3 @@ $(document).ready(function() {
         });
     });
 });
-
