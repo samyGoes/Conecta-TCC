@@ -2,8 +2,8 @@ const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
 
 export function cliqueNotT()
 {
-    bolinhaNot.id = "sem-bolinha";
-    if(bolinhaNot.id == "sem-bolinha")
+    bolinhaNot.className = "sem-bolinha";
+    if(bolinhaNot.className == "sem-bolinha")
     {
         bolinhaNot.remove();
     }  
@@ -12,8 +12,8 @@ document.querySelector(".sub-topicos-sininho-linha-titulo").addEventListener("cl
 
 export function cliqueNotF()
 {
-    bolinhaNot.id = "sem-bolinha";
-    if(bolinhaNot.id == "sem-bolinha")
+    bolinhaNot.className = "sem-bolinha";
+    if(bolinhaNot.className == "sem-bolinha")
     {
         bolinhaNot.remove();
     }  

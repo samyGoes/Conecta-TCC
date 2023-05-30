@@ -87,14 +87,14 @@ require_once '../auth/verifica-logado.php';
 
                                     if (empty($notificacoes)) 
                                     {
-                                        if($novaNotificacao === false)
-                                        {
+                                        //if($novaNotificacao === false)
+                                        //{
                                 ?>
                                             <div class="box-sininho">
                                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
                                             </div>
                                     <?php
-                                        }
+                                        //}
                                     ?>
                                             <ul class="sub-topicos-sininho sem-resultado">
                                                 <li> 
@@ -502,21 +502,21 @@ require_once '../auth/verifica-logado.php';
                         </thead>
                         <tbody>
                             <?php
-                            require_once 'global.php';
-                            try {
-                                $listaVoluntario = VoluntarioDao::listar();
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
+                            // require_once 'global.php';
+                            // try {
+                            //     $listaVoluntario = VoluntarioDao::listar();
+                            // } catch (Exception $e) {
+                            //     echo $e->getMessage();
+                            // }
                             ?>
                             <tr>
-                                <?php foreach ($listaVoluntario as $voluntario) { ?>
+                                <?php //foreach ($listaVoluntario as $voluntario) { ?>
                                     <td class="td-table-r"> <?php echo $voluntario['codVoluntario']; ?> </td>
                                     <td class="td-table-r"> <button class="table-btn-chamar"> aceitar </button> </td>
                                     <td class="td-table-r"> <button class="table-btn-rejeitar"> rejeitar </button> </td>
                             </tr>
                         <?php
-                                }
+                                //}
                         ?>
                         </tbody>
                     </table>

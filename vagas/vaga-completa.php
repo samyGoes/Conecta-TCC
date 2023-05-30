@@ -219,13 +219,13 @@
                                     if($consulta)
                                     {
                                         $disabled = "disabled";
-                                        $id = "habilitado";  //colocar o nome da classe ou id do botão habilitado  
+                                        $id = "desabilitado";  //colocar o nome da classe ou id do botão habilitado  
                             
                                     }
                                     else
                                     {
                                         $disabled = "";
-                                        $id = "desabilitado";//colocar o nome da classe ou id do botão desabilitado  
+                                        $id = "habilitado";//colocar o nome da classe ou id do botão desabilitado  
                                     }
                                     //chamar a variavel no botão e estilizar cada um de forma personalizada
                             ?>

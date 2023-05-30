@@ -87,14 +87,14 @@
 
                                     if(empty($notificacoes)) 
                                     {
-                                        if($novaNotificacao === false)
-                                        {
+                                        //if($novaNotificacao === false)
+                                        //{
                                 ?>
                                             <div class="box-sininho">
                                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
                                             </div>
                                     <?php
-                                        }
+                                        //}
                                     ?>        
                                             <ul class="sub-topicos-sininho sem-resultado">
                                                 <li> 

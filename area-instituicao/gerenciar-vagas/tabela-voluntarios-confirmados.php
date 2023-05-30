@@ -236,9 +236,10 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
                                         <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
-                                        <td><button onclick="abrirModalLancamento()"  id="modalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
+                                        <td><button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
                                     </tr>
                                 </form>
+                                <!-- onclick="abrirModalLancamento()" -->
 
 
                             <?php } ?>
@@ -319,9 +320,19 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script>
         //abrir modal
-        function abrirModalLancamento() {
-            document.getElementById("modalAvaliar").style.visibility = 'block';
+        // function abrirModalLancamento() {
+        //     document.getElementById("modalAvaliar").style.visibility = 'block';
+        // }
+
+
+        const modalAvaliacao =  document.querySelector("#modalAvaliar");
+        function abrirModalLancamento() 
+        {
+            modalAvaliacao.style.visibility = 'block';
         }
+        document.querySelector("#btnModalAvaliar").addEventListener("click", abrirModalLancamento);
+
+
 
         // função fechar modal lançamento
         function fecharModalLancamento() {

@@ -331,11 +331,14 @@ body
 
 
 /* BOTÃO DESABILITADO */
-/* #desabilitado
+#desabilitado
 {
-    background-color: #525252;
+    background-color: #6d82a8;
+    border: 1px solid #6d82a8;
+    color: #e0e0e0;
+    cursor: not-allowed;
 }
- */
+
 
 
 

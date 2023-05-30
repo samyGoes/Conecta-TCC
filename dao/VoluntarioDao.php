@@ -10,7 +10,7 @@
             
             echo($voluntario->getDataNascVoluntario());
 
-            $prepareStatement = $conexao -> prepare ( "INSERT INTO tbvoluntario(nomeVoluntario, cpfVoluntario, logVoluntario, numLogVoluntario, cepVoluntario, compVoluntario, bairroVoluntario, cidadeVoluntario, emailVoluntario, senhaVoluntario,paisVoluntario,estadoVoluntario,dataNascVoluntario,fotoVoluntario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            $prepareStatement = $conexao -> prepare ("INSERT INTO tbvoluntario(nomeVoluntario, cpfVoluntario, logVoluntario, numLogVoluntario, cepVoluntario, compVoluntario, bairroVoluntario, cidadeVoluntario, emailVoluntario, senhaVoluntario,paisVoluntario,estadoVoluntario,dataNascVoluntario,fotoVoluntario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             $prepareStatement -> bindValue (1, $voluntario -> getNomeVoluntario());
             $prepareStatement -> bindValue (2, $voluntario -> getCpfVoluntario());
@@ -357,9 +357,9 @@
         {       
             $conexao = Conexao::conectar();
 
-            $notificacao = $conexao->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura WHERE statusCandidatura = ?");
+            $notificacao = $conexao->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura WHERE statusCandidatura = 'aceito' OR statusCandidatura = 'recusado'");
             $notificacao -> execute();
-            $qtdMensagemAtual = $notificacao -> fetchAll(PDO::FETCH_ASSOC);
+            $qtdMensagemAtual = $notificacao -> fetchAll();
 
             $qtdMensagemAntiga = $_SESSION['qtdMensagemAntiga'];
             
