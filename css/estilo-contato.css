@@ -26,8 +26,6 @@ main {
     width: 100%;
     gap: 2rem;
     margin: 10rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
 }
 
 .titulo {
@@ -39,10 +37,10 @@ main {
 
 
 .titulo h1 {
-    font-size: 33px;
+    font-size: 2.5rem;
     font-family: acme, sans-serif;
     font-weight: 500;
-    color: #4567a5;
+    color: #232e61
 }
 
 .titulo h3 {
@@ -59,12 +57,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 1.5%;
+    border-radius: 8px;
     font-family: poppins;
     padding: 3rem;
     width: 36rem;
-    box-shadow: 5px 5px 5px #b4d8e6; 
-    margin: 2rem;
+    box-shadow: 5px 5px 5px #b4d8e6;
 }
 
 .form {
@@ -100,7 +97,7 @@ main {
     width: 100%;
 }
 
-.input-box-textarea{
+.input-box-textarea {
     width: 100%;
     height: 100%;
 }
@@ -117,7 +114,7 @@ main {
     flex-direction: column;
 }
 
-.input-box-textarea label{
+.input-box-textarea label {
     display: flex;
     flex-direction: column;
     line-height: 3rem;
@@ -204,6 +201,11 @@ main {
 /* responsividade */
 
 @media(max-width: 575px) {
+    main {
+        margin-bottom: 0;
+        gap: 0;
+    }
+
     .card-formulario {
         display: flex;
         flex-direction: column;
@@ -228,7 +230,7 @@ main {
         display: block;
     }
 
-    .input-box input{
+    .input-box input {
         width: 70vw;
     }
 
@@ -250,6 +252,19 @@ main {
 }
 
 @media (max-width: 465px) {
+    .titulo h1 {
+        font-size: 1.35px;
+    }
+
+    .titulo h3 {
+        font-size: 14px;
+        margin: 0.8rem;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
     .email-numero {
         width: 100%;
         display: block;

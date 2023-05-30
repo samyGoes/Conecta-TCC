@@ -18,7 +18,7 @@ require_once '../auth/verifica-logado.php';
 </head>
 
 <body>
-
+   
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
