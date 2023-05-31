@@ -272,7 +272,7 @@
                                               AND tbInstituicao.codInstituicao = ?");
 
             $querySelect->execute(array($idInstituicaoLogada));
-            $status = $querySelect->fetchAll(PDO::FETCH_ASSOC);  
+            $listaCandidatura = $querySelect->fetchAll(PDO::FETCH_ASSOC);  
 
 
 
@@ -280,7 +280,7 @@
             $querySelect2 = $conexao->prepare("SELECT statusSolicitacao, codInstituicao FROM tbSolicitacaoCategoria WHERE codInstituicao = ?");
             
             $querySelect2->execute(array($idInstituicaoLogada));
-            $lista = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
+            $listaSolicitacaoCausa = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
 
             // ARRAYS E VARIÁVEIS
             $mensagemStatusSolicitacaoA = array
@@ -291,9 +291,11 @@
             (
                 'Solicitação recusada' => 'O Adm recusou a sua solicitação de causa.'
             );
-            $qtdMensagem = [];
-            $statusAceito = 0;
-            $statusRecusado = 0;
+            $mensagens = [];
+            $statusAceitoCausa = 0;
+            $statusRecusadoCausa = 0;
+            $statusAceitoHabilidade = 0;
+            $statusRecusadoHabilidade = 0;
             $novaCandidatura = 0;
          
             // echo ("Status da solicitação: ");
@@ -303,18 +305,18 @@
             // }
 
             // VERIFICANDO STATUS DA CANDIDATURA
-            foreach ($lista as $linha) 
+            foreach ($listaSolicitacaoCausa as $linha) 
             {
                 if ($linha['statusSolicitacao'] === 'aceito') 
                 {
-                    $statusAceito++;
+                    $statusAceitoCausa++;
                 }
                 if ($linha['statusSolicitacao'] === 'recusado') 
                 {
-                    $statusRecusado++;
+                    $statusRecusadoCausa++;
                 }
             }
-            foreach($status as $linha)
+            foreach($listaCandidatura as $linha)
             {
                 if($linha['statusCandidatura'] === 'pendente')
                 {
@@ -322,86 +324,34 @@
                 }
             }
           
-            //echo ("qtd de candidaturas: " . $novaCandidatura);
+      
 
-            //echo $lista;
-            // VERIFICANDO QUAIS E QUANTOS STATUS TEM PARA AJUSTAR O RETORNO
-            if($statusAceito >= 1 && $statusRecusado >= 1 && $novaCandidatura >= 1)
+            // VERIFICANDO QUAIS NOTIFICAÇÕES TEM E RETORNANDO ELAS
+            if($statusAceitoCausa >= 1)
             {
-                for($i = 0; $i < $statusAceito; $i++)
+                for($i = 0; $i < $statusAceitoCausa; $i++)
                 {
-                    $qtdMensagem[] = $mensagemStatusSolicitacaoA;
+                    $mensagens[] = $mensagemStatusSolicitacaoA;
                 }
-                for($i = 0; $i < $statusRecusado; $i++)
-                {
-                    $qtdMensagem[] = $mensagemStatusSolicitacaoR;
-                }
-                for($i = 0; $i < $novaCandidatura; $i++)
-                {
-                    $qtdMensagem[] = $mensagemCandidatura;
-                }
-                return $qtdMensagem;
             }
-            else if($statusAceito >= 1 && $novaCandidatura >= 1)
+            if($statusRecusadoCausa >= 1)
             {
-                for($i = 0; $i < $statusAceito; $i++)
+                for($i = 0; $i < $statusRecusadoCausa; $i++)
                 {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
-                }
-                for($i = 0; $i < $novaCandidatura; $i++)
-                {
-                    $qtdMensagem[] = $mensagemCandidatura;
-                }
-                return $qtdMensagem;
+                    $mensagens[] = $mensagemStatusSolicitacaoR;
+                }           
             }
-            else if($statusRecusado >= 1 && $novaCandidatura >= 1)
-            {
-                for($i = 0; $i < $statusRecusado; $i++)
-                {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
-                }
-                for($i = 0; $i < $novaCandidatura; $i++)
-                {
-                    $qtdMensagem[] = $mensagemCandidatura;
-                }
-                return $qtdMensagem;
-            }
-            else if($statusAceito >= 1 && $statusRecusado >= 1)
-            {
-                for($i = 0; $i < $statusAceito; $i++)
-                {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
-                }
-                for($i = 0; $i < $statusRecusado; $i++)
-                {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
-                }
-                return $qtdMensagem;
-            }
-            else if($statusAceito >= 1)
-            {
-                for($i = 0; $i < $statusAceito; $i++)
-                {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
-                }
-                return $qtdMensagem;
-            }
-            else if($statusRecusado >= 1)
-            {
-                for($i = 0; $i < $statusRecusado; $i++)
-                {
-                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
-                }
-                return $qtdMensagem;
-            }
-            else if($novaCandidatura >= 1)
+            if($novaCandidatura >= 1)
             {
                 for($i = 0; $i < $novaCandidatura; $i++)
                 {
-                    $qtdMensagem[] =  $mensagemCandidatura;
-                }
-                return $qtdMensagem;
+                    $mensagens[] = $mensagemCandidatura;
+                }           
             }
+            if(!empty($mensagens))
+            {
+                return $mensagens;
+            }       
             else
             {
                 return array();
