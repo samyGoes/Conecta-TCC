@@ -18,6 +18,11 @@ require_once '../auth/verifica-logado.php';
 
 <body class="body">
 
+
+    <?php
+
+    ?>
+
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">
@@ -78,14 +83,14 @@ require_once '../auth/verifica-logado.php';
                                                
                                         $novaNotificacao = VoluntarioDao::novaNotificacao($idVoluntarioLogado);
 
-                                        echo($novaNotificacao);                                      
+                                        //echo($novaNotificacao);                                      
                                     } 
                                     catch (Exception $e) 
                                     {
                                         echo $e->getMessage();
                                     }
 
-                                    if (empty($notificacoes)) 
+                                    if(empty($notificacoes)) 
                                     {
                                         //if($novaNotificacao === false)
                                         //{
@@ -537,6 +542,7 @@ require_once '../auth/verifica-logado.php';
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/box-info.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    <script type="module" src="../imports/nova-notificacao.js"></script>
 </body>
 
 </html>

@@ -79,6 +79,7 @@
                                         $idInstituicaoLogada = $_SESSION['codUsuario'];
                                         $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
                                         $novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+
                                     } 
                                     catch (Exception $e) 
                                     {
@@ -108,24 +109,32 @@
                                     }
                                     else
                                     {
-                                        foreach($notificacoes as $titulo => $frase)
-                                        {
                                 ?>
-                                            <div class="box-sininho">
-                                                <div class="nova-notificacao-bolinha"></div>
-                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
-                                            </div>
-                                            
-                                            <ul class="sub-topicos-sininho">
-                                                <li> 
-                                                    <div class="sub-topicos-sininho-linha">
-                                                        <a class="sub-topicos-sininho-linha-titulo" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $titulo; ?> </a>
-                                                        <a class="sub-topicos-sininho-linha-frase" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $frase; ?> </a>
-                                                    </div>                                          
-                                                </li>
-                                            </ul>
+                                        <div class="box-sininho">
+                                            <div class="nova-notificacao-bolinha"></div>
+                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                                        </div>
+                                    
+                                        <ul class="sub-topicos-sininho">
                                 <?php
-                                        }
+                                            foreach($notificacoes as $linha)
+                                            {
+                                                foreach($linha as $titulo => $frase)
+                                                {
+                                ?>                                           
+                                                        <li> 
+                                                            <div class="sub-topicos-sininho-linha">
+                                                                <a class="sub-topicos-sininho-linha-titulo" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $titulo; ?> </a>
+                                                                <a class="sub-topicos-sininho-linha-frase" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $frase; ?> </a>
+                                                            </div>                                          
+                                                        </li>
+                                                    
+                                <?php
+                                                }
+                                            }
+                                ?>
+                                        </ul>
+                                <?php
                                     }
                                 ?>
                                     

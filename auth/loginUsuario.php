@@ -22,8 +22,7 @@ error_reporting(E_ALL);
 
         if($verificaUsuario == "Cpf" )
         {
-            $stmt=$conectar->prepare("SELECT codVoluntario,nomeVoluntario,
-            emailVoluntario	FROM tbvoluntario WHERE cpfVoluntario = ? AND senhaVoluntario = ?");
+            $stmt=$conectar->prepare("SELECT codVoluntario,nomeVoluntario, emailVoluntario	FROM tbvoluntario WHERE cpfVoluntario = ? AND senhaVoluntario = ?");
             
             $stmt->bindValue(1, $login);
             $stmt->bindValue(2, $senha);
@@ -43,7 +42,7 @@ error_reporting(E_ALL);
                 $_SESSION['tipoPerfil']= 'Voluntario';
 
                 // NOVA NOTIFICAÇÃO
-                $notificacao = $conectar->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura");
+                $notificacao = $conectar->prepare("SELECT COUNT(codCandidatura) FROM tbCandidatura WHERE statusCandidatura = 'aceito' OR statusCandidatura = 'recusado'");
                 $notificacao->execute();
                 $qtdMensagemAntiga = $notificacao -> fetchAll();
                 $_SESSION['qtdMensagemAntiga'] = $qtdMensagemAntiga[0][0];
