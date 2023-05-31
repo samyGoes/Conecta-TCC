@@ -179,15 +179,19 @@
             $quantidadeVagas = $resultado->fetchColumn();
             return $quantidadeVagas;
         }
-        
-        
-        
-        
-        
 
-        public static function listarVagaAdm()
-        {
-            $conexao = Conexao::conectar();
+
+
+
+
+
+    public static function listarVagaAdm()
+    {
+        $conexao = Conexao::conectar();
+
+        if (isset($_POST['pesquisar'])) {
+            $pesquisar = $_POST['pesquisar'];
+
             $querySelect = ("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
             cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
             complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
@@ -200,11 +204,26 @@
              INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico 
              WHERE tbHabiVaga.codServico = tbServico.codServico) AS habilidades
             FROM tbServico
-            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao ") ;
-            $resultado = $conexao->query($querySelect);
-            $lista = $resultado->fetchAll();
-            return $lista;  
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao WHERE nomeServico LIKE '%$pesquisar%' OR nomeInstituicao LIKE '%$pesquisar%'");
+        } else {
+            $querySelect = ("SELECT tbServico.codServico, horarioServico, periodoServico, descServico, 
+            cepLocalServico, bairroLocalServico, estadoLocalServico, logradouroLocalServico, 
+            complementoLocalServico, paisLocalServico, numeroLocalServico, cidadeLocalServico, 
+            nomeservico, tipoServico, dataInicioServico, qntdVagaServico, 
+            tbInstituicao.codInstituicao, nomeInstituicao, fotoInstituicao, 
+            (SELECT GROUP_CONCAT(nomeCategoria SEPARATOR ', ') FROM tbCausaVaga 
+             INNER JOIN tbCategoriaServico ON tbCategoriaServico.codCategoriaServico = tbCausaVaga.codCategoriaServico 
+             WHERE tbCausaVaga.codServico = tbServico.codServico) AS causas,
+            (SELECT GROUP_CONCAT(nomeHabilidadeServico SEPARATOR ', ') FROM tbHabiVaga 
+             INNER JOIN tbHabilidadeServico ON tbHabilidadeServico.codHabilidadeServico = tbHabiVaga.codHabilidadeServico 
+             WHERE tbHabiVaga.codServico = tbServico.codServico) AS habilidades
+            FROM tbServico
+            INNER JOIN tbInstituicao ON tbInstituicao.codInstituicao = tbServico.codInstituicao ");
         }
+        $resultado = $conexao->query($querySelect);
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
 
         public static function listarVaga($cod)
         {

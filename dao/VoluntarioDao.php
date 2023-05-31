@@ -169,9 +169,14 @@
         public static function listarPadrao()
         {
             $conexao = Conexao::conectar();
+            if(isset($_POST['pesquisar'])){
+                $pesquisar= $_POST['pesquisar'];
             // Consulta padrão para trazer todos os valores
-            $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
-            $resultado = $conexao->query($querySelect);
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario WHERE nomeVoluntario LIKE '%$pesquisar%'";
+            }else{
+                $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
+            }
+                $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
             return $lista;
         }

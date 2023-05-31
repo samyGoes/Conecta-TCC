@@ -5,7 +5,7 @@ require_once 'global.php';
 class AvaliarDao 
 {
 
-    public static function avaliar($codInstituicao, $codVoluntario, $numAvaliacao){
+    public static function avaliar( $codVoluntario, $numAvaliacao){
 
         $conexao = Conexao::conectar();
 
@@ -15,16 +15,19 @@ class AvaliarDao
 
             if($resultVolunt-> rowCount()>0 ){
 
-                $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
-                $resultEstrelas = $conexao->query($queryEstrelas);
+                 $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
+                 $resultEstrelas = $conexao->query($queryEstrelas);
+                 $resultEstrelas->execute();
+                 $resultEstrelas = $resultEstrelas->fetchColumn();
 
-                $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
+                 $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
 
-                $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = '$resultEstrelas'
-                 WHERE codVoluntario = '$codVoluntario'");
+                 $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = :resultEstrelas
+                  WHERE codVoluntario = :codVoluntario");
 
-                $stmt->bindValue(1, $numAvaliacao);
-                $stmt->execute();
+                 $stmt->bindValue(':resultEstrelas', $resultEstrelas);
+                 $stmt->bindValue(':codVoluntario', $codVoluntario);
+                 $stmt->execute();
 
             }else{
 

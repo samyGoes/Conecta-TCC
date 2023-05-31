@@ -236,7 +236,8 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
                                         <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
-                                        <td><button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $voluntario['codVoluntario']; ?>"><i class="fa-regular fa-circle-star"></i></button></td>
+                                        <input type="hidden" name="codCategoriaServico" value="<?php echo $codCategoriaServico; ?>">
+                                        <td><button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codCategoriaServico . $voluntario['codVoluntario']; ?>" onclick="abrirModalLancamento()"></td>
                                     </tr>
                                 </form>
                                 <!-- onclick="abrirModalLancamento()" -->
@@ -268,33 +269,35 @@ include "../../auth/verifica-logado.php";
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
                             <div class="rating">
-                                <input type="radio" id="star5" name="estrela" value="5">
+                                <input type="radio" id="star5" name="estrela" value="1">
                                 <label for="star5"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star4" name="estrela" value="4">
+                                <input type="radio" id="star4" name="estrela" value="2">
                                 <label for="star4"><i class="fa-solid fa-star"></i></label>
                                 <input type="radio" id="star3" name="estrela" value="3">
                                 <label for="star3"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star2" name="estrela" value="2">
+                                <input type="radio" id="star2" name="estrela" value="4">
                                 <label for="star2"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star1" name="estrela" value="1">
+                                <input type="radio" id="star1" name="estrela" value="5">
                                 <label for="star1"><i class="fa-solid fa-star"></i></label>
                             </div>
                         </div>
-                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit">Avaliar</button></div>
+                        <?php
+                            $codVoluntario = 4;
+                        ?>
+                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $codVoluntario; ?>">Avaliar</button></div>
 
                     </form>
 
                     <?php
-                    // if(isset($_POST['estrela'])){
-                    //     $codAvaliar = $_POST['estrela'];
-                    //     try {
-                    //      $voluntario = 
-                    //         $numavaliacao = AvaliarDao::avaliar($codInstituicao, $codVoluntario, $numavaliacao);
-                    //         echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
-                    //     } catch (Exception $e) {
-                    //         echo $e->getMessage();
-                    //     }
-                    // }
+                     if(isset($_POST['estrela'])){
+                         $numavaliacao = $_POST['estrela'];
+                         try { 
+                             $avaliacao = AvaliarDao::avaliar($codVoluntario, $numavaliacao);
+                             echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
+                         } catch (Exception $e) {
+                             echo $e->getMessage();
+                         }
+                     }
                     ?>
 
                     <a onclick="fecharModalLancamento()" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a>
