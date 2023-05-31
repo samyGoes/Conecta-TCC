@@ -167,11 +167,18 @@
         public static function listar()
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codInstituicao, nomeInstituicao, descInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
+            if (isset($_POST['pesquisar'])) {
+                $pesquisar = $_POST['pesquisar'];
+                $querySelect = "SELECT codInstituicao, nomeInstituicao, descInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao WHERE nomeInstituicao LIKE '%$pesquisar%'";
+            } else {
+                $querySelect = "SELECT codInstituicao, nomeInstituicao, descInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao FROM tbinstituicao";
+            }
+        
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
-            return $lista;  
+            return $lista;
         }
+        
 
         public static function consultarId($instituicao)
         {

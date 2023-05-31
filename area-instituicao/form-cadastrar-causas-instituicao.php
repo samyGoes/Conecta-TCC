@@ -19,7 +19,10 @@
 </head>
 
 <body>
-
+    <?php
+        $contador = 0;
+        $_SESSION['contador'] = $contador;
+    ?>
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
         <div class="logo">

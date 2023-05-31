@@ -25,7 +25,14 @@
         
             $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
 
-            $nomenovo = $_SESSION['codUsuario'].$extensao;
+            $contador = $_SESSION['contador'];
+            function contadorParaNomear($contador)
+            {
+                $contador++;
+                return $contador;
+            }
+
+            $nomenovo = contadorParaNomear($contador).$extensao;
 
             $nomecompleto =  $diretorio.$nomenovo;
             

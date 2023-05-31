@@ -5,7 +5,7 @@ class DashboardDao
 {
     public static function SelecionaInstituicao(){
         $conexao = Conexao::conectar();
-        
+
         $stmt= $conexao->prepare("SELECT codInstituicao FROM tbInstituicao");
         $stmt-> execute();
 
@@ -19,7 +19,7 @@ class DashboardDao
 
     public static function SelecionaVoluntario(){
         $conexao = Conexao::conectar();
-        
+
         $stmt= $conexao->prepare("SELECT codVoluntario FROM tbVoluntario");
         $stmt-> execute();
 
@@ -32,9 +32,9 @@ class DashboardDao
     }
 
     public static function melhoresInstituicoes(){
-        $conexao = Conexao::conectar(); 
+        $conexao = Conexao::conectar();
 
-        $query= $conexao->prepare("SELECT tbInstituicao.nomeInstituicao AS nomeInstituicao, tbInstituicao.fotoInstituicao, AVG(tbAvaliacao.numAvaliacao) AS estrelas 
+        $query= $conexao->prepare("SELECT tbInstituicao.nomeInstituicao AS nomeInstituicao, tbInstituicao.fotoInstituicao, AVG(tbAvaliacao.numAvaliacao) AS estrelas
         FROM tbAvaliacao
         INNER JOIN tbInstituicao ON tbAvaliacao.codInstituicao = tbInstituicao.codInstituicao
         ORDER BY tbAvaliacao.numAvaliacao DESC");
@@ -48,7 +48,7 @@ class DashboardDao
     public static function melhoresVoluntarios(){
         $conexao = Conexao::conectar();
 
-        $query= $conexao->prepare("SELECT tbVoluntario.nomeVoluntario AS nomeVoluntario, tbVoluntario.fotoVoluntario, AVG(tbAvaliacao.numAvaliacao) AS estrelas 
+        $query= $conexao->prepare("SELECT tbVoluntario.nomeVoluntario AS nomeVoluntario, tbVoluntario.fotoVoluntario, AVG(tbAvaliacao.numAvaliacao) AS estrelas
         FROM tbAvaliacao
         INNER JOIN tbVoluntario ON tbAvaliacao.codVoluntario = tbVoluntario.codVoluntario
         ORDER BY tbAvaliacao.numAvaliacao DESC");
@@ -59,27 +59,28 @@ class DashboardDao
         return $lista;
     }
 
-    //  public static function porcentagem(){
-    //      $conexao = Conexao::conectar();
+      public static function porcentagem(){
+          $conexao = Conexao::conectar();
 
-    //      $query= $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario");
-    //      $query->execute();
+          $query= $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario");
+          $query->execute();
 
-    //      $dez = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '0' AND '10' AS dez FROM tbVoluntario");
-    //      $dez->execute();
+          $dez = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeDez FROM tbVoluntario WHERE 'idadeDez' BETWEEN 0 AND 10");
+          $dez->execute();
 
-    //      $vinte = $conexao->prepare("SELECT AVG(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '11' AND '20' AS vinte) FROM tbVoluntario");
-    //      $vinte->execute();
+          $vinte = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeVinte FROM tbVoluntario WHERE 'idadeVinte' BETWEEN 11 AND 20");
+          $vinte->execute();
 
-    //      $trinta = $conexao->prepare("SELECT AVG(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) LIKE BETWEEN '21' AND '30' AS trinta) FROM tbVoluntario");
-    //      $trinta->execute();
-    //   $resultado = $query->fetch(PDO::FETCH_ASSOC);
+          $trinta = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeTrinta FROM tbVoluntario WHERE 'idadeTrinta' BETWEEN 19 AND 30");
+          $trinta->execute();
+          
+        $resultado = $vinte->fetch(PDO::FETCH_ASSOC);
 
 
 
-    //      return $resultado;
-    //  }
-   
+          return $resultado;
+      }
+
 }
 
 

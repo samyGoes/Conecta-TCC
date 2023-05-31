@@ -1,6 +1,6 @@
 <?php
-    require_once 'global.php';
-    include "../auth/loginUsuario.php";
+require_once 'global.php';
+include "../auth/loginUsuario.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -40,82 +40,73 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <?php 
-                    if (empty($_SESSION['nomeUsuario'])) 
-                    {
+                <?php
+                if (empty($_SESSION['nomeUsuario'])) {
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                                <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
-                            </a>
-                        </li>
-                <?php 
-                    } 
-                    else 
-                    { 
-                        $nomeCompleto = $_SESSION['nomeUsuario'];
-                        if($_SESSION['tipoPerfil']=='Voluntario')
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0];
-                        }
-                        else
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                        }                        
+                    <li class="topicos-sessao-login-linha">
+                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
+                        </a>
+                    </li>
+                <?php
+                } else {
+                    $nomeCompleto = $_SESSION['nomeUsuario'];
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];
+                    } else {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <div class="box-topicos-sessao-login-linha">
-                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                    <li class="topicos-sessao-login-linha">
+                        <div class="box-topicos-sessao-login-linha">
+                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
+                            <?php
+                            $notInstituicaoTitulo = array(
+                                'Nova Candidatura',
+                                'Nova Mensagem',
+                                'Nova Avaliação',
+                                'Nova Avaliação'
+                            );
+
+                            $notInstituicaoFrase = array(
+                                'Um voluntário se candidatou a vaga de professor de inglês.',
+                                'Você tem uma nova mensagem do voluntário João.',
+                                'Um voluntário fez uma avaliação sua.',
+                                'Um voluntário fez uma avaliação sua.'
+                            );
+
+                            ?>
+                            <ul class="sub-topicos-sininho">
                                 <?php
-                                    $notInstituicaoTitulo = array
-                                    (
-                                        'Nova Candidatura',
-                                        'Nova Mensagem',
-                                        'Nova Avaliação',
-                                        'Nova Avaliação'
-                                    );
-
-                                    $notInstituicaoFrase = array
-                                    (
-                                        'Um voluntário se candidatou a vaga de professor de inglês.',
-                                        'Você tem uma nova mensagem do voluntário João.',
-                                        'Um voluntário fez uma avaliação sua.',
-                                        'Um voluntário fez uma avaliação sua.'
-                                    );
-
+                                foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
                                 ?>
-                                <ul class="sub-topicos-sininho">
-                                    <?php
-                                        foreach($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo)
-                                        {
-                                    ?>
-                                            <li> 
-                                                <div class="sub-topicos-sininho-linha">
-                                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo($notInstituicaoTitulo); ?> </a>
-                                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo($notInstituicaoFrase[$notificacoes]); ?> </a>
-                                                </div>                                          
-                                            </li>
-                                    <?php
-                                        }
-                                    ?>
-                                </ul>
-                                <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                                    Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                                </p>
-                            </div>
-                            
-                            <ul class="sub-topicos">
-                                <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                <li> <a href=""> Vagas </a> </li>
-                                <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                <li> <a href="../auth/logout.php"> Sair </a></li>
+                                    <li>
+                                        <div class="sub-topicos-sininho-linha">
+                                            <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
+                                            <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
+                                        </div>
+                                    </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
-                        </li>
-                <?php 
-                    } 
+                            <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                                Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                            </p>
+                        </div>
+
+                        <ul class="sub-topicos">
+                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                <?php
+                }
                 ?>
             </ul>
         </ul>
@@ -128,8 +119,12 @@
 
     <!-- PESQUISA -->
     <div class="pesquisa-instituicao">
-        <input type="text" placeholder="Pesquisar...">
+        <form action="" id="form-pesquisa" method="post">
+            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+            <button onclick="pesquisa()" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
+        </form>
     </div>
+
 
 
 
@@ -327,10 +322,31 @@
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
-    <script type="module" src="../imports/nav-drop-down.js"></script>    
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>  
+    <script type="module" src="../imports/nav-drop-down.js"></script>
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
+    <script>
+        $(document).ready(function() {
+    $('#form-pesquisa').submit(function(event) {
+        event.preventDefault(); // Evita o envio do formulário e o refresh da página
+        
+        var pesquisa = $('#pesquisar').val(); // Obtém o valor da pesquisa do campo de entrada
+        
+        // Envia a solicitação AJAX ao servidor
+        $.ajax({
+            url: '../instituicoes.php', // Substitua pelo nome do arquivo PHP que contém a função 'listar'
+            type: 'POST',
+            data: { pesquisar: pesquisa }, // Envia o valor da pesquisa como parâmetro
+            success: function(data) {
+                // Atualiza a parte da página com os resultados da pesquisa
+                $('#lista-voluntario-linha-i').html(data);
+            }
+        });
+    });
+});
+    </script>
 </body>
 
 </html>

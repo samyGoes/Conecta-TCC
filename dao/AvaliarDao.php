@@ -9,13 +9,64 @@ class AvaliarDao
 
         $conexao = Conexao::conectar();
 
-        $prepareStatement = $conexao->prepare("INSERT INTO tbavaliacao(codInstituicao, codVoluntario, numAvaliacao)
-        VALUES (?,?,?)");
+        if(isset($codVoluntario)){ // AVALIACAO VOLUNTARIO
+            $sqlCodVolunt = "SELECT * FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
+            $resultVolunt = $conexao->query($sqlCodVolunt);
 
-        $prepareStatement->bindValue(1, $codInstituicao);
-        $prepareStatement->bindValue(2, $codVoluntario);
-        $prepareStatement->bindValue(3, $numAvaliacao);
-        $prepareStatement->execute();
+            if($resultVolunt-> rowCount()>0 ){
+
+                $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
+                $resultEstrelas = $conexao->query($queryEstrelas);
+
+                $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
+
+                $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = '$resultEstrelas'
+                 WHERE codVoluntario = '$codVoluntario'");
+
+                $stmt->bindValue(1, $numAvaliacao);
+                $stmt->execute();
+
+            }else{
+
+                $prepareStatement = $conexao->prepare("INSERT INTO tbavaliacao(codVoluntario, numAvaliacao)
+                    VALUES (?,?)");
+
+                $prepareStatement->bindValue(1, $codVoluntario);
+                $prepareStatement->bindValue(2, $numAvaliacao);
+                $prepareStatement->execute();
+            }
+
+        } else if(isset($codInstituicao)){ // AVALIACAO INSTIRUICAO
+            $sqlCodInst = "SELECT * FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
+            $resultInsti = $conexao->query($sqlCodInst);
+
+            if($resultInsti-> rowCount()>0 ){
+               
+                $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codInstituicao = '$codInstituicao'";
+                $resultEstrelas = $conexao->query($queryEstrelas);
+
+                $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
+
+                $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = '$resultEstrelas'
+                 WHERE codInstituicao = '$codInstituicao'");
+
+                $stmt->bindValue(1, $numAvaliacao);
+                $stmt->execute();
+
+            }else{
+                
+                $prepareStatement = $conexao->prepare("INSERT INTO tbavaliacao(codInstituicao, numAvaliacao)
+                    VALUES (?,?)");
+
+                $prepareStatement->bindValue(1, $codInstituicao);
+                $prepareStatement->bindValue(2, $numAvaliacao);
+                $prepareStatement->execute();
+
+            }
+        }
+
+        return 'Cadastrou';
+        
     }
 }
 ?>
