@@ -1,21 +1,30 @@
 const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
 
-export function cliqueNotT()
+export function verificarClasseBolinha() 
 {
-    bolinhaNot.className = "sem-bolinha";
-    if(bolinhaNot.className == "sem-bolinha")
+    const classeArmazenada = localStorage.getItem("bolinha");
+
+    if (classeArmazenada === "sem-bolinha") 
     {
-        bolinhaNot.remove();
-    }  
+        bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
+    } 
+    else 
+    {
+        bolinhaNot.classList.remove("sem-bolinha");
+    }
+}
+
+
+export function cliqueNotT()
+{  
+    localStorage.setItem("bolinha", "sem-bolinha"); 
+    bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
 }
 document.querySelector(".sub-topicos-sininho-linha-titulo").addEventListener("click", cliqueNotT);
 
 export function cliqueNotF()
-{
-    bolinhaNot.className = "sem-bolinha";
-    if(bolinhaNot.className == "sem-bolinha")
-    {
-        bolinhaNot.remove();
-    }  
+{ 
+    localStorage.setItem("bolinha", "sem-bolinha");  
+    bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
 }
 document.querySelector(".sub-topicos-sininho-linha-frase").addEventListener("click", cliqueNotF);

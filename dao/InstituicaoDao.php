@@ -256,6 +256,7 @@
         {
             $conexao = Conexao::conectar();
 
+            // NOTIFICAÇÃO DE NOVA CANDIDATURA
             $mensagemCandidatura = array
             (
                 'Nova Candidatura' => 'Um voluntário se candidatou a uma de suas vagas.',
@@ -271,11 +272,135 @@
                                               AND tbInstituicao.codInstituicao = ?");
 
             $querySelect->execute(array($idInstituicaoLogada));
-            $status = $querySelect->fetchAll();  
+            $status = $querySelect->fetchAll(PDO::FETCH_ASSOC);  
 
-            if(!empty($status))
+
+
+            // NOTIFICAÇÃO DE CAUSAS SOLICITADAS
+            $querySelect2 = $conexao->prepare("SELECT statusSolicitacao, codInstituicao FROM tbSolicitacaoCategoria WHERE codInstituicao = ?");
+            
+            $querySelect2->execute(array($idInstituicaoLogada));
+            $lista = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
+
+            // ARRAYS E VARIÁVEIS
+            $mensagemStatusSolicitacaoA = array
+            (
+                'Solicitação aceita' => 'O Adm aceitou a sua solicitação de causa.'
+            );
+            $mensagemStatusSolicitacaoR = array
+            (
+                'Solicitação recusada' => 'O Adm recusou a sua solicitação de causa.'
+            );
+            $qtdMensagem = [];
+            $statusAceito = 0;
+            $statusRecusado = 0;
+            $novaCandidatura = 0;
+         
+            // echo ("Status da solicitação: ");
+            // foreach ($lista as $linha) 
+            // {
+            //     var_dump($linha['statusSolicitacao']);
+            // }
+
+            // VERIFICANDO STATUS DA CANDIDATURA
+            foreach ($lista as $linha) 
             {
-                return $mensagemCandidatura;   
+                if ($linha['statusSolicitacao'] === 'aceito') 
+                {
+                    $statusAceito++;
+                }
+                if ($linha['statusSolicitacao'] === 'recusado') 
+                {
+                    $statusRecusado++;
+                }
+            }
+            foreach($status as $linha)
+            {
+                if($linha['statusCandidatura'] === 'pendente')
+                {
+                    $novaCandidatura++;
+                }
+            }
+          
+            //echo ("qtd de candidaturas: " . $novaCandidatura);
+
+            //echo $lista;
+            // VERIFICANDO QUAIS E QUANTOS STATUS TEM PARA AJUSTAR O RETORNO
+            if($statusAceito >= 1 && $statusRecusado >= 1 && $novaCandidatura >= 1)
+            {
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusSolicitacaoA;
+                }
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] = $mensagemStatusSolicitacaoR;
+                }
+                for($i = 0; $i < $novaCandidatura; $i++)
+                {
+                    $qtdMensagem[] = $mensagemCandidatura;
+                }
+                return $qtdMensagem;
+            }
+            else if($statusAceito >= 1 && $novaCandidatura >= 1)
+            {
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
+                }
+                for($i = 0; $i < $novaCandidatura; $i++)
+                {
+                    $qtdMensagem[] = $mensagemCandidatura;
+                }
+                return $qtdMensagem;
+            }
+            else if($statusRecusado >= 1 && $novaCandidatura >= 1)
+            {
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
+                }
+                for($i = 0; $i < $novaCandidatura; $i++)
+                {
+                    $qtdMensagem[] = $mensagemCandidatura;
+                }
+                return $qtdMensagem;
+            }
+            else if($statusAceito >= 1 && $statusRecusado >= 1)
+            {
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
+                }
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
+                }
+                return $qtdMensagem;
+            }
+            else if($statusAceito >= 1)
+            {
+                for($i = 0; $i < $statusAceito; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoA;
+                }
+                return $qtdMensagem;
+            }
+            else if($statusRecusado >= 1)
+            {
+                for($i = 0; $i < $statusRecusado; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemStatusSolicitacaoR;
+                }
+                return $qtdMensagem;
+            }
+            else if($novaCandidatura >= 1)
+            {
+                for($i = 0; $i < $novaCandidatura; $i++)
+                {
+                    $qtdMensagem[] =  $mensagemCandidatura;
+                }
+                return $qtdMensagem;
             }
             else
             {
@@ -283,6 +408,7 @@
             }
         }
 
+        
         public static function novaNotificacao($idInstituicaoLogada)
         {       
             $conexao = Conexao::conectar();

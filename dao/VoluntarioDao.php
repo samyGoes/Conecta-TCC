@@ -363,8 +363,8 @@
 
             $qtdMensagemAntiga = $_SESSION['qtdMensagemAntiga'];
             
-            //echo("Mensagem antiga: " . $qtdMensagemAntiga . "<br>");      
-            //echo("Mensagem atual: " . $qtdMensagemAtual[0][0]) . "<br>";
+            echo("Mensagem antiga: " . $qtdMensagemAntiga . "<br>");      
+            echo("Mensagem atual: " . $qtdMensagemAtual[0][0]) . "<br>";
 
             if(empty($qtdMensagemAtual) || $qtdMensagemAtual[0][0] == 0) 
             {
