@@ -328,7 +328,7 @@ include "../auth/loginUsuario.php";
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
-    <script>
+    <!-- <script>
 $(document).ready(function() {
     $('#form-pesquisa').submit(function(event) {
         event.preventDefault();
@@ -348,7 +348,7 @@ $(document).ready(function() {
     });
 });
 
-</script>
+</script> -->
 
 </body>
 
