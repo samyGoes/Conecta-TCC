@@ -18,7 +18,15 @@
         public static function listar()
         {
             $conexao = Conexao::conectar();
-            $querySelect = "SELECT codCategoriaServico, nomeCategoria FROM tbcategoriaServico";
+
+            if(isset($_POST['pesquisar'])){
+                $pesquisar= $_POST['pesquisar'];
+                $querySelect = "SELECT codCategoriaServico, nomeCategoria FROM tbcategoriaServico WHERE nomeCategoria LIKE '%$pesquisar%";
+
+            }else{
+                $querySelect = "SELECT codCategoriaServico, nomeCategoria FROM tbcategoriaServico";
+            }
+            
             $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll();
             return $lista;  

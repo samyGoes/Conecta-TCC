@@ -121,8 +121,9 @@ include "../auth/loginUsuario.php";
     <div class="pesquisa-instituicao">
         <form action="" id="form-pesquisa" method="post">
             <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-            <button onclick="pesquisa()" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
+            <button type="submit" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
         </form>
+
     </div>
 
 
@@ -322,31 +323,33 @@ include "../auth/loginUsuario.php";
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
     <script>
-        $(document).ready(function() {
+$(document).ready(function() {
     $('#form-pesquisa').submit(function(event) {
-        event.preventDefault(); // Evita o envio do formulário e o refresh da página
-        
-        var pesquisa = $('#pesquisar').val(); // Obtém o valor da pesquisa do campo de entrada
-        
-        // Envia a solicitação AJAX ao servidor
+        event.preventDefault();
+
+        var pesquisa = $('#pesquisar').val();
+
         $.ajax({
-            url: '../instituicoes.php', // Substitua pelo nome do arquivo PHP que contém a função 'listar'
+            url: '../dao/InstituicaoDao.php', 
             type: 'POST',
-            data: { pesquisar: pesquisa }, // Envia o valor da pesquisa como parâmetro
+            data: {
+                pesquisar: pesquisa
+            },
             success: function(data) {
-                // Atualiza a parte da página com os resultados da pesquisa
-                $('#lista-voluntario-linha-i').html(data);
+                $('.lista-voluntario').html(data);
             }
         });
     });
 });
-    </script>
+
+</script>
+
 </body>
 
 </html>

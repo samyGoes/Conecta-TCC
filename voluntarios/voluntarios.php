@@ -115,7 +115,10 @@ include "../auth/loginUsuario.php";
 
     <!-- PESQUISA -->
     <div class="pesquisa-instituicao">
-        <input type="text" placeholder="Pesquisar...">
+        <form action="" id="form-pesquisa" method="post">
+            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+            <button type="submit" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
+        </form>
     </div>
 
 
@@ -181,18 +184,17 @@ include "../auth/loginUsuario.php";
 
 
     <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
-    <div  id="resultado-lista-voluntario" class="lista-voluntario">
+    <div id="resultado-lista-voluntario" class="lista-voluntario">
         <?php
         require_once 'global.php';
-        try 
-        {
+        try {
             // Verificar se os filtros foram enviados via método GET
             if (!empty($_GET['causas']) || !empty($_GET['estado']) || !empty($_GET['cidade'])) {
                 // Recuperar os valores dos filtros do $_GET
                 $causas = $_GET['causas'] ?? '';
                 $estado = $_GET['estado'] ?? '';
                 $cidade = $_GET['cidade'] ?? '';
-        
+
                 $listaVoluntario = VoluntarioDao::listarFiltro($causas, $estado, $cidade);
             } else {
                 // Verificar se os filtros foram removidos
@@ -203,11 +205,9 @@ include "../auth/loginUsuario.php";
                     $listaVoluntario = VoluntarioDao::listarPadrao();
                 }
             }
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             echo $e->getMessage();
-        }        
+        }
         ?>
 
         <?php
