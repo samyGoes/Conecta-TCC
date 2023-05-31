@@ -423,12 +423,9 @@
                             <?php
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $habilidade['codSolicitacaoHabilidade']) {
                                     $codSolicitacaoHabilidade = $_POST['btnChamar'];
-// <<<<<<< Updated upstream
-// =======
-// <<<<<<< HEAD
                                 
                                     SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
-                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
+                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php?solicitacao=true';</script>";
                                 
                                 } 
                                 elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) 
@@ -436,12 +433,9 @@
                                     $codSolicitacaoHabilidade = $_POST['btnRecusar'];
                                 
                                     SolicitacaoHabilidadeDao::recusarSolicitacao($codSolicitacaoHabilidade);
-                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php??';</script>";
-// =======
-// >>>>>>> bb229d6f6cd81758ae2cb4b9d824a785162aea4d
-// >>>>>>> Stashed changes
+                                    echo "<script>window.location.href = 'tabela-solicitacao-habilidade.php?solicitacao=recusada';</script>";
 
-                                    SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
+                                    //SolicitacaoHabilidadeDao::aceitarSolicitacao($habilidade['nomeHabilidade'], $habilidade['codSolicitacaoHabilidade']);
                                 } elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $habilidade['codSolicitacaoHabilidade']) {
                                     $codSolicitacaoHabilidade = $_POST['btnRecusar'];
 

@@ -282,6 +282,15 @@
             $querySelect2->execute(array($idInstituicaoLogada));
             $listaSolicitacaoCausa = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
 
+
+
+            // NOTIFICAÇÃO DE HABILIDADES SOLICITADAS
+            $querySelect2 = $conexao->prepare("SELECT statusSolicitacao, codInstituicao FROM tbSolicitacaoHabilidade WHERE codInstituicao = ?");
+        
+            $querySelect2->execute(array($idInstituicaoLogada));
+            $listaSolicitacaoHabilidade = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
+
+
             // ARRAYS E VARIÁVEIS
             $mensagemStatusSolicitacaoA = array
             (
@@ -291,6 +300,16 @@
             (
                 'Solicitação recusada' => 'O Adm recusou a sua solicitação de causa.'
             );
+
+            $mensagemStatusSolicitacaoHA = array
+            (
+                'Solicitação aceita' => 'O Adm aceitou a sua solicitação de habilidade.'
+            );
+            $mensagemStatusSolicitacaoHR = array
+            (
+                'Solicitação recusada' => 'O Adm recusou a sua solicitação de habilidade.'
+            );
+
             $mensagens = [];
             $statusAceitoCausa = 0;
             $statusRecusadoCausa = 0;
@@ -316,6 +335,17 @@
                     $statusRecusadoCausa++;
                 }
             }
+            foreach($listaSolicitacaoHabilidade as $linha)
+            {
+                if ($linha['statusSolicitacao'] === 'aceito') 
+                {
+                    $statusAceitoHabilidade++;
+                }
+                if ($linha['statusSolicitacao'] === 'recusado') 
+                {
+                    $statusRecusadoHabilidade++;
+                }
+            }
             foreach($listaCandidatura as $linha)
             {
                 if($linha['statusCandidatura'] === 'pendente')
@@ -327,6 +357,7 @@
       
 
             // VERIFICANDO QUAIS NOTIFICAÇÕES TEM E RETORNANDO ELAS
+            // CAUSAS
             if($statusAceitoCausa >= 1)
             {
                 for($i = 0; $i < $statusAceitoCausa; $i++)
@@ -341,6 +372,22 @@
                     $mensagens[] = $mensagemStatusSolicitacaoR;
                 }           
             }
+            // HABILIDADES
+            if($statusAceitoHabilidade >= 1)
+            {
+                for($i = 0; $i < $statusAceitoHabilidade; $i++)
+                {
+                    $mensagens[] = $mensagemStatusSolicitacaoHA;
+                }
+            }
+            if($statusRecusadoHabilidade >= 1)
+            {
+                for($i = 0; $i < $statusRecusadoHabilidade; $i++)
+                {
+                    $mensagens[] = $mensagemStatusSolicitacaoHR;
+                }           
+            }
+            // CANDIDATURA
             if($novaCandidatura >= 1)
             {
                 for($i = 0; $i < $novaCandidatura; $i++)
@@ -348,6 +395,8 @@
                     $mensagens[] = $mensagemCandidatura;
                 }           
             }
+
+
             if(!empty($mensagens))
             {
                 return $mensagens;
