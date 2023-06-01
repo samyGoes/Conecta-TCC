@@ -9,8 +9,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-   
-   
+    /* display: none; */
 }
 
 .form {
@@ -143,10 +142,4 @@
 .modal-sessao-2 {
     display: none;
     flex-direction: column;
-}
-
-#modal.hide,
-#form.hide{
-    opacity: 0;
-    pointer-events: none;
 }

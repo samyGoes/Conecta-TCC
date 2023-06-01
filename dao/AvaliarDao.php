@@ -5,11 +5,10 @@ require_once 'global.php';
 class AvaliarDao 
 {
 
-    public static function avaliar( $codVoluntario, $numAvaliacao){
+    public static function avaliarVoluntario( $codVoluntario, $numAvaliacao){
 
         $conexao = Conexao::conectar();
 
-        if(isset($codVoluntario)){ // AVALIACAO VOLUNTARIO
             $sqlCodVolunt = "SELECT * FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
             $resultVolunt = $conexao->query($sqlCodVolunt);
 
@@ -21,6 +20,8 @@ class AvaliarDao
                  $resultEstrelas = $resultEstrelas->fetchColumn();
 
                  $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
+                
+                 $resultEstrelas = number_format($resultEstrelas);
 
                  $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = :resultEstrelas
                   WHERE codVoluntario = :codVoluntario");
@@ -39,22 +40,34 @@ class AvaliarDao
                 $prepareStatement->execute();
             }
 
-        } else if(isset($codInstituicao)){ // AVALIACAO INSTIRUICAO
-            $sqlCodInst = "SELECT * FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
+        return $resultEstrelas;
+        
+    }
+
+    public static function avaliarInstituicao($codInstituicao, $numAvaliacao){
+
+        $conexao = Conexao::conectar();
+
+        $sqlCodInst = "SELECT * FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
             $resultInsti = $conexao->query($sqlCodInst);
 
             if($resultInsti-> rowCount()>0 ){
                
                 $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codInstituicao = '$codInstituicao'";
-                $resultEstrelas = $conexao->query($queryEstrelas);
+                 $resultEstrelas = $conexao->query($queryEstrelas);
+                 $resultEstrelas->execute();
+                 $resultEstrelas = $resultEstrelas->fetchColumn();
 
                 $resultEstrelas = ($resultEstrelas + $numAvaliacao)/2;
 
-                $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = '$resultEstrelas'
-                 WHERE codInstituicao = '$codInstituicao'");
+                $resultEstrelas = number_format($resultEstrelas);
 
-                $stmt->bindValue(1, $numAvaliacao);
-                $stmt->execute();
+                $stmt = $conexao->prepare("UPDATE tbAvaliacao SET numAvaliacao = :resultEstrelas
+                  WHERE codInstituicao = :codInstituicao");
+
+                 $stmt->bindValue(':resultEstrelas', $resultEstrelas);
+                 $stmt->bindValue(':codVoluntario', $codInstituicao);
+                 $stmt->execute();
 
             }else{
                 
@@ -66,10 +79,30 @@ class AvaliarDao
                 $prepareStatement->execute();
 
             }
-        }
 
         return 'Cadastrou';
-        
+    }
+
+    public static function mostrarAvaliacaoVoluntario($codVoluntario) {
+        $conexao = Conexao::conectar();
+
+        $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codVoluntario = '$codVoluntario'";
+                 $resultEstrelas = $conexao->query($queryEstrelas);
+                 $resultEstrelas->execute();
+                 $resultEstrelas = $resultEstrelas->fetchColumn();
+
+            return $resultEstrelas;
+    }
+
+    public static function mostrarAvaliacaoInstituicao($codInstituicao) {
+        $conexao = Conexao::conectar();
+
+        $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
+                 $resultEstrelas = $conexao->query($queryEstrelas);
+                 $resultEstrelas->execute();
+                 $resultEstrelas = $resultEstrelas->fetchColumn();
+
+            return $resultEstrelas;
     }
 }
 ?>

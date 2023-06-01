@@ -111,8 +111,6 @@
                             <table>
                                 <tbody>
                                 <?php
-
-
                                     require_once 'global.php';
 
                                     try {
@@ -120,10 +118,11 @@
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
-                                    ?>
+                                ?>
                                     <?php
                                         foreach ($row as $instituicao) {
-                                    ?> <tr>
+                                    ?> 
+                                    <tr>
                                             <td>
                                                 <div class="td-divisao">
                                                     <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
