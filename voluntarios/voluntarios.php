@@ -36,7 +36,7 @@ include "../auth/loginUsuario.php";
                 <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                 <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                 <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
+                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato.php" class="cabecalho-menu-item">contato</a></li>
             </ul>
 
             <ul class="topicos-sessao-login">
@@ -44,7 +44,7 @@ include "../auth/loginUsuario.php";
                 if (empty($_SESSION['nomeUsuario'])) {
                 ?>
                     <li class="topicos-sessao-login-linha">
-                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                        <a href="<?php echo '../form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                             <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
                         </a>
                     </li>
@@ -270,7 +270,7 @@ include "../auth/loginUsuario.php";
                 <div class="footer-col" id="footer-col-adm">
                     <h5>Adm</h5>
                     <ul>
-                        <a href="login-adm.php">
+                        <a href="../login-adm.php">
                             <li>Login</li>
                         </a>
                     </ul>
