@@ -10,7 +10,7 @@ class CandidaturaDao
         if (isset($_POST['pesquisar'])) {
             $pesquisar = $_POST['pesquisar'];
 
-            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.codServico, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
