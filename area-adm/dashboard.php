@@ -54,59 +54,6 @@
         </div>
     </nav>
 
-    <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
-    <div class="container-titulo-configuracoes">
-        <!-- <h1> Configurações do Perfil </h1> -->
-        <ul class="topicos-sessao-login">
-            <li class="topicos-sessao-login-linha">
-                <div class="box-topicos-sessao-login-linha">
-                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-
-                    <?php
-                    $notInstituicaoTitulo = array(
-                        'Nova Candidatura',
-                        'Nova Mensagem',
-                        'Nova Avaliação',
-                        'Nova Avaliação'
-                    );
-
-                    $notInstituicaoFrase = array(
-                        'Um voluntário se candidatou a vaga de professor de inglês.',
-                        'Você tem uma nova mensagem do voluntário João.',
-                        'Um voluntário fez uma avaliação sua.',
-                        'Um voluntário fez uma avaliação sua.'
-                    );
-
-                    ?>
-                    <ul class="sub-topicos-sininho">
-                        <?php
-                        foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
-                        ?>
-                            <li>
-                                <div class="sub-topicos-sininho-linha">
-                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
-                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
-                                </div>
-                            </li>
-                        <?php
-                        }
-                        ?>
-                    </ul>
-                    <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                        Olá, adm <span id="nav-seta-sub-topicos"> 🢓 </span>
-                    </p>
-                </div>
-
-                <ul class="sub-topicos">
-                    <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                    <li> <a href=""> Vagas </a> </li>
-                    <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                    <li> <a href="../auth/logout.php"> Sair </a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
 
 
     <!-- CONTEUDO  -->
@@ -163,7 +110,7 @@
                             </div>
                             <table>
                                 <tbody>
-                                    <?php
+                                <?php
                                     require_once 'global.php';
 
                                     try {
@@ -171,11 +118,11 @@
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
-                                    ?>
+                                ?>
                                     <?php
-                                    foreach ($row as $instituicao) {
-                                    ?>
-                                        <tr>
+                                        foreach ($row as $instituicao) {
+                                    ?> 
+                                    <tr>
                                             <td>
                                                 <div class="td-divisao">
                                                     <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
@@ -262,18 +209,18 @@
                         $width8 = '17%';
                         $total  = 8; // total de barras
 
-                        require_once 'global.php';
+                           require_once 'global.php';
 
-                        try {
-                            $idade = DashboardDao::porcentagem();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        <?php
-                        foreach ($idade as $numero) {
+                           try{
+                              $idade = DashboardDao::porcentagem();
+                          } catch (Exception $e) {
+                             echo $e->getMessage();
+                          }
+                          ?>
+                         <?php
+                         foreach($idade as $numero){
                             echo $numero;
-                        }
+                          }
                         ?>
                         <!-- <div class="table-responsive-grafico"> -->
                         <div class="box-1">
@@ -329,11 +276,8 @@
 
     </main>
 
-    <script src="../area-voluntario/js/script.js"></script>
     <script src="js/script.js"></script>
-    <script type="module" src="../imports/nav-drop-down.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
-    <script type="module" src="../area-instituicao/imports/side-bar.js"></script>
+    <script src="../area-instituicao/js/script.js"></script>
 </body>
 
 </html>

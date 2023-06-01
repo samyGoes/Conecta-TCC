@@ -159,7 +159,7 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaVoluntario = VoluntarioDao::listarPadrao();
+                            $listaVoluntario = VoluntarioDao::listar();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
@@ -189,11 +189,8 @@
 
 
     </main>
-    <script src="../area-voluntario/js/script.js"></script>
     <script src="js/script.js"></script>
-    <script type="module" src="../imports/nav-drop-down.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
-    <script type="module" src="../area-instituicao/imports/side-bar.js"></script>
+    <script src="../area-voluntario/js/script.js"></script>
 </body>
 
 </html>
