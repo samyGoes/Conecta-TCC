@@ -479,11 +479,10 @@
 
 
 
-    <script src="/js/modal-cadastro-vaga.js"></script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
-    <script src="../js/endereco-auto.js"></script>
+    <!-- <script src="../js/endereco-auto.js"></script> -->
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
     <script type="module" src="../imports/nova-notificacao.js"></script>
 

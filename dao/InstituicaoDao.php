@@ -285,10 +285,10 @@
 
 
             // NOTIFICAÇÃO DE HABILIDADES SOLICITADAS
-            $querySelect2 = $conexao->prepare("SELECT statusSolicitacao, codInstituicao FROM tbSolicitacaoHabilidade WHERE codInstituicao = ?");
+            $querySelect3 = $conexao->prepare("SELECT statusSolicitacao, codInstituicao FROM tbSolicitacaoHabilidade WHERE codInstituicao = ?");
         
-            $querySelect2->execute(array($idInstituicaoLogada));
-            $listaSolicitacaoHabilidade = $querySelect2 -> fetchAll(PDO::FETCH_ASSOC);
+            $querySelect3->execute(array($idInstituicaoLogada));
+            $listaSolicitacaoHabilidade = $querySelect3 -> fetchAll(PDO::FETCH_ASSOC);
 
 
             // ARRAYS E VARIÁVEIS
@@ -323,7 +323,7 @@
             //     var_dump($linha['statusSolicitacao']);
             // }
 
-            // VERIFICANDO STATUS DA CANDIDATURA
+            // VERIFICANDO STATUS
             foreach ($listaSolicitacaoCausa as $linha) 
             {
                 if ($linha['statusSolicitacao'] === 'aceito') 
@@ -407,7 +407,8 @@
             }
         }
 
-        
+       
+
         public static function novaNotificacao($idInstituicaoLogada)
         {       
             $conexao = Conexao::conectar();

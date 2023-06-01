@@ -183,7 +183,7 @@ include "../auth/loginUsuario.php";
 
 
 
-    <!-- LISTA DE INSTITUIÇÕES CADASTRADAS -->
+    <!-- LISTA DE VOLUNTÁRIOS CADASTRADAS -->
     <div id="resultado-lista-voluntario" class="lista-voluntario">
         <?php
         require_once 'global.php';

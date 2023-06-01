@@ -73,34 +73,36 @@
                     <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
 
                     <?php
-                    $notInstituicaoTitulo = array(
-                        'Nova Candidatura',
-                        'Nova Mensagem',
-                        'Nova Avaliação',
-                        'Nova Avaliação'
-                    );
+                        require_once "global.php";
 
-                    $notInstituicaoFrase = array(
-                        'Um voluntário se candidatou a vaga de professor de inglês.',
-                        'Você tem uma nova mensagem do voluntário João.',
-                        'Um voluntário fez uma avaliação sua.',
-                        'Um voluntário fez uma avaliação sua.'
-                    );
+                        try
+                        {
+                            $lista = AdmDao::notificacoes();
+                        }                      
+                        catch(Exception $e) 
+                        {
+                            echo $e->getMessage();
+                        }
 
                     ?>
                     <ul class="sub-topicos-sininho">
-                        <?php
-                        foreach ($notInstituicaoTitulo as $notificacoes => $notInstituicaoTitulo) {
-                        ?>
-                            <li>
-                                <div class="sub-topicos-sininho-linha">
-                                    <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo ($notInstituicaoTitulo); ?> </a>
-                                    <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo ($notInstituicaoFrase[$notificacoes]); ?> </a>
-                                </div>
-                            </li>
-                        <?php
+                        
+                    <?php
+                        foreach($lista as $linha) 
+                        {
+                            foreach($linha as $titulo => $frase)
+                            {
+                    ?>
+                                <li>
+                                    <div class="sub-topicos-sininho-linha">
+                                        <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
+                                        <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
+                                    </div>
+                                </li>
+                    <?php
+                            }
                         }
-                        ?>
+                    ?>
                     </ul>
                     <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                         Olá, adm <span id="nav-seta-sub-topicos"> 🢓 </span>
