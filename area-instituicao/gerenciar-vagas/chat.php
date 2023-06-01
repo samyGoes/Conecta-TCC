@@ -189,22 +189,6 @@ include "../../auth/verifica-logado.php";
                     <div class="main-chat">
                         <div class="mensagens" id="mensagens">
 
-
-
-
-                            <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -240,7 +224,6 @@ include "../../auth/verifica-logado.php";
 
                 scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
             }
-
         }
     </script>
 
