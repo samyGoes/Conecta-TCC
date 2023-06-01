@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2023 às 05:03
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.2
+-- Tempo de geração: 01-Jun-2023 às 18:56
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdconecta`
+-- Banco de dados: `bdconecta`
 --
 
 -- --------------------------------------------------------
@@ -43,8 +42,8 @@ CREATE TABLE `tbadm` (
 
 CREATE TABLE `tbavaliacao` (
   `codAvaliacao` int(11) NOT NULL,
-  `codVoluntario` int(11) NOT NULL,
-  `codInstituicao` int(11) NOT NULL,
+  `codVoluntario` int(11) DEFAULT NULL,
+  `codInstituicao` int(11) DEFAULT NULL,
   `numAvaliacao` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -339,17 +338,17 @@ INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntar
 (4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `tbadm`
+-- Índices para tabela `tbadm`
 --
 ALTER TABLE `tbadm`
   ADD PRIMARY KEY (`codAdm`);
 
 --
--- Indexes for table `tbavaliacao`
+-- Índices para tabela `tbavaliacao`
 --
 ALTER TABLE `tbavaliacao`
   ADD PRIMARY KEY (`codAvaliacao`),
@@ -357,7 +356,7 @@ ALTER TABLE `tbavaliacao`
   ADD KEY `fk_AvaliacaoInstituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbcandidatura`
+-- Índices para tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   ADD PRIMARY KEY (`codCandidatura`),
@@ -365,13 +364,13 @@ ALTER TABLE `tbcandidatura`
   ADD KEY `fk_ajudante` (`codVoluntario`);
 
 --
--- Indexes for table `tbcategoriaservico`
+-- Índices para tabela `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
   ADD PRIMARY KEY (`codCategoriaServico`);
 
 --
--- Indexes for table `tbcausavaga`
+-- Índices para tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
   ADD PRIMARY KEY (`codCausaVaga`),
@@ -379,7 +378,7 @@ ALTER TABLE `tbcausavaga`
   ADD KEY `fk_ServicoVaga` (`codServico`);
 
 --
--- Indexes for table `tbcausavoluntario`
+-- Índices para tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
   ADD PRIMARY KEY (`codCausaVoluntario`),
@@ -387,34 +386,34 @@ ALTER TABLE `tbcausavoluntario`
   ADD KEY `fk_codCategoria` (`codCategoriaServico`);
 
 --
--- Indexes for table `tbfoneinstituicao`
+-- Índices para tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
   ADD PRIMARY KEY (`codFoneInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbfonevoluntario`
+-- Índices para tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   ADD PRIMARY KEY (`codFoneVoluntario`),
   ADD KEY `codVoluntario` (`codVoluntario`);
 
 --
--- Indexes for table `tbfotosinstituicao`
+-- Índices para tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   ADD PRIMARY KEY (`codfotoInstituicao`),
   ADD KEY `codInstituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbhabilidadeservico`
+-- Índices para tabela `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
   ADD PRIMARY KEY (`codHabilidadeServico`);
 
 --
--- Indexes for table `tbhabivaga`
+-- Índices para tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
   ADD PRIMARY KEY (`codHabiVaga`),
@@ -422,140 +421,140 @@ ALTER TABLE `tbhabivaga`
   ADD KEY `fk_serv` (`codServico`);
 
 --
--- Indexes for table `tbinstituicao`
+-- Índices para tabela `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
   ADD PRIMARY KEY (`codInstituicao`);
 
 --
--- Indexes for table `tbservico`
+-- Índices para tabela `tbservico`
 --
 ALTER TABLE `tbservico`
   ADD PRIMARY KEY (`codServico`),
   ADD KEY `fk_Instituicao` (`codInstituicao`);
 
 --
--- Indexes for table `tbsolicitacaocategoria`
+-- Índices para tabela `tbsolicitacaocategoria`
 --
 ALTER TABLE `tbsolicitacaocategoria`
   ADD PRIMARY KEY (`codSolicitacaoCategoria`),
   ADD KEY `fk_SolicitacaoCategoria` (`codInstituicao`);
 
 --
--- Indexes for table `tbsolicitacaohabilidade`
+-- Índices para tabela `tbsolicitacaohabilidade`
 --
 ALTER TABLE `tbsolicitacaohabilidade`
   ADD PRIMARY KEY (`codSolicitacaoHabilidade`),
   ADD KEY `fk_SolicitacaoHabilidade` (`codInstituicao`);
 
 --
--- Indexes for table `tbvoluntario`
+-- Índices para tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   ADD PRIMARY KEY (`codVoluntario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbadm`
+-- AUTO_INCREMENT de tabela `tbadm`
 --
 ALTER TABLE `tbadm`
   MODIFY `codAdm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbavaliacao`
+-- AUTO_INCREMENT de tabela `tbavaliacao`
 --
 ALTER TABLE `tbavaliacao`
   MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbcandidatura`
+-- AUTO_INCREMENT de tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
   MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbcategoriaservico`
+-- AUTO_INCREMENT de tabela `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
   MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `tbcausavaga`
+-- AUTO_INCREMENT de tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
   MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `tbcausavoluntario`
+-- AUTO_INCREMENT de tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
   MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbfoneinstituicao`
+-- AUTO_INCREMENT de tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
   MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `tbfonevoluntario`
+-- AUTO_INCREMENT de tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
   MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbfotosinstituicao`
+-- AUTO_INCREMENT de tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
   MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbhabilidadeservico`
+-- AUTO_INCREMENT de tabela `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
   MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbhabivaga`
+-- AUTO_INCREMENT de tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
   MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbinstituicao`
+-- AUTO_INCREMENT de tabela `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
   MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbservico`
+-- AUTO_INCREMENT de tabela `tbservico`
 --
 ALTER TABLE `tbservico`
   MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `tbsolicitacaocategoria`
+-- AUTO_INCREMENT de tabela `tbsolicitacaocategoria`
 --
 ALTER TABLE `tbsolicitacaocategoria`
   MODIFY `codSolicitacaoCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbsolicitacaohabilidade`
+-- AUTO_INCREMENT de tabela `tbsolicitacaohabilidade`
 --
 ALTER TABLE `tbsolicitacaohabilidade`
   MODIFY `codSolicitacaoHabilidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbvoluntario`
+-- AUTO_INCREMENT de tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
   MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
