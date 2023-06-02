@@ -159,7 +159,7 @@
                         <?php
                         require_once 'global.php';
                         try {
-                            $listaVoluntario = VoluntarioDao::listar();
+                            $listaVoluntario = VoluntarioDao::listarPadrao();
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
