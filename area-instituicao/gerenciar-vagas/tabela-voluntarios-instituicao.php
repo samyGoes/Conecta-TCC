@@ -623,7 +623,29 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="../../js/pesquisa.js"></script>
+    <script>
+$(document).ready(function() {
+    $('#form-pesquisa').submit(function(event) {
+        event.preventDefault();
+
+        var pesquisa = $('#pesquisar').val();
+
+        $.ajax({
+            url: '../../dao/CandidaturaDao.php', 
+            type: 'POST',
+            data: {
+                pesquisar: pesquisa
+            },
+            success: function(data) {
+                $('.lista-voluntario').html(data);
+            }
+        });
+    });
+});
+
+</script>
 
 </body>
 

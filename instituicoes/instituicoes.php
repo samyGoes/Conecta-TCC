@@ -323,32 +323,11 @@ include "../auth/loginUsuario.php";
     <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="js/script.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
-    <!-- <script>
-$(document).ready(function() {
-    $('#form-pesquisa').submit(function(event) {
-        event.preventDefault();
-
-        var pesquisa = $('#pesquisar').val();
-
-        $.ajax({
-            url: '../dao/InstituicaoDao.php', 
-            type: 'POST',
-            data: {
-                pesquisar: pesquisa
-            },
-            success: function(data) {
-                $('.lista-voluntario').html(data);
-            }
-        });
-    });
-});
-
-</script> -->
 
 </body>
 
