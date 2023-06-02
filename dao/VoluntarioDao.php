@@ -122,49 +122,33 @@
             }
         }
 
-        public static function listarFiltro($causas,$estado,$cidade)
-        {         
+          
+        public static function listarFiltro($causas, $estado, $cidade)
+        {
             $conexao = Conexao::conectar();
-
-                // Consulta com os filtros informados
-                $sql = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario WHERE 1=1";
-        
-                if (!empty($causas)) {
-                    $causasArray = explode(",", $causas);
-                    $placeholders = implode(",", array_fill(0, count($causasArray), "?"));
-                    $sql .= " AND causas IN ($placeholders)";
-                }
-        
-                if (!empty($estado)) {
-                    $sql .= " AND estado = :filtro2";
-                }
-        
-                if (!empty($cidade)) {
-                    $sql .= " AND cidade = :filtro3";
-                }
-        
-                // Executar a consulta no banco de dados
-                $stmt = $conexao->prepare($sql);
-        
-                if (!empty($causas)) {
-                    $stmt->execute($causasArray);
-                }
-        
-                if (!empty($estado)) {
-                    $stmt->bindParam(':filtro2', $estado);
-                }
-        
-                if (!empty($cidade)) {
-                    $stmt->bindParam(':filtro3', $cidade);
-                }
-        
-                $stmt->execute();
-        
-                $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
-                // Processar os resultados e retornar
-                return $resultados;
+            
+            // Consulta padrão para trazer todos os valores
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario WHERE 1 = 1";
+            
+            // Adicione cláusulas WHERE conforme os filtros informados
+            if (!empty($causas)) 
+            {
+                $causasString = implode(',', $causas);
+                $querySelect .= " AND causa IN ($causasString)";
+            }
+            if (!empty($estado)) {
+                $querySelect .= " AND estadoVoluntario = '$estado'";
+            }
+            if (!empty($cidade)) 
+            {
+                $querySelect .= " AND cidadeVoluntario = '$cidade'";
+            }
+            
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            return $lista;
         }
+        
 
         public static function listarPadrao()
         {

@@ -155,7 +155,7 @@ include "../auth/loginUsuario.php";
                     ?>
                     <?php foreach ($listaCausas as $causas) { ?>
                         <div class="box-causas-checkbox">
-                            <input class="checkbox-causas" type="checkbox" name="causas" onchange="this.form.submit()" id="causas">
+                            <input class="checkbox-causas" type="checkbox" name="causas" id="causas">
                             <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
                         </div>
 
@@ -167,11 +167,11 @@ include "../auth/loginUsuario.php";
         </div>
 
         <!-- SELECT ESTADOS E CIDADES -->
-        <select class="select-estados-i" name="estados" onchange="this.form.submit()" id="estados">
+        <select class="select-estados-i" name="estados" id="estados">
             <option selected disabled> Selecione o estado... </option>
         </select>
 
-        <select class="select-cidade-i" name="cidades" onchange="this.form.submit()" id="cidades">
+        <select class="select-cidade-i" name="cidades" id="cidades">
             <option selected disabled> Selecione a cidade... </option>
         </select>
     </form>
@@ -334,6 +334,7 @@ include "../auth/loginUsuario.php";
 
     <!-- SCRIPTS -->
     <script src="js/script.js"></script>
+    <script src="../js/filtro.js"></script>
     <script src="../voluntarios/js/cidade-estados.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
