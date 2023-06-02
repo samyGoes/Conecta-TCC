@@ -62,23 +62,46 @@ class DashboardDao
       public static function porcentagem(){
           $conexao = Conexao::conectar();
 
-          $query= $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario");
-          $query->execute();
+          $resultado = array();
 
-          $dez = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeDez FROM tbVoluntario WHERE 'idadeDez' BETWEEN 0 AND 10");
-          $dez->execute();
+           $total= $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idade FROM tbVoluntario");
+           $total->execute();
 
-          $vinte = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeVinte FROM tbVoluntario WHERE 'idadeVinte' BETWEEN 11 AND 20");
+           $dez = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeDez FROM tbVoluntario HAVING idadeDez BETWEEN '0' AND '10'");
+           $dez->execute();
+           $resultado['dez'] = $dez->fetch(PDO::FETCH_ASSOC);
+
+          $vinte = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeVinte FROM tbVoluntario HAVING idadeVinte BETWEEN '11' AND '20'");
           $vinte->execute();
+          $resultado['vinte'] = $vinte->fetch(PDO::FETCH_ASSOC);
 
-          $trinta = $conexao->prepare("SELECT TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW()) AS idadeTrinta FROM tbVoluntario WHERE 'idadeTrinta' BETWEEN 19 AND 30");
-          $trinta->execute();
-          
-        $resultado = $vinte->fetch(PDO::FETCH_ASSOC);
+           $trinta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeTrinta FROM tbVoluntario HAVING idadeTrinta BETWEEN '21' AND '30'");
+           $trinta->execute();
+           $resultado['trinta'] = $trinta->fetch(PDO::FETCH_ASSOC);
+
+           $quarenta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeQuarenta FROM tbVoluntario HAVING idadeQuarenta BETWEEN '31' AND '40'");
+           $quarenta->execute();
+           $resultado['quarenta'] = $quarenta->fetch(PDO::FETCH_ASSOC);
+
+           $cinquenta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeCinquenta FROM tbVoluntario HAVING idadeCinquenta BETWEEN '41' AND '50'");
+           $cinquenta->execute();
+           $resultado['cinquenta'] = $cinquenta->fetch(PDO::FETCH_ASSOC);
+
+           $sessenta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeSessenta FROM tbVoluntario HAVING idadeSessenta BETWEEN '51' AND '60'");
+           $sessenta->execute();
+           $resultado['sessenta'] = $sessenta->fetch(PDO::FETCH_ASSOC);
+
+           $setenta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeSetenta FROM tbVoluntario HAVING idadeSetenta BETWEEN '61' AND '70'");
+           $setenta->execute();
+           $resultado['setenta'] = $setenta->fetch(PDO::FETCH_ASSOC);
+
+           $oitenta = $conexao->prepare("SELECT COUNT(TIMESTAMPDIFF(YEAR, dataNascVoluntario, NOW())) AS idadeOitenta FROM tbVoluntario HAVING idadeOitenta >= '71'");
+           $oitenta->execute();
+           $resultado['oitenta'] = $oitenta->fetch(PDO::FETCH_ASSOC);
 
 
-
-          return $resultado;
+            return;
+        
       }
 
 }
