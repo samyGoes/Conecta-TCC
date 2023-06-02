@@ -404,7 +404,7 @@
                 <div class="footer-col" id="footer-col-adm">
                     <h5>Adm</h5>
                     <ul>
-                        <a href="login-adm.php">
+                        <a href="../form-login-adm.php">
                             <li>Login</li>
                         </a>
                     </ul>

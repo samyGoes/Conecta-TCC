@@ -120,15 +120,12 @@
                                     }
                                 ?>
                                     <?php
-                                        foreach ($row as $instituicao) {
-                                    ?> 
+                                        foreach ($row as $instituicao) {?> 
                                     <tr>
                                             <td>
                                                 <div class="td-divisao">
                                                     <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
-                                                    <div class=".td-text">
-                                                        <?php echo $instituicao['nomeInstituicao']; ?>
-                                                    </div>
+                                                    <div class=".td-text"><?php echo $instituicao['nomeInstituicao']; ?></div>
                                                 </div>
                                             </td>
                                             <td> <?php echo $instituicao['estrelas']; ?></td>
@@ -217,11 +214,7 @@
                              echo $e->getMessage();
                           }
                           ?>
-                         <?php
-                         foreach($idade as $numero){
-                            echo $numero;
-                          }
-                        ?>
+
                         <!-- <div class="table-responsive-grafico"> -->
                         <div class="box-1">
                             <div class="organizador-1">
