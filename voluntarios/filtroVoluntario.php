@@ -5,7 +5,7 @@
     $cidade = $_GET['cidades'];
 
    
-        $conexao = Conexao :: conectar();
+        $conexao = Conexao :: conectar(); {
             // Verificar se todos os filtros estão vazios
             if (empty($causas) && empty($estado) && empty($cidade)) 
             {
@@ -55,5 +55,3 @@
             // Exibir os resultados conforme necessário
         }
     }
-    
-?>
