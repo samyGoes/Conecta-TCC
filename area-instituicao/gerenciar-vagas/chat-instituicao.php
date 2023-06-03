@@ -97,10 +97,9 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
-                    <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
-                            class="nav-lateral-topico"> Adicionar Fotos
-                        </span></a>
-                </div>
+                <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span class="nav-lateral-topico"> Adicionar Fotos
+                    </span></a>
+            </div>
 
             <div class="nav-lateral-box-icon">
                 <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Solicitar
@@ -180,7 +179,7 @@ include "../../auth/verifica-logado.php";
                 <div class="chat-header">
                     <div class="nome-user">
                         <img src="../img-instituicao/5.jpg" alt="img">
-                        <h2 class="chat-titulo" id="chat-titulo"> Samilly Silva de Goes </h2>
+                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
                     </div>
                     <div class="pesquisar-chat">
                         <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
@@ -190,7 +189,19 @@ include "../../auth/verifica-logado.php";
                 <div class="scroll-chat" id="scroll-chat">
                     <div class="main-chat">
                         <div class="mensagens" id="mensagens">
-
+                            <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -199,7 +210,7 @@ include "../../auth/verifica-logado.php";
                         <div class="enviar-mensagem">
                             <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
                         </div>
-                        <button type="" class="button-send" onclick="sendMessage()">
+                        <button type="" class="button-send" id="btn1" onclick="sendMessage()">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
@@ -210,22 +221,110 @@ include "../../auth/verifica-logado.php";
         </div>
     </main>
     <script>
-        function sendMessage() {
-            var scroll = document.getElementById("scroll-chat")
-            var input = document.getElementById("enviar-mensagem");
-            var message = input.value;
+        // function sendMessage() {
+        //     var scroll = document.getElementById("scroll-chat")
+        //     var input = document.getElementById("enviar-mensagem");
+        //     var message = input.value;
 
-            if (message !== "") {
-                var chatbox = document.getElementById("mensagens");
-                var newMessage = document.createElement("div");
-                newMessage.className = "area-instituicao";
-                newMessage.innerHTML = '<div class="area-instituicao"><div class="instituicao"><div class="mensagem-instituicao"><div class="conteudo-mensagem"><h4>ONG gato</h4><p>' + message + '</p></div></div></div><div class="foto-instituicao"><img src="../img-instituicao/9.JPG" alt="foto"></div></div>';
-                chatbox.appendChild(newMessage);
+        //     if (message !== "") {
+        //         var chatbox = document.getElementById("mensagens");
+        //         var newMessage = document.createElement("div");
+        //         newMessage.className = "area-instituicao";
+        //         newMessage.innerHTML = '<div class="area-instituicao"><div class="instituicao"><div class="mensagem-instituicao"><div class="conteudo-mensagem"><h4><?php echo $primeiroNome ?></h4><p>' + message + '</p></div></div></div><div class="foto-instituicao"><img src="../img-instituicao/9.JPG" alt="foto"></div></div>';
+        //         chatbox.appendChild(newMessage);
 
-                input.value = "";
+        //         input.value = "";
+
+        //         scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+        //     }
+        // }
+
+        var conn = new WebSocket('ws://localhost:3000');
+
+        conn.onopen = function(e) {
+            //console.log("Connection established!");
+        };
+
+        conn.onmessage = function(e) {
+            //console.log(e.data);
+            showMessages('other', e.data);
+        };
+
+        //conn.send('Hello World!');
+        ///////////////////////////////////////////////
+        var inp_message = document.getElementById('enviar-mensagem');
+        var btn_env = document.getElementById('btn1');
+        var area_content = document.getElementById('mensagens');
+        var scroll = document.getElementById("scroll-chat");
+
+        btn_env.addEventListener('click', function() {
+            if (inp_message.value != '') {
+                var msg = {
+                    'msg': inp_message.value
+                };
+                msg = JSON.stringify(msg);
+
+                conn.send(msg);
+
+                showMessages('me', msg);
+
+                inp_message.value = '';
 
                 scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
             }
+        });
+
+
+        function showMessages(how, data) {
+            data = JSON.parse(data);
+
+            console.log(data);
+
+            if (how == 'me') {
+                var img_src = "../img-instituicao/9.jpg";
+            } else if (how == 'other') {
+                var img_src = "assets/imgs/Icon awesome-rocketchat-1.png";
+            }
+
+            var div = document.createElement('div');
+            div.setAttribute('class', 'area-instituicao');
+
+            var div_instituicao = document.createElement('div');
+            div_instituicao.setAttribute('class', 'instituicao');
+
+            var div_mensagem = document.createElement('div');
+            div_mensagem.setAttribute('class', 'mensagem-instituicao');
+
+            var div_conteudo = document.createElement('div');
+            div_conteudo.setAttribute('class', 'conteudo-mensagem');
+
+            var h4 = document.createElement('h4');
+            h4.textContent = data.name;
+
+            var p = document.createElement('p');
+            p.textContent = data.msg;
+
+            div_conteudo.appendChild(h4);
+            div_conteudo.appendChild(p);
+
+            div_mensagem.appendChild(div_conteudo);
+            div_instituicao.appendChild(div_mensagem);
+
+            var div_foto = document.createElement('div');
+            div_foto.setAttribute('class', 'foto-instituicao');
+
+            var img = document.createElement('img');
+            img.setAttribute('src', img_src);
+            img.setAttribute('alt', 'foto');
+
+            div_foto.appendChild(img);
+
+            div.appendChild(div_instituicao);
+            div.appendChild(div_foto);
+
+            area_content.appendChild(div);
+
+            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
         }
     </script>
 
