@@ -210,7 +210,7 @@ include "../../auth/verifica-logado.php";
                         <div class="enviar-mensagem">
                             <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
                         </div>
-                        <button type="" class="button-send" id="btn1" onclick="sendMessage()">
+                        <button type="" class="button-send" id="btn1">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
@@ -238,7 +238,6 @@ include "../../auth/verifica-logado.php";
         //         scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
         //     }
         // }
-
         var conn = new WebSocket('ws://localhost:3000');
 
         conn.onopen = function(e) {
@@ -273,6 +272,7 @@ include "../../auth/verifica-logado.php";
                 scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
             }
         });
+
 
 
         function showMessages(how, data) {

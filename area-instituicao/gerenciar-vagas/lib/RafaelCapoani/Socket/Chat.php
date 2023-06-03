@@ -5,59 +5,46 @@ namespace Rafa\Socket;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
-class Chat implements MessageComponentInterface
-{
+class Chat implements MessageComponentInterface {
     protected $clients;
-    protected $clientsData;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->clients = new \SplObjectStorage;
-        $this->clientsData = [];
     }
 
-    public function onOpen(ConnectionInterface $conn)
-    {
+    public function onOpen(ConnectionInterface $conn) {
+        // Store the new connection to send messages to later
         $this->clients->attach($conn);
-
-        // Adicionar informações sobre o cliente conectado
-        $this->clientsData[$conn->resourceId] = [
-            'name' => 'Nome do Cliente',
-            'style' => 'style1' // estilo para o cliente
-        ];
 
         echo "New connection! ({$conn->resourceId})\n";
     }
 
-    public function onMessage(ConnectionInterface $from, $msg)
-    {
-        $senderData = $this->clientsData[$from->resourceId];
-        $messageData = [
-            'senderName' => $senderData['name'],
-            'message' => $msg,
-            'senderStyle' => $senderData['style']
-        ];
-        $message = json_encode($messageData);
+    public function onMessage(ConnectionInterface $from, $msg) {
+        $data = json_decode($msg, true);
 
         foreach ($this->clients as $client) {
             if ($from !== $client) {
+                // The sender is not the receiver, send to each client connected
+                $message = json_encode([
+                    'name' => $data['name'],
+                    'msg' => $data['msg'],
+                    'senderStyle' => $data['senderStyle']
+                ]);
                 $client->send($message);
             }
         }
     }
 
-    public function onClose(ConnectionInterface $conn)
-    {
+    public function onClose(ConnectionInterface $conn) {
+        // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
-        unset($this->clientsData[$conn->resourceId]);
 
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
 
-    public function onError(ConnectionInterface $conn, \Exception $e)
-    {
+    public function onError(ConnectionInterface $conn, \Exception $e) {
         echo "An error has occurred: {$e->getMessage()}\n";
+
         $conn->close();
     }
 }
-?>
