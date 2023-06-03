@@ -137,7 +137,7 @@
         <!-- </div> -->
     </div>
 
-    <script src="js/script.js"></script>
+
     <!-- <script src="js/valida-voluntario.js"></script> -->
     <script src="js/endereco-auto.js"></script>
 

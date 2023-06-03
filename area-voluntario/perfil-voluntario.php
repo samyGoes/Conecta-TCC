@@ -249,7 +249,7 @@
                 <div class="titulo-card">
                     <div class="icon-titulo-card">
                         <i class="fa-solid fa-briefcase"></i>
-                        <h6>SERVIÇOS PRESTADOS </h6> <a>Clique para ver mais</a>
+                        <h6>SERVIÇOS PRESTADOS </h6> <a>Ver mais</a>
                     </div>
                     <div class="seta-ocultar-vaga"> 🢓 </div>
                 </div>

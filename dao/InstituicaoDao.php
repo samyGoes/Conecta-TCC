@@ -260,6 +260,7 @@
             $mensagemCandidatura = array
             (
                 'Nova Candidatura' => 'Um voluntário se candidatou a uma de suas vagas.',
+                'arquivo' => 'tabela-voluntarios-instituicao.php'
             );
 
             // 'Nova Mensagem' => 'Você tem uma nova mensagem do(a) voluntário(a) Sâmily.',
@@ -294,20 +295,24 @@
             // ARRAYS E VARIÁVEIS
             $mensagemStatusSolicitacaoA = array
             (
-                'Solicitação aceita' => 'O Adm aceitou a sua solicitação de causa.'
+                'Solicitação Aceita' => 'O Adm aceitou a sua solicitação de causa.',
+                'arquivo' => 'form-cadastrar-causas-instituicao.php'
             );
             $mensagemStatusSolicitacaoR = array
             (
-                'Solicitação recusada' => 'O Adm recusou a sua solicitação de causa.'
+                'Solicitação Recusada' => 'O Adm recusou a sua solicitação de causa.',
+                'arquivo' => 'form-cadastrar-causas-instituicao.php'
             );
 
             $mensagemStatusSolicitacaoHA = array
             (
-                'Solicitação aceita' => 'O Adm aceitou a sua solicitação de habilidade.'
+                'Solicitação Aceita' => 'O Adm aceitou a sua solicitação de habilidade.',
+                'arquivo' => 'form-cadastrar-habilidades-instituicao.php'
             );
             $mensagemStatusSolicitacaoHR = array
             (
-                'Solicitação recusada' => 'O Adm recusou a sua solicitação de habilidade.'
+                'Solicitação Recusada' => 'O Adm recusou a sua solicitação de habilidade.',
+                'arquivo' => 'form-cadastrar-habilidades-instituicao.php'
             );
 
             $mensagens = [];
@@ -396,7 +401,7 @@
                 }           
             }
 
-
+            //print_r($mensagens);
             if(!empty($mensagens))
             {
                 return $mensagens;

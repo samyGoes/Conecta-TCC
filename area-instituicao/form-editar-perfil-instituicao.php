@@ -74,12 +74,14 @@
                                 <?php        
 
                                     require_once 'global.php';
+                                    include 'diretorios-notificacao.php';
                                     try 
                                     {
                                         $idInstituicaoLogada = $_SESSION['codUsuario'];
                                         $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
                                         $novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
-
+                                        //$diretorio = diretorios($linha['arquivo']);
+                                        //print_r($links);
                                     } 
                                     catch (Exception $e) 
                                     {
@@ -119,17 +121,26 @@
                                 <?php
                                             foreach($notificacoes as $linha)
                                             {
+                                                $primeiraIteracao = true; 
                                                 foreach($linha as $titulo => $frase)
                                                 {
+                                                    if($primeiraIteracao)
+                                                    {                                     
+                                                        $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                        $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+                                                    
+                                                        $frases = array_values($linha); // Obter os valores do array $linha
+                                                        $primeiraFrase = $frases[0];
                                 ?>                                           
                                                         <li> 
                                                             <div class="sub-topicos-sininho-linha">
-                                                                <a class="sub-topicos-sininho-linha-titulo" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $titulo; ?> </a>
-                                                                <a class="sub-topicos-sininho-linha-frase" href="gerenciar-vagas/tabela-voluntarios-instituicao.php"> <?php echo $frase; ?> </a>
+                                                                <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                                <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
                                                             </div>                                          
-                                                        </li>
-                                                    
+                                                        </li>                     
                                 <?php
+                                                        $primeiraIteracao = false;
+                                                    }
                                                 }
                                             }
                                 ?>

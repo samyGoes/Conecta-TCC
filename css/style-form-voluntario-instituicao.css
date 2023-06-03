@@ -594,7 +594,8 @@ input::placeholder {
         width: 80vw;
     }
 
-    .continue-button {
+    .continue-button,
+    #continue-button {
         margin-bottom: 2rem;
     }
 
@@ -613,6 +614,17 @@ input::placeholder {
 
     #seta-esquerda-instituicao {
         display: none;
+    }
+    .box-img-logo-conecta
+    {
+        position: inherit;
+        right: 0px;
+    }
+
+    .titulo-cadastro
+    {
+        font-size: 2.2rem;
+        margin: 3.5rem 1.6rem 0rem 1.6rem;
     }
 }
 
