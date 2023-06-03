@@ -121,6 +121,10 @@
                         <a href="opcao-cadastro.php">Voltar para opções de cadastro</a>
                     </div>
                 </form>
+
+                <div class="box-img-logo-conecta">
+                    <img src="img/logo-conecta-variante.png" alt="">
+                </div>
             </div>
         </div>
         <!-- </div> -->

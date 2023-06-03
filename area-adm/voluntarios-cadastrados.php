@@ -58,6 +58,9 @@
 
     <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
     <div class="container-titulo-configuracoes">
+        <div class="box-img-logo-conecta">
+            <img src="../img/logo-conecta-variante.png" alt="">
+        </div>
         <!-- <h1> Configurações do Perfil </h1> -->
         <ul class="topicos-sessao-login">
             <li class="topicos-sessao-login-linha">
@@ -190,7 +193,9 @@
 
     </main>
     <script src="js/script.js"></script>
-    <script src="../area-voluntario/js/script.js"></script>
+    <script type="module" src="../area-instituicao/imports/side-bar.js"></script>                                
+    <script type="module" src="../imports/nav-drop-down.js"></script>
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
 </body>
 
 </html>

@@ -26,7 +26,7 @@
                 <div class="input-group">
                     <div class="input-box">
                         <label for="login">Login</label>
-                        <input type="text" name="login" id="login" placeholder="Digite seu email">
+                        <input type="text" name="login" id="login" placeholder="Digite seu login">
                     </div>
                     <div class="input-box">
                         <label for="password">Senha</label>
@@ -38,6 +38,10 @@
                 </div>
             </form>
             <a class="voltar" href="index.php">Voltar para o início</a>
+
+            <div class="box-img-logo-conecta">
+                <img src="img/logo-conecta-variante.png" alt="">
+            </div>
         </div>
     </div>
 </body>

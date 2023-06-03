@@ -120,7 +120,7 @@
 
 
 .table-responsive {
-    max-width: 689px;
+    max-width: 718px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #5f8699;
@@ -284,9 +284,9 @@ th:nth-child(5),
 td:nth-child(5),
 td:nth-child(6)  
 {
-    width: 100px;
-    max-width: 100px;
-    min-width: 100px;
+    /* width: 100px; */
+    max-width: 115px;
+    min-width: 115px;
 }
 
 th:nth-child(6)
@@ -296,12 +296,6 @@ th:nth-child(6)
 
 th {
     height: 38px;
-}
-
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3) {
-    border-top: none !important;
 }
 
 
@@ -343,13 +337,54 @@ tbody::-webkit-scrollbar-thumb {
 }
 
 .table-responsive td {
-    height: 45px;
+    /* height: 45px; */
+    padding: 1rem;
+    border-top: none !important;
 }
 
 
 
 
 
+
+td button
+{
+    width: 5rem;
+    height: 2.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.table-btn-chamar
+{
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+}
+
+.table-btn-chamar:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
+
+.table-btn-recusar
+{
+    background-color: #af4141;
+    border: 1px solid #af4141;
+}
+
+.table-btn-recusar:hover
+{
+    background-color: #fff;
+    color: #af4141;
+}
 
 
 

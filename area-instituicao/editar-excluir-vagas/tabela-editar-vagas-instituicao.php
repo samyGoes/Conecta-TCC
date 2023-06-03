@@ -375,6 +375,13 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
+                <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
+                        class="nav-lateral-topico"> Adicionar Fotos
+                    </span></a>
+            </div>
+
+
+            <div class="nav-lateral-box-icon">
                 <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Solicitar
                         Causas </span></a>
             </div>
@@ -383,13 +390,9 @@ include "../../auth/verifica-logado.php";
                 <a href="../form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Solicitar Habilidades
                     </span></a>
             </div>
-            <div class="nav-lateral-box-icon">
-                <a href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 
@@ -455,15 +458,20 @@ include "../../auth/verifica-logado.php";
 
         <!-- BOTÕES PARA TIPO DE VISUALIZAÇÃO -->
         <div class="container-botoes">     
-            <div class="box-icon-tabela">
-                <div class="box-info-t"></div>
-                <a href="tabela-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="../../area-voluntario/img/tabela.png" alt=""></div> </div> </a>
-            </div>  
-                        
-            <div class="box-icon">
-                <div class="box-info"></div>
-                <a href="cards-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="../../area-voluntario/img/card.png" alt=""></div> </div> </a>           
-            </div>                 
+            <div class="box-botoes-visualizacao">
+                <div class="box-icon-tabela">
+                    <div class="box-info-t"></div>
+                    <a href="tabela-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-table"> <div class="box-img-icon"> <img src="../../area-voluntario/img/tabela.png" alt=""></div> </div> </a>
+                </div>  
+                            
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="cards-editar-vagas-instituicao.php"> <div class="fundo-icon" id="icon-card"> <div class="box-img-icon"> <img src="../../area-voluntario/img/card.png" alt=""></div> </div> </a>           
+                </div>   
+            </div>
+                
+            
+            <a class="btn-cadastrar-vagas" href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-plus"></i> NOVA </a>
         </div>
 
 

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-causasCadastradas-instituicao.css">
-    <link rel="stylesheet" href="css/estilo-modal-cadastro.css">
+    <!-- <link rel="stylesheet" href="css/estilo-modal-cadastro.css"> -->
     <link rel="stylesheet" href="css/cadastrarCausas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -145,6 +145,13 @@
             </div>
 
             <div class="nav-lateral-box-icon">
+                <a href="form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
+                        class="nav-lateral-topico"> Adicionar Fotos
+                    </span></a>
+            </div>
+
+
+            <div class="nav-lateral-box-icon">
                 <a href="form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Solicitar
                         Causas </span></a>
             </div>
@@ -153,13 +160,9 @@
                 <a href="form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Solicitar Habilidades
                     </span></a>
             </div>
-            <div class="nav-lateral-box-icon">
-                <a href="form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                <a href="editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 
@@ -340,7 +343,7 @@
                 <p>Aqui está a lista de todas as habilidades cadastradas</p>
                 <div class="table">
                     <div class="table-responsive">
-                        <div class="funcoes">
+                        <!-- <div class="funcoes">
                             <div class="funcoes-sessao-1">
                                 <span>Selecionar todos</span>
                                 <input type="checkbox" name="selecionar-todos" id="selecionar-todos">
@@ -349,43 +352,37 @@
                                 <i class="fa-regular fa-pen-to-square" id="icone-lapis"></i>
                                 <i class="fa-solid fa-trash-can" id="icone-lixo"></i>
                             </div>
-                        </div>
+                        </div> -->
                         <table>
                             <thead>
                                 <tr>
-                                    <th> </th>
                                     <th>ID</th>
-                                    <th>habilidades</th>
+                                    <th>Habilidades</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                require_once 'global.php';
-                                try {
-                                    $listaHabilidade = HabilidadeServicoDao::listar();
-                                } catch (Exception $e) {
-                                    echo $e->getMessage();
-                                }
-                                ?>
-                                <tr>
-                                    <?php foreach ($listaHabilidade as $habilidade) { ?>
-                                        <td> <input type="checkbox" name="checkbox" id="checkbox"> </td>
-                                        <td>
-                                            <?php echo $habilidade['codHabilidadeServico']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $habilidade['nomeHabilidadeServico']; ?>
-                                        </td>
-                                </tr>
-                            <?php 
+                                    require_once 'global.php';
+                                    try {
+                                        $listaHabilidade = HabilidadeServicoDao::listar();
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
                                     }
-                            ?>
+                                ?>
+                                    <tr>
+                                        <?php foreach ($listaHabilidade as $habilidade) { ?>
+                                        <td><?php echo $habilidade['codHabilidadeServico']; ?></td>
+                                        <td><?php echo $habilidade['nomeHabilidadeServico']; ?></td>
+                                    </tr>
+                                <?php } ?>
+
+
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
 
 
         </div>

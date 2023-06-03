@@ -43,6 +43,7 @@ body {
     align-items: center;
     background-color: #fff;
     padding: 3rem;
+    position: relative;
 }
 
 .form-header h1 {
@@ -101,17 +102,15 @@ input::placeholder
 }
 
 .botao-enviar {
-    display: block;
-    width: 11rem;
+    width: 10rem;
     background-color: #4567a5;
     color: #ffffff;
-    padding: 0.3rem;
+    height: 2.5rem;
     margin-top: 1rem;
     margin-bottom: 15px;
-    border: none;
     border: 1px solid #4567a5;
-    border-radius: 5px;
-    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    font-size: 20px;
     font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
     transition: all 0.5s ease;
@@ -149,18 +148,38 @@ input::placeholder
 .voltar {
     display: flex;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 500;
-    font-family: Bitter;
+    font-family: Bitter, serif;
     color: #4567a5;
     transition: all 0.5s ease;
     justify-content: center;
+    transition: all 0.5s ease;
 }
 
-.continue-button a:hover {
-    color: #a4c2db;
+.voltar:hover
+{
+    color: #c48139;
 }
 
+
+
+
+.box-img-logo-conecta
+{
+    position: absolute;
+    height: 3.1rem;
+    width: 9.8rem;
+    object-fit: contain;
+    bottom: 10px;
+    right: 10px;
+}
+
+.box-img-logo-conecta img
+{
+    width: 100%;
+    height: 100%;
+}
 
 
 

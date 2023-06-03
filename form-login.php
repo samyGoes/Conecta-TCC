@@ -9,14 +9,14 @@
         <link rel="stylesheet" href="css/estilo-modal-confirmacao.css">
         <title>Login</title>
 
-         <!-- BIBLIOTECA QUE PERMITE ENVIAR EMAIL -->
-         <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+        <!-- BIBLIOTECA QUE PERMITE ENVIAR EMAIL -->
+        <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     </head>
 
     <body class="body">
 
 
-        <!-- MODAL CADASTRO -->
+        <!-- MODAL CADASTRO FEITO COM SUCESSO -->
         <?php
         
             if(isset($_GET['cadastro']))
@@ -133,6 +133,126 @@
         ?>
 
 
+
+        <!-- AVISO TROCA DE SENHA FEITA COM SUCESSO -->
+        <?php
+        
+            if(isset($_GET['trocar-senha']))
+            {
+                if($_GET['trocar-senha'] === 'sucesso')
+                {
+                    echo ' <script>
+                            // cria o elemento HTML do modal
+                            const modal = document.createElement("div");
+                            modal.id = "modal";
+                            modal.innerHTML = `
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                                integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                                crossorigin="anonymous" referrerpolicy="no-referrer" />
+                                <div id="modal-content">
+                                    <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                    <p class="modal-titulo-cadastro">Troca de senha realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                    <p class="modal-frase-cadastro"> Agora é só fazer login com sua nova senha. </p>
+                                </div>
+                                `;
+
+                            // adiciona o modal como filho do body (ou de outro elemento HTML)
+                            document.body.appendChild(modal);
+
+                            //adiciona a tag style do modal
+                            const style = document.createElement("style");
+                            const iconFechaModal = document.querySelector("#icone-fechar-modal");
+
+                            style.innerHTML = `
+                                #modal 
+                                {
+                                    position: fixed;
+                                    bottom: 20px;
+                                    right: -600px;
+                                    z-index: 9999;
+                                    transition: all 1s ease;
+                                    border: #4567a5 solid 1px;
+                                    border-radius: 0.5rem;
+                                    background-color: #fff;
+                                    padding: 1.3rem;
+                                    width: 24rem;
+                                }
+
+                                #modal-content 
+                                {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 0.4rem;
+                                    
+                                    position: relative;
+                                }
+
+                                #icone-fechar-modal
+                                {
+                                    position: absolute;
+                                    right: -9px;
+                                    top: -11px;
+                                    color: #525252;
+                                    cursor: pointer;
+                                    transition: all 0.5s ease;
+                                }
+
+                                #icone-fechar-modal:hover
+                                {
+                                    color: #green;
+                                }
+
+                                .modal-titulo-cadastro 
+                                {
+                                    font-family: Poppins, sans-serif;
+                                    font-size: 15px;
+                                    color: #000;
+                                    font-weight: 500;
+                                    display: flex;
+                                    gap: 0.4rem;
+                                }
+
+                                p>i 
+                                {
+                                    font-size: 1.2rem;
+                                    color: #1ea41e;
+                                }
+
+                                .modal-frase-cadastro
+                                {
+                                    font-family: Poppins, sans-serif;
+                                    font-size: 13px;
+                                    color: #2e2e2e;
+                                    font-weight: 400;
+                                }
+                                `;
+
+                            document.head.appendChild(style);
+
+                            document.addEventListener("DOMContentLoaded", function()
+                            {
+                                modal.style.right = "20px";
+                            });
+
+                            iconFechaModal.addEventListener("click", function()
+                            {
+                                modal.remove();
+                            });
+
+                            // setTimeout(function()
+                            // {
+                            //     modal.remove();
+                            // }, 8000);
+
+                        </script>';
+                }
+            }
+
+        ?>
+
+
+
+
        
 
         <!-- MODAL CONFIRMAÇÃO DE ACESSO -->
@@ -185,7 +305,7 @@
 
    
         <!-- MODAL TROCA DE SENHA FEITA COM SUCESSO -->
-        <div id="modal" class="modal">
+        <!-- <div id="modal" class="modal">
             <div class="modal-form" id="modal-form">
                 <div class="modal-sessao-2">
                     <h2 class="modal-titulo" id="modal-titulo"> Troca de senha feita com sucesso </h2>
@@ -193,7 +313,7 @@
                     <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
                 </div>       
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -248,6 +368,10 @@
 
                 <a href="opcao-cadastro.php"><button class="botao-cadastrar">Cadastre-se</button></a>
                 <a class="voltar" href="index.php">Voltar para o início</a>
+
+                <div class="box-img-logo-conecta">
+                    <img src="img/logo-conecta-variante.png" alt="">
+                </div>
             </div>
         </div>
 
@@ -255,7 +379,6 @@
 
 
         <script src="js/mascaraLoginUsuario.js"></script>
-        <script type="module" src="js/main.js"></script>
         <script type="module" src="imports/envia-email-login.js"></script>
     </body>
 

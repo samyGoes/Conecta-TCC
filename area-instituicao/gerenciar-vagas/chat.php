@@ -97,6 +97,12 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
+                    <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
+                            class="nav-lateral-topico"> Adicionar Fotos
+                        </span></a>
+                </div>
+
+            <div class="nav-lateral-box-icon">
                 <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Solicitar
                         Causas </span></a>
             </div>
@@ -105,13 +111,9 @@ include "../../auth/verifica-logado.php";
                 <a href="../form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Solicitar Habilidades
                     </span></a>
             </div>
-            <div class="nav-lateral-box-icon">
-                <a href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                    </span></a>
-            </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 

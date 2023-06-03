@@ -3,9 +3,17 @@
 .container-botoes
 {
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
     align-self: flex-start;
     margin-left: 5rem;
+    margin-right: 2rem;
+}
+
+.box-botoes-visualizacao
+{
+    display: flex;
+    gap: 0.7rem;
 }
 
 .fundo-icon
@@ -65,7 +73,32 @@
     left: -1rem;
 }
 
+.btn-cadastrar-vagas
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.3rem;
+    height: 2.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background-color: #4567a5;
+    border: 1px solid #4567a5;
+    gap: 0.4rem;
 
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn-cadastrar-vagas:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
 
 
 

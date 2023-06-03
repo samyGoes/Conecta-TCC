@@ -58,6 +58,9 @@
 
     <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
     <div class="container-titulo-configuracoes">
+        <div class="box-img-logo-conecta">
+            <img src="../img/logo-conecta-variante.png" alt="">
+        </div>
         <!-- <h1> Configurações do Perfil </h1> -->
         <ul class="topicos-sessao-login">
             <li class="topicos-sessao-login-linha">
@@ -134,7 +137,7 @@
                             <div id="modal-content">
                                 <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
                                 <p class="modal-titulo-cadastro">Solicitação aceita com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
-                                <p class="modal-frase-cadastro"> Entre no menu <a href="causas-cadastradas.php" class="modal-frase-cadastro-link"> Causas Cadastradas </a> para ver as todas as causas. </p>
+                                <p class="modal-frase-cadastro"> Entre no menu <a href="causas-cadastradas.php" class="modal-frase-cadastro-link"> Causas Cadastradas </a> para ver todas as causas. </p>
                             </div>
                             `;
 
@@ -437,7 +440,7 @@
                                     $codSolicitacaoCategoria = $_POST['btnChamar'];
                                 
                                     SolicitacaoCategoriaDao::aceitarSolicitacao($categoria['nomeCategoria'], $categoria['codSolicitacaoCategoria']);
-                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php??';</script>";
+                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php?solicitacao=true';</script>";
                                 
                                 } 
                                 elseif (isset($_POST['btnRecusar']) && $_POST['btnRecusar'] == $categoria['codSolicitacaoCategoria']) 
@@ -445,7 +448,7 @@
                                     $codSolicitacaoCategoria = $_POST['btnRecusar'];
                                 
                                     SolicitacaoCategoriaDao::recusarSolicitacao($codSolicitacaoCategoria);
-                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php??';</script>";
+                                    echo "<script>window.location.href = 'tabela-solicitacao-causas.php?solicitacao=recusada';</script>";
                                 }
                             }
                             ?>
@@ -460,8 +463,9 @@
 
     </main>
 
-    <script src="../area-voluntario/js/script.js"></script>
+
     <script src="js/script.js"></script>
+    <script type="module" src="../area-instituicao/imports/side-bar.js"></script>                                
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
 

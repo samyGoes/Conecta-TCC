@@ -7,7 +7,7 @@
 
     try
     {
-        header('Location: form-login.php');
+        header('Location: form-login.php?trocar-senha=sucesso');
 
         $email = $_SESSION['email'];
         

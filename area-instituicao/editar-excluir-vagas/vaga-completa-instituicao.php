@@ -148,6 +148,13 @@
                 </div>
 
                 <div class="nav-lateral-box-icon">
+                    <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
+                            class="nav-lateral-topico"> Adicionar Fotos
+                        </span></a>
+                </div>
+
+
+                <div class="nav-lateral-box-icon">
                     <a href="../form-cadastrar-causas-instituicao.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Solicitar
                             Causas </span></a>
                 </div>
@@ -156,13 +163,9 @@
                     <a href="../form-cadastrar-habilidades-instituicao.php"> <i class="fa-solid fa-wrench"></i> <span class="nav-lateral-topico"> Solicitar Habilidades
                         </span></a>
                 </div>
-                <div class="nav-lateral-box-icon">
-                    <a href="../form-cadastrar-vagas-instituicao.php"> <i class="fa-solid fa-newspaper"></i> <span class="nav-lateral-topico"> Cadastrar Vagas
-                        </span></a>
-                </div>
 
                 <div class="nav-lateral-box-icon">
-                    <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Vagas
+                    <a href="../editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
                         </span></a>
                 </div>
 
@@ -193,8 +196,8 @@
 
 
 
-          <!-- MODAL EDIÇÃO -->
-          <?php
+        <!-- MODAL EDIÇÃO -->
+        <?php
         
         if(isset($_GET['edicao']))
         {
@@ -373,13 +376,13 @@
                             <div class="topico-informacoes-texto">
 
                                 <div class="divisa-de-topicos-info">
-                                    <p>Horário:<span><?php echo ($_SESSION['vaga']['horarioServico']); ?></span></p>
-                                    <p>Período:<span><?php echo ($_SESSION['vaga']['periodoServico']); ?></span></p>
-                                    <p>Tipo de vaga:<span><?php echo ($_SESSION['vaga']['tipoServico']); ?></span></p>
+                                    <p>Horário:<span><?php echo (" " . $_SESSION['vaga']['horarioServico']); ?></span></p>
+                                    <p>Período:<span><?php echo (" " . $_SESSION['vaga']['periodoServico']); ?></span></p>
+                                    <p>Tipo de vaga:<span><?php echo (" " . $_SESSION['vaga']['tipoServico']); ?></span></p>
                                 </div>
                                
                                 <div class="divisao-de-topicos-info">
-                                    <p>Data de início:<span><?php echo ($_SESSION['vaga']['dataInicioServico']); ?></span></p>
+                                    <p>Data de início:<span><?php echo (" " . $_SESSION['vaga']['dataInicioServico']); ?></span></p>
                                     <p>Habilidade:<span>
                                         <?php
                                             $habilidades = $_SESSION['habilidade']['nomeHabilidade'];

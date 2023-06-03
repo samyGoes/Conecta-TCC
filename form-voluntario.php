@@ -129,16 +129,9 @@
                     </div>
                 </form>
 
-                <!--<div id="modal" class="modal">
-    <div class="modal-form" id="modal-form">
-        <div class="modal-sessao-2">
-            <h2 class="modal-titulo" id="modal-titulo"> Preencha as informações corretamente</h2>
-            <p id="modal-frase"> blablablablabla </p>
-            <div class="btn-confirmed" id="btn-confirmed"><button class="btn-fechar" id="btn-fechar"> FECHAR </button></div>
-        </div>
-    </div>
-</div>-->
-
+                <div class="box-img-logo-conecta">
+                    <img src="img/logo-conecta-variante.png" alt="">
+                </div>
             </div>
         </div>
         <!-- </div> -->
