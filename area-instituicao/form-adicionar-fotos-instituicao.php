@@ -277,7 +277,7 @@ require_once '../auth/verifica-logado.php';
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
+                <a href="editar-excluir-vagas/tabela-editar-vagas-instituicao.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 

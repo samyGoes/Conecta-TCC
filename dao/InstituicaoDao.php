@@ -259,7 +259,7 @@
             // NOTIFICAÇÃO DE NOVA CANDIDATURA
             $mensagemCandidatura = array
             (
-                'Nova Candidatura' => 'Um voluntário se candidatou a uma de suas vagas.',
+                'Nova Candidatura' . '<span class="box-icone-notificacao"><i id="icone-notificacao-nova" class="fa-solid fa-plus"></i></span>' => 'Um voluntário se candidatou a uma de suas vagas.',
                 'arquivo' => 'tabela-voluntarios-instituicao.php'
             );
 
@@ -295,23 +295,23 @@
             // ARRAYS E VARIÁVEIS
             $mensagemStatusSolicitacaoA = array
             (
-                'Solicitação Aceita' => 'O Adm aceitou a sua solicitação de causa.',
+                'Solicitação Aceita' . '<i id="icone-notificacao-aceita" class="fa-sharp fa-solid fa-circle-check"></i>'=> 'O Adm aceitou a sua solicitação de causa.' . '<i class="fa-sharp fa-solid fa-circle-check"></i>',
                 'arquivo' => 'form-cadastrar-causas-instituicao.php'
             );
             $mensagemStatusSolicitacaoR = array
             (
-                'Solicitação Recusada' => 'O Adm recusou a sua solicitação de causa.',
+                'Solicitação Recusada' . '<i id="icone-notificacao-recusada" class="fa-solid fa-circle-xmark"></i>'=> 'O Adm recusou a sua solicitação de causa.',
                 'arquivo' => 'form-cadastrar-causas-instituicao.php'
             );
 
             $mensagemStatusSolicitacaoHA = array
             (
-                'Solicitação Aceita' => 'O Adm aceitou a sua solicitação de habilidade.',
+                'Solicitação Aceita' . '<i id="icone-notificacao-aceita" class="fa-sharp fa-solid fa-circle-check"></i>' => 'O Adm aceitou a sua solicitação de habilidade.',
                 'arquivo' => 'form-cadastrar-habilidades-instituicao.php'
             );
             $mensagemStatusSolicitacaoHR = array
             (
-                'Solicitação Recusada' => 'O Adm recusou a sua solicitação de habilidade.',
+                'Solicitação Recusada' . '<i id="icone-notificacao-recusada" class="fa-solid fa-circle-xmark"></i>' => 'O Adm recusou a sua solicitação de habilidade.',
                 'arquivo' => 'form-cadastrar-habilidades-instituicao.php'
             );
 

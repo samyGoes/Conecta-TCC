@@ -123,6 +123,38 @@
     right: 2px;
 }
 
+#icone-notificacao-aceita
+{
+    color: #1ea41e;
+    margin-left: 0.4rem;
+}
+#icone-notificacao-recusada
+{
+    color: #c53131;
+    margin-left: 0.4rem;
+}
+.box-icone-notificacao
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #4567a5;
+    margin-left: 0.4rem;
+}
+#icone-notificacao-nova
+{
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+}
+
 /* DROP DOWN */
 .topicos-sessao-login 
 {
@@ -215,7 +247,7 @@
 .sub-topicos-sininho li
 {
     border-bottom: 1px solid #9ba8e0;
-    padding: 1rem;
+    padding: 1rem 0.5rem 1rem 1rem;
     transition: all 0.5s ease;
 }
 .sub-topicos-sininho li:hover
@@ -241,6 +273,7 @@
     font-weight: 500;
     text-decoration: none;
     transition: all 0.5s ease;
+    display: flex;
 }
 .sub-topicos-sininho-linha-frase
 {

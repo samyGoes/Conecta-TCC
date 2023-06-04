@@ -160,7 +160,7 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="../editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Vagas
+                <a href="../editar-excluir-vagas/editar-vagas-instituicao.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas
                     </span></a>
             </div>
 
@@ -194,9 +194,9 @@ include "../../auth/verifica-logado.php";
     <main class="main-conteudo">
 
         <div class="main-conteudo-container-titulo">
-            <h1>Editar Vagas</h1>
+            <h1>Vagas</h1>
             <p>
-                Aqui você verá todas as vagas que cadastrou. Selecione uma das vagas para visualizá-la, edita-la ou excluí-la.
+                Aqui você verá todas as vagas que cadastrou. Clique em ver vaga para visualizá-la, editá-la ou excluí-la.
             </p>
         </div>
 
