@@ -189,7 +189,7 @@ include "../../auth/verifica-logado.php";
                 <div class="scroll-chat" id="scroll-chat">
                     <div class="main-chat">
                         <div class="mensagens" id="mensagens">
-                            <div class="area-voluntario">
+                            <!-- <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
                                 </div>
@@ -201,7 +201,7 @@ include "../../auth/verifica-logado.php";
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@ include "../../auth/verifica-logado.php";
 
         conn.onmessage = function(e) {
             //console.log(e.data);
-            showMessages('other', e.data);
+            showMessages('area-voluntario', e.data);
         };
 
         //conn.send('Hello World!');
@@ -275,54 +275,71 @@ include "../../auth/verifica-logado.php";
 
 
 
-        function showMessages(how, data) {
+        function showMessages(papelRemetente, data) {
             data = JSON.parse(data);
 
             console.log(data);
 
-            if (how == 'me') {
-                var img_src = "../img-instituicao/9.jpg";
-            } else if (how == 'other') {
-                var img_src = "assets/imgs/Icon awesome-rocketchat-1.png";
+            var srcFotoRemetente, srcFotoDestinatario, containerClass;
+            var mensagemClass, fotoClass;
+            if (papelRemetente === 'me') {
+                srcFotoRemetente = "../img-instituicao/9.jpg";
+                srcFotoDestinatario = "../img-instituicao/6.jpg";
+                containerClass = 'area-instituicao me';
+                mensagemClass = 'mensagem-instituicao';
+                fotoClass = 'foto-instituicao';
+            } else if (papelRemetente === 'area-voluntario') {
+                srcFotoRemetente = "../img-instituicao/6.jpg";
+                srcFotoDestinatario = "../img-instituicao/9.jpg";
+                containerClass = 'area-voluntario';
+                mensagemClass = 'mensagem-voluntario';
+                fotoClass = 'foto-voluntario';
             }
 
             var div = document.createElement('div');
-            div.setAttribute('class', 'area-instituicao');
+            div.setAttribute('class', containerClass);
 
-            var div_instituicao = document.createElement('div');
-            div_instituicao.setAttribute('class', 'instituicao');
+            var divInstituicao = document.createElement('div');
+            divInstituicao.setAttribute('class', 'instituicao');
 
-            var div_mensagem = document.createElement('div');
-            div_mensagem.setAttribute('class', 'mensagem-instituicao');
+            var divMensagem = document.createElement('div');
+            divMensagem.setAttribute('class', mensagemClass);
 
-            var div_conteudo = document.createElement('div');
-            div_conteudo.setAttribute('class', 'conteudo-mensagem');
-
-            var h4 = document.createElement('h4');
-            h4.textContent = data.name;
+            var divConteudo = document.createElement('div');
+            divConteudo.setAttribute('class', 'conteudo-mensagem');
 
             var p = document.createElement('p');
             p.textContent = data.msg;
 
-            div_conteudo.appendChild(h4);
-            div_conteudo.appendChild(p);
+            divConteudo.appendChild(p);
 
-            div_mensagem.appendChild(div_conteudo);
-            div_instituicao.appendChild(div_mensagem);
+            divMensagem.appendChild(divConteudo);
+            divInstituicao.appendChild(divMensagem);
 
-            var div_foto = document.createElement('div');
-            div_foto.setAttribute('class', 'foto-instituicao');
+            var divFoto = document.createElement('div');
+            divFoto.setAttribute('class', fotoClass);
 
             var img = document.createElement('img');
-            img.setAttribute('src', img_src);
+            if (papelRemetente === 'me') {
+                img.setAttribute('src', srcFotoRemetente);
+            } else {
+                img.setAttribute('src', srcFotoDestinatario);
+            }
             img.setAttribute('alt', 'foto');
 
-            div_foto.appendChild(img);
+            divFoto.appendChild(img);
 
-            div.appendChild(div_instituicao);
-            div.appendChild(div_foto);
+            div.appendChild(divInstituicao);
+            div.appendChild(divFoto);
 
-            area_content.appendChild(div);
+            if (papelRemetente === 'area-voluntario') {
+                var divAreaVoluntario = document.createElement('div');
+                divAreaVoluntario.setAttribute('class', 'area-voluntario-style');
+                divAreaVoluntario.appendChild(div);
+                area_content.appendChild(divAreaVoluntario);
+            } else {
+                area_content.appendChild(div);
+            }
 
             scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
         }
