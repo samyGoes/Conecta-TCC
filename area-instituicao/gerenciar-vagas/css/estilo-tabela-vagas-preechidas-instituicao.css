@@ -92,12 +92,84 @@
 }
 
 .table-responsive {
-    max-width: 450px;
-    height: 260px;
+    max-width: 572px;
+    height: 380px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
     box-shadow: 1px 2px 2px 2px #b4d8e6;
 }
+
+
+.funcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 78px;
+}
+
+.funcoes-sessao-1 {
+    display: flex;
+    margin-left: 1.7rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.funcoes span {
+    color: #525252;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+
+#icone-x {
+    margin-left: 0.5rem;
+}
+
+.funcoes-sessao-2 {
+    display: flex;
+    margin-right: 1.7rem;
+    align-items: center;
+}
+
+.funcoes i {
+    color: #4567a5;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.funcoes i:hover {
+    color: #88a2d4;
+}
+
+#icon-lupa {
+    font-size: 16px;
+}
+
+.funcoes #pesquisar {
+    border: none;
+    border-bottom: 1px solid #88a2d4;
+    outline: none;
+    padding: 0.2rem 0rem 0.2rem 0rem;
+    transition: all 0.2s ease;
+
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #2e2e2e;
+}
+
+
+#pesquisar::placeholder {
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #727272;
+}
+
 
 .table-responsive table {
     border-collapse: collapse;
@@ -120,15 +192,15 @@ td:nth-child(1) {
 }
 
 th:nth-child(2),
-td:nth-child(2) {
+td:nth-child(2),
+td:nth-child(3), 
+th:nth-child(3),
+td:nth-child(4)
+{
     min-width: 130px;
 }
 
-td:nth-child(3) {
-    min-width: 130px;
-}
-
-th:nth-child(3)
+th:nth-child(4)
 {
     min-width: 140px;
     border-right: none !important;
@@ -138,23 +210,16 @@ th {
     height: 38px;
 }
 
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3) {
-    border-top: none !important;
-}
-
-th:nth-child(1),
-th:nth-child(2),
-th:nth-child(3)
+td
 {
     border-top: none !important;
 }
 
+
 tbody {
     display: block;
     width: 100%;
-    height: 220px;
+    height: 261px;
     overflow-y: scroll;
 }
 
@@ -223,9 +288,9 @@ tbody::-webkit-scrollbar-thumb {
 .link-vagas-preenchidas
 {
     background-color: #fff;
-    color: #2e2e2e;
+    color: #4567a5;
     font-family: poppins, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.5s ease;

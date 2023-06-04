@@ -222,7 +222,7 @@ include "../../auth/verifica-logado.php";
 
                             <?php foreach ($listaVoluntario as $voluntario) { ?>
 
-                                <form action="" method="post">
+                                <!-- <form action="" method="post"> -->
                                     <tr>
                                         <td><?php echo $voluntario['codCandidatura']; ?></td>
                                         <td>
@@ -237,11 +237,16 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment"></i> </a></td>
-                                        <input type="hidden" name="codCategoriaServico" value="<?php echo $codServico?>">
-                                        <td><button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codServico . $voluntario['codVoluntario']; ?>" onclick="abrirModal('modalAvaliar')">Avaliar</button></td>
+                                        <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
+                                                    
+                                        <td>
+                                            <form action="" method="post">   
+                                                <input type="hidden" name="codCategoriaServico" value="<?php echo $codServico?>"> 
+                                                <button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codServico . $voluntario['codVoluntario']; ?>" onclick="abrirModal('modalAvaliar')"><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
-                                </form>
+                                <!-- </form> -->
 
 
                             <?php } ?>
@@ -320,7 +325,7 @@ include "../../auth/verifica-logado.php";
     <script>
 
         function abrirModal(carregarModal) {
-
+ 
             let modal = document.getElementById(carregarModal);
 
             modal.style.display = 'block';

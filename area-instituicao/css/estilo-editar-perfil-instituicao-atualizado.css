@@ -268,7 +268,8 @@
     .input-box .div-image{
         border: none;
         background-color: #fff;
-        width: 20vw;
+        width: 100vw;
+        margin-top: 0;
     }
     .input-box .div-image .image img{
         margin-bottom: 50px;

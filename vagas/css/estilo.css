@@ -254,6 +254,11 @@ body
     width: 100%;
 }
 
+.box-input-pesquisa
+{
+    position: relative;
+}
+
 .pesquisa-instituicao input
 {
     border: 1px solid #000;
@@ -262,11 +267,6 @@ body
     padding: 0.4rem 0.7rem 0.4rem 0.7rem;
     width: 20rem;
     transition: all 0.5s ease;
-
-    background-image: url("../../img/lupa.svg");
-    background-position: 290px;
-    background-repeat: no-repeat;
-    background-size: 16px;
 
     font-family: poppins, sans-serif;
     font-size: 14px;
@@ -279,6 +279,22 @@ body
     border-color: #4567a5;
 }
 
+#icon-lupa
+{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#icon-lupa:hover
+{
+    color: #4567a5;
+}
 
 
  

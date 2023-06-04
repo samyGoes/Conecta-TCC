@@ -113,19 +113,13 @@ include "../auth/loginUsuario.php";
     </nav>
 
 
-    <!-- PESQUISA -->
-    <div class="pesquisa-instituicao">
-        <input type="text" placeholder="Pesquisar...">
-    </div>
-
-
 
     <!-- CONTEUDO  -->
     <div class="container-titulo">
         <h1 class="titulo"> Galeria de fotos <br> <p class="sub-titulo">ONG Raios de Sol</p> </h1>
         
         <p class="frase">
-            Conheça mais sobre a instituição vendo todas as fotos que ela publicou em seu perfil
+            Conheça mais sobre a instituição vendo todas as fotos que ela publicou em seu perfil.
         </p>
     </div>
 
@@ -152,7 +146,7 @@ include "../auth/loginUsuario.php";
         </div>
 
         <div class="voltar-perfil">
-            <a href="">Voltar para o perfil</a>
+            <a href="#">Voltar para o perfil</a>
         </div>
     </main>
 

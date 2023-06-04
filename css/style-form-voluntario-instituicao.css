@@ -135,6 +135,7 @@ body {
 .formulario-completo {
     max-width: 30rem;
     flex-wrap: wrap;
+    position: relative;
 }
 
 /* INPUTS */
@@ -147,22 +148,30 @@ body {
     margin-right: -1.5rem;
     /* background-color: #9c9c9c; */
     padding-left: 7.5%;
+    height: 24rem;
 }
 
+#input-group-v
+{
+    height: 28rem;
+}
+.div-vazia-kk
+{
+    height: 3.7rem;
+}
 .input-box {
     display: flex;
     margin-right: 1.5rem;
     flex-direction: column;
-    position: relative;
-
+    /* position: relative; */
 }
 
 .input-box input,
 .input-box select {
     font-family: Poppins, Verdana, Geneva, Tahoma, sans-serif;
     padding-bottom: 0.3rem;
-    padding-top: 1rem;
-    margin-bottom: 1.5rem;
+    padding-top: 0.7rem;
+    /* margin-bottom: 1.5rem; */
     border-bottom: 1px #4567a5 solid;
     font-size: 1rem;
     outline: none;
@@ -184,98 +193,60 @@ input::placeholder {
     width: 12.8rem;
 }
 
-/* #formulario1
+
+#input-box-switch
 {
-    display: flex;
-    justify-content:left;
-    background-color: #6588c9;
-} */
-
-/*MODAL BTN CADASTRAR*/
-
-/*
-.modal 
-{
-
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-form 
-{
-    width: 400px;
-    height: 253px;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 30px 30px 25px 30px;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    left: 50%;
-    top: 50%;
-}
-
-#modal-titulo 
-{
-    font-family: poppins, sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    color: #000;
-}
-
-#modal-frase
-{
-    font-family: poppins, sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #000;
-    margin: 1.6rem 0rem 0.5rem 0rem;
-}
-
-.modal-sessao-2
-{
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
 }
 
-.btn-confirmed
+.switch-container
 {
     display: flex;
-    align-self: center;
+    margin-top: 0.7rem;
 }
 
-#btn-fechar
+.switch-container input
 {
-    margin: 2.5rem 0rem 1rem 0rem;
-    width: 11rem;
-    height: 2.5rem;
-    background-color: #cf8a3f;
-    border: 1px solid #cf8a3f;
-    border-radius: 0.5rem;
-    outline: none;
- 
-    color: #fff;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    font-family: poppins, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 300;
-    font-size: 20px;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
-#btn-fechar:hover
+
+.switch
+{
+    width: 2.8rem;
+    height: 1.6rem;
+    border-radius: 1.5rem;
+    background-color: #cccccc;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.switch::after
+{
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background-color: #7a7a7a;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.switch-container input:checked + .switch
+{
+    background-color: #cf8a3f;
+}
+
+.switch-container input:checked + .switch::after
 {
     background-color: #fff;
-    color: #cf8a3f;
+    transform: translateX(1.2rem);
 }
-*/
 
 
 
@@ -296,6 +267,7 @@ input::placeholder {
     color: #ffffff;
     padding: 0.3rem;
     margin-bottom: 15px;
+    margin-top: -2rem;
     border: none;
     border: 1px solid #cf8a3f;
     border-radius: 5px;
@@ -370,7 +342,8 @@ input::placeholder {
 
 #seta-direita {
     position: absolute;
-    right: 4%;
+    right: -3rem;
+    top: 37%;
     font-size: 2rem;
     color: #cf8a3f;
     cursor: pointer;
@@ -378,7 +351,8 @@ input::placeholder {
 
 #seta-esquerda {
     position: absolute;
-    left: 55%;
+    left: -2rem;
+    top: 37%;
     font-size: 2rem;
     color: #cf8a3f;
     cursor: pointer;
@@ -387,7 +361,8 @@ input::placeholder {
 
 #seta-direita-instituicao {
     position: absolute;
-    right: 4%;
+    right: -3rem;
+    top: 37%;
     font-size: 2rem;
     color: #4567a5;
     cursor: pointer;
@@ -395,7 +370,8 @@ input::placeholder {
 
 #seta-esquerda-instituicao {
     position: absolute;
-    left: 55%;
+    left: -2rem;
+    top: 37%;
     font-size: 2rem;
     color: #4567a5;
     cursor: pointer;
@@ -452,40 +428,22 @@ input::placeholder {
         height: 45rem;
     }
 
+    #primeiro-conteudo-v
+    {
+        height: 48rem;
+    }
+
+    .titulo-cadastro
+    {
+        margin-top: 0;
+    }
+
     .form {
         width: 100%;
         height: 100%;
         border-radius: 20px;
     }
 
-
-    /* SETINHA PRA MUDAR O FORM */
-
-    #seta-direita {
-        position: relative;
-        right: -37%;
-        top: 47%;
-    }
-
-    #seta-esquerda {
-        position: relative;
-        color: #cf8a3f;
-        left: -37%;
-        top: 47%;
-    }
-
-    #seta-direita-instituicao {
-        position: relative;
-        right: -37%;
-        top: 47%;
-    }
-
-    #seta-esquerda-instituicao {
-        position: relative;
-        color: #cf8a3f;
-        left: -37%;
-        top: 47%;
-    }
 }
 
 @media (min-width: 641px) and (max-width: 799px) {
@@ -521,34 +479,6 @@ input::placeholder {
         width: 40rem;
         padding-bottom: 1.4rem;
     }
-
-
-    #seta-direita {
-        position: relative;
-        right: -37%;
-        top: 47%;
-    }
-
-    #seta-esquerda {
-        color: #cf8a3f;
-        position: relative;
-        left: -37%;
-        top: 47%;
-    }
-
-    #seta-direita-instituicao {
-        position: relative;
-        right: -37%;
-        top: 47%;
-    }
-
-    #seta-esquerda-instituicao {
-        color: #cf8a3f;
-        position: relative;
-        left: -37%;
-        top: 47%;
-    }
-
 }
 
 @media (max-width: 640px) {
@@ -586,35 +516,45 @@ input::placeholder {
         padding-left: 0;
     }
 
-    .input-box input {
-        width: 80vw;
+    .input-box
+    {
+        margin-right: 0;
     }
 
-    .input-box select {
+    .input-box input,
+    .input-box select,
+    #input-box-switch {
         width: 80vw;
+        margin-bottom: 1.5rem;
     }
 
+    .switch-container .input-switch
+    {
+        width: 0;
+    }
+
+    #input-group-v, #primeiro-conteudo-v, .input-group
+    {
+        height: auto;
+    }
+    .continue-button button 
+    {
+        margin-top: 0;
+    }
     .continue-button,
     #continue-button {
         margin-bottom: 2rem;
     }
 
 
-    #seta-direita {
+    #seta-direita,
+    #seta-esquerda,
+    #seta-direita-instituicao,
+    #seta-esquerda-instituicao
+    {
         display: none;
     }
 
-    #seta-esquerda {
-        display: none;
-    }
-
-    #seta-direita-instituicao {
-        display: none;
-    }
-
-    #seta-esquerda-instituicao {
-        display: none;
-    }
     .box-img-logo-conecta
     {
         position: inherit;

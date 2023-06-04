@@ -177,14 +177,23 @@ require_once 'global.php';
 
                 <div class="table">
                     <div class="table-responsive">
-
+                        <div class="funcoes">
+                            <div class="funcoes-sessao-1">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <div class="funcoes-sessao-2">
+                                <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
+                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            </div>
+                        </div>
                         <table>
                             <thead>
 
                                 <tr>
                                     <th> Vagas </th>
-                                    <th> Disponiveis  </th>
+                                    <th> Ocupações </th>
                                     <th> Preenchidas </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <?php
@@ -219,12 +228,13 @@ require_once 'global.php';
                                     <tr>
                                         <td><?php echo $causas['nomeServico']; ?></td>
                                         <td><?php echo $quantidadeVagas; ?></td>
-                                        <td>
-                                <form action="tabela-voluntarios-confirmados.php" method="post">
-                                    <input type="hidden" name="codCategoriaServico" value="<?php echo $codCategoriaServico; ?>">
-                                    <button type="submit" name="btnVaga" class="link-vagas-preenchidas"><?php echo $quantidadeInscritos; ?></button>
-                                </form>
-                            </td>
+                                        <td><?php echo $quantidadeInscritos; ?></td>
+                                        <td> 
+                                            <form action="tabela-voluntarios-confirmados.php" method="post">
+                                                <input type="hidden" name="codCategoriaServico" value="<?php echo $codCategoriaServico; ?>">
+                                                <button type="submit" name="btnVaga" class="link-vagas-preenchidas"> Ver detalhes </button>
+                                            </form>
+                                        </td>
                                     </tr>
                             <?php
                                 }

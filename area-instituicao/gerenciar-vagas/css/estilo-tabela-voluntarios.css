@@ -175,6 +175,15 @@ input[type="checkbox"]:checked::before {
 
 #icon-lupa {
     font-size: 16px;
+    color: #4567a5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background-color: #fff;
+}
+
+#icon-lupa:hover
+{
+    color: #d6803a;
 }
 
 .funcoes #pesquisar {

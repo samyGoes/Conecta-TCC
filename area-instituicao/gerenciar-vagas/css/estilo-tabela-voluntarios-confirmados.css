@@ -86,8 +86,7 @@
 }
 
 .table-responsive {
-    /* width: 861px; */
-    width: 862px;
+    width: 871px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
@@ -245,22 +244,25 @@ td:nth-child(4) {
 }
 
 th:nth-child(7),
-td:nth-child(7) {
-    min-width: 100px;
-    max-width: 110px;
-}
-
+td:nth-child(7),
 th:nth-child(8),
-td:nth-child(8),
-td:nth-child(9) {
+td:nth-child(8) {
     min-width: 110px;
     max-width: 110px;
 }
+
+
 
 th:nth-child(9) {
     min-width: 122px;
     max-width: 122px;
     border-right: none !important;
+}
+
+td:nth-child(9)
+{
+    min-width: 110px;
+    max-width: 110px;
 }
 
 
@@ -269,17 +271,7 @@ th {
 }
 
 
-/* TIRANDO BORDA DE CIMA*/
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4),
-td:nth-child(5),
-td:nth-child(6),
-td:nth-child(7),
-td:nth-child(8),
-td:nth-child(9),
-td:nth-child(10) {
+td {
     border-top: none !important;
 }
 
@@ -355,7 +347,7 @@ td button {
     font-family: poppins, sans-serif;
     font-weight: 300;
     font-size: 15px;
-    color: #fff;
+    background-color: #fff;
     text-transform: uppercase;
 }
 
@@ -370,6 +362,18 @@ td button {
 #td-icone-chat:hover
 {
     color: #8dbfd3;
+}
+
+#tabela-icone-avaliacao
+{
+    font-size: 27px;
+    color: #cf8a3f;
+    transition: all 0.5s ease;
+}
+
+#tabela-icone-avaliacao:hover
+{
+    color: #f1c595;
 }
 
 .link-voltar-anterior

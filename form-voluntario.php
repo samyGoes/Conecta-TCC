@@ -13,14 +13,12 @@
 <body class="body">
     <div class="image-fundo">
         <!-- <div id="form1"> -->
-        <div class="container" id="primeiroConteudo">
+        <div class="container" id="primeiro-conteudo-v">
             <div class="form-image">
                 <img src="img/mao4.jpg" alt="">
             </div>
             <div class="form">
-                <!-- SETAS -->
-                <i id="seta-direita" class="fa-solid fa-arrow-right"></i>
-                <i id="seta-esquerda" class="fa-solid fa-arrow-left"></i>
+              
                 <!-- TÍTULO -->
                 <div class="form-header">
                     <div class="title">
@@ -36,8 +34,11 @@
 
                 <!-- FORMULÁRIO COMPLETO -->
                 <form class="formulario-completo" id="formulario-voluntario" action="cadastra-voluntario.php" method="POST">
+                      <!-- SETAS -->
+                    <i id="seta-direita" class="fa-solid fa-arrow-right"></i>
+                    <i id="seta-esquerda" class="fa-solid fa-arrow-left"></i>
                     <div id="formulario1">
-                        <div class="input-group">
+                        <div class="input-group" id="input-group-v">
                             <div class="input-box">
                                 <label for="name">Nome Completo</label>
                                 <input type="text" name="nome" class="inputs required" id="name" oninput="nameValidate()" placeholder="Digite seu nome">
@@ -74,12 +75,19 @@
                                 <label for="senha">Senha</label>
                                 <input type="password" name="senha" class="inputs required" id="senha" placeholder="Digite sua senha" oninput="passwordValidate()">
                                 <span class="span-required"></span>
-
                             </div>
                             <div class="input-box">
                                 <label for="senha">Confirmar senha</label>
                                 <input type="password" name="confSenha" class="inputs required" id="confSenha" placeholder="Digite sua senha" oninput="confirmPassword()">
                                 <span class="span-required"></span>
+                            </div>
+
+                            <div class="input-box" id="input-box-switch">
+                                <label for=""> Quero deixar meu perfil público</label>
+                                <div class="switch-container">
+                                    <input class="input-switch" type="checkbox" name="switch" id="switch">
+                                    <label class="switch" for="switch"></label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +95,7 @@
 
                     <!-- ENDEREÇO -->
                     <div id="formulario2" style="display: none;">
-                        <div class="input-group">
+                        <div class="input-group" id="input-group-v">
                             <div class="input-box">
                                 <label for="cep">CEP</label>
                                 <input type="text" name="cep" id="cep" placeholder="Digite seu CEP">
@@ -119,6 +127,9 @@
                             <div class="input-box">
                                 <label for="pais">País</label>
                                 <input name="pais" id="pais" placeholder="Digite seu país">
+                            </div>
+                            <div class="input-box">
+                                <div class="div-vazia-kk"></div>
                             </div>
                         </div>
                         <br>

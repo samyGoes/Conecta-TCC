@@ -244,9 +244,11 @@
 
     <!-- PESQUISA -->
     <div class="pesquisa-instituicao">
-    <form action="" id="form-pesquisa" method="post">
-            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-            <button type="submit" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
+        <form action="" id="form-pesquisa" method="post">
+            <div class="box-input-pesquisa">
+                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                <button type="submit" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
+            </div>
         </form>
     </div>
 

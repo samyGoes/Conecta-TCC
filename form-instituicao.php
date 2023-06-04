@@ -19,9 +19,6 @@
                 <img src="img/muie10.jpg" alt="">
             </div>
             <div class="form">
-                <!-- SETAS -->
-                <i id="seta-direita-instituicao" class="fa-solid fa-arrow-right"></i>
-                <i id="seta-esquerda-instituicao" class="fa-solid fa-arrow-left"></i>
                 <!-- TÍTULO -->
                 <div class="form-header">
                     <div class="title">
@@ -37,6 +34,9 @@
 
                 <!-- FORMULÁRIO COMPLETO -->
                 <form class="formulario-completo" id="formulario-instituicao" action="cadastra-instituicao.php" method="POST">
+                    <!-- SETAS -->
+                    <i id="seta-direita-instituicao" class="fa-solid fa-arrow-right"></i>
+                    <i id="seta-esquerda-instituicao" class="fa-solid fa-arrow-left"></i>
                     <div id="formulario1">
                         <div class="input-group">
                             <div class="input-box">

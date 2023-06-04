@@ -237,7 +237,7 @@
                 <div class="titulo-card" id="titulo-card-carrossel">
                     <div class="icon-titulo-card">
                         <i class="fa-solid fa-camera"></i>
-                        <h6>FOTOS</h6>
+                        <h6>FOTOS</h6> <a href="galeria-fotos-instituicao.php">Ver mais</a>
                     </div>
                     <div class="seta-ocultar-foto"> 🢓 </div>
                 </div>
@@ -306,7 +306,7 @@
                 <div class="titulo-card">
                     <div class="icon-titulo-card">
                         <i class="fa-solid fa-briefcase"></i>
-                        <h6>VAGAS </h6> <a>Clique para ver mais</a>
+                        <h6>VAGAS </h6> <a>Ver mais</a>
                     </div>
                     <div class="seta-ocultar-vaga"> 🢓 </div>
                 </div>
