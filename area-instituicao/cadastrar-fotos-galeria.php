@@ -3,59 +3,34 @@
     require_once '../auth/verifica-logado.php';
     require_once 'global.php';
 
-    try
-    {
+    try {
         $galeria = new GaleriaInstituicao();
         $instituicao = new Instituicao();
 
-        $galeria -> setIdInstituicao($_SESSION['codUsuario']);
-       // $galeria -> setFotoGaleria($_POST['foto']);
+        $galeria->setIdInstituicao($_SESSION['codUsuario']);
 
-        //$idInstituicao = InstituicaoDao::consultarId($galeria);
-
-        if(isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) 
-        {
-            //nome original do arquivo no computador do usuário
+        if (isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) {
             $nome = $_FILES['foto']['name'];
-
-            //nome temporário do arquivo como foi armazenado no servidor, é o ARQUIVO!!!
-            $arquivo = $_FILES['foto'] ['tmp_name'];
-
+            $arquivo = $_FILES['foto']['tmp_name'];
             $diretorio = "galeria-instituicao/";
-        
-            $extensao = substr($nome, -4);//pega o ponto e os 3 caracteres da extensão do arquivo
-
-            $contador = $_SESSION['contador'];
-            function contadorParaNomear($contador)
-            {
-                $contador++;
-                return $contador;
-            }
-
-            $nomenovo = contadorParaNomear($contador).$extensao;
-
-            $nomecompleto =  $diretorio.$nomenovo;
             
-            // $nomecompleto =  $diretorio.$nome;
+            $extensao = substr($nome, -4);
+            $nomealeatorio = uniqid() . $extensao; // Gera um nome aleatório
 
+            $nomecompleto = $diretorio . $nomealeatorio;
+            
             move_uploaded_file($arquivo, $nomecompleto);
 
-            //inserindo a foto na classe Instituicao
             $galeria->setFotoGaleria($nomecompleto);
- 
-            //Chamando a função da classe Dao para atualizar a foto de perfil
+
             $atualizar = GaleriaInstituicaoDao::cadastrar($galeria);
 
-            //Guardando a foto na sessão
             $_SESSION['dadoPerfil']['fotoInstituicao'] = $nomecompleto;
         }
-    }
-    catch(Exception $e)
-    {
+    } catch (Exception $e) {
         echo "Erro";
         echo '<pre>';
-            echo($e);
+        echo($e);
         echo '</pre>';        
     }
-
 ?>
