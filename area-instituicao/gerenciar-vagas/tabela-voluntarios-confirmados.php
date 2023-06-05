@@ -295,7 +295,10 @@ include "../../auth/verifica-logado.php";
                             ?>
 
 
-                            <?php foreach ($listaVoluntario as $voluntario) { ?>
+                            <?php foreach ($listaVoluntario as $voluntario) { 
+                                $t = 'Voluntario';
+                                $c = $voluntario['codVoluntario'];
+                                ?>
 
                                 <!-- <form action="" method="post"> -->
                                     <tr>
@@ -312,7 +315,7 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> <a href="<?php echo '../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
+                                        <td> <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
                                                     
                                         <td>
                                             <form action="" method="post">   
