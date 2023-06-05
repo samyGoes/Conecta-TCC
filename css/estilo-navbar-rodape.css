@@ -199,11 +199,35 @@
     border: 1px solid #232f61;
     right: 0rem;
     top: 6rem;
-    max-width: 15rem;
-    max-height: 18rem;
+    width: 15rem;
+    height: 18rem;
     overflow-y: auto;
 }
 
+.sub-topicos-sininho.sem-resultado
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-topicos-sininho.sem-resultado li
+{
+    border-bottom: none;
+}
+
+.sub-topicos-sininho.sem-resultado li:hover
+{
+    background-color: #fff;
+}
+
+.sub-topicos-sininho-linha-sem-resultado
+{
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+    margin: 1rem;
+}
 /* SCROLL */
 .sub-topicos-sininho::-webkit-scrollbar 
 {
@@ -233,10 +257,10 @@
 {
     background-color: #dff1ff;
 }
-.sub-topicos-sininho li:last-child
+/* .sub-topicos-sininho li:last-child
 {
     border-bottom: none;
-}
+} */
 .sub-topicos-sininho-linha
 {
     display: flex;
