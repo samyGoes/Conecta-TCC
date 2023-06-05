@@ -289,11 +289,16 @@
                             <div class="slider">
                                 <div class="cards">
                                     <?php
-                                    for ($i = 1; $i <= 3; $i++) {
+                                        require_once 'global.php';
+
+                                        $codInstituicao = $_SESSION['codUsuario'];
+                                        $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
+                                       
+                                        foreach ($fotos as $foto) {
                                     ?>
                                         <div class="card-carrossel-dois">
                                             <div class="content-fotos">
-                                                <img src="img/1.jpg">
+                                                <img src="<?php echo $foto['fotosInstituicao']; ?>">
                                             </div>
                                         </div>
                                     <?php

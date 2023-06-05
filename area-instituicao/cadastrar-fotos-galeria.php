@@ -4,6 +4,9 @@
     require_once 'global.php';
 
     try {
+
+        header('Location: form-adicionar-fotos-instituicao.php');
+
         $galeria = new GaleriaInstituicao();
         $instituicao = new Instituicao();
 

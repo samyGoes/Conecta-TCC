@@ -171,10 +171,10 @@ include "../auth/loginUsuario.php";
 
                     $codInstituicao = $_SESSION['codUsuario'];
                     $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
-                    
+                   
                     foreach ($fotos as $foto) {
                 ?>
-                    <img src="<?php . $foto['fotosInstituicao'] .?>" alt='Foto da instituição'>;
+                    <img src="<?php echo $foto['fotosInstituicao']; ?>">
 
                 <?php
                 }
