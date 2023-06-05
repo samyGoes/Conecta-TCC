@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="css/estilo-chat.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -364,177 +365,57 @@
 
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1 c">
-                <h2 class="titulo-voluntarios"> Vagas em que se Candidatou </h2>
+                <h2 class="titulo-voluntarios"> Chat </h2>
                 <p class="frase-voluntarios">
-                    Esta é a lista de todas as vagas que você se candidatou, você pode ver o status da vaga
-                    ou retirar sua candidatura. Para ver a vaga completa clique no nome da vaga.
+                    Converse com a instituição para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
                 </p>
             </div>
 
 
 
-            <!-- TABELA 1 -->
-            <div class="table">
-                <div class="table-responsive-v">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <div class="funcoes-sessao-2">
-                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header">
+                    <div class="nome-user">
+                        <img src="../img-instituicao/5.jpg" alt="img">
+                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+                    </div>
+                    <div class="pesquisar-chat">
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                    </div>
+                </div>
+                <div class="scroll-chat" id="scroll-chat">
+                    <div class="main-chat">
+                        <div class="mensagens" id="mensagens">
+                            <!-- <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> Instituição </th>
-                                <th> Vaga </th>
-                                <th> Status </th>
-                                <th> Chat </th>
-                                <th> Avaliar </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <?php
-                            require_once 'global.php';
-                            $codVoluntario = $_SESSION['codUsuario'];
-
-                            try {
-                                $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
-                            
-                            <?php
-                            foreach ($listaVagasCandidatadas as $vagaCandidatada) {
-                                $codCandidatura = $vagaCandidatada['codCandidatura'];
-                              
-                            ?>
-                                 <!-- <form action="" method="post"> -->
-                                        <?php
-                                            $codServico = $vagaCandidatada['codServico'];
-                                            $status = $vagaCandidatada['statusCandidatura'];
-                                            //$instituicao = $vagaCandidatada['nomeInstituicao'];
-
-                                            $servico = ServicoDao::obterServicoPorCodigo($codServico);
-                                            $nomeVaga = $servico['nomeservico'];                                  
-                                        ?>
-
-                                        <td class="td-table-c"> <?php //echo $instituicao; ?> </td>
-                                        <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
-                                        <td class="td-table-c">
-                                            <div class="box-status">
-                                                <?php
-                                                    $bolinhaClass = '';
-                                                    if ($status == 'pendente') {
-                                                        $bolinhaClass = 'status-bolinha-pendente';
-                                                    } elseif ($status == 'aceito') {
-                                                        $bolinhaClass = 'status-bolinha-aceito';
-                                                    } elseif ($status == 'recusado') {
-                                                        $bolinhaClass = 'status-bolinha-recusado';
-                                                    }
-                                                ?>
-                                                <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
-                                                <?php
-                                                    if ($status == 'pendente') {
-                                                        echo '<p class="status"> Pendente </p>';
-                                                    } elseif ($status == 'aceito') {
-                                                        echo '<p class="status"> Aceito </p>';
-                                                    } elseif ($status == 'recusado') {
-                                                        echo '<p class="status"> Recusado </p>';
-                                                    }
-                                                ?>
-                                            </div>
-                                        </td>
-
-                                        <td class="td-table-c"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </td>
-                                        <td class="td-table-c"> <i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i> </td>
-                                        <td class="td-table-c">
-                                            <form action="" method="post">
-                                                <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
-                                            </form>
-                                        </td>
-                                    <!-- </form> -->
-                                </tr>
-                            <?php
-                                if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
-                                    $codCandidatura = $_POST['btnRetirar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
-                                        echo "<script>window.location.href = 'tabela-vagas-voluntario.php?retirar-candidatura=sucesso';</script>";
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                }
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-
+                </div>
+                <div class="chat-footer">
+                    <div class="fundo-footer">
+                        <div class="enviar-mensagem">
+                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                        </div>
+                        <button type="" class="button-send" id="btn1">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-
-
-
-
-            <!-- TÍTULO 2 -->
-            <!-- <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
-                <p class="frase-voluntarios">
-                    Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
-                    ou rejeitá-la. Para ver a vaga completa clique no nome da vaga.
-                </p>
-            </div>
-
-
-
-            <!-- TABELA 2 
-            <div class="table">
-                <div class="table-responsive-v">
-                    <div class="funcoes">
-                        <div class="funcoes-sessao-1">
-                            <i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <div class="funcoes-sessao-2">
-                            <input type="text" name="" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                        </div>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th> Vaga </th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            // require_once 'global.php';
-                            // try {
-                            //     $listaVoluntario = VoluntarioDao::listar();
-                            // } catch (Exception $e) {
-                            //     echo $e->getMessage();
-                            // }
-                            ?>
-                            <tr>
-                                <?php //foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td class="td-table-r"> <?php //echo $voluntario['codVoluntario']; ?> </td>
-                                    <td class="td-table-r"> <button class="table-btn-chamar"> aceitar </button> </td>
-                                    <td class="td-table-r"> <button class="table-btn-rejeitar"> rejeitar </button> </td>
-                            </tr>
-                        <?php
-                                //}
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div> -->
+            <a class="link-voltar-anterior" href="tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
         </div>
 
     </main>

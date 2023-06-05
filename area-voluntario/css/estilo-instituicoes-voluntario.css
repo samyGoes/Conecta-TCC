@@ -1,0 +1,109 @@
+
+.conteudo-completo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container-botoes
+{
+    display: flex;
+    gap: 1rem;
+    align-self: flex-start;
+    margin-left: 5rem;
+}
+
+.fundo-icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #ffdbac;
+    border: 1px solid #000;
+    transition: all 0.5s ease;
+}
+
+.fundo-icon:hover
+{
+    background-color: #ffbf6c;
+}
+
+.box-img-icon
+{
+    width: 25px;
+    height: 25px;
+}
+
+.box-img-icon img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* MSG NO HOVER */
+.box-icon, .box-icon-tabela
+{
+    position: relative;
+}    
+
+.box-info, .box-info-t
+{
+    display: none;
+    background-color: #fff;
+    border: 1px solid #c2893e;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    position: absolute;
+    top: -2.7rem;
+    left: -0.6rem;
+}
+
+.box-info-t
+{
+    left: -1rem;
+}
+
+
+
+
+/* TÍTULO 1 */
+.container-titulo-1.c
+{
+    margin: 1rem 0rem 3rem 0rem;
+}
+.container-titulo-1
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem 0rem 3rem 0rem;
+    gap: 0.8rem;
+    max-width: 80%;
+}
+
+.titulo-voluntarios
+{
+    font-family: acme, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #2e2e2e;
+    text-align: center;
+}
+
+.frase-voluntarios
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: justify;
+}
