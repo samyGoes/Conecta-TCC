@@ -239,8 +239,23 @@ include "../../auth/verifica-logado.php";
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
             </div>
 
+            <?php
+            require_once 'global.php';
 
+            $id = $_GET['c'];
+            // $t = 'Voluntario';
 
+            try {
+                $listaVoluntario = VoluntarioDao::listarPorId($id); // Passar o código da vaga para a consulta
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            ?>
+
+            <?php foreach ($listaVoluntario as $voluntario) { 
+         
+        
+            ?>
 
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1">
@@ -253,8 +268,8 @@ include "../../auth/verifica-logado.php";
             <div class="chat-container" id="chat-container">
                 <div class="chat-header">
                     <div class="nome-user">
-                        <img src="../img-instituicao/5.jpg" alt="img">
-                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+                        <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
+                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
                     </div>
                     <div class="pesquisar-chat">
                         <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
@@ -292,135 +307,13 @@ include "../../auth/verifica-logado.php";
                 </div>
             </div>
 
+            <?php } ?>
+
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
     </main>
-    <script>
-        // function sendMessage() {
-        //     var scroll = document.getElementById("scroll-chat")
-        //     var input = document.getElementById("enviar-mensagem");
-        //     var message = input.value;
 
-        //     if (message !== "") {
-        //         var chatbox = document.getElementById("mensagens");
-        //         var newMessage = document.createElement("div");
-        //         newMessage.className = "area-instituicao";
-        //         newMessage.innerHTML = '<div class="area-instituicao"><div class="instituicao"><div class="mensagem-instituicao"><div class="conteudo-mensagem"><h4><?php echo $primeiroNome ?></h4><p>' + message + '</p></div></div></div><div class="foto-instituicao"><img src="../img-instituicao/9.JPG" alt="foto"></div></div>';
-        //         chatbox.appendChild(newMessage);
-
-        //         input.value = "";
-
-        //         scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
-        //     }
-        // }
-        var conn = new WebSocket('ws://localhost:3000');
-
-        conn.onopen = function(e) {
-            //console.log("Connection established!");
-        };
-
-        conn.onmessage = function(e) {
-            //console.log(e.data);
-            showMessages('area-voluntario', e.data);
-        };
-
-        //conn.send('Hello World!');
-        ///////////////////////////////////////////////
-        var inp_message = document.getElementById('enviar-mensagem');
-        var btn_env = document.getElementById('btn1');
-        var area_content = document.getElementById('mensagens');
-        var scroll = document.getElementById("scroll-chat");
-
-        btn_env.addEventListener('click', function() {
-            if (inp_message.value != '') {
-                var msg = {
-                    'msg': inp_message.value
-                };
-                msg = JSON.stringify(msg);
-
-                conn.send(msg);
-
-                showMessages('me', msg);
-
-                inp_message.value = '';
-
-                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
-            }
-        });
-
-
-
-        function showMessages(papelRemetente, data) {
-            data = JSON.parse(data);
-
-            console.log(data);
-
-            var srcFotoRemetente, srcFotoDestinatario, containerClass;
-            var mensagemClass, fotoClass;
-            if (papelRemetente === 'me') {
-                srcFotoRemetente = "../img-instituicao/9.jpg";
-                srcFotoDestinatario = "../img-instituicao/6.jpg";
-                containerClass = 'area-instituicao me';
-                mensagemClass = 'mensagem-instituicao';
-                fotoClass = 'foto-instituicao';
-            } else if (papelRemetente === 'area-voluntario') {
-                srcFotoRemetente = "../img-instituicao/6.jpg";
-                srcFotoDestinatario = "../img-instituicao/9.jpg";
-                containerClass = 'area-voluntario';
-                mensagemClass = 'mensagem-voluntario';
-                fotoClass = 'foto-voluntario';
-            }
-
-            var div = document.createElement('div');
-            div.setAttribute('class', containerClass);
-
-            var divInstituicao = document.createElement('div');
-            divInstituicao.setAttribute('class', 'instituicao');
-
-            var divMensagem = document.createElement('div');
-            divMensagem.setAttribute('class', mensagemClass);
-
-            var divConteudo = document.createElement('div');
-            divConteudo.setAttribute('class', 'conteudo-mensagem');
-
-            var p = document.createElement('p');
-            p.textContent = data.msg;
-
-            divConteudo.appendChild(p);
-
-            divMensagem.appendChild(divConteudo);
-            divInstituicao.appendChild(divMensagem);
-
-            var divFoto = document.createElement('div');
-            divFoto.setAttribute('class', fotoClass);
-
-            var img = document.createElement('img');
-            if (papelRemetente === 'me') {
-                img.setAttribute('src', srcFotoRemetente);
-            } else {
-                img.setAttribute('src', srcFotoDestinatario);
-            }
-            img.setAttribute('alt', 'foto');
-
-            divFoto.appendChild(img);
-
-            div.appendChild(divInstituicao);
-            div.appendChild(divFoto);
-
-            if (papelRemetente === 'area-voluntario') {
-                var divAreaVoluntario = document.createElement('div');
-                divAreaVoluntario.setAttribute('class', 'area-voluntario-style');
-                divAreaVoluntario.appendChild(div);
-                area_content.appendChild(divAreaVoluntario);
-            } else {
-                area_content.appendChild(div);
-            }
-
-            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
-        }
-    </script>
-
-
+    <script type="module" src="./js/script.js"></script>
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="module" src="../../imports/nav-drop-down-notificacao.js"></script>

@@ -18,20 +18,22 @@
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../area-instituicao/perfil-instituicao.php');
+                header('Location: ../area-instituicao/gerenciar-vagas/chat-instituicao.php');
             }
         }
         else if($tipo == "Voluntario")
         {
             $consulta = VoluntarioDao::consultarVoluntario($id);
+            
             if($consulta == false)
             {
+                // var_dump($consulta);
                 header('Location: ../index.php');
             }
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../area-instituicao/gerenciar-vagas/chat.php');
+                header('Location: ../area-instituicao/gerenciar-vagas/chat-instituicao.php?c='.$id);
             }
         }
     }
