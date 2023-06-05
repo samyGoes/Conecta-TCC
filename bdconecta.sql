@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Jun-2023 às 18:56
+-- Tempo de geração: 05-Jun-2023 às 22:39
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -60,6 +60,13 @@ CREATE TABLE `tbcandidatura` (
   `statusCandidatura` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `tbcandidatura`
+--
+
+INSERT INTO `tbcandidatura` (`codCandidatura`, `codVoluntario`, `codServico`, `statusCandidatura`) VALUES
+(1, 4, 26, 'pendente');
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +107,9 @@ CREATE TABLE `tbcausavaga` (
 
 INSERT INTO `tbcausavaga` (`codCausaVaga`, `codServico`, `codCategoriaServico`) VALUES
 (18, 26, 14),
-(19, 26, 15);
+(19, 26, 15),
+(21, 28, 21),
+(22, 29, 14);
 
 -- --------------------------------------------------------
 
@@ -120,7 +129,9 @@ CREATE TABLE `tbcausavoluntario` (
 
 INSERT INTO `tbcausavoluntario` (`codCausaVoluntario`, `codCategoriaServico`, `codVoluntario`) VALUES
 (8, 14, 4),
-(9, 15, 4);
+(9, 15, 4),
+(10, 18, 10),
+(11, 21, 10);
 
 -- --------------------------------------------------------
 
@@ -162,7 +173,19 @@ CREATE TABLE `tbfonevoluntario` (
 
 INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `numSeqFone`, `codVoluntario`) VALUES
 (7, '(11)96587-4333', 1, 4),
-(8, '(11)2016-8242', 2, 4);
+(8, '(11)2016-8242', 2, 4),
+(9, '(11) 95991-1849', 1, 5),
+(10, '', 2, 5),
+(11, '(11) 5698-2355', 1, 6),
+(12, '', 2, 6),
+(13, '(11) 95991-1849', 1, 7),
+(14, '', 2, 7),
+(15, '(11) 5698-2355', 1, 8),
+(16, '', 2, 8),
+(17, '(11) 5698-2355', 1, 9),
+(18, '', 2, 9),
+(19, '(11) 95991-1849', 1, 10),
+(20, '', 2, 10);
 
 -- --------------------------------------------------------
 
@@ -175,6 +198,17 @@ CREATE TABLE `tbfotosinstituicao` (
   `fotosInstituicao` varchar(200) NOT NULL,
   `codInstituicao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tbfotosinstituicao`
+--
+
+INSERT INTO `tbfotosinstituicao` (`codfotoInstituicao`, `fotosInstituicao`, `codInstituicao`) VALUES
+(1, 'galeria-instituicao/647e1708e3758.png', 10),
+(2, 'galeria-instituicao/647e1dad28e23.png', 10),
+(3, 'galeria-instituicao/647e1e934e551.jpg', 10),
+(4, 'galeria-instituicao/647e1e99d5308.jpg', 10),
+(5, 'galeria-instituicao/647e1f447d26c.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -213,7 +247,8 @@ CREATE TABLE `tbhabivaga` (
 --
 
 INSERT INTO `tbhabivaga` (`codHabiVaga`, `codServico`, `codHabilidadeServico`) VALUES
-(10, 26, 3);
+(10, 26, 3),
+(11, 29, 3);
 
 -- --------------------------------------------------------
 
@@ -277,7 +312,9 @@ CREATE TABLE `tbservico` (
 --
 
 INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codInstituicao`, `descServico`, `cepLocalServico`, `bairroLocalServico`, `estadoLocalServico`, `logradouroLocalServico`, `complementoLocalServico`, `paisLocalServico`, `numeroLocalServico`, `cidadeLocalServico`, `nomeservico`, `tipoServico`, `dataInicioServico`, `qntdVagaServico`) VALUES
-(26, '08:00:00', 'matutino', 10, 'Precisamos de professores de inglês que estão dispostos a ensinar \r\n', '08461-200', 'Cidade Popular', 'SP', 'Rua Paulo Ramos', 'casa', 'Brasil', '60', 'São Paulo', 'Professor de Inglês', 'presencial', '2023-05-10', 3);
+(26, '08:00:00', 'matutino', 10, 'Precisamos de professores de inglês que estão dispostos a ensinar \r\n', '08461-200', 'Cidade Popular', 'SP', 'Rua Paulo Ramos', 'casa', 'Brasil', '60', 'São Paulo', 'Professor de Inglês', 'presencial', '2023-05-10', 3),
+(28, '08:00:00', 'matutino', 10, 'precisamos de jardineiros para cuidar do nosso espaço\r\n', '08460-635', 'Jardim do Divino', 'SP', 'Travessa João Batista Cramer', 'Casa', 'Brasil', '60', 'São Paulo', 'jardineiro(a)', 'presencial', '2023-06-05', 5),
+(29, '15:00:00', 'vespertino', 10, 'precisamos de professores para nossas crianças', '08191-260', 'Jardim Romano', 'SP', 'Rua André Furtado de Mendonça', 'Casa', 'Brasil', '800', 'São Paulo', 'professor ', 'ead', '2023-06-05', 3);
 
 -- --------------------------------------------------------
 
@@ -327,15 +364,17 @@ CREATE TABLE `tbvoluntario` (
   `emailVoluntario` varchar(50) NOT NULL,
   `senhaVoluntario` varchar(15) NOT NULL,
   `descVoluntario` varchar(400) NOT NULL,
-  `fotoVoluntario` varchar(50) NOT NULL
+  `fotoVoluntario` varchar(50) NOT NULL,
+  `visibilidadeVoluntario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tbvoluntario`
 --
 
-INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`) VALUES
-(4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png');
+INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`, `visibilidadeVoluntario`) VALUES
+(4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png', 'on'),
+(10, 'Gabriella Ferreira Alves', '2005-05-22', '503.807.788-90', 'Rua Paulo Ramos', '48', '08461-20', 'Casa', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'ferreiraalvesg2@outlook.com', 'gabiGabi2@', 'Quero ser uma voluntária!', 'img-voluntario/10.png', 'off');
 
 --
 -- Índices para tabelas despejadas
@@ -473,7 +512,7 @@ ALTER TABLE `tbavaliacao`
 -- AUTO_INCREMENT de tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
-  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriaservico`
@@ -485,13 +524,13 @@ ALTER TABLE `tbcategoriaservico`
 -- AUTO_INCREMENT de tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
-  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
-  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tbfoneinstituicao`
@@ -503,13 +542,13 @@ ALTER TABLE `tbfoneinstituicao`
 -- AUTO_INCREMENT de tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
-  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
-  MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbhabilidadeservico`
@@ -521,7 +560,7 @@ ALTER TABLE `tbhabilidadeservico`
 -- AUTO_INCREMENT de tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
-  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbinstituicao`
@@ -533,7 +572,7 @@ ALTER TABLE `tbinstituicao`
 -- AUTO_INCREMENT de tabela `tbservico`
 --
 ALTER TABLE `tbservico`
-  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `tbsolicitacaocategoria`
@@ -551,7 +590,7 @@ ALTER TABLE `tbsolicitacaohabilidade`
 -- AUTO_INCREMENT de tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
-  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para despejos de tabelas

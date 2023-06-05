@@ -150,14 +150,20 @@
 
 
 <<<<<<< HEAD
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     <script src="js/valida-voluntario.js"></script> 
 =======
     <!-- <script src="js/valida-voluntario.js"></script> -->
 >>>>>>> bb838d2c3a40fa382de23b75073ef8218cffa618
+<<<<<<< Updated upstream
 =======
     <!-- <script src="js/valida-voluntario.js"></script> -->
 >>>>>>> bb838d2c3a40fa382de23b75073ef8218cffa618
+=======
+>>>>>>> Stashed changes
     <script src="js/endereco-auto.js"></script>
     <!--Máscaras do formulário-->
     <script src="js/mascarasForm.js"></script>
