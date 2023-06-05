@@ -166,22 +166,20 @@ include "../auth/loginUsuario.php";
     <main>
         <div class="galeria">
             <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
-            </div>
-            <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
-            </div>
-            <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
-            </div>
-            <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
-            </div>
-            <div class="box-img">
-                <img src="../area-instituicao/img/3.png" alt="">
-            </div>
-            <div class="box-img">
-                <img src="../area-instituicao/img/1.jpg" alt="">
+                <?php
+                    require_once 'global.php';
+
+                    $codInstituicao = $_SESSION['codUsuario'];
+                    $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
+                    
+                    foreach ($fotos as $foto) {
+                ?>
+                    <img src="<?php . $foto['fotosInstituicao'] .?>" alt='Foto da instituição'>;
+
+                <?php
+                }
+                ?>
+                
             </div>
         </div>
 
