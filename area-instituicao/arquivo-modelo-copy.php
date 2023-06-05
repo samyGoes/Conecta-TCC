@@ -1,3 +1,7 @@
+<?php
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,6 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
+        <link rel="stylesheet" href="css/estilo-form-adicionar-fotos.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -156,6 +161,122 @@
 
 
 
+    <!-- MODAL CADASTRO -->
+    <?php
+
+        if (isset($_GET['edicao'])) {
+            if ($_GET['edicao'] === 'sucesso') {
+                echo ' <script>
+                            // cria o elemento HTML do modal
+                            const modal = document.createElement("div");
+                            modal.id = "modal";
+                            modal.innerHTML = `
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+                                integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+                                crossorigin="anonymous" referrerpolicy="no-referrer" />
+                                <div id="modal-content">
+                                    <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                    <p class="modal-titulo-cadastro">Edição realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                    <p class="modal-frase-cadastro"> Entre no seu perfil para ver como ficaram as alterações. </p>
+                                </div>
+                                `;
+
+                            // adiciona o modal como filho do body (ou de outro elemento HTML)
+                            document.body.appendChild(modal);
+
+                            //adiciona a tag style do modal
+                            const style = document.createElement("style");
+                            const iconFechaModal = document.querySelector("#icone-fechar-modal");
+
+                            style.innerHTML = `
+                                #modal 
+                                {
+                                    position: fixed;
+                                    bottom: 20px;
+                                    right: -600px;
+                                    z-index: 9999;
+                                    transition: all 1s ease;
+                                    border: #4567a5 solid 1px;
+                                    border-radius: 0.5rem;
+                                    background-color: #fff;
+                                    padding: 1.3rem;
+                                    max-width: 24rem;
+                                }
+
+                                #modal-content 
+                                {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 0.4rem;
+                                    
+                                    position: relative;
+                                }
+
+                                #icone-fechar-modal
+                                {
+                                    position: absolute;
+                                    right: -9px;
+                                    top: -11px;
+                                    color: #525252;
+                                    cursor: pointer;
+                                    transition: all 0.5s ease;
+                                }
+
+                                #icone-fechar-modal:hover
+                                {
+                                    color: #green;
+                                }
+
+                                .modal-titulo-cadastro 
+                                {
+                                    font-family: Poppins, sans-serif;
+                                    font-size: 15px;
+                                    color: #000;
+                                    font-weight: 500;
+                                    display: flex;
+                                    gap: 0.4rem;
+                                }
+
+                                p>i 
+                                {
+                                    font-size: 1.2rem;
+                                    color: #1ea41e;
+                                }
+
+                                .modal-frase-cadastro
+                                {
+                                    font-family: Poppins, sans-serif;
+                                    font-size: 13px;
+                                    color: #2e2e2e;
+                                    font-weight: 400;
+                                }
+                                `;
+
+                            document.head.appendChild(style);
+
+                            document.addEventListener("DOMContentLoaded", function()
+                            {
+                                modal.style.right = "20px";
+                            });
+
+                            iconFechaModal.addEventListener("click", function()
+                            {
+                                modal.remove();
+                            });
+
+                            setTimeout(function()
+                            {
+                                modal.remove();
+                            }, 8000);
+
+                        </script>';
+                }
+            }
+
+    ?>
+
+
+
 
         <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
         <div class="container-titulo-configuracoes">
@@ -233,7 +354,62 @@
                 </p>
             </div>
 
+
+
+
+           
+
+
+
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+            <div class="container-fotos">
+                <div class="form">
+                    <form class="container" action="cadastrar-fotos-galeria.php" method="post" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <div class="input-box">
+                                <label id="label" for="foto">Selecione uma foto</label>
+                                <input type="file" accept="image/*" id="foto" name="foto">
+                            </div>              
+                        </div>
+
+
+
+                         <!-- MODAL -->
+                        <div class="container-modal-foto">
+                            <div class="modal-foto">
+                                <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                                <div class="div-image">
+                                    <div class="image">
+                                        <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>" id="img" alt="user-instituição">
+                                    </div>
+                                </div>
+
+                                <button class="btn-adicionar-foto" type="submit">Adicionar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="imagens-intituicao">
+                    <div class="galeria">
+                        <?php
+                            require_once 'global.php';
+                            try {
+                                $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
+                            // echo $listaImg; 
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            foreach ($listaImg as $img) { ?>
+                        <div class="box-img">
+                            
+                            <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
 
         </main>
 

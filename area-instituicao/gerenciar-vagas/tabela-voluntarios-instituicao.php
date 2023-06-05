@@ -143,7 +143,7 @@ include "../../auth/verifica-logado.php";
                             </p>
                         </div>
                         <ul class="sub-topicos">
-                            <li> <a href="auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href="../../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
                             <li> <a href=""> Vagas </a> </li>
                             <li> <a href="../../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
                             <li> <a href="../../auth/logout.php"> Sair </a></li>
