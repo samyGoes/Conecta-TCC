@@ -48,7 +48,7 @@
                             <div class="input-box">
                                 <label for="date">Data de Nascimento</label>
                                 <!-- <input type="date" name="date" class="inputs required" id="date" pattern="\d{2}/\d{2}/\d{4}" placeholder="Digite sua data de nasc..." oninput="dateValidate()"> -->
-                                <input type="text" name="date" class="inputs required" id="date" placeholder="Digite sua data de nasc..." oninput="dateValidate()">
+                                <input type="text" name="date" class="inputs required" id="date" placeholder="Digite sua data de nasc..." >
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
@@ -58,12 +58,12 @@
                             </div>
                             <div class="input-box">
                                 <label for="telefone">Telefone</label>
-                                <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone" oninput="foneValidate()">
+                                <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone" >
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
                                 <label for="telefone">Telefone (opcional)</label>
-                                <input type="text" name="telefone2" class="inputs required" id="telefone2" placeholder="Digite seu telefone" oninput="foneOpcValidate()">
+                                <input type="text" name="telefone2" class="inputs required" id="telefone2" placeholder="Digite seu telefone" >
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
@@ -149,7 +149,7 @@
     </div>
 
 
-    <!-- <script src="js/valida-voluntario.js"></script> -->
+   <script src="js/valida-voluntario.js"></script>
     <script src="js/endereco-auto.js"></script>
 
     <!--Máscaras do formulário-->

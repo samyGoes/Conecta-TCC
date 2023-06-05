@@ -46,12 +46,12 @@
                             </div>
                             <div class="input-box">
                                 <label for="telefone">Telefone</label>
-                                <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone" oninput="foneValidate()">
+                                <input type="text" name="telefone1" class="inputs required" id="telefone" placeholder="Digite seu telefone" >
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
                                 <label for="telefone">Telefone(Opcional)</label>
-                                <input type="text" name="telefone2" class="inputs required" id="telefone2" placeholder="Digite seu telefone" oninput="foneOpcValidate()">
+                                <input type="text" name="telefone2" class="inputs required" id="telefone2" placeholder="Digite seu telefone">
                                 <span class="span-required"></span>
                             </div>
                             <div class="input-box">
