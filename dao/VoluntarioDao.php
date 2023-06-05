@@ -282,11 +282,13 @@
             // ARRAYS E VARIÁVEIS
             $mensagemStatusCandidaturaA = array
             (
-                'Candidatura aceita' => 'A instituição aceitou a sua candidatura.'
+                'Candidatura aceita' . '<i id="icone-notificacao-aceita" class="fa-sharp fa-solid fa-circle-check"></i>' => 'A instituição aceitou a sua candidatura.',
+                'arquivo' => 'tabela-vagas-voluntario.php'
             );
             $mensagemStatusCandidaturaR = array
             (
-                'Candidatura recusada' => 'A instituição recusou a sua candidatura.'
+                'Candidatura recusada' . '<i id="icone-notificacao-recusada" class="fa-solid fa-circle-xmark"></i>' => 'A instituição recusou a sua candidatura.',
+                'arquivo' => 'tabela-vagas-voluntario.php'
             );
             $qtdMensagem = [];
             global $statusAceito;

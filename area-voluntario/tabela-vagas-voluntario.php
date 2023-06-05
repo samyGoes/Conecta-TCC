@@ -72,18 +72,17 @@ require_once '../auth/verifica-logado.php';
                 ?>
                         <li class="topicos-sessao-login-linha">
                             <div class="box-topicos-sessao-login-linha">
-                                <!-- <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i> -->
+                                <?php        
 
-                                <?php
                                     require_once 'global.php';
+                                    include 'diretorios-notificacao.php';
                                     try 
                                     {
                                         $idVoluntarioLogado = $_SESSION['codUsuario'];
                                         $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
-                                               
-                                        $novaNotificacao = VoluntarioDao::novaNotificacao($idVoluntarioLogado);
-
-                                        //echo($novaNotificacao);                                      
+                                        //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                        //$diretorio = diretorios($linha['arquivo']);
+                                        //print_r($links);
                                     } 
                                     catch (Exception $e) 
                                     {
@@ -92,15 +91,10 @@ require_once '../auth/verifica-logado.php';
 
                                     if(empty($notificacoes)) 
                                     {
-                                        //if($novaNotificacao === false)
-                                        //{
-                                ?>
+                                    ?>
                                             <div class="box-sininho">
                                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                            </div>
-                                    <?php
-                                        //}
-                                    ?>
+                                            </div>       
                                             <ul class="sub-topicos-sininho sem-resultado">
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha sem-resultado">
@@ -108,37 +102,48 @@ require_once '../auth/verifica-logado.php';
                                                     </div>                                          
                                                 </li>
                                             </ul>
-                                <?php                      
+                                    <?php
+
                                     }
                                     else
                                     {
-                                ?>                         
+                                    ?>
                                         <div class="box-sininho">
                                             <div class="nova-notificacao-bolinha"></div>
                                             <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
                                         </div>
-                                            
+
                                         <ul class="sub-topicos-sininho">
-                                <?php
+                                    <?php
                                             foreach($notificacoes as $linha)
                                             {
+                                                $primeiraIteracao = true; 
                                                 foreach($linha as $titulo => $frase)
                                                 {
-                                ?>                                
-                                                    <li> 
-                                                        <div class="sub-topicos-sininho-linha">
-                                                            <a class="sub-topicos-sininho-linha-titulo" href="tabela-vagas-voluntario.php"> <?php echo $titulo; ?> </a>
-                                                            <a class="sub-topicos-sininho-linha-frase" href="tabela-vagas-voluntario.php"> <?php echo $frase; ?> </a>
-                                                        </div>                                          
-                                                    </li>                                           
-                                <?php   
+                                                    if($primeiraIteracao)
+                                                    {                                     
+                                                        $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                        $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+                                                    
+                                                        $frases = array_values($linha); // Obter os valores do array $linha
+                                                        $primeiraFrase = $frases[0];
+                                    ?>                                           
+                                                        <li> 
+                                                            <div class="sub-topicos-sininho-linha">
+                                                                <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                                <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                            </div>                                          
+                                                        </li>                     
+                                    <?php
+                                                        $primeiraIteracao = false;
+                                                    }
                                                 }
                                             }
-                                ?>
+                                    ?>
                                         </ul>
-                                <?php 
+                                    <?php
                                     }
-                                ?>
+                                    ?>
                         
                                 <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                     Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
@@ -407,12 +412,9 @@ require_once '../auth/verifica-logado.php';
                             <?php
                             foreach ($listaVagasCandidatadas as $vagaCandidatada) {
                                 $codCandidatura = $vagaCandidatada['codCandidatura'];
-                                
-                                
+                              
                             ?>
-                            
-                                
-                                    <form action="" method="post">
+                                 <!-- <form action="" method="post"> -->
                                         <?php
                                         $codServico = $vagaCandidatada['codServico'];
                                         $status = $vagaCandidatada['statusCandidatura'];
@@ -425,39 +427,41 @@ require_once '../auth/verifica-logado.php';
                                         <td class="td-table-c">
                                             <div class="box-status">
                                                 <?php
-                                                $bolinhaClass = '';
-                                                if ($status == 'pendente') {
-                                                    $bolinhaClass = 'status-bolinha-pendente';
-                                                } elseif ($status == 'aceito') {
-                                                    $bolinhaClass = 'status-bolinha-aceito';
-                                                } elseif ($status == 'recusado') {
-                                                    $bolinhaClass = 'status-bolinha-recusado';
-                                                }
+                                                    $bolinhaClass = '';
+                                                    if ($status == 'pendente') {
+                                                        $bolinhaClass = 'status-bolinha-pendente';
+                                                    } elseif ($status == 'aceito') {
+                                                        $bolinhaClass = 'status-bolinha-aceito';
+                                                    } elseif ($status == 'recusado') {
+                                                        $bolinhaClass = 'status-bolinha-recusado';
+                                                    }
                                                 ?>
                                                 <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
                                                 <?php
-                                                if ($status == 'pendente') {
-                                                    echo '<p class="status"> Pendente </p>';
-                                                } elseif ($status == 'aceito') {
-                                                    echo '<p class="status"> Aceito </p>';
-                                                } elseif ($status == 'recusado') {
-                                                    echo '<p class="status"> Recusado </p>';
-                                                }
+                                                    if ($status == 'pendente') {
+                                                        echo '<p class="status"> Pendente </p>';
+                                                    } elseif ($status == 'aceito') {
+                                                        echo '<p class="status"> Aceito </p>';
+                                                    } elseif ($status == 'recusado') {
+                                                        echo '<p class="status"> Recusado </p>';
+                                                    }
                                                 ?>
                                             </div>
                                         </td>
 
                                         <td class="td-table-c">
-                                            <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
+                                            <form action="" method="post">
+                                                <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
+                                            </form>
                                         </td>
-                                    </form>
+                                    <!-- </form> -->
                                 </tr>
                             <?php
                                 if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
                                     $codCandidatura = $_POST['btnRetirar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
-                                        echo "<script>window.location.href = 'tabela-vagas-voluntario.php??';</script>";
+                                        echo "<script>window.location.href = 'tabela-vagas-voluntario.php?retirar-candidatura=sucesso';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }

@@ -6,7 +6,7 @@
     //Cadastrando as causas que o voluntario apoia
     try
     {
-        header('Location: form-adicionar-causas-voluntario.php');
+        header('Location: form-adicionar-causas-voluntario.php?adicionar-causa=sucesso');
 
         $causaVoluntario = new CausaVoluntario ;
 

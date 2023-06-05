@@ -69,8 +69,6 @@
                 ?>
                         <li class="topicos-sessao-login-linha">
                             <div class="box-topicos-sessao-login-linha">
-                                <!-- <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i> -->
-
                                 <?php        
 
                                     require_once 'global.php';
@@ -79,7 +77,7 @@
                                     {
                                         $idInstituicaoLogada = $_SESSION['codUsuario'];
                                         $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
-                                        $novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                        //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
                                         //$diretorio = diretorios($linha['arquivo']);
                                         //print_r($links);
                                     } 
@@ -90,15 +88,10 @@
 
                                     if(empty($notificacoes)) 
                                     {
-                                        //if($novaNotificacao === false)
-                                        //{
                                 ?>
                                             <div class="box-sininho">
                                                 <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                            </div>
-                                    <?php
-                                        //}
-                                    ?>        
+                                            </div>       
                                             <ul class="sub-topicos-sininho sem-resultado">
                                                 <li> 
                                                     <div class="sub-topicos-sininho-linha sem-resultado">

@@ -295,7 +295,7 @@
             // ARRAYS E VARIÁVEIS
             $mensagemStatusSolicitacaoA = array
             (
-                'Solicitação Aceita' . '<i id="icone-notificacao-aceita" class="fa-sharp fa-solid fa-circle-check"></i>'=> 'O Adm aceitou a sua solicitação de causa.' . '<i class="fa-sharp fa-solid fa-circle-check"></i>',
+                'Solicitação Aceita' . '<i id="icone-notificacao-aceita" class="fa-sharp fa-solid fa-circle-check"></i>'=> 'O Adm aceitou a sua solicitação de causa.',
                 'arquivo' => 'form-cadastrar-causas-instituicao.php'
             );
             $mensagemStatusSolicitacaoR = array

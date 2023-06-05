@@ -62,43 +62,78 @@ require_once '../auth/verifica-logado.php';
                 ?>
                     <li class="topicos-sessao-login-linha">
                         <div class="box-topicos-sessao-login-linha">
-                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                            <?php        
 
-                            <?php
-
-                            require_once 'global.php';
-                            try {
-                                $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-
-                            if ($notificacoes == false) {
-                            ?>
-                                <ul class="sub-topicos-sininho sem-resultado">
-                                    <li>
-                                        <div class="sub-topicos-sininho-linha sem-resultado">
-                                            <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <?php
-                            } else {
-                                foreach ($notificacoes as $titulo => $frase) {
-                                ?>
-                                    <ul class="sub-topicos-sininho">
-                                        <li>
-                                            <div class="sub-topicos-sininho-linha">
-                                                <a class="sub-topicos-sininho-linha-titulo" href="#"> <?php echo $titulo; ?> </a>
-                                                <a class="sub-topicos-sininho-linha-frase" href="#"> <?php echo $frase; ?> </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                            <?php
+                                require_once 'global.php';
+                                include 'diretorios-notificacao.php';
+                                try 
+                                {
+                                    $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                    $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
+                                    //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                    //$diretorio = diretorios($linha['arquivo']);
+                                    //print_r($links);
+                                } 
+                                catch (Exception $e) 
+                                {
+                                    echo $e->getMessage();
                                 }
-                            }
-                            ?>
+
+                                if(empty($notificacoes)) 
+                                {
+                                ?>
+                                        <div class="box-sininho">
+                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                        </div>       
+                                        <ul class="sub-topicos-sininho sem-resultado">
+                                            <li> 
+                                                <div class="sub-topicos-sininho-linha sem-resultado">
+                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                                </div>                                          
+                                            </li>
+                                        </ul>
+                                <?php
+
+                                }
+                                else
+                                {
+                                ?>
+                                    <div class="box-sininho">
+                                        <div class="nova-notificacao-bolinha"></div>
+                                        <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                                    </div>
+
+                                    <ul class="sub-topicos-sininho">
+                                <?php
+                                        foreach($notificacoes as $linha)
+                                        {
+                                            $primeiraIteracao = true; 
+                                            foreach($linha as $titulo => $frase)
+                                            {
+                                                if($primeiraIteracao)
+                                                {                                     
+                                                    $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                    $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+                                                
+                                                    $frases = array_values($linha); // Obter os valores do array $linha
+                                                    $primeiraFrase = $frases[0];
+                                ?>                                           
+                                                    <li> 
+                                                        <div class="sub-topicos-sininho-linha">
+                                                            <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                            <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                        </div>                                          
+                                                    </li>                     
+                                <?php
+                                                    $primeiraIteracao = false;
+                                                }
+                                            }
+                                        }
+                                ?>
+                                    </ul>
+                                <?php
+                                }
+                                ?>
 
 
                             <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">

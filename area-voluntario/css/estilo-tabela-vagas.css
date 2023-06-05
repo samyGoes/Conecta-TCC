@@ -251,15 +251,6 @@ thead tr {
 }
 
 /* TAMANHO DE CADA TH e TD PARA FICAREM ALINHADOS UM COM O OUTRO*/
-th:nth-child(1),
-.td-table-c:nth-child(2)
-{
-    /* min-width: 160px;
-    max-width: 160px; */
-    width: 160px;
-    border-left: none !important;
-}
-
 .td-table-c a
 {
    color: #2e2e2e;
@@ -271,12 +262,17 @@ th:nth-child(1),
    color: #cf9c3c;
 }
 
+th:nth-child(1),
+.td-table-c:nth-child(1)
+{
+    min-width: 160px;
+    border-left: none !important;
+}
 
 th:nth-child(2),
+.td-table-c:nth-child(2),
 .td-table-c:nth-child(3)
 {
-    /* min-width: 120px;
-    max-width: 120px; */
     width: 120px;
 }
 
@@ -288,20 +284,16 @@ th:nth-child(2),
 
 th:nth-child(3)
 {
-    /* min-width: 132px;
-    max-width: 132px; */
     width: 132px;
     border-right: none !important;
 }
-
+/* 
 .td-table-c:nth-child(4)
 {
-    /* min-width: 120px;
-    max-width: 120px; */
     width: 120px;
     padding: 0rem 1rem 0rem 1rem;
     border-top: none !important;
-}
+} */
 
 
 

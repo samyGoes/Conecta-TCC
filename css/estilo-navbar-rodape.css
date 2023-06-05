@@ -109,6 +109,53 @@
 }
 
 
+.box-sininho
+{
+    position: relative;
+}
+.nova-notificacao-bolinha
+{
+    width: 11px;
+    height: 11px;
+    background-color: #6890e0;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: 2px;
+}
+
+#icone-notificacao-aceita
+{
+    color: #1ea41e;
+    margin-left: 0.4rem;
+}
+#icone-notificacao-recusada
+{
+    color: #c53131;
+    margin-left: 0.4rem;
+}
+.box-icone-notificacao
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #4567a5;
+    margin-left: 0.4rem;
+}
+#icone-notificacao-nova
+{
+    color: #fff;
+    font-size: 10px;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+}
+
 
 /* DROP DOWN */
 .topicos-sessao-login 
@@ -116,7 +163,6 @@
     /* display: flex; */
     /* justify-self: end; */
     width: 10rem;
-    overflow: hidden;
     word-wrap: break-word;
     margin-right: 2rem;
 }
