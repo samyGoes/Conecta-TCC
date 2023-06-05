@@ -20,6 +20,7 @@
         private $fotoPerfilVoluntario;
         private $paisVoluntario;
         private $estadoVoluntario;
+        private $visibilidadeVoluntario;
 
 
         //Getters//
@@ -94,6 +95,9 @@
         }
         public function getEstadoVoluntario(){
             return $this->estadoVoluntario;
+        }
+        public function getVisibilidadeVoluntario(){
+            return $this->visibilidadeVoluntario;
         }
 
         //Setters//
@@ -173,6 +177,9 @@
 
         public function setPaisVoluntario($paisVoluntario){
             $this -> paisVoluntario = $paisVoluntario;
+        }
+        public function setVisibilidadeVoluntario($visibilidadeVoluntario){
+            $this -> visibilidadeVoluntario = $visibilidadeVoluntario;
         }
 
 

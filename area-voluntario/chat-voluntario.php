@@ -1,6 +1,6 @@
 <?php
     require_once 'global.php';
-    include "../auth/loginUsuario.php";
+    require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,14 +9,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/estilo-navbar-rodape.css">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
+    <link rel="stylesheet" href="css/estilo-chat.css">
+    <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title> Vagas </title>
+    <title> Configurações do Perfil - Vagas </title>
 </head>
 
-<body>
+<body class="body">
+
+
 
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
@@ -36,7 +39,7 @@
                 <li> <i class="fa-sharp fa-solid fa-heart" id="topicos-icon-fixo"></i> <a href="../instituicoes/instituicoes.php" class="cabecalho-menu-item">instituições</a></li>
                 <li> <i class="fa-solid fa-briefcase" id="topicos-icon-fixo"></i> <a href="../vagas/vagas.php" class="cabecalho-menu-item">Vagas</a></li>
                 <li> <i class="fa fa-file-text" aria-hidden="true" id="topicos-icon-fixo"></i> <a href="../sobre-nos/sobre-nos.php" class="cabecalho-menu-item">sobre nós</a></li>
-                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato.php" class="cabecalho-menu-item">contato</a></li>
+                <li> <i class="fa-solid fa-phone" id="topicos-icon-fixo"></i> <a href="../contato/contato.php" class="cabecalho-menu-item">contato</a></li>
             </ul>
 
             <ul class="topicos-sessao-login">
@@ -45,7 +48,7 @@
                     {
                 ?>
                         <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo '../form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                                 <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
                             </a>
                         </li>
@@ -67,24 +70,18 @@
                 ?>
                         <li class="topicos-sessao-login-linha">
                             <div class="box-topicos-sessao-login-linha">
-                                <?php
+                                <?php        
+
                                     require_once 'global.php';
                                     include 'diretorios-notificacao.php';
-                                    
-                                    try
+                                    try 
                                     {
-                                        $tipoPerfil = $_SESSION['tipoPerfil'];
-                                        $id =  $_SESSION['codUsuario'];
-
-                                        if($tipoPerfil === "Voluntario")
-                                        {
-                                            $notificacoes = VoluntarioDao::notificacoes($id);
-                                        }
-                                        else
-                                        {
-                                            $notificacoes = InstituicaoDao::notificacoes($id);
-                                        }  
-                                    }            
+                                        $idVoluntarioLogado = $_SESSION['codUsuario'];
+                                        $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
+                                        //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                        //$diretorio = diretorios($linha['arquivo']);
+                                        //print_r($links);
+                                    } 
                                     catch (Exception $e) 
                                     {
                                         echo $e->getMessage();
@@ -145,6 +142,7 @@
                                     <?php
                                     }
                                     ?>
+                        
                                 <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                     Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
                                 </p>
@@ -167,12 +165,58 @@
 
 
 
-    <!-- MODAL CANDIDATURA -->
+    <!-- TITULO CONFIGURAÇÕES DO PERFIL -->
+    <div class="container-titulo-configuracoes">
+        <h1> Configurações do Perfil </h1>
+    </div>
+
+
+
+
+
+    <!-- NAV LATERAL -->
+    <nav class="nav-lateral">
+        <div class="nav-lateral-sessao-um">
+            <i class="fa-solid fa-bars" id="nav-lateral-icon-lista"></i>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-editar-perfil-voluntario.php"> <i class="fa-solid fa-pen-to-square"></i> <span class="nav-lateral-topico"> Editar Perfil </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-adicionar-causas-voluntario.php"> <i class="fa-sharp fa-solid fa-heart"></i> <span class="nav-lateral-topico"> Adicionar Causas </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="tabela-vagas-voluntario.php"> <i class="fa-solid fa-briefcase"></i> <span class="nav-lateral-topico"> Vagas </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-trocar-senha-voluntario.php"> <i class="fa-solid fa-key"></i> <span class="nav-lateral-topico">Trocar Senha </span></a>
+            </div>
+
+            <div class="nav-lateral-box-icon">
+                <a href="form-excluir-conta-voluntario.php"> <i class="fa-solid fa-xmark" id="nav-lateral-icon-excluir"></i> <span class="nav-lateral-topico">Excluir Conta </span></a>
+            </div>
+        </div>
+
+        <div class="nav-lateral-sessao-dois">
+            <div class="nav-lateral-box-icon">
+                <a href="../auth/logout.php"> <i class="fa-solid fa-door-open" id="nav-lateral-icon-sair"></i> <span class="nav-lateral-topico"> Sair </span></a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- MODAL RETIRAR CANDIDATURA -->
     <?php
         
-        if(isset($_GET['candidatura']))
+        if(isset($_GET['retirar-candidatura']))
         {
-            if($_GET['candidatura'] === 'sucesso')
+            if($_GET['retirar-candidatura'] === 'sucesso')
             {
                 echo ' <script>
                         // cria o elemento HTML do modal
@@ -184,8 +228,8 @@
                             crossorigin="anonymous" referrerpolicy="no-referrer" />
                             <div id="modal-content">
                                 <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
-                                <p class="modal-titulo-cadastro">Candidatura realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
-                                <p class="modal-frase-cadastro"> Para ver as vagas em que se candidatou entre em configurações no menu vagas. </p>
+                                <p class="modal-titulo-cadastro"> Retirada realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                <p class="modal-frase-cadastro"> Você retirou sua candidatura e não poderá desfazer as alterações. </p>
                             </div>
                             `;
 
@@ -282,250 +326,112 @@
         }
 
     ?>
- 
- 
-
-    <!-- PESQUISA -->
-    <div class="pesquisa-instituicao">
-        <form action="" id="form-pesquisa" method="post">
-            <div class="box-input-pesquisa">
-                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-                <button type="submit" class="fa-solid fa-magnifying-glass" id="icon-lupa"></button>
-            </div>
-        </form>
-    </div>
 
 
 
     <!-- CONTEUDO  -->
-    <div class="container-titulo">
-        <h1 class="titulo"> Vagas </h1>
-        <p class="frase">
-            Aqui você verá as vagas disponiveis no momento, selecione uma das vagas para visualizar todas as informações.
-            Você também pode filtrar para que encontre a vaga ideal para você. Confira os filtros abaixo.
-        </p>
-    </div>
+    <main class="main-conteudo">
 
-
-
-
-    <!-- FILTROS -->
-    <form class="form-filtro" method="POST" action="">
-        <!-- CAUSAS -->
-        <div class="box-filtro-causas">
-            <div class="clique-fora">
-                <div class="filtro-causas"> CAUSAS </div>
-                <div class="box-causas">
-                    <?php
-                    require_once 'global.php';
-                    try {
-                        $listaCausas = CategoriaServicoDao::listar();
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
-                    }
-                    ?>
-                    <?php foreach ($listaCausas as $causas) { ?>
-                        <div class="box-causas-checkbox">
-                            <input type="checkbox" name="causas" id="causas">
-                            <label for="causas"> <?php echo $causas['nomeCategoria']; ?> </label>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>          
+        <div class="main-conteudo-container-titulo">
+            <h1> VAGAS </h1>
+            <p>
+                Aqui você verá as listas das vagas para as quais se candidatou e as vagas em que foi
+                requisitado.
+            </p>
         </div>
 
-        <!-- HABILIDADES -->
-        <div class="box-filtro-causas">
-            <div class="clique-fora-h">
-                <div class="filtro-habilidade"> HABILIDADES </div>
-                <div class="box-habilidade">
-                    <?php
-                    try {
-                        $listaHabilidade = HabilidadeServicoDao::listar();
-                    } catch (Exception $e) {
-                        echo $e->getMessage();
-                    }
-                    ?>
-                    <?php foreach ($listaHabilidade as $habilidade) { ?>
-                        <div class="box-habilidade-checkbox">
-                            <input type="checkbox" name="habilidade[]" id="habilidade" value=<?php echo
-                                                                                                $habilidade['codHabilidadeServico']; ?>>
-                            <label for="habilidade">
-                                <?php echo $habilidade['nomeHabilidadeServico']; ?>
-                            </label>
-                        </div>
+        <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
+        <div class="conteudo-completo">
 
-                    <?php
-                    }
-                    ?>
+            <div class="container-botoes">
+                <div class="box-icon-tabela">
+                    <div class="box-info-t"></div>
+                    <a href="tabela-vagas-voluntario.php">
+                        <div class="fundo-icon" id="icon-table">
+                            <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div>
+                        </div>
+                    </a>
                 </div>
-            </div>          
-        </div>
 
-        <!-- SELECT ESTADOS E CIDADES -->
-        <select class="select-estados" name="estados" id="estados">
-            <option selected disabled> Selecione o estado... </option>
-        </select>
-
-        <select class="select-cidade" name="cidades" id="cidades">
-            <option selected disabled> Selecione a cidade... </option>
-        </select>
-    </form>
-
-
-
-
-    <div class="cards">
-    <?php
-        if (isset($_SESSION['codUsuario'])) {
-            $tipoPerfil = $_SESSION['tipoPerfil'];
-            if ($tipoPerfil === "Voluntario") {
-                try {
-                    $listaVaga = VoluntarioDao::filtragem($_SESSION['codUsuario']);
-                } catch (Exception $e) {
-                    echo $e->getMessage();
-                }
-            }
-        }
-
-        if (!isset($listaVaga) || empty($listaVaga)) {
-            try {
-                $listaVaga = ServicoDao::listarVagaAdm();
-            } catch (Exception $e) {
-                echo $e->getMessage();
-            }
-        }
-
-        if (is_array($listaVaga) && !empty($listaVaga)) {
-            foreach ($listaVaga as $vaga) {
-                ?>
-                <div class="card-carrossel-dois">
-                    <div class="content-it">
-                        <div class="header-card-carrossel-it">
-                            <i id="icon-maps-flip" style="display:none" class="fa-solid fa-location-dot fa-flip"></i>
-                            <i id="icon-maps" class="fa-solid fa-location-dot"></i>
-                            <p><?php echo $vaga['cidadeLocalServico']; ?></p>
+                <div class="box-icon">
+                    <div class="box-info"></div>
+                    <a href="card-vagas-voluntario.php">
+                        <div class="fundo-icon" id="icon-card">
+                            <div class="box-img-icon"> <img src="img/card.png" alt=""></div>
                         </div>
-                        <div class="fundo">
-                            <div class="fundo-img">
-                                <img src="../area-instituicao/<?php echo $vaga['fotoInstituicao']; ?>">
-                            </div>
-                            <div class="title-1">
-                                <p><?php echo $vaga['nomeInstituicao']; ?></p>
-                            </div>
-                        </div>
-                        <div class="box-conteudo-card">
-                            <div class="title-2">
-                                <p><?php echo $vaga['nomeservico']; ?></p>
-                            </div>
-                            <div class="title-3">
-                                <p><?php echo $vaga['descServico']; ?></p>
-                            </div>
-                            <form action="redirecionar-vaga-completa.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $vaga['codServico']; ?>">
-                                <a href="#"><button class="card-carrossel-botao" id="botao-it">
-                                    VER VAGA
-                                </button></a>
-                            </form>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TÍTULO 1 -->
+            <div class="container-titulo-1 c">
+                <h2 class="titulo-voluntarios"> Chat </h2>
+                <p class="frase-voluntarios">
+                    Converse com a instituição para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
+                </p>
+            </div>
+
+
+
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header">
+                    <div class="nome-user">
+                        <img src="../img-instituicao/5.jpg" alt="img">
+                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+                    </div>
+                    <div class="pesquisar-chat">
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                    </div>
+                </div>
+                <div class="scroll-chat" id="scroll-chat">
+                    <div class="main-chat">
+                        <div class="mensagens" id="mensagens">
+                            <!-- <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-        }
-        ?>
-    </div>
-
-    <!-- RODAPÉ -->
-    <footer>
-        <div class="container-footer">
-            <div class="footer-sessao" id="footer-sessao-1">
-                <div class="footer-col" id="footer-col-adm">
-                    <h5>Adm</h5>
-                    <ul>
-                        <a href="../form-login-adm.php">
-                            <li>Login</li>
-                        </a>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Contato</h5>
-                    <ul>
-                        <li>Tel: (11)0000-0000</li>
-                        <li>Email: conecta@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-sessao" id="footer-sessao-2">
-                <div class="footer-col" id="footer-col-causas">
-                    <h5>Causas em Destaque</h5>
-                    <ul id="lista-causas">
-                        <div class="col">
-                            <li>- Fome</li>
-                            <li>- Criaças</li>
-                            <li>- Animais</li>
+                <div class="chat-footer">
+                    <div class="fundo-footer">
+                        <div class="enviar-mensagem">
+                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
                         </div>
-                        <div class="col" id="col-ultima">
-                            <li>- Moradores de rua</li>
-                            <li>- LGBTQIAP+</li>
-                            <li>- Mulheres</li>
-                        </div>
-
-                    </ul>
-                </div>
-                <div class="footer-col" id="footer-col-sobre">
-                    <h5>Sobre Nós</h5>
-                    <ul>
-                        <li>Nos conheca um pouco <br> mais.</li>
-                    </ul>
+                        <button type="" class="button-send" id="btn1">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
+            <a class="link-voltar-anterior" href="tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
         </div>
-        <div class="midias-sociais">
-            <div class="box-icon">
-                <i class="fa-brands fa-youtube"></i>
-            </div>
-            <div class="box-icon">
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-            <div class="box-icon">
-                <i class="fa-brands fa-twitter"></i>
-            </div>
-            <div class="box-icon-git">
-                <i class="fa-brands fa-github" id="icon-git"></i>
-            </div>
-        </div>
-    </footer>
+
+    </main>
 
 
 
 
 
-    <!-- CRÉDITOS -->
-    <!-- <a href="https://www.flaticon.com/free-icons/arrow" title="arrow icons">Arrow icons created by th studio - Flaticon</a> -->
 
-    <!-- SCRIPTS -->
-    <script src="js/script.js"></script>
-    <script src="../voluntarios/js/cidade-estados.js"></script>
+
+
+    <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>  
-    <script src="../js/url-avisos.js"></script>
-    <script>
-        // window.addEventListener('beforeunload', function(event)
-        // {
-        //     var url = window.location.href;
-
-        //     var inicioUrl = url.split('?')[0];
-
-        //     console.log(inicioUrl); // "../vagas/vagas.php"
-
-        //     window.location.href = inicioUrl;
-        // });
-    </script>
+    <script type="module" src="imports/box-info.js"></script>
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    <script type="module" src="../imports/nova-notificacao.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
-require_once 'global.php';
-require_once '../auth/verifica-logado.php';
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,9 +19,6 @@ require_once '../auth/verifica-logado.php';
 <body class="body">
 
 
-    <?php
-
-    ?>
 
     <!-- BARRA DE NAVEGAÇÂO -->
     <nav class="cabecalho">
@@ -391,8 +388,11 @@ require_once '../auth/verifica-logado.php';
                     <table>
                         <thead>
                             <tr>
+                                <th> Instituição </th>
                                 <th> Vaga </th>
                                 <th> Status </th>
+                                <th> Chat </th>
+                                <th> Avaliar </th>
                                 <th> </th>
                             </tr>
                         </thead>
@@ -416,13 +416,15 @@ require_once '../auth/verifica-logado.php';
                             ?>
                                  <!-- <form action="" method="post"> -->
                                         <?php
-                                        $codServico = $vagaCandidatada['codServico'];
-                                        $status = $vagaCandidatada['statusCandidatura'];
+                                            $codServico = $vagaCandidatada['codServico'];
+                                            $status = $vagaCandidatada['statusCandidatura'];
+                                            //$instituicao = $vagaCandidatada['nomeInstituicao'];
 
-                                        $servico = ServicoDao::obterServicoPorCodigo($codServico);
-                                        $nomeVaga = $servico['nomeservico'];
+                                            $servico = ServicoDao::obterServicoPorCodigo($codServico);
+                                            $nomeVaga = $servico['nomeservico'];                                  
                                         ?>
 
+                                        <td class="td-table-c"> <?php //echo $instituicao; ?> </td>
                                         <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">
@@ -449,6 +451,8 @@ require_once '../auth/verifica-logado.php';
                                             </div>
                                         </td>
 
+                                        <td class="td-table-c"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </td>
+                                        <td class="td-table-c"> <i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i> </td>
                                         <td class="td-table-c">
                                             <form action="" method="post">
                                                 <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
@@ -479,7 +483,7 @@ require_once '../auth/verifica-logado.php';
 
 
             <!-- TÍTULO 2 -->
-            <div class="container-titulo-1">
+            <!-- <div class="container-titulo-1">
                 <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
                 <p class="frase-voluntarios">
                     Esta é a lista de todas as vagas que você foi requisitado, você pode aceitar a vaga
@@ -489,7 +493,7 @@ require_once '../auth/verifica-logado.php';
 
 
 
-            <!-- TABELA 2 -->
+            <!-- TABELA 2 
             <div class="table">
                 <div class="table-responsive-v">
                     <div class="funcoes">
@@ -520,7 +524,7 @@ require_once '../auth/verifica-logado.php';
                             ?>
                             <tr>
                                 <?php //foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td class="td-table-r"> <?php echo $voluntario['codVoluntario']; ?> </td>
+                                    <td class="td-table-r"> <?php //echo $voluntario['codVoluntario']; ?> </td>
                                     <td class="td-table-r"> <button class="table-btn-chamar"> aceitar </button> </td>
                                     <td class="td-table-r"> <button class="table-btn-rejeitar"> rejeitar </button> </td>
                             </tr>
@@ -530,7 +534,7 @@ require_once '../auth/verifica-logado.php';
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </main>

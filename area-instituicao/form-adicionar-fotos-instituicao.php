@@ -1,6 +1,6 @@
 <?php
-require_once 'global.php';
-require_once '../auth/verifica-logado.php';
+    require_once 'global.php';
+    require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -356,7 +356,9 @@ require_once '../auth/verifica-logado.php';
             </p>
         </div>
 
-        <div class="form">
+
+        <!-- MODAL -->
+        <div class="modal-foto">
             <form class="container" action="cadastrar-fotos-galeria.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <div class="input-box">
@@ -368,26 +370,45 @@ require_once '../auth/verifica-logado.php';
             </form>
         </div>
 
-        <div class="imagens-intituicao">
+
+
+        <div class="container-fotos">
+            <div class="form">
+                <form class="container" action="cadastrar-fotos-galeria.php" method="post" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label id="label" for="foto">Selecione uma foto</label>
+                            <input type="file" accept="image/*" id="foto" name="foto">
+                        </div>
+                        <button type="submit">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="imagens-intituicao">
                 <div class="galeria">
                     <?php
+
                         require_once 'global.php';
                         try {
                             $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
-                           // echo $listaImg; 
+                        // echo $listaImg; 
                         } catch (Exception $e) {
                             echo $e->getMessage();
                         }
-                        foreach ($listaImg as $img) { ?>
-                    <div class="box-img">
-                        
-                        <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
-                    </div>
+
+                        foreach ($listaImg as $img) 
+                        { 
+                    ?>
+                            <div class="box-img">          
+                                <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
+                            </div>
+
                     <?php } ?>
                 </div>
-
-
+            </div>
         </div>
+        
     </main>
 
 
@@ -396,12 +417,12 @@ require_once '../auth/verifica-logado.php';
 
 
 
-    <script src="/js/modal-cadastro-vaga.js"></script>
+    <!-- <script src="/js/modal-cadastro-vaga.js"></script> -->
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script src="../area-voluntario/js/button-image.js"></script>
-    <script src="../js/endereco-auto.js"></script>
-    <script src="../js/mascaraEditarInst.js"></script>
+    <!-- <script src="../js/endereco-auto.js"></script>
+    <script src="../js/mascaraEditarInst.js"></script> -->
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
 </body>
 
