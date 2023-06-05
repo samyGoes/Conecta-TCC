@@ -3,8 +3,8 @@ const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const nameRegex = /^[a-zA-ZÀ-ÿ\s'´`~]{3,}$/;
 const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
-const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;
+/*const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
+const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;*/
 
 function validateRequiredFields() {
     let allFieldsFilled = true;
@@ -130,10 +130,10 @@ function cpfValidate() {
 function emailValidate() {
     console.log('emailValidate');
     if (!emailRegex.test(campos[5].value)) {
-    setError(5, 'Email inválido');
+    setError(3, 'Email inválido');
     return false;
     } else {
-    removeError(5);
+    removeError(3);
     return true;
     }
 }
@@ -141,47 +141,47 @@ function emailValidate() {
 
 function passwordValidate() {
     console.log('passwordValidate');
-    const senha = campos[6].value;
+    const senha = campos[4].value;
     const digitRegex = /\d/;
     const specialRegex = /[!@#$%&*]/;
     const upperRegex = /[A-Z]/;
 
     if (senha.length < 6) {
-    setError(6, 'A senha deve ter pelo menos 6 caracteres');
+    setError(4, 'A senha deve ter pelo menos 6 caracteres');
     return false;
     }
 
     if (!digitRegex.test(senha)) {
-    setError(6, 'A senha deve conter pelo menos um número');
+    setError(4, 'A senha deve conter pelo menos um número');
     return false;
     }
 
     if (!specialRegex.test(senha)) {
-    setError(6, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
+    setError(4, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
     return false;
     }
 
     if (!upperRegex.test(senha)) {
-    setError(6, 'A senha deve conter pelo menos uma letra maiúscula');
+    setError(4, 'A senha deve conter pelo menos uma letra maiúscula');
     return false;
     }
 
-    removeError(6);
+    removeError(4);
     return true;
 }
 
     
     function confirmPassword() {
     console.log('confirmPassword');
-    const senha = campos[6].value;
-    const confSenha = campos[7].value;
+    const senha = campos[4].value;
+    const confSenha = campos[5].value;
     
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-        setError(7, 'As senhas não coincidem');
+        setError(4, 'As senhas não coincidem');
         return false;
     } else {
-        removeError(7);
+        removeError(5);
         return true;
     }
     }
@@ -206,9 +206,7 @@ function passwordValidate() {
         } else {
           // Caso contrário, exibe uma mensagem de erro e destaca os campos com erro
           nameValidate();
-          dateValidate();
           cpfValidate();
-          foneValidate();
           emailValidate();
           passwordValidate();
           confirmPassword();

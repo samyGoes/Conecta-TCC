@@ -149,9 +149,8 @@
     </div>
 
 
-   <!-- <script src="js/valida-voluntario.js"></script> -->
+    <script src="js/valida-voluntario.js"></script>
     <script src="js/endereco-auto.js"></script>
-
     <!--Máscaras do formulário-->
     <script src="js/mascarasForm.js"></script>
     <script>
