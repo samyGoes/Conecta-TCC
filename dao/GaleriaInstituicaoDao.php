@@ -26,6 +26,24 @@
             $resultado = $querySelect->fetchAll(PDO::FETCH_ASSOC); 
             return $resultado; 
         }
+        
+        public static function consultarPorId($idFoto)
+        {
+            $conexao = Conexao::conectar();
+            $querySelect = $conexao->prepare("SELECT * FROM tbFotosInstituicao WHERE idFotosInstituicao = ?");
+            $querySelect->bindValue(1, $idFoto);
+            $querySelect->execute();
+            $resultado = $querySelect->fetch(PDO::FETCH_ASSOC); 
+            if ($resultado) {
+                $galeria = new GaleriaInstituicao();
+                $galeria->setIdFotosInstituicao($resultado['idFotosInstituicao']);
+                $galeria->setFotoGaleria($resultado['fotosInstituicao']);
+                $galeria->setIdInstituicao($resultado['codInstituicao']);
+                return $galeria;
+            } else {
+                return null;
+            }
+        }
 
         public static function excluir($codFotoInsti)
         {
