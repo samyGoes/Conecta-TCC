@@ -235,6 +235,10 @@ include "../auth/loginUsuario.php";
     <div id="resultado-lista-voluntario" class="lista-voluntario">
         <?php
         require_once 'global.php';
+
+        $tipoPerfil = isset($_SESSION['tipoPerfil']) ? $_SESSION['tipoPerfil'] : '';
+        $id = isset($_SESSION['codUsuario']) ? $_SESSION['codUsuario'] : '';
+        
         try {
             // Verificar se os filtros foram enviados via método GET
             if (!empty($_GET['causas']) || !empty($_GET['estado']) || !empty($_GET['cidade'])) {
@@ -242,20 +246,25 @@ include "../auth/loginUsuario.php";
                 $causas = $_GET['causas'] ?? '';
                 $estado = $_GET['estado'] ?? '';
                 $cidade = $_GET['cidade'] ?? '';
-
+        
                 $listaVoluntario = VoluntarioDao::listarFiltro($causas, $estado, $cidade);
             } else {
                 // Verificar se os filtros foram removidos
                 if (isset($_GET['causas']) || isset($_GET['estado']) || isset($_GET['cidade'])) {
                     $listaVoluntario = VoluntarioDao::listarFiltro($causas, $estado, $cidade);
-                } else {
+                } else if (empty($_SESSION['codUsuario'])) {
                     // Chamar o método listar() da DAO para obter a pesquisa padrão com todos os resultados
                     $listaVoluntario = VoluntarioDao::listarPadrao();
+                } else if ($tipoPerfil === "Voluntario") {
+                    $listaVoluntario = VoluntarioDao::listarPadrao();
+                } else {
+                    $listaVoluntario = VoluntarioDao::listarPrivados();
                 }
             }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+        
         ?>
 
         <?php
