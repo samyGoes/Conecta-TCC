@@ -379,7 +379,16 @@
                             <div class="box-modal-foto-titulo"> <h2> Fotos Selecionadas </h2> </div>
                             <div class="div-image">
                                 <div class="image">
-                                    <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>" id="img" alt="user-instituição">
+                                    <?php
+                                        require_once 'global.php';
+                                        try {
+                                            $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+                                        foreach($listaImg as $foto) { ?>
+                                        <img src="<?php echo $foto['fotosInstituicao']; ?>">
+                                    <?php } ?>
                                 </div>
                             </div>
 
@@ -391,17 +400,10 @@
                 <div class="imagens-intituicao">
                     <div class="galeria">
                         <?php
-                            require_once 'global.php';
-                            try {
-                                $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
-                            // echo $listaImg; 
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            foreach ($listaImg as $img) { ?>
+                            foreach ($listaImg as $foto) { ?>
+
                         <div class="box-img">
-                            
-                            <img src="<?php echo $img['fotosInstituicao']; ?>" alt="">
+                            <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
                         </div>
                         <?php } ?>
                     </div>
