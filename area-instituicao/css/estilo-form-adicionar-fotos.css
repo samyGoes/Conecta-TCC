@@ -60,32 +60,57 @@
 /* MODAL */
 .container-modal-foto
 {
-    /* background-color: rgba(0, 0, 0, 0.4); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* width: 100vw;
-   
-    z-index: 9999; */
-    height: 40vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;  
+    min-height: 100vh;
+    z-index: 1000; 
+    position: fixed;
+    display: none;
 }
 
 .modal-foto
 {
-    width: 50rem;
-    height: 40rem;
+    width: 40rem;
+    height: 30rem;
     border-radius: 1rem;
-    background-color: #fff;
-    border: 1px solid #000;
-    position: fixed;
-    position: relative;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 1001; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.icone-fechar-modal
+.box-icon-fechar
 {
-    position: absolute;
-    top: 4px;
-    right: 4px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 1rem 1rem 0rem 0rem;
+}
+#icone-fechar-modal
+{
+    font-size: 18px;
+    color: #525252;
+    cursor: pointer;
+}
+
+.box-modal-foto-titulo
+{
+    margin-bottom: 1rem;
+}
+
+.box-modal-foto-titulo h2
+{
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #2e2e2e;
 }
 
 .div-image
@@ -93,6 +118,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 90%;
+    height: 60%;
 }
 
 .image
@@ -108,13 +134,15 @@
     height: 100%;
 }
 
-.btn-adicionar-foto {
+.btn-adicionar-foto 
+{
     background-color: #4567a5;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
     width: 10rem;
     height: 2.5rem;
     cursor: pointer;
+    margin-bottom: 2rem;
 
     text-transform: uppercase;
     color: #fff;

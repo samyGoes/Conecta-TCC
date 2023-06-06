@@ -28,7 +28,7 @@
 
             $atualizar = GaleriaInstituicaoDao::cadastrar($galeria);
 
-            $_SESSION['dadoPerfil']['fotoInstituicao'] = $nomecompleto;
+            //$_SESSION['dadoPerfil']['fotoInstituicao'] = $nomecompleto;
         }
     } catch (Exception $e) {
         echo "Erro";
