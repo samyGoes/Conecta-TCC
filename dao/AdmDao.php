@@ -38,19 +38,23 @@
 
             $mensagemCadastroVo = array
             (
-                "Novo cadastro" => "Um novo voluntário se cadastrou no sistema."
+                "Novo cadastro" . '<span class="box-icone-notificacao"><i id="icone-notificacao-nova" class="fa-solid fa-plus"></i></span>' => "Um novo voluntário se cadastrou no sistema.",
+                'arquivo' => 'voluntarios-cadastrados.php'
             );
             $mensagemCadastroIn = array
             (
-                "Novo cadastro" => "Uma nova instituição se cadastrou no sistema."
+                "Novo cadastro" . '<span class="box-icone-notificacao"><i id="icone-notificacao-nova" class="fa-solid fa-plus"></i></span>' => "Uma nova instituição se cadastrou no sistema.",
+                'arquivo' => 'instituicoes-cadastradas.php'
             );
             $mensagemSolicitacaoCausa = array
             (
-                "Nova Solicitação" => "Uma nova solicitação de causa foi feita."
+                "Nova Solicitação" . '<span class="box-icone-notificacao"><i id="icone-notificacao-nova" class="fa-solid fa-plus"></i></span>' => "Uma nova solicitação de causa foi feita.",
+                'arquivo' => 'tabela-solicitacao-causas.php'
             );
             $mensagemSolicitacaoHabili = array
             (
-                "Nova Solicitação" => "Uma nova solicitação de habilidade foi feita."
+                "Nova Solicitação" . '<span class="box-icone-notificacao"><i id="icone-notificacao-nova" class="fa-solid fa-plus"></i></span>' => "Uma nova solicitação de habilidade foi feita.",
+                'arquivo' => 'tabela-solicitacao-habilidade.php'
             );
 
 
