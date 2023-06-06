@@ -461,12 +461,6 @@
                                 <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>" id="img" alt="user-instituição">
                             </div>
                         </div>
-
-                        <div id="input-btn-foto-mob">
-                            <span>Foto</span>
-                            <label id="label" for="foto">Selecione uma foto</label>
-                            <input type="file" accept="image/*" id="foto" name="foto">
-                        </div>
                     </div>
                 </div>
                 <a href=""><div class="continue-button" id="form-botao">

@@ -324,7 +324,15 @@ include "../../auth/verifica-logado.php";
                                         </td>
                                     </tr>
 
-                            <?php } ?>
+                            <?php } 
+                            
+                                if (isset($_POST['btnAvaliar'])) 
+                                {
+                                    $valorBotao = $_POST['btnAvaliar'];
+                                    echo $valorBotao;
+                                    exit; // Pare a execução do script PHP para que apenas o valor do botão seja retornado
+                                }
+                            ?>
                         </tbody>
                     </table>
 
@@ -360,11 +368,11 @@ include "../../auth/verifica-logado.php";
                             </div>
                         </div>
                         <?php
-                        if (isset($_POST['btnAvaliar']) && $_POST['btnAvaliar'])
-                        {
-                            $valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
-                            echo $valorBotao;
-                        }
+                        // if (isset($_POST['btnAvaliar']) && $_POST['btnAvaliar'])
+                        // {
+                        //     $valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
+                        //     echo $valorBotao;
+                        // }
                             //$valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
                             //echo $valorBotao;
 
