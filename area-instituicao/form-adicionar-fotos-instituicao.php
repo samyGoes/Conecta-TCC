@@ -391,25 +391,37 @@
             <script>
                 var inputFoto = document.getElementById('foto');
                 var imgModal = document.getElementById('img-modal');
-                var preview = document.getElementById('preview');
 
                 inputFoto.addEventListener('change', function() {
-                    preview.innerHTML = ''; // Limpa o conteúdo do preview antes de adicionar as novas imagens
+                    var file = inputFoto.files[0];
+                    var reader = new FileReader();
 
-                    var files = inputFoto.files;
-                    for (var i = 0; i < files.length; i++) {
-                        var file = files[i];
-                        var reader = new FileReader();
+                    reader.onload = function(e) {
+                        imgModal.src = e.target.result;
+                    };
 
-                        reader.onload = function(e) {
-                            var img = document.createElement('img');
-                            img.src = e.target.result;
-                            preview.appendChild(img);
-                        };
-
-                        reader.readAsDataURL(file);
-                    }
+                    reader.readAsDataURL(file);
                 });
+
+                //var preview = document.getElementById('preview');
+             //   inputFoto.addEventListener('change', function() {
+                //    preview.innerHTML = '';
+                //    var files = inputFoto.files;
+                 //   for (var i = 0; i < files.length; i++) {
+                    //    var file = files[i];
+                     //   var reader = new FileReader();
+
+                      //  reader.onload = (function(file) {
+                      //      return function(e) {
+                       //         var img = document.createElement('img');
+                       //         img.src = e.target.result;
+                       //         preview.appendChild(img);
+                       //     };
+                      //  })(file);
+
+                     //   reader.readAsDataURL(file);
+                   // }
+                //});
             </script>
 
             <div class="imagens-intituicao">
