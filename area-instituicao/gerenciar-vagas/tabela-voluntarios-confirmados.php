@@ -298,9 +298,7 @@ include "../../auth/verifica-logado.php";
                             <?php foreach ($listaVoluntario as $voluntario) { 
                                 $t = 'Voluntario';
                                 $c = $voluntario['codVoluntario'];
-                                ?>
-
-                                <!-- <form action="" method="post"> -->
+                            ?>
                                     <tr>
                                         <td><?php echo $voluntario['codCandidatura']; ?></td>
                                         <td>
@@ -320,12 +318,11 @@ include "../../auth/verifica-logado.php";
                                         <td>
                                             <form action="" method="post">   
                                                 <input type="hidden" name="codCategoriaServico" value="<?php echo $codServico?>"> 
-                                                <button id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codServico . $voluntario['codVoluntario']; ?>" onclick="abrirModal('modalAvaliar')"><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
+                                                <button type="submit" id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codServico . $voluntario['codVoluntario']; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
+                                                <!-- onclick="abrirModal('modalAvaliar')" -->
                                             </form>
                                         </td>
                                     </tr>
-                                <!-- </form> -->
-
 
                             <?php } ?>
                         </tbody>
@@ -339,14 +336,13 @@ include "../../auth/verifica-logado.php";
 
 
 
-
         <!-- MODAL AVALIAÇÂO -->
         <div id="modalAvaliar" class="modal">
             <div class="form" id="form">
 
                 <div class="modal-sessao-1">
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
-                    <p class="modal-frase">Aqui você pode avaliar o voluntário</p>
+                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p>
 
                     <form class="form-modal" action="" method="POST" id="form-modal">
                         <div class="modal-input-box">
@@ -364,7 +360,15 @@ include "../../auth/verifica-logado.php";
                             </div>
                         </div>
                         <?php
-                            $codVoluntario = 4;
+                        if (isset($_POST['btnAvaliar']) && $_POST['btnAvaliar'])
+                        {
+                            $valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
+                            echo $valorBotao;
+                        }
+                            //$valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
+                            //echo $valorBotao;
+
+                            //$codVoluntario = 4;
                         ?>
                         <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $codVoluntario; ?>">Avaliar</button></div>
 
@@ -384,7 +388,7 @@ include "../../auth/verifica-logado.php";
 
                         }
                     ?>
-                    <a onclick="fecharModal('modalAvaliar')" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a>
+                    <!-- <a onclick="fecharModal('modalAvaliar')" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a> -->
                 </div>
 
                  <div class="modal-sessao-2">
@@ -401,16 +405,17 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="module" src="../../imports/nav-drop-down-notificacao.js"></script>
+    <script src="js/avaliacao.js"></script>
     <script>
 
-        function abrirModal(carregarModal) {
+        // function abrirModal(carregarModal) {
  
-            let modal = document.getElementById(carregarModal);
+        //     let modal = document.getElementById(carregarModal);
 
-            modal.style.display = 'block';
+        //     modal.style.display = 'block';
 
-            document.body.style.overflow = 'hidden';
-        }
+        //     document.body.style.overflow = 'hidden';
+        // }
 
         function fecharModal(fecharModal){
 

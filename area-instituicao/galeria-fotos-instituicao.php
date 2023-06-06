@@ -164,23 +164,22 @@ include "../auth/loginUsuario.php";
     </div>
 
     <main>
-        <div class="galeria">
-            <div class="box-img">
-                <?php
-                    require_once 'global.php';
+        <div class="galeria">     
+            <?php
+                require_once 'global.php';
 
-                    $codInstituicao = $_SESSION['codUsuario'];
-                    $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
-                   
-                    foreach ($fotos as $foto) {
-                ?>
-                    <img src="<?php echo $foto['fotosInstituicao']; ?>">
-
-                <?php
-                }
-                ?>
+                $codInstituicao = $_SESSION['codUsuario'];
+                $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
                 
-            </div>
+                foreach ($fotos as $foto) 
+                {
+            ?>
+                    <div class="box-img">
+                        <img src="<?php echo $foto['fotosInstituicao']; ?>">
+                    </div>
+            <?php
+                }
+            ?>        
         </div>
 
         <div class="voltar-perfil">

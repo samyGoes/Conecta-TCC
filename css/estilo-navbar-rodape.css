@@ -270,6 +270,7 @@
 
 .sub-topicos-sininho-linha-titulo
 {
+    display: flex;
     font-family: poppins, sans-serif;
     color: #2e2e2e;
     font-size: 15px;
