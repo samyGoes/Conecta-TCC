@@ -357,9 +357,6 @@
                 </p>
             </div>
 
-
-
-
             <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
             <div class="container-fotos">
                 <div class="form">
@@ -367,54 +364,80 @@
                         <div class="input-group">
                             <div class="input-box">
                                 <label id="label" for="foto">Selecione uma foto</label>
-                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto">
-                            </div>              
+                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto" multiple>
+                            </div>
                         </div>
 
-
-
-                         <!-- MODAL -->                  
+                         <!-- MODAL -->
                         <div class="modal-foto">
-                            <div class="box-icon-fechar"><i id="icone-fechar-modal" class="fa-solid fa-xmark"></i></div>                    
-                            <div class="box-modal-foto-titulo"> <h2> Fotos Selecionadas </h2> </div>
+                            <div class="box-icon-fechar">
+                                <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
+                            </div>
+                            <div class="box-modal-foto-titulo">
+                                <h2>Fotos Selecionadas</h2>
+                            </div>
                             <div class="div-image">
                                 <div class="image">
-                                    <?php
-                                        require_once 'global.php';
-                                        try {
-                                            $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
-                                        } catch (Exception $e) {
-                                            echo $e->getMessage();
-                                        }
-                                        foreach($listaImg as $foto) { ?>
-                                        <img src="<?php echo $foto['fotosInstituicao']; ?>">
-                                    <?php } ?>
+                                    <div id="preview"></div>
+                                    <img src="" id="img-modal">
                                 </div>
                             </div>
-
+                            
                             <button class="btn-adicionar-foto" type="submit">Adicionar</button>
-                        </div>
                     </form>
-                </div>
-
-                <div class="imagens-intituicao">
-                    <div class="galeria">
-                        <?php
-                            foreach ($listaImg as $foto) { ?>
-
-                        <div class="box-img">
-                            <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
-                        </div>
-                        <?php } ?>
-                    </div>
                 </div>
             </div>
 
+            <script>
+                var inputFoto = document.getElementById('foto');
+                var imgModal = document.getElementById('img-modal');
+                var preview = document.getElementById('preview');
+
+                inputFoto.addEventListener('change', function() {
+                    preview.innerHTML = ''; // Limpa o conteúdo do preview antes de adicionar as novas imagens
+
+                    var files = inputFoto.files;
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            var img = document.createElement('img');
+                            img.src = e.target.result;
+                            preview.appendChild(img);
+                        };
+
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
+
+            <div class="imagens-intituicao">
+                <div class="galeria">
+                    <?php
+                    require_once 'global.php';
+
+                    try {
+                        $listaImg = GaleriaInstituicaoDao::listar($_SESSION['codUsuario']);
+                    } catch (Exception $e) {
+                        echo $e->getMessage();
+                    }
+                    foreach ($listaImg as $foto) { ?>
+                        <div class="box-img">
+                            <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
+                        </div>
+                    <?php } ?>
+
+                    
+                </div>
+            </div>
         </main>
 
-
-
-
+                
+                
+            
+            
+        
 
 
 
@@ -424,6 +447,7 @@
         <script type="module" src="../imports/nav-drop-down.js"></script>
         <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
         <script type="module" src="imports/modal-galeria.js"></script>
+        <script type="module" src="js/button-image.js"></script>
     </body>
 
 </html>
