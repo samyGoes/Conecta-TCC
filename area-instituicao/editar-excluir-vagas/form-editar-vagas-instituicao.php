@@ -381,7 +381,7 @@ require_once 'global.php';
 
                         <div>
                             <label for="cidade">Cidade</label>
-                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['vaga']['cidadeLocalServico'] ?>" >
+                            <input type="text" name="cidade" id="cidade" readonly value="<?php echo $_SESSION['vaga'] ['cidadeLocalServico'] ?>" >
                         </div>
                     </div>
 
