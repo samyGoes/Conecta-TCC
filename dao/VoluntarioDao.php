@@ -160,7 +160,22 @@
             // Consulta padrão para trazer todos os valores
             $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario WHERE nomeVoluntario LIKE '%$pesquisar%'";
             }else{
-                $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario";
+                $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario,visibilidadeVoluntario FROM tbVoluntario WHERE visibilidadeVoluntario = 'on' ";
+            }
+                $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            return $lista;
+        }
+
+        public static function listarPrivados()
+        {
+            $conexao = Conexao::conectar();
+            if(isset($_POST['pesquisar'])){
+                $pesquisar= $_POST['pesquisar'];
+            // Consulta padrão para trazer todos os valores
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario FROM tbVoluntario WHERE nomeVoluntario LIKE '%$pesquisar%'";
+            }else{
+                $querySelect = "SELECT codVoluntario, nomeVoluntario, descVoluntario, emailVoluntario, cidadeVoluntario, estadoVoluntario, paisVoluntario, fotoVoluntario,visibilidadeVoluntario FROM tbVoluntario ";
             }
                 $resultado = $conexao->query($querySelect);
             $lista = $resultado->fetchAll(PDO::FETCH_ASSOC);
