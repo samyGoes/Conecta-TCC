@@ -61,78 +61,69 @@ include "../../auth/verifica-logado.php";
                 ?>
                     <li class="topicos-sessao-login-linha">
                         <div class="box-topicos-sessao-login-linha">
-                            <?php        
+                            <?php
 
-                                require_once 'global.php';
-                                include 'diretorios-notificacao.php';
-                                try 
-                                {
-                                    $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                    $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
-                                    //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
-                                    //$diretorio = diretorios($linha['arquivo']);
-                                    //print_r($links);
-                                } 
-                                catch (Exception $e) 
-                                {
-                                    echo $e->getMessage();
-                                }
+                            require_once 'global.php';
+                            include 'diretorios-notificacao.php';
+                            try {
+                                $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
+                                //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                //$diretorio = diretorios($linha['arquivo']);
+                                //print_r($links);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
 
-                                if(empty($notificacoes)) 
-                                {
-                                ?>
-                                        <div class="box-sininho">
-                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                        </div>       
-                                        <ul class="sub-topicos-sininho sem-resultado">
-                                            <li> 
-                                                <div class="sub-topicos-sininho-linha sem-resultado">
-                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                </div>                                          
-                                            </li>
-                                        </ul>
-                                <?php
+                            if (empty($notificacoes)) {
+                            ?>
+                                <div class="box-sininho">
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+                                <ul class="sub-topicos-sininho sem-resultado">
+                                    <li>
+                                        <div class="sub-topicos-sininho-linha sem-resultado">
+                                            <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            <?php
 
-                                }
-                                else
-                                {
-                                ?>
-                                    <div class="box-sininho">
-                                        <div class="nova-notificacao-bolinha"></div>
-                                        <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
-                                    </div>
+                            } else {
+                            ?>
+                                <div class="box-sininho">
+                                    <div class="nova-notificacao-bolinha"></div>
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
 
-                                    <ul class="sub-topicos-sininho">
-                                <?php
-                                        foreach($notificacoes as $linha)
-                                        {
-                                            $primeiraIteracao = true; 
-                                            foreach($linha as $titulo => $frase)
-                                            {
-                                                if($primeiraIteracao)
-                                                {                                     
-                                                    $titulos = array_keys($linha); // Obter as chaves do array $linha
-                                                    $primeiroTitulo = $titulos[0]; // Obter o primeiro título
-                                                
-                                                    $frases = array_values($linha); // Obter os valores do array $linha
-                                                    $primeiraFrase = $frases[0];
-                                ?>                                           
-                                                    <li> 
-                                                        <div class="sub-topicos-sininho-linha">
-                                                            <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
-                                                            <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
-                                                        </div>                                          
-                                                    </li>                     
-                                <?php
-                                                    $primeiraIteracao = false;
-                                                }
+                                <ul class="sub-topicos-sininho">
+                                    <?php
+                                    foreach ($notificacoes as $linha) {
+                                        $primeiraIteracao = true;
+                                        foreach ($linha as $titulo => $frase) {
+                                            if ($primeiraIteracao) {
+                                                $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+
+                                                $frases = array_values($linha); // Obter os valores do array $linha
+                                                $primeiraFrase = $frases[0];
+                                    ?>
+                                                <li>
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                    </div>
+                                                </li>
+                                    <?php
+                                                $primeiraIteracao = false;
                                             }
                                         }
-                                ?>
-                                    </ul>
-                                <?php
-                                }
-                                ?>
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }
+                            ?>
 
                             <p href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
                                 Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
@@ -252,34 +243,34 @@ include "../../auth/verifica-logado.php";
             }
             ?>
 
-            <?php foreach ($listaVoluntario as $voluntario) { 
-         
-        
+            <?php foreach ($listaVoluntario as $voluntario) {
+
+
             ?>
 
-            <!-- TÍTULO 1 -->
-            <div class="container-titulo-1">
-                <h2 class="titulo-voluntarios"> Chat </h2>
-                <p class="frase-voluntarios">
-                    Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
-                </p>
-            </div>
-
-            <div class="chat-container" id="chat-container">
-                <div class="chat-header">
-                    <div class="nome-user">
-                        <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
-                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
-                    </div>
-                    <div class="pesquisar-chat">
-                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
-                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                    </div>
+                <!-- TÍTULO 1 -->
+                <div class="container-titulo-1">
+                    <h2 class="titulo-voluntarios"> Chat </h2>
+                    <p class="frase-voluntarios">
+                        Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
+                    </p>
                 </div>
-                <div class="scroll-chat" id="scroll-chat">
-                    <div class="main-chat">
-                        <div class="mensagens" id="mensagens">
-                            <!-- <div class="area-voluntario">
+
+                <div class="chat-container" id="chat-container">
+                    <div class="chat-header">
+                        <div class="nome-user">
+                            <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
+                            <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
+                        </div>
+                        <div class="pesquisar-chat">
+                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        </div>
+                    </div>
+                    <div class="scroll-chat" id="scroll-chat">
+                        <div class="main-chat">
+                            <div class="mensagens" id="mensagens">
+                                <!-- <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
                                 </div>
@@ -292,27 +283,158 @@ include "../../auth/verifica-logado.php";
                                     </div>
                                 </div>
                             </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-footer">
+                        <div class="fundo-footer">
+                            <div class="enviar-mensagem">
+                                <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                            </div>
+                            <button type="" class="button-send" id="btn1">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="chat-footer">
-                    <div class="fundo-footer">
-                        <div class="enviar-mensagem">
-                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                        </div>
-                        <button type="" class="button-send" id="btn1">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
             <?php } ?>
 
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
     </main>
+    <script>
+        var conn = new WebSocket('ws://localhost:3000');
 
+        conn.onopen = function(e) {
+            //console.log("Connection established!");
+        };
+
+        conn.onmessage = function(e) {
+            //console.log(e.data);
+            showMessages('area-voluntario', e.data);
+        };
+
+        //conn.send('Hello World!');
+        ///////////////////////////////////////////////
+        var inp_message = document.getElementById('enviar-mensagem');
+        var btn_env = document.getElementById('btn1');
+        var area_content = document.getElementById('mensagens');
+        var scroll = document.getElementById("scroll-chat");
+
+        btn_env.addEventListener('click', function() {
+            if (inp_message.value != '') {
+                var msg = {
+                    'msg': inp_message.value
+                };
+                msg = JSON.stringify(msg);
+
+                conn.send(msg);
+
+                showMessages('me', msg);
+
+                inp_message.value = '';
+
+                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+            }
+        });
+
+
+
+        function showMessages(papelRemetente, data) {
+            data = JSON.parse(data);
+
+            console.log(data);
+
+            var srcFotoRemetente, srcFotoDestinatario, containerClass;
+            var mensagemClass, fotoClass;
+            if (papelRemetente === 'me') {
+                srcFotoRemetente = "../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
+                srcFotoDestinatario = "../img-instituicao/6.jpg";
+                containerClass = 'area-instituicao me';
+                mensagemClass = 'mensagem-instituicao';
+                fotoClass = 'foto-instituicao';
+            } else if (papelRemetente === 'area-voluntario') {
+                srcFotoRemetente = "../img-instituicao/6.jpg";
+                srcFotoDestinatario = "../img-instituicao/9.jpg";
+                containerClass = 'area-voluntario';
+                mensagemClass = 'mensagem-voluntario';
+                fotoClass = 'foto-voluntario';
+            }
+
+            var div = document.createElement('div');
+            div.setAttribute('class', containerClass);
+
+            var divInstituicao = document.createElement('div');
+            divInstituicao.setAttribute('class', 'instituicao');
+
+            var divMensagem = document.createElement('div');
+            divMensagem.setAttribute('class', mensagemClass);
+
+            var divConteudo = document.createElement('div');
+            divConteudo.setAttribute('class', 'conteudo-mensagem');
+
+            var p = document.createElement('p');
+            p.textContent = data.msg;
+
+            divConteudo.appendChild(p);
+
+            divMensagem.appendChild(divConteudo);
+            divInstituicao.appendChild(divMensagem);
+
+            var divFoto = document.createElement('div');
+            divFoto.setAttribute('class', fotoClass);
+
+            var img = document.createElement('img');
+            if (papelRemetente === 'me') {
+                img.setAttribute('src', srcFotoRemetente);
+            } else {
+                img.setAttribute('src', srcFotoDestinatario);
+            }
+            img.setAttribute('alt', 'foto');
+
+            divFoto.appendChild(img);
+
+            div.appendChild(divInstituicao);
+            div.appendChild(divFoto);
+
+            if (papelRemetente === 'area-voluntario') {
+                var divAreaVoluntario = document.createElement('div');
+                divAreaVoluntario.setAttribute('class', 'area-voluntario-style');
+                divAreaVoluntario.appendChild(div);
+                area_content.appendChild(divAreaVoluntario);
+            } else {
+                area_content.appendChild(div);
+            }
+
+            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+        }
+
+        window.addEventListener('load', function() {
+            var storedMessages = localStorage.getItem('chatMessages');
+            if (storedMessages) {
+                var messages = JSON.parse(storedMessages);
+                messages.forEach(function(message) {
+                    showMessages(message.papelRemetente, message.data);
+                });
+            }
+        });
+
+        window.addEventListener('beforeunload', function() {
+            var messages = Array.from(area_content.querySelectorAll('.area-instituicao, .area-voluntario'));
+            var storedMessages = messages.map(function(message) {
+                var papelRemetente = message.classList.contains('me') ? 'me' : 'area-voluntario';
+                var data = {
+                    msg: message.querySelector('.conteudo-mensagem p').textContent
+                };
+                return {
+                    papelRemetente: papelRemetente,
+                    data: JSON.stringify(data)
+                };
+            });
+            localStorage.setItem('chatMessages', JSON.stringify(storedMessages));
+        });
+    </script>
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>

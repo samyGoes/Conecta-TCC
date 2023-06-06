@@ -1,6 +1,6 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-chat.css">
+    <link rel="stylesheet" href="../css/estilo-chat.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,120 +43,105 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <?php 
-                    if (empty($_SESSION['nomeUsuario'])) 
-                    {
+                <?php
+                if (empty($_SESSION['nomeUsuario'])) {
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                                <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
-                            </a>
-                        </li>
-                <?php 
-                    } 
-                    else 
-                    { 
-                        $nomeCompleto = $_SESSION['nomeUsuario'];
-                        if($_SESSION['tipoPerfil']=='Voluntario')
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0];
-                        }
-                        else
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                        }                        
+                    <li class="topicos-sessao-login-linha">
+                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
+                        </a>
+                    </li>
+                <?php
+                } else {
+                    $nomeCompleto = $_SESSION['nomeUsuario'];
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];
+                    } else {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <div class="box-topicos-sessao-login-linha">
-                                <?php        
+                    <li class="topicos-sessao-login-linha">
+                        <div class="box-topicos-sessao-login-linha">
+                            <?php
 
-                                    require_once 'global.php';
-                                    include 'diretorios-notificacao.php';
-                                    try 
-                                    {
-                                        $idVoluntarioLogado = $_SESSION['codUsuario'];
-                                        $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
-                                        //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
-                                        //$diretorio = diretorios($linha['arquivo']);
-                                        //print_r($links);
-                                    } 
-                                    catch (Exception $e) 
-                                    {
-                                        echo $e->getMessage();
-                                    }
+                            require_once 'global.php';
+                            include 'diretorios-notificacao.php';
+                            try {
+                                $idVoluntarioLogado = $_SESSION['codUsuario'];
+                                $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
+                                //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                //$diretorio = diretorios($linha['arquivo']);
+                                //print_r($links);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
 
-                                    if(empty($notificacoes)) 
-                                    {
-                                    ?>
-                                            <div class="box-sininho">
-                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                            </div>       
-                                            <ul class="sub-topicos-sininho sem-resultado">
-                                                <li> 
-                                                    <div class="sub-topicos-sininho-linha sem-resultado">
-                                                        <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                    </div>                                          
-                                                </li>
-                                            </ul>
-                                    <?php
-
-                                    }
-                                    else
-                                    {
-                                    ?>
-                                        <div class="box-sininho">
-                                            <div class="nova-notificacao-bolinha"></div>
-                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                            if (empty($notificacoes)) {
+                            ?>
+                                <div class="box-sininho">
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+                                <ul class="sub-topicos-sininho sem-resultado">
+                                    <li>
+                                        <div class="sub-topicos-sininho-linha sem-resultado">
+                                            <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
                                         </div>
+                                    </li>
+                                </ul>
+                            <?php
 
-                                        <ul class="sub-topicos-sininho">
+                            } else {
+                            ?>
+                                <div class="box-sininho">
+                                    <div class="nova-notificacao-bolinha"></div>
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+
+                                <ul class="sub-topicos-sininho">
                                     <?php
-                                            foreach($notificacoes as $linha)
-                                            {
-                                                $primeiraIteracao = true; 
-                                                foreach($linha as $titulo => $frase)
-                                                {
-                                                    if($primeiraIteracao)
-                                                    {                                     
-                                                        $titulos = array_keys($linha); // Obter as chaves do array $linha
-                                                        $primeiroTitulo = $titulos[0]; // Obter o primeiro título
-                                                    
-                                                        $frases = array_values($linha); // Obter os valores do array $linha
-                                                        $primeiraFrase = $frases[0];
-                                    ?>                                           
-                                                        <li> 
-                                                            <div class="sub-topicos-sininho-linha">
-                                                                <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
-                                                                <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
-                                                            </div>                                          
-                                                        </li>                     
-                                    <?php
-                                                        $primeiraIteracao = false;
-                                                    }
-                                                }
-                                            }
+                                    foreach ($notificacoes as $linha) {
+                                        $primeiraIteracao = true;
+                                        foreach ($linha as $titulo => $frase) {
+                                            if ($primeiraIteracao) {
+                                                $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+
+                                                $frases = array_values($linha); // Obter os valores do array $linha
+                                                $primeiraFrase = $frases[0];
                                     ?>
-                                        </ul>
+                                                <li>
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                    </div>
+                                                </li>
                                     <?php
+                                                $primeiraIteracao = false;
+                                            }
+                                        }
                                     }
                                     ?>
-                        
-                                <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                                    Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                                </p>
-                            </div>
-                            
-                            <ul class="sub-topicos">
-                                <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                <li> <a href=""> Vagas </a> </li>
-                                <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                <li> <a href="../auth/logout.php"> Sair </a></li>
-                            </ul>
-                        </li>
-                <?php 
-                    } 
+                                </ul>
+                            <?php
+                            }
+                            ?>
+
+                            <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                                Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                            </p>
+                        </div>
+
+                        <ul class="sub-topicos">
+                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                <?php
+                }
                 ?>
             </ul>
         </ul>
@@ -213,12 +198,10 @@
 
     <!-- MODAL RETIRAR CANDIDATURA -->
     <?php
-        
-        if(isset($_GET['retirar-candidatura']))
-        {
-            if($_GET['retirar-candidatura'] === 'sucesso')
-            {
-                echo ' <script>
+
+    if (isset($_GET['retirar-candidatura'])) {
+        if ($_GET['retirar-candidatura'] === 'sucesso') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -322,8 +305,8 @@
                         }, 8000);
 
                     </script>';
-            }
         }
+    }
 
     ?>
 
@@ -370,24 +353,40 @@
                     Converse com a instituição para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
                 </p>
             </div>
+            <?php
+            require_once 'global.php';
+
+            $id = $_GET['c'];
+            // $t = 'Voluntario';
+
+            try {
+                $listaInstituicao = InstituicaoDao::consultarInstituicao($id); // Passar o código da vaga para a consulta
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+            ?>
+
+            <?php foreach ($listaInstituicao as $idInstituicaoLogada) {
 
 
+            ?>
 
-            <div class="chat-container" id="chat-container">
-                <div class="chat-header">
-                    <div class="nome-user">
-                        <img src="../img-instituicao/5.jpg" alt="img">
-                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+
+                <div class="chat-container" id="chat-container">
+                    <div class="chat-header">
+                        <div class="nome-user">
+                            <img src="../../area-inst$idInstituicaoLogada/<?php echo $idInstituicaoLogada['fotoinst$idInstituicaoLogada']; ?>" alt="img">
+                            <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+                        </div>
+                        <div class="pesquisar-chat">
+                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        </div>
                     </div>
-                    <div class="pesquisar-chat">
-                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
-                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                    </div>
-                </div>
-                <div class="scroll-chat" id="scroll-chat">
-                    <div class="main-chat">
-                        <div class="mensagens" id="mensagens">
-                            <!-- <div class="area-voluntario">
+                    <div class="scroll-chat" id="scroll-chat">
+                        <div class="main-chat">
+                            <div class="mensagens" id="mensagens">
+                                <!-- <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
                                 </div>
@@ -400,20 +399,21 @@
                                     </div>
                                 </div>
                             </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-footer">
+                        <div class="fundo-footer">
+                            <div class="enviar-mensagem">
+                                <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                            </div>
+                            <button type="" class="button-send" id="btn1">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="chat-footer">
-                    <div class="fundo-footer">
-                        <div class="enviar-mensagem">
-                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                        </div>
-                        <button type="" class="button-send" id="btn1">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
 
             <a class="link-voltar-anterior" href="tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
         </div>
@@ -430,7 +430,7 @@
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/box-info.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
     <script type="module" src="../imports/nova-notificacao.js"></script>
 </body>
 
