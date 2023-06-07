@@ -47,15 +47,50 @@
     margin-top: 8%;
 }
 
+.conteudo-foto
+{
+    position: relative;
+}
+
+.conteudo-foto:hover > .visualizar-btns
+{
+    display: flex;
+}
+
+.box-img
+{
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
 .box-img img
 {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    border: 1px solid #000;
+    border: 1px solid #000;   
 }
 
+.box-img:hover
+{
+    transform: translateY(-10px);
+}
 
+.visualizar-btns
+{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 90;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
 
 /* MODAL */
 .container-modal-foto
@@ -95,9 +130,18 @@
 }
 #icone-fechar-modal
 {
+    position: absolute;
+    top: 11px;
+    right: 11px;
     font-size: 18px;
     color: #525252;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#icone-fechar-modal:hover
+{
+    color: #90abdf;
 }
 
 .box-modal-foto-titulo

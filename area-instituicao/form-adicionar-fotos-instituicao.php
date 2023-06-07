@@ -394,9 +394,18 @@
                         echo $e->getMessage();
                     }
                     foreach ($listaImg as $foto) { ?>
-                        <div class="box-img">
-                            <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
-                        </div>
+                    
+                        <div class="conteudo-foto">
+                            <div class="visualizar-btns"> 
+                                <button class="btn-visualizar"> visualizar </button>
+                                <button class="btn-excluir"> excluir </button>
+                            </div>
+
+                            <div class="box-img">
+                                <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
+                            </div>
+                        </div>                    
+                        
                     <?php } ?>
 
                     
