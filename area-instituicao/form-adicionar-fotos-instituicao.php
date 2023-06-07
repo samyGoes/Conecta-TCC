@@ -164,8 +164,8 @@
     <!-- MODAL CADASTRO -->
     <?php
 
-        if (isset($_GET['edicao'])) {
-            if ($_GET['edicao'] === 'sucesso') {
+        if (isset($_GET['cadastro'])) {
+            if ($_GET['cadastro'] === 'sucesso') {
                 echo ' <script>
                             // cria o elemento HTML do modal
                             const modal = document.createElement("div");
@@ -176,7 +176,7 @@
                                 crossorigin="anonymous" referrerpolicy="no-referrer" />
                                 <div id="modal-content">
                                     <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
-                                    <p class="modal-titulo-cadastro">Edição realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                    <p class="modal-titulo-cadastro">Cadastro realizado com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
                                     <p class="modal-frase-cadastro"> Entre no seu perfil para ver como ficaram as alterações. </p>
                                 </div>
                                 `;
@@ -364,7 +364,7 @@
                         <div class="input-group">
                             <div class="input-box">
                                 <label id="label" for="foto">Selecione uma foto</label>
-                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto" multiple>
+                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto[]" multiple>
                             </div>
                         </div>
 
@@ -376,53 +376,12 @@
                             <div class="box-modal-foto-titulo">
                                 <h2>Fotos Selecionadas</h2>
                             </div>
-                            <div class="div-image">
-                                <div class="image">
-                                    <div id="preview"></div>
-                                    <img src="" id="img-modal">
-                                </div>
-                            </div>
+                            <div class="div-image"></div>
                             
                             <button class="btn-adicionar-foto" type="submit">Adicionar</button>
                     </form>
                 </div>
             </div>
-
-            <script>
-                var inputFoto = document.getElementById('foto');
-                var imgModal = document.getElementById('img-modal');
-
-                inputFoto.addEventListener('change', function() {
-                    var file = inputFoto.files[0];
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        imgModal.src = e.target.result;
-                    };
-
-                    reader.readAsDataURL(file);
-                });
-
-                //var preview = document.getElementById('preview');
-             //   inputFoto.addEventListener('change', function() {
-                //    preview.innerHTML = '';
-                //    var files = inputFoto.files;
-                 //   for (var i = 0; i < files.length; i++) {
-                    //    var file = files[i];
-                     //   var reader = new FileReader();
-
-                      //  reader.onload = (function(file) {
-                      //      return function(e) {
-                       //         var img = document.createElement('img');
-                       //         img.src = e.target.result;
-                       //         preview.appendChild(img);
-                       //     };
-                      //  })(file);
-
-                     //   reader.readAsDataURL(file);
-                   // }
-                //});
-            </script>
 
             <div class="imagens-intituicao">
                 <div class="galeria">
@@ -459,7 +418,7 @@
         <script type="module" src="../imports/nav-drop-down.js"></script>
         <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
         <script type="module" src="imports/modal-galeria.js"></script>
-        <script type="module" src="js/button-image.js"></script>
+        <script type="module" src="js/preview-img-galeria.js"></script>
     </body>
 
 </html>

@@ -3,38 +3,42 @@
     require_once '../auth/verifica-logado.php';
     require_once 'global.php';
 
-    try {
-
-        header('Location: form-adicionar-fotos-instituicao.php');
+    try 
+    {
+        header('Location: form-adicionar-fotos-instituicao.php?cadastro=sucesso');
 
         $galeria = new GaleriaInstituicao();
         $instituicao = new Instituicao();
 
         $galeria->setIdInstituicao($_SESSION['codUsuario']);
 
-        if (isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'])) {
-            $nome = $_FILES['foto']['name'];
-            $arquivo = $_FILES['foto']['tmp_name'];
-            $diretorio = "galeria-instituicao/";
-            
-            $extensao = substr($nome, -4);
-            $nomealeatorio = uniqid() . $extensao; // Gera um nome aleatório
+        if (isset($_FILES['foto']) && !empty($_FILES['foto']['tmp_name'][0])) {
+            $arquivos = $_FILES['foto'];
 
-            $nomecompleto = $diretorio . $nomealeatorio;
-            
-            move_uploaded_file($arquivo, $nomecompleto);
+            for ($i = 0; $i < count($arquivos['name']); $i++) 
+            {
+                $nome = $arquivos['name'][$i];
+                $arquivo = $arquivos['tmp_name'][$i];
+                $diretorio = "galeria-instituicao/";
 
-            $galeria->setFotoGaleria($nomecompleto);
+                $extensao = substr($nome, -4);
+                $nomealeatorio = uniqid() . $extensao; // Gera um nome aleatório
 
-            $atualizar = GaleriaInstituicaoDao::cadastrar($galeria);
+                $nomecompleto = $diretorio . $nomealeatorio;
 
-            //$_SESSION['dadoPerfil']['fotoInstituicao'] = $nomecompleto;
+                move_uploaded_file($arquivo, $nomecompleto);
+
+                $galeria->setFotoGaleria($nomecompleto);
+
+                $atualizar = GaleriaInstituicaoDao::cadastrar($galeria);
+            }
         }
-    } catch (Exception $e) {
+    } 
+    catch (Exception $e)
+    {
         echo "Erro";
         echo '<pre>';
         echo($e);
-        echo '</pre>';        
+        echo '</pre>';
     }
-
 ?>
