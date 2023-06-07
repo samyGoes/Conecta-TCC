@@ -6,7 +6,7 @@
     {
         public static function cadastrar($galeriaInstituicao)
         {
-            $conexao = Conexao :: conectar();
+            $conexao = Conexao::conectar();
 
             $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(fotosInstituicao, codInstituicao) 
             VALUES(?,?)");
@@ -36,7 +36,7 @@
             $resultado = $querySelect->fetch(PDO::FETCH_ASSOC); 
             if ($resultado) {
                 $galeria = new GaleriaInstituicao();
-                $galeria->setIdFotosInstituicao($resultado['idFotosInstituicao']);
+                $galeria->setIdGaleriaFoto($resultado['idFotosInstituicao']);
                 $galeria->setFotoGaleria($resultado['fotosInstituicao']);
                 $galeria->setIdInstituicao($resultado['codInstituicao']);
                 return $galeria;
