@@ -238,15 +238,16 @@ include "../../auth/verifica-logado.php";
 
             try {
                 $listaVoluntario = VoluntarioDao::listarPorId($id); // Passar o código da vaga para a consulta
+                $listaInsitituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
             ?>
 
             <?php foreach ($listaVoluntario as $voluntario) {
+                foreach ($listaInsitituicao as $instituicao) {
 
-
-            ?>
+            ?>  
 
                 <!-- TÍTULO 1 -->
                 <div class="container-titulo-1">
@@ -298,7 +299,10 @@ include "../../auth/verifica-logado.php";
                     </div>
                 </div>
 
-            <?php } ?>
+            <?php 
+                }
+                } 
+        ?>
 
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
@@ -349,7 +353,7 @@ include "../../auth/verifica-logado.php";
             var srcFotoRemetente, srcFotoDestinatario, containerClass;
             var mensagemClass, fotoClass;
             if (papelRemetente === 'me') {
-                srcFotoRemetente = "../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
+                srcFotoRemetente = "../../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 srcFotoDestinatario = "../img-instituicao/6.jpg";
                 containerClass = 'area-instituicao me';
                 mensagemClass = 'mensagem-instituicao';
