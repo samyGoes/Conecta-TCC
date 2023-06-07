@@ -10,7 +10,7 @@ require_once '../auth/verifica-logado.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="../css/estilo-chat.css">
+    <link rel="stylesheet" href="css/estilo-chat.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -358,35 +358,36 @@ require_once '../auth/verifica-logado.php';
 
             $id = $_GET['c'];
             // $t = 'Voluntario';
-
+            $id1 = $_SESSION['codUsuario'];
             try {
-                $listaInstituicao = InstituicaoDao::consultarInstituicao($id); // Passar o código da vaga para a consulta
+                $listaVoluntario = VoluntarioDao::listarChat($id1); // Passar o código da vaga para a consulta
+                $listaInsitituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
             ?>
-
-            <?php foreach ($listaInstituicao as $idInstituicaoLogada) {
-
+            <?php
+                
+                foreach ($listaInsitituicao as $instituicao) {
+                    foreach ($listaVoluntario as $voluntario) {
 
             ?>
 
-
-                <div class="chat-container" id="chat-container">
-                    <div class="chat-header">
-                        <div class="nome-user">
-                            <img src="../../area-inst$idInstituicaoLogada/<?php echo $idInstituicaoLogada['fotoinst$idInstituicaoLogada']; ?>" alt="img">
-                            <h2 class="chat-titulo" id="chat-titulo"> <?php echo $primeiroNome ?> </h2>
+                    <div class="chat-container" id="chat-container">
+                        <div class="chat-header">
+                            <div class="nome-user">
+                                <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>" alt="img">
+                                <h2 class="chat-titulo" id="chat-titulo"> <?php echo $instituicao['nomeInstituicao']; ?> </h2>
+                            </div>
+                            <div class="pesquisar-chat">
+                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            </div>
                         </div>
-                        <div class="pesquisar-chat">
-                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                        </div>
-                    </div>
-                    <div class="scroll-chat" id="scroll-chat">
-                        <div class="main-chat">
-                            <div class="mensagens" id="mensagens">
-                                <!-- <div class="area-voluntario">
+                        <div class="scroll-chat" id="scroll-chat">
+                            <div class="main-chat">
+                                <div class="mensagens" id="mensagens">
+                                    <!-- <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
                                 </div>
@@ -399,34 +400,161 @@ require_once '../auth/verifica-logado.php';
                                     </div>
                                 </div>
                             </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-footer">
+                            <div class="fundo-footer">
+                                <div class="enviar-mensagem">
+                                    <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                                </div>
+                                <button type="" class="button-send" id="btn1">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="chat-footer">
-                        <div class="fundo-footer">
-                            <div class="enviar-mensagem">
-                                <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                            </div>
-                            <button type="" class="button-send" id="btn1">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
 
-            <a class="link-voltar-anterior" href="tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
+            <?php
+                }
+            }
+            ?>
+
+            <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
-
     </main>
+    <script>
+        var conn = new WebSocket('ws://localhost:3000');
+
+        conn.onopen = function(e) {
+            //console.log("Connection established!");
+        };
+
+        conn.onmessage = function(e) {
+            //console.log(e.data);
+            showMessages('area-voluntario', e.data);
+        };
+
+        //conn.send('Hello World!');
+        ///////////////////////////////////////////////
+        var inp_message = document.getElementById('enviar-mensagem');
+        var btn_env = document.getElementById('btn1');
+        var area_content = document.getElementById('mensagens');
+        var scroll = document.getElementById("scroll-chat");
+
+        btn_env.addEventListener('click', function() {
+            if (inp_message.value != '') {
+                var msg = {
+                    'msg': inp_message.value
+                };
+                msg = JSON.stringify(msg);
+
+                conn.send(msg);
+
+                showMessages('me', msg);
+
+                inp_message.value = '';
+
+                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+            }
+        });
 
 
 
+        function showMessages(papelRemetente, data) {
+            data = JSON.parse(data);
 
+            console.log(data);
 
+            var srcFotoRemetente, srcFotoDestinatario, containerClass;
+            var mensagemClass, fotoClass;
+            if (papelRemetente === 'me') {
+                srcFotoRemetente = "../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
+                srcFotoDestinatario = "../img-instituicao/6.jpg";
+                containerClass = 'area-instituicao me';
+                mensagemClass = 'mensagem-instituicao';
+                fotoClass = 'foto-instituicao';
+            } else if (papelRemetente === 'area-voluntario') {
+                srcFotoRemetente = "../img-instituicao/6.jpg";
+                srcFotoDestinatario = "../img-instituicao/9.jpg";
+                containerClass = 'area-voluntario';
+                mensagemClass = 'mensagem-voluntario';
+                fotoClass = 'foto-voluntario';
+            }
 
+            var div = document.createElement('div');
+            div.setAttribute('class', containerClass);
 
+            var divInstituicao = document.createElement('div');
+            divInstituicao.setAttribute('class', 'instituicao');
 
+            var divMensagem = document.createElement('div');
+            divMensagem.setAttribute('class', mensagemClass);
+
+            var divConteudo = document.createElement('div');
+            divConteudo.setAttribute('class', 'conteudo-mensagem');
+
+            var p = document.createElement('p');
+            p.textContent = data.msg;
+
+            divConteudo.appendChild(p);
+
+            divMensagem.appendChild(divConteudo);
+            divInstituicao.appendChild(divMensagem);
+
+            var divFoto = document.createElement('div');
+            divFoto.setAttribute('class', fotoClass);
+
+            var img = document.createElement('img');
+            if (papelRemetente === 'me') {
+                img.setAttribute('src', srcFotoRemetente);
+            } else {
+                img.setAttribute('src', srcFotoDestinatario);
+            }
+            img.setAttribute('alt', 'foto');
+
+            divFoto.appendChild(img);
+
+            div.appendChild(divInstituicao);
+            div.appendChild(divFoto);
+
+            if (papelRemetente === 'area-voluntario') {
+                var divAreaVoluntario = document.createElement('div');
+                divAreaVoluntario.setAttribute('class', 'area-voluntario-style');
+                divAreaVoluntario.appendChild(div);
+                area_content.appendChild(divAreaVoluntario);
+            } else {
+                area_content.appendChild(div);
+            }
+
+            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+        }
+
+        window.addEventListener('load', function() {
+            var storedMessages = localStorage.getItem('chatMessages');
+            if (storedMessages) {
+                var messages = JSON.parse(storedMessages);
+                messages.forEach(function(message) {
+                    showMessages(message.papelRemetente, message.data);
+                });
+            }
+        });
+
+        window.addEventListener('beforeunload', function() {
+            var messages = Array.from(area_content.querySelectorAll('.area-instituicao, .area-voluntario'));
+            var storedMessages = messages.map(function(message) {
+                var papelRemetente = message.classList.contains('me') ? 'me' : 'area-voluntario';
+                var data = {
+                    msg: message.querySelector('.conteudo-mensagem p').textContent
+                };
+                return {
+                    papelRemetente: papelRemetente,
+                    data: JSON.stringify(data)
+                };
+            });
+            localStorage.setItem('chatMessages', JSON.stringify(storedMessages));
+        });
+    </script>
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/box-info.js"></script>

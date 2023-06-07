@@ -182,6 +182,15 @@
             return $lista;
         }
               
+        public static function listarChat($codVoluntario) {
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT codVoluntario, nomeVoluntario, fotoVoluntario FROM tbVoluntario WHERE codVoluntario = ?";
+            $resultado = $conexao->prepare($querySelect);
+            $resultado->execute(array($codVoluntario));
+            $voluntario = $resultado->fetchAll();
+        
+            return $voluntario;
+        }
         
         public static function listarPorId($codVoluntario) {
             $conexao = Conexao::conectar();

@@ -18,7 +18,7 @@
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../../area-voluntario/chat-voluntario.php');
+                header('Location: ../area-voluntario/chat-voluntario.php?c='.$id);
             }
         }
         else if($tipo == "Voluntario")
@@ -33,7 +33,7 @@
             else
             {
                 $_SESSION['dadoPerfil'] = $consulta;
-                header('Location: ../../area-voluntario/chat-voluntario.php?c='.$id);
+                header('Location: ../area-instituicao/chat-voluntario.php?c='.$id);
             }
         }
     }

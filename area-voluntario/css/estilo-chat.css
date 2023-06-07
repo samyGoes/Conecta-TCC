@@ -323,19 +323,17 @@
   color: #fff;
 }
 
-.link-voltar-anterior
-{
-    margin-top: 2rem;
-    cursor: pointer;
-    transition: all 0.5s ease;
+.link-voltar-anterior {
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
 
-    font-family: bitter, serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #4567a5;
+  font-family: bitter, serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4567a5;
 }
 
-.link-voltar-anterior:hover
-{
-    color: #cf8a3f;
+.link-voltar-anterior:hover {
+  color: #cf8a3f;
 }

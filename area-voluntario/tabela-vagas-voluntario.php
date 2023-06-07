@@ -404,9 +404,15 @@
 
                             try {
                                 $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
+                                $listaInstituicao = InstituicaoDao::listar();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
+                            ?>
+
+                            <?php foreach ($listaInstituicao as $instituicao) { 
+                                $t = 'Instituicao';
+                                $c = $instituicao['codInstituicao'];
                             ?>
                             
                             <?php
@@ -451,7 +457,7 @@
                                             </div>
                                         </td>
 
-                                        <td class="td-table-c"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </td>
+                                        <td class="td-table-c"><a href="<?php echo '../auth/redirecionamento-chat-instituicao.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
                                         <td class="td-table-c"> <i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i> </td>
                                         <td class="td-table-c">
                                             <form action="" method="post">
@@ -471,6 +477,7 @@
                                     }
                                 }
                             }
+                        }
                             ?>
                         </tbody>
                     </table>
