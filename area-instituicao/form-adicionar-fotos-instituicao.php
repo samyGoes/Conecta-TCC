@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
         <link rel="stylesheet" href="css/estilo-form-adicionar-fotos.css">
+        <link rel="stylesheet" href="editar-excluir-vagas/css/estilo-modal-exclusao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -383,6 +384,29 @@
                 </div>
             </div>
 
+
+
+             <!-- MODAL EXCLUIR VAGA -->
+             <div id="container-modal" class="container-modal">
+                <div class="modal-responsive" id="modal-responsive">
+                    <div class="fade" id="fade">
+                        <div class="modal" id="modal">
+                            <label for="" class="modal-titulo" id="modal-titulo"> 
+                                Deseja realmente excluir a vaga? Uma vez excluída você não poderá mais restaurá-la.
+                            </label>
+                            <div class="btn-exit" id="btn-exit">
+                            <form action="delete-vaga-instituicao.php" method="post">
+                                 <button type="submit" id="excluir">excluir</button>
+                            </form>
+                                <button type="submit" id="cancelar">cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div class="imagens-intituicao">
                 <div class="galeria">
                     <?php
@@ -428,6 +452,7 @@
         <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
         <script type="module" src="imports/modal-galeria.js"></script>
         <script type="module" src="js/preview-img-galeria.js"></script>
+        <script src="js/modal-exclusao.js"></script>
     </body>
 
 </html>

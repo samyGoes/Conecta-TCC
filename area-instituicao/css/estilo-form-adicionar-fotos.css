@@ -50,11 +50,14 @@
 .conteudo-foto
 {
     position: relative;
+    transition: all 0.4s ease;
+    height: 18.7rem;
 }
 
 .conteudo-foto:hover > .visualizar-btns
 {
-    display: flex;
+    /* display: flex; */
+    opacity: 1;
 }
 
 .box-img
@@ -71,14 +74,14 @@
     border: 1px solid #000;   
 }
 
-.box-img:hover
+.conteudo-foto:hover
 {
     transform: translateY(-10px);
 }
 
 .visualizar-btns
 {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -86,11 +89,64 @@
     top: 0;
     right: 0;
     z-index: 90;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
+    opacity: 0;
 }
+
+.btn-visualizar, .btn-excluir
+{
+    width: 6rem;
+    height: 2.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid #fff;
+
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn-visualizar
+{
+    background-color: #4567a5;
+    /* border: 1px solid #4567a5; */
+}
+
+.btn-visualizar:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
+
+.btn-excluir
+{
+    background-color: #af4141;
+    /* border: 1px solid #af4141; */
+}
+
+.btn-excluir:hover
+{
+    background-color: #fff;
+    color: #af4141;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* MODAL */
 .container-modal-foto
