@@ -60,6 +60,11 @@
     opacity: 1;
 }
 
+.conteudo-foto.sem-hover
+{
+    pointer-events: none;
+}
+
 .box-img
 {
     transition: all 0.4s ease;

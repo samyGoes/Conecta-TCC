@@ -392,13 +392,13 @@
                     <div class="fade" id="fade">
                         <div class="modal" id="modal">
                             <label for="" class="modal-titulo" id="modal-titulo"> 
-                                Deseja realmente excluir a vaga? Uma vez excluída você não poderá mais restaurá-la.
+                                Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
                             </label>
                             <div class="btn-exit" id="btn-exit">
-                            <form action="delete-vaga-instituicao.php" method="post">
+                            <form action="delete-foto-instituicao.php" method="post">
                                  <button type="submit" id="excluir">excluir</button>
                             </form>
-                                <button type="submit" id="cancelar">cancelar</button>
+                                <button class="btn-fechar" type="submit" id="cancelar">cancelar</button>
                             </div>
                         </div>
                     </div>

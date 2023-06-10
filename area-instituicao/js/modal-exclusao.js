@@ -1,26 +1,29 @@
-// var openModal = document.querySelector('.conteiner-botao-excluir');
-// var modal = document.querySelector('.container-modal');
-// var closeModal = document.querySelector('#cancelar');
 const modal = document.querySelector('.container-modal');
-const btnExcluir = document.querySelector(".btn-excluir");
-const foto = document.querySelector(".conteudo-foto");
+const btnExcluir = document.querySelectorAll(".btn-excluir");
+const btnFechar = document.querySelector(".btn-fechar");
+const fotos = document.querySelectorAll(".conteudo-foto");
 
-for(var i = 1; i <= foto.length; i++)
+for(var i = 0; i < btnExcluir.length; i++)
 {
     btnExcluir[i].addEventListener("click", function()
     {
-        modal[i].style.display = "block";
-    }) 
+        modal.style.display = "block";
+
+        fotos.forEach(function(foto) 
+        {
+            foto.classList.add("sem-hover");
+        });    
+    });
 }
 
+btnFechar.addEventListener("click", function()
+{ 
+    modal.style.display = "none";   
 
+    fotos.forEach(function(foto) 
+    {
+        foto.classList.remove("sem-hover");
+    });   
+});
 
-// function fecharModalExcluir()
-// {
-//     modal.style.display = "none";
-// }
-// document.querySelectorAll("#cancelar").forEach(function(btnCancelar)
-// {
-//     btnCancelar.addEventListener("click", fecharModalExcluir);
-// }); 
 
