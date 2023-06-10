@@ -380,6 +380,7 @@
                             <div class="div-image"></div>
                             
                             <button class="btn-adicionar-foto" type="submit">Adicionar</button>
+                        </div>
                     </form>
                 </div>
             </div>
