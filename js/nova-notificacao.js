@@ -10,37 +10,37 @@ export async function notificacao()
     {
         xhr.onreadystatechange = function()
         {
-            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)   
+            if(xhr.readyState === XMLHttpRequest.DONE)   
             {
-                console.log(xhr.responseText);
-                var resposta = JSON.parse(xhr.responseText);
-                try
+                if(xhr.status === 200)
                 {
-                    if(resposta.length > 0)
+                    console.log(xhr.responseText);
+                    var resposta = JSON.parse(xhr.responseText);
+                    try
                     {
-                        resolve({existe: true});
-
-                        console.log("Tem notificação yee");
-                        var qtd = resposta.length;
-                        console.log("Quantidade de notificações: " + qtd);
+                        if(resposta.length > 0)
+                        {
+                            var qtd = resposta.length;
+                            resolve({existe: true, qtd: qtd});
+                        }
+                        else
+                        {
+                            resolve({existe: false, qtd: ''});
+    
+                            console.log("Não tem notificação :(");
+                        }
                     }
-                    else
+                    catch(e)
                     {
-                        resolve({existe: false});
-
-                        console.log("Não tem notificação :(");
+                        console.error("Oooh deu erro :(", e);
+                        reject(e);
                     }
-                }
-                catch(e)
+                }            
+                else
                 {
-                    console.error("Oooh deu erro :(", e);
-                    reject(e);
+                    reject(new Error("Erro na requisição AJAX. Status: " + xhr.status));
                 }
-            }
-            else
-            {
-                reject(new Error("Erro na requisição AJAX. Status: " + xhr.status));
-            }
+            }       
         }
         xhr.send();
     });  
@@ -48,16 +48,16 @@ export async function notificacao()
 
 export async function verificaNotificacao()
 {
-    const aaa = await notificacao();
+    const retornoNotificacao = await notificacao();
 
-    if(aaa.existe)
+    if(retornoNotificacao.existe)
     {
-        console.log("existe funcionou");
+        var qtdNotificacao = retornoNotificacao.qtd;
+
+        console.log(qtdNotificacao);
+        return qtdNotificacao;
     }
-    else
-    {
-        console.log("existe n funcionou");
-    }
+    return false;
 }
 
 
@@ -75,7 +75,6 @@ export function verificarClasseBolinha()
     }
 }
 
-
 export function cliqueNotT()
 {  
     localStorage.setItem("bolinha", "sem-bolinha"); 
@@ -89,3 +88,4 @@ export function cliqueNotF()
     bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
 }
 document.querySelector(".sub-topicos-sininho-linha-frase").addEventListener("click", cliqueNotF);
+ 
