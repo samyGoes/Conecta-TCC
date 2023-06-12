@@ -1,5 +1,3 @@
-const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
-
 export async function notificacao()
 {
     const xhr = new XMLHttpRequest();
@@ -46,21 +44,80 @@ export async function notificacao()
     });  
 }
 
+export const divs = document.querySelectorAll(".sub-topicos-sininho-linha");  
+export const linkT = document.querySelectorAll(".sub-topicos-sininho-linha-titulo");     
+export const linkF = document.querySelectorAll(".sub-topicos-sininho-linha-frase");
+
 export async function verificaNotificacao()
 {
     const retornoNotificacao = await notificacao();
 
     if(retornoNotificacao.existe)
     {
-        var qtdNotificacao = retornoNotificacao.qtd;
-
-        console.log(qtdNotificacao);
-        return qtdNotificacao;
+        divs.forEach((div) => 
+        {
+            linkT.forEach((linkTitulo) => 
+            {
+                linkTitulo.addEventListener("click", function(event)
+                {
+                    event.preventDefault();
+                    if(!linkTitulo.classList.contains("clicada"))
+                    {
+                        linkTitulo.classList.add("clicada");
+                    }
+                });
+            });      
+        });
     }
-    return false;
 }
 
 
+// export function verificarTodasClicadas()
+// {
+//     divs.forEach((div) => 
+//     {
+//         linkT.forEach((linkTitulo) => 
+//         {   
+//             if(linkTitulo.classList.contains("clicada"))
+//             {
+//                 return true;
+//             }
+//             else
+//             {
+//                 return false
+//             }
+//         });
+//     });
+// }
+export function verificarTodasClicadas() 
+{
+    for (let i = 0; i < divs.length; i++) 
+    {
+        const linkTitulo = linkT[i];
+
+        if (!linkTitulo.classList.contains("clicada")) 
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+var aa = verificarTodasClicadas();
+if(aa)
+{
+    console.log("true");
+}
+else
+{
+    console.log("false");
+}
+
+
+
+const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
 export function verificarClasseBolinha() 
 {
     const classeArmazenada = localStorage.getItem("bolinha");
