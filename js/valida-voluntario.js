@@ -141,47 +141,47 @@ function emailValidate() {
 
 function passwordValidate() {
     console.log('passwordValidate');
-    const senha = campos[4].value;
+    const senha = campos[6].value;
     const digitRegex = /\d/;
     const specialRegex = /[!@#$%&*]/;
     const upperRegex = /[A-Z]/;
 
     if (senha.length < 6) {
-    setError(4, 'A senha deve ter pelo menos 6 caracteres');
+    setError(6, 'A senha deve ter pelo menos 6 caracteres');
     return false;
     }
 
     if (!digitRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos um número');
+    setError(6, 'A senha deve conter pelo menos um número');
     return false;
     }
 
     if (!specialRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
+    setError(6, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
     return false;
     }
 
     if (!upperRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos uma letra maiúscula');
+    setError(6, 'A senha deve conter pelo menos uma letra maiúscula');
     return false;
     }
 
-    removeError(4);
+    removeError(6);
     return true;
 }
 
     
     function confirmPassword() {
     console.log('confirmPassword');
-    const senha = campos[4].value;
-    const confSenha = campos[5].value;
+    const senha = campos[6].value;
+    const confSenha = campos[7].value;
     
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-        setError(4, 'As senhas não coincidem');
+        setError(6, 'As senhas não coincidem');
         return false;
     } else {
-        removeError(5);
+        removeError(7);
         return true;
     }
     }
@@ -193,14 +193,12 @@ function passwordValidate() {
         
         // Verifica se os campos obrigatórios foram preenchidos corretamente
         const nameValid = nameValidate();
-        const dateValid = dateValidate();
         const cpfValid = cpfValidate();
-        const foneValid = foneValidate();
         const emailValid = emailValidate();
         const passwordValid = passwordValidate();
         const confirmPasswordValid = confirmPassword();
       
-        if (nameValid && dateValid && cpfValid && foneValid && emailValid && passwordValid && confirmPasswordValid) {
+        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid) {
           // Se todos os campos estiverem válidos, envia o formulário
           formulario1.submit();
         } else {
