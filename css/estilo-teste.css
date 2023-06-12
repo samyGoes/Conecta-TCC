@@ -263,3 +263,9 @@ body
 {
     color: #cc8746;
 }
+
+@media (max-width: 720px) {
+    .fundo-titulo {
+        font-size: 30px;
+    }
+}
