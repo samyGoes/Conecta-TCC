@@ -146,8 +146,8 @@ function passwordValidate() {
     const specialRegex = /[!@#$%&*]/;
     const upperRegex = /[A-Z]/;
 
-    if (senha.length < 6) {
-    setError(6, 'A senha deve ter pelo menos 6 caracteres');
+    if (senha.length < 8) {
+    setError(6, 'A senha deve ter pelo menos 8 caracteres');
     return false;
     }
 
@@ -178,7 +178,7 @@ function passwordValidate() {
     
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-        setError(6, 'As senhas não coincidem');
+        setError(7, 'As senhas não coincidem');
         return false;
     } else {
         removeError(7);
