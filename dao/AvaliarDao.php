@@ -48,7 +48,7 @@ class AvaliarDao
 
         $conexao = Conexao::conectar();
 
-        $sqlCodInst = "SELECT * FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
+        $sqlCodInst = "SELECT * FROM tbAvaliacao WHERE codInstituicao = '$codInstituicao'";
             $resultInsti = $conexao->query($sqlCodInst);
 
             if($resultInsti-> rowCount()>0 ){

@@ -192,7 +192,7 @@
                         <?php 
                             require_once 'global.php';
 
-                            $codVoluntario = $_SESSION['codUsuario'];
+                            $codVoluntario = $_SESSION['dadoPerfil']['codVoluntario'];
 
                             try {
                                 $row = AvaliarDao::mostrarAvaliacaoVoluntario($codVoluntario);

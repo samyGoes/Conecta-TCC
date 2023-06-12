@@ -318,21 +318,13 @@ include "../../auth/verifica-logado.php";
                                         <td>
                                             <form action="" method="post">   
                                                 <input type="hidden" name="codCategoriaServico" value="<?php echo $codServico?>"> 
-                                                <button type="submit" id="btnModalAvaliar" name="btnAvaliar" class="table-btn-avaliar" value="<?php echo $codServico . $voluntario['codVoluntario']; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
+                                                <button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
                                                 <!-- onclick="abrirModal('modalAvaliar')" -->
                                             </form>
                                         </td>
                                     </tr>
 
-                            <?php } 
-                            
-                                if (isset($_POST['btnAvaliar'])) 
-                                {
-                                    $valorBotao = $_POST['btnAvaliar'];
-                                    echo $valorBotao;
-                                    exit; // Pare a execução do script PHP para que apenas o valor do botão seja retornado
-                                }
-                            ?>
+                            <?php } ?>
                         </tbody>
                     </table>
 
@@ -368,17 +360,11 @@ include "../../auth/verifica-logado.php";
                             </div>
                         </div>
                         <?php
-                        // if (isset($_POST['btnAvaliar']) && $_POST['btnAvaliar'])
-                        // {
-                        //     $valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
-                        //     echo $valorBotao;
-                        // }
-                            //$valorBotao = $_POST[$codServico . $voluntario['codVoluntario']];
-                            //echo $valorBotao;
 
-                            //$codVoluntario = 4;
+                        $valorBotao = $c;
                         ?>
-                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $codVoluntario; ?>">Avaliar</button></div>
+                        
+                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>
 
                     </form>
 
@@ -387,6 +373,7 @@ include "../../auth/verifica-logado.php";
 
                         if(isset($_POST['estrela'])){
                             $numavaliacao = $_POST['estrela'];
+                            $codVoluntario = $_POST['btnAvaliar'];
                             try { 
                                 $avaliacao = AvaliarDao::avaliarVoluntario($codVoluntario, $numavaliacao);
                                 echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
@@ -414,26 +401,6 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="module" src="../../imports/nav-drop-down-notificacao.js"></script>
     <script src="js/avaliacao.js"></script>
-    <script>
-
-        // function abrirModal(carregarModal) {
- 
-        //     let modal = document.getElementById(carregarModal);
-
-        //     modal.style.display = 'block';
-
-        //     document.body.style.overflow = 'hidden';
-        // }
-
-        function fecharModal(fecharModal){
-
-            let modal = document.getElementById(fecharModal);
-
-            modal.style.display = 'none';
-
-            document.body.style.overflow = 'auto';
-        }
-    </script>
 </body>
 
 </html>
