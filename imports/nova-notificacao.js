@@ -1,12 +1,9 @@
 import 
 {  
-    notificacao, verificaNotificacao, divs, linkT, linkF, verificarClasseBolinha, verificarTodasClicadas, 
-    cliqueNotT, cliqueNotF
+    notificacao, verificaNotificacao, divs, linkT, linkF, verificarClasseBolinha
 } from "../js/nova-notificacao.js";
 
 notificacao();
 verificaNotificacao();
 verificarClasseBolinha();
-verificarTodasClicadas();
-cliqueNotT();
-cliqueNotF();
+
