@@ -10,11 +10,19 @@ require_once '../auth/verifica-logado.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
-    <link rel="stylesheet" href="css/estilo-chat.css">
+    <link rel="stylesheet" href="../area-instituicao/gerenciar-vagas//css/estilo-chat.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Vagas </title>
+    <style>
+        #pesquisar::placeholder {
+            font-family: poppins, sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -367,9 +375,9 @@ require_once '../auth/verifica-logado.php';
             }
             ?>
             <?php
-                
-                foreach ($listaInsitituicao as $instituicao) {
-                    foreach ($listaVoluntario as $voluntario) {
+
+            foreach ($listaInsitituicao as $instituicao) {
+                foreach ($listaVoluntario as $voluntario) {
 
             ?>
 
@@ -380,7 +388,7 @@ require_once '../auth/verifica-logado.php';
                                 <h2 class="chat-titulo" id="chat-titulo"> <?php echo $instituicao['nomeInstituicao']; ?> </h2>
                             </div>
                             <div class="pesquisar-chat">
-                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
                                 <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
                             </div>
                         </div>
@@ -470,13 +478,13 @@ require_once '../auth/verifica-logado.php';
             var mensagemClass, fotoClass;
             if (papelRemetente === 'me') {
                 srcFotoRemetente = "../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
-                srcFotoDestinatario = "../img-instituicao/6.jpg";
+                srcFotoDestinatario = "../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 containerClass = 'area-instituicao me';
                 mensagemClass = 'mensagem-instituicao';
                 fotoClass = 'foto-instituicao';
             } else if (papelRemetente === 'area-voluntario') {
-                srcFotoRemetente = "../img-instituicao/6.jpg";
-                srcFotoDestinatario = "../img-instituicao/9.jpg";
+                srcFotoRemetente = "../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
+                srcFotoDestinatario = "../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 containerClass = 'area-voluntario';
                 mensagemClass = 'mensagem-voluntario';
                 fotoClass = 'foto-voluntario';
