@@ -56,18 +56,33 @@ export async function verificaNotificacao()
     {
         divs.forEach((div) =>
         {
-            linkT.forEach((linkTitulo) =>
+            const linkTitulo = div.querySelector(".sub-topicos-sininho-linha-titulo");
+            const linkFrase = div.querySelector(".sub-topicos-sininho-linha-frase");
+
+            // TÍTULO DA NOTIFICAÇÃO
+            linkTitulo.addEventListener("click", function(event)
             {
-                linkTitulo.addEventListener("click", function(event)
+                event.preventDefault();
+                if(div.id != "clicada")
                 {
-                    event.preventDefault();
-                    if(linkTitulo.id != "clicada")
-                    {
-                        linkTitulo.id = "clicada";
-                    }
-                    verificarTodasClicadas();
-                    todasClicadas();
-                });
+                    localStorage.setItem("notificacao", "clicada");
+                    div.id = "clicada";
+                }
+                verificarTodasClicadas();
+                todasClicadas();
+            });
+
+            // FRASE DA NOTIFICAÇÃO
+            linkFrase.addEventListener("click", function(event)
+            {
+                event.preventDefault();
+                if(div.id != "clicada")
+                {
+                    localStorage.setItem("notificacao", "clicada");
+                    div.id = "clicada";
+                }
+                verificarTodasClicadas();
+                todasClicadas();
             });
         });
     }
@@ -78,9 +93,9 @@ function verificarTodasClicadas()
 {
     for(let i = 0; i < divs.length; i++)
     {
-        const linkTitulo = linkT[i];
+        const noti = divs[i];
 
-        if(linkTitulo.id != "clicada")
+        if(noti.id != "clicada")
         {
             return false;
         }
@@ -93,8 +108,7 @@ function todasClicadas()
     var todosLinksClicados = verificarTodasClicadas();
     if(todosLinksClicados)
     {
-        cliqueNotT();
-        cliqueNotF();
+        semBolinha();
     }
 }
 
@@ -105,8 +119,10 @@ const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
 export function verificarClasseBolinha()
 {
     const classeArmazenada = localStorage.getItem("bolinha");
+    const notificacaoLo = localStorage.getItem("notificacao");
+    //var todosLinksClicados = verificarTodasClicadas();
 
-    if (classeArmazenada === "sem-bolinha")
+    if (classeArmazenada === "sem-bolinha" && notificacaoLo === "clicada")
     {
         bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
     }
@@ -116,13 +132,7 @@ export function verificarClasseBolinha()
     }
 }
 
-function cliqueNotT()
-{
-    localStorage.setItem("bolinha", "sem-bolinha");
-    bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
-}
-
-function cliqueNotF()
+function semBolinha()
 {
     localStorage.setItem("bolinha", "sem-bolinha");
     bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
