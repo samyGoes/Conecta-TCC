@@ -387,25 +387,6 @@
 
 
 
-             <!-- MODAL EXCLUIR VAGA -->
-             <div id="container-modal" class="container-modal">
-                <div class="modal-responsive" id="modal-responsive">
-                    <div class="fade" id="fade">
-                        <div class="modal" id="modal">
-                            <label for="" class="modal-titulo" id="modal-titulo"> 
-                                Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
-                            </label>
-                            <div class="btn-exit" id="btn-exit">
-                            <form action="deletar-fotos-galeria-instituicao.php" method="post">
-                                 <button type="submit" id="excluir"  value="<?php echo $galeria['codCandidatura'];?>">excluir</button>
-                            </form>
-                                <button class="btn-fechar" type="submit" id="cancelar">cancelar</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 
@@ -419,12 +400,15 @@
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
+
                     foreach ($listaImg as $foto) { ?>
                     
                         <div class="conteudo-foto">
                             <div class="visualizar-btns"> 
                                 <button class="btn-visualizar"> visualizar </button>
-                                <button class="btn-excluir"> excluir </button>
+                                <form action="" method="post">
+                                    <button class="btn-excluir" value="<?php $foto['codfotoInstituicao']; ?>"> excluir </button>
+                                </form>
                             </div>
 
                             <div class="box-img">
@@ -437,6 +421,42 @@
                     
                 </div>
             </div>
+
+
+            <!-- MODAL EXCLUIR VAGA -->
+            <div id="container-modal" class="container-modal">
+                <div class="modal-responsive" id="modal-responsive">
+                    <div class="fade" id="fade">
+                        <div class="modal" id="modal">
+                            <label for="" class="modal-titulo" id="modal-titulo"> 
+                                Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
+                            </label>
+                            <div class="btn-exit" id="btn-exit">
+                            <form action="" method="post">                      
+                                <button name="btnExcluir" class="btn-excluir">excluir</button>
+                            </form>
+
+                            <?php
+
+                                if(isset($_POST['btnExcluir']) && $_POST['btnExcluir'] == $foto['codfotoInstituicao']) 
+                                {
+                                    try {
+                                        $codFoto = $_POST[''];
+                                        $excluirFoto = GaleriaInstituicao::excluir($codFoto);
+                                        echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                }
+
+                            ?>
+                                <button class="btn-fechar" type="submit" id="cancelar">cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
                 
