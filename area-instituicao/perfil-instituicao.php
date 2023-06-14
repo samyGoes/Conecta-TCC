@@ -185,12 +185,24 @@
                         <div class="img-user">
                             <img src="<?php echo ($_SESSION['dadoPerfil']['fotoInstituicao']) ?>">
                         </div>
+                        <?php 
+                            require_once 'global.php';
+
+                            $codInstituicao = $_SESSION['dadoPerfil']['codInstituicao'];
+
+                            try {
+                                $row = AvaliarDao::mostrarAvaliacaoInstituicao($codInstituicao);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+
+                        ?>
                         <div class="dados-pessoais-1-stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <?php 
+                                for($star = 1; $star<=$row; $star++){
+                                    echo "<i class='fa-solid fa-star'></i>";
+                                }
+                            ?>
                         </div>
                         <p> 
                             <?php 

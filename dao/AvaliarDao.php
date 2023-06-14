@@ -66,7 +66,7 @@ class AvaliarDao
                   WHERE codInstituicao = :codInstituicao");
 
                  $stmt->bindValue(':resultEstrelas', $resultEstrelas);
-                 $stmt->bindValue(':codVoluntario', $codInstituicao);
+                 $stmt->bindValue(':codInstituicao', $codInstituicao);
                  $stmt->execute();
 
             }else{
@@ -80,7 +80,7 @@ class AvaliarDao
 
             }
 
-        return 'Cadastrou';
+        return $resultEstrelas;
     }
 
     public static function mostrarAvaliacaoVoluntario($codVoluntario) {
@@ -97,7 +97,7 @@ class AvaliarDao
     public static function mostrarAvaliacaoInstituicao($codInstituicao) {
         $conexao = Conexao::conectar();
 
-        $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codInstiruicao = '$codInstituicao'";
+        $queryEstrelas = "SELECT numAvaliacao FROM tbAvaliacao WHERE codInstituicao = '$codInstituicao'";
                  $resultEstrelas = $conexao->query($queryEstrelas);
                  $resultEstrelas->execute();
                  $resultEstrelas = $resultEstrelas->fetchColumn();
