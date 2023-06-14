@@ -396,10 +396,11 @@
                                 Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
                             </label>
                             <div class="btn-exit" id="btn-exit">
-                            <form action="delete-foto-instituicao.php" method="post">
-                                 <button type="submit" id="excluir">excluir</button>
+                            <form action="deletar-fotos-galeria-instituicao.php" method="post">
+                                 <button type="submit" id="excluir"  value="<?php echo $galeria['codCandidatura'];?>">excluir</button>
                             </form>
                                 <button class="btn-fechar" type="submit" id="cancelar">cancelar</button>
+
                             </div>
                         </div>
                     </div>
