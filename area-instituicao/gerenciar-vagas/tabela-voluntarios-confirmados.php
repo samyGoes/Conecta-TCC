@@ -287,8 +287,11 @@ include "../../auth/verifica-logado.php";
                             try {
                                 
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $codServico = $_POST['codCategoriaServico']; // Obter o código da vaga do botão clicado
-                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico); // Passar o código da vaga para a consulta
+                                $codigo = ServicoDao::listarServico($idInstituicaoLogada);
+                                $codServico = $codigo['codServico'];
+                                print_r($codServico); // Obter o código da vaga do botão clicado
+                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico);
+                                print_r($listaVoluntario); // Passar o código da vaga para a consulta
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
@@ -313,11 +316,16 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
+                                        <td> 
+                                            <form action="" method="post">
+                                                <!-- <input type="hidden" name="codCategoriaServico" value="<?//php echo $codCategoriaServico?>"> -->
+                                                <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                            </form>
+                                        </td>
                                                     
                                         <td>
                                             <form action="" method="post">   
-                                                <input type="hidden" name="codCategoriaServico" value="<?php echo $codServico?>"> 
+                                                <!-- <input type="hidden" name="codCategoriaServico" value="<?//php echo $codCategoriaServico?>">  -->
                                                 <button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button>
                                                 <!-- onclick="abrirModal('modalAvaliar')" -->
                                             </form>
@@ -364,6 +372,7 @@ include "../../auth/verifica-logado.php";
                         $valorBotao = $c;
                         ?>
                         
+                        <!-- <input type="hidden" name="codCategoriaServico" value="<?//php echo $codCategoriaServico?>"> -->
                         <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>
 
                     </form>
@@ -376,7 +385,7 @@ include "../../auth/verifica-logado.php";
                             $codVoluntario = $_POST['btnAvaliar'];
                             try { 
                                 $avaliacao = AvaliarDao::avaliarVoluntario($codVoluntario, $numavaliacao);
-                                echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
+                                // echo "<script>window.location.href = 'tabela-voluntarios-confirmados.php?avaliacao=sucesso';</script>";
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }

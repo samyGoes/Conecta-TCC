@@ -74,7 +74,7 @@ class CandidaturaDao
             WHERE tbInstituicao.codInstituicao = ? AND tbServico.codServico = ? AND tbCandidatura.statusCandidatura = 'aceito'";
     
         $resultado = $conexao->prepare($querySelect);
-        $resultado->execute(array($idInstituicaoLogada, $codServico));
+        $resultado->execute(array($idInstituicaoLogada, intval($codServico)));
         $lista = $resultado->fetchAll();
         return $lista;
     }
