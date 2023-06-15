@@ -231,11 +231,11 @@ main {
     }
 
     .input-box input {
-        width: 70vw;
+        width: 80vw;
     }
 
     .input-box-textarea textarea {
-        width: 70vw;
+        width: 80vw;
         height: 10rem;
     }
 
@@ -285,6 +285,44 @@ main {
         width: 100%;
         display: block;
         text-align: center;
+    }
+    .titulo h1
+    {
+        font-size: 29px;
+    }
+    main
+    {
+        padding: 0rem 0rem 3rem 0rem;
+    }
+    .input-box label
+    {
+        font-size: 14px;
+    }
+    .input-box-textarea label
+    {
+        font-size: 14px;
+    }
+    .form
+    {
+        gap: 1.2rem;
+    }
+    .info
+    {
+        max-width: 80vw;
+    }
+    .text h3
+    {
+        font-size: 14px;
+    }
+    .info-box p
+    {
+        font-size: 14px;
+    }
+    .email-numero
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
 }

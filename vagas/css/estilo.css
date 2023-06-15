@@ -644,7 +644,7 @@ body
     {
         font-size: 12px;
     }
-    .filtro-causas, #estados, #cidades
+    .filtro-causas, #estados, #cidades, .filtro-habilidade
     {
         width: 9rem;
         height: 1.8rem;
@@ -659,6 +659,33 @@ body
     .form-filtro
     {
         gap: 1rem;
+    }
+    .card-carrossel-dois
+    {
+        width: 272px;
+    }
+    .title-2 p
+    {
+        font-size: 16px;
+    }
+    .title-3
+    {
+        padding: 1rem 1.8rem 1.9rem 1.8rem;
+    }
+    .title-3 p
+    {
+        font-size: 13px;
+        line-height: 1.3rem;
+    }
+    .card-carrossel-botao
+    {
+        font-size: 16px;
+        height: 2.2rem;
+        width: 10rem;
+    }
+    .content-it
+    {
+        height: 23rem;
     }
 }
 
