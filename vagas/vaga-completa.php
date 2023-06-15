@@ -177,7 +177,9 @@
         </div>
 
         <?php
-            $consulta = CandidaturaDao::buscaCandidaturaBotao($_SESSION['codUsuario'],$_SESSION['vaga']['codServico']);
+            if(!empty($_SESSION['codUsuario'])){
+                $consulta = CandidaturaDao::buscaCandidaturaBotao($_SESSION['codUsuario'],$_SESSION['vaga']['codServico']);
+            }
         ?>
 
 
