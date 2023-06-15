@@ -538,7 +538,7 @@ footer {
     }
 
     .cabecalho-menu-item {
-        font-size: 20px;
+        font-size: 14px;
         color: #232e61;
     }
 
@@ -568,7 +568,6 @@ footer {
     }
 
     #nav-seta-sub-topicos {
-        margin-top: 0.5rem;
         color: #232e61;
     }
 
@@ -620,9 +619,6 @@ footer {
         width: 100%;
     }
 
-    #nav-seta-sub-topicos {
-        margin-left: 2.8rem;
-    }
 
     .sub-topicos-sininho {
         position: absolute;

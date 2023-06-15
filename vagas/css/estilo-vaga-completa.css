@@ -468,4 +468,14 @@ body
         height: 2.2rem;
         font-size: 14px;
     }
+    .area-candidatar p
+    {
+        font-size: 14px;
+    }
+    .area-candidatar button
+    {
+        width: 11rem;
+        height: 2.3rem;
+        font-size: 17px;
+    }
 }

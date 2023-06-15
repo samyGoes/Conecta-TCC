@@ -596,7 +596,8 @@
     }
 
     .cabecalho-menu-item {
-        font-size: 20px;
+        font-size: 14px;
+        color: #232f61;
     }
 
     /* MÁGIGA INDO PRO LADO */
@@ -625,13 +626,15 @@
     }
 
     #nav-seta-sub-topicos {
-        margin-left: 4.8rem;
-        margin-top: 0.9rem;
         color: #232f61;
     }
 
     .cabecalho-menu-item i,
     .topicos li i {
+        color: #232f61;
+    }
+    .box-topicos-sessao-login-linha i
+    {
         color: #232f61;
     }
 }
@@ -681,13 +684,9 @@
 
     .sub-topicos {
         align-items: center;
-        left: 2rem;
         width: 100%;
     }
 
-    #nav-seta-sub-topicos {
-        margin-left: 5.8rem;
-    }
 }
 
 @media(max-width: 444px) {
