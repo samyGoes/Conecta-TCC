@@ -157,7 +157,8 @@
 
 .main-chat {
   margin-top: 20px;
-  max-height: 220px;
+  /* Remova a altura máxima para que a div possa crescer conforme necessário */
+  /* max-height: 220px; */
 }
 
 
@@ -246,6 +247,8 @@
 
 .conteudo-mensagem {
   padding: 10px;
+  max-width: 200px;
+  word-wrap: break-word;
 }
 
 .mensagem-voluntario p,

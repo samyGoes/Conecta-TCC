@@ -433,6 +433,10 @@ require_once '../auth/verifica-logado.php';
     </main>
     <script>
         var conn = new WebSocket('ws://localhost:3000');
+        var inp_message = document.getElementById('enviar-mensagem');
+        var btn_env = document.getElementById('btn1');
+        var area_content = document.getElementById('mensagens');
+        var scroll = document.getElementById('scroll-chat');
 
         conn.onopen = function(e) {
             //console.log("Connection established!");
@@ -443,15 +447,15 @@ require_once '../auth/verifica-logado.php';
             showMessages('area-voluntario', e.data);
         };
 
-        //conn.send('Hello World!');
-        ///////////////////////////////////////////////
-        var inp_message = document.getElementById('enviar-mensagem');
-        var btn_env = document.getElementById('btn1');
-        var area_content = document.getElementById('mensagens');
-        var scroll = document.getElementById("scroll-chat");
+        btn_env.addEventListener('click', sendMessage);
+        inp_message.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
 
-        btn_env.addEventListener('click', function() {
-            if (inp_message.value != '') {
+        function sendMessage() {
+            if (inp_message.value !== '') {
                 var msg = {
                     'msg': inp_message.value
                 };
@@ -463,11 +467,9 @@ require_once '../auth/verifica-logado.php';
 
                 inp_message.value = '';
 
-                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+                scroll.scrollTop = scroll.scrollHeight; // Scroll to the bottom
             }
-        });
-
-
+        }
 
         function showMessages(papelRemetente, data) {
             data = JSON.parse(data);
@@ -478,12 +480,10 @@ require_once '../auth/verifica-logado.php';
             var mensagemClass, fotoClass;
             if (papelRemetente === 'me') {
                 srcFotoRemetente = "../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
-                srcFotoDestinatario = "../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 containerClass = 'area-instituicao me';
                 mensagemClass = 'mensagem-instituicao';
                 fotoClass = 'foto-instituicao';
             } else if (papelRemetente === 'area-voluntario') {
-                srcFotoRemetente = "../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
                 srcFotoDestinatario = "../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 containerClass = 'area-voluntario';
                 mensagemClass = 'mensagem-voluntario';
@@ -493,8 +493,14 @@ require_once '../auth/verifica-logado.php';
             var div = document.createElement('div');
             div.setAttribute('class', containerClass);
 
-            var divInstituicao = document.createElement('div');
-            divInstituicao.setAttribute('class', 'instituicao');
+            var divFoto = document.createElement('div');
+            divFoto.setAttribute('class', fotoClass);
+
+            var img = document.createElement('img');
+            img.setAttribute('src', (papelRemetente === 'me') ? srcFotoRemetente : srcFotoDestinatario);
+            img.setAttribute('alt', 'foto');
+
+            divFoto.appendChild(img);
 
             var divMensagem = document.createElement('div');
             divMensagem.setAttribute('class', mensagemClass);
@@ -506,25 +512,10 @@ require_once '../auth/verifica-logado.php';
             p.textContent = data.msg;
 
             divConteudo.appendChild(p);
-
             divMensagem.appendChild(divConteudo);
-            divInstituicao.appendChild(divMensagem);
 
-            var divFoto = document.createElement('div');
-            divFoto.setAttribute('class', fotoClass);
-
-            var img = document.createElement('img');
-            if (papelRemetente === 'me') {
-                img.setAttribute('src', srcFotoRemetente);
-            } else {
-                img.setAttribute('src', srcFotoDestinatario);
-            }
-            img.setAttribute('alt', 'foto');
-
-            divFoto.appendChild(img);
-
-            div.appendChild(divInstituicao);
-            div.appendChild(divFoto);
+            div.appendChild((papelRemetente === 'me') ? divMensagem : divFoto);
+            div.appendChild((papelRemetente === 'me') ? divFoto : divMensagem);
 
             if (papelRemetente === 'area-voluntario') {
                 var divAreaVoluntario = document.createElement('div');
@@ -535,7 +526,7 @@ require_once '../auth/verifica-logado.php';
                 area_content.appendChild(div);
             }
 
-            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+            scroll.scrollTop = scroll.scrollHeight; // Scroll to the bottom
         }
 
         window.addEventListener('load', function() {
