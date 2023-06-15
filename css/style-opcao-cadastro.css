@@ -155,19 +155,32 @@ main .container a :active{
   }
 }
 
-@media (max-width: 425px){
-  .button-confirm button{
-    font-size: 10px;
-    width: 5vw;
+
+@media (max-width: 320px)
+{
+  .titles h1
+  {
+    font-size: 23px;
   }
-}
-@media (max-width: 370px){
-  .button-confirm{
+  .titles h3
+  {
+    font-size: 14px;
+    margin: 1rem;
+  }
+  .buttons-rows
+  {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .button-confirm
+  {
     width: 8rem;
-    height: auto;
-    font-size: 10pt;
-    font-weight: 400;
-    font-family: poppins, sans-serif;
+    height: 2.1rem;
+    font-size: 15px;
+  }
+  .container a
+  {
+    font-size: 14px;
   }
 }
 

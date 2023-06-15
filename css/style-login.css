@@ -264,3 +264,11 @@ input::placeholder
         margin-bottom: 3rem;
     }
 }
+
+@media(max-width: 320px)
+{
+    .input-box label, .voltar
+    {
+        font-size: 14px;
+    }
+}

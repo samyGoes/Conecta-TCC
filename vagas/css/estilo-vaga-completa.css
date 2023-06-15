@@ -361,12 +361,12 @@ body
     } 
 }
 
-@media(max-width: 879px)
+@media(max-width: 897px)
 {
     .card-completo
     {
         border-radius: 0;
-        border-left: none;
+        width: 100vw;
     }
 }
 

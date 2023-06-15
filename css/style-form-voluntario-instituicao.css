@@ -621,3 +621,14 @@ input::placeholder {
     }
     
 }
+@media(max-width: 422px) 
+{
+    .select-button, #select-button
+    {
+        flex-direction: column;
+    }
+    .input-group
+    {
+        padding-top: 13%;
+    }
+}

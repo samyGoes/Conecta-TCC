@@ -767,6 +767,10 @@ body
     {
         font-size: 11px;
     }
+    .container-titulo .titulo
+    {
+        font-size: 29px;
+    }
 }
 
 @media(max-width: 289px)
