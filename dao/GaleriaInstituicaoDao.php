@@ -20,8 +20,7 @@
         public static function listar($cod)
         {
             $conexao = Conexao::conectar();
-            $querySelect = $conexao->prepare("SELECT codfotoInstituicao, fotosInstituicao, codInstituicao FROM tbFotosInstituicao WHERE codInstituicao = ?");
-            $querySelect->bindValue(1, $cod);
+            $querySelect = $conexao->prepare("SELECT codfotoInstituicao, fotosInstituicao, codInstituicao FROM tbFotosInstituicao WHERE codInstituicao = '$cod'");
             $querySelect->execute();
             $resultado = $querySelect->fetchAll(PDO::FETCH_ASSOC); 
             return $resultado; 
