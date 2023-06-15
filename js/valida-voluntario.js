@@ -283,15 +283,11 @@ function passwordValidate() {
         const confirmPasswordValid = confirmPassword();
         const cepValid = cepValidate();
         const numLogValid = numLogValidate();
-        const logradouroValid = logradouroValidate();
-        const bairroValid = bairroValidate();
-        const estadoValid = estadoValidate();
-        const cidadeValid = cidadeValidate();
         const paisValid = paisValidate();
       
        
       
-        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid) {
+        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid && cepValid && numLogValid && paisValid) {
           // Se todos os campos estiverem válidos, envia o formulário
           formulario1.submit();
         } else {
@@ -301,6 +297,9 @@ function passwordValidate() {
           emailValidate();
           passwordValidate();
           confirmPassword();
+          cepValidate();
+          numLogValidate();
+          paisValidate();
         }
       });
       
