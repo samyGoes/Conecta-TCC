@@ -222,6 +222,16 @@ function passwordValidate() {
 
     function logradouroValidate() {
       if (campos[10].value.trim() === '') {
+        setError(10, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(10);
+        return true;
+      }
+    }
+
+    function bairroValidate() {
+      if (campos[11].value.trim() === '') {
         setError(11, 'Campo obrigatório');
         return false;
       } else {
@@ -230,8 +240,8 @@ function passwordValidate() {
       }
     }
 
-    function bairroValidate() {
-      if (campos[11].value.trim() === '') {
+    function estadoValidate() {
+      if (campos[13].value.trim() === '') {
         setError(13, 'Campo obrigatório');
         return false;
       } else {
@@ -240,7 +250,25 @@ function passwordValidate() {
       }
     }
 
-    
+    function cidadeValidate() {
+      if (campos[14].value.trim() === '') {
+        setError(14, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(14);
+        return true;
+      }
+    }
+
+    function paisValidate() {
+      if (campos[15].value.trim() === '') {
+        setError(15, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(15);
+        return true;
+      }
+    }
 
 
     formulario1.addEventListener('submit', function(event) {
@@ -253,6 +281,15 @@ function passwordValidate() {
         const emailValid = emailValidate();
         const passwordValid = passwordValidate();
         const confirmPasswordValid = confirmPassword();
+        const cepValid = cepValidate();
+        const numLogValid = numLogValidate();
+        const logradouroValid = logradouroValidate();
+        const bairroValid = bairroValidate();
+        const estadoValid = estadoValidate();
+        const cidadeValid = cidadeValidate();
+        const paisValid = paisValidate();
+      
+       
       
         if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid) {
           // Se todos os campos estiverem válidos, envia o formulário
