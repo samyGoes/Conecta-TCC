@@ -6,14 +6,19 @@ const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 /*const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
 const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;*/
 
-// Adicione esta função para imprimir os valores dos campos no console
+// Função para imprimir os valores dos campos do formulário no console
 function printFormData() {
-  let formData = [];
-  for (let i = 0; i < campos.length; i++) {
-    formData.push(campos[i].value);
-  }
+  const formData = [];
+  campos.forEach((campo, index) => {
+    formData.push(campo.value);
+  });
   console.log(formData);
 }
+
+// Ouvinte de evento "input" para cada campo do formulário
+campos.forEach((campo) => {
+  campo.addEventListener('input', printFormData);
+});
 
 function validateRequiredFields() {
     let allFieldsFilled = true;
@@ -195,9 +200,47 @@ function passwordValidate() {
     }
     }
 
-// Chame a função para imprimir os valores dos campos no console quando a página for carregada
-printFormData();
+    function cepValidate() {
+      if (campos[8].value.trim() === '') {
+        setError(8, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(8);
+        return true;
+      }
+    }
 
+    function numLogValidate() {
+      if (campos[9].value.trim() === '') {
+        setError(9, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(9);
+        return true;
+      }
+    }
+
+    function logradouroValidate() {
+      if (campos[10].value.trim() === '') {
+        setError(11, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(11);
+        return true;
+      }
+    }
+
+    function bairroValidate() {
+      if (campos[11].value.trim() === '') {
+        setError(13, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(13);
+        return true;
+      }
+    }
+
+    
 
 
     formulario1.addEventListener('submit', function(event) {
