@@ -739,7 +739,7 @@ body
     {
         font-size: 12px;
     }
-    .filtro-causas, #estados, #cidades
+    .filtro-causas, #estados, #cidades, .filtro-causas-i
     {
         width: 9rem;
         height: 1.8rem;
@@ -754,6 +754,18 @@ body
     .form-filtro
     {
         gap: 1rem;
+    }
+}
+
+@media(max-width: 320px)
+{
+    .lista-voluntario-linha .nome, .lista-voluntario-linha-i .nome
+    {
+        font-size: 14px;
+    }
+    .lista-item-sessao-1 .email
+    {
+        font-size: 11px;
     }
 }
 

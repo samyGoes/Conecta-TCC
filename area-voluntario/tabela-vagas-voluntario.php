@@ -514,6 +514,7 @@
                         <?php
 
                         $valorBotao = $c;
+                        
                         ?>
                         
                         <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>

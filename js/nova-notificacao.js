@@ -24,7 +24,6 @@ export async function notificacao()
                         else
                         {
                             resolve({existe: false, qtd: ''});
-
                             console.log("Não tem notificação :(");
                         }
                     }
@@ -65,11 +64,13 @@ export async function verificaNotificacao()
                 event.preventDefault();
                 if(div.id != "clicada")
                 {
-                    localStorage.setItem("notificacao", "clicada");
+                    //localStorage.setItem("notificacao", "clicada");
                     div.id = "clicada";
                 }
-                verificarTodasClicadas();
-                todasClicadas();
+                //verificarTodasClicadas();
+                //todasClicadas();
+                var clicada = localStorage.getItem("notificacao");
+                console.log(clicada);
             });
 
             // FRASE DA NOTIFICAÇÃO
@@ -78,18 +79,21 @@ export async function verificaNotificacao()
                 event.preventDefault();
                 if(div.id != "clicada")
                 {
-                    localStorage.setItem("notificacao", "clicada");
+                    //localStorage.setItem("notificacao", "clicada");
                     div.id = "clicada";
                 }
-                verificarTodasClicadas();
-                todasClicadas();
+                //verificarTodasClicadas();
+                //todasClicadas();
+                var clicada = localStorage.getItem("notificacao");
+                console.log(clicada);
             });
         });
     }
 }
 
 
-function verificarTodasClicadas()
+
+export async function verificarTodasClicadas()
 {
     for(let i = 0; i < divs.length; i++)
     {
@@ -100,15 +104,22 @@ function verificarTodasClicadas()
             return false;
         }
     }
+    localStorage.setItem("notificacao", "clicada");
     return true;
 }
 
-function todasClicadas()
+export async function todasClicadas()
 {
     var todosLinksClicados = verificarTodasClicadas();
     if(todosLinksClicados)
     {
         semBolinha();
+        console.log("todas foram clicadas");
+    }
+    else
+    {
+        comBolinha();
+        console.log("n são todas q foram clicadas");
     }
 }
 
@@ -119,21 +130,29 @@ const bolinhaNot = document.querySelector(".nova-notificacao-bolinha");
 export function verificarClasseBolinha()
 {
     const classeArmazenada = localStorage.getItem("bolinha");
-    const notificacaoLo = localStorage.getItem("notificacao");
-    //var todosLinksClicados = verificarTodasClicadas();
+    //const notificacaoLo = localStorage.getItem("notificacao");
 
-    if (classeArmazenada === "sem-bolinha" && notificacaoLo === "clicada")
+    if(classeArmazenada === "sem-bolinha")
     {
         bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
+        console.log(classeArmazenada);
     }
-    else
+    else if(classeArmazenada === "com-bolinha")
     {
-        bolinhaNot.classList.remove("sem-bolinha");
+        bolinhaNot.classList.replace('sem-bolinha', 'nova-notificacao-bolinha');
     }
 }
+
+
 
 function semBolinha()
 {
     localStorage.setItem("bolinha", "sem-bolinha");
     bolinhaNot.classList.replace('nova-notificacao-bolinha', 'sem-bolinha');
+}
+
+function comBolinha()
+{
+    localStorage.setItem("bolinha", "com-bolinha");
+    bolinhaNot.classList.replace('sem-bolinha', 'nova-notificacao-bolinha');
 }

@@ -828,11 +828,12 @@ footer {
 
 @media (max-width: 381px) {
     .container h1 {
-        font-size: 34px;
+        font-size: 29px;
     }
 
     .container p {
         font-size: 12px;
+        margin: 1rem 1rem 0rem 1rem;
     }
 
     .footer-col h5 {

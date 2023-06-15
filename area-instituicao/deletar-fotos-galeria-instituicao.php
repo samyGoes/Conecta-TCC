@@ -1,32 +1,31 @@
 <?php
-    require_once 'global.php';
+require_once 'global.php';
 
-
-   //IMCOMPLETO. PAREI PARA FAZER OUTRA COISA MAIS URGENTE... JÁ VOLTO PARA ARRUMAR TENHA PACIENCIA
-
-    function deletarFoto($idFoto) {
-        try {
-            $galeria = GaleriaInstituicaoDao::consultarPorId($idFoto); // Supondo que exista uma função para consultar uma foto pelo ID
-
-            if ($galeria) {
-                $foto = $galeria->getFotoGaleria();
-                unlink($foto); // Deleta o arquivo da foto no servidor
-
-                GaleriaInstituicaoDao::excluir($idFoto); // Chama a função excluir() na classe GaleriaInstituicaoDao para deletar a foto pelo ID
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idFoto'])) {
+    $idFoto = $_POST['idFoto'];
+    
+    try {
+        $foto = GaleriaInstituicaoDao::consultarPorId($idFoto); // Consulta a foto pelo ID
+        
+        if ($foto) {
+            $fotoCaminho = $foto->getFotoGaleria(); // Obtém o caminho do arquivo da foto
+            
+            if (unlink($fotoCaminho)) { // Deleta o arquivo da foto no servidor
+                GaleriaInstituicaoDao::excluir($idFoto); // Exclui a foto do banco de dados
                 echo "Foto deletada com sucesso!";
             } else {
-                echo "Foto não encontrada!";
+                echo "Erro ao excluir o arquivo da foto.";
             }
-        } catch (Exception $e) {
-            echo "Erro ao deletar a foto: " . $e ->getMessage();
+        } else {
+            echo "Foto não encontrada!";
         }
+    } catch (Exception $e) {
+        echo "Erro ao deletar a foto: " . $e->getMessage();
     }
-    deletarFoto($idFoto);
-
+} else {
+    echo "Requisição inválida.";
+}
 ?>
-
-
 
 
 

@@ -50,7 +50,7 @@ main
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 
 /* CARD */
@@ -634,7 +634,7 @@ main
     font-family: poppins, sans-serif;
     font-size: 18px;
     color: #ffffff;
-    font-weight: 400;
+    font-weight: 300;
     text-transform: uppercase;
     transition: all 0.4s ease;
 }
@@ -885,6 +885,66 @@ main
         justify-content: center;
     }
 }
+
+@media(max-width:320px)
+{
+    .icon-titulo-card
+    {
+        gap: 3%;
+    }
+    .titulo-card i
+    {
+        font-size: 17px;
+    }
+    .titulo-card h6
+    {
+        font-size: 13px;
+    }
+    .dados-pessoais-1 p
+    {
+        font-size: 17px;
+    }
+    .topico-icon i
+    {
+        font-size: 21px;
+    }
+    .topico-icon p, .email-fone p, .texto p
+    {
+        font-size: 14px;
+    }
+    .topico-endereco, .topico-contato
+    {
+        padding: 1.5rem 1.3rem 1.5rem 1.3rem;
+    }
+    .endereco
+    {
+        font-size: 14px;
+        margin-left: 1.5rem;
+    }
+    #topico-email-fone
+    {
+        font-size: 12px;
+    }   
+    .icon-titulo-card
+    {
+        align-items: center;
+    }
+    .titulo-card a
+    {
+        font-size: 12px;
+    }
+    .tipo-causas button
+    {
+        width: 9rem;
+        height: 2.2rem;
+        font-size: 14px;
+    }
+    .titulo-card-carrossel
+    {
+        font-size: 20px;
+    }
+}
+
 @media (max-width: 300px)
 {
     .carrossel

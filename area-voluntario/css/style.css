@@ -47,7 +47,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 7rem;
+    margin-top: 6rem;
 }
 
 /* CARD */
@@ -1218,6 +1218,7 @@ main {
 
 
 
+
 /* CARROSSEL */
 @media(max-width: 773px) {
 
@@ -1337,6 +1338,40 @@ main {
     .arrow-left,
     .arrow-right {
         justify-content: center;
+    }
+}
+
+@media(max-width: 320px)
+{
+    .dados-pessoais-1 p
+    {
+        font-size: 17px;
+    }
+    .dados-pessoais-2
+    {
+        margin: 5.5%;
+    }
+    .dados-pessoais-2 .dados, .texto p
+    {
+        font-size: 14px;
+    }
+    .titulo-card h6, .texto p, .dados-pessoais-2 p, .dados-pessoais-2 span
+    {
+        font-size: 13px
+    }
+    .titulo-card i
+    {
+        font-size: 17px;
+    }
+    .tipo-causas button
+    {
+        width: 9rem;
+        height: 2.2rem;
+        font-size: 14px;
+    }
+    #container-titulo
+    {
+        font-size: 29px;
     }
 }
 
