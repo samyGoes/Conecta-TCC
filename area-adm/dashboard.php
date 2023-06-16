@@ -248,31 +248,43 @@
                                     <?php
 
 
-                                    require_once 'global.php';
+                                        require_once 'global.php';
 
-                                    try {
-                                        $row = DashboardDao::melhoresVoluntarios();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
+                                        try {
+                                            $row = DashboardDao::melhoresVoluntarios();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+
+                                        if(empty($row))
+                                        {
                                     ?>
-                                    <?php foreach ($row as $voluntario) { ?>
                                         <tr>
-                                            <td>
-                                                <div class="td-divisao">
-                                                    <div class="box-img">
-                                                        <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
-                                                    </div>
-                                                    <div class=".td-text">
-                                                        <?php echo $voluntario['nomeVoluntario']; ?>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td> <?php echo $voluntario['estrelas']; ?></td>
+                                            <td> Sem notificações...</td>
                                         </tr>
                                     <?php
-                                    }
-                                    ?>
+                                        }
+                                        else
+                                        {                                       
+                                            foreach ($row as $voluntario) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="td-divisao">
+                                                            <div class="box-img">
+                                                                <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
+                                                            </div>
+                                                            <div class=".td-text">
+                                                                <?php echo $voluntario['nomeVoluntario']; ?>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <?php echo $voluntario['estrelas']; ?></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                        }
+                                        ?>
+                                        
                                 </tbody>
                             </table>
                         </div>

@@ -201,6 +201,32 @@ class CandidaturaDao
         }
     }
 
+    public static function buscaEmail($codCandidatura)
+    {
+        $conectar = Conexao::conectar();
+    
+        $stmt = $conectar->prepare("SELECT nomeVoluntario AS nome, emailVoluntario AS email, tbCandidatura.codCandidatura FROM tbvoluntario
+                                        INNER JOIN tbCandidatura ON tbVoluntario.codVoluntario = tbCandidatura.codVoluntario 
+                                        WHERE codCandidatura = :codCandidatura
+                                    ");
+        
+        $stmt->bindValue(':codCandidatura', $codCandidatura, PDO::PARAM_STR);
+        //echo "Valor do email: " . $email;
+        $stmt->execute();
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //print_r($resultados);
+
+        foreach($resultados as $resultado)
+        {
+            if ($resultado['codCandidatura'] == $codCandidatura)  
+            {
+                return array('codCandidatura' => true, 'nome' => $resultado['nome'], 'email' => $resultado['email']);
+            } 
+        }
+        return array('codCandidatura' => false, 'nome' => '', 'email' => '');       
+    }
+
 
 
 

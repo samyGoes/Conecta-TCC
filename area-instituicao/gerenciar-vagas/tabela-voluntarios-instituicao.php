@@ -14,6 +14,7 @@ include "../../auth/verifica-logado.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-tabela-voluntarios.css">
+    <link rel="stylesheet" href="css/estilo-modal-avaliacao.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Voluntários Disponíveis</title>
@@ -573,7 +574,7 @@ include "../../auth/verifica-logado.php";
                                         <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
                                     </tr>
                                 </form>
-
+                                
                                 <?php
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnChamar'];
@@ -587,6 +588,11 @@ include "../../auth/verifica-logado.php";
                                     $codCandidatura = $_POST['btnRecusar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
+
+                                        $email = CandidaturaDao::buscaEmail($codCandidatura);
+
+                                        echo json_encode(['status' => true, 'nome' => $email['nome']]);
+                                        
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
@@ -725,6 +731,7 @@ include "../../auth/verifica-logado.php";
         });
 
     </script>
+    <script src='js/envia-email-login.js'></script> 
 
 </body>
 

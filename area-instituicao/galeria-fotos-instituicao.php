@@ -168,7 +168,7 @@ include "../auth/loginUsuario.php";
             <?php
                 require_once 'global.php';
 
-                $codInstituicao = $_SESSION['codUsuario'];
+                $codInstituicao = $_SESSION['dadoPerfil']['codInstituicao'];
                 $fotos = GaleriaInstituicaoDao::listar($codInstituicao);
                 
                 foreach ($fotos as $foto) 
