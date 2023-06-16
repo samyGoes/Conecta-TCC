@@ -333,27 +333,6 @@ require_once '../auth/verifica-logado.php';
 
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
-
-            <div class="container-botoes">
-                <div class="box-icon-tabela">
-                    <div class="box-info-t"></div>
-                    <a href="tabela-vagas-voluntario.php">
-                        <div class="fundo-icon" id="icon-table">
-                            <div class="box-img-icon"> <img src="img/tabela.png" alt=""></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="box-icon">
-                    <div class="box-info"></div>
-                    <a href="card-vagas-voluntario.php">
-                        <div class="fundo-icon" id="icon-card">
-                            <div class="box-img-icon"> <img src="img/card.png" alt=""></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
             <!-- TÍTULO 1 -->
             <div class="container-titulo-1 c">
                 <h2 class="titulo-voluntarios"> Chat </h2>
@@ -428,7 +407,7 @@ require_once '../auth/verifica-logado.php';
             }
             ?>
 
-            <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
+            <a class="link-voltar-anterior" href="../area-voluntario/tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
         </div>
     </main>
     <script>
