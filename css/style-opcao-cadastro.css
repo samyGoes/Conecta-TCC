@@ -149,14 +149,18 @@ main .container a :active{
 /*Responsividade*/
 @media(max-height: 900px)
 {
-  .image-header, .image-footer
+  .image-header
+  {
+    height: 11rem;
+  }
+  .image-footer
   {
     height: 15rem;
   }
 }
 
 
-@media (max-width: 320px)
+@media (max-width: 533px)
 {
   .titles h1
   {
@@ -169,7 +173,6 @@ main .container a :active{
   }
   .buttons-rows
   {
-    flex-direction: column;
     margin-top: 1rem;
   }
   .button-confirm
@@ -184,3 +187,10 @@ main .container a :active{
   }
 }
 
+@media(max-width: 320px)
+{
+  .buttons-rows
+  {
+    flex-direction: column;
+  }
+}

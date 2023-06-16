@@ -337,18 +337,3 @@
         width: 70vw;
     }
 }
-
-/* @media (max-width: 450px){
-    .container{
-        width: 100%;
-        height: auto;
-    }
-    .input-box{
-        display: flex;
-        flex-direction: column;
-    }
-    #num,#bairro, #cep, #cidade, #pais, #comp, #uf, #foto, #desc, #nome, #email, #telefone, #telefone-2, #log, #label{
-        width: 50vw;
-    }
-    
-} */

@@ -514,6 +514,7 @@ input::placeholder {
     .input-group {
         justify-content: center;
         padding-left: 0;
+        margin-right: 0;
     }
 
     .input-box
