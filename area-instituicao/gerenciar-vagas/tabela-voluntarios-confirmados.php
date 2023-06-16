@@ -288,7 +288,7 @@ include "../../auth/verifica-logado.php";
                                 
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
                                 $codigo = ServicoDao::listarServico($idInstituicaoLogada);
-                                $codServico = $codigo['codServico'];
+                                $codServico = $codigo['codServico']; 
                                 print_r($codServico); // Obter o código da vaga do botão clicado
                                 $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico);
                                 print_r($listaVoluntario); // Passar o código da vaga para a consulta
