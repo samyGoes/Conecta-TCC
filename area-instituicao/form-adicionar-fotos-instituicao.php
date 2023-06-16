@@ -386,10 +386,6 @@
             </div>
 
 
-
-
-
-
             <div class="imagens-intituicao">
                 <div class="galeria">
                     <?php
@@ -403,11 +399,12 @@
 
                     foreach ($listaImg as $foto) { ?>
                     
+                    
                         <div class="conteudo-foto">
                             <div class="visualizar-btns"> 
                                 <button class="btn-visualizar"> visualizar </button>
                                 <form action="" method="post">
-                                    <button class="btn-excluir" value="<?php $foto['codfotoInstituicao']; ?>"> excluir </button>
+                                    <button class="btn-excluir"> excluir </button>
                                 </form>
                             </div>
 
@@ -432,8 +429,8 @@
                                 Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
                             </label>
                             <div class="btn-exit" id="btn-exit">
-                            <form action="" method="post">                      
-                                <button name="btnExcluir" class="btn-excluir">excluir</button>
+                            <form action="excluir-imagem-instituicao-galeria.php" method="post">  
+                                <button name="btnExcluir" class="btn-excluir" onclick="excluirImagem(<?php echo $foto['codfotoInstituicao']; ?>)" value="<?php $foto['codfotoInstituicao']; ?>">excluir</button>
                             </form>
 
                             <?php
@@ -442,7 +439,7 @@
                                 {
                                     try {
                                         $codFoto = $_POST[''];
-                                        $excluirFoto = GaleriaInstituicao::excluir($codFoto);
+                                        $excluirFoto = GaleriaInstituicaoDao::excluir($codFoto);
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
@@ -475,6 +472,8 @@
         <script type="module" src="imports/modal-galeria.js"></script>
         <script type="module" src="js/preview-img-galeria.js"></script>
         <script src="js/modal-exclusao.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     </body>
 
 </html>
