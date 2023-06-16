@@ -217,7 +217,7 @@ td:nth-child(6) {
 }
 
 th:nth-child(2) {
-    min-width: 69px;
+    min-width: 140px;
     max-width: 110px;
 }
 
@@ -247,11 +247,9 @@ th:nth-child(7),
 td:nth-child(7),
 th:nth-child(8),
 td:nth-child(8) {
-    min-width: 110px;
+    min-width: 135px;
     max-width: 110px;
 }
-
-
 
 th:nth-child(9) {
     min-width: 122px;
@@ -259,8 +257,7 @@ th:nth-child(9) {
     border-right: none !important;
 }
 
-td:nth-child(9)
-{
+td:nth-child(9) {
     min-width: 110px;
     max-width: 110px;
 }
@@ -351,33 +348,28 @@ td button {
     text-transform: uppercase;
 }
 
-#td-icone-chat
-{
+#td-icone-chat {
     font-size: 27px;
     color: #4567a5;
     cursor: pointer;
     transition: all 0.5s ease;
 }
 
-#td-icone-chat:hover
-{
+#td-icone-chat:hover {
     color: #8dbfd3;
 }
 
-#tabela-icone-avaliacao
-{
+#tabela-icone-avaliacao {
     font-size: 27px;
     color: #cf8a3f;
     transition: all 0.5s ease;
 }
 
-#tabela-icone-avaliacao:hover
-{
+#tabela-icone-avaliacao:hover {
     color: #f1c595;
 }
 
-.link-voltar-anterior
-{
+.link-voltar-anterior {
     margin-top: 2rem;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -388,8 +380,7 @@ td button {
     color: #4567a5;
 }
 
-.link-voltar-anterior:hover
-{
+.link-voltar-anterior:hover {
     color: #cf8a3f;
 }
 
