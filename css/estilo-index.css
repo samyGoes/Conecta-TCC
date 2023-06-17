@@ -124,6 +124,7 @@ body {
     /* width: 100vw; */
     /* height: 100vh; */
     margin-bottom: 6rem;
+    /* display: none; */
 }
 
 .titulo-container-conteudo-1 h1 {
@@ -331,6 +332,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 5%;
+    /* display: none; */
 }
 
 .titulo-container-conteudo-3 h1 {
@@ -359,7 +361,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    gap: 1rem;
     /* width: 100%; */
 }
 
@@ -389,11 +391,12 @@ body {
 /*CONTAINER 4*/
 
 .container-4 {
-    /* width: 100vw; */
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3rem 0rem 5rem 0rem;
+    display: none;
 }
 
 .titulo-container-4 {
@@ -834,39 +837,8 @@ body {
     }
 }
 
-@media (max-width:900px) {
 
-    .topicos-container-3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        gap: 0rem;
-        align-items: center;
-        width: 100%;
-        height: 85%;
-    }
 
-    .container-3 {
-        background-color: #d97925;
-        width: 100vw;
-        height: 70rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 4%;
-    }
-
-    .imagem-habilidade img,
-    .imagem-curriculo img,
-    .imagem-experiencia img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .texto-conteudo-escrito p {
-        line-height: 1.2;
-    }
-}
 
 /* 
 
@@ -1140,5 +1112,152 @@ body {
     .card-carrossel-botao {
         font-size: 14px;
         width: 5rem;
+    }
+}
+
+@media(max-width: 1211px)
+{
+    .topicos-container-3
+    {
+        gap: 3rem;
+    }
+}
+
+@media(max-width: 1123px)
+{
+    .topicos-container-3
+    {
+        height: 77%;
+        gap: 2rem;
+    }
+    .container-3
+    {
+        gap: 0;
+    }
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media(max-width: 1019px)
+{
+    .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
+    {
+        width: 283px;
+    }
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 120px;
+        height: 120px;
+    }
+    .container-3
+    {
+        height: 25rem;
+    }
+}
+
+@media(max-width: 929px)
+{
+    .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
+    {
+        width: 248px;
+        font-size: 14px;
+    }
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 110px;
+        height: 110px;
+    }
+    .topicos-container-3
+    {
+        gap: 1.5rem;
+    }
+    
+}
+
+@media(max-width: 822px)
+{
+    .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
+    {
+        width: 178px;
+    }
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 95px;
+        height: 95px;
+    }
+    .topicos-container-3
+    {
+        gap: 3rem;
+    }
+    .container-3
+    {
+        height: 23rem;
+    }
+    .titulo-container-conteudo-3 h1
+    {
+        margin-top: 2rem;
+    }
+}
+
+
+@media(max-width: 665px)
+{
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 85px;
+        height: 85px;
+    }
+    .topicos-container-3
+    {
+        gap: 1rem;
+    }
+}
+
+@media(max-width: 665px)
+{
+    .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
+    {
+        width: 149px;
+    }
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 75px;
+        height: 75px;
+    }
+    .topicos-container-3
+    {
+        gap: 1.4rem;
+    }
+}
+
+@media(max-width: 534px)
+{
+    .imagem-habilidade img, .imagem-curriculo img, .imagem-experiencia img
+    {
+        width: 80px;
+        height: 80px;
+    }
+    .container-3
+    {
+        height: auto;
+    }
+    .topicos-container-3
+    {
+        flex-direction: column;
+        gap: 2.4rem;
+        margin: 3rem 0rem 3rem 0rem;
+    }
+    .habilidade, .experiencia
+    {
+        width: 100%;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 1.5rem;
+    }
+    .container-2
+    {
+        display: none;
     }
 }

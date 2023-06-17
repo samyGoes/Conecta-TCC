@@ -272,7 +272,7 @@
                         <img src="img/habilidade.png" alt="">
                     </div>
                     <div class="conteudo-escrito-habiliidade">
-                        <p>Você ira aperfeiçoar suas habilidades</p>
+                        <p>Você irá aperfeiçoar suas habilidades</p>
                     </div>
                 </div>
 
@@ -281,7 +281,7 @@
                         <img src="img/experiencia.png" alt="">
                     </div>
                     <div class="conteudo-escrito-experiencias">
-                        <p>Obtera experiencia dentro de alguma area de atuação</p>
+                        <p>Obterá experiância dentro de alguma área de atuação</p>
                     </div>
                 </div>
 
