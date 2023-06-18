@@ -18,7 +18,7 @@ body {
     height: 100vh;
     /* overflow: hidden; */
     margin-bottom: 4rem;
-    /* display: none; */
+    display: none;
 }
 
 .box-cabecalho-conteudo {
@@ -163,6 +163,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
 
 }
 
@@ -173,7 +174,7 @@ body {
 }
 
 .texto-conteudo-escrito {
-    margin: 6%;
+    margin: 3rem 0rem 2rem 0rem;
     line-height: 2rem;
 }
 
@@ -818,47 +819,28 @@ body {
 
 
 
-@media (max-width: 1398px) {
-    .card-conteudo-1 {
-        max-width: 90%;
+@media (max-width: 1368px) 
+{
+    .card-conteudo-1 
+    {
+        max-width: 100%;
+        border-radius: 0;
     }
-
-    .conteudo-imagem-1 {
-        display: none;
-    }
-
-    .conteudo-escrito-1 {
-        width: 100%;
-        padding: 3rem 1rem 3rem 1rem;
-    }
-
-    .texto-conteudo-escrito {
-        margin: 6% 6% 2% 6%;
+    .conteudo-imagem-1 img
+    {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
 
 
-
-
-/* 
-
-@media (max-width:768px){
- 
-    /*CONTAINER-2
-    .container-2{
-        background-image: none;
-        /* background-color: #5f71c2; 
+@media (max-width: 1033px) 
+{
+    .texto-conteudo-escrito p
+    {
+        line-height: 28px;
     }
-    .card-conteudo-2{
-        height: 50%;
-    }
-    .conteudo-vazio{
-        display: none;
-    }
-    .conteudo-escrito-2{
-        width: 80%;
-    }
-} */
+}
 
 
 /* CARD E CARROSSEL*/
@@ -1141,6 +1123,19 @@ body {
     }
 }
 
+@media(max-width: 1064px)
+{
+    .conteudo-escrito-1
+    {
+        padding: 3rem 2rem 3rem 2rem;
+    }
+    .texto-conteudo-escrito
+    {
+        margin: 2rem 0rem 2rem 0rem;
+    }
+ 
+}
+
 @media(max-width: 1019px)
 {
     .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
@@ -1174,7 +1169,34 @@ body {
     {
         gap: 1.5rem;
     }
-    
+    .texto-conteudo-escrito p
+    {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+
+@media (max-width: 878px) 
+{
+    .card-conteudo-1
+    {
+        width: 90%;
+        border-radius: 0.5rem;
+    }
+    .conteudo-imagem-1
+    {
+        display: none;
+    }
+    .conteudo-escrito-1
+    {
+        width: 100%;
+        padding: 3rem;
+    }
+    .texto-conteudo-escrito p
+    {
+        line-height: 29px;
+    }
 }
 
 @media(max-width: 822px)
@@ -1202,6 +1224,13 @@ body {
     }
 }
 
+@media(max-width: 708px)
+{
+    .conteudo-escrito-1
+    {
+        padding: 3rem 2rem 3rem 2rem;
+    }
+}
 
 @media(max-width: 665px)
 {
@@ -1214,9 +1243,14 @@ body {
     {
         gap: 1rem;
     }
+    .card-conteudo-1
+    {
+        width: 100%;
+        border-radius: 0;
+    }
 }
 
-@media(max-width: 665px)
+@media(max-width: 612px)
 {
     .conteudo-escrito-curriculo p, .conteudo-escrito-experiencias p, .conteudo-escrito-habiliidade p
     {
@@ -1256,8 +1290,17 @@ body {
         border-bottom: 1px solid #fff;
         padding-bottom: 1.5rem;
     }
-    .container-2
+}
+
+
+@media (max-width: 492px) 
+{
+    .texto-conteudo-escrito p
     {
-        display: none;
+        line-height: 26px;
+    }
+    .titulo-conteudo-escrito h1
+    {
+        font-size: 30px;
     }
 }
