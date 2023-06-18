@@ -287,21 +287,17 @@ include "../../auth/verifica-logado.php";
                             try {
                                 
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $codigo = ServicoDao::listarServico($idInstituicaoLogada);
-                                $codServico = $codigo['codServico']; 
-                                print_r($codServico); // Obter o código da vaga do botão clicado
-                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico);
-                                print_r($listaVoluntario); // Passar o código da vaga para a consulta
+                                $codServico = $_POST['codCategoriaServico']; // Obter o código da vaga do botão clicado
+                                $listaVoluntario = CandidaturaDao::listarVoluntariosAceitos($idInstituicaoLogada, $codServico); // Passar o código da vaga para a consulta
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
 
-
                             <?php foreach ($listaVoluntario as $voluntario) { 
                                 $t = 'Voluntario';
                                 $c = $voluntario['codVoluntario'];
-                            ?>
+                                ?>
                                     <tr>
                                         <td><?php echo $voluntario['codCandidatura']; ?></td>
                                         <td>

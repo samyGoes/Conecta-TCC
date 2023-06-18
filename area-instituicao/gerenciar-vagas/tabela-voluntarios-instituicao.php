@@ -531,16 +531,17 @@ include "../../auth/verifica-logado.php";
                             require_once 'global.php';
 
                             try {
+
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
+                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada); // Passar o código da vaga para a consulta
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
 
-                            <?php foreach ($listaVoluntario as $voluntario) { 
-                                 $t = 'Voluntario';
-                                 $c = $voluntario['codVoluntario'];
+                            <?php foreach ($listaVoluntario as $voluntario) {
+                                $t = 'Voluntario';
+                                $c = $voluntario['codVoluntario'];
                             ?>
                                 <form action="" method="post">
                                     <tr>
@@ -568,7 +569,7 @@ include "../../auth/verifica-logado.php";
                                         <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
                                     </tr>
                                 </form>
-                                
+
                                 <?php
                                 if (isset($_POST['btnChamar']) && $_POST['btnChamar'] == $voluntario['codCandidatura']) {
                                     $codCandidatura = $_POST['btnChamar'];
@@ -586,7 +587,7 @@ include "../../auth/verifica-logado.php";
                                         $email = CandidaturaDao::buscaEmail($codCandidatura);
 
                                         echo json_encode(['status' => true, 'nome' => $email['nome']]);
-                                        
+
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
@@ -672,13 +673,13 @@ include "../../auth/verifica-logado.php";
                                     <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
                                     <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
                                     <td> Professor </td>
-                                                                            <td>
-                                            <form action="" method="post">
-                                                <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
-                                                                                                            ?>"> -->
-                                                <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
-                                            </form>
-                                        </td>
+                                    <td>
+                                        <form action="" method="post">
+                                            <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
+                                                                                                        ?>"> -->
+                                            <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                        </form>
+                                    </td>
                                     <td>
                                         <div class="box-status">
                                             <div class="status-bolinha"></div>
@@ -732,7 +733,7 @@ include "../../auth/verifica-logado.php";
             });
         });
     </script>
-    <script src='js/envia-email-login.js'></script> 
+    <script src='js/envia-email-login.js'></script>
 
 </body>
 
