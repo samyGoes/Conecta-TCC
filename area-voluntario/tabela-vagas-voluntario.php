@@ -459,7 +459,7 @@
                                             </div>
                                         </td>
 
-                                        <td class="td-table-c"><a href="<?php echo '../auth/redirecionamento-chat-instituicao.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
+                                        <td class="td-table-c"><a href="<?php echo '../auth/redirecionamento-chat-voluntario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
                                         <td class="td-table-c"> <button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button> </td>
                                         <td class="td-table-c">
                                             <form action="" method="post">

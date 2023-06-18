@@ -562,7 +562,7 @@ include "../../auth/verifica-logado.php";
                                             <form action="" method="post">
                                                 <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
                                                                                                             ?>"> -->
-                                                <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                                <a href="<?php echo '../../auth/redirecionamento-chat-instituicao.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
                                             </form>
                                         </td>
                                         <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
