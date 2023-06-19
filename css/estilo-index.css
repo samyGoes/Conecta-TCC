@@ -18,7 +18,7 @@ body {
     height: 100vh;
     /* overflow: hidden; */
     margin-bottom: 4rem;
-    display: none;
+    /* display: none; */
 }
 
 .box-cabecalho-conteudo {
@@ -397,7 +397,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 3rem 0rem 5rem 0rem;
-    display: none;
+    /* display: none; */
 }
 
 .titulo-container-4 {

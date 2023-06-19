@@ -36,9 +36,15 @@
     align-items: center;
 }
 
+.imagens-intituicao
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .galeria 
 {
-    width: 100%;
+    width: 60rem;
     box-sizing: border-box;
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -51,6 +57,7 @@
 {
     position: relative;
     transition: all 0.4s ease;
+    width: 18.7rem;
     height: 18.7rem;
 }
 

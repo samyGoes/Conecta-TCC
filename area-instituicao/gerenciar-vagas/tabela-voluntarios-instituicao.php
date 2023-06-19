@@ -185,7 +185,7 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="tabela-voluntarios-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
                     </span></a>
             </div>
 
@@ -474,7 +474,6 @@ include "../../auth/verifica-logado.php";
         <div class="conteudo-completo">
 
             <div class="container-botoes">
-                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
                 <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
                 <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Recusados </button></a>
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
@@ -608,8 +607,8 @@ include "../../auth/verifica-logado.php";
 
 
 
-
-            <!-- TÍTULO 2 -->
+        <!-- 
+             TÍTULO 2 
             <div class="container-titulo-1">
                 <h2 class="titulo-voluntarios"> Voluntários Requisitados </h2>
                 <p class="frase-voluntarios">
@@ -622,7 +621,7 @@ include "../../auth/verifica-logado.php";
 
 
 
-            <!-- TABELA 2 -->
+             TABELA 2 
             <div class="table">
                 <div class="table-responsive">
                     <div class="funcoes">
@@ -659,8 +658,8 @@ include "../../auth/verifica-logado.php";
                             // }
                             ?>
                             <tr>
-                                <?php foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td> <?php echo $voluntario['codVoluntario']; ?> </td>
+                                <?php //foreach ($listaVoluntario as $voluntario) { ?>
+                                    <td> <?php //echo $voluntario['codVoluntario']; ?> </td>
                                     <td>
                                         <a href="">
                                             <div class="box-img-lista">
@@ -668,16 +667,16 @@ include "../../auth/verifica-logado.php";
                                             </div>
                                         </a>
                                     </td>
-                                    <td><?php echo $voluntario['nomeVoluntario']; ?></td>
+                                    <td><?php //echo $voluntario['nomeVoluntario']; ?></td>
                                     <td> 18 anos</td>
-                                    <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
-                                    <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
+                                    <td> <?php //echo $voluntario['cidadeVoluntario']; ?> </td>
+                                    <td> <?php //echo $voluntario['estadoVoluntario']; ?> </td>
                                     <td> Professor </td>
                                     <td>
                                         <form action="" method="post">
-                                            <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
-                                                                                                        ?>"> -->
-                                            <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                            <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
+                                                                                                        ?>"> 
+                                            <a href="<?php //echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
                                         </form>
                                     </td>
                                     <td>
@@ -689,12 +688,12 @@ include "../../auth/verifica-logado.php";
                                     <td> <button class="table-btn-recusar"> retirar </button> </td>
                             </tr>
                         <?php
-                                }
+                               // }
                         ?>
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

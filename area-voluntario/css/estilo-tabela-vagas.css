@@ -431,6 +431,7 @@ td button
     font-family: poppins, sans-serif;
     font-weight: 300;
     font-size: 15px;
+    background-color: #fff;
     color: #fff;
     text-transform: uppercase;
 }

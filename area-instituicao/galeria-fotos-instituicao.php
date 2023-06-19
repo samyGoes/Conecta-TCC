@@ -183,7 +183,7 @@ include "../auth/loginUsuario.php";
         </div>
 
         <div class="voltar-perfil">
-            <a href="#">Voltar para o perfil</a>
+            <a href="../auth/redirecionamento-perfil-usuario.php">Voltar para o perfil</a>
         </div>
     </main>
 

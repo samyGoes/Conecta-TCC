@@ -338,9 +338,9 @@ require_once '../auth/verifica-logado.php';
             
 
 
+<!-- 
 
-
-            <!-- TÍTULO 2 -->
+             TÍTULO 2 
             <div class="container-titulo-1">
                 <h2 class="titulo-voluntarios"> Vagas em que foi Requisitado </h2>
                 <p class="frase-voluntarios">
@@ -350,7 +350,7 @@ require_once '../auth/verifica-logado.php';
             </div>
 
 
-            <!-- PESQUISA -->
+             PESQUISA 
             <div class="pesquisa-instituicao">
                 <i class="fa-solid fa-sliders"></i>
                 <input type="text" placeholder="Pesquisar...">
@@ -359,7 +359,7 @@ require_once '../auth/verifica-logado.php';
 
 
 
-            <!-- CARD 2 -->
+             CARD 2 
             <div class="container-cards">
                 <?php
 
@@ -371,12 +371,12 @@ require_once '../auth/verifica-logado.php';
                 ?>
                 <?php
                 //foreach ($listaVaga as $vaga) 
-                foreach ($vetor as $i) {
+                //foreach ($vetor as $i) {
                 ?>
                     <div class="card dois">
                         <div class="card-conteudo dois">
                             <a href="">
-                                <p class="card-nome-vaga"> <?php echo ($i); //echo $vaga['nomeservico']; 
+                                <p class="card-nome-vaga"> <?php //echo ($i); //echo $vaga['nomeservico']; 
                                                             ?> </p>
                             </a>
                         </div>
@@ -386,9 +386,10 @@ require_once '../auth/verifica-logado.php';
                         </div>
                     </div>
                 <?php
-                }
+                //}
                 ?>
             </div>
+            -->
         </div>
 
     </main>

@@ -5,14 +5,13 @@
 {
     display: flex;
     justify-content: center;
-    overflow-x:hidden
 }
 
 .conteiner-cards
 {
     display: flex;
     justify-content: center;
-    max-width: 80%;
+    max-width: 79rem;
     padding-top: 2rem;
 }
 
@@ -20,8 +19,14 @@
 {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 67%;
+}
+
+.box-card-sessao-1-cards, .box-card-sessao-1-tabelas
+{
+    display: flex;
+    gap: 1.5rem;
 }
 
 .box-card-sessao-2
@@ -101,7 +106,7 @@
 
 .anos ul
 {
-    margin-top: 2.2rem;
+    margin-top: 2rem;;
     padding: 0.1rem;
     float:right;
     font-size: 17px;
@@ -122,7 +127,7 @@
 
 /*teste*/
 #barras{
-    width:18rem;
+    width:17.5rem;
     float:left;
     margin-top: 1.3rem;
 }
@@ -223,13 +228,15 @@ td:nth-child(2)
 {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    border: 1px solid #000;
     object-fit: cover;
 }
 
 .td-divisao
 {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: flex-start;
     gap: 1rem;
 }
@@ -317,7 +324,7 @@ tbody::-webkit-scrollbar-thumb,
 
 
 /*RESPONSIVIDADE*/
-@media(max-width: 1865px)
+/* @media(max-width: 1865px)
 {
     .conteiner-cards
     {
@@ -386,4 +393,137 @@ tbody::-webkit-scrollbar-thumb,
 {
     
 }
+ */
 
+@media(max-width: 1538px)
+{
+    .conteiner-cards
+    {
+        max-width: 61rem;
+    }
+    .card-topo
+    {
+        width: 19rem;
+        height: 11rem;
+    }
+    .titulo-card, .titulo-table, .titulo-grafico
+    {
+        font-size: 13px;
+    }
+    .conteiner-cards i
+    {
+        font-size: 1.7rem;
+    }
+    .card-topo h1
+    {
+        font-size: 38px;
+    }
+    .table-responsive
+    {
+        width: 19rem;
+        height: 23.4rem;
+    }
+    .card-grafico
+    {
+        width: 19rem;
+        height: 36rem;
+    }
+    #barras
+    {
+        width: 15rem;
+    }
+    .barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8
+    {
+        height: 2.2rem;
+    }
+    .anos ul
+    {
+        font-size: 14px;
+        padding-right: 0.3rem;
+        margin-top: 1.8rem;
+    }
+    .porcentagem ul
+    {
+        font-size: 14px;
+    }
+    tbody
+    {
+        height: 302px;
+    }
+}
+
+
+
+@media(max-width: 1284px)
+{
+    .conteiner-cards
+    {
+        max-width: 52rem;
+    }
+    .card-topo
+    {
+        width: 16rem;
+        height: 9rem;
+    }
+    .titulo-card, .titulo-table, .titulo-grafico
+    {
+        font-size: 11px;
+        gap: 0.4rem;
+    }
+    .conteiner-cards i
+    {
+        font-size: 1.4rem;
+    }
+    .card-topo h1
+    {
+        padding-top: 1rem;
+        font-size: 34px;
+    }
+    .table-responsive
+    {
+        width: 16rem;
+        height: 20.4rem;
+    }
+    .table-responsive td
+    {
+        height: 3.4rem;
+        font-size: 13px;
+    }
+    .box-img
+    {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .td-divisao
+    {
+        gap: 0.5rem;
+    }
+    tbody
+    {
+        height: 256px;
+    }
+    .card-grafico
+    {
+        width: 16rem;
+        height: 31rem;
+    }
+    #barras
+    {
+        width: 12.7rem;
+        margin-top: 1.2rem;
+    }
+    .barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8
+    {
+        height: 2rem;
+    }
+    .anos ul
+    {
+        font-size: 11px;
+    }
+    .porcentagem ul
+    {
+        font-size: 11px;
+    }
+
+
+}

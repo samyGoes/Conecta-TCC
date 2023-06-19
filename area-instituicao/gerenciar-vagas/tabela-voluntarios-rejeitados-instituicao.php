@@ -191,7 +191,7 @@ require_once 'global.php';
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="tabela-voluntarios-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
                     </span></a>
             </div>
 
@@ -357,7 +357,6 @@ require_once 'global.php';
         <div class="conteudo-completo">
 
             <div class="container-botoes">
-                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
                 <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
                 <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Recusados </button></a>
                 <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>

@@ -164,132 +164,136 @@
             <div class="conteiner-cards">
 
                 <div class="box-card-sessao-1">
+                    <div class="box-card-sessao-1-cards">
+                        <div class="card-topo">
+                            <?php
+                            require_once 'global.php';
 
-                    <div class="card-topo">
-                        <?php
-                        require_once 'global.php';
+                            try {
+                                $row = DashboardDao::SelecionaInstituicao();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
 
-                        try {
-                            $row = DashboardDao::SelecionaInstituicao();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
+                            <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
+                            <h1><?php echo ($row[0]); ?></h1>
+                        </div>
 
-                        <div class="titulo-card"><i class="fa-solid fa-hand-holding-heart"></i> INSTITUÇÕES CADASTRADAS</div>
-                        <h1><?php echo ($row[0]); ?></h1>
-                    </div>
+                        <div class="card-topo">
 
-                    <div class="card-topo">
+                            <?php
+                            require_once 'global.php';
 
-                        <?php
-                        require_once 'global.php';
-
-                        try {
-                            $row = DashboardDao::SelecionaVoluntario();
-                        } catch (Exception $e) {
-                            echo $e->getMessage();
-                        }
-                        ?>
-                        <div class="titulo-card"> <i class="fa-solid fa-person"></i> VOLUNTÁRIOS CADASTRADOS</div>
-                        <h1><?php echo ($row[0]); ?></h1>
-                    </div>
-
-                    <div class="table">
-                        <div class="table-responsive">
-                            <div class="funcoes">
-                                <i class="fa-solid fa-star"></i>
-                                <div class="pra-guardar-titulos-tabela">
-                                    <div class="titulo-table"> MELHORES AVALIAÇÕES</div>
-                                    <div class="subtitulo-table">Instituições</div>
-                                </div>
-                            </div>
-                            <table>
-                                <tbody>
-                                <?php
-                                    require_once 'global.php';
-
-                                    try {
-                                        $row = DashboardDao::melhoresInstituicoes();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
-                                ?>
-                                    <?php
-                                        foreach ($row as $instituicao) {?> 
-                                    <tr>
-                                            <td>
-                                                <div class="td-divisao">
-                                                    <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
-                                                    <div class=".td-text"><?php echo $instituicao['nomeInstituicao']; ?></div>
-                                                </div>
-                                            </td>
-                                            <td> <?php echo $instituicao['estrelas']; ?></td>
-                                        </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                            try {
+                                $row = DashboardDao::SelecionaVoluntario();
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
+                            <div class="titulo-card"> <i class="fa-solid fa-person"></i> VOLUNTÁRIOS CADASTRADOS</div>
+                            <h1><?php echo ($row[0]); ?></h1>
                         </div>
                     </div>
-                    <div class="table">
 
-                        <div class="table-responsive">
-                            <div class="funcoes">
-                                <i class="fa-solid fa-star"></i>
-                                <div class="pra-guardar-titulos-tabela">
-                                    <div class="titulo-table"> MELHORES AVALIAÇÕES</div>
-                                    <div class="subtitulo-table"> Voluntários</div>
+                    <div class="box-card-sessao-1-tabelas">
+                        <div class="table">
+                            <div class="table-responsive">
+                                <div class="funcoes">
+                                    <i class="fa-solid fa-star"></i>
+                                    <div class="pra-guardar-titulos-tabela">
+                                        <div class="titulo-table"> MELHORES AVALIAÇÕES</div>
+                                        <div class="subtitulo-table">Instituições</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <table>
-                                <tbody>
+                                <table>
+                                    <tbody>
                                     <?php
-
-
                                         require_once 'global.php';
 
                                         try {
-                                            $row = DashboardDao::melhoresVoluntarios();
+                                            $row = DashboardDao::melhoresInstituicoes();
                                         } catch (Exception $e) {
                                             echo $e->getMessage();
                                         }
-
-                                        if(empty($row))
-                                        {
                                     ?>
+                                        <?php
+                                            foreach ($row as $instituicao) {?> 
                                         <tr>
-                                            <td> Sem notificações...</td>
-                                        </tr>
-                                    <?php
-                                        }
-                                        else
-                                        {                                       
-                                            foreach ($row as $voluntario) { ?>
-                                                <tr>
-                                                    <td>
-                                                        <div class="td-divisao">
-                                                            <div class="box-img">
-                                                                <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
-                                                            </div>
-                                                            <div class=".td-text">
-                                                                <?php echo $voluntario['nomeVoluntario']; ?>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td> <?php echo $voluntario['estrelas']; ?></td>
-                                                </tr>
-                                            <?php
-                                            }
+                                                <td>
+                                                    <div class="td-divisao">
+                                                        <div class="box-img"><img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>"></div>
+                                                        <div class=".td-text"><?php echo $instituicao['nomeInstituicao']; ?></div>
+                                                    </div>
+                                                </td>
+                                                <td> <?php echo $instituicao['estrelas']; ?></td>
+                                            </tr>
+                                        <?php
                                         }
                                         ?>
-                                        
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="table">
+
+                            <div class="table-responsive">
+                                <div class="funcoes">
+                                    <i class="fa-solid fa-star"></i>
+                                    <div class="pra-guardar-titulos-tabela">
+                                        <div class="titulo-table"> MELHORES AVALIAÇÕES</div>
+                                        <div class="subtitulo-table"> Voluntários</div>
+                                    </div>
+                                </div>
+                                <table>
+                                    <tbody>
+                                        <?php
+
+
+                                            require_once 'global.php';
+
+                                            try {
+                                                $row = DashboardDao::melhoresVoluntarios();
+                                            } catch (Exception $e) {
+                                                echo $e->getMessage();
+                                            }
+
+                                            if(empty($row))
+                                            {
+                                        ?>
+                                            <tr>
+                                                <td> Sem notificações...</td>
+                                            </tr>
+                                        <?php
+                                            }
+                                            else
+                                            {                                       
+                                                foreach ($row as $voluntario) { ?>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="td-divisao">
+                                                                <div class="box-img">
+                                                                    <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
+                                                                </div>
+                                                                <div class=".td-text">
+                                                                    <?php echo $voluntario['nomeVoluntario']; ?>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td> <?php echo $voluntario['estrelas']; ?></td>
+                                                    </tr>
+                                                <?php
+                                                }
+                                            }
+                                            ?>
+                                            
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
+                    
                 </div>
 
                 <div class="box-card-sessao-2">
