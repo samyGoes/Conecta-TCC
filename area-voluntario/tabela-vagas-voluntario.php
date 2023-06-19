@@ -542,6 +542,7 @@
                                  <!-- <form action="" method="post"> -->
                                         <?php
                                             $codServico = $vagaCandidatada['codServico'];
+                                            $nomeInstituicao = $instituicao['nomeInstituicao'];
                                             $status = $vagaCandidatada['statusCandidatura'];
                                             //$instituicao = $vagaCandidatada['nomeInstituicao'];
 
@@ -549,7 +550,7 @@
                                             $nomeVaga = $servico['nomeservico'];                                  
                                         ?>
 
-                                        <td class="td-table-c"> <?php //echo $instituicao; ?> </td>
+                                        <td class="td-table-c"> <?php echo $nomeInstituicao; ?> </td>
                                         <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">
