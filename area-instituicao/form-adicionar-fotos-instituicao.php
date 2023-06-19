@@ -404,7 +404,7 @@
                             <div class="visualizar-btns"> 
                                 <button class="btn-visualizar"> visualizar </button>
                                 <form action="" method="post">
-                                    <button class="btn-excluir"> excluir </button>
+                                    <button id="btnExcluir" value="<?php $foto["codfotoInstituicao"]; ?>" class="btn-excluir"> excluir </button>
                                 </form>
                             </div>
 
@@ -429,9 +429,9 @@
                                 Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
                             </label>
                             <div class="btn-exit" id="btn-exit">
-                            <form action="excluir-imagem-instituicao-galeria.php" method="post">  
-                                <button name="btnExcluir" class="btn-excluir" onclick="excluirImagem(<?php echo $foto['codfotoInstituicao']; ?>)" value="<?php $foto['codfotoInstituicao']; ?>">excluir</button>
-                            </form>
+                            <!-- <form method="post">   -->
+                                <button class="btn-excluir">excluir</button>
+                            <!-- </form>  -->
 
                             <?php
 
@@ -440,7 +440,7 @@
                                     try {
                                         $codFoto = $_POST[''];
                                         $excluirFoto = GaleriaInstituicaoDao::excluir($codFoto);
-                                        echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
+                                        //echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
                                     }
@@ -457,9 +457,6 @@
         </main>
 
                 
-                
-            
-            
         
 
 
@@ -472,7 +469,7 @@
         <script type="module" src="imports/modal-galeria.js"></script>
         <script type="module" src="js/preview-img-galeria.js"></script>
         <script src="js/modal-exclusao.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/treco-para-o-modal-de-excluir.js"></script>
 
     </body>
 

@@ -3,7 +3,7 @@ async function verificaEmail()
 {  
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "tabela-voluntarios-instituicao.php", true); // application/json
+    // xhr.open("POST", "tabela-voluntarios-instituicao.php", true); // application/json
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     return new Promise((resolve, reject) => 
@@ -15,7 +15,7 @@ async function verificaEmail()
                 try 
                 {
                     var valores = JSON.parse(xhr.responseText);
-                    console.log(valores);
+                    console.log(xhr.responseText);
                     
                     if (valores.status === true) 
                     {

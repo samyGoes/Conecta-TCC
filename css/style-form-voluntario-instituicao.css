@@ -157,7 +157,7 @@ body {
 }
 .div-vazia-kk
 {
-    height: 3.7rem;
+    height: 3.8rem;
 }
 .input-box {
     display: flex;
@@ -248,7 +248,61 @@ input::placeholder {
     transform: translateX(1.2rem);
 }
 
+#input-box-termos
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
+.aa
+{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+}
+
+#input-box-termos input
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #525252;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+
+}
+
+#input-box-termos input[type = "checkbox"]:checked::before
+{
+    content: '\2713';
+    display: block;
+    color: #fff;
+    background-color: #cf8a3f;    
+    text-align: center;
+   
+    line-height: 13px;
+    font-size: 13px;
+}
+
+#input-box-termos a
+{
+    text-decoration: none;
+    font-size: 13px;
+    color: #4567a5;
+    transition: all 0.5s ease;
+}
+
+#input-box-termos a:hover
+{
+    color: #e2be89;
+}
 
 /* BOTÕES */
 .continue-button,
@@ -524,9 +578,15 @@ input::placeholder {
 
     .input-box input,
     .input-box select,
-    #input-box-switch {
+    #input-box-switch,
+    #input-box-termos {
         width: 80vw;
         margin-bottom: 1.5rem;
+    }
+
+    #input-box-switch
+    {
+        margin-bottom: 1rem;
     }
 
     .switch-container .input-switch
@@ -620,7 +680,10 @@ input::placeholder {
     .continue-button a {
         font-size: 0.9rem;
     }
-    
+    #input-box-switch
+    {
+        margin-right: 4rem;
+    }
 }
 @media(max-width: 422px) 
 {
