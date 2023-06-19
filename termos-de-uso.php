@@ -12,7 +12,7 @@
 
             <div class="box-conteudo-completo">
                 <div class="conteudo-sessoes">
-                    <h1> (IDENTIFICAÇÃO DO ORGÃO OU ENTIDADE) </h1>
+                    <div class="box-img-logo"> <img src="img/logo-conecta-variante.png" alt=""> </div>
                     <h1> TERMO DE USO </h1>
                     <h2> 1. Aceitação do termo de uso </h2>
     
@@ -230,7 +230,7 @@
                 </div>
                 
                 <div class="conteudo-sessoes">
-                    <h2 class="titulo-privacidade"> 6. POLÍTICA DE PRIVACIDADE </h2>
+                    <h2> 6. POLÍTICA DE PRIVACIDADE </h2>
     
                     <p>
                         A Política de Privacidade estabelecida e utilizada pela Conecta trata da utilização de dados pessoais.  
@@ -259,17 +259,9 @@
                     </p>
                 </div>
     
-                <div class="conteudo-sessoes">
-                    <h2> 9. FORO </h2>
-    
-                    <p>
-                        Este Termo será regido pela legislação brasileira. Qualquer reclamação ou controvérsia com base neste Termo será dirimida exclusivamente pela comarca/seção judiciária de inserir Município/Estado/Órgão Judiciário.
-                        Sem prejuízo de qualquer outra via administrativa ou judicial disponível, todos os titulares de dados pessoais têm direito a apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).
-                    </p>
-                </div>
     
                 <div class="conteudo-sessoes">
-                    <h1> POLÍTICA DE PRIVACIDADE </h1>
+                    <h1 class="titulo-privacidade"> POLÍTICA DE PRIVACIDADE </h1>
                     <h2> 1. DEFINIÇÕES </h2>
     
                     <p>
@@ -277,82 +269,82 @@
                     </p>
     
                     <p>
-                        Agentes de tratamento: <br>
-                        O controlador e o operador. 
+                        <span> Agentes de tratamento: </span><br>
+                       O controlador e o operador. 
                     </p>
                    
                     <p>
-                        Anonimização: <br>	
+                        <span> Anonimização: </span><br>	
                         Utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo. 
                     </p>
     
                     <p>
-                        Autoridade Nacional: <br>	
+                        <span> Autoridade Nacional: </span><br>	
                         Órgão da administração pública responsável por zelar, implementar e fiscalizar o cumprimento desta Lei em todo o território nacional. 
                     </p>
                 
                     <p>
-                        Banco de Dados:	<br> 
+                        <span> Banco de Dados: </span><br> 
                         Conjunto estruturado de dados pessoais, estabelecido em um ou em vários locais, em suporte eletrônico ou físico. 
                     </p>
     
                     <p>
-                        Consentimento: <br> 
+                        <span> Consentimento: </span><br> 
                         Manifestação livre, informada e inequívoca pela qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada. 
                     </p>
     
                     <p>
-                        Controlador: <br>
+                        <span> Controlador: </span><br>
                         Pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais. 
                     </p>
     
                     <p>
-                        Dado Anonimizado: <br>
+                        <span> Dado Anonimizado: </span><br>
                         Dado relativo a um titular que não possa ser identificado, considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento. 
                     </p>
     
                     <p>
-                        Dado Pessoal: <br>
+                        <span> Dado Pessoal: </span><br>
                         Informação relacionada a uma pessoa natural identificada ou identificável. 
                     </p>
     
                     <p>
-                        Dado Pessoal Sensível: <br>
+                        <span> Dado Pessoal Sensível: </span><br>
                         Dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural. 
                     </p>
     
                     <p>
-                        Encarregado: <br>
+                        <span> Encarregado: </span><br>
                         Pessoa indicada pelo controlador e operador para atuar como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD). 
                     </p>
     
                     <p>
-                        Operador: <br>
+                        <span> Operador: </span><br>
                         Pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador. 
                     </p>
     
                     <p>
-                        Órgão de Pesquisa: <br>
+                        <span> Órgão de Pesquisa: </span><br>
                         Órgão ou entidade da administração pública direta ou indireta ou pessoa jurídica de direito privado sem fins lucrativos, legalmente constituída sob as leis brasileiras e com sede e foro no País, que inclua em sua missão institucional ou em seu objetivo social ou estatutário a pesquisa básica ou aplicada de caráter histórico, científico, tecnológico ou estatístico. 
                     </p>
     
                     <p>
-                        Titular: <br>
+                        <span> Titular: </span><br>
                         Pessoa natural a quem se referem os dados pessoais que são objeto de tratamento. 
                     </p>
     
                     <p>
-                        Transferência Internacional de Dados: <br>
+                        <span> Transferência Internacional de Dados: </span><br>
                         Transferência de dados pessoais para país estrangeiro ou organismo internacional do qual o país seja membro. 
                     </p>
     
                     <p>
-                        Tratamento:	<br>
+                        <span> Tratamento: </span><br>
                         Toda operação realizada com dados pessoais, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação ou controle da informação, modificação, comunicação, transferência, difusão ou extração. 
                     </p>
     
                     <p>
-                        Uso Compartilhado de Dados: <br>
+                        <span> Uso Compartilhado de Dados: </span><br>
                         Comunicação, difusão, transferência internacional, interconexão de dados pessoais ou tratamento compartilhado de bancos de dados pessoais por órgãos e entidades públicos no cumprimento de suas competências legais, ou entre esses e entes privados, reciprocamente, com autorização específica, para uma ou mais modalidades de tratamento permitidas por esses entes públicos, ou entre entes privados.
                     </p>
     
@@ -400,20 +392,60 @@
                     </li>
                     </ul>
                 </div>
-    
-                 <div class="conteudo-sessoes">
-                    <h2> 3. CONTROLADOR </h2>
-    
+
+                <div class="conteudo-sessoes">
+                    <h2> 3. DIREITOS DO TITULAR DE DADOS PESSOAIS </h2>
+
                     <p>
-                        A quem competem as decisões referentes ao tratamento de dados pessoais realizado no serviço inserir Nome do Serviço (Controlador)?
-                        A Lei Geral de Proteção de Dados Pessoais define como controlador, em seu Art. 5º, inciso VI, a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais.
-                        Para o serviço inserir Nome do Serviço, as decisões referentes ao tratamento de dados pessoais são de responsabilidade do inserir o Nome do Controlador. <br>
-                        <span> Endereço: </span> inserir o endereço do Controlador.
-                        <span> E-mail: </span> inserir um e-mail para contato com o Controlador.
-                        <span> Telefone: </span> inserir um telefone para contato com o Controlador.
-    
+                        Quais são os direitos do titular de dados pessoais?
+                        O titular de dados pessoais possui os seguintes direitos, conferidos pela Lei Geral de Proteção de Dados Pessoais (LGPD):
                     </p>
-                 </div>
+
+                    <ul>
+                        <li> Direito de confirmação e acesso (Art. 18, incisos I e II): é o direito do titular de dados de obter do serviço a confirmação de que os dados pessoais que lhe digam respeito são ou não objeto de tratamento e, se for esse o caso, o direito de acessar os seus dados pessoais.</li>
+                        <li> Direito de retificação (Art. 18, inciso III): é o direito de solicitar a correção de dados incompletos, inexatos ou desatualizados. </li>
+                        <li> Direito à limitação do tratamento dos dados (Art. 18, inciso IV): é o direito do titular de dados de limitar o tratamento de seus dados pessoais, podendo exigir a eliminação de dados desnecessários, excessivos ou tratados em desconformidade com o disposto na Lei Geral de Proteção de Dados Pessoais. </li>
+                        <li> Direito de oposição (Art. 18, § 2º): é o direito do titular de dados de, a qualquer momento, opor-se ao tratamento de dados por motivos relacionados com a sua situação particular, com fundamento em uma das hipóteses de dispensa de consentimento ou em caso de descumprimento ao disposto na Lei Geral de Proteção de Dados Pessoais. </li>
+                        <li> Direito de portabilidade dos dados (Art. 18, inciso V): é o direito do titular de dados de realizar a portabilidade dos dados a outro fornecedor de serviço ou produto, mediante requisição expressa, de acordo com a regulamentação da autoridade nacional, observados os segredos comercial e industrial. </li>
+                        <li> Direito de não ser submetido a decisões automatizadas (Art. 20): o titular dos dados tem direito a solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses, incluídas as decisões destinadas a definir o seu perfil pessoal, profissional, de consumo e de crédito ou os aspectos de sua personalidade.  </li>
+                    </ul>
+                </div>
+
+                <div class="conteudo-sessoes">
+                    <h2> 4. SEGURANÇA DOS DADOS </h2>
+
+                    <p>               
+                        O serviço Coneta se compromete a aplicar as medidas técnicas e organizativas aptas a proteger os dados pessoais de acessos não autorizados e de situações de destruição, perda, alteração, comunicação ou difusão de tais dados.
+                        Para a garantia da segurança, serão adotadas soluções que levem em consideração: as técnicas adequadas; os custos de aplicação; a natureza, o âmbito, o contexto e as finalidades do tratamento; e os riscos para os direitos e liberdades do usuário.
+                        O serviço utiliza criptografia para que os dados sejam transmitidos de forma segura e confidencial, de maneira que a transmissão dos dados entre o servidor e o usuário, e em retroalimentação, ocorra de maneira totalmente cifrada ou encriptada.
+                        No entanto, o serviço se exime de responsabilidade por culpa exclusiva de terceiros, como em caso de ataque de hackers ou crackers, ou culpa exclusiva do usuário, como no caso em que ele mesmo transfere seus dados a terceiro. O serviço Conecta se compromete, ainda, a comunicar o usuário em prazo adequado caso ocorra algum tipo de violação da segurança de seus dados pessoais que possa lhe causar um alto risco para seus direitos e liberdades pessoais.
+                        A violação de dados pessoais é uma violação de segurança que provoque, de modo acidental ou ilícito, a destruição, a perda, a alteração, a divulgação ou o acesso não autorizado a dados pessoais transmitidos, conservados ou sujeitos a qualquer outro tipo de tratamento.
+                        Por fim, o serviço se compromete a tratar os dados pessoais do usuário com confidencialidade, dentro dos limites legais.
+                    </p>
+                </div>
+
+                <div class="conteudo-sessoes">
+                    <h2> 5. COOKIES </h2>
+
+                    <p>
+                        Cookies são pequenos arquivos de texto enviados pelo site ao computador do usuário e que nele ficam armazenados, com informações relacionadas à navegação do site.
+                        Por meio dos cookies, pequenas quantidades de informação são armazenadas pelo navegador do usuário para que o servidor do serviço possa lê-las posteriormente. Podem ser armazenados, por exemplo, dados sobre o dispositivo utilizado pelo usuário, bem como seu local e horário de acesso ao site.
+                        É importante ressaltar que nem todo cookie contém dados pessoais do usuário, já que determinados tipos de cookies podem ser utilizados somente para que o serviço funcione corretamente. 
+                        As informações eventualmente armazenadas em cookies também são consideradas dados pessoais. Todas as regras previstas nesta Política de Privacidade também são aplicáveis aos referidos cookies.
+                    </p>
+                </div>
+               
+                <div class="conteudo-sessoes">
+                    <h2> 6. MUDANÇAS NA POLÍTICA DE PRIVACIDADE </h2>
+
+                    <p>
+                        A presente versão 1.0 desta Política de Privacidade foi atualizada pela última vez em: 19/06/2023.
+                        O editor se reserva o direito de modificar, a qualquer momento o site as presentes normas, especialmente para adaptá-las às evoluções do serviço Conecta, seja pela disponibilização de novas funcionalidades, seja pela supressão ou modificação daquelas já existentes.
+                        Esta Política de Privacidade poderá ser atualizada em decorrência de eventual atualização normativa, razão pela qual se convida o usuário a consultar periodicamente esta seção. 
+                    </p>
+                </div>
+                
+                <div id="logo" class="box-img-logo"> <img src="img/logo-conecta-variante.png" alt=""> </div>
             </div>
            
             
