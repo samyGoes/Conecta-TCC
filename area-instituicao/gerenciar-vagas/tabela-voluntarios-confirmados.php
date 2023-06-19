@@ -393,7 +393,6 @@ include "../../auth/verifica-logado.php";
                                 <th> Cidade </th>
                                 <th> UF </th>
                                 <th> Vaga </th>
-                                <th> Chat </th>
                                 <th> Avaliar </th>
                             </tr>
                         </thead>
@@ -428,14 +427,7 @@ include "../../auth/verifica-logado.php";
                                         <td>18 anos</td>
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
-                                        <td><?php echo $voluntario['nomeservico']; ?></td>
-                                        <td> 
-                                            <form action="" method="post">
-                                                <!-- <input type="hidden" name="codCategoriaServico" value="<?//php echo $codCategoriaServico?>"> -->
-                                                <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
-                                            </form>
-                                        </td>
-                                                    
+                                        <td><?php echo $voluntario['nomeservico']; ?></td>     
                                         <td>
                                             <form action="" method="post">   
                                                 <!-- <input type="hidden" name="codCategoriaServico" value="<?//php echo $codCategoriaServico?>">  -->
