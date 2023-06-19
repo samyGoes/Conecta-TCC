@@ -347,7 +347,6 @@ require_once '../auth/verifica-logado.php';
             // $t = 'Voluntario';
             $id1 = $_SESSION['codUsuario'];
             try {
-                $listaVoluntario = VoluntarioDao::listarChat($id1); // Passar o código da vaga para a consulta
                 $listaInsitituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
@@ -356,7 +355,6 @@ require_once '../auth/verifica-logado.php';
             <?php
 
             foreach ($listaInsitituicao as $instituicao) {
-                foreach ($listaVoluntario as $voluntario) {
 
             ?>
 
@@ -374,19 +372,6 @@ require_once '../auth/verifica-logado.php';
                         <div class="scroll-chat" id="scroll-chat">
                             <div class="main-chat">
                                 <div class="mensagens" id="mensagens">
-                                    <!-- <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                                 </div>
                             </div>
                         </div>
@@ -404,7 +389,6 @@ require_once '../auth/verifica-logado.php';
 
             <?php
                 }
-            }
             ?>
 
             <a class="link-voltar-anterior" href="../area-voluntario/tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>

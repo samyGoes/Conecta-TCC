@@ -520,24 +520,22 @@
                             <?php
                             require_once 'global.php';
                             $codVoluntario = $_SESSION['codUsuario'];
-
                             try {
                                 $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
-                                $listaInstituicao = InstituicaoDao::listar();
+                                $listaInstituicao = CandidaturaDao::listarVoluntario($codVoluntario);
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
 
-                            <?php foreach ($listaInstituicao as $instituicao) { 
-                                $t = 'Instituicao';
-                                $c = $instituicao['codInstituicao'];
-                            ?>
                             
                             <?php
                             foreach ($listaVagasCandidatadas as $vagaCandidatada) {
+                                foreach ($listaInstituicao as $instituicao) { 
                                 $codCandidatura = $vagaCandidatada['codCandidatura'];
-                              
+                                
+                                    $t = 'Instituicao';
+                                    $c = $instituicao['codInstituicao'];
                             ?>
                                  <!-- <form action="" method="post"> -->
                                         <?php
@@ -549,7 +547,7 @@
                                             $nomeVaga = $servico['nomeservico'];                                  
                                         ?>
 
-                                        <td class="td-table-c"> <?php //echo $instituicao; ?> </td>
+                                        <td class="td-table-c"> <?php echo $instituicao['nomeInstituicao']; ?> </td>
                                         <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">

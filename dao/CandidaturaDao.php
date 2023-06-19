@@ -32,6 +32,35 @@ class CandidaturaDao
         return $lista;
     }
 
+    public static function listarVoluntario($idVoluntarioLogada)
+    {
+        $conexao = Conexao::conectar();
+        $idInstituicaoLogada = $_SESSION['codUsuario'];
+        if (isset($_POST['pesquisar'])) {
+            $pesquisar = $_POST['pesquisar'];
+
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.codServico, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            FROM tbCandidatura
+            INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+            INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+            INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+            WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'pendente' AND (tbVoluntario.nomeVoluntario LIKE '%$pesquisar%' OR tbServico.nomeservico LIKE '%$pesquisar%')";
+        
+        } else {
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, nomeInstituicao, descInstituicao, emailInstituicao, cidadeInstituicao, estadoInstituicao, paisInstituicao, fotoInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+        FROM tbCandidatura
+        INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
+        INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
+        INNER JOIN tbInstituicao ON tbServico.codInstituicao = tbInstituicao.codInstituicao
+        WHERE tbVoluntario.codVoluntario = ? ";
+        }
+
+        $resultado = $conexao->prepare($querySelect);
+        $resultado->execute(array($idVoluntarioLogada));
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
+
 
     public static function listarCandidaturasRecusadas($idInstituicaoLogada)
     {
@@ -98,10 +127,6 @@ class CandidaturaDao
 
         return $resultado;
     }
-
-
-
-
 
 
 

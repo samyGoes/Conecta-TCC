@@ -238,14 +238,12 @@ include "../../auth/verifica-logado.php";
 
             try {
                 $listaVoluntario = VoluntarioDao::listarPorId($id); // Passar o código da vaga para a consulta
-                $listaInsitituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
             ?>
 
             <?php foreach ($listaVoluntario as $voluntario) {
-                foreach ($listaInsitituicao as $instituicao) {
 
             ?>
 
@@ -301,7 +299,7 @@ include "../../auth/verifica-logado.php";
 
             <?php
                 }
-            }
+            
             ?>
 
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
