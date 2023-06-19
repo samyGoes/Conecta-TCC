@@ -395,6 +395,7 @@ tbody::-webkit-scrollbar-thumb,
 }
  */
 
+
 @media(max-width: 1538px)
 {
     .conteiner-cards
@@ -435,6 +436,45 @@ tbody::-webkit-scrollbar-thumb,
     .barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8
     {
         height: 2.2rem;
+    }
+}
+
+ @media(max-width: 1415px)
+ {
+    .conteiner-cards
+    {
+        max-width: 89%;
+    }
+    .card-topo
+    {
+        width: 17rem;
+        height: 8rem;
+    }
+    .card-topo h1
+    {
+        font-size: 2rem;
+        padding-top: 0.6rem;
+    }
+    .funcoes i
+    {
+        font-size: 1.5rem;
+    }
+    .table-responsive
+    {
+        width: 17rem;
+    }
+    .card-grafico
+    {
+        width: 20rem;
+        height: 36.5rem;
+    }
+    .barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8
+    {
+        height: 2.4rem;
+    }
+    .titulo-card i
+    {
+        font-size: 1.5rem;
     }
     .anos ul
     {
@@ -524,6 +564,7 @@ tbody::-webkit-scrollbar-thumb,
     {
         font-size: 11px;
     }
-
-
 }
+
+
+

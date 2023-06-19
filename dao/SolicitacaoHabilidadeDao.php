@@ -28,14 +28,14 @@
         }
 
     
-        public static function aceitarSolicitacao($nomeCategoria, $idSolicitacao)
+        public static function aceitarSolicitacao($nomeHabilidade, $idSolicitacao)
         {
             $conexao = Conexao::conectar();
         
             $queryAceito = "UPDATE tbSolicitacaoHabilidade SET statusSolicitacao = 'aceito' WHERE codSolicitacaoHabilidade = $idSolicitacao";
             $conexao->query($queryAceito);
         
-            $queryInsert = "INSERT INTO tbCategoriaServico (nomeCategoria) VALUES ('$nomeCategoria')";
+            $queryInsert = "INSERT INTO tbSolicitacaoHabilidade (nomeHabilidade) VALUES ('$nomeHabilidade')";
             $conexao->query($queryInsert);
         
             //echo "Sua solicitação foi aceita";
