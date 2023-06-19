@@ -553,16 +553,12 @@ include "../../auth/verifica-logado.php";
                                             </a>
                                         </td>
                                         <td><?php echo $voluntario['nomeVoluntario']; ?></td>
-                                        <td>18 anos</td>
+                                        <td><?php echo $voluntario['idade'];?> anos</td>
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
                                         <td>
-                                            <form action="" method="post">
-                                                <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
-                                                                                                            ?>"> -->
                                                 <a href="<?php echo '../../auth/redirecionamento-chat-instituicao.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
-                                            </form>
                                         </td>
                                         <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
                                         <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
@@ -583,9 +579,9 @@ include "../../auth/verifica-logado.php";
                                     try {
                                         $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
 
-                                        $email = CandidaturaDao::buscaEmail($codCandidatura);
+                                        // $email = CandidaturaDao::buscaEmail($codCandidatura);
 
-                                        echo json_encode(['status' => true, 'nome' => $email['nome']]);
+                                        // echo json_encode(['status' => true, 'nome' => $email['nome']]);
 
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
                                     } catch (Exception $e) {
@@ -732,7 +728,7 @@ include "../../auth/verifica-logado.php";
             });
         });
     </script>
-    <script src='js/envia-email-login.js'></script>
+    <!-- <script src='js/envia-email-login.js'></script> -->
 
 </body>
 
