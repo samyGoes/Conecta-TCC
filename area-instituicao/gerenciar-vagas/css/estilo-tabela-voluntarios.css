@@ -95,7 +95,7 @@
 }
 
 .table-responsive {
-    width: 861px;
+    width: 972px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
@@ -274,7 +274,8 @@ td:nth-child(7) {
 
 th:nth-child(8),
 td:nth-child(8),
-td:nth-child(9)
+td:nth-child(9),
+td:nth-child(10)
 {
     min-width: 110px;
     max-width: 110px;
@@ -282,8 +283,13 @@ td:nth-child(9)
 
 th:nth-child(9)
 {
-    min-width: 122px;
-    max-width: 122px;
+    min-width: 110px;
+    max-width: 110px;
+}
+
+th:nth-child(10) {
+    min-width: 123px;
+    max-width: 110px;
     border-right: none !important;
 }
 
@@ -409,7 +415,12 @@ td button
     color: #af4141;
 }
 
-
+#td-icone-chat {
+    font-size: 27px;
+    color: #4567a5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
 
 
 

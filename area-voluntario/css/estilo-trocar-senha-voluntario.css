@@ -7,7 +7,7 @@
     background-color: #ffffff;
     border: 1px solid #4567a5;
     border-radius: 0.5rem;
-    box-shadow: 5px 5px 5px #b4d8e6;
+    box-shadow: 5px 5px 5px #cfe6b4;
     padding: 50px;
     width: 390px;
     height: 400px;
@@ -57,11 +57,17 @@
     padding-left: 4%;
 }
 
+.continue-button
+{
+    display: flex;
+    justify-content: center;
+}
+
 .continue-button button {
     width: 10rem;
     padding: 0.2rem;
     border-radius: 0.5rem;
-    margin-top: 10%;
+    margin-top: 1.2rem;
     background-color: #cf8a3f;
     border: 1px solid #cf8a3f;
     transition: all 0.5s ease;
@@ -85,21 +91,31 @@
 
 
 /* RESPONSIVIDADE */
-@media (max-width: 425px)
+@media (max-width: 453px)
 {
-    .div-card{
-        width: 75%;
-        height: 100vh;
-        padding: 5%;
+    .card
+    {
+        width: auto;
+        border-radius: 0;
+        padding: 0;
+        height: 386px;
     }
-    .div-card .card{
-        width: 75vw;
-        height: 60vh;
+    form
+    {
+        width: 80%;
     }
-    .div-card .card .input-group{
-        width: 30vw;
-        height: auto;
-        display: flex;
-        justify-content: center;
+    .input-group
+    {
+        gap: 2rem;
     }
+    .input-box
+    {
+        width: 100%;
+        margin: 0;
+    }
+    .continue-button button 
+    {
+        margin-top: 2rem;
+    }
+   
 }

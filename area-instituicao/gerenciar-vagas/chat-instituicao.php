@@ -238,39 +238,40 @@ include "../../auth/verifica-logado.php";
 
             try {
                 $listaVoluntario = VoluntarioDao::listarPorId($id); // Passar o código da vaga para a consulta
+                $listaInsitituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
             ?>
 
             <?php foreach ($listaVoluntario as $voluntario) {
-
+                foreach ($listaInsitituicao as $instituicao) {
 
             ?>
 
-                <!-- TÍTULO 1 -->
-                <div class="container-titulo-1">
-                    <h2 class="titulo-voluntarios"> Chat </h2>
-                    <p class="frase-voluntarios">
-                        Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
-                    </p>
-                </div>
-
-                <div class="chat-container" id="chat-container">
-                    <div class="chat-header">
-                        <div class="nome-user">
-                            <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
-                            <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
-                        </div>
-                        <div class="pesquisar-chat">
-                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
-                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                        </div>
+                    <!-- TÍTULO 1 -->
+                    <div class="container-titulo-1">
+                        <h2 class="titulo-voluntarios"> Chat </h2>
+                        <p class="frase-voluntarios">
+                            Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
+                        </p>
                     </div>
-                    <div class="scroll-chat" id="scroll-chat">
-                        <div class="main-chat">
-                            <div class="mensagens" id="mensagens">
-                                <!-- <div class="area-voluntario">
+
+                    <div class="chat-container" id="chat-container">
+                        <div class="chat-header">
+                            <div class="nome-user">
+                                <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
+                                <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
+                            </div>
+                            <div class="pesquisar-chat">
+                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                            </div>
+                        </div>
+                        <div class="scroll-chat" id="scroll-chat">
+                            <div class="main-chat">
+                                <div class="mensagens" id="mensagens">
+                                    <!-- <div class="area-voluntario">
                                 <div class="foto-voluntario">
                                     <img src="../img-instituicao/6.jpg" alt="foto">
                                 </div>
@@ -283,28 +284,35 @@ include "../../auth/verifica-logado.php";
                                     </div>
                                 </div>
                             </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-footer">
+                            <div class="fundo-footer">
+                                <div class="enviar-mensagem">
+                                    <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                                </div>
+                                <button type="" class="button-send" id="btn1">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="chat-footer">
-                        <div class="fundo-footer">
-                            <div class="enviar-mensagem">
-                                <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                            </div>
-                            <button type="" class="button-send" id="btn1">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
-            <?php } ?>
+            <?php
+                }
+            }
+            ?>
 
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
         </div>
     </main>
     <script>
         var conn = new WebSocket('ws://localhost:3000');
+        var inp_message = document.getElementById('enviar-mensagem');
+        var btn_env = document.getElementById('btn1');
+        var area_content = document.getElementById('mensagens');
+        var scroll = document.getElementById('scroll-chat');
 
         conn.onopen = function(e) {
             //console.log("Connection established!");
@@ -315,15 +323,15 @@ include "../../auth/verifica-logado.php";
             showMessages('area-voluntario', e.data);
         };
 
-        //conn.send('Hello World!');
-        ///////////////////////////////////////////////
-        var inp_message = document.getElementById('enviar-mensagem');
-        var btn_env = document.getElementById('btn1');
-        var area_content = document.getElementById('mensagens');
-        var scroll = document.getElementById("scroll-chat");
+        btn_env.addEventListener('click', sendMessage);
+        inp_message.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
 
-        btn_env.addEventListener('click', function() {
-            if (inp_message.value != '') {
+        function sendMessage() {
+            if (inp_message.value !== '') {
                 var msg = {
                     'msg': inp_message.value
                 };
@@ -335,11 +343,9 @@ include "../../auth/verifica-logado.php";
 
                 inp_message.value = '';
 
-                scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+                scroll.scrollTop = scroll.scrollHeight; // Scroll to the bottom
             }
-        });
-
-
+        }
 
         function showMessages(papelRemetente, data) {
             data = JSON.parse(data);
@@ -349,14 +355,12 @@ include "../../auth/verifica-logado.php";
             var srcFotoRemetente, srcFotoDestinatario, containerClass;
             var mensagemClass, fotoClass;
             if (papelRemetente === 'me') {
-                srcFotoRemetente = "../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>";
-                srcFotoDestinatario = "../img-instituicao/6.jpg";
+                srcFotoRemetente = "../../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>";
                 containerClass = 'area-instituicao me';
                 mensagemClass = 'mensagem-instituicao';
                 fotoClass = 'foto-instituicao';
             } else if (papelRemetente === 'area-voluntario') {
-                srcFotoRemetente = "../img-instituicao/6.jpg";
-                srcFotoDestinatario = "../img-instituicao/9.jpg";
+                srcFotoDestinatario = "../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>"
                 containerClass = 'area-voluntario';
                 mensagemClass = 'mensagem-voluntario';
                 fotoClass = 'foto-voluntario';
@@ -365,8 +369,14 @@ include "../../auth/verifica-logado.php";
             var div = document.createElement('div');
             div.setAttribute('class', containerClass);
 
-            var divInstituicao = document.createElement('div');
-            divInstituicao.setAttribute('class', 'instituicao');
+            var divFoto = document.createElement('div');
+            divFoto.setAttribute('class', fotoClass);
+
+            var img = document.createElement('img');
+            img.setAttribute('src', (papelRemetente === 'me') ? srcFotoRemetente : srcFotoDestinatario);
+            img.setAttribute('alt', 'foto');
+
+            divFoto.appendChild(img);
 
             var divMensagem = document.createElement('div');
             divMensagem.setAttribute('class', mensagemClass);
@@ -378,25 +388,10 @@ include "../../auth/verifica-logado.php";
             p.textContent = data.msg;
 
             divConteudo.appendChild(p);
-
             divMensagem.appendChild(divConteudo);
-            divInstituicao.appendChild(divMensagem);
 
-            var divFoto = document.createElement('div');
-            divFoto.setAttribute('class', fotoClass);
-
-            var img = document.createElement('img');
-            if (papelRemetente === 'me') {
-                img.setAttribute('src', srcFotoRemetente);
-            } else {
-                img.setAttribute('src', srcFotoDestinatario);
-            }
-            img.setAttribute('alt', 'foto');
-
-            divFoto.appendChild(img);
-
-            div.appendChild(divInstituicao);
-            div.appendChild(divFoto);
+            div.appendChild((papelRemetente === 'me') ? divMensagem : divFoto);
+            div.appendChild((papelRemetente === 'me') ? divFoto : divMensagem);
 
             if (papelRemetente === 'area-voluntario') {
                 var divAreaVoluntario = document.createElement('div');
@@ -407,7 +402,7 @@ include "../../auth/verifica-logado.php";
                 area_content.appendChild(div);
             }
 
-            scroll.scrollTop = scroll.scrollHeight; // Rolar a barra de rolagem para baixo
+            scroll.scrollTop = scroll.scrollHeight; // Scroll to the bottom
         }
 
         window.addEventListener('load', function() {
@@ -435,6 +430,7 @@ include "../../auth/verifica-logado.php";
             localStorage.setItem('chatMessages', JSON.stringify(storedMessages));
         });
     </script>
+
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>

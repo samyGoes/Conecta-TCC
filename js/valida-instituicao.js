@@ -207,19 +207,17 @@ function passwordValidate() {
     // Verifica se os campos obrigatórios foram preenchidos corretamente
     const nameValid = nameValidate();
     const cnpjValid = cnpjValidate();
-    const foneValid = foneValidate();
     const emailValid = emailValidate();
     const passwordValid = passwordValidate();
     const confirmPasswordValid = confirmPassword();
   
-    if (nameValid &&cnpjValid && foneValid && emailValid && passwordValid && confirmPasswordValid) {
+    if (nameValid && cnpjValid && emailValid && passwordValid && confirmPasswordValid) {
       // Se todos os campos estiverem válidos, envia o formulário
       formulario1.submit();
     } else {
-      // Caso contrário, exibe uma mensagem de erro e destaca os campos com erro
+      // Caso contrário, exibe uma mensagem de erro e destaca os campos com err
       nameValidate();
-      cnpjValidate();
-      foneValidate();
+      cnpjValidate()
       emailValidate();
       passwordValidate();
       confirmPassword();

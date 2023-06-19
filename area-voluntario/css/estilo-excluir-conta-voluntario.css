@@ -63,6 +63,12 @@
     padding-left: 4%;
 }
 
+.continue-button
+{
+    display: flex;
+    justify-content: center;
+}
+
 .continue-button button {
     width: 10rem;
     padding: 0.2rem;
@@ -93,7 +99,7 @@
 
 
 
-@media (max-width: 425px)
+/* @media (max-width: 425px)
 {
     .div-card{
         width: 75%;
@@ -110,4 +116,35 @@
         display: flex;
         justify-content: center;
     }    
+} */
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 453px)
+{
+    .card
+    {
+        width: auto;
+        border-radius: 0;
+        padding: 0;
+        height: 346px;
+    }
+    form
+    {
+        width: 80%;
+    }
+    .input-group
+    {
+        gap: 2rem;
+    }
+    .input-box
+    {
+        width: 100%;
+        margin: 0;
+    }
+    .continue-button button 
+    {
+        margin-top: 3rem;
+    }
+   
 }

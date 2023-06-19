@@ -248,31 +248,43 @@
                                     <?php
 
 
-                                    require_once 'global.php';
+                                        require_once 'global.php';
 
-                                    try {
-                                        $row = DashboardDao::melhoresVoluntarios();
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
-                                    }
+                                        try {
+                                            $row = DashboardDao::melhoresVoluntarios();
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
+
+                                        if(empty($row))
+                                        {
                                     ?>
-                                    <?php foreach ($row as $voluntario) { ?>
                                         <tr>
-                                            <td>
-                                                <div class="td-divisao">
-                                                    <div class="box-img">
-                                                        <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
-                                                    </div>
-                                                    <div class=".td-text">
-                                                        <?php echo $voluntario['nomeVoluntario']; ?>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td> <?php echo $voluntario['estrelas']; ?></td>
+                                            <td> Sem notificações...</td>
                                         </tr>
                                     <?php
-                                    }
-                                    ?>
+                                        }
+                                        else
+                                        {                                       
+                                            foreach ($row as $voluntario) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="td-divisao">
+                                                            <div class="box-img">
+                                                                <img src="../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>">
+                                                            </div>
+                                                            <div class=".td-text">
+                                                                <?php echo $voluntario['nomeVoluntario']; ?>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> <?php echo $voluntario['estrelas']; ?></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                        }
+                                        ?>
+                                        
                                 </tbody>
                             </table>
                         </div>
@@ -291,24 +303,30 @@
                             </div>
                         </div>
                         <?php
-                        // definindo porcentagem
-                        $width1 = '28%';
-                        $width2 = '49%';
-                        $width3 = '33%';
-                        $width4 = '13%';
-                        $width5 = '23%';
-                        $width6 = '44%';
-                        $width7 = '34%';
-                        $width8 = '17%';
+
+                        require_once 'global.php';
+
+                        try{
+                        $idade = DashboardDao::porcentagem();
+                        } catch (Exception $e) {
+                        echo $e->getMessage();
+                        }
+                        
                         $total  = 8; // total de barras
 
-                           require_once 'global.php';
-
-                           try{
-                              $idade = DashboardDao::porcentagem();
-                          } catch (Exception $e) {
-                             echo $e->getMessage();
-                          }
+                        // definindo porcentagem
+                        $widths = array();
+                        foreach ($idade as $faixa => $porcentagem) {
+                            $widths[] = $porcentagem . '%';
+                        }
+                        
+                        // $width2 = '49%';
+                        // $width3 = '33%';
+                        // $width4 = '13%';
+                        // $width5 = '23%';
+                        // $width6 = '44%';
+                        // $width7 = '34%';
+                        // $width8 = '17%';
                           ?>
 
                         <!-- <div class="table-responsive-grafico"> -->
@@ -316,7 +334,7 @@
                             <div class="organizador-1">
                                 <?php
                                 for ($i = 1; $i <= $total; $i++) {
-                                    $width = ${'width' . $i};
+                                    $width = isset($widths[$i - 1]) ? $widths[$i - 1] : '0%';
                                 ?>
                                     <div id="barras">
                                         <div class="barra<?= $i ?> " style="width:<?= $width ?>"></div>

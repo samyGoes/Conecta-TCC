@@ -1,22 +1,13 @@
-import { notificacao, verificaNotificacao } from "../js/nova-notificacao.js";
-//, verificarClasseBolinha, cliqueNotT, cliqueNotF
+import 
+{  
+    notificacao, verificaNotificacao, divs, linkT, linkF, verificarClasseBolinha, 
+    verificarTodasClicadas, todasClicadas
+} from "../js/nova-notificacao.js";
+
+notificacao();
+verificaNotificacao();
+verificarTodasClicadas();
+todasClicadas();
+//verificarClicadas();
 //verificarClasseBolinha();
 
-
-// async function iniciar() 
-// {
-//     try 
-//     {
-//       const resultado = await notificacao();
-//       console.log(resultado);
-//       // Faça o que desejar com o resultado retornado
-//     } 
-//     catch (error) 
-//     {
-//       console.error("Ocorreu um erro:", error);
-//     }
-// }
-
-// iniciar();
-notificacao();
-//verificaNotificacao();

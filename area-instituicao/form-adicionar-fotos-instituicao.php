@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo-arquivo-modelo.css">
         <link rel="stylesheet" href="css/estilo-form-adicionar-fotos.css">
+        <link rel="stylesheet" href="editar-excluir-vagas/css/estilo-modal-exclusao.css">
         <!-- LINK ICONES -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
             integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
@@ -164,8 +165,8 @@
     <!-- MODAL CADASTRO -->
     <?php
 
-        if (isset($_GET['edicao'])) {
-            if ($_GET['edicao'] === 'sucesso') {
+        if (isset($_GET['cadastro'])) {
+            if ($_GET['cadastro'] === 'sucesso') {
                 echo ' <script>
                             // cria o elemento HTML do modal
                             const modal = document.createElement("div");
@@ -176,7 +177,7 @@
                                 crossorigin="anonymous" referrerpolicy="no-referrer" />
                                 <div id="modal-content">
                                     <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
-                                    <p class="modal-titulo-cadastro">Edição realizada com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
+                                    <p class="modal-titulo-cadastro">Cadastro realizado com sucesso!<i class="fa-sharp fa-solid fa-circle-check"></i></p>
                                     <p class="modal-frase-cadastro"> Entre no seu perfil para ver como ficaram as alterações. </p>
                                 </div>
                                 `;
@@ -364,7 +365,7 @@
                         <div class="input-group">
                             <div class="input-box">
                                 <label id="label" for="foto">Selecione uma foto</label>
-                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto" multiple>
+                                <input class="btn-adiciona-foto" type="file" accept="image/*" id="foto" name="foto[]" multiple>
                             </div>
                         </div>
 
@@ -376,53 +377,14 @@
                             <div class="box-modal-foto-titulo">
                                 <h2>Fotos Selecionadas</h2>
                             </div>
-                            <div class="div-image">
-                                <div class="image">
-                                    <div id="preview"></div>
-                                    <img src="" id="img-modal">
-                                </div>
-                            </div>
+                            <div class="div-image"></div>
                             
                             <button class="btn-adicionar-foto" type="submit">Adicionar</button>
+                        </div>
                     </form>
                 </div>
             </div>
 
-            <script>
-                var inputFoto = document.getElementById('foto');
-                var imgModal = document.getElementById('img-modal');
-
-                inputFoto.addEventListener('change', function() {
-                    var file = inputFoto.files[0];
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        imgModal.src = e.target.result;
-                    };
-
-                    reader.readAsDataURL(file);
-                });
-
-                //var preview = document.getElementById('preview');
-             //   inputFoto.addEventListener('change', function() {
-                //    preview.innerHTML = '';
-                //    var files = inputFoto.files;
-                 //   for (var i = 0; i < files.length; i++) {
-                    //    var file = files[i];
-                     //   var reader = new FileReader();
-
-                      //  reader.onload = (function(file) {
-                      //      return function(e) {
-                       //         var img = document.createElement('img');
-                       //         img.src = e.target.result;
-                       //         preview.appendChild(img);
-                       //     };
-                      //  })(file);
-
-                     //   reader.readAsDataURL(file);
-                   // }
-                //});
-            </script>
 
             <div class="imagens-intituicao">
                 <div class="galeria">
@@ -434,15 +396,64 @@
                     } catch (Exception $e) {
                         echo $e->getMessage();
                     }
+
                     foreach ($listaImg as $foto) { ?>
-                        <div class="box-img">
-                            <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
-                        </div>
+                    
+                    
+                        <div class="conteudo-foto">
+                            <div class="visualizar-btns"> 
+                                <button class="btn-visualizar"> visualizar </button>
+                                <form action="" method="post">
+                                    <button class="btn-excluir"> excluir </button>
+                                </form>
+                            </div>
+
+                            <div class="box-img">
+                                <img src="<?php echo $foto['fotosInstituicao']; ?>" alt="">
+                            </div>
+                        </div>                    
+                        
                     <?php } ?>
 
                     
                 </div>
             </div>
+
+
+            <!-- MODAL EXCLUIR VAGA -->
+            <div id="container-modal" class="container-modal">
+                <div class="modal-responsive" id="modal-responsive">
+                    <div class="fade" id="fade">
+                        <div class="modal" id="modal">
+                            <label for="" class="modal-titulo" id="modal-titulo"> 
+                                Deseja realmente excluir a foto? Uma vez excluída você não poderá mais restaurá-la.
+                            </label>
+                            <div class="btn-exit" id="btn-exit">
+                            <form action="excluir-imagem-instituicao-galeria.php" method="post">  
+                                <button name="btnExcluir" class="btn-excluir" onclick="excluirImagem(<?php echo $foto['codfotoInstituicao']; ?>)" value="<?php $foto['codfotoInstituicao']; ?>">excluir</button>
+                            </form>
+
+                            <?php
+
+                                if(isset($_POST['btnExcluir']) && $_POST['btnExcluir'] == $foto['codfotoInstituicao']) 
+                                {
+                                    try {
+                                        $codFoto = $_POST[''];
+                                        $excluirFoto = GaleriaInstituicaoDao::excluir($codFoto);
+                                        echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=true';</script>";
+                                    } catch (Exception $e) {
+                                        echo $e->getMessage();
+                                    }
+                                }
+
+                            ?>
+                                <button class="btn-fechar" type="submit" id="cancelar">cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
                 
@@ -459,7 +470,10 @@
         <script type="module" src="../imports/nav-drop-down.js"></script>
         <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
         <script type="module" src="imports/modal-galeria.js"></script>
-        <script type="module" src="js/button-image.js"></script>
+        <script type="module" src="js/preview-img-galeria.js"></script>
+        <script src="js/modal-exclusao.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     </body>
 
 </html>

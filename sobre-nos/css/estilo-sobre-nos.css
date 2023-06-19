@@ -129,3 +129,15 @@ footer {
         height: 50rem;
     }
 }
+
+@media(max-width: 320px)
+{
+    .conecta
+    {
+        font-size: 29px;
+    }
+    .sobre
+    {
+        line-height: 24px;
+    }
+}

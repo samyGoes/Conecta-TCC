@@ -14,6 +14,7 @@ include "../../auth/verifica-logado.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-tabela-voluntarios.css">
+    <link rel="stylesheet" href="css/estilo-modal-avaliacao.css">
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Voluntários Disponíveis</title>
@@ -46,96 +47,84 @@ include "../../auth/verifica-logado.php";
                 <?php if (empty($_SESSION['nomeUsuario'])) { ?>
                     <li class="topicos-sessao-login-linha">
                         <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
                         </a>
                     </li>
-                <?php } else { 
+                <?php } else {
                     $nomeCompleto = $_SESSION['nomeUsuario'];
-                    if($_SESSION['tipoPerfil']=='Voluntario')
-                    {
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
                         $nomeArray = explode(" ", $nomeCompleto);
                         $primeiroNome = $nomeArray[0];
-                    }
-                    else
-                    {
+                    } else {
                         $nomeArray = explode(" ", $nomeCompleto);
-                        $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                    }                        
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
                     <li class="topicos-sessao-login-linha">
                         <div class="box-topicos-sessao-login-linha">
-                            <?php        
+                            <?php
 
-                                require_once 'global.php';
-                                include 'diretorios-notificacao.php';
-                                try 
-                                {
-                                    $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                    $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
-                                    //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
-                                    //$diretorio = diretorios($linha['arquivo']);
-                                    //print_r($links);
-                                } 
-                                catch (Exception $e) 
-                                {
-                                    echo $e->getMessage();
-                                }
+                            require_once 'global.php';
+                            include 'diretorios-notificacao.php';
+                            try {
+                                $idInstituicaoLogada = $_SESSION['codUsuario'];
+                                $notificacoes = InstituicaoDao::notificacoes($idInstituicaoLogada);
+                                //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                //$diretorio = diretorios($linha['arquivo']);
+                                //print_r($links);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
 
-                                if(empty($notificacoes)) 
-                                {
-                                ?>
-                                        <div class="box-sininho">
-                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                        </div>       
-                                        <ul class="sub-topicos-sininho sem-resultado">
-                                            <li> 
-                                                <div class="sub-topicos-sininho-linha sem-resultado">
-                                                    <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                </div>                                          
-                                            </li>
-                                        </ul>
-                                <?php
+                            if (empty($notificacoes)) {
+                            ?>
+                                <div class="box-sininho">
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+                                <ul class="sub-topicos-sininho sem-resultado">
+                                    <li>
+                                        <div class="sub-topicos-sininho-linha sem-resultado">
+                                            <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            <?php
 
-                                }
-                                else
-                                {
-                                ?>
-                                    <div class="box-sininho">
-                                        <div class="nova-notificacao-bolinha"></div>
-                                        <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
-                                    </div>
+                            } else {
+                            ?>
+                                <div class="box-sininho">
+                                    <div class="nova-notificacao-bolinha"></div>
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
 
-                                    <ul class="sub-topicos-sininho">
-                                <?php
-                                        foreach($notificacoes as $linha)
-                                        {
-                                            $primeiraIteracao = true; 
-                                            foreach($linha as $titulo => $frase)
-                                            {
-                                                if($primeiraIteracao)
-                                                {                                     
-                                                    $titulos = array_keys($linha); // Obter as chaves do array $linha
-                                                    $primeiroTitulo = $titulos[0]; // Obter o primeiro título
-                                                
-                                                    $frases = array_values($linha); // Obter os valores do array $linha
-                                                    $primeiraFrase = $frases[0];
-                                ?>                                           
-                                                    <li> 
-                                                        <div class="sub-topicos-sininho-linha">
-                                                            <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
-                                                            <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
-                                                        </div>                                          
-                                                    </li>                     
-                                <?php
-                                                    $primeiraIteracao = false;
-                                                }
+                                <ul class="sub-topicos-sininho">
+                                    <?php
+                                    foreach ($notificacoes as $linha) {
+                                        $primeiraIteracao = true;
+                                        foreach ($linha as $titulo => $frase) {
+                                            if ($primeiraIteracao) {
+                                                $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+
+                                                $frases = array_values($linha); // Obter os valores do array $linha
+                                                $primeiraFrase = $frases[0];
+                                    ?>
+                                                <li>
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                    </div>
+                                                </li>
+                                    <?php
+                                                $primeiraIteracao = false;
                                             }
                                         }
-                                ?>
-                                    </ul>
-                                <?php
-                                }
-                                ?>
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }
+                            ?>
 
 
                             <p href="#" class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
@@ -176,8 +165,7 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span
-                        class="nav-lateral-topico"> Adicionar Fotos
+                <a href="../form-adicionar-fotos-instituicao.php"> <i class="fa-solid fa-camera"></i> <span class="nav-lateral-topico"> Adicionar Fotos
                     </span></a>
             </div>
 
@@ -223,14 +211,12 @@ include "../../auth/verifica-logado.php";
 
 
 
-     <!-- MODAL CANDIDATURA ACEITA E RECUSADA -->
-     <?php
-        
-        if(isset($_GET['candidatura']))
-        {
-            if($_GET['candidatura'] === 'true')
-            {
-                echo ' <script>
+    <!-- MODAL CANDIDATURA ACEITA E RECUSADA -->
+    <?php
+
+    if (isset($_GET['candidatura'])) {
+        if ($_GET['candidatura'] === 'true') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -346,13 +332,11 @@ include "../../auth/verifica-logado.php";
                         }, 8000);
 
                     </script>';
-            }
         }
-        if(isset($_GET['candidatura']))
-        {
-            if($_GET['candidatura'] === 'recusada')
-            {
-                echo ' <script>
+    }
+    if (isset($_GET['candidatura'])) {
+        if ($_GET['candidatura'] === 'recusada') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -468,8 +452,8 @@ include "../../auth/verifica-logado.php";
                         }, 10000);
 
                     </script>';
-            }
         }
+    }
     ?>
 
 
@@ -537,7 +521,8 @@ include "../../auth/verifica-logado.php";
                                 <th> Cidade </th>
                                 <th> UF </th>
                                 <th> Vaga </th>
-                                <th> </th>
+                                <th>Chat</th>
+                                <th></th>
                                 <th> </th>
                             </tr>
                         </thead>
@@ -546,14 +531,18 @@ include "../../auth/verifica-logado.php";
                             require_once 'global.php';
 
                             try {
+
                                 $idInstituicaoLogada = $_SESSION['codUsuario'];
-                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada);
+                                $listaVoluntario = CandidaturaDao::listar($idInstituicaoLogada); // Passar o código da vaga para a consulta
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
                             ?>
 
-                            <?php foreach ($listaVoluntario as $voluntario) { ?>
+                            <?php foreach ($listaVoluntario as $voluntario) {
+                                $t = 'Voluntario';
+                                $c = $voluntario['codVoluntario'];
+                            ?>
                                 <form action="" method="post">
                                     <tr>
                                         <td><?php echo $voluntario['codCandidatura']; ?></td>
@@ -569,6 +558,13 @@ include "../../auth/verifica-logado.php";
                                         <td><?php echo $voluntario['cidadeVoluntario']; ?></td>
                                         <td><?php echo $voluntario['estadoVoluntario']; ?></td>
                                         <td><?php echo $voluntario['nomeservico']; ?></td>
+                                        <td>
+                                            <form action="" method="post">
+                                                <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
+                                                                                                            ?>"> -->
+                                                <a href="<?php echo '../../auth/redirecionamento-chat-instituicao.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                            </form>
+                                        </td>
                                         <td><button name="btnChamar" type="submit" class="table-btn-chamar" value="<?php echo $voluntario['codCandidatura']; ?>">chamar</button></td>
                                         <td><button name="btnRecusar" type="submit" class="table-btn-recusar" value="<?php echo $voluntario['codCandidatura']; ?>">recusar</button></td>
                                     </tr>
@@ -587,6 +583,11 @@ include "../../auth/verifica-logado.php";
                                     $codCandidatura = $_POST['btnRecusar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
+
+                                        $email = CandidaturaDao::buscaEmail($codCandidatura);
+
+                                        echo json_encode(['status' => true, 'nome' => $email['nome']]);
+
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
@@ -643,18 +644,19 @@ include "../../auth/verifica-logado.php";
                                 <th> Cidade </th>
                                 <th> UF </th>
                                 <th> Vaga </th>
+                                <th>Chat</th>
                                 <th> Status </th>
                                 <th> </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                // require_once 'global.php';
-                                // try {
-                                //     $listaVoluntario = VoluntarioDao::listar();
-                                // } catch (Exception $e) {
-                                //     echo $e->getMessage();
-                                // }
+                            // require_once 'global.php';
+                            // try {
+                            //     $listaVoluntario = VoluntarioDao::listar();
+                            // } catch (Exception $e) {
+                            //     echo $e->getMessage();
+                            // }
                             ?>
                             <tr>
                                 <?php foreach ($listaVoluntario as $voluntario) { ?>
@@ -671,6 +673,13 @@ include "../../auth/verifica-logado.php";
                                     <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
                                     <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
                                     <td> Professor </td>
+                                    <td>
+                                        <form action="" method="post">
+                                            <!-- <input type="hidden" name="codCategoriaServico" value="<? //php echo $codCategoriaServico
+                                                                                                        ?>"> -->
+                                            <a href="<?php echo '../../auth/redirecionamento-chat-usuario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a>
+                                        </form>
+                                    </td>
                                     <td>
                                         <div class="box-status">
                                             <div class="status-bolinha"></div>
@@ -702,7 +711,7 @@ include "../../auth/verifica-logado.php";
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="../../js/pesquisa.js"></script>
+    <script type="text/javascript" src="../../js/pesquisa.js"></script>
     <script type="module" src="../../imports/nav-drop-down-notificacao.js"></script>
     <script>
         $(document).ready(function() {
@@ -712,7 +721,7 @@ include "../../auth/verifica-logado.php";
                 var pesquisa = $('#pesquisar').val();
 
                 $.ajax({
-                    url: '../../dao/CandidaturaDao.php', 
+                    url: '../../dao/CandidaturaDao.php',
                     type: 'POST',
                     data: {
                         pesquisar: pesquisa
@@ -723,8 +732,8 @@ include "../../auth/verifica-logado.php";
                 });
             });
         });
-
     </script>
+    <script src='js/envia-email-login.js'></script>
 
 </body>
 

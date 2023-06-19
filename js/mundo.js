@@ -6,9 +6,13 @@ const sombraCirculo = document.querySelector(".sombra-circulo");
 const iconFechar = document.querySelector("#icon-fechar");   
 const style = document.createElement("style");
 const mundo = document.querySelector(".box-img");
+const cardLink = document.querySelector(".card-link");
+const href = cardLink.getAttribute("href");
 
 
 let tamanho = 250; 
+let tela = window.matchMedia("(min-width: 657px)");
+let tela2 = window.matchMedia("(min-width: 574px)");
 
 botao.addEventListener('click', function()
 {
@@ -23,7 +27,24 @@ botao.addEventListener('click', function()
         {
             clearInterval(intervalo); // para a animação quando o círculo tiver tamanho zero
             cardTerceiroSetor.style.opacity = "1";
-            cardTerceiroSetor.style.marginTop = "8rem";
+
+            if(cardTerceiroSetor.style.opacity === "1")
+            {
+                cardLink.setAttribute('href', 'instituicoes/instituicoes.php');
+            }
+
+            if(tela.matches)
+            {
+                cardTerceiroSetor.style.marginTop = "8rem";
+            }
+            else if(tela2.matches)
+            {
+                cardTerceiroSetor.style.marginTop = "6rem";
+            }
+            else
+            {
+                cardTerceiroSetor.style.marginTop = "2rem";
+            }
         }
         
     }, 10);
@@ -32,6 +53,10 @@ botao.addEventListener('click', function()
 iconFechar.addEventListener("click", function()
 {
     cardTerceiroSetor.style.opacity = "0";
+    if(cardTerceiroSetor.style.opacity === "0")
+    {
+        cardLink.setAttribute('href', '#');
+    }
     maos.style.bottom = "-12rem";
     let intervalo = setInterval(function() 
     {

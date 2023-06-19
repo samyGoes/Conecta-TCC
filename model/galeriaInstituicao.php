@@ -3,7 +3,7 @@
     class GaleriaInstituicao
     { 
         private $idGaleriaFoto;
-        private $fotoGaleria;
+        private $fotoGaleria = array();
         private $idInstituicao;
         
 

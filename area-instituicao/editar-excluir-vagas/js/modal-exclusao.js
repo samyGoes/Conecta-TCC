@@ -1,17 +1,16 @@
-var openModal = document.querySelector('.conteiner-botao-excluir');
+// var openModal = document.querySelector('.conteiner-botao-excluir');
+// var modal = document.querySelector('.container-modal');
+// var closeModal = document.querySelector('#cancelar');
 var modal = document.querySelector('.container-modal');
-var closeModal = document.querySelector('#cancelar');
 
-openModal.onclick = function () {
+function abrirModalExcluir()
+{
     modal.style.display = "block";
 }
+document.querySelector(".conteiner-botao-excluir").addEventListener("click", abrirModalExcluir);
 
-closeModal.onclick = function () {
+function fecharModalExcluir()
+{
     modal.style.display = "none";
 }
-
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+document.querySelector("#cancelar").addEventListener("click", fecharModalExcluir);

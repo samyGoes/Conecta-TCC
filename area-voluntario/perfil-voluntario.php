@@ -46,7 +46,7 @@
                     {
                 ?>
                         <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <a href="<?php echo '../form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
                                 <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
                             </a>
                         </li>
@@ -192,7 +192,7 @@
                         <?php 
                             require_once 'global.php';
 
-                            $codVoluntario = $_SESSION['codUsuario'];
+                            $codVoluntario = $_SESSION['dadoPerfil']['codVoluntario'];
 
                             try {
                                 $row = AvaliarDao::mostrarAvaliacaoVoluntario($codVoluntario);
@@ -218,8 +218,8 @@
                     <div class="dados-pessoais-2">
                         <p class="dados">idade: <span><?php echo ($_SESSION['dadoPerfil']['idade'] . " anos") ?></span></p>
                         <p class="dados" id="dados-email">email: <span><?php echo ($_SESSION['dadoPerfil']['emailVoluntario']) ?></span></p>
-                        <p class="dados">telefone: <span><?php echo ($_SESSION['dadoPerfil']['telefone1']) ?></span></p>
-                        <p class="dados">Localidade: <span><?php echo ($_SESSION['dadoPerfil']['cidadeVoluntario'] . " - " . $_SESSION['dadoPerfil']['estadoVoluntario'] . ", " . $_SESSION['dadoPerfil']['paisVoluntario']); ?></span></p>
+                        <!-- <p class="dados">telefone: <span><?php //echo ($_SESSION['dadoPerfil']['telefone1']) ?></span></p>
+                        <p class="dados">Localidade: <span><?php // echo ($_SESSION['dadoPerfil']['cidadeVoluntario'] . " - " . $_SESSION['dadoPerfil']['estadoVoluntario'] . ", " . $_SESSION['dadoPerfil']['paisVoluntario']); ?></span></p> -->
                     </div>
                 </div>
             </div>
@@ -424,9 +424,9 @@
 
 
             <!-- REQUISITAR VOLUNTÁRIO  -->
-            <div class="requisitar">
+            <!-- <div class="requisitar">
                 <p class="text-requisitar"> Agora que você já viu o perfil do voluntário considere requisitá-lo a uma de suas vagas.</p>
-                <button id="requisitar"> REQUISITAR </button>
+                <button id="requisitar"> REQUISITAR </button> -->
 
                 <!-- Modal -->
                 <div id="meuModal" class="modal">

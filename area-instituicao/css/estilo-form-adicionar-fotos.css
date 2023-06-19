@@ -47,13 +47,109 @@
     margin-top: 8%;
 }
 
+.conteudo-foto
+{
+    position: relative;
+    transition: all 0.4s ease;
+    height: 18.7rem;
+}
+
+.conteudo-foto:hover > .visualizar-btns
+{
+    /* display: flex; */
+    opacity: 1;
+}
+
+.conteudo-foto.sem-hover
+{
+    pointer-events: none;
+}
+
+.box-img
+{
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
 .box-img img
 {
     width: 300px;
     height: 300px;
     object-fit: cover;
-    border: 1px solid #000;
+    border: 1px solid #000;   
 }
+
+.conteudo-foto:hover
+{
+    transform: translateY(-10px);
+}
+
+.visualizar-btns
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 90;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.btn-visualizar, .btn-excluir
+{
+    width: 6rem;
+    height: 2.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid #fff;
+
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn-visualizar
+{
+    background-color: #4567a5;
+    /* border: 1px solid #4567a5; */
+}
+
+.btn-visualizar:hover
+{
+    background-color: #fff;
+    color: #4567a5;
+}
+
+.btn-excluir
+{
+    background-color: #af4141;
+    /* border: 1px solid #af4141; */
+}
+
+.btn-excluir:hover
+{
+    background-color: #fff;
+    color: #af4141;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,7 +170,7 @@
     height: 30rem;
     border-radius: 1rem;
     background-color: #ffffff;
-    position: absolute;
+    position: fixed;
     z-index: 1001; 
     top: 50%;
     left: 50%;
@@ -95,9 +191,18 @@
 }
 #icone-fechar-modal
 {
+    position: absolute;
+    top: 11px;
+    right: 11px;
     font-size: 18px;
     color: #525252;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#icone-fechar-modal:hover
+{
+    color: #90abdf;
 }
 
 .box-modal-foto-titulo
@@ -116,22 +221,53 @@
 .div-image
 {
     display: flex;
+    justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
     width: 90%;
     height: 60%;
+    overflow-y: auto;
 }
 
-.image
+
+/* SCROLL */
+/* width */
+.div-image::-webkit-scrollbar
+{
+    width: 12px;
+    height: 12px;
+}
+
+
+/* Track */
+.div-image::-webkit-scrollbar-track
+{
+    background-color: #d7e0f0;
+    border-radius: 0.5rem;
+}
+
+/* Handle */
+.div-image::-webkit-scrollbar-thumb
+{
+    background-color: #4567a5;
+    border-radius: 0.5rem;
+    border: 2px solid #d7e0f0;
+}
+
+
+
+.box-img-foto
 {
     width: 10rem;
     height: 10rem;
     border: 1px solid #000;
 }
 
-.image img
+.box-img-foto img
 {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .btn-adicionar-foto 

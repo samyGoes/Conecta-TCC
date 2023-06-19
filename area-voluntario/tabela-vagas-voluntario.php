@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
+    <link rel="stylesheet" href="../area-instituicao/gerenciar-vagas/css/estilo-modal-avaliacao.css">
+    
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Vagas </title>
@@ -404,9 +406,15 @@
 
                             try {
                                 $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
+                                $listaInstituicao = InstituicaoDao::listar();
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
+                            ?>
+
+                            <?php foreach ($listaInstituicao as $instituicao) { 
+                                $t = 'Instituicao';
+                                $c = $instituicao['codInstituicao'];
                             ?>
                             
                             <?php
@@ -451,8 +459,8 @@
                                             </div>
                                         </td>
 
-                                        <td class="td-table-c"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </td>
-                                        <td class="td-table-c"> <i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i> </td>
+                                        <td class="td-table-c"><a href="<?php echo '../auth/redirecionamento-chat-voluntario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
+                                        <td class="td-table-c"> <button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button> </td>
                                         <td class="td-table-c">
                                             <form action="" method="post">
                                                 <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
@@ -471,6 +479,7 @@
                                     }
                                 }
                             }
+                        }
                             ?>
                         </tbody>
                     </table>
@@ -479,7 +488,64 @@
             </div>
 
 
+<!-- MODAL AVALIAÇÂO -->
+<div id="modalAvaliar" class="modal">
+            <div class="form" id="form">
 
+                <div class="modal-sessao-1">
+                    <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
+                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p>
+
+                    <form class="form-modal" action="" method="POST" id="form-modal">
+                        <div class="modal-input-box">
+                            <div class="rating">
+                                <input type="radio" id="star1" name="estrela" value="5">
+                                <label for="star1"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star2" name="estrela" value="4">
+                                <label for="star2"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star3" name="estrela" value="3">
+                                <label for="star3"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star4" name="estrela" value="2">
+                                <label for="star4"><i class="fa-solid fa-star"></i></label>
+                                <input type="radio" id="star5" name="estrela" value="1">
+                                <label for="star5"><i class="fa-solid fa-star"></i></label>
+                            </div>
+                        </div>
+                        <?php
+
+                        $valorBotao = $c;
+                        
+                        ?>
+                        
+                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>
+
+                    </form>
+
+                    <?php
+                        require_once 'global.php';
+
+                        if(isset($_POST['estrela'])){
+                            $numavaliacao = $_POST['estrela'];
+                            $codInstituicao = $_POST['btnAvaliar'];
+                            try { 
+                                $avaliacao = AvaliarDao::avaliarInstituicao($codInstituicao, $numavaliacao);
+                                echo "<script>window.location.href = 'tabela-vagas-voluntario.php?avaliacao=sucesso';</script>";
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+
+                        }
+                    ?>
+                    <!-- <a onclick="fecharModal('modalAvaliar')" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a> -->
+                </div>
+
+                 <div class="modal-sessao-2">
+                    <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                    <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
+                    <div class="btn-confirmed" id="btn-confirmed"><button onclick="fecharModal('modalAvaliar')" class="modal-btn-confirmar" id="fecharModal"> FECHAR </button></div>
+                </div>
+            </div>
+        </div>
 
 
             <!-- TÍTULO 2 -->
@@ -551,6 +617,7 @@
     <script type="module" src="imports/box-info.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
     <script type="module" src="../imports/nova-notificacao.js"></script>
+    <script src="js/avaliacao.js"></script>
 </body>
 
 </html>

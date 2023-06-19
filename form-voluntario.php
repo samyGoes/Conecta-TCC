@@ -98,35 +98,35 @@
                         <div class="input-group" id="input-group-v">
                             <div class="input-box">
                                 <label for="cep">CEP</label>
-                                <input type="text" name="cep" id="cep" placeholder="Digite seu CEP">
+                                <input type="text" name="cep" class="inputs required" id="cep" placeholder="Digite seu CEP">
                             </div>
                             <div class="input-box">
                                 <label for="numeroCasa">Número</label>
-                                <input type="text" name="numLog" id="numeroCasa" placeholder="Digite o n° da sua casa">
+                                <input type="text" name="numLog" class="inputs required" id="numeroCasa" placeholder="Digite o n° da sua casa">
                             </div>
                             <div class="input-box">
                                 <label for="logradouro">Logradouro</label>
-                                <input type="text" name="logradouro" id="logradouro" readonly>
+                                <input type="text" name="logradouro" class="inputs required" id="logradouro" readonly>
                             </div>
                             <div class="input-box">
                                 <label for="bairro">Bairro</label>
-                                <input type="text" name="bairro" id="bairro" readonly>
+                                <input type="text" name="bairro" class="inputs required" id="bairro" readonly>
                             </div>
                             <div class="input-box">
                                 <label for="comp">Complemento</label>
-                                <input type="text" name="complemento" id="comp" placeholder="Digite o complemento">
+                                <input type="text" name="complemento" class="inputs required" id="comp" placeholder="Digite o complemento">
                             </div>
                             <div class="input-box">
                                 <label for="uf">Estado</label>
-                                <input name="uf" id="uf" readonly>
+                                <input name="uf" class="inputs required" id="uf" readonly>
                             </div>
                             <div class="input-box">
                                 <label for="cidade">Cidade</label>
-                                <input name="cidade" id="cidade" readonly>
+                                <input name="cidade" class="inputs required" id="cidade" readonly>
                             </div>
                             <div class="input-box">
                                 <label for="pais">País</label>
-                                <input name="pais" id="pais" placeholder="Digite seu país">
+                                <input name="pais" class="inputs required" id="pais" placeholder="Digite seu país">
                             </div>
                             <div class="input-box">
                                 <div class="div-vazia-kk"></div>
@@ -149,10 +149,7 @@
     </div>
 
 
-
-    <!-- <script src="js/valida-voluntario.js"></script>  -->
-    <!-- <script src="js/valida-voluntario.js"></script> -->
-    <!-- <script src="js/valida-voluntario.js"></script> -->
+    <script src="js/valida-voluntario.js"></script> 
     <script src="js/endereco-auto.js"></script>
     <!--Máscaras do formulário-->
     <script src="js/mascarasForm.js"></script>

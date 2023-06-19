@@ -79,8 +79,8 @@ body
     margin: 7rem 1rem 0rem 0rem;
     border-radius: 50%;
     background-color: #ffecd9;
-    -webkit-mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
-    mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
+    /* -webkit-mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px);
+    mask-image: radial-gradient(circle at center, transparent 0, transparent 150px, black 150px); */
     box-shadow: inset 0px 0px 10px 5px #b1855b;
 }
 
@@ -262,4 +262,222 @@ body
 .card-link:hover
 {
     color: #cc8746;
+}
+
+@media (max-width: 929px)
+{
+    .card p
+    {
+        font-size: 14px;
+        line-height: 28px;
+        padding: 0rem 3rem 2rem 3rem;
+    }
+}
+
+@media (max-width: 790px) 
+{
+    .fundo-circulo
+    {
+        height: 44rem;
+    }
+    .fundo-titulo 
+    {
+        font-size: 35px;
+    }
+    .corta-coracao, .sombra-circulo
+    {
+        width: 430px;
+        height: 430px;
+    }
+    .circulo
+    {
+        width: 480px;
+        height: 480px;
+    }
+    .box-img
+    {
+        width: 455px;
+        height: 455px;
+    }
+    .img-maos
+    {
+        width: 590px;
+        height: 428px;
+    }
+}
+
+@media (max-width: 656px) 
+{
+    .fundo-circulo
+    {
+        height: 42rem;
+    }
+    .fundo-titulo 
+    {
+        font-size: 31px;
+    }
+    .corta-coracao, .sombra-circulo
+    {
+        width: 395px;
+        height: 395px;
+    }
+    .circulo
+    {
+        width: 445px;
+        height: 445px;
+    }
+    .box-img
+    {
+        width: 420px;
+        height: 420px;
+    }
+    .img-maos
+    {
+        width: 530px;
+        height: 402px;
+    }
+    .container-2-botao
+    {
+        width: 9.2rem;
+        height: 2.3rem;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 573px) 
+{
+    .fundo-circulo
+    {
+        height: 38rem;
+    }
+    .fundo-titulo 
+    {
+        font-size: 27px;
+        margin: 2rem;
+        text-align: center;
+    }
+    .corta-coracao, .sombra-circulo
+    {
+        width: 329px;
+        height: 329px;
+    }
+    .circulo
+    {
+        width: 365px;
+        height: 365px;
+    }
+    .box-img
+    {
+        width: 350px;
+        height: 350px;
+    }
+    .img-maos
+    {
+        position: absolute;
+        background: url("../img/maos-2.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 430px;
+        height: 389px;
+        bottom: -12rem;
+        z-index: 10;
+        transition: all 1s ease;
+    }
+    .container-2-botao
+    {
+        width: 8.2rem;
+        height: 2rem;
+        font-size: 15px;
+    }
+    .box-img-coracao
+    {
+        width: 55px;
+        height: 55px;
+    }
+
+    /* CARD */
+    .card h1
+    {
+        font-size: 24px;
+    }
+    .card p
+    {
+        font-size: 13px;
+        line-height: 24px;
+        padding: 0rem 2rem 2rem 2rem;
+    }
+    .card-link
+    {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 512px)
+{
+    .card
+    {
+        width: 24rem;
+        height: 32rem;
+    }
+} 
+
+@media (max-width: 452px)
+{
+    .fundo-circulo
+    {
+        height: 36rem;
+    }
+    .sombra-circulo
+    {
+        margin: 7rem 0.4rem 0rem 0rem;    
+    }
+    .corta-coracao,  .box-img, .sombra-circulo
+    {
+        width: 300px;
+        height: 300px;
+    }
+    .box-img
+    {
+        margin: 7rem 0rem 0rem 0rem;
+    }
+    .container-2-botao
+    {
+        margin-top: 0;
+    }
+    .img-maos
+    {
+        width: 367px;
+        height: 356px;
+    }
+}
+
+@media (max-width: 452px)
+{
+    .card
+    {
+        width: 100%;
+        height: auto;
+    }
+    .card p
+    {
+        font-size: 12px;
+        line-height: 21px;
+        padding: 0rem 1.4rem 2rem 1.4rem;
+    }
+}
+
+@media (max-width: 396px)
+{
+    .img-maos
+    {
+        position: absolute;
+        background: url("../img/maos-3.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 367px;
+        height: 356px;
+        bottom: -12rem;
+        z-index: 10;
+        transition: all 1s ease;
+    }
 }

@@ -361,12 +361,16 @@ body
     } 
 }
 
-@media(max-width: 879px)
+@media(max-width: 897px)
 {
     .card-completo
     {
         border-radius: 0;
-        border-left: none;
+        width: 100vw;
+    }
+    .container-titulo
+    {
+        max-width: 80%;
     }
 }
 
@@ -418,7 +422,10 @@ body
     {
         flex-direction: column;
         gap: 0;
-
+    }
+    .frase
+    {
+        text-align: justify;
     }
 }
 
@@ -429,4 +436,46 @@ body
         font-size: 14px;
 
     }   
+}
+
+@media(max-width: 475px)
+{
+    .titulo
+    {
+        font-size: 29px;
+        padding-bottom: 0rem;
+        margin-bottom: 1.5rem;
+    }
+    .frase, .topico-informacoes span, .topico-informacoes p, .topico-endereco p
+    {
+        font-size: 14px;
+    }
+    .topico-endereco, .causas, .topico-informacoes
+    {
+        padding: 1.5rem;
+    }
+    .titulo h6
+    {
+        font-size:  13px;
+    }
+    .titulo i
+    {
+        font-size: 17px;
+    }
+    .tipo-causas button
+    {
+        width: 9rem;
+        height: 2.2rem;
+        font-size: 14px;
+    }
+    .area-candidatar p
+    {
+        font-size: 14px;
+    }
+    .area-candidatar button
+    {
+        width: 11rem;
+        height: 2.3rem;
+        font-size: 17px;
+    }
 }

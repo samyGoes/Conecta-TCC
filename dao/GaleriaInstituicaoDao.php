@@ -6,7 +6,7 @@
     {
         public static function cadastrar($galeriaInstituicao)
         {
-            $conexao = Conexao :: conectar();
+            $conexao = Conexao::conectar();
 
             $prepareStatement = $conexao -> prepare ( "INSERT INTO tbFotosInstituicao(fotosInstituicao, codInstituicao) 
             VALUES(?,?)");
@@ -20,8 +20,7 @@
         public static function listar($cod)
         {
             $conexao = Conexao::conectar();
-            $querySelect = $conexao->prepare("SELECT  fotosInstituicao FROM tbFotosInstituicao WHERE codInstituicao = ?");
-            $querySelect->bindValue(1, $cod);
+            $querySelect = $conexao->prepare("SELECT codfotoInstituicao, fotosInstituicao, codInstituicao FROM tbFotosInstituicao WHERE codInstituicao = '$cod'");
             $querySelect->execute();
             $resultado = $querySelect->fetchAll(PDO::FETCH_ASSOC); 
             return $resultado; 
@@ -30,15 +29,13 @@
         public static function consultarPorId($idFoto)
         {
             $conexao = Conexao::conectar();
-            $querySelect = $conexao->prepare("SELECT * FROM tbFotosInstituicao WHERE idFotosInstituicao = ?");
+            $querySelect = $conexao->prepare("SELECT codfotoInstituicao FROM tbFotosInstituicao WHERE codfotoInstituicao = ?");
             $querySelect->bindValue(1, $idFoto);
             $querySelect->execute();
             $resultado = $querySelect->fetch(PDO::FETCH_ASSOC); 
             if ($resultado) {
                 $galeria = new GaleriaInstituicao();
-                $galeria->setIdFotosInstituicao($resultado['idFotosInstituicao']);
-                $galeria->setFotoGaleria($resultado['fotosInstituicao']);
-                $galeria->setIdInstituicao($resultado['codInstituicao']);
+                $galeria->setIdGaleriaFoto($resultado['codfotoInstituicao']);
                 return $galeria;
             } else {
                 return null;

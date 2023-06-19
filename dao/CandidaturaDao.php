@@ -10,7 +10,7 @@ class CandidaturaDao
         if (isset($_POST['pesquisar'])) {
             $pesquisar = $_POST['pesquisar'];
 
-            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.codServico, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.codServico, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
@@ -74,7 +74,7 @@ class CandidaturaDao
             WHERE tbInstituicao.codInstituicao = ? AND tbServico.codServico = ? AND tbCandidatura.statusCandidatura = 'aceito'";
     
         $resultado = $conexao->prepare($querySelect);
-        $resultado->execute(array($idInstituicaoLogada, $codServico));
+        $resultado->execute(array($idInstituicaoLogada, intval($codServico)));
         $lista = $resultado->fetchAll();
         return $lista;
     }
@@ -199,6 +199,32 @@ class CandidaturaDao
         } else {
             return true;
         }
+    }
+
+    public static function buscaEmail($codCandidatura)
+    {
+        $conectar = Conexao::conectar();
+    
+        $stmt = $conectar->prepare("SELECT nomeVoluntario AS nome, emailVoluntario AS email, tbCandidatura.codCandidatura FROM tbvoluntario
+                                        INNER JOIN tbCandidatura ON tbVoluntario.codVoluntario = tbCandidatura.codVoluntario 
+                                        WHERE codCandidatura = :codCandidatura
+                                    ");
+        
+        $stmt->bindValue(':codCandidatura', $codCandidatura, PDO::PARAM_STR);
+        //echo "Valor do email: " . $email;
+        $stmt->execute();
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        //print_r($resultados);
+
+        foreach($resultados as $resultado)
+        {
+            if ($resultado['codCandidatura'] == $codCandidatura)  
+            {
+                return array('codCandidatura' => true, 'nome' => $resultado['nome'], 'email' => $resultado['email']);
+            } 
+        }
+        return array('codCandidatura' => false, 'nome' => '', 'email' => '');       
     }
 
 

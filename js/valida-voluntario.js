@@ -6,6 +6,20 @@ const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 /*const foneRegex = /^\(\d{2}\)\s*\d{4,5}-?\d{4}$/;
 const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/\d{4}$/;*/
 
+// Função para imprimir os valores dos campos do formulário no console
+function printFormData() {
+  const formData = [];
+  campos.forEach((campo, index) => {
+    formData.push(campo.value);
+  });
+  console.log(formData);
+}
+
+// Ouvinte de evento "input" para cada campo do formulário
+campos.forEach((campo) => {
+  campo.addEventListener('input', printFormData);
+});
+
 function validateRequiredFields() {
     let allFieldsFilled = true;
     for (let i = 0; i < campos.length; i++) {
@@ -141,49 +155,119 @@ function emailValidate() {
 
 function passwordValidate() {
     console.log('passwordValidate');
-    const senha = campos[4].value;
+    const senha = campos[6].value;
     const digitRegex = /\d/;
     const specialRegex = /[!@#$%&*]/;
     const upperRegex = /[A-Z]/;
 
-    if (senha.length < 6) {
-    setError(4, 'A senha deve ter pelo menos 6 caracteres');
+    if (senha.length < 8) {
+    setError(6, 'A senha deve ter pelo menos 8 caracteres');
     return false;
     }
 
     if (!digitRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos um número');
+    setError(6, 'A senha deve conter pelo menos um número');
     return false;
     }
 
     if (!specialRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
+    setError(6, 'A senha deve conter pelo menos um caractere especial (!@#$%&*)');
     return false;
     }
 
     if (!upperRegex.test(senha)) {
-    setError(4, 'A senha deve conter pelo menos uma letra maiúscula');
+    setError(6, 'A senha deve conter pelo menos uma letra maiúscula');
     return false;
     }
 
-    removeError(4);
+    removeError(6);
     return true;
 }
 
     
     function confirmPassword() {
     console.log('confirmPassword');
-    const senha = campos[4].value;
-    const confSenha = campos[5].value;
+    const senha = campos[6].value;
+    const confSenha = campos[7].value;
     
     // Verifica se as senhas são iguais
     if (senha !== confSenha) {
-        setError(4, 'As senhas não coincidem');
+        setError(7, 'As senhas não coincidem');
         return false;
     } else {
-        removeError(5);
+        removeError(7);
         return true;
     }
+    }
+
+    function cepValidate() {
+      if (campos[8].value.trim() === '') {
+        setError(8, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(8);
+        return true;
+      }
+    }
+
+    function numLogValidate() {
+      if (campos[9].value.trim() === '') {
+        setError(9, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(9);
+        return true;
+      }
+    }
+
+    function logradouroValidate() {
+      if (campos[10].value.trim() === '') {
+        setError(10, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(10);
+        return true;
+      }
+    }
+
+    function bairroValidate() {
+      if (campos[11].value.trim() === '') {
+        setError(11, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(11);
+        return true;
+      }
+    }
+
+    function estadoValidate() {
+      if (campos[13].value.trim() === '') {
+        setError(13, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(13);
+        return true;
+      }
+    }
+
+    function cidadeValidate() {
+      if (campos[14].value.trim() === '') {
+        setError(14, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(14);
+        return true;
+      }
+    }
+
+    function paisValidate() {
+      if (campos[15].value.trim() === '') {
+        setError(15, 'Campo obrigatório');
+        return false;
+      } else {
+        removeError(15);
+        return true;
+      }
     }
 
 
@@ -193,14 +277,17 @@ function passwordValidate() {
         
         // Verifica se os campos obrigatórios foram preenchidos corretamente
         const nameValid = nameValidate();
-        const dateValid = dateValidate();
         const cpfValid = cpfValidate();
-        const foneValid = foneValidate();
         const emailValid = emailValidate();
         const passwordValid = passwordValidate();
         const confirmPasswordValid = confirmPassword();
+        const cepValid = cepValidate();
+        const numLogValid = numLogValidate();
+        const paisValid = paisValidate();
       
-        if (nameValid && dateValid && cpfValid && foneValid && emailValid && passwordValid && confirmPasswordValid) {
+       
+      
+        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid && cepValid && numLogValid && paisValid) {
           // Se todos os campos estiverem válidos, envia o formulário
           formulario1.submit();
         } else {
@@ -210,6 +297,9 @@ function passwordValidate() {
           emailValidate();
           passwordValidate();
           confirmPassword();
+          cepValidate();
+          numLogValidate();
+          paisValidate();
         }
       });
       

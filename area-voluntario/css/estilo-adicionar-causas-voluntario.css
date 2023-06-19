@@ -339,6 +339,7 @@
     .tipo-causas
     {
         flex-direction: column;
+        align-items: center;
         /* background-color: #92facf; */
     }
 }

@@ -159,6 +159,53 @@
 
 
 
+/* ORDERM DOS INPUTS */
+#input-nome-email
+{
+    order: 1;
+}
+#input-telefones
+{
+    order: 2;
+}
+#input-telefone-2
+{
+    order: 3;
+}
+#input-endereco
+{
+    order: 4;
+}
+#input-endereco-cont
+{
+    order: 5;
+}
+#input-endereco-cont-2
+{
+    order: 6;
+}
+#input-foto-desc
+{
+    order: 7;
+}
+
+
+#input-desc
+{
+    order: 1;
+}
+.div-image
+{
+    order: 2;
+}
+#input-btn-foto-mob
+{
+    display: none;
+}
+
+
+
+
 
 
 
@@ -204,11 +251,56 @@
     .input-box .div-image{
         border: none;
         background-color: #fff;
-        width: 20vw;
+        width: 100vw;
     }
     .input-box .div-image .image img{
         margin-bottom: 50px;
     }
+
+     /* MUDANDO ORDEM  DOS INPUTS */
+     #input-foto-desc
+     {
+         order: 1;
+     }
+     #input-nome-email
+     {
+         order: 2;
+     }
+     #input-telefones
+     {
+         order: 3;
+     }
+     #input-telefone-2
+     {
+         order: 4;
+     }
+     #input-endereco
+     {
+         order: 5;
+     }
+     #input-endereco-cont
+     {
+         order: 6;
+     }
+     #input-endereco-cont-2
+     {
+         order: 7;
+     }
+     #form-botao
+     {
+         order: 8;
+     }
+ 
+     
+     #input-desc
+     {
+         order: 3;
+     }
+     .div-image
+     {
+         order: 1;
+     }
+
 }
 
 @media (max-width: 556px)
