@@ -83,11 +83,18 @@
                             </div>
 
                             <div class="input-box" id="input-box-switch">
-                                <label for=""> Quero deixar meu perfil público</label>
+                                <label for=""> Deixar meu perfil público</label>
                                 <div class="switch-container">
                                     <input class="input-switch" type="checkbox" name="switch" id="switch">
                                     <label class="switch" for="switch"></label>
                                 </div>
+                            </div>
+
+                            <div class="input-box" id="input-box-termos">
+                                <div class="aa">
+                                    <input type="checkbox" name="" id="">
+                                    <label for=""> <a href="termos-de-uso.php"> Aceito os termos de uso. </a></label>   
+                                </div>                        
                             </div>
                         </div>
                     </div>
