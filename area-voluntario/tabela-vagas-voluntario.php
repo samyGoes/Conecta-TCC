@@ -548,11 +548,7 @@
                                             $nomeVaga = $servico['nomeservico'];                                  
                                         ?>
 
-<<<<<<< HEAD
                                         <td class="td-table-c"> <?php echo $instituicao['nomeInstituicao']; ?> </td>
-=======
-                                        <td class="td-table-c"> <?php echo $nomeInstituicao; ?> </td>
->>>>>>> 5918292e1cb6943e2e1c15bfb2c1e451a2abdc7a
                                         <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">

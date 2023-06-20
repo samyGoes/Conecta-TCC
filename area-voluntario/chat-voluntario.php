@@ -322,15 +322,6 @@ require_once '../auth/verifica-logado.php';
 
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
-
-        <div class="main-conteudo-container-titulo">
-            <h1> VAGAS </h1>
-            <p>
-                Aqui você verá as listas das vagas para as quais se candidatou e as vagas em que foi
-                requisitado.
-            </p>
-        </div>
-
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
             <!-- TÍTULO 1 -->
@@ -346,15 +337,19 @@ require_once '../auth/verifica-logado.php';
             $id = $_GET['c'];
             // $t = 'Voluntario';
             $id1 = $_SESSION['codUsuario'];
+            $codVoluntario = $_SESSION['codUsuario'];
             try {
-                $listaInsitituicao = InstituicaoDao::listar();
+                $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
+                $listaInstituicao = CandidaturaDao::listarVoluntario($codVoluntario);
+                $listaVoluntario = VoluntarioDao::listarChat($id1); // Passar o código da vaga para a consulta
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
             ?>
             <?php
 
-            foreach ($listaInsitituicao as $instituicao) {
+            foreach ($listaInstituicao as $instituicao) {
+                foreach ($listaVoluntario as $voluntario) {
 
             ?>
 
@@ -372,6 +367,19 @@ require_once '../auth/verifica-logado.php';
                         <div class="scroll-chat" id="scroll-chat">
                             <div class="main-chat">
                                 <div class="mensagens" id="mensagens">
+                                    <!-- <div class="area-voluntario">
+                                <div class="foto-voluntario">
+                                    <img src="../img-instituicao/6.jpg" alt="foto">
+                                </div>
+                                <div class="voluntario">
+                                    <div class="mensagem-voluntario">
+                                        <div class="conteudo-mensagem">
+                                            <h4> Sâmilly</h4>
+                                            <p>Como seria refente asos horarios</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                                 </div>
                             </div>
                         </div>
@@ -389,6 +397,7 @@ require_once '../auth/verifica-logado.php';
 
             <?php
                 }
+            }
             ?>
 
             <a class="link-voltar-anterior" href="../area-voluntario/tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>

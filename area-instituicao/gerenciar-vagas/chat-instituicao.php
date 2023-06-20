@@ -212,94 +212,61 @@ include "../../auth/verifica-logado.php";
     <!-- CONTEUDO  -->
     <main class="main-conteudo">
 
-        <div class="main-conteudo-container-titulo">
-            <h1> GERENCIAR VAGAS </h1>
-            <p>
-                Veja todas as informações necessárias para o gerenciamento de suas vagas e
-                possíveis voluntários.
-            </p>
-        </div>
-
         <!-- COLOCAR TODO O CONTEÚDO DENTRO DESSA SESSÃO -->
         <div class="conteudo-completo">
-
-            <div class="container-botoes">
-                <a href="dashboard-instituicao.php" class="btn-dashboard"> <button> Dashboard </button></a>
-                <a href="tabela-voluntarios-instituicao.php" class="btn-voluntarios"> <button> Voluntários Disponíveis </button></a>
-                <a href="tabela-voluntarios-rejeitados-instituicao.php" class="btn-v-r"> <button> Voluntários Recusados </button></a>
-                <a href="tabela-vagas-preenchidas-instituicao.php" class="btn-vagas"> <button> Vagas Preenchidas </button></a>
+            <!-- TÍTULO 1 -->
+            <div class="container-titulo-1">
+                <h2 class="titulo-voluntarios"> Chat </h2>
+                <p class="frase-voluntarios">
+                    Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
+                </p>
             </div>
-
             <?php
             require_once 'global.php';
 
             $id = $_GET['c'];
-            // $t = 'Voluntario';
 
             try {
-                $listaVoluntario = VoluntarioDao::listarPorId($id); // Passar o código da vaga para a consulta
+                $listaVoluntario = VoluntarioDao::listarPorId($id);
+                $listaInstituicao = InstituicaoDao::listar();
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
+
+            if (!empty($listaVoluntario) && !empty($listaInstituicao)) {
+                $voluntario = $listaVoluntario[0];
+                $instituicao = $listaInstituicao[0];
             ?>
-
-            <?php foreach ($listaVoluntario as $voluntario) {
-
-            ?>
-
-                    <!-- TÍTULO 1 -->
-                    <div class="container-titulo-1">
-                        <h2 class="titulo-voluntarios"> Chat </h2>
-                        <p class="frase-voluntarios">
-                            Converse com o voluntário para que ambos possam resolver como funcionará o serviço e se tudo está de acordo com o esperado.
-                        </p>
+                <div class="chat-container" id="chat-container">
+                    <div class="chat-header">
+                        <div class="nome-user">
+                            <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
+                            <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
+                        </div>
+                        <div class="pesquisar-chat">
+                            <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
+                            <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                        </div>
                     </div>
-
-                    <div class="chat-container" id="chat-container">
-                        <div class="chat-header">
-                            <div class="nome-user">
-                                <img src="../../area-voluntario/<?php echo $voluntario['fotoVoluntario']; ?>" alt="img">
-                                <h2 class="chat-titulo" id="chat-titulo"> <?php echo $voluntario['nomeVoluntario']; ?> </h2>
-                            </div>
-                            <div class="pesquisar-chat">
-                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar" style="color: white;">
-                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                            </div>
-                        </div>
-                        <div class="scroll-chat" id="scroll-chat">
-                            <div class="main-chat">
-                                <div class="mensagens" id="mensagens">
-                                    <!-- <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat-footer">
-                            <div class="fundo-footer">
-                                <div class="enviar-mensagem">
-                                    <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                                </div>
-                                <button type="" class="button-send" id="btn1">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
+                    <div class="scroll-chat" id="scroll-chat">
+                        <div class="main-chat">
+                            <div class="mensagens" id="mensagens">
                             </div>
                         </div>
                     </div>
-
+                    <div class="chat-footer">
+                        <div class="fundo-footer">
+                            <div class="enviar-mensagem">
+                                <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                            </div>
+                            <button type="" class="button-send" id="btn1">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             <?php
-                }
-            
+            }
             ?>
 
             <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
@@ -429,7 +396,6 @@ include "../../auth/verifica-logado.php";
         });
     </script>
 
-    <script type="module" src="./js/script.js"></script>
     <script type="module" src="../imports/side-bar.js"></script>
     <script type="module" src="../../imports/nav-drop-down.js"></script>
     <script type="module" src="../../imports/nav-drop-down-notificacao.js"></script>
