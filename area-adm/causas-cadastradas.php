@@ -286,7 +286,7 @@
             <div class="card-1">
                 <p>Escreva o nome da causa que deseja solicitar.</p>
                 <div class="card-cadastrar">
-                    <form class="card-form" action="cadastrar-causas.php" method="POST">
+                    <form class="card-form" action="cadastrar-causas-adm.php" method="POST">
                         <div class="input-box">
                             <label for="" id="label">Nome</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite a causa">
