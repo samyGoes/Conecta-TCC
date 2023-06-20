@@ -1,6 +1,6 @@
 <?php
-    require_once 'global.php';
-    require_once '../auth/verifica-logado.php';
+require_once 'global.php';
+require_once '../auth/verifica-logado.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../area-instituicao/css/estilo-arquivo-modelo.css">
     <link rel="stylesheet" href="css/estilo-tabela-vagas.css">
     <link rel="stylesheet" href="../area-instituicao/gerenciar-vagas/css/estilo-modal-avaliacao.css">
-    
+
     <!-- LINK ICONES -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title> Configurações do Perfil - Vagas </title>
@@ -44,120 +44,105 @@
             </ul>
 
             <ul class="topicos-sessao-login">
-                <?php 
-                    if (empty($_SESSION['nomeUsuario'])) 
-                    {
+                <?php
+                if (empty($_SESSION['nomeUsuario'])) {
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
-                                <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login 
-                            </a>
-                        </li>
-                <?php 
-                    } 
-                    else 
-                    { 
-                        $nomeCompleto = $_SESSION['nomeUsuario'];
-                        if($_SESSION['tipoPerfil']=='Voluntario')
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0];
-                        }
-                        else
-                        {
-                            $nomeArray = explode(" ", $nomeCompleto);
-                            $primeiroNome = $nomeArray[0]." ".$nomeArray[1];  
-                        }                        
+                    <li class="topicos-sessao-login-linha">
+                        <a href="<?php echo 'form-login.php' ?>" class="cabecalho-menu-item" id="cabecalho-menu-item-login">
+                            <i class="fa-solid fa-user" id="topicos-icon-fixo-dif"></i> login
+                        </a>
+                    </li>
+                <?php
+                } else {
+                    $nomeCompleto = $_SESSION['nomeUsuario'];
+                    if ($_SESSION['tipoPerfil'] == 'Voluntario') {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0];
+                    } else {
+                        $nomeArray = explode(" ", $nomeCompleto);
+                        $primeiroNome = $nomeArray[0] . " " . $nomeArray[1];
+                    }
                 ?>
-                        <li class="topicos-sessao-login-linha">
-                            <div class="box-topicos-sessao-login-linha">
-                                <?php        
+                    <li class="topicos-sessao-login-linha">
+                        <div class="box-topicos-sessao-login-linha">
+                            <?php
 
-                                    require_once 'global.php';
-                                    include 'diretorios-notificacao.php';
-                                    try 
-                                    {
-                                        $idVoluntarioLogado = $_SESSION['codUsuario'];
-                                        $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
-                                        //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
-                                        //$diretorio = diretorios($linha['arquivo']);
-                                        //print_r($links);
-                                    } 
-                                    catch (Exception $e) 
-                                    {
-                                        echo $e->getMessage();
-                                    }
+                            require_once 'global.php';
+                            include 'diretorios-notificacao.php';
+                            try {
+                                $idVoluntarioLogado = $_SESSION['codUsuario'];
+                                $notificacoes = VoluntarioDao::notificacoes($idVoluntarioLogado);
+                                //$novaNotificacao = InstituicaoDao::novaNotificacao($idInstituicaoLogada);
+                                //$diretorio = diretorios($linha['arquivo']);
+                                //print_r($links);
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
 
-                                    if(empty($notificacoes)) 
-                                    {
-                                    ?>
-                                            <div class="box-sininho">
-                                                <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
-                                            </div>       
-                                            <ul class="sub-topicos-sininho sem-resultado">
-                                                <li> 
-                                                    <div class="sub-topicos-sininho-linha sem-resultado">
-                                                        <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
-                                                    </div>                                          
-                                                </li>
-                                            </ul>
-                                    <?php
-
-                                    }
-                                    else
-                                    {
-                                    ?>
-                                        <div class="box-sininho">
-                                            <div class="nova-notificacao-bolinha"></div>
-                                            <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>                                         
+                            if (empty($notificacoes)) {
+                            ?>
+                                <div class="box-sininho">
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+                                <ul class="sub-topicos-sininho sem-resultado">
+                                    <li>
+                                        <div class="sub-topicos-sininho-linha sem-resultado">
+                                            <p class="sub-topicos-sininho-linha-sem-resultado"> Sem notificações...</p>
                                         </div>
+                                    </li>
+                                </ul>
+                            <?php
 
-                                        <ul class="sub-topicos-sininho">
+                            } else {
+                            ?>
+                                <div class="box-sininho">
+                                    <div class="nova-notificacao-bolinha"></div>
+                                    <i id="nav-sininho-sub-topicos" class="fa-solid fa-bell"></i>
+                                </div>
+
+                                <ul class="sub-topicos-sininho">
                                     <?php
-                                            foreach($notificacoes as $linha)
-                                            {
-                                                $primeiraIteracao = true; 
-                                                foreach($linha as $titulo => $frase)
-                                                {
-                                                    if($primeiraIteracao)
-                                                    {                                     
-                                                        $titulos = array_keys($linha); // Obter as chaves do array $linha
-                                                        $primeiroTitulo = $titulos[0]; // Obter o primeiro título
-                                                    
-                                                        $frases = array_values($linha); // Obter os valores do array $linha
-                                                        $primeiraFrase = $frases[0];
-                                    ?>                                           
-                                                        <li> 
-                                                            <div class="sub-topicos-sininho-linha">
-                                                                <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
-                                                                <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
-                                                            </div>                                          
-                                                        </li>                     
-                                    <?php
-                                                        $primeiraIteracao = false;
-                                                    }
-                                                }
-                                            }
+                                    foreach ($notificacoes as $linha) {
+                                        $primeiraIteracao = true;
+                                        foreach ($linha as $titulo => $frase) {
+                                            if ($primeiraIteracao) {
+                                                $titulos = array_keys($linha); // Obter as chaves do array $linha
+                                                $primeiroTitulo = $titulos[0]; // Obter o primeiro título
+
+                                                $frases = array_values($linha); // Obter os valores do array $linha
+                                                $primeiraFrase = $frases[0];
                                     ?>
-                                        </ul>
+                                                <li>
+                                                    <div class="sub-topicos-sininho-linha">
+                                                        <a class="sub-topicos-sininho-linha-titulo" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiroTitulo; ?> </a>
+                                                        <a class="sub-topicos-sininho-linha-frase" href="<?php echo diretorios($linha['arquivo']) . $linha['arquivo'] ?>"> <?php echo $primeiraFrase; ?> </a>
+                                                    </div>
+                                                </li>
                                     <?php
+                                                $primeiraIteracao = false;
+                                            }
+                                        }
                                     }
                                     ?>
-                        
-                                <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
-                                    Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
-                                </p>
-                            </div>
-                            
-                            <ul class="sub-topicos">
-                                <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
-                                <li> <a href=""> Vagas </a> </li>
-                                <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
-                                <li> <a href="../auth/logout.php"> Sair </a></li>
-                            </ul>
-                        </li>
-                <?php 
-                    } 
+                                </ul>
+                            <?php
+                            }
+                            ?>
+
+                            <p class="cabecalho-menu-item" id="cabecalho-menu-item-usuario">
+                                Olá, <?php echo $primeiroNome ?> <span id="nav-seta-sub-topicos"> 🢓 </span>
+                            </p>
+                        </div>
+
+                        <ul class="sub-topicos">
+                            <li> <a href="../auth/redirecionamento-perfil-usuario.php"> Meu Perfil </a></li>
+                            <li> <a href=""> Vagas </a> </li>
+                            <li> <a href="../auth/configuracao-perfil-usuario.php"> Configurações </a></li>
+                            <li> <a href="../auth/logout.php"> Sair </a></li>
+                        </ul>
+                    </li>
+                <?php
+                }
                 ?>
             </ul>
         </ul>
@@ -214,12 +199,10 @@
 
     <!-- MODAL RETIRAR CANDIDATURA -->
     <?php
-        
-        if(isset($_GET['retirar-candidatura']))
-        {
-            if($_GET['retirar-candidatura'] === 'sucesso')
-            {
-                echo ' <script>
+
+    if (isset($_GET['retirar-candidatura'])) {
+        if ($_GET['retirar-candidatura'] === 'sucesso') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -323,21 +306,19 @@
                         }, 8000);
 
                     </script>';
-            }
         }
+    }
 
     ?>
 
 
-    
+
     <!-- MODAL AVALIAÇÃO -->
     <?php
-        
-        if(isset($_GET['avaliacao']))
-        {
-            if($_GET['avaliacao'] === 'sucesso')
-            {
-                echo ' <script>
+
+    if (isset($_GET['avaliacao'])) {
+        if ($_GET['avaliacao'] === 'sucesso') {
+            echo ' <script>
                         // cria o elemento HTML do modal
                         const modal = document.createElement("div");
                         modal.id = "modal";
@@ -441,8 +422,8 @@
                         }, 8000);
 
                     </script>';
-            }
         }
+    }
 
     ?>
 
@@ -516,93 +497,96 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <?php
-                            require_once 'global.php';
-                            $codVoluntario = $_SESSION['codUsuario'];
-                            try {
-                                $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
-                                $listaInstituicao = CandidaturaDao::listarVoluntario($codVoluntario);
-                            } catch (Exception $e) {
-                                echo $e->getMessage();
-                            }
-                            ?>
+                            <tr>
+                                <?php
+                                require_once 'global.php';
+                                $codVoluntario = $_SESSION['codUsuario'];
+                                try {
+                                    $listaVagasCandidatadas = CandidaturaDao::vagasCandidatadasVoluntario($codVoluntario);
+                                    $listaInstituicao = CandidaturaDao::listarVoluntario($codVoluntario);
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                }
+                                ?>
 
-                            
-                            <?php
-                            foreach ($listaVagasCandidatadas as $vagaCandidatada) {
-                                foreach ($listaInstituicao as $instituicao) { 
-                                $codCandidatura = $vagaCandidatada['codCandidatura'];
-                                
-                                    $t = 'Instituicao';
-                                    $c = $instituicao['codInstituicao'];
-                            ?>
-                                 <!-- <form action="" method="post"> -->
-                                        <?php
-                                            $codServico = $vagaCandidatada['codServico'];
-                                            $nomeInstituicao = $instituicao['nomeInstituicao'];
-                                            $status = $vagaCandidatada['statusCandidatura'];
-                                            //$instituicao = $vagaCandidatada['nomeInstituicao'];
+                                <?php foreach ($listaVagasCandidatadas as $vagaCandidatada) : ?>
+                                    <?php $codCandidatura = $vagaCandidatada['codCandidatura']; ?>
 
-                                            $servico = ServicoDao::obterServicoPorCodigo($codServico);
-                                            $nomeVaga = $servico['nomeservico'];                                  
-                                        ?>
+                                    <?php
+                                    // Obtenha as informações relacionadas à vaga candidatada
+                                    $codServico = $vagaCandidatada['codServico'];
+                                    $status = $vagaCandidatada['statusCandidatura'];
 
-                                        <td class="td-table-c"> <?php echo $nomeInstituicao; ?> </td>
-                                        <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
+                                    $servico = ServicoDao::obterServicoPorCodigo($codServico);
+                                    $nomeVaga = $servico['nomeservico'];
+                                    ?>
+
+                            <tr>
+                                <?php foreach ($listaInstituicao as $index => $instituicao) : ?>
+                                    <?php $t = 'Instituicao'; ?>
+                                    <?php $c = $instituicao['codInstituicao']; ?>
+
+                                    <?php if ($index === 0) : ?>
+                                        <td class="td-table-c"><?php echo $instituicao['nomeInstituicao']; ?></td>
+                                        <td class="td-table-c"><a href="#" class=""><?php echo $nomeVaga; ?></a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">
                                                 <?php
-                                                    $bolinhaClass = '';
-                                                    if ($status == 'pendente') {
-                                                        $bolinhaClass = 'status-bolinha-pendente';
-                                                    } elseif ($status == 'aceito') {
-                                                        $bolinhaClass = 'status-bolinha-aceito';
-                                                    } elseif ($status == 'recusado') {
-                                                        $bolinhaClass = 'status-bolinha-recusado';
-                                                    }
+                                                $bolinhaClass = '';
+                                                if ($status == 'pendente') {
+                                                    $bolinhaClass = 'status-bolinha-pendente';
+                                                } elseif ($status == 'aceito') {
+                                                    $bolinhaClass = 'status-bolinha-aceito';
+                                                } elseif ($status == 'recusado') {
+                                                    $bolinhaClass = 'status-bolinha-recusado';
+                                                }
                                                 ?>
-                                                <div class="status-bolinha <?php echo $bolinhaClass ?>"></div>
+                                                <div class="status-bolinha <?php echo $bolinhaClass; ?>"></div>
                                                 <?php
-                                                    if ($status == 'pendente') {
-                                                        echo '<p class="status"> Pendente </p>';
-                                                    } elseif ($status == 'aceito') {
-                                                        echo '<p class="status"> Aceito </p>';
-                                                    } elseif ($status == 'recusado') {
-                                                        echo '<p class="status"> Recusado </p>';
-                                                    }
+                                                if ($status == 'pendente') {
+                                                    echo '<p class="status"> Pendente </p>';
+                                                } elseif ($status == 'aceito') {
+                                                    echo '<p class="status"> Aceito </p>';
+                                                } elseif ($status == 'recusado') {
+                                                    echo '<p class="status"> Recusado </p>';
+                                                }
                                                 ?>
                                             </div>
                                         </td>
 
-                                        <td class="td-table-c"><a href="<?php echo '../auth/redirecionamento-chat-voluntario.php?c=' . $c . '&t=' . $t; ?>"> <i id="td-icone-chat" class="fa-solid fa-comment-dots"></i> </a></td>
-                                        <td class="td-table-c"> <button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>" ><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button> </td>
+                                        <td class="td-table-c"><a href="../auth/redirecionamento-chat-voluntario.php?c=<?php echo $c; ?>&t=<?php echo $t; ?>"><i id="td-icone-chat" class="fa-solid fa-comment-dots"></i></a></td>
+                                        <td class="td-table-c"><button type="submit" id="btnModalAvaliar" name="btnModalAvaliar" class="table-btn-avaliar" value="<?php echo $c; ?>"><i id="tabela-icone-avaliacao" class="fa-solid fa-star"></i></button></td>
                                         <td class="td-table-c">
                                             <form action="" method="post">
-                                                <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>"> retirar </button>
+                                                <button name="btnRetirar" type="submit" class="table-btn-rejeitar" value="<?php echo $codCandidatura; ?>">retirar</button>
                                             </form>
                                         </td>
-                                    <!-- </form> -->
-                                </tr>
+                                    <?php else : ?>
+                                        <td class="td-table-c" colspan="5"></td>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                            </tr>
+
                             <?php
-                                if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
-                                    $codCandidatura = $_POST['btnRetirar'];
-                                    try {
-                                        $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
-                                        echo "<script>window.location.href = 'tabela-vagas-voluntario.php?retirar-candidatura=sucesso';</script>";
-                                    } catch (Exception $e) {
-                                        echo $e->getMessage();
+                                    if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
+                                        $codCandidatura = $_POST['btnRetirar'];
+                                        try {
+                                            $statusCandidatura = CandidaturaDao::retirarCandidatura($codCandidatura);
+                                            echo "<script>window.location.href = 'tabela-vagas-voluntario.php?retirar-candidatura=sucesso';</script>";
+                                        } catch (Exception $e) {
+                                            echo $e->getMessage();
+                                        }
                                     }
-                                }
-                            }
-                        }
                             ?>
+
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
 
                 </div>
             </div>
-
 
         <!-- MODAL AVALIAÇÂO -->
         <div id="modalAvaliar" class="modal">
@@ -610,58 +594,57 @@
                 <div class="modal-sessao-1">
                     <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
-                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p>
+                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p
 
-                    <form class="form-modal" action="" method="POST" id="form-modal">
-                        <div class="modal-input-box">
-                            <div class="rating">
-                                <input type="radio" id="star1" name="estrela" value="5">
-                                <label for="star1"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star2" name="estrela" value="4">
-                                <label for="star2"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star3" name="estrela" value="3">
-                                <label for="star3"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star4" name="estrela" value="2">
-                                <label for="star4"><i class="fa-solid fa-star"></i></label>
-                                <input type="radio" id="star5" name="estrela" value="1">
-                                <label for="star5"><i class="fa-solid fa-star"></i></label>
+                        <form class="form-modal" action="" method="POST" id="form-modal">
+                            <div class="modal-input-box">
+                                <div class="rating">
+                                    <input type="radio" id="star1" name="estrela" value="5">
+                                    <label for="star1"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="star2" name="estrela" value="4">
+                                    <label for="star2"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="star3" name="estrela" value="3">
+                                    <label for="star3"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="star4" name="estrela" value="2">
+                                    <label for="star4"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="star5" name="estrela" value="1">
+                                    <label for="star5"><i class="fa-solid fa-star"></i></label>
+                                </div>
                             </div>
-                        </div>
+                            <?php
+
+                            $valorBotao = $c;
+
+                            ?>
+
+                            <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>
+
+                        </form>
+
                         <?php
-
-                        $valorBotao = $c;
-                        
-                        ?>
-                        
-                        <div class="btn-confirmed" id="btn-confirmed"><button name="btnAvaliar" class="modal-btn-confirmar" type="submit" value="<?php echo $valorBotao; ?>">Avaliar</button></div>
-
-                    </form>
-
-                    <?php
                         require_once 'global.php';
 
-                        if(isset($_POST['estrela'])){
+                        if (isset($_POST['estrela'])) {
                             $numavaliacao = $_POST['estrela'];
                             $codInstituicao = $_POST['btnAvaliar'];
-                            try { 
+                            try {
                                 $avaliacao = AvaliarDao::avaliarInstituicao($codInstituicao, $numavaliacao);
                                 echo "<script>window.location.href = 'tabela-vagas-voluntario.php?avaliacao=sucesso';</script>";
                             } catch (Exception $e) {
                                 echo $e->getMessage();
                             }
-
                         }
-                    ?>
-                    <!-- <a onclick="fecharModal('modalAvaliar')" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a> -->
-                </div>
+                        ?>
+                        <!-- <a onclick="fecharModal('modalAvaliar')" class="voltar-anterior" id="voltarA" href=""> Voltar para a página anterior </a> -->
+                    </div>
 
-                 <div class="modal-sessao-2">
-                    <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
-                    <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
-                    <div class="btn-confirmed" id="btn-confirmed"><button onclick="fecharModal('modalAvaliar')" class="modal-btn-confirmar" id="fecharModal"> FECHAR </button></div>
+                    <div class="modal-sessao-2">
+                        <h2 class="modal-titulo" id="modal-titulo"> Verificação concluída </h2>
+                        <p class="modal-frase"> A verificação foi feita com sucesso! Agora você já pode alterar sua senha. </p>
+                        <div class="btn-confirmed" id="btn-confirmed"><button onclick="fecharModal('modalAvaliar')" class="modal-btn-confirmar" id="fecharModal"> FECHAR </button></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
             <!-- TÍTULO 2 -->
@@ -705,13 +688,15 @@
                             // }
                             ?>
                             <tr>
-                                <?php //foreach ($listaVoluntario as $voluntario) { ?>
-                                    <td class="td-table-r"> <?php //echo $voluntario['codVoluntario']; ?> </td>
+                                <?php //foreach ($listaVoluntario as $voluntario) { 
+                                ?>
+                                    <td class="td-table-r"> <?php //echo $voluntario['codVoluntario']; 
+                                                            ?> </td>
                                     <td class="td-table-r"> <button class="table-btn-chamar"> aceitar </button> </td>
                                     <td class="td-table-r"> <button class="table-btn-rejeitar"> rejeitar </button> </td>
                             </tr>
                         <?php
-                                //}
+                        //}
                         ?>
                         </tbody>
                     </table>
@@ -731,7 +716,7 @@
     <script type="module" src="imports/side-bar.js"></script>
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/box-info.js"></script>
-    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script> 
+    <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
     <script type="module" src="../imports/nova-notificacao.js"></script>
     <script src="js/avaliacao.js"></script>
 </body>
