@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Jun-2023 às 22:43
+-- Tempo de geração: 20-Jun-2023 às 20:09
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -152,7 +152,11 @@ INSERT INTO `tbcausavoluntario` (`codCausaVoluntario`, `codCategoriaServico`, `c
 (34, 22, 16),
 (35, 23, 16),
 (36, 14, 17),
-(37, 15, 17);
+(37, 15, 17),
+(38, 14, 18),
+(39, 15, 18),
+(40, 21, 18),
+(41, 23, 18);
 
 -- --------------------------------------------------------
 
@@ -211,8 +215,8 @@ INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `numSe
 (16, '', 2, 8),
 (17, '(11) 5698-2355', 1, 9),
 (18, '', 2, 9),
-(19, '(11) 95991-1849', 1, 10),
-(20, '', 2, 10),
+(19, '', 1, 10),
+(20, '(11) 95991-1849', 2, 10),
 (21, '(11) 97701-3618', 1, 11),
 (22, '', 2, 11),
 (23, '', 1, 12),
@@ -226,7 +230,9 @@ INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `numSe
 (31, '(11) 92587-3410', 1, 16),
 (32, '', 2, 16),
 (33, '(11) 96787-4406', 1, 17),
-(34, '', 2, 17);
+(34, '', 2, 17),
+(35, '(11) 95380-5992', 1, 18),
+(36, '', 2, 18);
 
 -- --------------------------------------------------------
 
@@ -426,13 +432,14 @@ CREATE TABLE `tbvoluntario` (
 
 INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`, `visibilidadeVoluntario`) VALUES
 (4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png', 'on'),
-(10, 'Gabriella Ferreira Alves', '2005-05-22', '503.807.788-90', 'Rua Paulo Ramos', '48', '08461-20', 'Casa', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'ferreiraalvesg2@outlook.com', 'gabiGabi2@', 'Quero ser uma voluntária!', 'img-voluntario/10.png', 'on'),
+(10, 'Gabriella Ferreira Alves', '2005-05-22', '503.807.788-90', 'Rua Paulo Ramos', '48', '08461-20', 'Casa', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'ferreiraalvesg2@outlook.com', 'gabiGabi2@', 'Quero ser uma voluntária!', 'img-voluntario/10jpeg', 'on'),
 (11, 'Marcos Eric de Medeiros', '2004-07-02', '481.230.448-28', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'Casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'srmarcoserick1@gmail.com', '02072004mM.', 'Amo cuidar de animais e gostaria de poder demonstrar esse sentimento que eu tenho por animais.', 'img-voluntario/11.jpg', 'on'),
 (12, 'Kauã Ferreira da Silva', '2004-09-09', '388.178.558-20', 'Travessa Michel Lambert', '34', '08473-55', 'casa 2', 'Conjunto Habitacional Barro Branco II', 'São Paulo', 'SP', 'Brasil', 'kauasimone.1@gmail.com', 'Kauas2simone!', 'estou disposto a aceitar qualquer tipo de trabalho voluntário que se encaixe com meu perfil.', 'img-voluntario/12.png', 'on'),
 (14, 'Ryan Gustavo Santos de Jesus', '2005-08-26', '528.342.778-18', 'Rua. Cachoeira Escaramuça', '719', '08110-78', 'Casa 2', 'Vila Itaim', 'São Paulo', 'SP', 'Brasil', 'ryangustavo23@gmail.com', 'Ryanzin@26', 'Olá, meu nome é Ryan.\r\nTenho 17 anos.\r\nAceito trabalhar como voluntário em áreas que se adequam o meu perfil.', 'img-voluntario/14.jpg', 'on'),
 (15, 'Sandra Regina de Souza', '1983-06-26', '316.469.188-27', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'sandrargnsz@gmail.com', '10022713Sr', 'Sou professora e gosto muito de ajudar crianças', 'img-voluntario/15.jpg', 'on'),
 (16, 'Fabio Medeiros da Silva', '1981-04-27', '293.822.098-75', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'Casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'fabiomedeiross02@gmail.com', '10022713Sr', 'Amo animais', 'img-voluntario/16.jpg', 'on'),
-(17, 'Maria José de Jesus Ferreira', '1945-09-11', '602.802.030-39', 'Rua Paulo Ramos', '48', '08461-20', 'Casa 1', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'mariaj@gmail.com', 'mariaJ1', 'Sou idosa mas sou dura na queda !\r\nQuero fazer bolinhos para as crianças.', 'img-voluntario/17jpeg', 'on');
+(17, 'Maria José de Jesus Ferreira', '1945-09-11', '602.802.030-39', 'Rua Paulo Ramos', '48', '08461-20', 'Casa 1', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'mariaj@gmail.com', 'mariaJ1', 'Sou idosa mas sou dura na queda !\r\nQuero fazer bolinhos para as crianças.', 'img-voluntario/17jpeg', 'on'),
+(18, 'Simone da Silva Ribeiro', '1983-04-13', '322.868.858-50', '', '34', '08473-55', 'casa 2', 'Conjunto Habitacional Barro Branco II', 'São Paulo', '', 'Brasil', 'simone@gmail.com', 'Simone1@', 'amo cozinha e gostaria de se voluntáriar nessa área', 'img-voluntario/18jpeg', 'on');
 
 --
 -- Índices para tabelas despejadas
@@ -570,7 +577,7 @@ ALTER TABLE `tbavaliacao`
 -- AUTO_INCREMENT de tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
-  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriaservico`
@@ -588,7 +595,7 @@ ALTER TABLE `tbcausavaga`
 -- AUTO_INCREMENT de tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
-  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `tbfoneinstituicao`
@@ -600,7 +607,7 @@ ALTER TABLE `tbfoneinstituicao`
 -- AUTO_INCREMENT de tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
-  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `tbfotosinstituicao`
@@ -648,7 +655,7 @@ ALTER TABLE `tbsolicitacaohabilidade`
 -- AUTO_INCREMENT de tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
-  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para despejos de tabelas
