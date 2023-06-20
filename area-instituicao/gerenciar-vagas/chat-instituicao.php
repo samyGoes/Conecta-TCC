@@ -183,7 +183,7 @@ include "../../auth/verifica-logado.php";
             </div>
 
             <div class="nav-lateral-box-icon">
-                <a href="dashboard-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
+                <a href="tabela-voluntarios-instituicao.php"> <i class="fa-solid fa-gear"></i> <span class="nav-lateral-topico"> Gerenciar Vagas
                     </span></a>
             </div>
 
@@ -269,7 +269,7 @@ include "../../auth/verifica-logado.php";
             }
             ?>
 
-            <a class="link-voltar-anterior" href="tabela-voluntarios-confirmados.php"> Voltar para a página anterior. </a>
+            <a class="link-voltar-anterior" href="tabela-voluntarios-instituicao.php"> Voltar para a página anterior. </a>
         </div>
     </main>
     <script>
