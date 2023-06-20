@@ -437,10 +437,29 @@ tbody::-webkit-scrollbar-thumb,
     {
         height: 2.2rem;
     }
+    tbody
+    {
+        height: 302px;
+    }
+    .anos ul
+    {
+        font-size: 14px;
+        margin-top: 2.1rem;
+        padding: 0;
+        padding-right: 0.4rem;
+    }
+    .porcentagem ul
+    {
+        font-size: 14px;
+    }
 }
 
  @media(max-width: 1415px)
  {
+    .box-card-sessao-1
+    {
+        width: 37rem;
+    }
     .conteiner-cards
     {
         max-width: 89%;
@@ -452,8 +471,8 @@ tbody::-webkit-scrollbar-thumb,
     }
     .card-topo h1
     {
-        font-size: 2rem;
-        padding-top: 0.6rem;
+        font-size: 1.8rem;
+        padding-top: 0.7rem;
     }
     .funcoes i
     {
@@ -465,12 +484,17 @@ tbody::-webkit-scrollbar-thumb,
     }
     .card-grafico
     {
-        width: 20rem;
-        height: 36.5rem;
+        width: 18rem;
+        height: 32.5rem;
+    }
+    #barras
+    {
+        margin-top: 1.1rem;
+        width: 14rem;
     }
     .barra1, .barra2, .barra3, .barra4, .barra5, .barra6, .barra7, .barra8
     {
-        height: 2.4rem;
+        height: 2.2rem;
     }
     .titulo-card i
     {
@@ -478,13 +502,13 @@ tbody::-webkit-scrollbar-thumb,
     }
     .anos ul
     {
-        font-size: 14px;
+        font-size: 13px;
         padding-right: 0.3rem;
-        margin-top: 1.8rem;
+        margin-top: 2rem;
     }
     .porcentagem ul
     {
-        font-size: 14px;
+        font-size: 13px;
     }
     tbody
     {
@@ -499,6 +523,10 @@ tbody::-webkit-scrollbar-thumb,
     .conteiner-cards
     {
         max-width: 52rem;
+    }
+    .box-card-sessao-1
+    {
+        width: 35rem;
     }
     .card-topo
     {
@@ -516,8 +544,8 @@ tbody::-webkit-scrollbar-thumb,
     }
     .card-topo h1
     {
-        padding-top: 1rem;
-        font-size: 34px;
+        padding-top: 1.3rem;
+        font-size: 31px;
     }
     .table-responsive
     {
@@ -559,6 +587,7 @@ tbody::-webkit-scrollbar-thumb,
     .anos ul
     {
         font-size: 11px;
+        margin-top: 2.1rem;
     }
     .porcentagem ul
     {

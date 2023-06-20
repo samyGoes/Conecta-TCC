@@ -548,11 +548,7 @@
                                             $nomeVaga = $servico['nomeservico'];                                  
                                         ?>
 
-<<<<<<< HEAD
-                                        <td class="td-table-c"> <?php echo $instituicao['nomeInstituicao']; ?> </td>
-=======
                                         <td class="td-table-c"> <?php echo $nomeInstituicao; ?> </td>
->>>>>>> 5918292e1cb6943e2e1c15bfb2c1e451a2abdc7a
                                         <td class="td-table-c"> <a href="#" class=""> <?php echo $nomeVaga ?> </a></td>
                                         <td class="td-table-c">
                                             <div class="box-status">
@@ -611,8 +607,8 @@
         <!-- MODAL AVALIAÇÂO -->
         <div id="modalAvaliar" class="modal">
             <div class="form" id="form">
-
                 <div class="modal-sessao-1">
+                    <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
                     <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p>
 

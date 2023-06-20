@@ -316,12 +316,13 @@ require_once '../auth/verifica-logado.php';
                             <button class="card-btn-rejeitar" name="btnRetirar" type="submit" value="<?php echo $codCandidatura; ?>"> retirar </button>
 
                         </div>
+                    </form>
                     <?php
                 }
                     ?>
 
             </div>
-            </form>
+           
             <?php
             if (isset($_POST['btnRetirar']) && $_POST['btnRetirar'] == $codCandidatura) {
                 $codCandidatura = $_POST['btnRetirar'];
@@ -338,7 +339,7 @@ require_once '../auth/verifica-logado.php';
             
 
 
-<!-- 
+            <!-- 
 
              TÍTULO 2 
             <div class="container-titulo-1">

@@ -52,6 +52,27 @@
     pointer-events: all;
 }
 
+.modal-sessao-1
+{
+    position: relative;
+}
+
+#icone-fechar-modal
+{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    font-size: 20px;
+    color: #525252;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+#icone-fechar-modal:hover
+{
+    color: #84a1d8;
+}
+
 .form-modal {
     line-height: 50px;
 }
@@ -80,7 +101,7 @@
 }
 
 .btn-confirmed button {
-    margin: 2.5rem 0rem 1rem 0rem;
+    margin: 4.5rem 0rem 1rem 0rem;
     width: 11rem;
     height: 2.5rem;
     background-color: #4567a5;
