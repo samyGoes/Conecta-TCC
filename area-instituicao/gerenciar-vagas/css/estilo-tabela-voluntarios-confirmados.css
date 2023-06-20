@@ -86,7 +86,7 @@
 }
 
 .table-responsive {
-    width: 857px;
+    width: 787px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #4567a5;
@@ -216,14 +216,14 @@ td:nth-child(6) {
     border-left: none !important;
 }
 
-th:nth-child(2) {
-    min-width: 140px;
-    max-width: 110px;
+th:nth-child(2),
+td:nth-child(2) {
+    min-width: 70px;
+    max-width: 70px;
 }
 
 td:nth-child(2) {
-    padding-left: 44px;
-    padding-right: 45px;
+    padding-left: 0.5rem;
 }
 
 th:nth-child(3),
@@ -246,7 +246,8 @@ td:nth-child(4) {
 th:nth-child(7),
 td:nth-child(7) {
     min-width: 134px;
-    max-width: 110px;
+    max-width: 134px;
+    padding: 0px 10px;
 }
 
 th:nth-child(8) {
@@ -412,7 +413,7 @@ td button {
     }
 
     .table-responsive {
-        min-width: 90%;
+        /* min-width: 90%; */
         overflow-x: scroll;
     }
 

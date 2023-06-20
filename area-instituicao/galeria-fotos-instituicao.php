@@ -174,7 +174,7 @@ include "../auth/loginUsuario.php";
                 foreach ($fotos as $foto) 
                 {
                     $t = 'Instituicao';
-                    $c = $instituicao['codInstituicao'];
+                    $c = $foto['codInstituicao'];
             ?>
                     <div class="box-img">
                         <img src="<?php echo $foto['fotosInstituicao']; ?>">
@@ -185,7 +185,7 @@ include "../auth/loginUsuario.php";
         </div>
 
         <div class="voltar-perfil">
-            <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"></a>
+            <a href="<?php echo '../auth/redirecionamento-perfil.php?c=' . $c . '&t=' . $t; ?>"> Voltar para o perfil</a>
         </div>
     </main>
 

@@ -1,3 +1,5 @@
+let modal = document.querySelector("#modalAvaliar");
+
 function modalAvaliacao(event)
 {  
     event.preventDefault();
@@ -11,13 +13,11 @@ function modalAvaliacao(event)
     {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
         {        
-            let modal = document.querySelector("#modalAvaliar");
-
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
 
             var resposta = xhr.responseText;
-            console.log("Resposta da requisição AJAX:", resposta);
+            //console.log("Resposta da requisição AJAX:", resposta);
                     
         }   
         else //if (xhr.readyState === XMLHttpRequest.DONE && xhr.status !== 200)  
@@ -32,3 +32,11 @@ function modalAvaliacao(event)
     xhr.send();
 }
 document.getElementById("btnModalAvaliar").addEventListener("click", modalAvaliacao);
+
+
+const btnFechar = document.querySelector("#icone-fechar-modal");
+
+btnFechar.addEventListener("click", function()
+{
+    modal.style.display = 'none';
+});

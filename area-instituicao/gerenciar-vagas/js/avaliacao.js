@@ -1,3 +1,4 @@
+let modal = document.querySelector("#modalAvaliar");
 
 function modalAvaliacao(event)
 {  
@@ -12,8 +13,6 @@ function modalAvaliacao(event)
     {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200)  
         {        
-            let modal = document.querySelector("#modalAvaliar");
-
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
 
@@ -33,3 +32,10 @@ function modalAvaliacao(event)
     xhr.send();
 }
 document.getElementById("btnModalAvaliar").addEventListener("click", modalAvaliacao);
+
+const btnFechar = document.querySelector("#icone-fechar-modal");
+
+btnFechar.addEventListener("click", function()
+{
+    modal.style.display = 'none';
+});
