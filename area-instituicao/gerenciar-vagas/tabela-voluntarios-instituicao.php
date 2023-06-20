@@ -578,11 +578,6 @@ include "../../auth/verifica-logado.php";
                                     $codCandidatura = $_POST['btnRecusar'];
                                     try {
                                         $statusCandidatura = CandidaturaDao::recusarCandidatura($codCandidatura);
-
-                                        // $email = CandidaturaDao::buscaEmail($codCandidatura);
-
-                                        // echo json_encode(['status' => true, 'nome' => $email['nome']]);
-
                                         echo "<script>window.location.href = 'tabela-voluntarios-instituicao.php?candidatura=recusada';</script>";
                                     } catch (Exception $e) {
                                         echo $e->getMessage();
