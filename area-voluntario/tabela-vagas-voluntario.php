@@ -594,7 +594,7 @@ require_once '../auth/verifica-logado.php';
                 <div class="modal-sessao-1">
                     <i id="icone-fechar-modal" class="fa-solid fa-xmark"></i>
                     <h2 class="modal-titulo" id="modal-titulo"> Avaliação </h2>
-                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p
+                    <p class="modal-frase">Aqui você poderá avaliar o voluntário.</p>
 
                         <form class="form-modal" action="" method="POST" id="form-modal">
                             <div class="modal-input-box">

@@ -365,7 +365,7 @@
                         <div class="box-2">
                             <div class="porcentagem">
                                 <li>
-                                    <ul>0%</ul>
+                                    <!-- <ul>0%</ul> -->
                                     <ul>10%</ul>
                                     <ul>30%</ul>
                                     <ul>50%</ul>
