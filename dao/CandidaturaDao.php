@@ -69,7 +69,7 @@ class CandidaturaDao
         if (isset($_POST['pesquisar'])) {
             $pesquisar = $_POST['pesquisar'];
 
-            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, TIMESTAMPDIFF(YEAR, tbVoluntario.dataNascVoluntario, NOW()) AS idade, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
@@ -77,7 +77,7 @@ class CandidaturaDao
             WHERE tbInstituicao.codInstituicao = ? AND tbCandidatura.statusCandidatura = 'recusado' AND (tbVoluntario.nomeVoluntario LIKE '%$pesquisar%' OR tbServico.nomeservico LIKE '%$pesquisar%')";
         
         } else {
-            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+            $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.nomeVoluntario, TIMESTAMPDIFF(YEAR, tbVoluntario.dataNascVoluntario, NOW()) AS idade, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
         FROM tbCandidatura
         INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
         INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico
@@ -95,7 +95,7 @@ class CandidaturaDao
     {
         $conexao = Conexao::conectar();
     
-        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
+        $querySelect = "SELECT tbCandidatura.codCandidatura, tbInstituicao.codInstituicao, tbVoluntario.codVoluntario, tbVoluntario.nomeVoluntario, TIMESTAMPDIFF(YEAR, tbVoluntario.dataNascVoluntario, NOW()) AS idade, tbVoluntario.cidadeVoluntario, tbVoluntario.estadoVoluntario, tbVoluntario.paisVoluntario, tbServico.nomeservico, tbVoluntario.fotoVoluntario
             FROM tbCandidatura
             INNER JOIN tbVoluntario ON tbCandidatura.codVoluntario = tbVoluntario.codVoluntario
             INNER JOIN tbServico ON tbCandidatura.codServico = tbServico.codServico

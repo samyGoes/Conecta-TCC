@@ -424,7 +424,7 @@ require_once 'global.php';
                                             </a>
                                         </td>
                                         <td><?php echo $voluntario['nomeVoluntario']; ?></td>
-                                        <td> </td>
+                                        <td><?php echo $voluntario['idade'];?> anos</td>
                                         <td> <?php echo $voluntario['cidadeVoluntario']; ?> </td>
                                         <td> <?php echo $voluntario['estadoVoluntario']; ?> </td>
                                         <td> <?php echo $voluntario['nomeservico']; ?> </td>

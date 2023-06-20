@@ -248,8 +248,6 @@
                                 <table>
                                     <tbody>
                                         <?php
-
-
                                             require_once 'global.php';
 
                                             try {
@@ -258,13 +256,14 @@
                                                 echo $e->getMessage();
                                             }
 
-                                            if(empty($row))
+                                            if(!empty($row))
                                             {
                                         ?>
                                             <tr>
-                                                <td> Sem notificações...</td>
+                                                <td><p>Sem notificações...</p></td>
                                             </tr>
                                         <?php
+
                                             }
                                             else
                                             {                                       
