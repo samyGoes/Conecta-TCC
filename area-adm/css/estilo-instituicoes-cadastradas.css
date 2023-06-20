@@ -10,7 +10,7 @@
 }
 
 .table-responsive {
-    max-width: 885px;
+    max-width: 987px;
     max-height: 600px;
     border-radius: 0.5rem;
     border: 1px solid #5f8699;
@@ -152,14 +152,18 @@ td:nth-child(3) {
     min-width: 70px;
 }
 
-th:nth-child(4),
+th:nth-child(4) {
+    min-width: 172px;
+}
+
+
 td:nth-child(4) {
     min-width: 162px;
     max-width: 162px;
     padding: 0rem 1rem 0rem 1rem;
 }
 
-th:nth-child(5),
+
 td:nth-child(5) {
     min-width: 204px;
     max-width: 204px;
@@ -170,9 +174,8 @@ td:nth-child(5) {
     min-width: 229px;
 } */
 
-th:nth-child(6),
 td:nth-child(6) {
-    min-width: 140px;
+    min-width: 132px;
     padding: 0rem 1rem 0rem 1rem;
 }
 
@@ -183,7 +186,8 @@ td:nth-child(7) {
 }
 
 th:nth-child(8) {
-    min-width: 108px;
+    min-width:107px;
+    border-right: none !important;
 }
 
 td:nth-child(8) {

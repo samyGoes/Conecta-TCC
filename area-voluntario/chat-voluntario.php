@@ -346,59 +346,48 @@ require_once '../auth/verifica-logado.php';
                 echo $e->getMessage();
             }
             ?>
-            <?php
 
-            foreach ($listaInstituicao as $instituicao) {
-                foreach ($listaVoluntario as $voluntario) {
+            <div class="chat-container" id="chat-container">
+                <?php
+                $instituicao = current($listaInstituicao);
+                $nomeInstituicao = $instituicao['nomeInstituicao'];
+                $fotoInstituicao = $instituicao['fotoInstituicao'];
+                ?>
 
-            ?>
+                <div class="chat-header">
+                    <div class="nome-user">
+                        <img src="../area-instituicao/<?php echo $fotoInstituicao; ?>" alt="img">
+                        <h2 class="chat-titulo" id="chat-titulo"> <?php echo $nomeInstituicao; ?> </h2>
+                    </div>
+                    <div class="pesquisar-chat">
+                        <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
+                    </div>
+                </div>
 
-                    <div class="chat-container" id="chat-container">
-                        <div class="chat-header">
-                            <div class="nome-user">
-                                <img src="../area-instituicao/<?php echo $instituicao['fotoInstituicao']; ?>" alt="img">
-                                <h2 class="chat-titulo" id="chat-titulo"> <?php echo $instituicao['nomeInstituicao']; ?> </h2>
-                            </div>
-                            <div class="pesquisar-chat">
-                                <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquisar">
-                                <i class="fa-solid fa-magnifying-glass" id="icon-lupa"></i>
-                            </div>
-                        </div>
-                        <div class="scroll-chat" id="scroll-chat">
-                            <div class="main-chat">
-                                <div class="mensagens" id="mensagens">
-                                    <!-- <div class="area-voluntario">
-                                <div class="foto-voluntario">
-                                    <img src="../img-instituicao/6.jpg" alt="foto">
-                                </div>
-                                <div class="voluntario">
-                                    <div class="mensagem-voluntario">
-                                        <div class="conteudo-mensagem">
-                                            <h4> Sâmilly</h4>
-                                            <p>Como seria refente asos horarios</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chat-footer">
-                            <div class="fundo-footer">
-                                <div class="enviar-mensagem">
-                                    <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
-                                </div>
-                                <button type="" class="button-send" id="btn1">
-                                    <i class="fa-solid fa-paper-plane"></i>
-                                </button>
-                            </div>
+                <div class="scroll-chat" id="scroll-chat">
+                    <div class="main-chat">
+                        <div class="mensagens" id="mensagens">
+                            <?php
+                            foreach ($listaVoluntario as $voluntario) {
+                                // Exibir as mensagens do chat aqui
+                            }
+                            ?>
                         </div>
                     </div>
+                </div>
 
-            <?php
-                }
-            }
-            ?>
+                <div class="chat-footer">
+                    <div class="fundo-footer">
+                        <div class="enviar-mensagem">
+                            <input type="text" name="enviar-mensagem" id="enviar-mensagem" placeholder="Mensagem...">
+                        </div>
+                        <button type="" class="button-send" id="btn1">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             <a class="link-voltar-anterior" href="../area-voluntario/tabela-vagas-voluntario.php"> Voltar para a página anterior. </a>
         </div>
