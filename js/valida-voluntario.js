@@ -210,7 +210,7 @@ function passwordValidate() {
       }
     }
 
-    function numLogValidate() {
+    /*function numLogValidate() {
       if (campos[9].value.trim() === '') {
         setError(9, 'Campo obrigatório');
         return false;
@@ -268,7 +268,7 @@ function passwordValidate() {
         removeError(15);
         return true;
       }
-    }
+    }*/
 
 
     formulario1.addEventListener('submit', function(event) {
@@ -281,13 +281,11 @@ function passwordValidate() {
         const emailValid = emailValidate();
         const passwordValid = passwordValidate();
         const confirmPasswordValid = confirmPassword();
-        const cepValid = cepValidate();
-        const numLogValid = numLogValidate();
-        const paisValid = paisValidate();
+
       
        
       
-        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid && cepValid && numLogValid && paisValid) {
+        if (nameValid && cpfValid  && emailValid && passwordValid && confirmPasswordValid) {
           // Se todos os campos estiverem válidos, envia o formulário
           formulario1.submit();
         } else {
@@ -297,9 +295,6 @@ function passwordValidate() {
           emailValidate();
           passwordValidate();
           confirmPassword();
-          cepValidate();
-          numLogValidate();
-          paisValidate();
         }
       });
       
