@@ -2,7 +2,7 @@
 
     function diretorios($arquivo)
     {
-        if(file_exists('gerenciar-vagas/' . $arquivo)) 
+        if(file_exists('../' . $arquivo)) 
         {
             return '../';
         }

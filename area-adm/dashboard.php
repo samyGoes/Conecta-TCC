@@ -260,7 +260,7 @@
                                             {
                                         ?>
                                             <tr>
-                                                <td><p>Sem notificações...</p></td>
+                                                <td><p>Sem avaliações...</p></td>
                                             </tr>
                                         <?php
 

@@ -717,7 +717,7 @@ require_once '../auth/verifica-logado.php';
     <script type="module" src="../imports/nav-drop-down.js"></script>
     <script type="module" src="imports/box-info.js"></script>
     <script type="module" src="../imports/nav-drop-down-notificacao.js"></script>
-    <script type="module" src="../imports/nova-notificacao.js"></script>
+    <!-- <script type="module" src="../imports/nova-notificacao.js"></script> -->
     <script src="js/avaliacao.js"></script>
 </body>
 

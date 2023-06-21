@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Jun-2023 às 06:06
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 20-Jun-2023 às 22:36
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,13 +46,6 @@ CREATE TABLE `tbavaliacao` (
   `codInstituicao` int(11) DEFAULT NULL,
   `numAvaliacao` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `tbavaliacao`
---
-
-INSERT INTO `tbavaliacao` (`codAvaliacao`, `codVoluntario`, `codInstituicao`, `numAvaliacao`) VALUES
-(1, NULL, 14, '5');
 
 -- --------------------------------------------------------
 
@@ -130,8 +123,7 @@ INSERT INTO `tbcausavaga` (`codCausaVaga`, `codServico`, `codCategoriaServico`) 
 (30, 28, 21),
 (31, 29, 14),
 (32, 33, 21),
-(33, 33, 23),
-(35, 34, 22);
+(33, 33, 23);
 
 -- --------------------------------------------------------
 
@@ -182,8 +174,7 @@ INSERT INTO `tbcausavoluntario` (`codCausaVoluntario`, `codCategoriaServico`, `c
 (45, 23, 20),
 (46, 21, 21),
 (47, 23, 21),
-(48, 24, 21),
-(49, 22, 22);
+(48, 24, 21);
 
 -- --------------------------------------------------------
 
@@ -210,9 +201,7 @@ INSERT INTO `tbfoneinstituicao` (`codFoneInstituicao`, `numFoneInstituicao`, `nu
 (21, '(11) 92584-5682', 1, 12),
 (22, '', 2, 12),
 (23, '(67) 98378-4340', 1, 13),
-(24, '', 2, 13),
-(25, '(11) 2773-9262', 1, 14),
-(26, '(11) 97638-3997', 2, 14);
+(24, '', 2, 13);
 
 -- --------------------------------------------------------
 
@@ -267,11 +256,7 @@ INSERT INTO `tbfonevoluntario` (`codFoneVoluntario`, `numFoneVoluntario`, `numSe
 (39, '(11) 98809-2216', 1, 20),
 (40, '', 2, 20),
 (41, '(11) 91668-9423', 1, 21),
-(42, '(11) 94251-0470', 2, 21),
-(43, '(11) 98277-8999', 1, 22),
-(44, '(11) 97277-1556', 2, 22),
-(45, '(11) 98636-7788', 1, 23),
-(46, '(11) 2889-3976', 2, 23);
+(42, '(11) 94251-0470', 2, 21);
 
 -- --------------------------------------------------------
 
@@ -294,12 +279,7 @@ INSERT INTO `tbfotosinstituicao` (`codfotoInstituicao`, `fotosInstituicao`, `cod
 (2, 'galeria-instituicao/647e1dad28e23.png', 10),
 (3, 'galeria-instituicao/647e1e934e551.jpg', 10),
 (4, 'galeria-instituicao/647e1e99d5308.jpg', 10),
-(5, 'galeria-instituicao/647e1f447d26c.jpg', 10),
-(6, 'galeria-instituicao/64926624e2cba.JPG', 14),
-(7, 'galeria-instituicao/64927178cd13ejpeg', 11),
-(8, 'galeria-instituicao/64927178eba77jpeg', 11),
-(9, 'galeria-instituicao/649271ba127b5.jpg', 11),
-(10, 'galeria-instituicao/649271de31648.jpg', 11);
+(5, 'galeria-instituicao/647e1f447d26c.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -325,7 +305,7 @@ INSERT INTO `tbhabilidadeservico` (`codHabilidadeServico`, `nomeHabilidadeServic
 (8, 'Agricultura'),
 (9, 'Conhecimento sobre animais'),
 (10, 'Primeiros socorros'),
-(11, 'Conhecimentos de legislação');
+(11, 'Conhecimentos de legislação e regulamentações');
 
 -- --------------------------------------------------------
 
@@ -355,8 +335,7 @@ INSERT INTO `tbhabivaga` (`codHabiVaga`, `codServico`, `codHabilidadeServico`) V
 (20, 29, 3),
 (21, 29, 6),
 (22, 33, 9),
-(23, 33, 10),
-(25, 34, 6);
+(23, 33, 10);
 
 -- --------------------------------------------------------
 
@@ -387,11 +366,10 @@ CREATE TABLE `tbinstituicao` (
 --
 
 INSERT INTO `tbinstituicao` (`codInstituicao`, `nomeInstituicao`, `logInstituicao`, `numLogInstituicao`, `cepInstituicao`, `compInstituicao`, `bairroInstituicao`, `cidadeInstituicao`, `estadoInstituicao`, `paisInstituicao`, `emailInstituicao`, `cnpjInstituicao`, `senhaInstituicao`, `descInstituicao`, `fotoInstituicao`) VALUES
-(10, 'Ong Raio de sol', 'Estrada Manuel de Oliveira Ramos ', '282', '08473-050', 'casa', 'Conjunto Habitacional Sitio Conceição', 'São Paulo', 'São Paulo', 'Brasil', 'OngRaioSol@gmail.com', '78.806.858/0001-35', 'Ongraio1@', 'Somos uma ONG em apoio às crianças em estado de vulnerabilidade nas periferias de São Paulo.', 'img-instituicao/10jpeg'),
-(11, 'Ong FLor Azul', 'Rua Manuel Félix de Lima', '300', '08191-290', '', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'ongflorazul@gmail.com', '82.479.237/0001-61', 'Ongazul1@', 'A ONG Flor Azul é um movimento voluntário sem vínculos partidários, que não é dedicado a apenas um fim. Nosso objetivo é oferecer suporte e assistência a população no geral, por meio de arrecadação de fundos, doações de suprimentos médicos e alimentos, conscientização e apoio emocional. ', 'img-instituicao/11.jpg'),
+(10, 'Ong Raio de sol', 'Estrada Manuel de Oliveira Ramos ', '282', '08473-050', 'casa', 'Conjunto Habitacional Sitio Conceição', 'São Paulo', 'São Paulo', 'Brasil', 'OngRaioSol@gmail.com', '78.806.858/0001-35', 'Ongraio1@', 'somos uma ong em apoio às crianças em estado de vulnerabilidade nas periferias de São Paulo', 'img-instituicao/10.jpg'),
+(11, 'Ong FLor Azul', 'Rua Manuel Félix de Lima', '300', '08191-290', '', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'ongflorazul@gmail.com', '82.479.237/0001-61', 'OngAzul1@', 'A ONG Flor Azul é um movimento voluntário sem vínculos partidários, dedicado ao combate ao coronavírus no Estado de São Paulo. Nosso objetivo é oferecer suporte e assistência às comunidades afetadas pela pandemia, por meio de arrecadação de fundos, doações de suprimentos médicos e alimentos, conscientização e apoio emocional. A organização busca parcerias estratégicas e valoriza a transparência na', 'img-instituicao/11.jpg'),
 (12, 'Ong Amor em Movimento', 'Avenida Tomás Lopes de Camargo', '123', '08191-230', 'casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'OngAmorEmMovimento@gmail.com', '70.089.965/0001-88', 'OngAmor1@', '\"Promover através de Ações e Gestos o desenvolvimento da comunidade local, contribuindo para o fortalecimento dos vínculos familiares e sociais.\"', 'img-instituicao/12.png'),
-(13, 'Ong Decolar', 'Servidão do Passarinho', '666', '88066-552', 'casa', 'Armação do Pântano do Sul', 'Florianópolis', 'SC', 'Brasil', 'ongdecolar@gmail.com', '64.309.992/0001-16', 'Decolar1@', 'Somos uma ONG que busca trabalhar com as periferias.', 'img-instituicao/13.png'),
-(14, 'Ong Luar', 'Rua São José', '12', '76179-970', 'nd', 'Capelinha', 'Anicuns', 'GO', 'brasil', 'ongLuar@outlook.com', '98.020.517/0001-47', 'Ongluar1!', 'Focado na atenção a uma parte da população que fica um pouco esquecida e que requer muitos cuidados, os idosos. Também fazemos arrecadação de alimentos para doar à crianças carentes.', 'img-instituicao/14jpeg');
+(13, 'Ong Decolar', 'Servidão do Passarinho', '666', '88066-552', 'casa', 'Armação do Pântano do Sul', 'Florianópolis', 'SC', 'Brasil', 'ongdecolar@gmail.com', '64.309.992/0001-16', 'Decolar1@', 'Somos uma ONG que busca trabalhar com as periferias.', 'img-instituicao/13.png');
 
 -- --------------------------------------------------------
 
@@ -430,8 +408,7 @@ INSERT INTO `tbservico` (`codServico`, `horarioServico`, `periodoServico`, `codI
 (30, '09:00:00', 'matutino', 11, 'Queremos pessoas que acompanhe crianças de um orfanato para ir em um campo plantar árvores e sementes. Procuramos pessoas que tenham um pouco de noção em jardinagem para auxilia-las.', '03337-000', 'Jardim Anália Franco', 'SP', 'Rua Eleonora Cintra', '', 'Brasil', '1065', 'São Paulo', 'Acompanhante e educador ambiental', 'presencial', '2023-06-26', 15),
 (31, '10:00:00', 'matutino', 11, 'Procuramos pessoas que possam acompanhar vitimas de um acidentes na zona sul ao psicólogo, ofertando-as carinho e ombro na viagem.', '08120-500', 'Jardim Camargo Novo', 'SP', 'Rua Tristão Achaval', '', 'Brasil', '2', 'São Paulo', 'Orientadora e ouvinte', 'presencial', '2004-09-10', 18),
 (32, '18:00:00', 'nortuno', 11, 'Procuramos pessoas que queiram entregar marmitas para pessoas em situação de rua em um projeto que temos na Vila Itaim.', '08110-780', 'Vila Itaim', 'SP', 'Rua Cachoeira Escaramuça', '', 'Brasil', '4', 'São Paulo', 'Entregador de marmitas', 'presencial', '2023-09-23', 25),
-(33, '00:00:00', 'matutino', 11, 'Precisamos de voluntários para auxiliar no resgate de animais em situações de emergência, ', '08240-590', 'Vila Progresso (Zona Leste)', 'SP', 'Avenida Moisés Maimônides', '', 'Brasil', '1065', 'São Paulo', 'Resgatador de animais', 'presencial', '1970-01-01', 15),
-(34, '08:00:00', 'nortuno', 14, 'Precisamos de pessoas empáticas, pacientes e cuidadosas. A ajuda necessária para cada idoso irá variar muito dependendo do seu estado.', '76179-970', 'Capelinha', 'GO', 'Rua São José', 'nd', 'brasil', '12', 'Anicuns', 'Cuidador de idosos', 'Presencial', '2023-06-25', 3);
+(33, '00:00:00', 'matutino', 11, 'Precisamos de voluntários para auxiliar no resgate de animais em situações de emergência, ', '08240-590', 'Vila Progresso (Zona Leste)', 'SP', 'Avenida Moisés Maimônides', '', 'Brasil', '1065', 'São Paulo', 'Resgatador de animais', 'presencial', '1970-01-01', 15);
 
 -- --------------------------------------------------------
 
@@ -452,8 +429,7 @@ CREATE TABLE `tbsolicitacaocategoria` (
 
 INSERT INTO `tbsolicitacaocategoria` (`codSolicitacaoCategoria`, `codInstituicao`, `nomeCategoria`, `statusSolicitacao`) VALUES
 (4, 10, 'Idosos', 'aceito'),
-(5, 10, 'Animais ', 'aceito'),
-(6, 14, 'cadeira', 'aceito');
+(5, 10, 'Animais ', 'aceito');
 
 -- --------------------------------------------------------
 
@@ -467,13 +443,6 @@ CREATE TABLE `tbsolicitacaohabilidade` (
   `nomeHabilidade` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `statusSolicitacao` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `tbsolicitacaohabilidade`
---
-
-INSERT INTO `tbsolicitacaohabilidade` (`codSolicitacaoHabilidade`, `codInstituicao`, `nomeHabilidade`, `statusSolicitacao`) VALUES
-(3, 14, 'dormir', 'recusado');
 
 -- --------------------------------------------------------
 
@@ -507,19 +476,17 @@ CREATE TABLE `tbvoluntario` (
 
 INSERT INTO `tbvoluntario` (`codVoluntario`, `nomeVoluntario`, `dataNascVoluntario`, `cpfVoluntario`, `logVoluntario`, `numLogVoluntario`, `cepVoluntario`, `compVoluntario`, `bairroVoluntario`, `cidadeVoluntario`, `estadoVoluntario`, `paisVoluntario`, `emailVoluntario`, `senhaVoluntario`, `descVoluntario`, `fotoVoluntario`, `visibilidadeVoluntario`) VALUES
 (4, 'Fernanda de Souza Bezerra', '2005-07-27', '548.599.388-52', 'Travessa JoÃ£o Batista Cramer', '03', '08460-63', 'casa', 'Jardim do Divino', 'SÃ£o Paulo', 'SP', 'Brasil', 'bezerrafernanda223@gmail.com', 'Fernanda@1', 'Tenho 17 anos e creio que por meio do trabalho voluntário podemos melhorar o mundo, nem que seja com pequenos gestos, normalmente trabalho com instituições que apoiam crianças e adolescentes ', 'img-voluntario/4.png', 'on'),
-(10, 'Gabriella Ferreira Alves', '2005-05-22', '503.807.788-90', 'Rua Paulo Ramos', '48', '08461-20', 'Casa', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'ferreiraalvesg2@outlook.com', 'gabiGabi2@', 'Quero ser uma voluntária!', 'img-voluntario/10jpeg', 'off'),
+(10, 'Gabriella Ferreira Alves', '2005-05-22', '503.807.788-90', 'Rua Paulo Ramos', '48', '08461-20', 'Casa', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'ferreiraalvesg2@outlook.com', 'gabiGabi2@', 'Quero ser uma voluntária!', 'img-voluntario/10jpeg', 'on'),
 (11, 'Marcos Eric de Medeiros', '2004-07-02', '481.230.448-28', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'Casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'srmarcoserick1@gmail.com', '02072004mM.', 'Amo cuidar de animais e gostaria de poder demonstrar esse sentimento que eu tenho por animais.', 'img-voluntario/11.jpg', 'on'),
 (12, 'Kauã Ferreira da Silva', '2004-09-09', '388.178.558-20', 'Travessa Michel Lambert', '34', '08473-55', 'casa 2', 'Conjunto Habitacional Barro Branco II', 'São Paulo', 'SP', 'Brasil', 'kauasimone.1@gmail.com', 'Kauas2simone!', 'estou disposto a aceitar qualquer tipo de trabalho voluntário que se encaixe com meu perfil.', 'img-voluntario/12.png', 'on'),
-(14, 'Ryan Gustavo Santos de Jesus', '2005-08-26', '528.342.778-18', 'Rua. Cachoeira Escaramuça', '719', '08110-78', 'Casa 2', 'Vila Itaim', 'São Paulo', 'SP', 'Brasil', 'ryangustavo23@gmail.com', 'Ryanzin@26', 'Olá, meu nome é Ryan.\r\nTenho 17 anos.\r\nAceito trabalhar como voluntário em áreas que se adequam o meu perfil.', 'img-voluntario/14.jpg', 'off'),
+(14, 'Ryan Gustavo Santos de Jesus', '2005-08-26', '528.342.778-18', 'Rua. Cachoeira Escaramuça', '719', '08110-78', 'Casa 2', 'Vila Itaim', 'São Paulo', 'SP', 'Brasil', 'ryangustavo23@gmail.com', 'Ryanzin@26', 'Olá, meu nome é Ryan.\r\nTenho 17 anos.\r\nAceito trabalhar como voluntário em áreas que se adequam o meu perfil.', 'img-voluntario/14.jpg', 'on'),
 (15, 'Sandra Regina de Souza', '1983-06-26', '316.469.188-27', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'sandrargnsz@gmail.com', '10022713Sr', 'Sou professora e gosto muito de ajudar crianças', 'img-voluntario/15.jpg', 'on'),
 (16, 'Fabio Medeiros da Silva', '1981-04-27', '293.822.098-75', 'Avenida Tomás Lopes de Camargo', '800', '08191-23', 'Casa', 'Jardim Romano', 'São Paulo', 'SP', 'Brasil', 'fabiomedeiross02@gmail.com', '10022713Sr', 'Amo animais', 'img-voluntario/16.jpg', 'on'),
 (17, 'Maria José de Jesus Ferreira', '1945-09-11', '602.802.030-39', 'Rua Paulo Ramos', '48', '08461-20', 'Casa 1', 'Cidade Popular', 'São Paulo', 'SP', 'Brasil', 'mariaj@gmail.com', 'mariaJ1', 'Sou idosa mas sou dura na queda !\r\nQuero fazer bolinhos para as crianças.', 'img-voluntario/17jpeg', 'on'),
 (18, 'Simone da Silva Ribeiro', '1983-04-13', '322.868.858-50', '', '34', '08473-55', 'casa 2', 'Conjunto Habitacional Barro Branco II', 'São Paulo', '', 'Brasil', 'simone@gmail.com', 'Simone1@', 'amo cozinha e gostaria de se voluntáriar nessa área', 'img-voluntario/18jpeg', 'on'),
-(19, 'Joao Henrique Porfirio Santos', '2002-05-09', '429.745.318-57', 'Avenida Teodoro Bernardo do Nascimento', '1022', '08150-00', '', 'Jardim Robru', 'São Paulo', 'SP', 'Brasil', 'henrique@gmail.com', 'Joao123!', 'Eu sou um voluntário dedicado e apaixonado por animais e meio ambiente. Me envolvo em projetos de resgate e reabilitação de animais feridos, além de participar de atividades de conservação ambiental, como a limpeza de áreas naturais e o plantio de árvores. Também trabalho para conscientizar as pessoas sobre a importância da sustentabilidade e incentivar práticas ecológicas. ', 'img/user.png', 'on'),
+(19, 'Joao Henrique Porfirio Santos', '2002-05-09', '429.745.318-57', 'Avenida Teodoro Bernardo do Nascimento', '1022', '08150-00', '', 'Jardim Robru', 'São Paulo', 'SP', 'Brasil', 'henrique@lindo.com', 'Joao123!', 'Eu sou um voluntário dedicado e apaixonado por animais e meio ambiente. Me envolvo em projetos de resgate e reabilitação de animais feridos, além de participar de atividades de conservação ambiental, como a limpeza de áreas naturais e o plantio de árvores. Também trabalho para conscientizar as pessoas sobre a importância da sustentabilidade e incentivar práticas ecológicas. Sou comprometido em pro', 'img/user.png', 'on'),
 (20, 'Seann Rocha Barroso', '1996-08-03', '119.600.726-84', 'Av. Moisés maimônides ', '318', '08240-59', 'Em frente o ponto de ónibus 2731-10', 'Vila Progresso (Zona Leste)', 'São Paulo', 'SP', 'Brasil', 'seann120@gmail.com', 'screamolife7SCR', 'Quero ajudar animais com cuidados de saúde e alimentação e também oferecer terapia para que possam ter menos stress no dia a dia, disponível aos finais de semana por 3 horas seguidas, e também ajudar nas causas do meio ambiente. ', 'img/user.png', 'on'),
-(21, 'Ana Beatriz Silva Oliveira', '2002-04-20', '506.099.068-01', 'Rua Gato Cinzento', '20', '08615-07', 'bloco 03 apto 302', 'Vila Urupês', 'Suzano', 'SP', 'Brasil', 'anabeatrizsilva.imp@gmail.com', '17144N4.', 'Quero ajudar a tornar o mundo um lugar melhor.', 'img/user.png', 'off'),
-(22, 'Ana Claudia Campaner', '2005-08-11', '105.062.450-55', 'Praça Principal', '989', '39597-97', 'casa', 'Adão Colares', 'Botumirim', 'MG', 'brasil', 'anaCampaner@gmail.com', 'Ana1234!', 'Já trabalhei anteriormente como cuidadora de idosos e gostei da experiência,  pretendo ajudar mais com a causa.', 'img-voluntario/22jpeg', 'off'),
-(23, 'Sueli Silva de Goes', '1974-08-28', '176.925.940-66', 'Avenida dos Ipês', '987', '08161-00', 'casa', 'Jardim dos Ipês', 'São Paulo', 'SP', 'brasil', 'sueliGoes@yahoo.com.br', 'Sueli12!', '', 'img/user.png', 'off');
+(21, 'Ana Beatriz Silva Oliveira', '2002-04-20', '506.099.068-01', 'Rua Gato Cinzento', '20', '08615-07', 'bloco 03 apto 302', 'Vila Urupês', 'Suzano', 'SP', 'Brasil', 'anabeatrizsilva.imp@gmail.com', '17144N4.', 'Quero ajudar a tornar o mundo um lugar melhor.', 'img/user.png', 'off');
 
 --
 -- Índices para tabelas despejadas
@@ -651,91 +618,91 @@ ALTER TABLE `tbadm`
 -- AUTO_INCREMENT de tabela `tbavaliacao`
 --
 ALTER TABLE `tbavaliacao`
-  MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codAvaliacao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbcandidatura`
 --
 ALTER TABLE `tbcandidatura`
-  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `codCandidatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriaservico`
 --
 ALTER TABLE `tbcategoriaservico`
-  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `codCategoriaServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tbcausavaga`
 --
 ALTER TABLE `tbcausavaga`
-  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `codCausaVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `tbcausavoluntario`
 --
 ALTER TABLE `tbcausavoluntario`
-  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `codCausaVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `tbfoneinstituicao`
 --
 ALTER TABLE `tbfoneinstituicao`
-  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `codFoneInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tbfonevoluntario`
 --
 ALTER TABLE `tbfonevoluntario`
-  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `codFoneVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de tabela `tbfotosinstituicao`
 --
 ALTER TABLE `tbfotosinstituicao`
-  MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `codfotoInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbhabilidadeservico`
 --
 ALTER TABLE `tbhabilidadeservico`
-  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codHabilidadeServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbhabivaga`
 --
 ALTER TABLE `tbhabivaga`
-  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `codHabiVaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `tbinstituicao`
 --
 ALTER TABLE `tbinstituicao`
-  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codInstituicao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `tbservico`
 --
 ALTER TABLE `tbservico`
-  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `codServico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `tbsolicitacaocategoria`
 --
 ALTER TABLE `tbsolicitacaocategoria`
-  MODIFY `codSolicitacaoCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `codSolicitacaoCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbsolicitacaohabilidade`
 --
 ALTER TABLE `tbsolicitacaohabilidade`
-  MODIFY `codSolicitacaoHabilidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codSolicitacaoHabilidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbvoluntario`
 --
 ALTER TABLE `tbvoluntario`
-  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `codVoluntario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restrições para despejos de tabelas

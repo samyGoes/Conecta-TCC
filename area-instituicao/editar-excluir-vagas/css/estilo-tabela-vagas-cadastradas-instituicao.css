@@ -248,13 +248,14 @@ td:nth-child(2) {
     min-width: 57px;
 }
 
-th:nth-child(3) {
+/* th:nth-child(3) {
     min-width: 120px;
-}
+} */
 
+th:nth-child(3),
 td:nth-child(3) {
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 134px;
+    max-width: 134px;
 }
 
 th:nth-child(4),
@@ -276,6 +277,7 @@ td:nth-child(6) {
 th:nth-child(7),
 td:nth-child(7) {
     min-width: 170px;
+    max-width: 170px;
 }
 
 th:nth-child(8),
